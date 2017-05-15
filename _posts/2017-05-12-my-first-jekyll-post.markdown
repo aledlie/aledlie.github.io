@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "Quick Cheatsheet for Redcarpet/Markdown Posts"
+title:  "How to Write Posts With Redcarpet"
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
 ---
+
+## My Quick Style Reference for Jekyll/Markdown/Redcarpet
 
 [Git Readme file for Redcarpet](https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use)
 
@@ -18,7 +20,7 @@ public static function helloWorld(): string {
 #=> returns "Hello World!"
 ```
 
-###### Moar code highlighting
+##### Moar code highlighting
 
 ```javascript
 var s = "JavaScript syntax highlighting";
