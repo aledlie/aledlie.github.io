@@ -24,7 +24,7 @@ github_username:  aledlie
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: space
 gems:
   - jekyll-feed
 exclude:
