@@ -34,6 +34,8 @@ No language indicated, so no syntax highlighting.
 But let's throw in a <b>tag</b>.
 ```
 
+Can also add inline code snippits with `backticks`.
+
 Markdown cheatsheet:
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
@@ -44,11 +46,8 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
-⋅⋅⋅You can also add indentation.
-
 [And link formatting](https://www.google.com)
 
+And image resources:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Can also add inline code with `backticks`.
 
