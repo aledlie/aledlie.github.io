@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "My First Jekyll Post"
-permalink: title.html
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
 ---
