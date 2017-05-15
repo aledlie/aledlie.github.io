@@ -6,11 +6,12 @@ categories: jekyll update
 ---
 Look at me, I'm a code snippit:
 
-{% highlight php startinline=true %}
+```php?start_inline=true
+
 public static function helloWorld(): string {
   return sprintf("%s %s", "Hello", "World!");
 }
 #=> returns "Hello World!"
-{% endhighlight %}
+```
 
 And I'm 'highlighted text'.
