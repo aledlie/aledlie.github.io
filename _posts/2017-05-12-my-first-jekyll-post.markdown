@@ -1,11 +1,13 @@
 ---
 layout: post
-title:  "My First Jekyll Post"
+title:  "Quick Cheatsheet for Redcarpet/Markdown Posts"
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
 ---
 
-## My cheatsheet for Jekyll and Markdown
+[Git Readme file for Redcarpet](https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use)
+
+### Code Snippits
 
 Look at me, I'm a php code snippit:
 
@@ -16,7 +18,7 @@ public static function helloWorld(): string {
 #=> returns "Hello World!"
 ```
 
-Moar code highlighting
+###### Moar code highlighting
 
 ```javascript
 var s = "JavaScript syntax highlighting";
@@ -35,7 +37,7 @@ But let's throw in a <b>tag</b>.
 
 Can also add inline code snippits with `backticks`.
 
-Markdown cheatsheet:
+### Markdown style Quick Reference:
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
