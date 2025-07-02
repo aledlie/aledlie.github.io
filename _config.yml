@@ -1,51 +1,65 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Quick Jekyll site w/ GitHub Pages
-email: alyshialedlie@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Because apparently I don't write enough code at work, I'm playing around with this on a Sunday.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: alyshialedlie
-github_username:  aledlie
-facebook_username: alyshia.ledlie
-profile_picture: https://68.media.tumblr.com/93f384858e9273d5b980b418e2f2f4d5/tumblr_o5i2aybLJG1uapsfmo2_250.png
+title: Alyshia Ledlie
+subtitle: Personal Portfolio
+description: >-
+  Personal portfolio of Alyshia Ledlie, showcasing projects, skills, and contact information.
+url: "https://aledlie.github.io"
+baseurl: ""
+repository: "aledlie/aledlie.github.io"
 
-# Build settings
-markdown: kramdown
-theme: minima
-gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
-liquid:
-  error_mode: strict
+# Author
+author:
+  name: Alyshia Ledlie
+  avatar: "/assets/profile.png"
+  bio: "I write code, make aggressively mediocre jokes, scale companies, and occationally wiggle [(dance)](https://www.instagram.com/reel/C9Y_Pxst-5g/)."
+  location: "United States"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/aledlie"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "www.linkedin.com/in/alyshia-ledlie-2aa52466"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:alyshia@inventoryai.io"
 
-# My Custom Headers
-webrick:
-  headers:
-    Post-Type-1: Post-Type-1
-    Post-Type-2: Post-Type-2
+# Theme settings
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default" # Options: default, air, aqua, contrast, dark, dirt, neon, mint, plum, sunrise
+locale: "en-US"
+logo: "/assets/logo.png" # Optional: add a logo file
+search: true
 
-#Global Default Page Settings
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
+  - scope:
+      path: ""
+      type: pages
     values:
-      layout: "default"
-      author: "Alyshia Ledlie"
+      layout: single
+      author_profile: true
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+# GitHub Pages settings
+include: ["_pages"]
+exclude: ["Gemfile", "Gemfile.lock", "vendor"]
