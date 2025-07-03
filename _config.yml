@@ -1,35 +1,60 @@
 # Site settings
-title: Alyshia Ledlie
-subtitle: Personal Portfolio
-description: >-
-  Personal portfolio of Alyshia Ledlie, showcasing projects, skills, and contact information.
-url: "https://aledlie.github.io"
-baseurl: ""
+title: Gently Unhinged Reflections 
+saubtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and paradoxes. 
+description: "This space began, like so many things worth doing, as a kind of accident. It’s where the thoughts I should probably ignore—late-night tangents, shower arguments, stray metaphysical impulses—started demanding sandwiches and somewhere to sit. So I gave them a room: something between a study, a speakeasy, and a holding pen for bad ideas that occasionally surprise you by being good. Some of what happens here might sound like philosophy, or psychology, or the kind of essay people write when they’ve read too much Kierkegaard and slept too little. But mostly, it’s just me trying to make sense of things the way anyone does: slowly, sideways, and often out loud. You won’t find answers here. But you might find a kind of comfort in the questions, or at least some company in the confusion. Come on in. The fire’s on. The thoughts are restless. The sandwiches have no crusts."
+email : alyshia@inventoryai.io
+instagram_username: alyshialedlie
+facebook_username: alyshialedlie
+
+# Github
+github_username: aledlie
+github: [metadata]
 repository: "aledlie/aledlie.github.io"
+
+#theme
+remote_theme: "mmistakes/minimal-mistakes@4.27.1"
+minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Build settings
+markdown: Kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 # Author
 author:
   name: Alyshia Ledlie
-  avatar: "/assets/profile.png"
-  bio: "I write code, make aggressively mediocre jokes, scale companies, and occationally wiggle [(dance)](https://www.instagram.com/reel/C9Y_Pxst-5g/)."
-  location: "United States"
+  avatar: "assets/images/profilebw.png"
+  bio: I write code, make aggressively mediocre jokes, and scale companies.
+  location: ATX | La Ventana | Rio
   links:
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/aledlie"
-    - label: "LinkedIn"
-      icon: "fab fa-linkedin"
-      url: "www.linkedin.com/in/alyshia-ledlie-2aa52466"
     - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: "mailto:alyshia@inventoryai.io"
-
-# Theme settings
-theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "default" # Options: default, air, aqua, contrast, dark, dirt, neon, mint, plum, sunrise
-locale: "en-US"
-logo: "/assets/logo.png" # Optional: add a logo file
-search: true
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:alyshia@inventoryai.io.com"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aledlie"
+    - label: "Integrity Studios"
+      icon: "fa-solid fa-scale-balance"
+      url: "https://integritystudio.notion.site/-1d43e6afc16a80c4ba61e01ba3b8adf4"
+    - label: "InventoryAI.io"
+      icon: "fa-solid fa-wharehouse"
+      url: "https://amazing-froyo-8f05e0.netlify.app/"
 
 # Collections
 collections:
@@ -37,29 +62,13 @@ collections:
     output: true
     permalink: /:collection/:path/
 
-# Defaults
+# Site-wide defaults
 defaults:
   - scope:
       path: ""
-      type: pages
+      type: posts
     values:
-      layout: single
-      author_profile: true
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: single
-      author_profile: true
+      show_date: true
       read_time: true
-      share: true
 
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-include-cache
 
-# GitHub Pages settings
-include: ["_pages"]
-exclude: ["Gemfile", "Gemfile.lock", "vendor"]

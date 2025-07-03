@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title:  "How to Write Posts With Redcarpet"
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
