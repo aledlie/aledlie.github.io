@@ -1,29 +1,18 @@
 ---
 layout: single
-title: Learn How To Make Personal Websites For Free
-subtitle: And fast and easy (mostly!)
+title: The Parlor of Possibility
+subtitle: true
 permalink: /
 author_profile: true
+description: true
 ---
+This started the way most interesting things do: not with a plan, but with a pattern. Around 2 a.m., long after a twilight hush had wrapped the world in quiet, a certain kind of idea would show up - stray tangents, shower arguments, metaphysical quandries - and start demanding sandwiches with the crusts cut off and somewhere to sit.  They were uninvited, underdressed, and annoyingly persistent.  Although rarely brilliant, they were never boring. They'd linger.  Argue.  Sometimes even make a point.
 
-### It also serves as a reminder to me of everything I used here to build my own :)
+So I gave them a room: something between a study, a speakeasy, and a holding pen for mental clutter that occationally surprises you by being useful.
 
----
+This isn't a manifesto or a master plan.  Some of what happens here might sound like philosophy, or psychology, or the kind of essay people write when they’ve read too much Kierkegaard and slept too little. But mostly, it’s just me trying to make sense of things the way anyone does: slowly, sideways, and often out loud. You won’t find answers here. But you might find a kind of comfort in the questions, or at least some company in the confusion.
 
-## Links To Tools You Can Use:
-### Don't Worry, you don't have to use/learn all of them 
-
-[Jekyll]: https://jekyllrb.com
-[Markdown]: https://daringfireball.net/projects/markdown/
-[My Favorite Markdown]: https://github.com/vmg/redcarpet 
-[Liquid]: https://github.com/Shopify/liquid/wiki
-[Front matter]: https://jekyllrb.com/docs/front-matter/
-[Jekyll configuration]: https://jekyllrb.com/docs/configuration/
-[source file for this page]: https://github.com/aledlie/aledlie.github.io/blob/master/index.md
-[A List of Free Templates]: https://cloudcannon.com/blog/free-jekyll-themes-for-2025/
-[GitHub Pages]: https://pages.github.com/
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-
+Come in. The fire’s on. The thoughts are restless. Let's see where this goes. 
 
 ## Recent Posts
 {% for post in site.posts limit:5 %}
