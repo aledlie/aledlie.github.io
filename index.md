@@ -14,6 +14,9 @@ This isn't a manifesto or a master plan.  Some of what happens here might sound 
 
 Come in. The fire’s on. The thoughts are restless. Let's see where this goes. 
 
+## About Me
+{% link about.md %}
+
 ## Recent Posts
 {% for post in site.posts limit:5 %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}

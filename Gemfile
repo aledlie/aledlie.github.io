@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Use the github-pages gem to ensure compatibility with GitHub Pages
-gem "github-pages", "~> 231", group: :jekyll_plugins
+gem "github-pages", "~> 232", group: :jekyll_plugins
 gem "jekyll-include-cache", group: :jekyll_plugins
 
 # Explicitly include csv and logger for Ruby 3.4.4
