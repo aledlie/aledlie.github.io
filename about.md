@@ -1,6 +1,6 @@
 layout: page
 title: About Me
-permalink: /about/
+permalink: about
 ---
 I'm intellectually promiscuous, a serious nerd, and an unrelenting optimist.  Ex-JD/PhD Securities Market Historian, Ex-Meta Staff Software Engineer, and currently helping companies and NGOs I believe in scale lightning fast with friends who are ==way, way== cooler and more brilliant than I am.  Nueral networks are helping a little.  I guess. 
 

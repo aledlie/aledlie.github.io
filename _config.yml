@@ -7,9 +7,10 @@ instagram_username: alyshialedlie
 facebook_username: alyshialedlie
 
 # Github
-github_username: aledlie
-github: [metadata]
-repository: "aledlie/aledlie.github.io"
+github_username: 	aledlie
+github: 		[metadata]
+repository: 		"aledlie/aledlie.github.io"
+url: 			https://www.aledlie.github.io
 
 #theme
 remote_theme: "mmistakes/minimal-mistakes@4.27.1"
