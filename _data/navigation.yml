@@ -1,0 +1,16 @@
+# Site navigation links
+
+- title: About
+  url: /about/
+
+- title: Projects
+  url: /projects/
+
+- title: Blog
+  url: /posts/
+
+- title: Vita
+  url: /vita/
+
+- title: Theme Setup
+  url: /theme-setup/

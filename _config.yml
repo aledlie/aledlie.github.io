@@ -1,5 +1,5 @@
 # Site settings
-title: Gently Unhinged Reflections 
+title: The Parlor
 subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense. 
 description: "This space began, like so many things worth doing, as a kind of accident. It’s where the thoughts I should probably ignore—late-night tangents, shower arguments, stray metaphysical impulses—started demanding sandwiches and somewhere to sit. So I gave them a room: something between a study, a speakeasy, and a holding pen for bad ideas that occasionally surprise you by being good. Some of what happens here might sound like philosophy, or psychology, or the kind of essay people write when they’ve read too much Kierkegaard and slept too little. But mostly, it’s just me trying to make sense of things the way anyone does: slowly, sideways, and often out loud. You won’t find answers here. But you might find a kind of comfort in the questions, or at least some company in the confusion. Come on in. The fire’s on. The thoughts are restless. The sandwiches have no crusts."
 email : alyshia@inventoryai.io
@@ -44,18 +44,49 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:alyshia@inventoryai.io.com"
-    - label: "Github"
-      icon: "fab fa-fw fa-github"
+      url: "mailto:alyshia@inventoryai.io"
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aledlie"
     - label: "Integrity Studios"
       icon: "fa-solid fa-scale-balance"
-      url: "https://integritystudio.notion.site/-1d43e6afc16a80c4ba61e01ba3b8adf4"
+      url: "https://integritystudio.notion.site"
     - label: "InventoryAI.io"
       icon: "fa-solid fa-wharehouse"
       url: "https://amazing-froyo-8f05e0.netlify.app/"
+
+# Owner
+owner:
+  name: Alyshia Ledlie
+  avatar: bio-photo.jpg
+  bio: "It is enough to be benign, to be gentle, to be funny, to be kind"
+  email: alyshia@inventoryai.io
+  disqus-shortname: aledlie
+  twitter: SumedhJoshiUT
+  facebook: sumedh.joshi.12
+  google:
+    plus:
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: aledlie
+  stackoverflow: https://scicomp.stackexchange.com/users/4879/sumedh-joshi
+  linkedin: sumedhjoshi
+  xing: #username
+  instagram: phdmyselfandi
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+
 
 # Collections
 collections:

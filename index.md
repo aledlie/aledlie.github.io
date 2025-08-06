@@ -1,6 +1,6 @@
 ---
 layout: single
-title: The Parlor of Possibility
+title: Shower Thoughts Taken Too Far
 subtitle: true
 permalink: /
 author_profile: true
