@@ -1,0 +1,739 @@
+@use "sass:math";
+@use "sass:color";
+@use "mixins";
+@use "variables";
+@use "grid";
+@use "elements" as *;
+
+/* ==========================================================================
+   Page layout
+   ========================================================================== */
+
+body {
+	background-color: variables.$bodycolor;
+	font-family: variables.$base-font;
+	color: variables.$text-color;
+}
+
+/* 
+   Header
+   ========================================================================== */
+
+.navigation-wrapper {
+	@include grid.container;
+	padding: 2em 0 1em;
+	font-family: variables.$heading-font;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include mixins.clearfix;
+}
+
+/* Site name */
+.site-name {
+	@include grid.grid(12,10);
+	@include grid.prefix(12,1);
+	@include grid.suffix(12,1);
+	margin-bottom: 1em;
+	float: none;
+	display: block;
+	@include mixins.font-rem(24);
+	@media #{variables.$small} {
+		@include grid.grid(12,2);
+		@include grid.prefix(12,0.5);
+		@include grid.suffix(12,0.5);
+		@include mixins.font-rem(16);
+	}
+	@media #{variables.$x-large} {
+		@include grid.grid(12,1.5);
+		@include grid.prefix(12,2);
+	}
+}
+
+/* Top navigation links */
+.top-navigation {
+	@include grid.grid(12,10);
+	@include grid.prefix(12,1);
+	@include grid.suffix(12,1);
+	margin-bottom: 1em;
+	float: none;
+	display: block;
+	@media #{variables.$small} {
+		@include grid.grid(12,9);
+		@include grid.prefix(12,0);
+		@include grid.suffix(12,0);
+	}
+	@media #{variables.$x-large} {
+		@include grid.grid(12,8);
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		clear: both;
+		list-style-type: none;
+	}
+	li {
+		display: block;
+		list-style-type: none;
+		border-bottom: 1px solid color.adjust(variables.$black,$lightness: 80%);
+		border-bottom: 1px solid fade(variables.$black,10);
+		@include mixins.font-rem(16);
+		&:last-child {
+			border-bottom: 0 solid transparent;
+		}
+		@media #{variables.$small} {
+			display: inline;
+			margin-right: 25px;
+			white-space: nowrap;
+			border-bottom: 0 solid transparent;
+		}
+		a { 
+			display: block;
+			padding: 10px 0;
+			decoration: none;
+			border-bottom: 0 solid transparent;
+			@include mixins.transition(all .2s);
+			@media #{variables.$small} {
+				display: inline;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/* Animated lines for mobile nav button */
+$button-size: 1.5rem;
+@mixin navicon-line() {
+	display: inline-block;
+	width: $button-size;
+	height: math.div($button-size, 7);
+	// line color
+	background: variables.$white;
+	border-radius: math.div($button-size, 14);
+	transition: .3s;
+}
+.navicon-lines-button {
+	padding: $button-size*0.25 $button-size*0.5;
+	transition: .3s;
+	cursor: pointer;
+	user-select: none;
+	border-radius: math.div($button-size, 7);
+}
+.navicon-lines-button:hover {
+	opacity: 1;
+}
+.navicon-lines-button:active {
+	transition: 0;
+}
+.navicon-lines {
+	margin-right: 10px;
+	margin-bottom: $button-size*0.2;
+	// create middle line
+	@include navicon-line;
+	position: relative;
+	// create the upper and lower lines as pseudo-elements of the middle line
+	&:before,
+	&:after {
+		@include navicon-line;
+		position: absolute;
+		left: 0;
+		content: '';
+		-webkit-transform-origin: math.div($button-size, 14) center;
+		transform-origin: math.div($button-size, 14) center;
+	}
+	&:before { top: $button-size*0.25; }
+	&:after { top: -$button-size*0.25; }
+}
+.navicon-lines-button:hover {
+	opacity: 1;
+	.navicon-lines {
+		&:before { top: math.div($button-size, 3.5); }
+		&:after { top: math.div(-$button-size, 3.5); }
+	}
+}
+.navicon-lines-button.x.active .navicon-lines {
+	// hide the middle line
+	background: transparent;
+	// overlap the lines by setting both their top values to 0
+	&:before,
+	&:after {
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: 0;
+		width: $button-size;
+	}
+	// rotate the lines to form the x shape
+	&:before {
+		-webkit-transform: rotate3d(0,0,1,45deg);
+		transform: rotate3d(0,0,1,45deg);
+	}
+	&:after {
+		-webkit-transform: rotate3d(0,0,1,-45deg);
+		transform: rotate3d(0,0,1,-45deg);
+	}
+}
+// Style the toggle menu link and hide it
+.nav .navtoogle {	
+	@include mixins.font-rem(18);
+	font-weight: normal;
+	background-color: variables.$black;
+	color: variables.$white;	
+	border: none;
+	cursor: pointer;
+	@media #{variables.$small} {
+		display: none;
+	}
+}
+.nav button {
+	border: none;
+	background: none;
+}
+.navtoogle i {
+	z-index:-1;
+}
+.icon-menu {
+	position: relative;
+	top: 3px;
+	line-height: 0;
+}
+// When JavaScript is disabled, we hide the toggle button
+.no-js .nav .navtoggle {
+	display: none;
+}
+// When JavaScript is disabled, we show the menu
+.no-js .nav ul {
+	max-height: 30em;
+	overflow: hidden;
+}
+// When JavaScript is enabled, we hide the menu
+.js .nav ul {
+	max-height: 0;
+	overflow: hidden;
+	@media #{variables.$small} {
+		max-height: 30em;
+	}
+}
+// Displaying the menu when the user has clicked on the button
+.js .nav .active + ul {		
+	max-height: 30em;
+	overflow: hidden;
+	-webkit-transition: max-height .4s;
+	-moz-transition: max-height .4s;
+	-o-transition: max-height .4s;
+	-ms-transition: max-height .4s;
+	transition: max-height .4s;
+}
+
+/* Main content */
+#main {
+	counter-reset: captions;
+	@include grid.container;
+	@include mixins.clearfix;
+	clear: both;
+	margin-top: 2em;
+	h1 {
+		margin-top: 0;
+	}
+	.post,
+	.page {
+		@include grid.container;
+		@include grid.grid(12,10);
+		@include grid.prefix(12,1);
+		@include grid.suffix(12,1);
+		margin-bottom: 2em;
+		@media #{variables.$small} {
+			@include grid.grid(12,6);
+			@include grid.prefix(12,0);
+			@include grid.suffix(12,0);
+		}
+		@media #{variables.$x-large} {
+			@include grid.grid(12,4.5);
+		}
+	}
+}
+
+/* Index listing specific styling */
+#index {
+	@include grid.container;
+	@include grid.grid(12,10);
+	@include grid.prefix(12,1);
+	@include grid.suffix(12,1);
+	margin-bottom: 2em;
+	@media #{variables.$small} {
+		@include grid.grid(12,6);
+		@include grid.prefix(12,0);
+		@include grid.suffix(12,0);
+	}
+	@media #{variables.$x-large} {
+		@include grid.grid(12,4.5);
+	}
+	h3 {
+		margin: 0;
+		padding-bottom: .5em;
+		@include mixins.font-rem(28);
+		border-bottom: 1px solid color.adjust(variables.$black,$lightness: 70%);
+	}
+	article {
+		h2 {
+			margin-bottom: 4px;
+			@include mixins.font-rem(20);
+			&.link-post {
+				margin-bottom: 0px + variables.$doc-line-height;
+				margin-bottom: 0rem + math.div(variables.$doc-line-height, variables.$doc-font-size);
+			}
+		}
+		p {
+			@include mixins.font-rem(14);
+		}
+		p+p {
+			text-indent: 0;
+		}
+	}
+}
+
+/* Large feature header image */
+.image-wrap {
+	position: relative;
+	margin-bottom: 2em;
+	@include mixins.clearfix;
+	&:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 8%;
+		width: 0;
+		height: 0;
+		border: 10px solid transparent;
+		border-bottom-color: variables.$bodycolor;
+		@media #{variables.$small} {
+			left: 25%;
+		}
+		@media #{variables.$large} {
+			border-width: 20px;
+		}
+		@media #{variables.$x-large} {
+			left: 33.333333333%;
+		}
+	}
+	img {
+		width: 100%;
+		height: auto;
+		-ms-interpolation-mode: bicubic;
+	}
+	.headline-wrap {
+		position: absolute;
+		bottom: 25px;
+		@include grid.prefix(12,1);
+		@media #{variables.$small} {
+			left: 25%;
+			margin-left: 0;
+		}
+		@media #{variables.$x-large} {
+			@include grid.prefix(12,1);
+		}
+		h1, h2 {
+			color: variables.$white;
+			@include mixins.text-shadow(0 1px 2px rgba(0,0,0,.25));
+		}
+	}
+}
+
+/* Post byline */
+.byline {
+	clear: both;
+	font-size: 80%;
+}
+.article-author-side,
+.article-author-bottom {
+	h3 {
+		margin-bottom: 0;
+	}
+	p {
+		font-size: 80%;
+		font-style: italic;
+	}
+	a, a:hover {
+		border-bottom: 0 solid transparent;
+	}
+}
+
+/* Default social media links in author sidebar */
+.author-social {
+  display: block;
+  margin-bottom: 5px;
+  @include mixins.font-rem(14);
+  color: variables.$black;
+  &:visited {
+    color: variables.$black;
+  }
+  &:hover {
+    @include mixins.scale(1.1);
+  }
+  &:active {
+    @include mixins.translate(0, 2px);
+  }
+  .fa {
+		margin-right: 5px;
+	}
+}
+
+/* Author sidebar */
+.article-author-side {
+	display: none;
+	.bio-photo {
+		max-width: 110px;
+		@include mixins.rounded(150px);
+	}
+	@media #{variables.$small} {
+		display: block;
+		@include grid.grid(12,2);
+		@include grid.prefix(12,0.5);
+		@include grid.suffix(12,0.5);
+		h3,
+		p,
+		.author-social {
+			display: block;
+			max-width: 125px;
+		}
+		h3 {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		p {
+			margin-bottom: 20px;
+		}
+		.author-social {
+			margin-bottom: 5px;
+		}
+	}
+	@media #{variables.$large} {
+		h3,
+		.bio-photo,
+		p,
+		.author-social {
+			max-width: 150px;
+		}
+	}
+	@media #{variables.$x-large} {
+		@include grid.grid(12,1.5);
+		@include grid.prefix(12,2);
+	}
+}
+
+/* Author module - mobile only */
+.article-author-bottom {
+	margin-bottom: 1em;
+	@media #{variables.$small} {
+		display: none;
+	}
+	.bio-photo {
+		float: left;
+		margin-right: 25px;
+		max-width: 100px;
+		@include mixins.rounded(150px);
+	}
+	.author-social {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	@media #{variables.$large} {
+		h3,
+		.bio-photo,
+		p,
+		.author-social {
+			max-width: 150px;
+		}
+	}
+}
+
+/* Post content wrapper */
+.article-wrap {
+	// Dotted line underlines for links
+	p > a,
+	li > a {
+		text-decoration: underline;
+	}
+}
+
+/* Table of contents */
+.toc {
+	font-size: 95%;
+	@media #{variables.$large} {
+		display: block;
+		@include grid.grid(12,2);
+		@include grid.prefix(12,0.5);
+		@include grid.suffix(12,0.5);
+		position: absolute;
+		top: 5.5em;
+		right: 0;
+		background-color: variables.$white;
+	}
+	header {
+		background: color.adjust(variables.$black, $lightness: 10%);
+	}
+	h3 {
+		margin: 0;
+		padding: 5px 10px;
+		color: variables.$white;
+		@include mixins.font-rem(16);
+		text-transform: uppercase;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	ul {
+		margin: 2px 0 0;
+		padding: 0;
+		line-height: 1;
+	}
+	li {
+		display: block;
+		margin: 0 0 1px 0;
+		padding: 0;
+		font-family: variables.$heading-font;
+		list-style-type: none;
+		&:last-child {
+			border-bottom-width: 0;
+		}
+		a {
+			padding: 10px;
+			display: block;
+			color: variables.$white;
+			text-decoration: none;
+			background: color.adjust(variables.$black, $lightness: 30%);
+			@include mixins.opacity(0.7);
+			@include mixins.transition(opacity 0.2s ease-in-out);
+			&:hover {
+				@include mixins.opacity(1);
+			}
+		}
+		ul {
+			margin: 1px 0 0;
+			li a {
+				padding-left: 20px;
+			}
+		}
+	}
+}
+
+/* TOC trigger for collapsing */
+#drawer {
+	max-height: 100%;
+	overflow: hidden;
+	&.js-hidden {
+		max-height: 0;
+	}
+}
+
+/* Image grid - not used */
+.image-grid {
+	@include mixins.clearfix;
+	list-style: none;
+	margin: 0 0 1em;
+	padding: 0;
+	li {
+		@include grid.grid(12,6);
+		@media #{variables.$micro} {
+			width: 33.333333%;
+		}
+		@media #{variables.$small} {
+			width: 25%;
+		}
+		@media #{variables.$medium} {
+			width: 20%;
+		}
+		@media #{variables.$large} {
+			width: 16.666666666%;
+		}
+	}
+}
+
+/* Recent grid - not used */
+.recent-grid {
+	@include mixins.clearfix;
+	list-style: none;
+	margin: 1em 0;
+	li {
+		display: inline;
+		a { 
+			border-bottom: 0 solid transparent;
+			&:hover {
+				border-bottom: 0 solid transparent;
+			}
+		}
+	}
+	img {
+		width: 19%;
+		margin-bottom: 1%;
+	}
+}
+
+/* Social sharing links */
+/* Social media brand buttons */
+.social-share {
+  margin-bottom: 0px + variables.$doc-line-height;
+  margin-bottom: 0rem + math.div(variables.$doc-line-height, variables.$doc-font-size);
+  ul, li {
+  	margin: 0;
+  	padding: 0;
+  	list-style: none;
+  }
+  li {
+  	display: inline-block;
+  }
+  $social: 
+  (facebook, variables.$facebook-color),
+  (flickr, variables.$flickr-color),
+  (foursquare, variables.$foursquare-color),
+  (google-plus, variables.$google-plus-color),
+  (instagram, variables.$instagram-color),
+  (linkedin, variables.$linkedin-color),
+  (pinterest, variables.$pinterest-color),
+  (rss, variables.$rss-color),
+  (tumblr, variables.$tumblr-color),
+  (twitter, variables.$twitter-color),
+  (vimeo, variables.$vimeo-color),
+  (youtube, variables.$youtube-color);
+  @each $socialnetwork, $color in $social {
+    .#{$socialnetwork} {
+      background: $color;
+    }    
+  }
+  a {
+	  display: block;
+	  padding: 8px 20px;
+	  text-decoration: none !important;
+	  text-transform: uppercase;
+	  @include mixins.font-rem(14);
+	  font-family: variables.$heading-font;
+	  font-weight: 700;
+	  color: variables.$white;
+	  opacity: 0.8;
+	  &:hover {
+	    opacity: 1;
+	  }
+	}
+	span {
+		display: none;
+		@media #{variables.$medium} {
+			display: inline;
+			padding-left: 5px;
+		}
+	}
+	h4 {
+		@include mixins.font-rem(14);
+		margin-bottom: 10px;
+		text-transform: uppercase;
+	}
+}
+
+
+/* Footer wrapper */
+.footer-wrap {
+	@include grid.container;
+	@include mixins.clearfix;
+	clear: both;
+	padding-bottom: 3em;
+	a,
+	a:active,
+	a:visited,
+	p,
+	h4,
+	h5,
+	h6,
+	span { 
+		@include mixins.font-rem(14);
+	}
+	footer {
+		@include grid.grid(12,10);
+		@include grid.prefix(12,1);
+		@include grid.suffix(12,1);
+		@media #{variables.$small} {
+			@include grid.grid(12,6);
+			@include grid.prefix(12,3);
+			@include grid.suffix(12,3);
+		}
+		@media #{variables.$x-large} {
+			@include grid.grid(12,4.5);
+			@include grid.prefix(12,4);
+			@include grid.suffix(12,3.5);
+		}
+	}
+}
+
+/* Related articles list */
+.related-articles {
+	@include grid.grid(12,10);
+	@include grid.prefix(12,1);
+	@include grid.suffix(12,1);
+	margin-bottom: 2em;
+	@media #{variables.$small} {
+		@include grid.grid(12,6);
+		@include grid.prefix(12,3);
+		@include grid.suffix(12,3);
+	}
+	@media #{variables.$x-large} {
+		@include grid.grid(12,4.5);
+		@include grid.prefix(12,4);
+		@include grid.suffix(12,3.5);
+	}
+	h4 {
+		text-transform: uppercase;
+		margin-bottom: 0;
+	}
+	li {
+		margin-bottom: 0;
+	}
+}
+
+/* 
+   Browser upgrade alert
+   ========================================================================== */
+
+.browser-upgrade {
+	background: #000;
+	text-align: center;
+	margin: 0 0 2em 0;
+	padding: 10px;
+	text-align: center;
+	color: variables.$white;
+	a {
+		color: variables.$white;
+		border-bottom: 1px dotted variables.$white;
+		text-decoration: none;
+		&:hover {
+			border-bottom: 1px solid variables.$white;
+		}
+	}
+}
+/* 
+   Google search form
+   ========================================================================== */
+
+#goog-fixurl {
+	ul {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+		li {
+			list-style-type: none;
+		}
+	}
+}
+#goog-wm-qt {
+	width: auto;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: 8px 20px;
+	display: inline-block;
+	@include mixins.font-rem(14);
+	background-color: variables.$white;
+	color: variables.$black;
+	border-width: 2px !important;
+	border-style: solid !important;
+	border-color: color.adjust(variables.$black,$lightness: 50%);
+	@include mixins.rounded(3px);
+}
+#goog-wm-sb {
+	@extend .btn;
+}
