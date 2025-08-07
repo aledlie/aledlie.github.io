@@ -1,6 +1,6 @@
 ---
-layout: single
-title: Shower Thoughts Taken Too Far
+layout: home
+title: Shower Thoughts
 subtitle: true
 permalink: /
 author_profile: true
