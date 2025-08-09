@@ -11,6 +11,7 @@ gem "webrick"
 gem "base64"
 gem 'public_suffix', '~> 5.1.1'
 gem 'jekyll-sass-converter', '1.5.2'
+gem 'font-awesome-sass'
 
 #plugins
 plugin 'bundler-graph'

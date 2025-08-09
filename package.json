@@ -1,0 +1,27 @@
+{
+  "name": "minimal-mistakes-theme",
+  "author": "Michael Rose <michael@mademistakes.com>",
+  "homepage": "https://mmistakes.github.io/minima-mistakes/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmistakes/minimal-mistakes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "glightbox": "^3.3.1"
+  }
+}
