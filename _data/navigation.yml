@@ -1,13 +1,16 @@
 # Site navigation links
 main:
-  - title: About
+  - title: "About"
     url: /about/
 
-  - title: Blog
-    url: /_posts/
+  - title: "Blog"
+    url: /posts/
 
-  - title: About Me
+  - title: "About_Me"
     url: /about_me/
 
   - title: Vita
     url: /vita/
+
+  - title: "Stylesheet"
+    url: https://mmistakes.github.io/minimal-mistakes/docs/stylesheets/

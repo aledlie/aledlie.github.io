@@ -1,7 +1,7 @@
 # Site Wide Configs
 title: The Parlor
 title_separator: "-"
-subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense. 
+#subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense. 
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
