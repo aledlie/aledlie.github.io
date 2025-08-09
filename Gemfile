@@ -10,17 +10,18 @@ gem "logger"
 gem "webrick"
 gem "base64"
 gem 'public_suffix', '~> 5.1.1'
-gem 'jekyll-sass-converter', '1.5.2'
 gem 'font-awesome-sass'
 
 #plugins
 plugin 'bundler-graph'
 
 # Theme
-gem "minimal-mistakes-jekyll"
+gem 'jekyll'
+gem 'minimal-mistakes-jekyll'
 
 # Additional plugins supported by GitHub Pages
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-seo-tag", "~> 2.8"
+  gem 'jekyll-sass-converter', '1.5.2'
 end

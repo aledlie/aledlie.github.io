@@ -2,10 +2,9 @@
 title: The Parlor
 title_separator: "-"
 subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense. 
-
 description: An archive for midnight rambles.
-url:              https://www.aledlie.com
-locale:           en_US
+url: https://www.aledlie.com
+locale: en_US
 defaults:
   # posts
   - scope:
@@ -32,6 +31,7 @@ defaults:
 github_username: 	aledlie
 github: 		[metadata]
 repository: 		"aledlie/aledlie.github.io"
+
 #theme
 remote_theme: "mmistakes/minimal-mistakes@4.27.1"
 minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
@@ -39,6 +39,8 @@ minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon"
 
 # Jekyll build configuration
 
+theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
 permalink:   /:categories/:title/
 markdown:    kramdown
 highlighter: rouge
@@ -72,7 +74,7 @@ exclude:
 # Author
 author:
   name: Alyshia Ledlie
-  avatar: assets/images/profile.png
+  avatar: /images/profile.jpg
   bio: I write code, make aggressively mediocre jokes, and scale companies.
   location: ATX | La Ventana | Rio
   links:
@@ -92,7 +94,7 @@ author:
 # Owner
 owner:
   name: Alyshia Ledlie
-  avatar: assets/images/profile.png
+  avatar: /images/profile.jpg
   bio: It is enough to be benign, to be gentle, to be funny, to be kind
   email: alyshia@inventoryai.io
   twitter: AlyshiaLedlie

@@ -316,6 +316,7 @@ DEPENDENCIES
   csv
   font-awesome-sass
   github-pages
+  jekyll
   jekyll-feed (~> 0.17)
   jekyll-include-cache
   jekyll-sass-converter (= 1.5.2)

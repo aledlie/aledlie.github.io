@@ -11,6 +11,10 @@ sitemap: false
  *
 */
 
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
 // Partials
 @use "variables";
 @use "grid";
@@ -23,3 +27,4 @@ sitemap: false
 @use "elements";
 @use "forms";
 @use "page";
+@use "font-awesome";
