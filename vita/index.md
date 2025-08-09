@@ -7,10 +7,9 @@
 </p>
 
 # Alyshia Ledlie
-## My Vita
-###### As according to a ChatGPT Pro search that a friend ran on me last week
+## My Vita (As written by ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white))
 
-ZZ**GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
+**GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
 
 > *Technology leader with 11+ years in ML/AI infrastructure, trust & safety systems, and startup leadership. Building scalable, risk-mitigating automation for diverse industries.*  
 
