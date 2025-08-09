@@ -50,7 +50,7 @@ exclude:
 # Author
 author:
   name: Alyshia Ledlie
-  avatar: "assets/images/profilebw.png"
+  avatar: "assets/images/profile.png"
   bio: I write code, make aggressively mediocre jokes, and scale companies.
   location: ATX | La Ventana | Rio
   links:
