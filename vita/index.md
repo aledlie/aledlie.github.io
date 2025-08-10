@@ -7,7 +7,7 @@
 </p>
 
 # Alyshia Ledlie
-## My Vita (As written by ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white))
+## My Vita..as written by a ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) websearch
 
 **GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
 
