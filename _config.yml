@@ -5,6 +5,11 @@ title_separator: "-"
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-HXE7BDB8NF"
+    anonymize_ip: false # default
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
   # posts
