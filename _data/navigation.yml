@@ -4,9 +4,9 @@ main:
     url: /about/
 
   - title: "Blog"
-    url: /posts/
+    url: /posts
 
-  - title: "About_Me"
+  - title: "About Me"
     url: /about_me/
 
   - title: Vita
