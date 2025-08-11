@@ -1,3 +1,12 @@
+---
+layout: single
+title: Vita
+permalink: /vita/
+header:
+  overlay_image: /images/cover-vita.png
+  teaser: /images/cover-vita.png
+---
+
 <!-- Banner or Profile Header (Optional) -->
 <p align="center">
   <img src="https://img.shields.io/badge/ML%2FAI-Infrastructure-blueviolet?style=flat-square" />
