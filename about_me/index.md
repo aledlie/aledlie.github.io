@@ -2,7 +2,6 @@
 layout: single
 title: Shower Thoughts
 subtitle: true
-permalink: /
 author_profile: true
 description: true
 ---
