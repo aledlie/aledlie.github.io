@@ -18,7 +18,7 @@
 {% if page.image.feature %}
   <div class="image-wrap">
   <img src=
-    {% if page.image.feature contains 'http' %}
+    {% if page.image.feature contains 'https' %}
       "{{ page.image.feature }}"
     {% else %}
       "{{ site.url }}/images/{{ page.image.feature }}"
