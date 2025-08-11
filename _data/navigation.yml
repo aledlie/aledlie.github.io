@@ -4,7 +4,7 @@ main:
     url: /about/
 
   - title: "Blog"
-    url: /posts/
+    url: /posts
 
   - title: "About Me"
     url: /about_me/
