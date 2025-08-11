@@ -4,6 +4,9 @@ title: Shower Thoughts
 subtitle: true
 author_profile: true
 description: true
+header:
+  overlay_image: /images/cover-home.png
+  teaser: /images/cover-home.png
 ---
 This started the way most interesting things do: not with a plan, but with a pattern. Around 2 a.m., long after a twilight hush had wrapped the world in quiet, a certain kind of idea would show up - stray tangents, shower arguments, metaphysical quandries - and start demanding sandwiches with the crusts cut off and somewhere to sit.  They were uninvited, underdressed, and annoyingly persistent.  Although rarely brilliant, they were never boring. They'd linger.  Argue.  Sometimes even make a point.
 
