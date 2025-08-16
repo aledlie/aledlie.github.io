@@ -16,9 +16,6 @@ Not the kind that hangs in the night sky, but the kind made of people—brillian
 
 Their light has warmed me as it bent the arc of my life, and everything I write and everything I am is, in some way, an echo of theirs.  
 
-I've leaned a little heavily on writers here - it is a blog, after all - and there have been so many precious and essential beacons of light in my personal life that I've left out of this list here.
-
-But to each of you, mentioned here and not - thank you for holding up your brilliance through every dark night.  Thank you for teaching me to illuminate myself from within, so I could reach out into the darkness, and offer a hand and a candle to someone who needs it.  
 ---
 
 ### Lessons and Inheritances
@@ -95,15 +92,15 @@ I will never be as kind—or as unshakably, earnestly good—as my three brother
 - **Brilliance** — from Eric Wright, Eric Rowe, Upasana Kaul, Chandra Shrivastava, Teresa Asma, Sukrit Silas and Diana Chang.  How did I ever get so lucky as to meet each of you so young?  Through osmosis and late-night documentary marathons, and sitting through white board sessions I didn't understand at all, and overly-nerdy conversations over too much wine, I learned so much from each of you about how to recoginize my own weaknesses, think more clearly, and that, even though there's no real source of truth for most prolems...we can probably round up in the case of Eric Wright and Brian Day.  
 - **Everything** — No one - *no one* - will ever approach being as funny as Sumedh Joshi.  But I've carried your sense of humor with me through every day of my life, even after I lost your light in mine.  I'm writing this entire blog as an homage to the one you wrote (2013-2014)[https://www.sumedhmjoshi.com/] when you were, theoretically, supposed to be working on your dissertation.  Which you wrote in over 20 days, but really only put in [3 full days of work](https://www.sumedhmjoshi.com/academia/tracking-the-growth-of-my-dissertation-over-time/).  You are ridiculous, and absurd, and you will never be matched.  I still hear your voice in my head - including every time single I brush my teeth or microwave soup or start to doubt myself.  There is no part of me, in one way or another, that wasn't shaped by you, and I hope that never changes.  I know that creating an homage to your old blog isn't much, but 15 days from now it will have been 9 years since I heard your voice.  Getting your old blog back up and running, and writing follow-ups to some of your posts with current data with a website designed in the same aesthetic style makes me feel somehow like I'm extending your voice into 2025. Like I'm talking to you through a very data-limited time maching (yes, yes, I know that's not an accurate physics-based description, and I can hear your objecting and requests for corrections).  And even if it's not true, it feels true.  And I'll lean on Martha Nussaum for this one: emotions are legitimate, intelligent responsponses to our perception of the world.  So I'm going to round up, and take it.
 
-Love you.  Always. 
+Love you all.  Always. 
 
 ---
 
 ### My North Star
 
-They are my north star: an eclectic constellation of inspirations, friends, collaborators, and family.  
+These people and ideals make up my north star: an eclectic constellation of inspirations, friends, collaborators, and family.  
 
-They made me who I am—or perhaps more truthfully, who I am still trying to become.
+They may not have made me who I am—but they have shown me the shape of who I will always wake up everyday, still trying to become.
 
 
 ## Recent Posts
