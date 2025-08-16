@@ -13,6 +13,7 @@
 /* Override page hero overlay padding */
 .page__hero--overlay {
   padding-top: 5em;
+  padding-bottom: 0 !important;
 }
 
 /* Reduce massive gap between header and content */
@@ -159,6 +160,20 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-bottom: 1em;
+}
+
+/* Buttons */
+.social-buttons .btn {
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: #eee;
+  text-decoration: none;
+  font-weight: bold;
+}
+.social-buttons .btn:hover {
+  background: #ddd;
 }
 
 

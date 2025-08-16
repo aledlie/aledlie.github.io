@@ -7,6 +7,8 @@ header:
   teaser: /images/cover-vita.png
 ---
 
+
+---
 <!-- Banner or Profile Header (Optional) -->
 <p align="center">
   <img src="https://img.shields.io/badge/ML%2FAI-Infrastructure-blueviolet?style=flat-square" />
@@ -14,12 +16,13 @@ header:
   <img src="https://img.shields.io/badge/Location-Austin%2C%20TX-orange?style=flat-square" />
   <img src="https://img.shields.io/badge/Status-Founder%20%26%20CTO-red?style=flat-square" />
 </p>
+---
 
 # Alyshia Ledlie
 ## My Vita..as written by a ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) websearch
-
+---
 **GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
-
+---
 > *Technology leader with 11+ years in ML/AI infrastructure, trust & safety systems, and startup leadership. Building scalable, risk-mitigating automation for diverse industries.*  
 
 ---
@@ -138,7 +141,7 @@ sources, as cited, and reflects the most up-to-date details available about her 
   <img src="https://img.shields.io/badge/Location-Austin%2C%20TX-orange?style=for-the-badge" />
 </p>
 ---
-##### p.s. Frankly, this gives me a bit of imposter syndrome.  And I actually cut data out of it.  I *vastly* prefered the results I got by hacking myself with a tool called [maigret](file:///Users/alyshialedlie/Downloads/report_aledlie.html), which was (a) hilarious (b) actualy managed to pull quite a bit about me with only my github username and about ~2 seconds of runtime, (c) along with a bunch of accurate information about me, also pulled in 26 Russian accounts that were, how shall we say, NSFW.  Oh, and most importantly (d) be safe out there; don't use maigret, or any other open source hacking tools, unless you know what you're doing and have a strong and multi-layered system of passkeys.  
+p.s. Frankly, this gives me a bit of imposter syndrome.  And I actually cut data out of it.  I *vastly* prefered the results I got by hacking myself with a tool called [maigret](file:///Users/alyshialedlie/Downloads/report_aledlie.html), which was (a) hilarious (b) actualy managed to pull quite a bit about me with only my github username and about ~2 seconds of runtime, (c) along with a bunch of accurate information about me, also pulled in 26 Russian accounts that were, how shall we say, NSFW.  Oh, and most importantly (d) be safe out there; don't use maigret, or any other open source hacking tools, unless you know what you're doing and have a strong and multi-layered system of passkeys.  
 
 
 
