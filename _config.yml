@@ -151,10 +151,10 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aledlie"
     - label: "Integrity Studios"
-      icon: "fa-solid fa-scale-balance"
+      icon: "fas fa-fw fa-balance-scale"
       url: "https://integritystudio.notion.site"
     - label: "InventoryAI.io"
-      icon: "fa-solid fa-wharehouse"
+      icon: "fas fa-fw fa-warehouse"
       url: "https://amazing-froyo-8f05e0.netlify.app/"
 
 # Owner

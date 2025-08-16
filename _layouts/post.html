@@ -9,16 +9,13 @@
 
 <body class="post">
 
-<script type="text/javascript"
-   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
+<!-- Body Child components -->
+{% include _scripts.html %}
 {% include _browser-upgrade.html %}
-
 {% include _navigation.html %}
-
 {% include _google_analytics.html %}
 
+<-- page.image.feature rendering -->
 {% if page.image.feature %}
   <div class="image-wrap">
   <img src=
@@ -34,18 +31,25 @@
   </div><!-- /.image-wrap -->
 {% endif %}
 
+
+<!-- Author Bio -->
 <div id="main" role="main">
   <div class="article-author-side">
     {% include _author-bio.html %}
   </div>
   <article class="post">
+
+    <!--/ .headline-wrap -->
     <div class="headline-wrap">
       {% if page.link %}
         <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
       {% else %}
         <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
       {% endif %}
-    </div><!--/ .headline-wrap -->
+    </div>
+
+
+    <!-- /.article-wrap -->
     <div class="article-wrap">
       {{ content }}
       <hr />
@@ -53,13 +57,16 @@
         {% if page.share != false %}{% include _social-share.html %}{% endif %}
         <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
       </footer>
-    </div><!-- /.article-wrap -->
+    </div>
   {% if site.owner.disqus-shortname and page.comments == true %}
     <section id="disqus_thread"></section><!-- /#disqus_thread -->
   {% endif %}
   </article>
-</div><!-- /#main -->
+</div>
+<!-- /#main -->
 
+
+<!-- /.footer-wrap -->
 <div class="footer-wrap">
   {% if site.related_posts.size > 0 %}
   <div class="related-articles">
@@ -75,9 +82,8 @@
   <footer>
     {% include _footer.html %}
   </footer>
-</div><!-- /.footer-wrap -->
-
-{% include _scripts.html %}	        
+</div>
+<!-- /.footer-wrap -->
 
 </body>
 </html>
