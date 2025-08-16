@@ -21,31 +21,10 @@
   padding-bottom: 1em !important;
 }
 
-.page__hero + .page__content,
-.page__hero + .page__inner-wrap .page__content {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Reduce top padding on main content area */
-.page__content {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Reduce spacing after page title */
-.page__title {
-  margin-bottom: 0.5em !important;
-}
 
 /* Reduce spacing in page inner wrap */
 .page__inner-wrap {
   padding-top: 0.5em !important;
-}
-
-/* Reduce overall page padding and margins */
-.page {
-  padding: 0.5em 0 !important;
 }
 
 .page__content {
@@ -149,15 +128,6 @@
   .greedy-nav {
     padding: 0.25rem 0.5rem;
   }
-  
-  .page__hero {
-    margin-bottom: 0.25em !important;
-    padding-bottom: 0.5em !important;
-  }
-  
-  .page__hero--overlay {
-    padding: 0 !important;
-  }
 }
 
 /* Blog post styling improvements */
@@ -187,24 +157,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1em;
 }
 
-/* Reduce top margin on first heading */
-h1:first-child, h2:first-child, h3:first-child, 
-h4:first-child, h5:first-child, h6:first-child {
-  margin-top: 0 !important;
-}
-
 p {
   margin-bottom: 1em;
 }
 
-/* Additional spacing fixes for specific layouts */
-.archive {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
 
-.single {
-  .page__content {
-    margin-top: 0 !important;
-  }
-}
