@@ -1,30 +1,148 @@
 ---
-sitemap: false
+# Only the main Sass file needs front matter (the dashes are enough)
 ---
-
-/*
- *
- *  Minimal Mistakes
- *
- *  Designer: Michael Rose
- *  Twitter: http://twitter.com/mmistakes
- *
-*/
 
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-// Partials
-@use "variables";
-@use "grid";
-@use "mixins";
-@use "normalize";
-@use "site";
-@use "typography";
-@use "pygments";
-@use "coderay";
-@use "elements";
-@use "forms";
-@use "page";
-@use "font-awesome";
+
+/* Custom styles for tighter, more professional layout */
+
+/* Reduce overall page padding and margins */
+.page {
+  padding: 1em 0;
+}
+
+.page__content {
+  margin-bottom: 1.5em;
+}
+
+/* Tighter header spacing */
+.page__hero {
+  margin-bottom: 1em;
+}
+
+.page__hero-caption {
+  margin-bottom: 0.5em;
+}
+
+/* Compact navigation */
+.greedy-nav {
+  padding: 0.5rem 1rem;
+}
+
+.greedy-nav a {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Tighter blog index styling */
+.taxonomy__index {
+  margin-bottom: 1em;
+  
+  li {
+    margin-bottom: 0.25em;
+    
+    a {
+      padding: 0.25em 0.5em;
+      border-radius: 3px;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: rgba(0,0,0,0.05);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.taxonomy__section {
+  margin-bottom: 2em;
+  
+  .archive__subtitle {
+    margin-bottom: 0.5em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+/* Compact archive entries */
+.list__item {
+  margin-bottom: 0.75em;
+  
+  .archive__item-title {
+    margin-bottom: 0.25em;
+    font-size: 1.1em;
+  }
+  
+  .archive__item-excerpt {
+    margin-bottom: 0.25em;
+    font-size: 0.9em;
+  }
+}
+
+/* Tighter sidebar */
+.sidebar {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.author__avatar {
+  margin-bottom: 0.5em;
+}
+
+.author__content {
+  margin-bottom: 0.5em;
+}
+
+.author__urls {
+  margin-bottom: 0.5em;
+}
+
+/* Compact footer */
+.page__footer {
+  margin-top: 2em;
+  padding: 1em 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page {
+    padding: 0.5em 0;
+  }
+  
+  .greedy-nav {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Blog post styling improvements */
+.archive__item {
+  margin-bottom: 1em;
+  
+  &:hover {
+    .archive__item-title a {
+      color: #0066cc;
+    }
+  }
+}
+
+.archive__item-date {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 0.25em;
+}
+
+/* Improve readability */
+.page__content {
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+p {
+  margin-bottom: 1em;
+}

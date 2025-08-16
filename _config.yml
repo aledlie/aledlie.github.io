@@ -43,7 +43,7 @@ repository: 		"aledlie/aledlie.github.io"
 
 # Jekyll build configuration
 theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
 permalink:   /:categories/:title/
 plugins:
@@ -105,7 +105,7 @@ keep_files:
   - .svn
 
 # Pagination with jekyll-paginate
-paginate: 5 # amount of posts to show
+paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 
 # Pagination with jekyll-paginate-v2
