@@ -33,7 +33,10 @@ But to each of you, mentioned here and not - thank you for holding up your brill
 >This is one of the things we rely on our friends for: to think better of us than we think of ourselves. It makes us feel better, but it also makes us be better; we try to be the person they believe we are.
 
 
-- **From Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."
+- **From Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."**I was raised by a constellation.  
+Not the kind that hangs in the night sky, but the kind made of people—brilliant, flawed, luminous in ways I still struggle to name.  
+
+Their light has bent the arc of my life, and everything I write and everything I am is, in some way, an echo of theirs.  
   Worlds can be spun out of shadow and wonder, surreal yet tethered to the heart.  There is comfort to be found in good madness, and fairy tales exist to teach us that every dragon - every challange - can be beaten.  That inside of every person is a whole world of both Delerium and Delight - who, it turns out, is the same person, just at different times.  From Neil Gaimen, I learned that every else is so terribly wonderful and strange, that I might as well be exactly myself, and no more, and no less - and that sometimes the best thing to do is just lie back and enjoy the ride.
 
 > “Everybody has a secret world inside of them. I mean everybody. All of the people in the whole world, I mean everybody — no matter how dull and boring they are on the outside. Inside them they've all got unimaginable, magnificent, wonderful, stupid, amazing worlds... Not just one world. Hundreds of them. Thousands, maybe.”
@@ -49,12 +52,13 @@ But to each of you, mentioned here and not - thank you for holding up your brill
 >Make your mistakes, next year and forever.”
 
 
-- **From Michael Lewis and George R.R. Martin**  
+- **Michael Lewis and George R.R. Martin - "If you wanted to predict how people would behave, Munger said, you only had to look at their incentives.”**  
   The sly magic of hiding a cathedral of ideas inside a story of characters and drama so colorful you don’t notice the architecture until it has you surrounded.  In their writing I see the truth lived out that people will never remember what you said, but they will always remember how you made them feel.  I will never be able to smuggle a structuralist intellectual masterpiece, Trojan-horse style, into a story so engrossing you can't seem to put it down.  From them, I have learned that it will never matter how brilliant or clever you are, if you are boring.  
 
-> Man is a deterministic device thrown into a probabilistic universe. In this match, surprises are expected.
+> Every systemic market injustice arose from some loophole in a regulation created to correct some prior injustice.
+> Reality is a cloud of possibility, not a point.
 > He suggested a new definition of the nerd: a person who knows his own mind well enough to mistrust it.
-> ~ Micheal Lewise
+> ~ Micheal Lewis
 
 > Power is a trick - it resides where we believe it resides, no more, not less.
 > Some battles are won with swords and spears, others with quills and ravens.
