@@ -1,5 +1,7 @@
 <meta charset="utf-8">
 
+{% include seo.html %}
+
 {% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
 <meta name="keywords" content="{{ page.tags | join: ', ' }}">
 {% if page.author %}
