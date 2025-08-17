@@ -12,5 +12,14 @@ main:
   - title: Vita
     url: /vita/
 
+  - title: Homage
+    url: /homage/
+
+  - title: "Sumedh's Site"
+    url: https://www.sumedhmjoshi.com
+
+  - title: "Side Projects"
+    url: /projects/
+
   - title: "Stylesheet"
     url: https://mmistakes.github.io/minimal-mistakes/docs/stylesheets/

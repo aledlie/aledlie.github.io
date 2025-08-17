@@ -9,11 +9,71 @@
    Page layout
    ========================================================================== */
 
-body {
-	background-color: variables.$bodycolor;
-	font-family: variables.$base-font;
-	color: variables.$text-color;
+
+#main {
+
+  @include clearfix;
+  margin-inline: auto;
+  padding-inline: 1em;
+  -webkit-animation: $intro-transition;
+  animation: $intro-transition;
+  max-width: 100%;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+  @include breakpoint($x-large) {
+    max-width: $max-width;
+  }
 }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: variables.$bodycolor;
+  font-family: variables.$base-font;
+  color: variables.$text-color;
+}
+
+
+.initial-content,
+.search-content {
+  flex: 1 0 auto;
+}
+
+.page {
+  @include breakpoint($large) {
+    float: inline-end;
+    width: calc(100% - #{$right-sidebar-width-narrow});
+    padding-inline-end: $right-sidebar-width-narrow;
+  }
+
+
+  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+    padding-inline-end: $right-sidebar-width;
+  }
+
+  .page__inner-wrap {
+    float: inline-start;
+    margin-top: 1em;
+    margin-inline: 0;
+    width: 100%;
+    clear: both;
+    .page__content,
+    .page__meta,
+    .page__share {
+      position: relative;
+      float: inline-start;
+      margin-inline: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
 
 /* 
    Header
