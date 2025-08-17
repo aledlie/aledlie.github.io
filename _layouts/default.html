@@ -1,4 +1,5 @@
 ---
+layout: compress
 ---
 
 <!doctype html>
@@ -10,6 +11,10 @@
   </head>
 
   <body class="layout-{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TK5J8L38"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     {% include_cached skip-links.html %}
     {% include_cached masthead.html %}
 
