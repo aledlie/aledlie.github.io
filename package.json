@@ -3,5 +3,11 @@
     "lint:scss": "stylelint '**/*.scss'",
     "lint:scss --fix": "stylelint '**/*.scss' --fix",
     "format:scss": "prettier --write '**/*.scss'"
+  },
+  "devDependencies": {
+    "stylelint": "^16.23.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
   }
 }

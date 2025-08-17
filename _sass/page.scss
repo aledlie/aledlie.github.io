@@ -209,6 +209,7 @@ page-lead {
 
 .page-related {
   @include clearfix;
+
   float: inline-start;
   margin-top: 2em;
   padding-top: 1em;
@@ -220,6 +221,7 @@ page-lead {
   @include breakpoint($x-large) {
     width: calc(100% - #{$right-sidebar-width});
   }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -280,7 +282,7 @@ page-lead {
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid mix(#000, $border-color, 25%);
+  border: 1px solid color.mix(#000, $border-color, 25%);
   border-radius: $border-radius;
 
   &:hover {
@@ -444,7 +446,7 @@ page-lead {
 }
 
 .comment-date {
-  @extend .page-meta;
+  @extend %page-meta;
 
   margin: 0;
 
@@ -488,14 +490,17 @@ page-lead {
       opacity: 1;
     }
   }
+
   p,
   li,
   dl {
     font-size: 1em;
   }
+
   /* paragraph indents */
   p {
     margin: 0 0 $indent-var;
+
     /* sibling indentation */
     @if $paragraph-indent == true {
       & + p {
@@ -504,6 +509,7 @@ page-lead {
       }
     }
   }
+
   a:not(.btn) {
     &:hover {
       text-decoration: underline;
@@ -513,6 +519,7 @@ page-lead {
       }
     }
   }
+
   :not(pre) > code {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
