@@ -1,6 +1,7 @@
 ---
-layout: posts
+layout: single
 title: Updating a jekyll page after 8 years
+author_profile: true
 ---
 
 Welcome to the personal website I built back in 2017, over about 20 minutes on a Sunday.

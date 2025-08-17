@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: single
 title:  "How to Write Posts With Redcarpet"
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
+author_profile: true
 ---
 
 ## My Quick Style Reference for Jekyll/Markdown/Redcarpet

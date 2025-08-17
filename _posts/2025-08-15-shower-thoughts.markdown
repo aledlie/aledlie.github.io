@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: single
 title: "Shower Thoughts"
 date: 2025-08-15T23:04:43-05:00
+author_profile: true
 ---
 
 # A Room for Restless Thoughts
