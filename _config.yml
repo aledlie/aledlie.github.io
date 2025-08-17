@@ -27,6 +27,9 @@ defaults:
     values:
       layout: single
       show_date: true
+social:
+  name: Alyshia
+
 
 # Github
 github_username: 	aledlie
