@@ -1,6 +1,11 @@
     {
       "extends": [
         "stylelint-config-standard-scss",
+        //"stylelint-config-prettier-scss".
         "stylelint-prettier/recommended"
       ]
+  "rules": {
+    // You can customize Stylelint rules here. For example:
+    "selector-class-pattern": null // Disables a rule that may conflict with your preferred class naming convention.
+  }
     }

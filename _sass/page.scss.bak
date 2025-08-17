@@ -77,7 +77,7 @@ body {
   color: variables.$text-color;
 }
 
-page-lead {
+.page-lead {
   font-family: $global-font-family;
   font-size: $type-size-4;
 }
@@ -209,17 +209,21 @@ page-lead {
 
 .page-related {
   @include clearfix;
+
   float: inline-start;
   margin-top: 2em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
+
   @include breakpoint($large) {
     float: inline-end;
     width: calc(100% - #{$right-sidebar-width-narrow});
   }
+
   @include breakpoint($x-large) {
     width: calc(100% - #{$right-sidebar-width});
   }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -262,7 +266,43 @@ page-lead {
   flex: 1 0 auto;
 }
 
-/* Page taxonomy ========================================================================== */
+/* ========================================================================== */
+
+/* === Page Hero === */
+
+/* ============================================================================ */
+
+.page-hero-image {
+  width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+.page-hero-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 0;
+  margin: 0 auto;
+  padding: 2px 5px;
+  color: #fff;
+  font-family: $caption-font-family;
+  font-size: $type-size-7;
+  background: #000;
+  text-align: end;
+  z-index: 5;
+  opacity: 0.5;
+  border-radius: $border-radius 0 0 0;
+
+  @include breakpoint($large) {
+    padding: 5px 10px;
+  }
+}
+
+/* ========================================================================== */
+
+/* Page Taxonomy */
+
+/* ========================================================================== */
 
 .page-taxonomy {
   .sep {
@@ -280,12 +320,13 @@ page-lead {
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid mix(#000, $border-color, 25%);
+  border: 1px solid;
+  color: color.mix(#000, $border-color, 25%);
   border-radius: $border-radius;
 
   &:hover {
     text-decoration: none;
-    color: $link-color-hover;
+    color: var($link-color-hover);
   }
 }
 
@@ -357,7 +398,11 @@ page-lead {
   text-decoration: none;
 }
 
-/* Comments ========================================================================== */
+/* ========================================================================== */
+
+/* Comment */
+
+/* ========================================================================== */
 
 .page-comments {
   float: inline-start;
@@ -444,7 +489,7 @@ page-lead {
 }
 
 .comment-date {
-  @extend .page-meta;
+  @extend %page-meta;
 
   margin: 0;
 
@@ -488,14 +533,17 @@ page-lead {
       opacity: 1;
     }
   }
+
   p,
   li,
   dl {
     font-size: 1em;
   }
+
   /* paragraph indents */
   p {
     margin: 0 0 $indent-var;
+
     /* sibling indentation */
     @if $paragraph-indent == true {
       & + p {
@@ -504,6 +552,7 @@ page-lead {
       }
     }
   }
+
   a:not(.btn) {
     &:hover {
       text-decoration: underline;
@@ -513,6 +562,7 @@ page-lead {
       }
     }
   }
+
   :not(pre) > code {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;

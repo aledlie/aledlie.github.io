@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "lint:scss": "stylelint '**/*.scss'",
+    "lint:scss --fix": "stylelint '**/*.scss' --fix",
+    "format:scss": "prettier --write '**/*.scss'"
+  }
+}
