@@ -20,7 +20,6 @@ defaults:
       layout: single
       show_date: true
       author_profile: true
-      read_time: true
   # pages
   - scope:
       path: ""
@@ -28,8 +27,6 @@ defaults:
     values:
       layout: single
       show_date: true
-      read_time: true
-      read_time: true
 
 # Github
 github_username: 	aledlie
