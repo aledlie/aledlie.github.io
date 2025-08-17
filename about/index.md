@@ -7,5 +7,14 @@ header:
   teaser: /images/cover-about.png
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Very much a work in progress, started in 2017 and picked up again a few weeks ago.  Hopefully you pop by again for the jokes and aburdity, and, well, stay for the jokes and absurdity. I promise I won't include too [many articles like this one](https://tinyurl.com/2569tvbc).
 
+But, to quote the great Neil Gaimen, all stories are lies, and all writers are liars.  And I am chock full of lies.  So that that promise for what it's worth, which is practically nothing, and I'll see you here next week with a cartoon and meme about why people spending so much time on RAG databases and fine-tuning is gilding a lily (and just silly), to explain why we should all be taking more creatine supplements, and argue, with absolutely no ground to stand on, with a nobel laureate about the end of the world. 
+
+Cheers, you brave souls who have somehow gotten to the end of this very short post.  And as always, I'll leave you and the rest of our bizarre, fabulous, disorienting universe with all of my love, delight, andelerium,  after finally crashing out and signing off on this at 8:15 a.m., a few dozen research articles into a handful of fields deep, after having nerd sniped 3 of my PhD friends into staying up with me to chatter about nonsense, and giggle, and feed off of each others' unbounded curiosity.
+
+It's been a great night at The Parlor, and I hope it's been at yours, too.
+
+<i class="fa fa-heart" aria-hidden="true"></i> and <i class="fa fa-hourglass-o" aria-hidden="true"></i>,
+
+~ Alyshia 
