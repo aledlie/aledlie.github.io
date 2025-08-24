@@ -131,4 +131,17 @@
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}">
 {% endif %}
+
+<!-- Structured Data -->
+{% if page.url == '/' %}
+  {% include schema.html %}
+{% endif %}
+
+{% if page.layout == "single" and page.date %}
+  {% include post-schema.html %}
+{% endif %}
+
+{% include breadcrumb-schema.html %}
+<!-- end structured data -->
+
 <!-- end _includes/seo.html -->

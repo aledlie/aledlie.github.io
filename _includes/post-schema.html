@@ -1,0 +1,71 @@
+{% if page.layout == "single" and page.date %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name | default: site.social.name }}",
+    "url": "{{ site.url }}",
+    {% if site.author.avatar -%}
+    "image": "{{ site.author.avatar | absolute_url }}",
+    {% endif -%}
+    "sameAs": [
+      {% if site.author.links -%}
+        {% for link in site.author.links -%}
+          {% if link.url -%}
+            "{{ link.url }}"{% unless forloop.last %},{% endunless %}
+          {% endif -%}
+        {% endfor -%}
+      {% endif -%}
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.social.name }}",
+    "url": "{{ site.url }}",
+    {% if site.author.avatar -%}
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.author.avatar | absolute_url }}",
+      "width": 60,
+      "height": 60
+    }
+    {% endif -%}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  {% if page.categories -%}
+  "articleSection": {{ page.categories | jsonify }},
+  {% endif -%}
+  {% if page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+  "wordCount": {{ page.content | strip_html | number_of_words }},
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}"
+  }
+}
+</script>
+{% endif %}

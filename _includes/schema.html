@@ -1,16 +1,84 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  {% if site.social.type == "Organization" -%}
-    "@type": "Organization",
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.og_image %},
-    "logo": {{ site_og_image | jsonify }}{% endif %}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- else -%}
-    "@type": "Person",
-    "name": {{ site.social.name | default: site.name | jsonify }},
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- endif %}
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#person"
+      }
+    },
+    {
+      {% if site.social.type == "Organization" -%}
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}/",
+        {% if site.og_image -%}
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.og_image | absolute_url }}",
+          "width": 512,
+          "height": 512
+        },
+        {% endif -%}
+        {% if site.social.links -%}
+        "sameAs": {{ site.social.links | jsonify }},
+        {% endif -%}
+        "description": "{{ site.description }}"
+      {%- else -%}
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person",
+        "name": "{{ site.social.name | default: site.author.name | default: site.name }}",
+        "url": "{{ site.url }}/",
+        {% if site.author.avatar -%}
+        "image": {
+          "@type": "ImageObject",
+          "url": "{{ site.author.avatar | absolute_url }}",
+          "width": 400,
+          "height": 400
+        },
+        {% endif -%}
+        {% if site.author.bio -%}
+        "description": "{{ site.author.bio }}",
+        {% endif -%}
+        {% if site.author.location -%}
+        "address": "{{ site.author.location }}",
+        {% endif -%}
+        {% if site.author.email -%}
+        "email": "{{ site.author.email }}",
+        {% endif -%}
+        "jobTitle": "{{ site.author.bio | default: 'Writer and Developer' }}",
+        {% if site.author.links -%}
+        "sameAs": [
+          {% for link in site.author.links -%}
+            {% if link.url -%}
+              "{{ link.url }}"{% unless forloop.last %},{% endunless %}
+            {% endif -%}
+          {% endfor -%}
+        ]
+        {% endif -%}
+      {%- endif %}
+    },
+    {
+      "@type": "Blog",
+      "@id": "{{ site.url }}/#blog",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "author": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}/#person"
+      }
+    }
+  ]
 }
 </script>
