@@ -1,6 +1,6 @@
--
+---
 # Only the main Sass file needs front matter (the dashes are enough)
--
+---
 
 @charset "utf-8";
 
@@ -54,15 +54,15 @@
 /* Tighter blog index styling */
 .taxonomy-index {
   margin-bottom: 1em;
-  
+
   li {
     margin-bottom: 0.25em;
-    
+
     a {
       padding: 0.25em 0.5em;
       border-radius: 3px;
       transition: background-color 0.2s ease;
-      
+
       &:hover {
         background-color: rgba(0,0,0,0.05);
         text-decoration: none;
@@ -73,7 +73,7 @@
 
 .taxonomy-section {
   margin-bottom: 2em;
-  
+
   .archive-subtitle {
     margin-bottom: 0.5em;
     padding-bottom: 0.25em;
@@ -84,12 +84,12 @@
 /* Compact archive entries */
 .list-item {
   margin-bottom: 0.75em;
-  
+
   .archive-item-title {
     margin-bottom: 0.25em;
     font-size: 1.1em;
   }
-  
+
   .archive-item-excerpt {
     margin-bottom: 0.25em;
     font-size: 0.9em;
@@ -125,7 +125,7 @@
   .page {
     padding: 0.25em 0 !important;
   }
-  
+
   .greedy-nav {
     padding: 0.25rem 0.5rem;
   }
@@ -134,7 +134,7 @@
 /* Blog post styling improvements */
 .archive-item {
   margin-bottom: 1em;
-  
+
   &:hover {
     .archive-item-title a {
       color: #0066cc;
