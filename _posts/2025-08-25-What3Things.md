@@ -1,4 +1,53 @@
-# TODO List 📝
+---
+layout: single
+title: What 3 Things
+author_profile: true
+subtitle: On Signal, Noise, & Sustainability : The limits of overclocking
+---
+
+# *What 3 Things*
+
+
+## The Hazy, Long-Gone Era of Pre-2023 Facebook
+
+Once upon a time, in 2015, I joined Facebook. I was the first person to be hired
+specifically as an engineer in the Austin office, made up of fewer than 200 people.  One of them was my brother.  It was not a company back then so much
+as a cult.  It was the hardest I've ever worked, the most I've ever learned,
+and, to quote a project manager of mine at the time, "a theme park for psychos,"
+who would joyfully stay after work to keep talking about work; just while we
+played video games and drank at the office.
+
+For ~6 months I was a completely useless little ball of stress held together by imposter syndrome, intense curiousity, and a stubbern refusal to admit defeat by a serious of 1s
+and 0s. Then, all in one moment, I woke as an "SME" - someone who other people went to
+for advice and help and was in charge of things.  This was not uncommon on a
+  team where we had only 1 engineer for every 300 million users.
+
+For about 8 years after than, my job was roughly divided like this:
+
+- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.
+- **30-40%** answering the questions of whoever came by my desk
+- **95%** providing therapy for the totally valid and stress-induced nervous breakdowns of my coworkers in small 1:1 conference rooms
+- **100%** tech-driven pranks and meme wars
+
+## Finding Focus with *What 3 Things*
+
+After a few years of finding myself accidentally working as a part-time therapist, I kicked off a weekly post called **"What 3 Things Alyshia’s Doing This Week."** It had two main goals:
+
+- **Keeping Myself Focused**: Writing these posts helped me prioritize and avoid saying "yes" to too many things at once.
+- **Scaling Therapy**: I hoped it would encourage my newer engineers (who I always called  *younglings*, regardless of age) to take a deep breath and realize it’s okay to *not finish everything* all at once.
+
+Those posts became a small ritual to model balance and perspective in an evironment where the potential for error was huge.
+
+## When Everything *Must* Be Done at Once
+
+Sometimes, though, the idea of "not doing everything at once" just doesn’t hold up. Right now, I’m in one of those moments where I *do* need to tackle **everything at once**. So, I’m restarting my **"What 3 Things Alyshia’s Doing This Week"** posts with a clear purpose:
+
+- **Track Eeverything**: By documenting my priorities, I can monitor the size of my workload over time.
+- **Ease the Crunch**: My goal is to watch that workload shrink as I chip away at it before the **September 12th** deadline.
+
+I can't get this down to 3 lines yet, but the goal is to get there by October.  Here’s to managing the madness, finding balance, and coming out stronger on the other side!
+
+#TODO Silly List 📝
 
 - [x] ~~Make a TODO list~~ ✅ (Finally accomplished something today!)
 - [ ] Actually figure out what all of my projects are, what domain manager
