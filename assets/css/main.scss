@@ -105,7 +105,7 @@ body {
   margin-top: 0;
 }
 
-/* SIDEBAR - Clean profile section */
+/* SIDEBAR - Clean profile section matching reference */
 .sidebar {
   background: #fff;
   padding: 2rem 1.5rem;
@@ -137,17 +137,39 @@ body {
     padding: 0;
     
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       
       a {
-        color: #666;
-        text-decoration: none;
+        color: #666 !important;
+        text-decoration: none !important;
         font-size: 0.9em;
+        display: block;
+        padding: 0.1rem 0;
         
         &:hover {
-          color: #333;
+          color: #333 !important;
+        }
+        
+        /* Hide icons for cleaner look like reference */
+        i, .fas, .fab {
+          display: none;
         }
       }
+    }
+  }
+  
+  /* Style the Follow button to be simpler */
+  .btn {
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #666 !important;
+    font-size: 0.85em;
+    padding: 0.4rem 0.8rem;
+    margin-top: 1rem;
+    
+    &:hover {
+      background: #e9ecef !important;
+      color: #333 !important;
     }
   }
 }
@@ -184,11 +206,13 @@ body {
   }
 }
 
-/* ARCHIVE/BLOG LISTING - Clean post list */
-.archive .list-item,
-.archive .archive-item,
-.list-item,
-.archive-item {
+/* ARCHIVE/BLOG LISTING - Clean post list with correct classes */
+.archive .list__item,
+.archive .archive__item,
+.list__item,
+.archive__item,
+.entries- .list__item,
+.entries- .archive__item {
   border-bottom: 1px solid #f0f0f0;
   padding: 1.5rem 0;
   margin-bottom: 0;
@@ -197,22 +221,25 @@ body {
     border-bottom: none;
   }
   
+  .archive__item-title,
   .archive-item-title {
     font-size: 1.1em;
     font-weight: 600;
     margin-bottom: 0.5rem;
     
     a {
-      color: #333;
-      text-decoration: none;
+      color: #333 !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
       
       &:hover {
-        color: #0066cc;
-        text-decoration: none;
+        color: #0066cc !important;
+        text-decoration: none !important;
       }
     }
   }
   
+  .archive__item-excerpt,
   .archive-item-excerpt {
     color: #666;
     font-size: 0.95em;
@@ -220,9 +247,27 @@ body {
     margin-bottom: 0.5rem;
   }
   
+  .archive__item-date,
   .archive-item-date {
     color: #999;
     font-size: 0.85em;
+  }
+}
+
+/* Strong overrides for post title links */
+.archive__item-title a,
+.archive-item-title a,
+h2.archive__item-title a,
+h2.archive-item-title a,
+.list__item h2 a,
+.archive__item h2 a {
+  color: #333 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  
+  &:hover {
+    color: #0066cc !important;
+    text-decoration: none !important;
   }
 }
 
@@ -259,29 +304,48 @@ body {
   }
 }
 
-/* LINKS AND BUTTONS */
+/* LINKS AND BUTTONS - Strong overrides */
 a {
-  color: #333;
-  text-decoration: none;
+  color: #333 !important;
+  text-decoration: none !important;
   
   &:hover {
-    color: #0066cc;
-    text-decoration: none;
+    color: #0066cc !important;
+    text-decoration: none !important;
+  }
+}
+
+/* Navigation links should remain styled */
+.greedy-nav a {
+  color: #666 !important;
+  
+  &:hover {
+    color: #333 !important;
+  }
+}
+
+/* Sidebar links should be simple */
+.sidebar .author-urls a {
+  color: #666 !important;
+  font-size: 0.9em;
+  
+  &:hover {
+    color: #333 !important;
   }
 }
 
 .btn {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  color: #495057;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 0.9em;
   
   &:hover {
-    background: #e9ecef;
-    color: #495057;
+    background: #e9ecef !important;
+    color: #495057 !important;
   }
 }
 
