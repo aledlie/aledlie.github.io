@@ -133,42 +133,58 @@ body {
 }
 
 /* ARCHIVE/BLOG LISTING - Clean post list */
-.archive {
-  .list-item {
-    border-bottom: 1px solid #f0f0f0;
-    padding: 1.5rem 0;
-    margin-bottom: 0;
+.archive .list-item,
+.archive .archive-item,
+.list-item,
+.archive-item {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1.5rem 0;
+  margin-bottom: 0;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .archive-item-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     
-    &:last-child {
-      border-bottom: none;
-    }
-    
-    .archive-item-title {
-      font-size: 1.3em;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+    a {
+      color: #333;
+      text-decoration: none;
       
-      a {
-        color: #333;
+      &:hover {
+        color: #0066cc;
         text-decoration: none;
-        
-        &:hover {
-          color: #0066cc;
-        }
       }
     }
-    
-    .archive-item-excerpt {
-      color: #666;
-      font-size: 0.95em;
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-    }
-    
-    .archive-item-date {
-      color: #999;
-      font-size: 0.85em;
-    }
+  }
+  
+  .archive-item-excerpt {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  
+  .archive-item-date {
+    color: #999;
+    font-size: 0.85em;
+  }
+}
+
+/* Override any default link styling for post titles */
+.entries-list .list-item h2 a,
+.entries-list .archive-item h2 a,
+h2.archive-item-title a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: none;
+  
+  &:hover {
+    color: #0066cc;
+    text-decoration: none;
   }
 }
 
@@ -249,10 +265,15 @@ body {
   }
 }
 
-/* REMOVE EXCESSIVE SPACING */
+/* REMOVE EXCESSIVE SPACING - but keep masthead visible */
 .page-hero,
 .page-hero-overlay {
   display: none; /* Hide hero sections for cleaner look */
+}
+
+/* Ensure masthead/header remains visible */
+.masthead {
+  display: block;
 }
 
 .initial-content {
@@ -273,6 +294,46 @@ body {
     background: #e9ecef;
     color: #495057;
   }
+}
+
+/* Override default link styling globally */
+a {
+  color: #333;
+  text-decoration: none;
+  
+  &:hover {
+    color: #0066cc;
+    text-decoration: none;
+  }
+}
+
+/* Specific overrides for post titles */
+.entries-list a,
+.archive a,
+.list-item a,
+.archive-item a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: none;
+  
+  &:hover {
+    color: #0066cc;
+    text-decoration: none;
+  }
+}
+
+/* Reduce overall font sizes to match reference */
+body {
+  font-size: 14px;
+}
+
+.archive .list-item .archive-item-title,
+.archive .archive-item .archive-item-title {
+  font-size: 1.1em; /* Reduced from 1.3em */
+}
+
+h2 {
+  font-size: 1.3em; /* Reduced from 1.5em */
 }
 
 /* SOCIAL SHARING - Minimal style */
