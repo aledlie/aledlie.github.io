@@ -15,20 +15,47 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   color: #333;
+  font-size: 14px;
 }
 
-.masthead {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+/* HEADER - Show cover images with minimal spacing */
+.page-hero {
+  display: block;
+  height: 120px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
   
-  .site-title {
-    font-weight: 600;
-    font-size: 1.2em;
-    color: #333;
+  .page-hero-image,
+  img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .page-hero-caption {
+    display: none;
   }
 }
 
-/* NAVIGATION - Fix layout and make bolder */
+.page-hero-overlay {
+  display: block;
+  height: 120px;
+  margin-bottom: 0.5rem;
+  
+  .page-hero-content {
+    display: none;
+  }
+}
+
+/* NAVIGATION */
+.masthead {
+  display: block;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .greedy-nav {
   background: #fff;
   max-width: 1200px;
@@ -48,13 +75,13 @@ body {
   
   .visible-links {
     display: flex;
-    gap: 0.25rem; /* Closer together */
+    gap: 0.25rem;
     flex-wrap: wrap;
     
     a {
       color: #666;
-      font-weight: 600; /* Bolder */
-      padding: 0.5rem 0.75rem; /* Tighter padding */
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
       font-size: 0.95em;
       white-space: nowrap;
       
@@ -63,34 +90,14 @@ body {
       }
     }
   }
-  
-  @media (max-width: 768px) {
-    padding: 0.5rem 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-    
-    .site-title {
-      margin-right: 0;
-      margin-bottom: 0.5rem;
-    }
-    
-    .visible-links {
-      gap: 0.1rem;
-      
-      a {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.9em;
-      }
-    }
-  }
 }
 
-/* MAIN CONTENT AREA - Reduced spacing */
+/* MAIN CONTENT AREA */
 #main {
   background: #fff;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem; /* Reduced from 2rem */
+  padding: 1rem;
 }
 
 .initial-content {
@@ -103,14 +110,12 @@ body {
   background: #fff;
   padding: 2rem 1.5rem;
   
-  .author-avatar {
-    img {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
+  .author-avatar img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
   }
   
   .author-name {
@@ -170,7 +175,7 @@ body {
     font-weight: 500;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee; /* Add line under headings like Recent Posts */
+    border-bottom: 1px solid #eee;
   }
   
   p {
@@ -193,7 +198,7 @@ body {
   }
   
   .archive-item-title {
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 600;
     margin-bottom: 0.5rem;
     
@@ -221,20 +226,6 @@ body {
   }
 }
 
-/* Override any default link styling for post titles */
-.entries-list .list-item h2 a,
-.entries-list .archive-item h2 a,
-h2.archive-item-title a {
-  color: #333;
-  text-decoration: none;
-  border-bottom: none;
-  
-  &:hover {
-    color: #0066cc;
-    text-decoration: none;
-  }
-}
-
 /* SINGLE POST LAYOUT */
 .single {
   .page-title {
@@ -254,7 +245,7 @@ h2.archive-item-title a {
   }
 }
 
-/* FOOTER - Clean and minimal */
+/* FOOTER */
 .page-footer {
   background: #fff;
   border-top: 1px solid #eee;
@@ -265,6 +256,44 @@ h2.archive-item-title a {
   .page-footer-copyright {
     color: #999;
     font-size: 0.85em;
+  }
+}
+
+/* LINKS AND BUTTONS */
+a {
+  color: #333;
+  text-decoration: none;
+  
+  &:hover {
+    color: #0066cc;
+    text-decoration: none;
+  }
+}
+
+.btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9em;
+  
+  &:hover {
+    background: #e9ecef;
+    color: #495057;
+  }
+}
+
+/* SOCIAL SHARING */
+.page-share {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  
+  .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -290,142 +319,33 @@ h2.archive-item-title a {
 }
 
 @media (max-width: 768px) {
-  .masthead .site-title {
-    font-size: 1.1em;
-  }
-  
-  .greedy-nav .visible-links a {
-    padding: 0.5rem;
-    font-size: 0.9em;
+  .greedy-nav {
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .site-title {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1em;
+    }
+    
+    .visible-links {
+      gap: 0.1rem;
+      
+      a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9em;
+      }
+    }
   }
   
   .single .page-title {
     font-size: 1.8em;
   }
   
-  .archive .list-item {
-    padding: 1rem 0;
-    
-    .archive-item-title {
-      font-size: 1.2em;
-    }
-  }
-}
-
-/* HEADER - Show cover images with minimal spacing */
-.page-hero {
-  display: block;
-  height: 120px; /* Reduced height */
-  margin-bottom: 0.5rem; /* Much less space */
-  overflow: hidden;
-  
-  .page-hero-image,
-  img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-  }
-  
-  .page-hero-caption {
-    display: none;
-  }
-}
-
-/* Show overlay images but with reduced height and spacing */
-.page-hero-overlay {
-  display: block;
-  height: 120px;
-  margin-bottom: 0.5rem;
-  
-  .page-hero-content {
-    display: none;
-  }
-}
-
-.masthead {
-  display: block;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  max-width: 1200px;
-  margin: 0 auto;
-  
-  .site-title {
-    font-weight: 600;
+  .archive .list-item .archive-item-title {
     font-size: 1.2em;
-    color: #333;
   }
 }
-
-.initial-content {
-  padding-top: 0;
-}
-
-/* CLEAN UP BUTTONS AND LINKS */
-.btn {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  color: #495057;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 0.9em;
-  
-  &:hover {
-    background: #e9ecef;
-    color: #495057;
-  }
-}
-
-/* Override default link styling globally */
-a {
-  color: #333;
-  text-decoration: none;
-  
-  &:hover {
-    color: #0066cc;
-    text-decoration: none;
-  }
-}
-
-/* Specific overrides for post titles */
-.entries-list a,
-.archive a,
-.list-item a,
-.archive-item a {
-  color: #333;
-  text-decoration: none;
-  border-bottom: none;
-  
-  &:hover {
-    color: #0066cc;
-    text-decoration: none;
-  }
-}
-
-/* Reduce overall font sizes to match reference */
-body {
-  font-size: 14px;
-}
-
-.archive .list-item .archive-item-title,
-.archive .archive-item .archive-item-title {
-  font-size: 1.1em; /* Reduced from 1.3em */
-}
-
-h2 {
-  font-size: 1.3em; /* Reduced from 1.5em */
-}
-
-/* SOCIAL SHARING - Minimal style */
-.page-share {
-  border-top: 1px solid #eee;
-  padding-top: 1.5rem;
-  margin-top: 2rem;
-  
-  .btn {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
 
