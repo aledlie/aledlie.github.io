@@ -4,54 +4,53 @@
 
 @charset "utf-8";
 
-@import "minimal-mistakes/skins/{{ site.minimal-mistakes-skin | default: 'default' }}"; // skin
+@import "minimal-mistakes/skins/contrast"; // skin
 @import "minimal-mistakes"; // main partials
 
 /* Custom styles for tighter, more professional layout */
 
-/* MAJOR WHITESPACE REDUCTION */
-/* Override page hero overlay padding */
+/* WHITESPACE REDUCTION */
 .page-hero-overlay {
   padding-top: 5em;
-  padding-bottom: 0 !important;
+  padding-bottom: 0;
 }
 
-/* Reduce massive gap between header and content */
 .page-hero {
-  margin-bottom: 0.5em !important;
-  padding-bottom: 1em !important;
+  margin-bottom: 0.5em;
+  padding-bottom: 1em;
 }
 
-
-/* Reduce spacing in page inner wrap */
-.page-inner-wrap {
-  padding-top: 0.5em !important;
-}
-
-.page-content {
-  margin-bottom: 1.5em;
-}
-
-/* Tighter header spacing */
 .page-hero-caption {
   margin-bottom: 0.5em;
 }
 
-/* Compact navigation */
+.page-inner-wrap {
+  padding-top: 0.5em;
+}
+
+.page-content {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+/* NAVIGATION */
 .greedy-nav {
   padding: 0.5rem 1rem;
+  
+  a {
+    padding: 0.25rem 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.25rem 0.5rem;
+  }
 }
 
-.greedy-nav a {
-  padding: 0.25rem 0.5rem;
-}
-
-/* Remove excessive top margin from first elements */
-.page-content > *:first-child {
-  margin-top: 0 !important;
-}
-
-/* Tighter blog index styling */
+/* ARCHIVE & TAXONOMY */
 .taxonomy-index {
   margin-bottom: 1em;
 
@@ -81,8 +80,8 @@
   }
 }
 
-/* Compact archive entries */
-.list-item {
+.list-item,
+.archive-item {
   margin-bottom: 0.75em;
 
   .archive-item-title {
@@ -94,51 +93,9 @@
     margin-bottom: 0.25em;
     font-size: 0.9em;
   }
-}
-
-/* Tighter sidebar */
-.sidebar {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.author-avatar {
-  margin-bottom: 0.5em;
-}
-
-.author-content {
-  margin-bottom: 0.5em;
-}
-
-.author-urls {
-  margin-bottom: 0.5em;
-}
-
-/* Compact footer */
-.page-footer {
-  margin-top: 2em;
-  padding: 1em 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .page {
-    padding: 0.25em 0 !important;
-  }
-
-  .greedy-nav {
-    padding: 0.25rem 0.5rem;
-  }
-}
-
-/* Blog post styling improvements */
-.archive-item {
-  margin-bottom: 1em;
-
-  &:hover {
-    .archive-item-title a {
-      color: #0066cc;
-    }
+  
+  &:hover .archive-item-title a {
+    color: #0066cc;
   }
 }
 
@@ -148,21 +105,33 @@
   margin-bottom: 0.25em;
 }
 
-/* Improve readability */
-.page-content {
-  line-height: 1.6;
+/* SIDEBAR */
+.sidebar {
+  padding: 0 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.author-avatar,
+.author-content,
+.author-urls {
   margin-bottom: 0.5em;
-  margin-top: 1em;
+}
+
+/* FOOTER */
+.page-footer {
+  margin-top: 2em;
+  padding: 1em 0;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 0.5em 0;
 }
 
 p {
   margin-bottom: 1em;
 }
 
-/* Buttons */
+/* BUTTONS */
 .social-buttons .btn {
   display: inline-block;
   margin: 0.25rem;
@@ -171,9 +140,17 @@ p {
   background: #eee;
   text-decoration: none;
   font-weight: bold;
+  
+  &:hover {
+    background: #ddd;
+  }
 }
-.social-buttons .btn:hover {
-  background: #ddd;
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .page {
+    padding: 0.25em 0;
+  }
 }
 
 
