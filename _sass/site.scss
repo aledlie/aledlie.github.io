@@ -1,6 +1,7 @@
 @use "sass:color";
 @use 'variables' as *;
 @use 'mixins' as *;
+
 /* ==========================================================================
    Site wide styles
    ========================================================================== */
@@ -45,15 +46,7 @@
 
 /* Clearfix */
 .clearfix {
-	*zoom: 1;
-	&:before,
-	&:after {
-		display: table;
-	    content: "";
-	}
-	&:after {
-		clear: both;
-	}
+	@include clearfix;
 }
 
 /* Remove bullets and indentation from list */

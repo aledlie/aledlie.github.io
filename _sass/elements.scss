@@ -1,6 +1,6 @@
-@use 'mixins';
-@use 'variables';
-@use 'grid';
+@use 'mixins' as *;
+@use 'variables' as *;
+@use 'grid' as *;
 
 /* 
    Rules
@@ -21,7 +21,7 @@ hr {
    ========================================================================== */
 
 figure {
-	margin-bottom: mixins.$indent-var;
+	margin-bottom: $indent-var;
 }
 
 article img {
@@ -29,7 +29,6 @@ article img {
 	height: auto;
 	border-width: 0; 
 	vertical-align: middle; 
-	-ms-interpolation-mode: bicubic; 
 }
 
 svg:not(:root) {
@@ -39,14 +38,14 @@ svg:not(:root) {
 /* 2 images of equal dimensions in a row */
 
 .half {
-	@include grid.container;
-	@include mixins.clearfix;
-	@media #{variables.$micro} {
+	@include container;
+	@include clearfix;
+	@media #{$micro} {
 		img {
-			@include grid.grid(12,6);
+			@include grid(12,6);
 		}
 		figcaption {
-			@include grid.grid(12,12);
+			@include grid(12,12);
 		}
 	}
 }
@@ -54,14 +53,14 @@ svg:not(:root) {
 /* 3 images of equal dimensions in a row */
 
 .third {
-	@include grid.container;
-	@include mixins.clearfix;
-	@media #{variables.$micro} {
+	@include container;
+	@include clearfix;
+	@media #{$micro} {
 		img {
-			@include grid.grid(12,4);
+			@include grid(12,4);
 		}
 		figcaption {
-			@include grid.grid(12,12);
+			@include grid(12,12);
 		}
 	}
 }
@@ -76,82 +75,82 @@ svg:not(:root) {
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 20px;
-  @include mixins.font-rem(14);
-  font-family: variables.$heading-font;
+  @include font-rem(14);
+  font-family: $heading-font;
   font-weight: 700;
-  background-color: variables.$primary;
-  color: variables.$white;
+  background-color: $primary;
+  color: $white;
   border-width: 2px !important;
   border-style: solid !important;
-  border-color: variables.$primary;
+  border-color: $primary;
   text-decoration: none !important;
-  @include mixins.rounded(3px);
+  @include rounded(3px);
   &:visited {
-    color: variables.$white;
+    color: $white;
   }
   &:hover {
-    background-color: variables.$white;
-    color: variables.$primary;
+    background-color: $white;
+    color: $primary;
   }
 }
 
 /* Success button */
 
 .btn-success {
-  background-color: variables.$success;
-  color: variables.$white;
-  border-color: variables.$success;
+  background-color: $success;
+  color: $white;
+  border-color: $success;
   &:visited {
-    color: variables.$white;
+    color: $white;
   }
   &:hover {
-    background-color: variables.$white;
-    color: variables.$success;
+    background-color: $white;
+    color: $success;
   }
 }
 
 /* Warning button */
 
 .btn-warning {
-  background-color: variables.$warning;
-  color: variables.$white;
-  border-color: variables.$warning;
+  background-color: $warning;
+  color: $white;
+  border-color: $warning;
   &:visited {
-    color: variables.$white;
+    color: $white;
   }
   &:hover {
-    background-color: variables.$white;
-    color: variables.$warning;
+    background-color: $white;
+    color: $warning;
   }
 }
 
 /* Danger button */
 
 .btn-danger {
-  background-color: variables.$danger;
-  color: variables.$white;
-  border-color: variables.$danger;
+  background-color: $danger;
+  color: $white;
+  border-color: $danger;
   &:visited {
-    color: variables.$white;
+    color: $white;
   }
   &:hover {
-    background-color: variables.$white;
-    color: variables.$danger;
+    background-color: $white;
+    color: $danger;
   }
 }
 
 /* Information button */
 
 .btn-info {
-  background-color: variables.$info;
-  color: variables.$white;
-  border-color: variables.$info;
+  background-color: $info;
+  color: $white;
+  border-color: $info;
   &:visited {
-    color: variables.$white;
+    color: $white;
   }
   &:hover {
-    background-color: variables.$white;
-    color: variables.$info;
+    background-color: $white;
+    color: $info;
   }
 }
 
@@ -165,6 +164,6 @@ svg:not(:root) {
 	margin-bottom: 20px;
 	background-color: #f5f5f5;
 	border: 1px solid #e3e3e3;
-	@include mixins.rounded(4px);
-	@include mixins.box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
+	@include rounded(4px);
+	@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
 }
