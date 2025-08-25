@@ -6,8 +6,6 @@
 
 @import "minimal-mistakes/skins/contrast"; // skin
 @import "minimal-mistakes"; // main partials
-@import "grid";
-@import "mixins";
 
 /* Clean, minimal styling inspired by reference design */
 
@@ -49,17 +47,6 @@ body {
   }
 }
 
-/* Navigation wrapper */
-.navigation-wrapper {
-	@include container;
-	padding: 2em 0 1em;
-	font-family: $heading-font;
-	font-weight: 700;
-	text-transform: uppercase;
-	@include clearfix;
-}
-
-
 /* NAVIGATION - wrapper */
 .masthead {
   display: block;
@@ -68,28 +55,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.25rem 0;
-
-
-  .site-name {
-	@include grid(12,10);
-	@include prefix(12,1);
-	@include suffix(12,1);
-	margin-bottom: 1em;
-	float: none;
-	display: block;
-	@include font-rem(24);
-	@media #{$small} {
-		@include grid(12,2);
-		@include prefix(12,0.5);
-		@include suffix(12,0.5);
-		@include font-rem(16);
-	}
-	@media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
-	}
 }
-
 
 .greedy-nav {
   background: #fff;
@@ -99,27 +65,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
-.site-title {
-	@include grid(12,10);
-	@include prefix(12,1);
-	@include suffix(12,1);
-	margin-bottom: 1em;
-	float: none;
-	display: block;
-	@include font-rem(24);
-	  @media #{$small} {
-		@include grid(12,2);
-		@include prefix(12,0.5);
-		@include suffix(12,0.5);
-		@include font-rem(16);
-	  }
-	  @media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
-	  }
-    }
-
 
   .visible-links {
     display: flex;
