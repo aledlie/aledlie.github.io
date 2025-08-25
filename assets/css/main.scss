@@ -9,56 +9,42 @@
 
 /* Clean, minimal styling inspired by reference design */
 
-/* GLOBAL LAYOUT */
+/* GLOBAL OVERRIDES - Only what differs from theme defaults */
 body {
-  background-color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; // Smaller than theme default
   line-height: 1.6;
-  color: #333;
-  font-size: 14px;
 }
 
-/* HEADER - Show cover images with minimal spacing */
+/* HEADER - Compact cover images */
 .page-hero {
-  display: block;
   height: 120px;
-  overflow: hidden;
-
+  
   .page-hero-image,
   img {
-    width: 100%;
     height: 120px;
     object-fit: cover;
   }
-
+  
   .page-hero-caption {
     display: none;
   }
 }
 
 .page-hero-overlay {
-  display: block;
   height: 120px;
-
+  
   .page-hero-content {
     display: none;
   }
 }
 
-/* NAVIGATION - main Sumedh's styling from an older version of minimal-mistakes */
+/* NAVIGATION - Custom styling for academic look */
 .masthead {
-  display: block;
-  background-color: #fff;
   border-bottom: 1px solid #eee;
   padding: 2em 0 1em;
 }
 
 .greedy-nav {
-  background: #fff;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  font-size: 1em;
   font-family: "PT Sans Narrow", sans-serif;
   text-transform: uppercase;
   text-align: center;
@@ -70,8 +56,6 @@ body {
   }
 
   .nav-links {
-    display: flex;
-    flex-wrap: wrap;
     margin-right: 4.1666666667%;
     margin-left: 4.1666666667%;
 
@@ -88,10 +72,8 @@ body {
   }
 }
 
-
-/* MAIN CONTENT AREA */
+/* MAIN CONTENT - Constrained width and minimal padding */
 #main {
-  background: #fff;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.25rem;
@@ -102,74 +84,40 @@ body {
   margin-top: 0;
 }
 
-/* SIDEBAR - Ultra compact spacing matching reference */
+/* SIDEBAR - Compact spacing */
 .sidebar {
-  background: #fff;
   padding: 0.5rem;
 
   .author-avatar img {
-    border-radius: 50%;
     width: 150px;
     height: 150px;
-    object-fit: cover;
   }
 
   .author-name {
     font-size: 1.5em;
     font-weight: 600;
-    color: #333;
   }
 
   .author-bio {
     font-style: italic;
     color: #666;
-    font-size: 1em;
   }
 
   .author-urls {
-    list-style: none;
-    padding: 0;
     margin-top: 0;
 
-    li {
-      a {
-        color: #666;
-        text-decoration: none;
-        font-size: 1em;
-        display: block;
-
-        &:hover {
-          color: #333 !important;
-        }
+    li a {
+      font-size: 1em;
+      
+      &:hover {
+        color: #333 !important;
       }
-    }
-  }
-
-  /* Style the Follow button to be simpler */
-  .btn {
-    background: #f8f9fa !important;
-    border: 1px solid #dee2e6;
-    color: #666;
-    font-size: 1em;
-    display: flex;
-
-    &:hover {
-      background: #e9ecef !important;
-      color: #333 !important;
     }
   }
 }
 
-/* MAIN CONTENT - Ultra compact spacing */
+/* CONTENT HEADINGS - Tighter spacing */
 .page-content {
-  background: #fff;
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #333;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
   h1 {
     font-size: 2em;
     margin-bottom: 0.5rem;
@@ -190,18 +138,15 @@ body {
   }
 }
 
-/* ARCHIVE/BLOG LISTING - Ultra compact post list with no padding */
+/* ARCHIVE LISTINGS - Compact post list */
 .archive .list__item,
 .archive .archive__item,
 .list__item,
-.archive__item,
-.entries- .list__item,
-.entries- .archive__item {
+.archive__item {
   padding: 0;
   margin-bottom: 0;
 
-  .archive__item-title,
-  .archive-item-title {
+  .archive__item-title {
     font-size: 1.1em;
     font-weight: 600;
     margin-bottom: 0.25rem;
@@ -213,49 +158,28 @@ body {
 
       &:hover {
         color: #0066cc !important;
-        text-decoration: none !important;
       }
     }
   }
 
-  .archive__item-excerpt,
-  .archive-item-excerpt {
+  .archive__item-excerpt {
     color: #666;
     font-size: 0.95em;
     line-height: 1.5;
     margin-bottom: 0.25rem;
   }
 
-  .archive__item-date,
-  .archive-item-date {
+  .archive__item-date {
     color: #999;
     font-size: 0.85em;
   }
 }
 
-/* Strong overrides for post title links */
-.archive__item-title a,
-.archive-item-title a,
-h2.archive__item-title a,
-h2.archive-item-title a,
-.list__item h2 a,
-.archive__item h2 a {
-  color: #333 !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-
-  &:hover {
-    color: #0066cc !important;
-    text-decoration: none !important;
-  }
-}
-
-/* SINGLE POST LAYOUT */
+/* SINGLE POST - Enhanced typography */
 .single {
   .page-title {
     font-size: 2.2em;
     font-weight: 700;
-    color: #333;
     margin-bottom: 1rem;
     line-height: 1.2;
   }
@@ -269,9 +193,8 @@ h2.archive-item-title a,
   }
 }
 
-/* FOOTER */
+/* FOOTER - Clean styling */
 .page-footer {
-  background: #fff;
   border-top: 1px solid #eee;
   margin-top: 3rem;
   padding: 2rem 0;
@@ -283,48 +206,22 @@ h2.archive-item-title a,
   }
 }
 
-/* LINKS AND BUTTONS - Strong overrides */
+/* GLOBAL LINK OVERRIDES - Clean black text */
 a {
   color: #333 !important;
   text-decoration: none !important;
 
   &:hover {
     color: #0066cc !important;
-    text-decoration: none !important;
   }
 }
 
-/* Navigation links should remain styled */
+/* Preserve navigation link styling */
 .greedy-nav a {
   color: #666 !important;
 
   &:hover {
     color: #333 !important;
-  }
-}
-
-/* Sidebar links should be simple */
-.sidebar .author-urls a {
-  color: #666 !important;
-  font-size: 0.9em;
-
-  &:hover {
-    color: #333 !important;
-  }
-}
-
-.btn {
-  background: #f8f9fa !important;
-  border: 1px solid #dee2e6 !important;
-  color: #495057 !important;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none !important;
-  font-size: 0.9em;
-
-  &:hover {
-    background: #e9ecef !important;
-    color: #495057 !important;
   }
 }
 
@@ -340,7 +237,7 @@ a {
   }
 }
 
-/* RESPONSIVE DESIGN - Ultra compact */
+/* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   #main {
     padding: 0.25rem;
