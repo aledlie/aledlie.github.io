@@ -208,14 +208,14 @@ body {
   }
 }
 
-/* ARCHIVE/BLOG LISTING - Ultra compact post list */
+/* ARCHIVE/BLOG LISTING - Ultra compact post list with no padding */
 .archive .list__item,
 .archive .archive__item,
 .list__item,
 .archive__item,
 .entries- .list__item,
 .entries- .archive__item {
-  padding: 0.5rem 0;
+  padding: 0;
   margin-bottom: 0;
   
   .archive__item-title,
