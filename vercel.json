@@ -1,0 +1,27 @@
+{
+  "buildCommand": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build",
+  "outputDirectory": "_site",
+  "installCommand": "bundle install",
+  "framework": null,
+  "functions": {},
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/assets/css/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type", 
+          "value": "text/css; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

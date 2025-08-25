@@ -17,22 +17,23 @@ body {
 
 /* HEADER - Compact cover images */
 .page-hero {
-  height: 120px;
-  
+  height: 100px;
+  padding-bottom: 2em;
+
   .page-hero-image,
   img {
-    height: 120px;
+    height: 100px;
     object-fit: cover;
   }
-  
+
   .page-hero-caption {
     display: none;
   }
 }
 
 .page-hero-overlay {
-  height: 120px;
-  
+  height: 100px;
+
   .page-hero-content {
     display: none;
   }
@@ -40,7 +41,7 @@ body {
 
 /* NAVIGATION - Custom styling for academic look */
 .masthead {
-  border-bottom: 1px solid #eee;
+  border-bottom: .5px solid #eee;
   padding: 2em 0 1em;
 }
 
@@ -48,6 +49,9 @@ body {
   font-family: "PT Sans Narrow", sans-serif;
   text-transform: uppercase;
   text-align: center;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 
   .site-title {
     width: 16.6666666667%;
@@ -56,6 +60,8 @@ body {
   }
 
   .nav-links {
+    display: flex;
+    flex-wrap: wrap;
     margin-right: 4.1666666667%;
     margin-left: 4.1666666667%;
 
@@ -86,11 +92,14 @@ body {
 
 /* SIDEBAR - Compact spacing */
 .sidebar {
-  padding: 0.5rem;
+  padding-top: 1em;
+  padding-left: 1em;
 
   .author-avatar img {
     width: 150px;
     height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .author-name {
@@ -103,12 +112,26 @@ body {
     color: #666;
   }
 
+  /* Style the Follow button to be simpler */
+  .btn {
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6;
+    color: #666;
+    font-size: 1em;
+    display: flex;
+
+    &:hover {
+      background: #e9ecef !important;
+      color: #333 !important;
+    }
+  }
+
   .author-urls {
     margin-top: 0;
 
     li a {
       font-size: 1em;
-      
+
       &:hover {
         color: #333 !important;
       }

@@ -5,6 +5,7 @@ title_separator: "-"
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
+encoding: utf-8
 analytics:
   provider: "google-gtag"
   google:
