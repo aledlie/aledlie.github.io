@@ -26,7 +26,7 @@ defaults:
       type: pages
     values:
       layout: single
-      show_date: true
+      show_date: false
 social:
   name: Alyshia
 
