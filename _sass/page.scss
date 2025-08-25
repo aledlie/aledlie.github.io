@@ -292,7 +292,6 @@ page-lead {
 }
 
 .taxonomy-section {
-  margin-bottom: 2em;
   padding-bottom: 1em;
 
   &:not(:last-child) {
@@ -305,7 +304,7 @@ page-lead {
 
   .archive-subtitle {
     clear: both;
-    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   + .taxonomy-section {
