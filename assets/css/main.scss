@@ -265,15 +265,46 @@ h2.archive-item-title a {
   }
 }
 
-/* REMOVE EXCESSIVE SPACING - but keep masthead visible */
-.page-hero,
-.page-hero-overlay {
-  display: none; /* Hide hero sections for cleaner look */
+/* HEADER - Show cover images with minimal styling */
+.page-hero {
+  display: block;
+  height: 150px; /* Compact height */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  
+  .page-hero-image,
+  img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .page-hero-caption {
+    display: none; /* Hide captions for cleaner look */
+  }
 }
 
-/* Ensure masthead/header remains visible */
+/* Show overlay images but with reduced height */
+.page-hero-overlay {
+  display: block;
+  height: 150px;
+  margin-bottom: 1.5rem;
+  
+  .page-hero-content {
+    display: none; /* Hide overlay text */
+  }
+}
+
 .masthead {
   display: block;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  
+  .site-title {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #333;
+  }
 }
 
 .initial-content {
