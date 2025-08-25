@@ -24,14 +24,14 @@ body {
   height: 120px;
   margin-bottom: 0.1rem;
   overflow: hidden;
-  
+
   .page-hero-image,
   img {
     width: 100%;
     height: 120px;
     object-fit: cover;
   }
-  
+
   .page-hero-caption {
     display: none;
   }
@@ -41,7 +41,7 @@ body {
   display: block;
   height: 120px;
   margin-bottom: 0.1rem;
-  
+
   .page-hero-content {
     display: none;
   }
@@ -65,7 +65,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  
+
   .site-title {
     font-weight: 700;
     font-size: 1.4em;
@@ -73,19 +73,19 @@ body {
     margin-right: 1.5rem;
     flex-shrink: 0;
   }
-  
+
   .visible-links {
     display: flex;
     gap: 0.05rem;
     flex-wrap: wrap;
-    
+
     a {
       color: #666;
       font-weight: 900;
       padding: 0.1rem 0.3rem;
       font-size: 1em;
       white-space: nowrap;
-      
+
       &:hover {
         color: #333;
       }
@@ -110,7 +110,7 @@ body {
 .sidebar {
   background: #fff;
   padding: 0.5rem;
-  
+
   .author-avatar img {
     border-radius: 50%;
     width: 150px;
@@ -118,40 +118,40 @@ body {
     object-fit: cover;
     margin-bottom: 0.25rem;
   }
-  
+
   .author-name {
     font-size: 1.5em;
     font-weight: 600;
     color: #333;
     margin-bottom: 0.1rem;
   }
-  
+
   .author-bio {
     font-style: italic;
     color: #666;
     margin-bottom: 0.25rem;
     font-size: 0.9em;
   }
-  
+
   .author-urls {
     list-style: none;
     padding: 0;
     margin-top: 0;
-    
+
     li {
       margin-bottom: 0.05rem;
-      
+
       a {
         color: #666 !important;
         text-decoration: none !important;
         font-size: 0.9em;
         display: block;
         padding: 0.02rem 0;
-        
+
         &:hover {
           color: #333 !important;
         }
-        
+
         /* Hide icons for cleaner look like reference */
         i, .fas, .fab {
           display: none;
@@ -159,7 +159,7 @@ body {
       }
     }
   }
-  
+
   /* Style the Follow button to be simpler */
   .btn {
     background: #f8f9fa !important;
@@ -168,7 +168,7 @@ body {
     font-size: 0.85em;
     padding: 0.3rem 0.6rem;
     margin-top: 0.25rem;
-    
+
     &:hover {
       background: #e9ecef !important;
       color: #333 !important;
@@ -180,19 +180,18 @@ body {
 .page-content {
   background: #fff;
   padding: 0 0.5rem;
-  
+
   h1, h2, h3, h4, h5, h6 {
     color: #333;
     font-weight: 600;
-    margin: 0.5rem 0 0.25rem 0;
     line-height: 1.3;
   }
-  
+
   h1 {
     font-size: 2em;
     margin-bottom: 0.5rem;
   }
-  
+
   h2 {
     font-size: 1.3em;
     color: #666;
@@ -201,7 +200,7 @@ body {
     padding-bottom: 0.1rem;
     border-bottom: 1px solid #eee;
   }
-  
+
   p {
     margin-bottom: 0.5rem;
     color: #444;
@@ -217,25 +216,25 @@ body {
 .entries- .archive__item {
   padding: 0;
   margin-bottom: 0;
-  
+
   .archive__item-title,
   .archive-item-title {
     font-size: 1.1em;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    
+
     a {
       color: #333 !important;
       text-decoration: none !important;
       border-bottom: none !important;
-      
+
       &:hover {
         color: #0066cc !important;
         text-decoration: none !important;
       }
     }
   }
-  
+
   .archive__item-excerpt,
   .archive-item-excerpt {
     color: #666;
@@ -243,7 +242,7 @@ body {
     line-height: 1.5;
     margin-bottom: 0.25rem;
   }
-  
+
   .archive__item-date,
   .archive-item-date {
     color: #999;
@@ -261,7 +260,7 @@ h2.archive-item-title a,
   color: #333 !important;
   text-decoration: none !important;
   border-bottom: none !important;
-  
+
   &:hover {
     color: #0066cc !important;
     text-decoration: none !important;
@@ -277,7 +276,7 @@ h2.archive-item-title a,
     margin-bottom: 1rem;
     line-height: 1.2;
   }
-  
+
   .page-meta {
     color: #999;
     font-size: 0.9em;
@@ -294,7 +293,7 @@ h2.archive-item-title a,
   margin-top: 3rem;
   padding: 2rem 0;
   text-align: center;
-  
+
   .page-footer-copyright {
     color: #999;
     font-size: 0.85em;
@@ -305,7 +304,7 @@ h2.archive-item-title a,
 a {
   color: #333 !important;
   text-decoration: none !important;
-  
+
   &:hover {
     color: #0066cc !important;
     text-decoration: none !important;
@@ -315,7 +314,7 @@ a {
 /* Navigation links should remain styled */
 .greedy-nav a {
   color: #666 !important;
-  
+
   &:hover {
     color: #333 !important;
   }
@@ -325,7 +324,7 @@ a {
 .sidebar .author-urls a {
   color: #666 !important;
   font-size: 0.9em;
-  
+
   &:hover {
     color: #333 !important;
   }
@@ -339,7 +338,7 @@ a {
   border-radius: 4px;
   text-decoration: none !important;
   font-size: 0.9em;
-  
+
   &:hover {
     background: #e9ecef !important;
     color: #495057 !important;
@@ -351,7 +350,7 @@ a {
   border-top: 1px solid #eee;
   padding-top: 1.5rem;
   margin-top: 2rem;
-  
+
   .btn {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
@@ -363,17 +362,17 @@ a {
   #main {
     padding: 0.25rem;
   }
-  
+
   .sidebar {
     padding: 0.25rem;
     text-align: center;
-    
+
     .author-avatar img {
       width: 120px;
       height: 120px;
     }
   }
-  
+
   .page-content {
     padding: 0 0.25rem;
   }
@@ -384,16 +383,16 @@ a {
     padding: 0.1rem 0.5rem;
     flex-direction: column;
     align-items: flex-start;
-    
+
     .site-title {
       margin-right: 0;
       margin-bottom: 0.1rem;
       font-size: 1.2em;
     }
-    
+
     .visible-links {
       gap: 0.02rem;
-      
+
       a {
         padding: 0.1rem 0.2rem;
         font-size: 0.9em;
@@ -401,11 +400,11 @@ a {
       }
     }
   }
-  
+
   .single .page-title {
     font-size: 1.8em;
   }
-  
+
   .archive .list__item .archive__item-title {
     font-size: 1.2em;
   }
