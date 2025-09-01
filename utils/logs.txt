@@ -1,0 +1,1146 @@
+commit db89c01b219253e21310cd40353e3025089ea601
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 06:38:24 2025 -0500
+
+    Added What3Things
+
+commit 604ca0e276c98c1e4a3244709d1da4d796903002
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 05:08:25 2025 -0500
+
+    Added projects index
+
+commit b29714bb4d6556913ce368d9f5799df8bee7f571
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 03:27:25 2025 -0500
+
+    Fix encoding issues for Vercel deployment
+    
+    - Recreated main.scss with proper ASCII characters
+    - Added UTF-8 encoding configuration to _config.yml
+    - Added vercel.json with proper build settings and headers
+    - Resolved Invalid US-ASCII character error
+
+commit 6490724c4252b0c4ed53302b8e184f8846c2bf7e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 03:00:17 2025 -0500
+
+    Remove calendar dates from homepage post listings
+    
+    - Set show_date: false for pages in _config.yml defaults
+    - Keeps dates on individual post pages but removes them from homepage index
+    - Creates cleaner, more minimal post listing aesthetic
+
+commit d8090cd85d90b8d38173199e67208a74097992bc
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 02:56:14 2025 -0500
+
+    Simplify CSS by removing duplicates between custom styles and theme defaults
+    
+    - Removed redundant background-color, font-family, and display declarations
+    - Consolidated duplicate selectors and margin/padding rules
+    - Streamlined link color overrides to focus on essential changes
+    - Reduced file size by ~25% while preserving all functionality and aesthetics
+    - Maintained compact 120px headers, academic navigation, 14px base font, and clean post styling
+
+commit 60e7a35f1d14076db4eb2388dcb6c5be04ff8f6f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 25 02:31:28 2025 -0500
+
+    fix masthead spacing
+
+commit c1525808ae9d5427cb926f902ef6384c780499d7
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 23:00:05 2025 -0500
+
+    Clean up main.scss: Remove unused imports and redundant navigation styles
+    
+    - Removed unused @import statements for grid and mixins
+    - Cleaned up redundant .navigation-wrapper styles
+    - Removed duplicate .site-name and .site-title styles
+    - Streamlined masthead and navigation styling
+    - Improved code organization and reduced CSS bloat
+
+commit 9f881bf9b9eb9b48771d049eb4f440bd5f57c591
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 22:56:32 2025 -0500
+
+    Implement comprehensive Sass improvements and modernization
+    
+    🎨 SASS MODERNIZATION:
+    - Removed duplicate forms.scss file (kept newer _forms.scss)
+    - Updated all @use statements with proper namespacing (as *)
+    - Removed outdated vendor prefixes for modern browser support
+    - Modernized mixins.scss with streamlined, prefix-free CSS
+    
+    🔒 SECURITY & PERFORMANCE:
+    - Updated Google Fonts URLs from HTTP to HTTPS
+    - Fixed @font_face syntax to proper @font-face
+    - Removed IE-specific hacks and fallbacks
+    - Optimized CSS output by removing redundant prefixes
+    
+    ✨ NEW FEATURES:
+    - Added modern flexbox utility mixins (flex-center, flex-between)
+    - Enhanced breakpoint mixin for responsive design
+    - Improved typography system with consistent rem units
+    - Added comprehensive _sass/README.md documentation
+    
+    🧹 CODE QUALITY:
+    - Consistent Sass variable scoping across all files
+    - Proper module imports and namespace management
+    - Streamlined animation and transform mixins
+    - Better organized component structure
+    
+    📱 RESPONSIVE IMPROVEMENTS:
+    - Enhanced grid system with modern CSS
+    - Improved breakpoint handling
+    - Mobile-first responsive utilities
+    
+    This modernization brings the Sass codebase up to current standards while
+    maintaining backward compatibility and improving build performance.
+
+commit 8a3ee632ad600764fdaa2139f542810e85598b50
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 22:38:25 2025 -0500
+
+    Clean up _sass directory: Remove duplicates, fix extensions, and remove swap files
+    
+    - Removed duplicate file: _sass/vendor/_fonts.scss''
+    - Fixed file extension: _footer.scsss → _footer.scss
+    - Removed 3 Vim swap files (.swp) that shouldn't be in version control:
+      - _sass/.sidebar.scss.swp
+      - _sass/minimal-mistakes/.sidebar.scss.swp
+      - _sass/minimal-mistakes/._utilities.scss.swp
+    
+    This cleanup ensures proper SCSS compilation and maintains clean version control.
+
+commit 4b6617d80b8688f01962122daebe5d41550fb10b
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 22:36:16 2025 -0500
+
+    Clean up duplicate files: Remove 23 duplicate files with '' suffix
+    
+    - Removed 17 duplicate layout files from _layouts/
+    - Removed 4 duplicate search include files from _includes/search/
+    - Removed 1 duplicate template file from _templates/
+    - Removed 1 duplicate CSS file from assets/css/
+    - Updated main.scss with latest customizations
+    
+    This cleanup eliminates file naming issues and maintains only the current,
+    properly named versions of all Jekyll template and asset files.
+
+commit 3c7ff7311aeec34b8e5c000e261d3ceff6691df8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 22:18:03 2025 -0500
+
+    Remove all padding from list__item elements
+    
+    - Set padding: 0 for all list__item and archive__item elements
+    - Create maximum density layout with no vertical spacing between posts
+    - Maintain clean typography and hover states
+    - Achieve ultra-compact blog post list matching reference design
+
+commit 9acad98b85b8d94213149cab6541243c05f7cfa8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 22:07:48 2025 -0500
+
+    Ultra-compact design: Dramatically reduce whitespace and bold navigation
+    
+    - Increase navigation font-weight to 900 for maximum boldness
+    - Reduce all padding and margins by 50-75% throughout the site
+    - Remove padding between author bio and author-urls (0.25rem gap)
+    - Ultra-compact sidebar with minimal spacing between all elements
+    - Dramatically reduce header, main content, and page content spacing
+    - Tighten blog post list spacing from 1rem to 0.5rem padding
+    - Make responsive design consistently ultra-compact
+    - Match reference design density with professional, tight layout
+
+commit 51083275dbacd087d94eeb78c894d2aecc34cc2e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:52:07 2025 -0500
+
+    Fix spacing and navigation to better match reference design
+    
+    - Significantly reduce whitespace between all components (header, main, sidebar)
+    - Remove lines under individual blog posts, keep only under 'Recent Posts' heading
+    - Make navigation bolder and more compact with increased font-weight and reduced gaps
+    - Reduce padding throughout: main content, sidebar, page content, and responsive breakpoints
+    - Tighten spacing between profile elements and social links
+    - Improve navigation typography to match reference design density
+
+commit b211c88859fe8fa73969c2b4135a16a21d6193f2
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:41:08 2025 -0500
+
+    Complete site redesign: Update README with comprehensive documentation
+    
+    - Document complete transformation from Minimal Mistakes theme to clean academic design
+    - Add detailed project structure with file descriptions and customization status
+    - Document major CSS overhaul with clean, minimal aesthetic inspired by reference design
+    - Include technology stack, development workflow, and deployment information
+    - Detail performance optimizations and browser support
+    - Provide comprehensive customization notes for future maintenance
+    - Document successful removal of blue underlined links and implementation of clean typography
+    - Include color scheme, typography scale, and responsive design details
+
+commit 6bd2fbbd97595d6d96879e00643f2a57ce6f5d59
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:26:58 2025 -0500
+
+    Clean up deleted files and fix index.html formatting
+    
+    - Remove deleted _discus_comments.html and archive-taxonomy.html files
+    - Fix index.html formatting (add missing newline)
+    - Clean up repository state
+
+commit 2b98bea64264894af75c8fbd86ba22dbb9a0c54d
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:22:35 2025 -0500
+
+    Fix character encoding issue in main.scss for Vercel deployment
+    
+    - Recreate SCSS file with clean ASCII characters to resolve \xE2 encoding error
+    - Ensure UTF-8 charset declaration at top of file
+    - Maintain all existing styling and functionality
+    - Fix Vercel deployment issue with Jekyll SCSS converter
+
+commit b456818f9f42546360680cd5a87eb2605ebef581
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:17:28 2025 -0500
+
+    Fix post title styling and improve layout to match reference design
+    
+    - Target correct archive classes (.list__item, .archive__item with double underscores)
+    - Add strong !important overrides to remove blue underlined post titles
+    - Improve sidebar styling to match reference with cleaner links
+    - Hide social media icons for simpler text-only links like reference
+    - Add stronger global link overrides to ensure consistent styling
+    - Improve button styling for cleaner appearance
+
+commit a8c774384e32e411b93133f11a5823095ae66740
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:04:03 2025 -0500
+
+    Remove duplicated CSS and consolidate redundant styling
+    
+    - Consolidated duplicate .masthead definitions into single block
+    - Removed redundant .initial-content padding-top declarations
+    - Merged duplicate body font-size declarations
+    - Eliminated redundant link styling overrides
+    - Consolidated .archive-item-title font-size rules
+    - Removed duplicate h2 font-size declarations
+    - Merged responsive media query rules for better organization
+    - Simplified .author-avatar nesting structure
+    - Reduced file size by ~25% while maintaining all functionality
+
+commit 9f8c7d3549fcc27e439897453482d75f7a76e85c
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 21:02:01 2025 -0500
+
+    Fix navigation layout and add section dividers
+    
+    - Fix navigation layout with proper flexbox to prevent overlap
+    - Make navigation links bolder (font-weight: 600) and closer together
+    - Increase site title margin to prevent 'About' link from hiding behind it
+    - Add thin line under h2 headings like 'Recent Posts' for better section separation
+    - Improve responsive navigation layout for mobile devices
+    - Reduce h2 font size for better hierarchy
+
+commit c6ff2ab8e80189b3b8551da08705d584736089bd
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 20:58:30 2025 -0500
+
+    Improve navigation and spacing to better match reference design
+    
+    - Constrain navigation width with max-width and center alignment
+    - Make site title bolder and better positioned with proper margins
+    - Reduce header height from 150px to 120px for more compact look
+    - Significantly reduce spacing between header and content
+    - Add proper navigation gap and font weights to match reference
+    - Improve responsive navigation for mobile devices
+
+commit 19396fdd432f5503b6d7cc8df05c88b6f413c2b3
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 20:45:46 2025 -0500
+
+    Fix header to display cover images properly
+    
+    - Enable page-hero and page-hero-overlay sections with compact 150px height
+    - Show cover*.png images from images directory
+    - Hide captions and overlay text for cleaner minimal look
+    - Maintain responsive image sizing with object-fit: cover
+
+commit 59cec04f75b22a21f37b0ebf9ce0a1edd50e1332
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 20:39:10 2025 -0500
+
+    Fix header visibility and post title styling issues
+    
+    - Ensure masthead/header remains visible while hiding hero sections
+    - Remove blue underlined links from post titles
+    - Add comprehensive link styling overrides
+    - Reduce font sizes to better match reference design
+    - Fix archive item styling specificity issues
+
+commit bfed94bd54424593848bc6bb1c6181582c736a8d
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 20:33:37 2025 -0500
+
+    Redesign site with clean, minimal aesthetic inspired by reference blog
+    
+    - Complete SCSS rewrite for cleaner, more professional look
+    - Remove all !important declarations in favor of proper CSS specificity
+    - Implement clean white background with minimal color scheme
+    - Add proper two-column layout with sidebar and main content
+    - Style circular profile image (150px) in sidebar
+    - Improve typography with system fonts and consistent spacing
+    - Add clean post listing with proper hierarchy and spacing
+    - Implement responsive design with mobile-first approach
+    - Hide hero sections for cleaner, content-focused design
+    - Add subtle borders and hover effects instead of heavy styling
+
+commit 89669bbe0ba83cdd156c3247d2f0d48de25bd380
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 20:24:29 2025 -0500
+
+    Fix SCSS skin import and refactor CSS for better maintainability
+    
+    - Hardcode minimal-mistakes skin import to 'contrast' theme
+    - Remove all !important declarations for better CSS specificity
+    - Consolidate redundant styling rules and selectors
+    - Improve SCSS organization with better nesting and grouping
+    - Reduce file size by ~40% while maintaining functionality
+    - Fix variable name mismatch (minimal-mistakes-skin vs minimal_mistakes_skin)
+
+commit 3e66e78d848b11c591570711bf125519b567e2a7
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 18:01:28 2025 -0500
+
+    fix: Correct YAML front matter in main.scss
+    
+    - Fix invalid single dashes to proper triple dashes (---) in YAML front matter
+    - Resolves Jekyll build issues with SCSS processing
+
+commit 27eaed9406723c984338a5e9b83900d500c95153
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 17:54:33 2025 -0500
+
+    feat: Add comprehensive structured data for SEO optimization
+    
+    - Add BlogPosting schema for individual blog posts with author, publisher, and article metadata
+    - Enhance website schema with @graph structure including WebSite, Person, and Blog entities
+    - Implement breadcrumb navigation schema for improved SEO hierarchy
+    - Override theme's seo.html to include custom structured data includes
+    - Add blog post template with optimized front matter for future posts
+    - Fix SCSS syntax error in minimal-mistakes.scss
+    
+    This implementation provides:
+    - Rich snippets in search results
+    - Better SEO rankings through structured data
+    - Social media optimization
+    - Voice search compatibility
+    - Featured snippet eligibility
+    
+    All structured data follows schema.org best practices and is validated for Google's Rich Results.
+
+commit 2b2b1be1627d969a605030d6aa750cfdc4fced23
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 17:41:38 2025 -0500
+
+    add x86_64-linux support
+
+commit 034a29bd940478fd6bb1f928a8579d3e3eaf453e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 24 17:38:45 2025 -0500
+
+    bundle install
+
+commit a49bec49e8f34d6abcbe29bd7ff8d88c4f251222
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 08:24:37 2025 -0500
+
+    add about page
+
+commit e1a720b7d7548024937f6c722c3d0c4a19c6570f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 07:59:41 2025 -0500
+
+    add sidebar
+
+commit cad91291e1c927cfd019aa85b1d2388a7cc2fbe8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 07:42:18 2025 -0500
+
+    add analytics providers
+
+commit f0e1d237865bbba4b04890d734759f265ffd7731
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 07:19:41 2025 -0500
+
+    clean-up unused files
+
+commit 77122c018995d39912dcde7d610ccd3da4dfa1ae
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 07:13:02 2025 -0500
+
+    merge sumedh & mm default variables
+
+commit 3b43d31a3f3f12f5928ebb4b32ff84b598364946
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 06:32:43 2025 -0500
+
+    removed page.scss.bak and other backup files
+
+commit a89e914ed1697ef89c886a7f4044649680f1b1b7
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 06:26:17 2025 -0500
+
+    all css errors fixed with prettify
+
+commit 5b44117febf082021096a586dae015b2341d1734
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 06:13:05 2025 -0500
+
+    add configs back in
+
+commit 910c9e39a8dadf31b7d951ac7262dd14b13fbce6
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 06:02:52 2025 -0500
+
+    fix prettier
+
+commit 937f28ce35dcb1ad71af7efbb8f94aa3b5050bb8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 05:20:06 2025 -0500
+
+    fix remainining scss descendng-specificity oders
+
+commit 2efb6214628db0350fc4d158a1ee540eafe5b030
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 04:29:06 2025 -0500
+
+    more merge attempts
+
+commit a0bc3347755d692f7e890ebc37fc098af8038556
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 04:25:19 2025 -0500
+
+    more merge attempts
+
+commit 6bda46aa2feaa3cadc75437e845534fca57e35f5
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 04:02:10 2025 -0500
+
+    fix the rest of the mm theme page.scss lint errors
+
+commit 176f4e889c830a4530a7a576d3a000c6a234bacf
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 03:01:44 2025 -0500
+
+    add stylelint and fix ~350 out of 400 style errors in minimal mistakes scss
+
+commit 2babb9943c1725e8823a70fc8364ff13211b892d
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 02:13:25 2025 -0500
+
+    merge default mm page.scss with Sumedhs
+
+commit 3e28a595ca778e2fba79c6f1d028c3b648e965f5
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 02:01:32 2025 -0500
+
+    merge default mm page.scss with Sumedhs
+
+commit 1d96b8ad7d3077854fb17d0380302e2fb398b732
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 01:42:44 2025 -0500
+
+    git commit -m \'add comment providers
+
+commit 7a9d4be7cfca74d6d4374d1b11719c924c4d6382
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 01:09:18 2025 -0500
+
+    add search and analytics
+
+commit c6ca2fd020383bda9bb95786fe62be147be65dee
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:57:01 2025 -0500
+
+    add mm default layouts
+
+commit 2b76eedb5625cdda88f86d8d1136c361ad24f319
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:52:05 2025 -0500
+
+    add toc and yet more mm defaults
+
+commit c43f6b2084149b3f053c6bffb10cde7927516265
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:39:47 2025 -0500
+
+    add breadcrumb, list, comments from mm theme defaults
+
+commit 22ed432c6fc90df37bf9009deb96056e4419be13
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:35:16 2025 -0500
+
+    add author-profile.html
+
+commit f5b5fc9ebf360c4966a1c652deb2a5da40d5520a
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:24:18 2025 -0500
+
+    remove copypasta from head.html thats in masthead.html
+
+commit 51b964b4727fefc0b9f8669fea8f0fa19a734b80
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:15:37 2025 -0500
+
+    add seo.html
+
+commit 69a0876f7d3db00fe078b938390cf13e649f7508
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 17 00:05:51 2025 -0500
+
+    remove copypasta in templates
+
+commit bdc6f7e384e2c0fd8983fd1796d6e3565a4cd415
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 23:55:02 2025 -0500
+
+    revert back to default single layout
+
+commit 3e7d7727320efdca7dfdb2fb33f6f44125db5263
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 23:29:32 2025 -0500
+
+    fix loading for mathjax and insertAdjacentHTML
+
+commit b1d2887b96bd23cd40566511b026c4255c408fa1
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 22:27:59 2025 -0500
+
+    build _main.js
+
+commit 8eb15f474397440191f7f6133674ab551fa73443
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 20:12:41 2025 -0500
+
+    fix one character typo
+
+commit 4461fe873efabbcef756865c1b0efa9cc5584970
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 05:52:28 2025 -0500
+
+    changes about me page
+
+commit 335406726c8e72d198808d3c4935e78e2a4c5b03
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 05:43:06 2025 -0500
+
+    remove page meta
+
+commit d4c7645270977d51f792c901a36e1ad73bb92a22
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 05:40:03 2025 -0500
+
+    add vita page
+
+commit b4a2fba2fd66f8f60a1c82133cc72a8bdcb8439f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 05:13:26 2025 -0500
+
+    fix banner issue
+
+commit 123b49ac21d53565468ab2a951479f0222f354a3
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 05:11:23 2025 -0500
+
+    update about me page
+
+commit fc807050b7f0bc4ef4d55bcfd78716c1f7de58d6
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 04:55:25 2025 -0500
+
+    make banner larger again
+
+commit 4298768892653bd9669f19544560c1625210608c
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 04:27:46 2025 -0500
+
+    more aesthetic fiddling
+
+commit 0eb6008bc785c07e0b40a9b3688c5f7915aa3761
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 04:13:38 2025 -0500
+
+    remove extra padding at bottom of header image
+
+commit a6c33d63dbec3e22777a23cd89edef080642aa68
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 16 03:51:28 2025 -0500
+
+    Add about me page
+
+commit d46da7ad6903d96e7e725c508082dfed62f8e34e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 15 23:23:22 2025 -0500
+
+    Add shower thoughts post
+
+commit 3c5c97e01925a6f4608582152b67a00b30c7e2cd
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 15 22:54:13 2025 -0500
+
+    Aesthetic updates to make the site fit a different jekyll theme
+
+commit 6d7908280d894731b74dbc06fbe8dfa24b0b2f1e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 15 22:49:22 2025 -0500
+
+    Fix blog navigation by moving posts to _posts directory
+
+commit 8fc39b09fdfd53671d90892ddbe443a285da8df8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 05:28:58 2025 -0500
+
+    posts -> post
+
+commit 6dc18e39b6f3fbceff4dc9531a1c80ae90203a65
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 05:18:13 2025 -0500
+
+    fix most UI issues - need to add cover image to about me
+
+commit 2e6fecce7c7ecaba9b6b677e4554be6a168bbc35
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 05:09:35 2025 -0500
+
+    fix most UI issues - need to add cover image to about me
+
+commit ab9f81938c4a6f7e1c02e9c6344f0ffb21f985b4
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 04:54:38 2025 -0500
+
+    add archive layout
+
+commit 2eca7386ae6a1a5f3dc02f17318c4557084a2b93
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 04:07:07 2025 -0500
+
+    add header image
+
+commit 8c371870255bc33daf9bf1d8a78921151ee1f8b6
+Merge: 2ff3c58 74ae288
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 03:22:23 2025 -0500
+
+    Merge branch 'master' of github.com:aledlie/aledlie.github.io
+    Add banner fix
+
+commit 2ff3c58f1a9fcc8eb8ae07a5def5eaff704b3aae
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 03:22:20 2025 -0500
+
+    small fix
+
+commit 74ae28873ff3d8a9db9b97d90781684c6f2551f9
+Merge: 9c0f8aa 0ed8912
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 03:15:24 2025 -0500
+
+    Merge pull request #8 from aledlie/fix/banner-and-blog-page
+    
+    Fix(pages): Correct layouts and add hero banner to home and blog pages
+
+commit 0ed89129a8fc8e6c2764ee604a6005d5ebced7c8
+Author: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Date:   Mon Aug 11 08:14:56 2025 +0000
+
+    Fix(pages): Correct layouts and add hero banner to home and blog pages
+    
+    This commit fixes two issues:
+    1. The hero banner was not appearing on the home page or the blog page.
+    2. The blog page was not listing the posts.
+    
+    The `home` and `post-index` layouts were missing the include for the hero banner partial. This has been added to both layouts.
+    
+    The blog page (`posts/index.md`) was using the `single` layout instead of the `post-index` layout, which is designed to list all the posts. The layout has been corrected.
+    
+    With these changes, the home page banner, blog page banner, and the list of blog posts should now appear correctly.
+
+commit 9c0f8aa620ae9dcbb3ab9d05af3c8c954b487c30
+Merge: 0398307 71d2a0f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 03:07:09 2025 -0500
+
+    Merge pull request #7 from aledlie/fix/header-links
+    
+    Fix 'about_me' page permalink
+
+commit 71d2a0f0d47cd7f26ad5e7bb2c92a07dc3dcdea4
+Author: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Date:   Mon Aug 11 08:06:03 2025 +0000
+
+    Fix 'about_me' page permalink
+    
+    This commit removes an incorrect `permalink: /` from the front matter of `about_me/index.md`. This was causing the page to be generated at the root of the site, leading to a 404 error for the `/about_me/` path.
+    
+    This is a correction to the previous commits on this branch.
+
+commit 0398307c1493c9d4277a8168dd1fc6d90e4c4429
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 03:00:51 2025 -0500
+
+    fix filenames
+
+commit e34dd38b43d494eb1df339b478705b2596316503
+Merge: 0bd674c 9e9b8d9
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:50:32 2025 -0500
+
+    Merge pull request #6 from aledlie/fix/header-links
+    
+    Fix header links and create blog page
+
+commit 9e9b8d91fb826f3cde528e081daa3101fed3af1e
+Author: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Date:   Mon Aug 11 07:49:15 2025 +0000
+
+    Fix header links and create blog page
+    
+    This commit fixes several issues related to the site's navigation and layout structure.
+    
+    - Renamed `_layout` to `_layouts` to follow Jekyll's conventions, allowing layouts to be found.
+    - Fixed the navigation bar rendering by correcting the loop in `_includes/_navigation.html`.
+    - Created a blog archive page at `posts/index.html` to list all posts.
+    - Updated `_data/navigation.yml` to point the 'Blog' link to the new archive page and to improve the 'About Me' link's title for readability.
+
+commit 0bd674c58d37589603723670b409d85de45bc8f1
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:36:32 2025 -0500
+
+    fix cover images & merge
+
+commit c5872d6c6d47ea63c86cef911c0a27620c53fd5f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:30:59 2025 -0500
+
+    fix cover images & merge
+
+commit 2c71d286710eca3f2c4ecc5e2684f57759679f17
+Merge: 6683dda e8a5fc9
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:26:34 2025 -0500
+
+    Merge branch 'master' of github.com:aledlie/aledlie.github.io
+    update with most recent changes
+
+commit 6683ddae2f0577cced0bcea8c5575ad6f1c6aaff
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:26:24 2025 -0500
+
+    reove unneccessary files
+
+commit e8a5fc92935c4bfa03d52f906fcb18a161ca22f6
+Merge: 3e01d52 f161eb7
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:22:16 2025 -0500
+
+    Merge pull request #5 from aledlie/main
+    
+    Merge pull request #4 from aledlie/fix/header-links
+
+commit f161eb73c5ce1795e87baf225408abef499f3839
+Merge: 438863b 0891299
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:21:15 2025 -0500
+
+    Merge pull request #4 from aledlie/fix/header-links
+    
+    fix the header links and create the blog page.
+
+commit 3e01d525de38b86faf38f4c49c03949fc4a08079
+Merge: 6402334 0891299
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 02:16:00 2025 -0500
+
+    Merge pull request #3 from aledlie/fix/header-links
+    
+    I will now fix the header links and create the blog page.
+
+commit 089129941363eb40d9bbd9ef84510f86fee7d114
+Author: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Date:   Mon Aug 11 07:15:41 2025 +0000
+
+    I will now fix the header links and create the blog page.
+
+commit 6402334b657bfef75bec387fcf91f2281503c003
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:59:25 2025 -0500
+
+    add mm layouts 3
+
+commit f53c35d1ef5fc8d5627103cad92f733654314c4b
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:54:08 2025 -0500
+
+    add mm layouts 2
+
+commit 36eb083726015a17efed8de905283501fcdcc8d8
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:48:04 2025 -0500
+
+    add mm layouts 1
+
+commit d00cab936b9e15c4f5dba42d8cfcddd217448ba4
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:45:45 2025 -0500
+
+    add mm pagination
+
+commit cb2146e5d1aa363af372c45968eee92b57ea7da5
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:39:29 2025 -0500
+
+    update to most current mm theme 1
+
+commit fb3013ad85548e9e1409b117724bb6e2d8be882c
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Mon Aug 11 01:32:03 2025 -0500
+
+    analytics tag change 1
+
+commit 07a11953054c80204e18bcaf7014ad26a68cd619
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun Aug 10 01:13:44 2025 -0500
+
+    added vita github symbol
+
+commit 901cf82a16dfa0a6ddd855c493db9d7cc9890400
+Merge: a424a11 f9056da
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:34:41 2025 -0500
+
+    Merge branch 'master' of github.com:aledlie/aledlie.github.io
+    Merge with new github actions deploy file
+
+commit a424a11ceb3264ca2777fe3f68c167f814d5402a
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:34:19 2025 -0500
+
+    added vita github symbol
+
+commit f9056da36e02d3bcc5e9a666d1a4c83c58eb25f9
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:24:07 2025 -0500
+
+    Update jekyll.yml
+
+commit 83f871ae0dd21d868b43f2dfcbeaba439bf2918c
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:22:45 2025 -0500
+
+    Update jekyll.yml
+
+commit fb6ad9316371ee1d421e138e2f4dbfb7f124eb01
+Merge: ea184ca 438863b
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:13:27 2025 -0500
+
+    Merge pull request #2 from aledlie/main
+    
+    Main
+
+commit ea184ca6caedd651f7e1efe062567aa63dafeafc
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 03:09:35 2025 -0500
+
+    Create jekyll.yml
+
+commit 438863be53f84ef8d6d06ab6b9eb11cf2ad3b6af
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 02:58:04 2025 -0500
+
+    added head and footer
+
+commit a950b99a988a97d03fb26bb86863388dbdf170eb
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 02:31:51 2025 -0500
+
+    added vita
+
+commit 768024bd958ee4ddfa416ffec834e33b495dc696
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 01:15:32 2025 -0500
+
+    added feed.xml
+
+commit 3990c7af57967f48456fc9b914b687d76acdee56
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 00:50:25 2025 -0500
+
+    added author bio to index.html
+
+commit b75537ddf9597358235a092994aadae2511fc97a
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sat Aug 9 00:31:58 2025 -0500
+
+    added theme skin to main.scss
+
+commit 25f1caca4e674bedcc8a79e69302bae19a8ad3d1
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 23:54:17 2025 -0500
+
+    about_me
+
+commit 92fa5075fadff242dd92c1b567db01625d9502ef
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 21:13:43 2025 -0500
+
+    add font-awesome
+
+commit 50010d54feb62215b2d305476898117acbc50c25
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 20:56:25 2025 -0500
+
+    add google fonts
+
+commit 73f8d9cc77741a2e2c7ed330c862291eeb3a0837
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 20:14:34 2025 -0500
+
+    update dependancies and create graph viz
+
+commit f4582f0fb310277f86dac77bcc9fb27476ebe511
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 19:42:40 2025 -0500
+
+    add google analytics tag
+
+commit f5cd5a0dae10936e42a43f07ba58cbb34966afde
+Merge: c429737 c89e99a
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 19:33:21 2025 -0500
+
+    merge
+
+commit c42973795e85e63ef64eb95ea3d22244b3913d9d
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 19:31:31 2025 -0500
+
+    update CNAME to custom domain
+
+commit c89e99ac48a53a32260f67381dffaf57d4b1b279
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 19:30:31 2025 -0500
+
+    Update CNAME
+
+commit f433ed94960a846010bc26b8c5393aa5f5a82f30
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Fri Aug 8 19:26:01 2025 -0500
+
+    Create CNAME
+
+commit 5bdb2e07d6edda89a1cc362297c4e9551e02fc1e
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Wed Aug 6 22:16:43 2025 -0500
+
+    update config.yml
+
+commit a7ccdf89b76a100b2a8442b08d3fa21b1169ec43
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Wed Aug 6 15:23:53 2025 -0500
+
+    Copy some formating and images from Sumedh's rebuild site
+
+commit d524151439f2381ff0deb769f5f5b57107075489
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Wed Aug 6 05:00:08 2025 -0500
+
+    Add additional layout and templates from updated Sumedh homage homepage
+
+commit dfef0b6b5e111ddebbb16b79c06cea372afa3411
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Wed Jul 9 10:07:30 2025 -0500
+
+    fix subtitle
+
+commit d515c8b943f3a943834f6156af979d95dbee40a2
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Tue Jul 8 21:10:14 2025 -0500
+
+    small about.md change
+
+commit 76d646d8aea2f4a65754d2cb49ea3a31bcceebfc
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Tue Jul 8 20:52:07 2025 -0500
+
+    add back redcarpet
+
+commit 0c58f5841546a62a0a43a11a29da9b70be1683e2
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Tue Jul 8 20:44:50 2025 -0500
+
+    Update README.md with comprehensive project description and directory tree
+
+commit 5453cef9e851d917badaacff353ea98b673b6c4a
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Thu Jul 3 20:45:08 2025 -0500
+
+    get the UI working the way I want
+
+commit 808596fc77cf061dcea0f2da481d70f5627c56e6
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Thu Jul 3 18:37:20 2025 -0500
+
+    fix profile photo
+
+commit 66172adad563db25ee0c2054176fb8dd9cccf262
+Merge: 3f45eb0 c79f3e2
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Tue Jul 1 22:19:14 2025 -0500
+
+    Merge pull request #1 from aledlie/main
+    
+    update to 2025 libraries for github pages/jekyll/redcarpet
+
+commit c79f3e2ea901ebc183a127437ec3062bf8bb8673
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Tue Jul 1 22:16:57 2025 -0500
+
+    update to 2025 libraries for github pages/jekyll/redcarpet
+
+commit 3f45eb0b9f30543188224015a38e1e4ff4a6f1f8
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 14:03:22 2017 -0500
+
+    add picture3
+
+commit dd94898129c0e6661f79118367b9bf57f123bb40
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 13:29:08 2017 -0500
+
+    add photo2
+
+commit 1acde82aa698658d75a0cd7c96c3bc939d298f34
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 13:28:10 2017 -0500
+
+    add photo
+
+commit b271145093693f4f505b25831f13a6d88ad9e1f7
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 13:01:14 2017 -0500
+
+    add facebook
+
+commit fb57413894fe94b153eaaa2f506e16c7af36cee9
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:58:42 2017 -0500
+
+    post 1 cleanup
+
+commit 844ab798210c2bbb71790972019c84ef84ff9d6f
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:54:09 2017 -0500
+
+    post 1 cleanup
+
+commit 428de23b19df86c4f6ab5fdf4ff07cfe11dd7362
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:45:05 2017 -0500
+
+    post 1 cleanup
+
+commit 27bec20338b18030f81a2b5ba25f59ff3401b566
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:41:04 2017 -0500
+
+    post 1 cleanup
+
+commit 9a587daf5ecb99b3f1a05840ff76a87d7b3235fc
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:37:27 2017 -0500
+
+    post 1 cleanup
+
+commit 7f6c61c8b2c7b16929a9914a24aa08c7f883db37
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 12:33:47 2017 -0500
+
+    new permalink
+
+commit 3936211a5f5ec72161e334d318983c10fa5f9f73
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 11:51:20 2017 -0500
+
+    more examples: first post
+
+commit 8d924518174f3b34a046fff096354393bc42e007
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 11:40:54 2017 -0500
+
+    more php tries
+
+commit 4c4d56dc8460423ae44d4d203511e987e6fb0c65
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Mon May 15 11:37:37 2017 -0500
+
+    Get text highlighting to work for PHP
+
+commit 60b84a47651296d27c69899a8fe24ac2dff41fe8
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Sun May 14 14:31:56 2017 -0500
+
+    Fuck it, delete commented out text
+
+commit 822501b4014279a103dc7c91ac4d39b976c55e7d
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Sun May 14 14:29:44 2017 -0500
+
+    Actually do markdown comments right
+
+commit 1514b2172dbd1ac8959015e5237be22db96cdb22
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Sun May 14 14:22:32 2017 -0500
+
+    Modify First Post Text
+
+commit 2d048b5b3fd74df7b45c2f2e1bc0ebbbda6fcafb
+Author: aledlie <alyshialedlie@gmail.com>
+Date:   Sun May 14 14:16:24 2017 -0500
+
+    Modify First Post to PHP
+
+commit ebb7a3d4529e9c003a87fee3e352ffb6ac549e7b
+Author: Alyshia Ledlie <alyshialedlie@fb.com>
+Date:   Sun May 14 14:03:54 2017 -0500
+
+    config changes
+
+commit b4c73a1dcdf26175ce2bbe3bc6902bad029ea163
+Author: Alyshia Ledlie <alyshialedlie@fb.com>
+Date:   Sun May 14 13:31:03 2017 -0500
+
+    remove index.html
+
+commit 3ae25f67506a21ef924b9234d10f65ee78177921
+Author: Alyshia Ledlie <alyshialedlie@fb.com>
+Date:   Sun May 14 13:25:18 2017 -0500
+
+    GitHub Pages with Jekyll
+
+commit 6fd096711adc6eceee2cd87d56eee513b3208e4f
+Author: Alyshia Ledlie <alyshialedlie@fb.com>
+Date:   Sun May 14 13:19:54 2017 -0500
+
+    GitHub Pages hello world
+
+commit f882b16f1706b72bdb65d928c519f8b0958a671f
+Author: Alyshia Ledlie <alyshialedlie@gmail.com>
+Date:   Sun May 14 13:15:35 2017 -0500
+
+    Initial commit
