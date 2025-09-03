@@ -2,7 +2,7 @@
 layout: single
 title: What 3 Things
 author_profile: true
-subtitle: "On Signal, Noise, & Sustainability : The limits of overclocking"
+excerpt:  "On Signal, Noise, & Sustainability : The limits of overclocking"
 ---
 
 # *What 3 Things*

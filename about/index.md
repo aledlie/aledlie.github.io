@@ -2,6 +2,7 @@
 layout: single
 title: About
 permalink: /about/
+author_profile: true
 header:
   overlay_image: /images/cover-about.png
   teaser: /images/cover-about.png

@@ -2,6 +2,7 @@
 layout: single
 title: Vita
 permalink: /vita/
+author_profile: true
 header:
   overlay_image: /images/cover-vita.png
   teaser: /images/cover-vita.png

@@ -1,6 +1,7 @@
 ---
 layout: single
 author_profile: true
+Title: Making your Wix website ~75% better, instantly
 subtitle: "75% faster operations, 90% memory reduction, $391.68 annual savings"
 author_profile: true
 categories:
@@ -9,24 +10,27 @@ categories:
   - Wix
   - Memory Leaks
   - Benchmarking
+  - Analytics
+  - Testing
 tags:
   - jekyll      # Add relevant tags
   - blogging
   - web-development
+  - performance analysis
 description: "A compelling description of your blog post that will appear in search results and social media shares. Keep it under 160 characters for best SEO results."
-excerpt: "A brief excerpt that appears on your blog listing pages. This can be longer than the description."
+excerpt: "How to make your Wix website run 75% faster on 60% less data and ~$400 less in hosting fees - instantly.,
+instantly."
 comments: true              # Enable/disable comments
 share: true                 # Enable/disable social sharing
 ---
 
 
-Wix Site Performance Improvement Analysis
+# Wix Site Performance Improvement Analysis
 ## Executive Summary
 
 This document quantifies the performance and memory improvements achieved by removing the `inflight` package memory leak from a Wix site. The migration resulted in **75% faster file operations**, **90% reduction in memory usage**, and **$391.68 annual cost savings** for a single, low-traffic website.
 
 ---
-
 ## Table of Contents
 
 1. [Problem Statement](#problem-statement)
@@ -372,7 +376,6 @@ These improvements are permanent and require no ongoing maintenance. The site no
 - [npm Overrides Documentation](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides)
 
 ---
-
-*Generated: November 2024*
 *Site ID: 044c274e-b305-43ef-b66d-3cbc5112e092*
 *Analysis Version: 1.0.0*
+(c) 2025 Alyshia Ledlie
