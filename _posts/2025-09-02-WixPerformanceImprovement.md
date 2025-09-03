@@ -15,12 +15,8 @@ tags:
   - web-development
 description: "A compelling description of your blog post that will appear in search results and social media shares. Keep it under 160 characters for best SEO results."
 excerpt: "A brief excerpt that appears on your blog listing pages. This can be longer than the description."
-toc: true                    # Optional: Table of contents
-toc_label: "Contents"        # Optional: TOC title
-toc_icon: "cog"             # Optional: TOC icon
 comments: true              # Enable/disable comments
 share: true                 # Enable/disable social sharing
-related: true               # Show related posts
 ---
 
 
