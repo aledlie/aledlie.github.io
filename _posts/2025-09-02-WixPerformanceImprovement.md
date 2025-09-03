@@ -1,15 +1,34 @@
 ---
 layout: single
-title: "Wix Site Performance Improvement Analysis"
 author_profile: true
 subtitle: "75% faster operations, 90% memory reduction, $391.68 annual savings"
+author_profile: true
+categories:
+  - Technology  # Choose relevant categories
+  - Site Performance
+  - Wix
+  - Memory Leaks
+  - Benchmarking
+tags:
+  - jekyll      # Add relevant tags
+  - blogging
+  - web-development
+description: "A compelling description of your blog post that will appear in search results and social media shares. Keep it under 160 characters for best SEO results."
+excerpt: "A brief excerpt that appears on your blog listing pages. This can be longer than the description."
+h
+toc: true                    # Optional: Table of contents
+toc_label: "Contents"        # Optional: TOC title
+toc_icon: "cog"             # Optional: TOC icon
+comments: true              # Enable/disable comments
+share: true                 # Enable/disable social sharing
+related: true               # Show related posts
 ---
 
-# Wix Site Performance Improvement Analysis
 
+Wix Site Performance Improvement Analysis
 ## Executive Summary
 
-This document quantifies the performance and memory improvements achieved by removing the `inflight` package memory leak from a Wix site. The migration resulted in **75% faster file operations**, **90% reduction in memory usage**, and **$391.68 annual cost savings**.
+This document quantifies the performance and memory improvements achieved by removing the `inflight` package memory leak from a Wix site. The migration resulted in **75% faster file operations**, **90% reduction in memory usage**, and **$391.68 annual cost savings** for a single, low-traffic website.
 
 ---
 
@@ -38,12 +57,11 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 - **Memory Accumulation**: 35MB/month of leaked memory
 - **System Instability**: Required restarts every ~437 days
 - **Increased Costs**: $391.68/year in additional hosting and downtime
-
 ---
 
 ## Quantified Improvements
 
-### 🚀 Performance Gains
+###  Performance Gains
 
 | Metric | Before Migration | After Migration | Improvement |
 |--------|-----------------|-----------------|-------------|
@@ -52,7 +70,7 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 | Linting Time | 0.25s | 0.20s | **20% faster** |
 | Build Performance | Baseline | +20% | **20% faster** |
 
-### 💾 Memory Optimization
+### Memory Optimization
 
 | Metric | Before Migration | After Migration | Improvement |
 |--------|-----------------|-----------------|-------------|
@@ -61,7 +79,7 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 | Monthly Memory Leak | 35MB | 0MB | **100% elimination** |
 | Cache Entries | Unlimited | Capped at 100 | **Controlled growth** |
 
-### 📊 Stability Metrics
+### Stability Metrics
 
 | Metric | Before Migration | After Migration | Impact |
 |--------|-----------------|-----------------|--------|
@@ -70,7 +88,7 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 | Days Until Memory Crash | ~437 | Never | **∞ improvement** |
 | Memory-Related Restarts | 4/month | 0/month | **100% reduction** |
 
-### 💰 Cost Savings
+###  Cost Savings
 
 | Cost Factor | Monthly | Annual |
 |-------------|---------|--------|
@@ -99,8 +117,8 @@ The migration upgraded `glob` from v7 (with inflight) to v10 (without inflight):
 - Concurrent operations: **Handled natively**
 
 #### Result:
-- ✅ **75.5% faster** file operations
-- ✅ **65.2% less** memory usage
+- **75.5% faster** file operations
+- **65.2% less** memory usage
 
 ### 2. Memory Leak Impact Simulation
 
@@ -129,7 +147,7 @@ cache.set(key, data);
 - Cache entries: **100 (max limit enforced)**
 - Time taken: **1.63ms**
 
-#### Memory Saved: 
+#### Memory Saved:
 **0.31MB per 1000 operations (145.6% improvement)**
 
 ### 3. Real-World Performance Metrics
@@ -200,7 +218,7 @@ const restartsPerMonth = 4;    // due to memory issues
 const memoryCost = memoryLeakGB * monthlyHours * costs.memoryGBHour;
 // Result: $8.64/month
 
-const downtimeLoss = restartsPerMonth * costs.restartDowntime * 
+const downtimeLoss = restartsPerMonth * costs.restartDowntime *
                     costs.requestsLostPerSecond * costs.revenuePerRequest;
 // Result: $24.00/month
 
@@ -216,7 +234,7 @@ const { performance } = require('perf_hooks');
 const glob = require('glob');
 
 const startTime = performance.now();
-glob.sync('**/*.js', { 
+glob.sync('**/*.js', {
     ignore: ['node_modules/**'],
     cwd: __dirname,
     nodir: true
@@ -233,16 +251,16 @@ const duration = endTime - startTime;
 // Memory impact measurement
 function measureMemoryImpact() {
     const memBefore = process.memoryUsage();
-    
+
     // Perform operations
     for (let i = 0; i < 100; i++) {
         require('path');
         require('fs');
     }
-    
+
     const memAfter = process.memoryUsage();
     const heapDiff = (memAfter.heapUsed - memBefore.heapUsed) / 1024 / 1024;
-    
+
     return heapDiff; // Result: 0.25MB (vs 2.5MB before)
 }
 ```
@@ -360,6 +378,6 @@ These improvements are permanent and require no ongoing maintenance. The site no
 
 ---
 
-*Generated: November 2024*  
-*Site ID: 044c274e-b305-43ef-b66d-3cbc5112e092*  
+*Generated: November 2024*
+*Site ID: 044c274e-b305-43ef-b66d-3cbc5112e092*
 *Analysis Version: 1.0.0*
