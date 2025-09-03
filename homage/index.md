@@ -1,5 +1,7 @@
 ---
-layout: default
+layout: single
+title: "Homage"
+author_profile: true
 ---
 
 

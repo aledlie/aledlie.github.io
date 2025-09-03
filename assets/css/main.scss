@@ -41,53 +41,50 @@ body {
 
 /* HEADER BANNER - Red academic banner like target site */
 .masthead {
-  background: linear-gradient(135deg, #8b2635 0%, #6d1e2a 100%);
-  border-bottom: none;
-  padding: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: .5px solid #eee;
+  padding: 2em 0 1em;
 }
-
+/*
 .masthead__inner-wrap {
   padding: 1.5em 1em;
   max-width: 1200px;
   margin: 0 auto;
 }
-
+*/
 .greedy-nav {
   font-family: "PT Sans Narrow", sans-serif;
   text-transform: uppercase;
   text-align: center;
   background: transparent;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
 
   .site-title {
+    width: 16.6666666667%;
+    margin-right: 4.1666666667%;
+    margin-left: 4.1666666667%;
     color: #fff !important;
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    margin-right: 2em;
 
     &:hover {
       color: #f0f0f0 !important;
     }
   }
 
-  .visible-links {
-    justify-content: center;
-    
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 4.1666666667%;
+    margin-left: 4.1666666667%;
     a {
-      color: #fff !important;
-      font-weight: 600;
-      font-size: 0.9em;
-      letter-spacing: 1px;
-      margin: 0 1.5em;
-      padding: 0.5em 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s ease;
-
+      color: #666;
+      font-weight: 700;
+      margin-right: 4.1666666667%;
+      white-space: nowrap;
       &:hover {
-        color: #f0f0f0 !important;
+        color: #333;
         border-bottom-color: rgba(255,255,255,0.6);
       }
     }
@@ -116,7 +113,7 @@ body {
 
   .author-avatar {
     margin-bottom: 1.5em;
-    
+
     img {
       width: 200px;
       height: 200px;
@@ -150,7 +147,7 @@ body {
     li {
       display: block;
       margin-bottom: 0.5em;
-      
+
       a {
         font-size: 1em;
         color: #8b2635 !important;
