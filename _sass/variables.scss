@@ -16,37 +16,23 @@ $alt-font: $base-font;
 
 /* ==============Colors========================================================================== */
 
-/* Core Colora
-
-$accentcolor    		: $black;
-$active-color			: mix(#fff, $primary-color, 80%) !default;
-$bodycolor      		: #fff;
 $basecolor      		: #343434;	  
 $background-color		: #fff !default;
 $black          		: #111;
-$body-color     		: $bodycolor;
-$bordercolor    		: $basecolor;
-$border-color   		: $lighter-gray !default;
-$border-color   		: $text-color;
+$border-color   		: #7a8288;
 $code-background-color		: #fafafa !default;
-$code-background-color-dark	: $light-gray !default;
-$compcolor      		: spin($basecolor, 180); 
 $danger-color			: #ee5f5b !default;
-$dark-gray			: mix(#000, $gray, 50%) !default;
-$darker-gray			: mix(#000, $gray, 60%) !default;
-$focus-color			: $primary-color !default;
-$footer-background-color	: $lighter-gray !default;
-$form-background-color		: $lighter-gray !default;
+$dark-gray			: #4d5356 !default;
+$darker-gray			: #404548 !default;
+$form-background-color		: #f0f1f2 !default;
 $gray				: #7a8288 !default;
 $info-color			: #3b9cba !default;
-$light-gray			: mix(#fff, $gray, 50%) !default;
-$lighter-gray			: mix(#fff, $gray, 90%) !default;
-$muted-text-color		: mix(#fff, $text-color, 20%) !default;
+$light-gray			: #b6bcc1 !default;
+$lighter-gray			: #f0f1f2 !default;
+$muted-text-color		: #4d5356 !default;
 $primary-color			: #6f777d !default;
 $success-color			: #3fa63f !default;
-$textcolor      		: #333332;
-$text-color     		: $textcolor;
-$text-color     		: $dark-gray !default;
+$text-color     		: #333332;
 $warning-color			: #d67f05 !default;
 $white          		: #fff;
 
@@ -57,12 +43,6 @@ $yiq-contrasted-light-default: #fff !default;
 $yiq-contrasted-threshold: 175 !default;
 $yiq-debug: false !default;
 
-/* buttons */
-$primary			: $black;
-$success			: #5cb85c;
-$warning			: #dd8338;
-$danger				: #C64537;
-$info				: #308cbc;
 
 /* =========================brands ============================ */
 $facebook-color     	: #3b5998 !default;
@@ -103,13 +83,9 @@ $youtube-color		: #b00 !default;
 $xing-color		: #006567 !default;
 
 /* links */
-$linkcolor 		: #343434;
-$link-color       	: $linkcolor;
+$link-color       	: #343434;
 $link-color-hover	: color.mix(#000, $link-color, 25%) !default;
-$linkcolorhover 	: color.adjust($linkcolor, $lightness: -10%);
 $link-color-visited	: color.mix(#fff, $link-color, 15%) !default;
-$linkcolorvisited 	: color.adjust($linkcolorhover, $lightness: 20%);
-$linkcolorfocus 	: color.adjust($linkcolorvisited, $lightness: -10%);
 
 /* masthead links */
 $masthead-link-color: $primary-color !default;
