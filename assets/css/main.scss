@@ -39,40 +39,56 @@ body {
   }
 }
 
-/* NAVIGATION - Custom styling for academic look */
+/* HEADER BANNER - Red academic banner like target site */
 .masthead {
-  border-bottom: .5px solid #eee;
-  padding: 2em 0 1em;
+  background: linear-gradient(135deg, #8b2635 0%, #6d1e2a 100%);
+  border-bottom: none;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.masthead__inner-wrap {
+  padding: 1.5em 1em;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .greedy-nav {
   font-family: "PT Sans Narrow", sans-serif;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+  background: transparent;
 
   .site-title {
-    width: 16.6666666667%;
-    margin-right: 4.1666666667%;
-    margin-left: 4.1666666667%;
+    color: #fff !important;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin-right: 2em;
+
+    &:hover {
+      color: #f0f0f0 !important;
+    }
   }
 
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 4.1666666667%;
-    margin-left: 4.1666666667%;
-
+  .visible-links {
+    justify-content: center;
+    
     a {
-      color: #666;
-      font-weight: 700;
-      margin-right: 4.1666666667%;
-      white-space: nowrap;
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      margin: 0 1.5em;
+      padding: 0.5em 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
 
       &:hover {
-        color: #333;
+        color: #f0f0f0 !important;
+        border-bottom-color: rgba(255,255,255,0.6);
       }
     }
   }
@@ -90,52 +106,70 @@ body {
   margin-top: 0;
 }
 
-/* SIDEBAR - Compact spacing */
+/* SIDEBAR - Academic profile layout matching target */
 .sidebar {
-  padding-top: 1em;
-  padding-left: 1em;
+  padding: 2em 1em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-  .author-avatar img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+  .author-avatar {
+    margin-bottom: 1.5em;
+    
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #8b2635;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
   }
 
   .author-name {
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.25em;
+    font-family: "PT Sans Narrow", sans-serif;
   }
 
   .author-bio {
     font-style: italic;
     color: #666;
-  }
-
-  /* Style the Follow button to be simpler */
-  .btn {
-    background: #f8f9fa !important;
-    border: 1px solid #dee2e6;
-    color: #666;
-    font-size: 1em;
-    display: flex;
-
-    &:hover {
-      background: #e9ecef !important;
-      color: #333 !important;
-    }
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    line-height: 1.4;
   }
 
   .author-urls {
     margin-top: 0;
+    text-align: center;
 
-    li a {
-      font-size: 1em;
+    li {
+      display: block;
+      margin-bottom: 0.5em;
+      
+      a {
+        font-size: 1em;
+        color: #8b2635 !important;
+        text-decoration: none;
+        padding: 0.3em 0.5em;
+        border-radius: 3px;
+        transition: all 0.3s ease;
 
-      &:hover {
-        color: #333 !important;
+        &:hover {
+          color: #fff !important;
+          background: #8b2635;
+        }
       }
     }
+  }
+
+  /* Remove Follow button styling */
+  .btn {
+    display: none;
   }
 }
 
@@ -161,41 +195,62 @@ body {
   }
 }
 
-/* ARCHIVE LISTINGS - Compact post list */
+/* ARCHIVE LISTINGS - Academic post list matching target */
 .archive .list__item,
 .archive .archive__item,
 .list__item,
 .archive__item {
-  padding: 0;
-  margin-bottom: 0;
+  padding: 1em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   .archive__item-title {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-family: "PT Sans Narrow", sans-serif;
 
     a {
-      color: #333 !important;
+      color: #8b2635 !important;
       text-decoration: none !important;
       border-bottom: none !important;
+      transition: color 0.3s ease;
 
       &:hover {
-        color: #0066cc !important;
+        color: #6d1e2a !important;
       }
     }
   }
 
   .archive__item-excerpt {
-    color: #666;
-    font-size: 0.95em;
-    line-height: 1.5;
-    margin-bottom: 0.25rem;
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    font-style: italic;
   }
 
   .archive__item-date {
     color: #999;
-    font-size: 0.85em;
+    font-size: 0.9em;
+    font-weight: 500;
   }
+}
+
+/* Recent Posts heading styling */
+.page__content h2 {
+  color: #8b2635;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8b2635;
 }
 
 /* SINGLE POST - Enhanced typography */
@@ -216,18 +271,6 @@ body {
   }
 }
 
-/* FOOTER - Clean styling */
-.page-footer {
-  border-top: 1px solid #eee;
-  margin-top: 3rem;
-  padding: 2rem 0;
-  text-align: center;
-
-  .page-footer-copyright {
-    color: #999;
-    font-size: 0.85em;
-  }
-}
 
 /* GLOBAL LINK OVERRIDES - Clean black text */
 a {
@@ -239,12 +282,18 @@ a {
   }
 }
 
-/* Preserve navigation link styling */
-.greedy-nav a {
+/* FOOTER - Academic styling matching target */
+.page__footer {
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  text-align: center;
   color: #666 !important;
 
-  &:hover {
-    color: #333 !important;
+  .page__footer-copyright {
+    color: #666 !important;
+    font-size: 0.9em;
   }
 }
 
