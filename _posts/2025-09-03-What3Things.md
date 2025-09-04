@@ -5,7 +5,7 @@ author_profile: true
 excerpt:  "What is Alyshia Doing this week"
 ---
 
-1) Writing out a technical roadmap, with milestones Intgrity Studio needs to hit
+1) Writing out a technical roadmap, with milestones Integrity Studio needs to hit
 in our tech stack to be able to really scale in January
 2) Tricking one of my favorite people into working with us, who also happens to
 be a brilliant data analyst and investigator.  I'm psyched.
@@ -17,7 +17,7 @@ webscraping (it's *really* cool)
       - Improved page loading times by ~75%
       - Used between 60-90% less data storage over time, depending on client size
       - Would save Wix ~$400/client/year if they implemented it
-      - Dropped average site downtown from 4 times/year to zero
+      - Dropped average site downtime from 4 times/year to zero
       - You can read more detail in the documentation I wrote for it [here](https://tinyurl.com/236cwczk).
   - rolled out v2 of our first MCP and let it loose to do some real websites to
     get some benchmark data.  I still need way more data to trust this, but preliminary results, just from
@@ -29,7 +29,6 @@ webscraping (it's *really* cool)
     | **LLM Compatibility** | 25-35/100 | 75-90/100 | **+150-200%** |
     | **Rich Snippet Eligibility** | 5-15% | 70-85% | **+400-1000%** |
     | **AI Entity Recognition** | Poor | Excellent | **+300%** |
-    -------------------------------------------------------------
     Which for business impact roughly translates to:
       - **Organic Traffic**: 5-15% increase from improved SEO scores
       - **Click-Through Rate**: 10-30% improvement from rich snippets
