@@ -9,7 +9,7 @@ encoding: utf-8
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "G-HXE7BDB8NF"
+    tracking_id: "GTM-TK5J8L38"
     anonymize_ip: false # default
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
@@ -165,7 +165,7 @@ owner:
   facebook: aledlie
   google:
     plus:
-    analytics: G-B9B1KCGBC4
+    analytics: GTM-TK5J8L38
     verify: gqKcgBHjbuRW6cYY8BO_GdFOVNsIekipkuiC_2pb6g0
     ad-client:
     ad-slot:
