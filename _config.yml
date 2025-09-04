@@ -6,6 +6,7 @@ description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
 encoding: utf-8
+google_site_verification: N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM
 analytics:
   provider: "google-gtag"
   google:
