@@ -18,8 +18,7 @@ tags:
   - web-development
   - performance analysis
 description: "A compelling description of your blog post that will appear in search results and social media shares. Keep it under 160 characters for best SEO results."
-excerpt: "How to make your Wix website run 75% faster on 60% less data and ~$400 less in hosting fees - instantly.,
-instantly."
+excerpt: "How to make your Wix website run 75% faster on 60% less data and ~$400 less in hosting fees - instantly."
 comments: true              # Enable/disable comments
 share: true                 # Enable/disable social sharing
 ---

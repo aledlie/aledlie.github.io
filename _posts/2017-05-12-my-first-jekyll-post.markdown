@@ -10,9 +10,9 @@ author_profile: true
 
 [Git Readme file for Redcarpet](https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use)
 
-### Code Snippits
+### Code Snippets
 
-Look at me, I'm a php code snippit:
+Look at me, I'm a php code snippet:
 
 ```php?start_inline=true
 public static function helloWorld(): string {
@@ -38,7 +38,7 @@ No language indicated, so no syntax highlighting.
 But let's throw in a <b>tag</b>.
 ```
 
-Can also add inline code snippits with `backticks`.
+Can also add inline code snippets with `backticks`.
 
 ### Markdown style Quick Reference:
 
