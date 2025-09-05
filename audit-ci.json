@@ -1,0 +1,7 @@
+{
+  "moderate": true,
+  "allowlist": [
+  ],
+  "report-type": "summary",
+  "output-format": "text"
+}
