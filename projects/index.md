@@ -12,7 +12,7 @@ August***
 - [ ] Explain why I chose this tech stack (spoiler: I didn't, my m2 chip chose for me)
 - [x] Add usage examples make sense, to actual humans (I did, but at 4 a.m.,
   soooooo I probably need to re-write it later)
-- [] Write contributing guidelines (move fast, break things, plz don't break *everything*)
+- [ ] Write contributing guidelines (move fast, break things, plz don't break *everything*)
 - [x] Create a proper license file (currently using the "please don't sue me" license; need the MIT one like the rest of the cool kids)
 - [x] Add badges to make it look professional (even though it's held together with strings and duct tape, just like [OpenAI/Cursor](https://github.com/openai/codex/pull/1321/commits/a6a5f5a18e775b548f7f401b51e62c4936907791))
 - [x] Document the 47 environment variables needed to run projects scattered in various .yml,
