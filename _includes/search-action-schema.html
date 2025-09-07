@@ -1,0 +1,37 @@
+{% comment %}
+SearchAction schema for the website to enable sitelinks searchbox in Google
+This should be included in the main website schema
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "{{ site.url }}/#website-search",
+  "url": "{{ site.url }}/",
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ site.url }}/search/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    {
+      "@type": "ReadAction",
+      "target": "{{ site.url }}/posts/",
+      "name": "Browse Blog Posts"
+    },
+    {
+      "@type": "ViewAction", 
+      "target": "{{ site.url }}/projects/",
+      "name": "View Projects"
+    },
+    {
+      "@type": "ViewAction",
+      "target": "{{ site.url }}/about/", 
+      "name": "Learn About {{ site.author.name }}"
+    }
+  ]
+}
+</script>

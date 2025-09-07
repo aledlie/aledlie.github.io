@@ -1,0 +1,47 @@
+{% if page.url contains "/projects" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ page.url | absolute_url }}#collectionpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | default: 'Projects' }}",
+  "description": "{{ page.excerpt | default: page.description | default: 'Projects and creative works by ' | append: site.author.name | strip_html | truncate: 160 }}",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Software Projects and Creative Works",
+    "description": "A collection of software development projects, creative works, and technical initiatives",
+    "numberOfItems": "{{ site.data.projects.size | default: '10' }}",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ site.url }}/#website"
+  },
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "dateModified": "{{ site.time | date_to_xmlschema }}",
+  "author": {
+    "@id": "{{ site.url }}/#person"
+  },
+  "genre": ["Software Development", "Technology", "Open Source"],
+  "keywords": "software projects, web development, machine learning, automation, technical writing"
+}
+</script>
+{% endif %}

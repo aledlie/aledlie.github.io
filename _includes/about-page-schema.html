@@ -1,0 +1,82 @@
+{% if page.layout == "single" and page.url contains "/about" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ page.url | absolute_url }}#aboutpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | default: 'About' }}",
+  "description": "{{ page.excerpt | default: page.description | default: 'About page for ' | append: site.author.name | strip_html | truncate: 160 }}",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ site.author.name }}",
+    "jobTitle": "{{ site.author.bio | default: 'Writer and Developer' }}",
+    {% if site.author.avatar -%}
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ site.author.avatar | absolute_url }}",
+      "width": 400,
+      "height": 400
+    },
+    {% endif -%}
+    {% if site.author.bio -%}
+    "description": "{{ site.author.bio }}",
+    {% endif -%}
+    {% if site.author.location -%}
+    "address": "{{ site.author.location }}",
+    {% endif -%}
+    {% if site.author.email -%}
+    "email": "{{ site.author.email }}",
+    {% endif -%}
+    {% if site.author.links -%}
+    "sameAs": [
+      {% for link in site.author.links -%}
+        {% if link.url -%}
+          "{{ link.url }}"{% unless forloop.last %},{% endunless %}
+        {% endif -%}
+      {% endfor -%}
+    ],
+    {% endif -%}
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Integrity Studios",
+        "url": "https://integritystudio.notion.site"
+      },
+      {
+        "@type": "Organization", 
+        "name": "InventoryAI.io",
+        "url": "https://amazing-froyo-8f05e0.netlify.app/"
+      }
+    ]
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ site.url }}/#website"
+  },
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "dateModified": "{{ site.time | date_to_xmlschema }}",
+  "author": {
+    "@id": "{{ site.url }}/#person"
+  }
+}
+</script>
+{% endif %}

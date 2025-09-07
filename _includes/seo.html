@@ -130,7 +130,8 @@
 
 <!-- Structured Data -->
 {% if page.url == '/' %}
-  {% include schema.html %}
+  {% include homepage-enhanced-schema.html %}
+  {% include organization-schema.html %}
 {% endif %}
 
 {% if page.layout == "single" and page.date %}
@@ -138,6 +139,17 @@
 {% endif %}
 
 {% include breadcrumb-schema.html %}
+{% include about-page-schema.html %}
+{% include projects-page-schema.html %}
+{% include creative-work-schema.html %}
+{% include webpage-schema.html %}
+
+{% comment %}
+Enhanced Person schema - included on all pages for better knowledge graph data
+{% endcomment %}
+{% unless page.url == '/' %}
+  {% include enhanced-person-schema.html %}
+{% endunless %}
 <!-- end structured data -->
 
 <!-- end _includes/seo.html -->
