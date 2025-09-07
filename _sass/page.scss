@@ -104,6 +104,18 @@ page-lead {
     padding-inline-end: $right-sidebar-width;
   }
 
+  &.full-width {
+    @include breakpoint($large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+  }
+
   .page-inner-wrap {
     float: inline-start;
     margin-top: 1em;
@@ -138,7 +150,8 @@ page-lead {
   animation-delay: 0.15s;
 
   @include breakpoint($x-large) {
-    max-width: $max-width;
+    max-width: 95vw;
+    padding-inline: 2.5vw;
   }
 }
 
@@ -244,11 +257,20 @@ page-lead {
   .page,
   .page-related {
     @include breakpoint($large) {
+      width: 100%;
       padding-inline-end: 0;
     }
 
     @include breakpoint($x-large) {
+      width: 100%;
       padding-inline-end: 0;
+    }
+  }
+
+  #main {
+    @include breakpoint($large) {
+      max-width: 95vw;
+      padding-inline: 2.5vw;
     }
   }
 }
@@ -262,6 +284,29 @@ page-lead {
 .initial-content,
 .search-content {
   flex: 1 0 auto;
+}
+
+/* Full Width Layout Classes */
+.layout-wide,
+.layout-full-width {
+  #main {
+    @include breakpoint($large) {
+      max-width: 95vw;
+      padding-inline: 2.5vw;
+    }
+  }
+
+  .page {
+    @include breakpoint($large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+  }
 }
 
 /* Page taxonomy ========================================================================== */
