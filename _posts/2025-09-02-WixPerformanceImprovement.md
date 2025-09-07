@@ -1,7 +1,7 @@
 ---
 layout: single
-author_profile: true
-Title: Making your Wix website ~75% better, instantly
+title: Making your Wix website ~75% better, instantly
+date: 2025-09-02
 subtitle: "75% faster operations, 90% memory reduction, $391.68 annual savings"
 author_profile: true
 categories:

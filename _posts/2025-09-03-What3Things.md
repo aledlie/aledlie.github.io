@@ -1,6 +1,7 @@
 ---
 layout: single
 title: What 3 Things
+date: 2025-09-03
 author_profile: true
 excerpt:  "On Signal, Noise, & Sustainability : The limits of overclocking"
 ---

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Rich Snippets Testing Guide for Fisterra Dance Organization
+date: 2025-09-06
 author_profile: true
 excerpt: "A comprehensive guide for testing and implementing structured data to enhance search visibility for dance organizations."
 ---

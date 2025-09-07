@@ -231,6 +231,15 @@ body {
   border-bottom: 2px solid #8b2635;
 }
 
+/* Remove grid from card elements */
+.card .grid {
+  display: block !important;
+}
+
+.card .grid > div {
+  margin-bottom: 1rem;
+}
+
 /* SINGLE POST - Enhanced typography */
 .single {
   .page-title {
