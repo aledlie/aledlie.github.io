@@ -19,10 +19,10 @@ layout: compress
     {% include_cached skip-links.html %}
     {% include_cached masthead.html %}
 
-    <div class="initial-content">
+    <main class="initial-content">
       {{ content }}
       {% include after-content.html %}
-    </div>
+    </main>
 
     {% if site.search == true %}
       <div class="search-content">
@@ -30,12 +30,10 @@ layout: compress
       </div>
     {% endif %}
 
-    <div id="footer" class="page-footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
+    <footer id="footer" class="page-footer">
+      {% include footer/custom.html %}
+      {% include_cached footer.html %}
+    </footer>
 
     {% include scripts.html %}
   </body>

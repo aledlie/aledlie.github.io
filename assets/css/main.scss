@@ -9,8 +9,8 @@
 
 /* GLOBAL OVERRIDES - Only what differs from theme defaults */
 body {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* HEADER - Compact cover images */
@@ -159,8 +159,12 @@ body {
   }
 }
 
-/* CONTENT HEADINGS - Tighter spacing */
+/* CONTENT HEADINGS - Enhanced for long-form reading */
 .page-content {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.7;
+  
   h1 {
     font-size: 2em;
     color: #2c3e50;
@@ -176,7 +180,36 @@ body {
   }
 
   p {
-    color: #444;
+    margin-bottom: 1.5em;
+    color: #2c3e50;
+  }
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px dotted #3498db;
+    
+    &:hover {
+      border-bottom: 1px solid #3498db;
+      color: #2980b9;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid #3498db;
+    padding-left: 1.5rem;
+    font-style: italic;
+    margin: 2rem 0;
+    color: #555;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  /* Special styling for emotional breaks and contemplative spacing */
+  p + p {
+    margin-top: 1.75em;
   }
 }
 
@@ -342,5 +375,19 @@ a {
 
   .archive .list__item .archive__item-title {
     font-size: 1.2em;
+  }
+
+  .page-content {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 1rem;
+    
+    p {
+      margin-bottom: 1.25em;
+    }
+
+    p + p {
+      margin-top: 1.5em;
+    }
   }
 }

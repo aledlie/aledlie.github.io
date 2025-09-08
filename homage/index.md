@@ -2,6 +2,9 @@
 layout: single
 title: "Homage"
 author_profile: true
+header:
+  overlay_image: /images/cover-projects.png
+  teaser: /images/cover-projects.png
 ---
 
 
