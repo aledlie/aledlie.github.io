@@ -25,7 +25,7 @@
           {%- endfor -%}
         </ul>
         {% if site.search == true %}
-        <button class="search-toggle" type="button" aria-label="{{ site.data.ui-text[site.locale].search_label | default: 'Toggle search' }}" aria-expanded="false">
+        <button class="search-toggle" type="button" aria-label="{{ site.data.ui-text[site.locale].search_label | default: 'Toggle search' }}" aria-expanded="false" aria-controls="search-content">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
           <i class="fas fa-search" aria-hidden="true"></i>
         </button>
