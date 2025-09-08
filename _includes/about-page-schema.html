@@ -11,7 +11,7 @@
     "@type": "Person",
     "@id": "{{ site.url }}/#person",
     "name": "{{ site.author.name }}",
-    "jobTitle": "{{ site.author.bio | default: 'Writer and Developer' }}",
+    "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
     {% if site.author.avatar -%}
     "image": {
       "@type": "ImageObject",
@@ -48,23 +48,6 @@
         "@type": "Organization", 
         "name": "InventoryAI.io",
         "url": "https://amazing-froyo-8f05e0.netlify.app/"
-      }
-    ]
-  },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "{{ site.url }}/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "About",
-        "item": "{{ page.url | absolute_url }}"
       }
     ]
   },
