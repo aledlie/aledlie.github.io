@@ -75,6 +75,7 @@ include:
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
+  - schema-org-optimizer.md
   - vendor
   - .asset-cache
   - .bundle
@@ -97,8 +98,8 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
+  - test_results
+  - tests
 keep_files:
   - .git
   - .svn

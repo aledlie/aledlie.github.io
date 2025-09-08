@@ -2,4 +2,9 @@ _site
 .sass-cache
 .jekyll-metadata
 test-results/
-node_modules/.package-lock.json
+node_modules/
+.package-lock.json
+playwright_report/
+test_results/
+schema_org_optimizer.md
+audit-ci.json
