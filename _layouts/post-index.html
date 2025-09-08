@@ -8,9 +8,9 @@ layout: archive
 {% for year in postsByYear %}
   <section id="{{ year.name }}" class="taxonomy-section">
     <h2 class="archive-subtitle">{{ year.name }}</h2>
-    <div class="entries-{{ entries-layout }}">
+    <ul class="entries-{{ entries_layout }}" role="list">
       {% for post in year.items %}
-        <div class="list-item">
+        <li class="list-item">
           <article class="archive-item">
             <div class="archive-item-date">{{ post.date | date: "%B %d, %Y" }}</div>
             <h3 class="archive-item-title">
@@ -22,9 +22,9 @@ layout: archive
               </div>
             {% endif %}
           </article>
-        </div>
+        </li>
       {% endfor %}
-    </div>
+    </ul>
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
 {% endfor %}

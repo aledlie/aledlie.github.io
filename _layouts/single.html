@@ -21,7 +21,7 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html %}
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %} role="article">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
@@ -29,10 +29,10 @@ layout: default
 
     <div class="page-inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
+        <header role="banner">
           {% if page.title -%}
           <h1 id="page-title" class="page-title" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+            <a href="{{ page.url | absolute_url }}" itemprop="url" aria-label="{{ page.title }} - Current page">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
           </h1>
           {%- endif %}
           {% include page__meta.html %}
@@ -41,15 +41,15 @@ layout: default
 
       <section class="page-content" itemprop="text">
         {% if page.toc %}
-          <aside class="sidebar-right {% if page.toc-sticky %}sticky{% endif %}">
-            <nav class="toc">
-              <header><h4 class="nav-title"><i class="fas fa-{{ page.toc-icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+          <aside class="sidebar-right {% if page.toc-sticky %}sticky{% endif %}" role="complementary" aria-label="Table of contents">
+            <nav class="toc" role="navigation" aria-label="Table of contents">
+              <header><h4 class="nav-title"><i class="fas fa-{{ page.toc-icon | default: 'file-alt' }}" aria-hidden="true"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
               {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc-menu" skip_no_ids=true %}
             </nav>
           </aside>
         {% endif %}
         {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn-primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn-primary" aria-label="Direct link to {{ page.title }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
       <footer class="page-meta">
