@@ -52,7 +52,7 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn-primary" aria-label="Direct link to {{ page.title }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      <footer class="page-meta">
+      <footer class="page-meta" role="contentinfo" aria-label="Article metadata">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page-meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}

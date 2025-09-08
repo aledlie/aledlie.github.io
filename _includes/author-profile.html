@@ -1,12 +1,12 @@
 {% assign author = page.author | default: page.authors[0] | default: site.author %}
 {% assign author = site.data.authors[author] | default: author %}
 
-<div itemscope itemtype="https://schema.org/Person" class="h-card">
+<aside itemscope itemtype="https://schema.org/Person" class="h-card" role="complementary" aria-label="Author information">
 
   {% if author.avatar %}
     <div class="author-avatar">
-      <a href="{{ author.home | default: '/' | absolute_url }}">
-        <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
+      <a href="{{ author.home | default: '/' | absolute_url }}" aria-label="View {{ author.name }}'s profile">
+        <img src="{{ author.avatar | relative_url }}" alt="Profile photo of {{ author.name }}" itemprop="image" class="u-photo">
       </a>
     </div>
   {% endif %}
@@ -22,9 +22,10 @@
     {% endif %}
   </div>
 
-  <div class="author-urls-wrapper">
-    <button class="btn btn-inverse">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
-    <ul class="author-urls social-icons">
+  <section class="author-urls-wrapper">
+    <h4 class="visually-hidden">Social Media Links</h4>
+    <button class="btn btn-inverse" aria-label="Show social media links">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
+    <ul class="author-urls social-icons" role="list" aria-label="Social media links">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
           <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">{{ author.location }}</span>
@@ -241,5 +242,5 @@
 
       {% include author-profile-custom-links.html %}
     </ul>
-  </div>
-</div>
+  </section>
+</aside>
