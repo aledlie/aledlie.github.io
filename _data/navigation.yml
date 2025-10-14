@@ -9,17 +9,21 @@ main:
   - title: "About Me"
     url: /about_me/
 
-  - title: Vita
+  - title: "Vita"
     url: /vita/
 
-  - title: Homage
+  - title: "Homage"
     url: /homage/
 
   - title: "Sumedh's Site"
     url: https://www.sumedhmjoshi.com
 
-  - title: "Side Projects"
+  - title: "Sumedh's Football RSS Feed"
+    url: /rss/
+
+  - title: "'What Do You Do?'"
     url: /projects/
 
-  - title: "Stylesheet"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/stylesheets/
+  - title: "Case Studies"
+    url: /reports/
+
