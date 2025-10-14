@@ -1,10 +1,51 @@
+# Jekyll
 _site
 .sass-cache
 .jekyll-metadata
+.jekyll-cache/
+
+# Testing
 test-results/
+test_results/
+playwright_report/
+
+# Node
 node_modules/
 .package-lock.json
-playwright_report/
-test_results/
+
+# Project-specific
 schema_org_optimizer.md
 audit-ci.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+
+# Ruby/Bundler
+.bundle/
+vendor/bundle/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Claude Code
+.claude/
