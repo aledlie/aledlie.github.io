@@ -1,16 +1,33 @@
 {
-  "buildCommand": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build",
+  "buildCommand": "bundle exec jekyll build --baseurl ''",
   "outputDirectory": "_site",
-  "installCommand": "bundle install",
+  "installCommand": "bundle install --deployment",
   "framework": null,
   "functions": {},
+  "env": {
+    "JEKYLL_ENV": "production",
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8"
+  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     },
@@ -18,10 +35,45 @@
       "source": "/assets/css/(.*)",
       "headers": [
         {
-          "key": "Content-Type", 
+          "key": "Content-Type",
           "value": "text/css; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/js/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
-  ]
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": true
 }
