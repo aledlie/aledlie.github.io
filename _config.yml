@@ -100,10 +100,6 @@ exclude:
   - tmp
   - test_results
   - tests
-  - reports/_config.yml
-  - reports/_layouts
-  - reports/_site
-  - reports/index.html
 keep_files:
   - .git
   - .svn
