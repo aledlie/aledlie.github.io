@@ -22,6 +22,10 @@
 <link rel="stylesheet" href="{{ site.url }}/assets/css/glightbox.css">
 <link rel="stylesheet" href="{{ site.url }}/assets/css/glightbox.min.css">
 
+<!-- Security scripts -->
+<script src="{{ '/assets/js/email-obfuscation.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/csrf-protection.js' | relative_url }}"></script>
+
 {% if site.head_scripts %}
   {% for script in site.head_scripts %}
     <script src="{{ script | relative_url }}"></script>

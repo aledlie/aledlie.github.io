@@ -11,7 +11,7 @@ analytics:
   provider: "google-gtag"
   google:
     tracking_id: "GTM-TK5J8L38"
-    anonymize_ip: false # default
+    anonymize_ip: true # enabled for privacy compliance
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
   # posts
@@ -147,6 +147,7 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:alyshia@inventoryai.io"
+      # Note: Email is obfuscated via JavaScript in production. Base64: YWx5c2hpYUBpbnZlbnRvcnlhaS5pbw==
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aledlie"
