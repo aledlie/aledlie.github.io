@@ -11,14 +11,14 @@ In the hazy before-times of 2014 tech, I joined Facebook. I was the first person
 specifically as an engineer in an Austin office that employed fewer than 200 people in all roles. One of them was my brother. It was not a company back then so much
 as a cult. My first 6 years there were the hardest I've ever worked, the most I've ever learned,
 and, to quote a project manager of mine at the time, a ticket into "a theme park for psychos,"
-who would gleefully stay after work to keep talking about work.. we just also
+who would gleefully stay after work to keep talking about work... we just also
 added drinking and played video games when 6-7pm or so rolled around.
 
-For ~6 months I was a completely useless little ball of stress held together by imposter syndrome, intense curiousity, and a stubbern refusal to admit defeat by a serious of 1s
+For ~6 months I was a completely useless little ball of stress held together by imposter syndrome, intense curiosity, and a stubborn refusal to admit defeat by a series of 1s
 and 0s. Then, all in one moment, I woke as an "SME" - someone who other people went to
 for advice and help and was considered senior, and In Charge Of Things. This was not because I all of a sudden had become an expert; it was just a common on a team where we had only 1 engineer for every 300 million users, and if you'd been around for 6 months, that was longer than 50% of everyone else.  But it didn't help with the imposter syndrome.
 
-For about 8 years after than, my job was roughly divided like this:
+For about 8 years after that, my job was roughly divided like this:
 
 - **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.ZZZ
 - **30-40%** answering the questions of whoever came by my desk
@@ -33,13 +33,13 @@ After a few years of finding myself accidentally working as a mostly full-time t
 - **Keeping Myself Focused**: Writing these posts helped me prioritize and avoid saying "yes" to too many things at once.
 - **Scaling Therapy**: I hoped it would encourage my newer engineers (who I always called  *younglings*, regardless of age) to take a deep breath and realize it’s okay to *not finish everything* all at once.
 
-Those posts became a ritual over time that helped me to incorporate balance, calmness, and perspective in an evironment where the potential for error was huge, and everything always seemed to be on fire.
+Those posts became a ritual over time that helped me to incorporate balance, calmness, and perspective in an environment where the potential for error was huge, and everything always seemed to be on fire.
 
 ## When Everything *Must* Be Done at Once
 
 Sometimes, though, the idea of "not doing everything at once" just doesn’t hold up. Right now, I’m in one of those moments where I *do* need to tackle **everything at once**. So, I’m restarting my **"What 3 Things Alyshia’s Doing This Week"** posts with a clear purpose:
 
-- **Track Eeverything**: By documenting my priorities, I can monitor the size of my workload over time.
+- **Track Everything**: By documenting my priorities, I can monitor the size of my workload over time.
 - **Ease the Crunch**: My goal is to watch that workload shrink as I chip away at it before the **September 12th** deadline.
 
 I can't get this down to 3 lines yet, but the goal is to get there by October.  Here’s to managing the madness, finding balance, and coming out stronger on the other side!
@@ -49,7 +49,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
 - [x] ~~Make a TODO list~~ ✅ (Finally accomplished something today!)
 - [ ] Actually figure out what all of my projects are, what domain manager
 - [ ] Document domain managers & where they are stored
-- [x] Write a proper README.mds that doesn't just say "it works on my machine" for my 50 github repos (this iw now fully automated!)
+- [x] Write a proper README.mds that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
 - [ ] Add the projects that have been living on my local for btw 1-12 years, add
   them to github or bitbucket
 - [ ] Document installation steps (beyond "here's a curl command")
@@ -81,7 +81,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
   - “Selection bias is a hell of a drug.” ~F. Perry Wilson, MD, MSCE
   - The price of reliability is the pursuit of the utmost simplicity. ~C.A.R. Hoare (1980 ACM Turing Award Lecture)
 - [ ] Contribute to the ML Commons [AI Risk & Reliability](https://mlcommons.org/working-groups/ai-risk-reliability/ai-risk-reliability/) working group
-- [ ] Integrate BrightData into my SingleSiteScraper to scale it and prettyify it
+- [ ] Integrate BrightData into my SingleSiteScraper to scale it and prettify it
 - [ ] Figure out if I want to use [AWS SageMaker](https://aws.amazon.com/sagemaker/)
 - [ ] Submit and find more silly competitions like [this](https://dev.to/devteam/join-the-real-time-ai-agents-challenge-powered-by-n8n-and-bright-data-5000-in-prizes-across-five-3nmb?bb=240503)
 - [ ] Create MCP out of HHSC compliance research that spits out a TODO-list
