@@ -275,8 +275,8 @@ claude mcp add -s user openapi -- npx -y openapi-mcp-server
 **Configuration:**
 ```bash
 claude mcp add -s user \
-  -e GRAFANA_URL=https://aledlie.grafana.net \
-  -e GRAFANA_SERVICE_ACCOUNT_TOKEN=glsa_*** \
+  -e GRAFANA_URL=https://[user].grafana.net \
+  -e GRAFANA_SERVICE_ACCOUNT_TOKEN=[glsa_]*** \
   -- grafana npx -y @leval/mcp-grafana
 ```
 
@@ -340,9 +340,8 @@ claude mcp add -s user \
 ### Environment Variables
 
 **Grafana Configuration:**
-```bash
-GRAFANA_URL=https://aledlie.grafana.net
-GRAFANA_SERVICE_ACCOUNT_TOKEN=glsa_cqACRd7hM4qbWxpEcPzfq884XXGu8s7k_70c817fe
+```
+stored in doppler
 ```
 
 **PostgreSQL Connection:**
