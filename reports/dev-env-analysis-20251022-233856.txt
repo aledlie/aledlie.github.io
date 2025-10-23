@@ -1,0 +1,10 @@
+Development Environment Analysis Report
+Generated: Wed Oct 22 23:38:57 CDT 2025
+
+Directories that could be moved:
+  - /opt/homebrew -> ~/code/node
+  - ~/.pyenv -> ~/code/python/pyenv
+
+Environment variables to update:
+  - npm config set prefix ~/code/node
+  - PYENV_ROOT=$HOME/code/python/pyenv

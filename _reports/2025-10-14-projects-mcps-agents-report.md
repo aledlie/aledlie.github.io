@@ -666,7 +666,7 @@ This repository contains **40+ projects** across various domains including:
 
 ### 9. FixInflight / FixInflight2
 
-**Location:** `FixInflight/`, `FixInflight2/`
+**Location:** `arc-fix/FixInflight/`, `arc-fix/FixInflight2/`
 **Type:** Bug Fix Projects
 
 **Description:** Projects for fixing issues (likely iterations).
@@ -699,7 +699,7 @@ This repository contains **40+ projects** across various domains including:
 
 ### 12. printTree
 
-**Location:** `printTree/`
+**Location:** `arc-fix/printTree/`
 **Type:** Utility Tool
 
 **Description:** Utility for printing directory tree structures.
@@ -741,7 +741,7 @@ This repository contains **40+ projects** across various domains including:
 
 ### 16. gmail-add-on-codelab
 
-**Location:** `gmail-add-on-codelab/`
+**Location:** `bot_army/gmail-add-on-codelab/`
 **Type:** Gmail Add-on Development
 
 **Description:** Gmail add-on codelab/tutorial project.
