@@ -44,6 +44,7 @@ svg:not(:root) {
 		img {
 			@include grid(12,6);
 		}
+
 		figcaption {
 			@include grid(12,12);
 		}
@@ -59,6 +60,7 @@ svg:not(:root) {
 		img {
 			@include grid(12,4);
 		}
+
 		figcaption {
 			@include grid(12,12);
 		}
@@ -76,6 +78,7 @@ svg:not(:root) {
   margin-bottom: 20px;
   padding: 8px 20px;
   @include font-rem(14);
+
   font-family: $heading-font;
   font-weight: 700;
   background-color: $primary;
@@ -85,9 +88,11 @@ svg:not(:root) {
   border-color: $primary;
   text-decoration: none !important;
   @include rounded(3px);
+
   &:visited {
     color: $white;
   }
+
   &:hover {
     background-color: $white;
     color: $primary;
@@ -100,9 +105,11 @@ svg:not(:root) {
   background-color: $success;
   color: $white;
   border-color: $success;
+
   &:visited {
     color: $white;
   }
+
   &:hover {
     background-color: $white;
     color: $success;
@@ -115,9 +122,11 @@ svg:not(:root) {
   background-color: $warning;
   color: $white;
   border-color: $warning;
+
   &:visited {
     color: $white;
   }
+
   &:hover {
     background-color: $white;
     color: $warning;
@@ -130,9 +139,11 @@ svg:not(:root) {
   background-color: $danger;
   color: $white;
   border-color: $danger;
+
   &:visited {
     color: $white;
   }
+
   &:hover {
     background-color: $white;
     color: $danger;
@@ -145,9 +156,11 @@ svg:not(:root) {
   background-color: $info;
   color: $white;
   border-color: $info;
+
   &:visited {
     color: $white;
   }
+
   &:hover {
     background-color: $white;
     color: $info;

@@ -3,6 +3,7 @@
 ---
 
 @import "minimal-mistakes";
+@use "variables" as *;
 @charset "utf-8";
 
 /* Clean, minimal styling inspired by reference design */
@@ -39,12 +40,12 @@ body {
 
 /* HEADER BANNER - Red academic banner like target site */
 .masthead {
-  border-bottom: .5px solid #eee;
+  border-bottom: .5px solid $border-light;
   padding: 2em 0 1em;
 }
 
 .greedy-nav {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: $heading-font;
   text-transform: uppercase;
   text-align: center;
   background: transparent;
@@ -59,9 +60,9 @@ body {
   }
 
   a {
-    color: #fff;
+    color: $white;
     &:hover {
-      color: #666;
+      color: $gray-medium;
     }
   }
 
@@ -111,12 +112,12 @@ body {
   .author-name {
     font-size: 2em;
     font-weight: bold;
-    font-family: "PT Sans Narrow", sans-serif;
+    font-family: $heading-font;
   }
 
   .author-bio {
     font-style: italic;
-    color: #666;
+    color: $gray-medium;
     font-size: 1.1em;
     line-height: 1.4;
   }
@@ -131,30 +132,30 @@ body {
 
       a {
         font-size: 1em;
-        color: #8b2635 !important;
+        color: $academic-red !important;
         text-decoration: none;
         padding: 0.3em 0.5em;
         border-radius: 3px;
         transition: all 0.3s ease;
 
         &:hover {
-          color: #fff !important;
-          background: #8b2635;
+          color: $white !important;
+          background: $academic-red;
         }
       }
     }
   }
 
   .btn {
-    background: #f8f9fa !important;
-    border: 1px solid #dee2e6;
-    color: #666;
+    background: $bg-light !important;
+    border: 1px solid $border-medium;
+    color: $gray-medium;
     font-size: 1em;
     display: block;
 
     &:hover {
-      background: #e9ecef !important;
-      color: #333 !important;
+      background: $bg-lighter !important;
+      color: $text-dark !important;
     }
   }
 }
@@ -164,44 +165,44 @@ body {
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 16px;
   line-height: 1.7;
-  
+
   h1 {
     font-size: 2em;
-    color: #2c3e50;
-    border-bottom: 3px solid #3498db;
+    color: $content-text;
+    border-bottom: 3px solid $accent-blue;
     padding-bottom: 10px;
   }
 
   h2 {
     font-size: 1.3em;
-    color: #666;
+    color: $gray-medium;
     font-weight: 500;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $border-light;
   }
 
   p {
     margin-bottom: 1.5em;
-    color: #2c3e50;
+    color: $content-text;
   }
 
   a {
-    color: #3498db;
+    color: $accent-blue;
     text-decoration: none;
-    border-bottom: 1px dotted #3498db;
-    
+    border-bottom: 1px dotted $accent-blue;
+
     &:hover {
-      border-bottom: 1px solid #3498db;
-      color: #2980b9;
+      border-bottom: 1px solid $accent-blue;
+      color: $accent-blue-dark;
     }
   }
 
   blockquote {
-    border-left: 3px solid #3498db;
+    border-left: 3px solid $accent-blue;
     padding-left: 1.5rem;
     font-style: italic;
     margin: 2rem 0;
-    color: #555;
-    background: #f8f9fa;
+    color: $gray-darker;
+    background: $bg-light;
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
@@ -227,23 +228,23 @@ body {
     font-size: 1.3em;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #666;
-    font-family: "PT Sans Narrow", sans-serif;
+    color: $gray-medium;
+    font-family: $heading-font;
 
     a {
-      color: #8b2635 !important;
+      color: $academic-red !important;
       text-decoration: none !important;
       border-bottom: none !important;
       transition: color 0.3s ease;
 
       &:hover {
-        color: #6d1e2a !important;
+        color: $academic-red-dark !important;
       }
     }
   }
 
   .archive__item-excerpt {
-    color: #555;
+    color: $gray-darker;
     font-size: 1em;
     line-height: 1.6;
     margin-bottom: 0.5rem;
@@ -257,11 +258,11 @@ body {
 
 /* Recent Posts heading styling */
 .page__content h2 {
-  color: #8b2635;
-  font-family: "PT Sans Narrow", sans-serif;
+  color: $academic-red;
+  font-family: $heading-font;
   font-size: 1.8em;
   font-style: bold;
-  border-bottom: 2px solid #8b2635;
+  border-bottom: 2px solid $academic-red;
 }
 
 /* Remove grid from card elements */
@@ -283,16 +284,16 @@ body {
   }
 
   .page-meta {
-    color: #999;
+    color: $gray-lighter;
     font-size: 0.9em;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $border-light;
   }
 }
 
 /* GLOBAL LINK OVERRIDES - Clean black text */
 a {
-  color: #333 !important;
+  color: $text-dark !important;
   text-decoration: none !important;
 
   &:hover {
@@ -302,20 +303,20 @@ a {
 
 /* FOOTER - Clean styling */
 .page-footer {
-  border-top: 1px solid #eee;
+  border-top: 1px solid $border-light;
   margin-top: 3rem;
   padding: 2rem 0;
   text-align: center;
 
   .page-footer-copyright {
-    color: #999;
+    color: $gray-lighter;
     font-size: 0.85em;
   }
 }
 
 /* SOCIAL SHARING */
 .page-share {
-  border-top: 1px solid #eee;
+  border-top: 1px solid $border-light;
   padding-top: 1.5rem;
   margin-top: 2rem;
 

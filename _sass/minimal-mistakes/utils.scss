@@ -62,7 +62,7 @@ body:hover .visually-hidden button {
   background: #fff;
   z-index: 100000;
   text-decoration: none;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgb(0 0 0 / 60%);
 }
 
 /*
@@ -182,7 +182,7 @@ $text-alignments: left, right, start, end, center, justify;
    ========================================================================== */
 .icon {
   display: inline-block;
-  fill: currentColor;
+  fill: currentcolor;
   width: 1em;
   height: 1.1em;
   line-height: 1;
@@ -191,7 +191,7 @@ $text-alignments: left, right, start, end, center, justify;
   vertical-align: middle;
 }
 
-/* social icons*/
+/* social icons */
 
 .social-icons {
   .fas,
@@ -243,7 +243,7 @@ $text-alignments: left, right, start, end, center, justify;
   height: $navicon-height;
   background: $primary-color;
   margin: auto;
-  -webkit-transition: 0.3s;
+  transition: 0.3s;
   transition: 0.3s;
 
   &::before,
@@ -254,46 +254,47 @@ $text-alignments: left, right, start, end, center, justify;
     width: $navicon-width;
     height: $navicon-height;
     background: $primary-color;
-    -webkit-transition: 0.3s;
+    transition: 0.3s;
     transition: 0.3s;
   }
 
-  &:before {
+  &::before {
     top: (-2 * $navicon-height);
   }
 
-  &:after {
+  &::after {
     bottom: (-2 * $navicon-height);
   }
 }
 
 .close .navicon {
-  /* hide the middle line*/
+  /* hide the middle line */
   background: transparent;
 
-  /* overlay the lines by setting both their top values to 0*/
-  &:before,
-  &:after {
-    -webkit-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
+  /* overlay the lines by setting both their top values to 0 */
+  &::before,
+  &::after {
+    transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     top: 0;
     width: $navicon-width;
   }
 
-  /* rotate the lines to form the x shape*/
-  &:before {
-    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+  /* rotate the lines to form the x shape */
+  &::before {
+    transform: rotate3d(0, 0, 1, 45deg);
     transform: rotate3d(0, 0, 1, 45deg);
   }
-  &:after {
-    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+
+  &::after {
+    transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg);
   }
 }
 
 .greedy-nav__toggle {
-  &:before {
+  &::before {
     @supports (pointer-events: none) {
       content: '';
       position: fixed;
@@ -303,16 +304,16 @@ $text-alignments: left, right, start, end, center, justify;
       height: 100%;
       opacity: 0;
       background-color: $background-color;
-      -webkit-transition: $global-transition;
+      transition: $global-transition;
       transition: $global-transition;
       pointer-events: none;
     }
   }
 
   &.close {
-    &:before {
+    &::before {
       opacity: 0.9;
-      -webkit-transition: $global-transition;
+      transition: $global-transition;
       transition: $global-transition;
       pointer-events: auto;
     }
@@ -321,8 +322,8 @@ $text-alignments: left, right, start, end, center, justify;
 
 .greedy-nav__toggle:hover {
   .navicon,
-  .navicon:before,
-  .navicon:after {
+  .navicon::before,
+  .navicon::after {
     background: mix(#000, $primary-color, 25%);
   }
 
@@ -339,8 +340,9 @@ $text-alignments: left, right, start, end, center, justify;
 
 .sticky {
   @include breakpoint($large) {
-    @include clearfix();
-    position: -webkit-sticky;
+    @include clearfix;
+
+    position: sticky;
     position: sticky;
     top: 2em;
 
@@ -361,7 +363,7 @@ $text-alignments: left, right, start, end, center, justify;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: $border-radius;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
 }
 
 /*
@@ -380,7 +382,7 @@ $text-alignments: left, right, start, end, center, justify;
     width: 100%;
     height: 100%;
     z-index: 999;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgb(255 255 255 / 85%);
   }
 
   .modal {
@@ -409,7 +411,7 @@ $text-alignments: left, right, start, end, center, justify;
   }
 
   &__supporting-text {
-    padding: 0 1em 0.5em 1em;
+    padding: 0 1em 0.5em;
   }
 
   &__actions {
@@ -546,6 +548,7 @@ pre {
       position: absolute;
       top: 0.25em;
       inset-inline-end: 0.25em;
+
       &.copied {
         opacity: 0;
       }
@@ -553,6 +556,7 @@ pre {
 
     &.copied i {
       opacity: 0;
+
       &.copied {
         opacity: 1;
       }

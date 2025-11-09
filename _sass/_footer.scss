@@ -2,21 +2,22 @@
    FOOTER
    ========================================================================== */
 
+/* stylelint-disable selector-class-pattern */
 .page__footer {
   @include clearfix;
+
   float: inline-start;
   margin-inline: 0;
   width: 100%;
   margin-top: 3em;
   color: $muted-text-color;
-  -webkit-animation: $intro-transition;
   animation: $intro-transition;
-  -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
   background-color: $footer-background-color;
 
   footer {
     @include clearfix;
+
     margin-inline: auto;
     margin-top: 2em;
     max-width: 100%;
@@ -70,14 +71,16 @@
     padding-inline-end: 5px;
   }
 
-  a {
-    padding-inline-end: 10px;
-    font-weight: bold;
-  }
-
   .social-icons {
     a {
       white-space: nowrap;
     }
   }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  a {
+    padding-inline-end: 10px;
+    font-weight: bold;
+  }
 }
+/* stylelint-enable selector-class-pattern */

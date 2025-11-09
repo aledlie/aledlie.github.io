@@ -7,7 +7,8 @@
    ========================================================================== */
 
 .sidebar {
-  @include clearfix();
+  @include clearfix;
+
   // @include breakpoint(max-width $large) {
   //   /* fix z-index order of follow links */
   //   position: relative;
@@ -20,7 +21,7 @@
     float: inline-start;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
     opacity: 0.75;
-    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 
     &:hover {
@@ -29,6 +30,7 @@
 
     &.sticky {
       overflow-y: auto;
+
       /* calculate height of nav list
          viewport height - nav height - masthead x-padding
       */
@@ -84,8 +86,9 @@
     z-index: 10;
 
     &.sticky {
-      @include clearfix();
-      position: -webkit-sticky;
+      @include clearfix;
+
+      position: sticky;
       position: sticky;
       top: 2em;
       float: inline-end;
@@ -170,6 +173,7 @@
     margin-bottom: 10px;
   }
 }
+
 .sidebar .author__name {
   font-family: $sans-serif;
   font-size: $type-size-5;
@@ -212,7 +216,7 @@
     position: relative;
     margin-bottom: 0;
 
-    &:before {
+    &::before {
       @supports (pointer-events: none) {
         content: '';
         position: fixed;
@@ -225,7 +229,7 @@
     }
 
     &.open {
-      &:before {
+      &::before {
         pointer-events: auto;
       }
     }
@@ -280,7 +284,7 @@
     }
   }
 
-  &:after {
+  &::after {
     display: block;
     content: "";
     position: absolute;

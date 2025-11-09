@@ -17,6 +17,7 @@ body {
   font-family: $global-font-family;
   line-height: 1.5;
 
+  /* stylelint-disable-next-line selector-class-pattern */
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
     overflow: hidden;
@@ -73,6 +74,7 @@ u,
 ins {
   text-decoration: none;
   border-bottom: 1px solid $text-color;
+
   a {
     color: inherit;
   }
@@ -127,6 +129,7 @@ blockquote {
 
 /* links */
 
+/* stylelint-disable no-descending-specificity */
 a {
   &:focus {
     @extend %tab-focus;
@@ -141,6 +144,7 @@ a {
     outline: 0;
   }
 }
+/* stylelint-enable no-descending-specificity */
 
 /* buttons */
 
@@ -159,7 +163,7 @@ pre {
 }
 
 pre {
-  overflow-x: auto; /* add scrollbars to wide code blocks*/
+  overflow-x: auto; /* add scrollbars to wide code blocks */
 }
 
 /* horizontal rule */
@@ -208,10 +212,10 @@ figure {
   img {
     width: 100%;
     border-radius: $border-radius;
-    -webkit-transition: $global-transition;
     transition: $global-transition;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   > a {
     display: block;
   }
@@ -245,6 +249,7 @@ figure {
 
 /* Figure captions */
 
+/* stylelint-disable no-descending-specificity */
 figcaption {
   margin-bottom: 0.5em;
   color: $muted-text-color;
@@ -252,7 +257,6 @@ figcaption {
   font-size: $type-size-6;
 
   a {
-    -webkit-transition: $global-transition;
     transition: $global-transition;
 
     &:hover {
@@ -260,6 +264,7 @@ figcaption {
     }
   }
 }
+/* stylelint-enable no-descending-specificity */
 
 /* Fix IE9 SVG bug */
 
@@ -284,6 +289,7 @@ svg:not(:root) {
  *  </nav>
  */
 
+/* stylelint-disable no-descending-specificity */
 nav {
   ul {
     margin: 0;
@@ -309,4 +315,5 @@ nav {
     margin-top: 0;
   }
 }
+/* stylelint-enable no-descending-specificity */
 

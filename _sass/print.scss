@@ -3,14 +3,13 @@
    ========================================================================== */
 
 @media print {
-
   [hidden] {
     display: none;
   }
 
   * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -29,7 +28,7 @@
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
   }
 
   h1,
@@ -181,8 +180,8 @@
     font-size: 80%;
   }
 
-  abbr[title]:after,
-  acronym[title]:after {
+  abbr[title]::after,
+  acronym[title]::after {
     content: " (" attr(title) ")";
   }
 
@@ -209,12 +208,12 @@
     display: none;
   }
 
-  a.no-reformat:after {
+  a.no-reformat::after {
     content: '';
   }
 
-  abbr[title].no-reformat:after,
-  acronym[title].no-reformat:after {
+  abbr[title].no-reformat::after,
+  acronym[title].no-reformat::after {
     content: '';
   }
 

@@ -30,7 +30,7 @@ form {
 
   ul {
     list-style-type: none;
-    margin: 0 0 5px 0;
+    margin: 0 0 5px;
     padding: 0;
   }
 
@@ -72,6 +72,7 @@ label {
   }
 }
 
+/* stylelint-disable no-descending-specificity */
 input,
 textarea,
 select {
@@ -151,6 +152,7 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
+/* stylelint-enable no-descending-specificity */
 
 input[type="hidden"] {
   display: none;
@@ -265,8 +267,7 @@ select:focus {
 }
 
 .form-inline .radio,
-.form-inline .checkbox,
-.form-inline .radio {
+.form-inline .checkbox {
   padding-inline-start: 0;
   margin-bottom: 0;
   vertical-align: middle;
@@ -275,8 +276,7 @@ select:focus {
 .form-inline .radio input[type="radio"],
 .form-inline .checkbox input[type="checkbox"] {
   float: inline-start;
-  margin-inline-start: 0;
-  margin-inline-end: 3px;
+  margin-inline: 0 3px 0 0;
 }
 
 /*
@@ -311,14 +311,14 @@ select:focus {
 .form-search .radio input[type="radio"],
 .form-search .checkbox input[type="checkbox"] {
   float: inline-start;
-  margin-inline-start: 0;
-  margin-inline-end: 3px;
+  margin-inline: 0 3px 0 0;
 }
 
 /*
      .form--loading
      ========================================================================== */
 
+/* stylelint-disable selector-class-pattern */
 .form--loading::before {
   content: "";
 }
@@ -333,10 +333,12 @@ select:focus {
   inset-inline-start: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
+  /* stylelint-disable-next-line color-function-notation, alpha-value-notation */
+  background-color: rgb(255, 255, 255, 0.7);
   z-index: 10;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .form__spinner {
   display: none;
   position: absolute;
@@ -344,3 +346,4 @@ select:focus {
   inset-inline-start: 50%;
   z-index: 11;
 }
+/* stylelint-enable selector-class-pattern */

@@ -4,19 +4,21 @@
 
 .page-footer {
   @include clearfix;
+
   float: inline-start;
   margin-inline: 0;
   width: 100%;
   margin-top: 3em;
   color: $muted-text-color;
-  -webkit-animation: $intro-transition;
   animation: $intro-transition;
-  -webkit-animation-delay: 0.45s;
+  animation: $intro-transition;
+  animation-delay: 0.45s;
   animation-delay: 0.45s;
   background-color: $footer-background-color;
 
   footer {
     @include clearfix;
+
     margin-inline: auto;
     margin-top: 2em;
     max-width: 100%;

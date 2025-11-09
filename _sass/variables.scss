@@ -16,7 +16,7 @@ $alt-font: $base-font;
 
 /* ==============Colors========================================================================== */
 
-$basecolor      		: #343434;	  
+$basecolor      		: #343434;
 $background-color		: #fff !default;
 $black          		: #111;
 $border-color   		: #7a8288;
@@ -35,6 +35,23 @@ $success-color			: #3fa63f !default;
 $text-color     		: #333332;
 $warning-color			: #d67f05 !default;
 $white          		: #fff;
+
+/* Academic theme colors */
+$academic-red: #8b2635;
+$academic-red-dark: #6d1e2a;
+$accent-blue: #3498db;
+$accent-blue-dark: #2980b9;
+$content-text: #2c3e50;
+
+/* Consolidated grays and borders */
+$border-light: #eee;
+$gray-medium: #666;
+$gray-darker: #555;
+$gray-lighter: #999;
+$bg-light: #f8f9fa;
+$bg-lighter: #e9ecef;
+$border-medium: #dee2e6;
+$text-dark: #333;
 
 /* YIQ color contrast */
 

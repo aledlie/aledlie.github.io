@@ -10,11 +10,12 @@
    Selection
    ========================================================================== */
 
-::-moz-selection { 
+::selection { 
 	background-color: color.adjust($basecolor, $lightness: 65%); 
 	color: $basecolor; 
 	text-shadow: none; 
 }  	
+
 ::selection { 
 	background-color: color.adjust($basecolor, $lightness: 65%); 
 	color: $basecolor; 
@@ -39,6 +40,7 @@
 .pull-right {
 	float: right;
 }
+
 .image-pull-right {
 	float: right;
 	margin-top: 0;
@@ -54,6 +56,7 @@
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;
+
 	li {
 		list-style-type: none;
 	}
