@@ -72,6 +72,7 @@ vendor/bundle/
 # Build artifacts
 dist/
 build/
+lib/
 
 # OS generated files
 Thumbs.db
