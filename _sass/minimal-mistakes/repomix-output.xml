@@ -1,0 +1,1646 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+_footer.scss
+_search.scss
+_sidebar.scss
+_syntax.scss
+_tables.scss
+utils.scss
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="_footer.scss">
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.page-footer {
+  @include clearfix;
+
+  float: inline-start;
+  margin-inline: 0;
+  width: 100%;
+  margin-top: 3em;
+  color: $muted-text-color;
+  animation: $intro-transition;
+  animation: $intro-transition;
+  animation-delay: 0.45s;
+  animation-delay: 0.45s;
+  background-color: $footer-background-color;
+
+  footer {
+    @include clearfix;
+
+    margin-inline: auto;
+    margin-top: 2em;
+    max-width: 100%;
+    padding: 0 1em 2em;
+
+    @include breakpoint($x-large) {
+      max-width: $x-large;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: $muted-text-color;
+  }
+}
+
+.page-footer-copyright {
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+}
+
+.page-footer-follow {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-6;
+    text-transform: uppercase;
+  }
+
+  li + li::before {
+    content: "";
+    padding-inline-end: 5px;
+  }
+
+  a {
+    padding-inline-end: 10px;
+    font-weight: bold;
+  }
+
+  .social-icons {
+    a {
+      white-space: nowrap;
+    }
+  }
+}
+</file>
+
+<file path="_search.scss">
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+.layout--search {
+  .archive__item-teaser {
+    margin-bottom: 0.25em;
+  }
+}
+
+.search__toggle {
+  margin-inline: 1rem;
+  height: $nav-toggle-height;
+  border: 0;
+  outline: none;
+  color: $primary-color;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  transition: 0.2s;
+
+  &:hover {
+    color: mix(#000, $primary-color, 25%);
+  }
+}
+
+.search-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.search-content {
+  display: none;
+  visibility: hidden;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  &__inner-wrap {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1em;
+    animation: $intro-transition;
+    animation: $intro-transition;
+    animation-delay: 0.15s;
+    animation-delay: 0.15s;
+
+    @include breakpoint($x-large) {
+      max-width: $max-width;
+    }
+
+  }
+
+  &__form {
+    background-color: transparent;
+  }
+
+  .search-input {
+    display: block;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    font-size: $type-size-3;
+
+    @include breakpoint($large) {
+      font-size: $type-size-2;
+    }
+
+    @include breakpoint($x-large) {
+      font-size: $type-size-1;
+    }
+  }
+
+  &.is--visible {
+    display: block;
+    visibility: visible;
+
+    &::after {
+      content: "";
+      display: block;
+    }
+  }
+
+  .results__found {
+    margin-top: 0.5em;
+    font-size: $type-size-6;
+  }
+
+  .archive__item {
+    margin-bottom: 2em;
+
+    @include breakpoint($large) {
+      width: 75%;
+    }
+
+    @include breakpoint($x-large) {
+      width: 50%;
+    }
+  }
+
+  .archive__item-title {
+    margin-top: 0;
+  }
+
+  .archive__item-excerpt {
+    margin-bottom: 0;
+  }
+}
+
+/* Algolia search */
+
+.ais-search-box {
+  max-width: 100% !important;
+  margin-bottom: 2em;
+}
+
+.archive__item-title .ais-Highlight {
+  color: $primary-color;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.archive__item-excerpt .ais-Highlight {
+  color: $primary-color;
+  font-style: normal;
+  font-weight: bold;
+}
+</file>
+
+<file path="_sidebar.scss">
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+/*
+   Default
+   ========================================================================== */
+
+.sidebar {
+  @include clearfix;
+
+  // @include breakpoint(max-width $large) {
+  //   /* fix z-index order of follow links */
+  //   position: relative;
+  //   z-index: 10;
+  //   -webkit-transform: translate3d(0, 0, 0);
+  //   transform: translate3d(0, 0, 0);
+  // }
+
+  @include breakpoint($large) {
+    float: inline-start;
+    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.sticky {
+      overflow-y: auto;
+
+      /* calculate height of nav list
+         viewport height - nav height - masthead x-padding
+      */
+      max-height: calc(100vh - #{$nav-height} - 2em);
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: calc(#{$right-sidebar-width} - 1em);
+  }
+
+  > * {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    font-family: $sans-serif-narrow;
+  }
+
+  p,
+  li {
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+    line-height: 1.5;
+  }
+
+  img {
+    width: 100%;
+
+    &.emoji {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    width: $right-sidebar-width-narrow;
+    margin-inline-end: -1 * $right-sidebar-width-narrow;
+    padding-inline-start: 1em;
+    z-index: 10;
+
+    &.sticky {
+      @include clearfix;
+
+      position: sticky;
+      position: sticky;
+      top: 2em;
+      float: inline-end;
+
+      .toc {
+        .toc__menu {
+          overflow-y: auto;
+          max-height: calc(100vh - 7em);
+        }
+      }
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: $right-sidebar-width;
+    margin-inline-end: -1 * $right-sidebar-width;
+  }
+}
+
+.splash .sidebar__right {
+  @include breakpoint($large) {
+    position: relative;
+    float: inline-end;
+    margin-inline-end: 0;
+  }
+
+  @include breakpoint($x-large) {
+    margin-inline-end: 0;
+  }
+}
+
+/*
+   Author profile and links
+   ========================================================================== */
+
+.author__avatar {
+  display: table-cell;
+  vertical-align: top;
+  width: 36px;
+  height: 36px;
+
+  @include breakpoint($large) {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  img {
+    max-width: 110px;
+    border-radius: 50%;
+
+    @include breakpoint($large) {
+      padding: 5px;
+      border: 1px solid $border-color;
+    }
+  }
+}
+
+.author__content {
+  display: table-cell;
+  vertical-align: top;
+  padding-inline: 15px 25px;
+  line-height: 1;
+
+  @include breakpoint($large) {
+    display: block;
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.author__name {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar .author__name {
+  font-family: $sans-serif;
+  font-size: $type-size-5;
+}
+
+.author__bio {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.author__urls-wrapper {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: $sans-serif;
+  z-index: 20;
+  cursor: pointer;
+
+  li:last-child {
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  .author__urls {
+    span.label {
+      padding-inline-start: 5px;
+    }
+  }
+
+  @include breakpoint($large) {
+    display: block;
+  }
+
+  button {
+    position: relative;
+    margin-bottom: 0;
+
+    &::before {
+      @supports (pointer-events: none) {
+        content: '';
+        position: fixed;
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    &.open {
+      &::before {
+        pointer-events: auto;
+      }
+    }
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+}
+
+.author__urls {
+  display: none;
+  position: absolute;
+  inset-inline-end: 0;
+  margin-top: 15px;
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+  cursor: default;
+
+  &.is--visible {
+    display: block;
+  }
+
+  @include breakpoint($large) {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $border-color transparent;
+    z-index: 0;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $background-color transparent;
+    z-index: 1;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  ul {
+    padding: 10px;
+    list-style-type: none;
+  }
+
+  li {
+    white-space: nowrap;
+  }
+
+  a {
+    display: block;
+    margin-bottom: 5px;
+    padding-block: 2px;
+    padding-inline-end: 5px;
+    color: inherit;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+   Wide Pages
+   ========================================================================== */
+
+.wide .sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: initial;
+    top: initial;
+    inset-inline-end: initial;
+    width: initial;
+    margin-inline-end: initial;
+    padding-inline-start: initial;
+    z-index: initial;
+
+    &.sticky {
+      float: none;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: initial;
+    margin-inline-end: initial;
+  }
+}
+</file>
+
+<file path="_syntax.scss">
+/* ==========================================================================
+   Syntax highlighting
+   ========================================================================== */
+
+div.highlighter-rouge,
+figure.highlight {
+  position: relative;
+  margin-bottom: 1em;
+  background: $base00;
+  color: $base05;
+  font-family: $monospace;
+  font-size: $type-size-6;
+  line-height: 1.8;
+  border-radius: $border-radius;
+
+  [dir="rtl"] & {
+    direction: ltr;
+    text-align: start;
+  }
+
+  > pre,
+  pre.highlight {
+    margin: 0;
+    padding: 1em;
+  }
+}
+
+.highlight table {
+  margin-bottom: 0;
+  font-size: 1em;
+  border: 0;
+
+  td {
+    padding: 0;
+    width: calc(100% - 1em);
+    border: 0;
+
+    /* line numbers */
+    &.gutter,
+    &.rouge-gutter {
+      padding-inline-end: 1em;
+      width: 1em;
+      color: $base04;
+      border-inline-end: 1px solid $base04;
+      text-align: end;
+    }
+
+    /* code */
+    &.code,
+    &.rouge-code {
+      padding-inline-start: 1em;
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+}
+
+.highlight pre {
+  width: 100%;
+}
+
+.highlight .hll {
+  background-color: $base06;
+}
+
+.highlight {
+  .c {
+    /* Comment */
+    color: $base04;
+  }
+
+  .err {
+    /* Error */
+    color: $base08;
+  }
+
+  .k {
+    /* Keyword */
+    color: $base0e;
+  }
+
+  .l {
+    /* Literal */
+    color: $base09;
+  }
+
+  .n {
+    /* Name */
+    color: $base05;
+  }
+
+  .o {
+    /* Operator */
+    color: $base0c;
+  }
+
+  .p {
+    /* Punctuation */
+    color: $base05;
+  }
+
+  .cm {
+    /* Comment.Multiline */
+    color: $base04;
+  }
+
+  .cp {
+    /* Comment.Preproc */
+    color: $base04;
+  }
+
+  .c1 {
+    /* Comment.Single */
+    color: $base04;
+  }
+
+  .cs {
+    /* Comment.Special */
+    color: $base04;
+  }
+
+  .gd {
+    /* Generic.Deleted */
+    color: $base08;
+  }
+
+  .ge {
+    /* Generic.Emph */
+    font-style: italic;
+  }
+
+  .gh {
+    /* Generic.Heading */
+    color: $base05;
+    font-weight: bold;
+  }
+
+  .gi {
+    /* Generic.Inserted */
+    color: $base0b;
+  }
+
+  .gp {
+    /* Generic.Prompt */
+    color: $base04;
+    font-weight: bold;
+  }
+
+  .gs {
+    /* Generic.Strong */
+    font-weight: bold;
+  }
+
+  .gu {
+    /* Generic.Subheading */
+    color: $base0c;
+    font-weight: bold;
+  }
+
+  .kc {
+    /* Keyword.Constant */
+    color: $base0e;
+  }
+
+  .kd {
+    /* Keyword.Declaration */
+    color: $base0e;
+  }
+
+  .kn {
+    /* Keyword.Namespace */
+    color: $base0c;
+  }
+
+  .kp {
+    /* Keyword.Pseudo */
+    color: $base0e;
+  }
+
+  .kr {
+    /* Keyword.Reserved */
+    color: $base0e;
+  }
+
+  .kt {
+    /* Keyword.Type */
+    color: $base0a;
+  }
+
+  .ld {
+    /* Literal.Date */
+    color: $base0b;
+  }
+
+  .m {
+    /* Literal.Number */
+    color: $base09;
+  }
+
+  .s {
+    /* Literal.String */
+    color: $base0b;
+  }
+
+  .na {
+    /* Name.Attribute */
+    color: $base0d;
+  }
+
+  .nb {
+    /* Name.Builtin */
+    color: $base05;
+  }
+
+  .nc {
+    /* Name.Class */
+    color: $base0a;
+  }
+
+  .no {
+    /* Name.Constant */
+    color: $base08;
+  }
+
+  .nd {
+    /* Name.Decorator */
+    color: $base0c;
+  }
+
+  .ni {
+    /* Name.Entity */
+    color: $base05;
+  }
+
+  .ne {
+    /* Name.Exception */
+    color: $base08;
+  }
+
+  .nf {
+    /* Name.Function */
+    color: $base0d;
+  }
+
+  .nl {
+    /* Name.Label */
+    color: $base05;
+  }
+
+  .nn {
+    /* Name.Namespace */
+    color: $base0a;
+  }
+
+  .nx {
+    /* Name.Other */
+    color: $base0d;
+  }
+
+  .py {
+    /* Name.Property */
+    color: $base05;
+  }
+
+  .nt {
+    /* Name.Tag */
+    color: $base0c;
+  }
+
+  .nv {
+    /* Name.Variable */
+    color: $base08;
+  }
+
+  .ow {
+    /* Operator.Word */
+    color: $base0c;
+  }
+
+  .w {
+    /* Text.Whitespace */
+    color: $base05;
+  }
+
+  .mf {
+    /* Literal.Number.Float */
+    color: $base09;
+  }
+
+  .mh {
+    /* Literal.Number.Hex */
+    color: $base09;
+  }
+
+  .mi {
+    /* Literal.Number.Integer */
+    color: $base09;
+  }
+
+  .mo {
+    /* Literal.Number.Oct */
+    color: $base09;
+  }
+
+  .sb {
+    /* Literal.String.Backtick */
+    color: $base0b;
+  }
+
+  .sc {
+    /* Literal.String.Char */
+    color: $base05;
+  }
+
+  .sd {
+    /* Literal.String.Doc */
+    color: $base04;
+  }
+
+  .s2 {
+    /* Literal.String.Double */
+    color: $base0b;
+  }
+
+  .se {
+    /* Literal.String.Escape */
+    color: $base09;
+  }
+
+  .sh {
+    /* Literal.String.Heredoc */
+    color: $base0b;
+  }
+
+  .si {
+    /* Literal.String.Interpol */
+    color: $base09;
+  }
+
+  .sx {
+    /* Literal.String.Other */
+    color: $base0b;
+  }
+
+  .sr {
+    /* Literal.String.Regex */
+    color: $base0b;
+  }
+
+  .s1 {
+    /* Literal.String.Single */
+    color: $base0b;
+  }
+
+  .ss {
+    /* Literal.String.Symbol */
+    color: $base0b;
+  }
+
+  .bp {
+    /* Name.Builtin.Pseudo */
+    color: $base05;
+  }
+
+  .vc {
+    /* Name.Variable.Class */
+    color: $base08;
+  }
+
+  .vg {
+    /* Name.Variable.Global */
+    color: $base08;
+  }
+
+  .vi {
+    /* Name.Variable.Instance */
+    color: $base08;
+  }
+
+  .il {
+    /* Literal.Number.Integer.Long */
+    color: $base09;
+  }
+}
+
+.gist {
+  th, td {
+    border-bottom: 0;
+  }
+}
+</file>
+
+<file path="_tables.scss">
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+
+table {
+  display: block;
+  margin-bottom: 1em;
+  width: 100%;
+  font-family: $global-font-family;
+  font-size: $type-size-6;
+  border-collapse: collapse;
+  overflow-x: auto;
+
+  & + table {
+    margin-top: 1em;
+  }
+}
+
+thead {
+  background-color: $border-color;
+  border-bottom: 2px solid mix(#000, $border-color, 25%);
+}
+
+th {
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: start;
+}
+
+td {
+  padding: 0.5em;
+  border-bottom: 1px solid mix(#000, $border-color, 25%);
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+</file>
+
+<file path="utils.scss">
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/*
+   Visibility
+   ========================================================================== */
+
+/* http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/ */
+
+.hidden,
+.is--hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* for preloading images */
+
+.load {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+/* https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html */
+.visually-hidden,
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut,
+.sr-only,
+.sr-only-focusable:not(:focus) {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body:hover .visually-hidden a,
+body:hover .visually-hidden input,
+body:hover .visually-hidden button {
+  display: none !important;
+}
+
+/* screen readers */
+
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus {
+  clip: auto !important;
+  height: auto !important;
+  width: auto !important;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 15px 23px 14px;
+  background: #fff;
+  z-index: 100000;
+  text-decoration: none;
+  box-shadow: 0 0 2px 2px rgb(0 0 0 / 60%);
+}
+
+/*
+   Skip links
+   ========================================================================== */
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  margin: 0;
+  font-family: $sans-serif;
+  white-space: nowrap;
+}
+
+.skip-link li {
+  height: 0;
+  width: 0;
+  list-style: none;
+}
+
+/*
+   Type
+   ========================================================================== */
+
+$text-alignments: left, right, start, end, center, justify;
+@each $alignment in $text-alignments {
+  .text-#{$alignment} {
+    text-align: $alignment;
+  }
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/*
+   Task lists
+   ========================================================================== */
+
+.task-list {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+
+  .task-list-item-checkbox {
+    margin-inline-end: 0.5em;
+    opacity: 1;
+  }
+}
+
+.task-list .task-list {
+  margin-inline-start: 1em;
+}
+
+/*
+   Alignment
+   ========================================================================== */
+
+/* clearfix */
+
+.cf {
+  clear: both;
+}
+
+.wrapper {
+  margin-inline: auto;
+  width: 100%;
+}
+
+/*
+   Images
+   ========================================================================== */
+
+/* image align left */
+
+.align-left {
+  display: block;
+  margin-inline: auto;
+
+  @include breakpoint($small) {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+/* image align right */
+
+.align-right {
+  display: block;
+  margin-inline: auto;
+
+  @include breakpoint($small) {
+    float: right;
+    margin-left: 1em;
+  }
+}
+
+/* image align center */
+
+.align-center {
+  display: block;
+  margin-inline: auto;
+}
+
+/* file page content container */
+
+.full {
+  @include breakpoint($large) {
+    margin-inline-end: -1 * span(2.5 of 12) !important;
+  }
+}
+
+/*
+   Icons
+   ========================================================================== */
+.icon {
+  display: inline-block;
+  fill: currentcolor;
+  width: 1em;
+  height: 1.1em;
+  line-height: 1;
+  position: relative;
+  top: -0.1em;
+  vertical-align: middle;
+}
+
+/* social icons */
+
+.social-icons {
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: $text-color;
+  }
+
+  @each $color, $icons in (
+    $behance-color: ".fa-behance, .fa-behance-square",
+    $bitbucket-color: ".fa-bitbucket",
+    $dribbble-color: ".fa-dribbble, .fa-dribbble-square",
+    $facebook-color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
+    $flickr-color: ".fa-flickr",
+    $foursquare-color: ".fa-foursquare",
+    $github-color: ".fa-github, .fa-github-alt, .fa-github-square",
+    $gitlab-color: ".fa-gitlab",
+    $instagram-color: ".fa-instagram",
+    $keybase-color: ".fa-keybase",
+    $lastfm-color: ".fa-lastfm, .fa-lastfm-square",
+    $linkedin-color: ".fa-linkedin, .fa-linkedin-in",
+    $mastodon-color: ".fa-mastodon, .fa-mastodon-square",
+    $pinterest-color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
+    $reddit-color: ".fa-reddit",
+    $rss-color: ".fa-rss, .fa-rss-square",
+    $soundcloud-color: ".fa-soundcloud",
+    $stackoverflow-color: ".fa-stack-exchange, .fa-stack-overflow",
+    $tumblr-color: ".fa-tumblr, .fa-tumblr-square",
+    $twitter-color: ".fa-twitter, .fa-twitter-square",
+    $x-color: ".fa-x-twitter, .fa-square-x-twitter",
+    $vimeo-color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
+    $vine-color: ".fa-vine",
+    $xing-color: ".fa-xing, .fa-xing-square",
+    $youtube-color: ".fa-youtube",
+  ) {
+    #{$icons} {
+      color: $color;
+    }
+  }
+}
+
+/*
+   Navicons
+   ========================================================================== */
+.navicon {
+  position: relative;
+  width: $navicon-width;
+  height: $navicon-height;
+  background: $primary-color;
+  margin: auto;
+  transition: 0.3s;
+  transition: 0.3s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    width: $navicon-width;
+    height: $navicon-height;
+    background: $primary-color;
+    transition: 0.3s;
+    transition: 0.3s;
+  }
+
+  &::before {
+    top: (-2 * $navicon-height);
+  }
+
+  &::after {
+    bottom: (-2 * $navicon-height);
+  }
+}
+
+.close .navicon {
+  /* hide the middle line */
+  background: transparent;
+
+  /* overlay the lines by setting both their top values to 0 */
+  &::before,
+  &::after {
+    transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: 0;
+    width: $navicon-width;
+  }
+
+  /* rotate the lines to form the x shape */
+  &::before {
+    transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+
+  &::after {
+    transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+}
+
+.greedy-nav__toggle {
+  &::before {
+    @supports (pointer-events: none) {
+      content: '';
+      position: fixed;
+      top: 0;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: $background-color;
+      transition: $global-transition;
+      transition: $global-transition;
+      pointer-events: none;
+    }
+  }
+
+  &.close {
+    &::before {
+      opacity: 0.9;
+      transition: $global-transition;
+      transition: $global-transition;
+      pointer-events: auto;
+    }
+  }
+}
+
+.greedy-nav__toggle:hover {
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    background: mix(#000, $primary-color, 25%);
+  }
+
+  &.close {
+    .navicon {
+      background: transparent;
+    }
+  }
+}
+
+/*
+   Sticky, fixed to top content
+   ========================================================================== */
+
+.sticky {
+  @include breakpoint($large) {
+    @include clearfix;
+
+    position: sticky;
+    position: sticky;
+    top: 2em;
+
+    > * {
+      display: block;
+    }
+  }
+}
+
+/*
+   Wells
+   ========================================================================== */
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: $border-radius;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+/*
+   Modals
+   ========================================================================== */
+
+.show-modal {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgb(255 255 255 / 85%);
+  }
+
+  .modal {
+    display: block;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 300px;
+  top: 50%;
+  inset-inline-start: 50%;
+  margin-inline-start: -150px;
+  margin-top: -150px;
+  min-height: 0;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  &__title {
+    margin: 0;
+    padding: 0.5em 1em;
+  }
+
+  &__supporting-text {
+    padding: 0 1em 0.5em;
+  }
+
+  &__actions {
+    padding: 0.5em 1em;
+    border-top: 1px solid $border-color;
+  }
+}
+
+/*
+   Footnotes
+   ========================================================================== */
+
+.footnote {
+  color: mix(#fff, $gray, 25%);
+  text-decoration: none;
+}
+
+.footnotes {
+  color: mix(#fff, $gray, 25%);
+
+  ol,
+  li,
+  p {
+    margin-bottom: 0;
+    font-size: $type-size-6;
+  }
+}
+
+a.reversefootnote {
+  color: $gray;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/*
+   Required
+   ========================================================================== */
+
+.required {
+  color: $danger-color;
+  font-weight: bold;
+}
+
+/*
+   Google Custom Search Engine
+   ========================================================================== */
+
+.gsc-control-cse {
+  table,
+  tr,
+  td {
+    border: 0; /* remove table borders widget */
+  }
+}
+
+/*
+   Responsive Video Embed
+   ========================================================================== */
+
+.responsive-video-container {
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// full screen video fixes
+:-webkit-full-screen-ancestor {
+  .masthead,
+  .page__footer {
+    position: static;
+  }
+}
+
+/*
+   Copy <pre> block to clipboard
+   ========================================================================== */
+
+// a <textarea> to hold text for document.execCommand("copy")
+.clipboard-helper {
+  // Prevent zooming on iOS
+  font-size: 12pt !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  position: absolute;
+}
+
+pre {
+  &.highlight .clipboard-copy-button {
+    color: #ffffca;
+  }
+
+  .clipboard-copy-button {
+    display: block;
+    position: absolute;
+    top: 0.6em;
+    inset-inline-end: 0.5em;
+    width: 1.8em;
+    height: 1.5em;
+    z-index: 1;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 0.1em;
+    padding: 0.2em 0.5em;
+    opacity: 0.4;
+    transition: color 0.25s linear -0.25s, opacity 0.25s linear;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    i {
+      position: absolute;
+      top: 0.25em;
+      inset-inline-end: 0.25em;
+
+      &.copied {
+        opacity: 0;
+      }
+    }
+
+    &.copied i {
+      opacity: 0;
+
+      &.copied {
+        opacity: 1;
+      }
+    }
+
+    @at-root {
+      .no-copy & {
+        display: none;
+      }
+    }
+  }
+
+  &:hover .clipboard-copy-button {
+    opacity: 1;
+  }
+}
+</file>
+
+</files>

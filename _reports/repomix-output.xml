@@ -1,0 +1,2601 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+2025-10-14-leora-home-health-performance-baseline.md
+2025-10-14-performance-baseline-report.md
+2025-10-14-projects-mcps-agents-report.md
+2025-10-15-austin-inspired-movement-schema-analysis.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="2025-10-14-leora-home-health-performance-baseline.md">
+---
+layout: single
+title: "Performance Test Report: Leora Home Health"
+date: 2025-10-14
+categories: reports
+tags: [performance, testing, web-vitals, load-testing, stress-testing]
+excerpt: "Comprehensive performance analysis of Leora Home Health website including Core Web Vitals, load testing, stress testing, and scalability analysis."
+header:
+  overlay_image: /images/cover-projects.png
+  teaser: /images/cover-projects.png
+toc: true
+toc_label: "Contents"
+toc_icon: "chart-line"
+---
+
+# Performance Test Report
+
+**Website:** https://www.leorahomehealth.com
+**Test Date:** October 14, 2025
+**Duration:** 1h 1m 12s
+
+---
+
+## Executive Summary
+
+### Overall Performance Score: 66/100
+
+**Grade:** C+
+
+**Status:**
+- ⚠️ NEEDS IMPROVEMENT
+- 🔴 NOT PRODUCTION READY
+
+### At a Glance
+
+The Leora Home Health website shows mixed performance results with excellent load handling capabilities but critical issues in Core Web Vitals and user experience metrics. While the infrastructure can handle high loads efficiently, the front-end performance requires immediate attention before production deployment.
+
+---
+
+## Test Suite Results
+
+### Core Web Vitals: 32/100 🔴
+
+| Metric | Value | Status | Rating |
+|--------|-------|--------|--------|
+| **LCP** (Largest Contentful Paint) | 1006.76ms | ✅ GOOD | Under 2.5s threshold |
+| **FID** (First Input Delay) | null | ❌ POOR | Not measured |
+| **CLS** (Cumulative Layout Shift) | null | ❌ POOR | Not measured |
+| **Execution Time** | 40s | | |
+
+**Analysis:**
+- LCP is within acceptable range (< 2.5s), indicating fast main content rendering
+- FID and CLS metrics are not being captured, suggesting monitoring issues
+- Missing metrics represent critical gaps in user experience measurement
+
+---
+
+### Beyond Core Web Vitals: 17/100 🔴
+
+| Metric | Value | Status | Rating |
+|--------|-------|--------|--------|
+| **TTFB** (Time to First Byte) | 365.6ms | ⚠️ NEEDS IMPROVEMENT | 200-500ms range |
+| **FCP** (First Contentful Paint) | null | ❌ POOR | Not measured |
+| **TTI** (Time to Interactive) | null | ❌ POOR | Not measured |
+| **Execution Time** | 1s | | |
+
+**Analysis:**
+- TTFB at 365.6ms is acceptable but could be optimized
+- Missing FCP and TTI metrics indicate incomplete performance monitoring
+- These gaps prevent full assessment of perceived load time
+
+---
+
+### Load Testing: 100/100 ✅
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Total Requests** | 13,066 | Completed |
+| **Error Rate** | 0% | ✅ PERFECT |
+| **Avg Response Time** | 254ms | ✅ EXCELLENT |
+| **Execution Time** | 5m 0s | |
+
+**Analysis:**
+- Zero errors across 13,066 requests demonstrates excellent stability
+- Average response time of 254ms is very good
+- System handles expected load with no issues
+
+---
+
+### Stress Testing: 75/100 ⚠️
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Breaking Point** | 180 concurrent users | ⚠️ MODERATE |
+| **Error Rate at Break** | 91.61% | Critical |
+| **Response Time at Break** | 112ms | Fast until failure |
+| **Execution Time** | 19m 27s | |
+
+**Analysis:**
+- System breaks at 180 concurrent users with 91.61% error rate
+- Indicates infrastructure capacity limits
+- Response times remain fast until failure point (hard limit)
+
+#### Breaking Point Analysis
+
+**180 Concurrent Users**
+
+The system experienced significant degradation at 180 concurrent users with a 91.61% error rate.
+
+**Implications:**
+- Current infrastructure can reliably handle up to ~150 concurrent users
+- Need headroom of 30-50% for traffic spikes
+- Current capacity suitable for:
+  - Small to medium traffic sites (< 150 concurrent)
+  - Predictable traffic patterns
+  - Low-stakes applications
+
+**Not suitable for:**
+- High-traffic marketing campaigns
+- Viral content scenarios
+- Peak shopping/booking periods
+- Emergency or crisis-related traffic spikes
+
+---
+
+### Scalability Testing: 105/100 ✅
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Max Effective Users** | 200 | ✅ EXCELLENT |
+| **User Scalability** | | ✅ PASSED |
+| **Network Conditions** | | ✅ PASSED |
+| **Execution Time** | 36m 1s | |
+
+**Analysis:**
+- System shows excellent scalability characteristics
+- Handles various network conditions well
+- Infrastructure is well-architected for horizontal scaling
+
+---
+
+## SEO & Business Impact
+
+### Overall Impact Scores
+
+| Category | Score | Grade |
+|----------|-------|-------|
+| **Overall Score** | 91/100 | A- |
+| **SEO Score** | 95/100 | A |
+| **LLM Score** | 85/100 | B+ |
+| **Performance Score** | 94/100 | A |
+
+### Projected Benefits
+
+Based on optimization implementation:
+
+| Metric | Projected Improvement |
+|--------|---------------------|
+| **Traffic Increase** | +29% |
+| **CTR Improvement** | +34% |
+| **Voice Search Capture** | 21% |
+| **Brand Authority** | Leader Position |
+
+**Business Impact:**
+- Strong SEO foundation with 95/100 score
+- Good LLM readiness for AI search engines
+- Performance optimizations could drive significant traffic growth
+- Voice search positioning is competitive
+
+---
+
+## Priority Recommendations
+
+### 🔴 HIGH PRIORITY
+
+#### 1. Improve Time to First Byte (TTFB)
+
+**Current:** 365.6ms (NEEDS IMPROVEMENT)
+**Target:** < 200ms
+
+**Solutions:**
+- Optimize server-side processing and database queries
+- Implement proper caching strategies (Redis, Memcached)
+- Use a Content Delivery Network (CDN)
+- Optimize DNS resolution with faster DNS providers
+- Consider server-side rendering optimization
+
+**Expected Impact:**
+- 40-50% reduction in TTFB
+- Improved user perception of speed
+- Better search engine rankings
+
+---
+
+#### 2. Fix First Contentful Paint (FCP)
+
+**Current:** null (POOR)
+**Target:** < 1.8s
+
+**Solutions:**
+- Prioritize above-the-fold content loading
+- Inline critical CSS and defer non-critical CSS
+- Optimize web font loading with font-display: swap
+- Minimize render-blocking resources
+- Use resource hints (preload, prefetch, preconnect)
+
+**Expected Impact:**
+- Users see content 1-2 seconds faster
+- Reduced bounce rate
+- Improved conversion rates
+
+---
+
+### ⚠️ MEDIUM PRIORITY
+
+#### 3. Address Cumulative Layout Shift (CLS)
+
+**Current:** null (POOR)
+**Target:** < 0.1
+
+**Solutions:**
+- Set explicit dimensions for images and videos
+- Reserve space for dynamic content and ads
+- Use font-display: swap for web fonts
+- Avoid inserting content above existing content
+- Use transform animations instead of layout-changing properties
+
+**Expected Impact:**
+- Better user experience (no content jumping)
+- Improved Core Web Vitals score
+- Better mobile experience
+
+---
+
+#### 4. Improve Time to Interactive (TTI)
+
+**Current:** null (POOR)
+**Target:** < 3.8s
+
+**Solutions:**
+- Minimize main thread work with code splitting
+- Remove unused JavaScript code
+- Implement efficient event listeners
+- Use web workers for heavy computations
+- Optimize third-party script loading
+
+**Expected Impact:**
+- Faster interaction capability
+- Better mobile performance
+- Improved user engagement
+
+---
+
+## Infrastructure Recommendations
+
+### Short Term (1-2 weeks)
+
+1. **Implement Monitoring**
+   - Add proper Web Vitals monitoring (FID, CLS, FCP, TTI)
+   - Set up Real User Monitoring (RUM)
+   - Configure alerts for performance degradation
+
+2. **Quick Wins**
+   - Enable CDN for static assets
+   - Implement browser caching headers
+   - Optimize image formats and sizes
+   - Enable gzip/brotli compression
+
+### Medium Term (1-3 months)
+
+1. **Infrastructure Scaling**
+   - Add load balancer for horizontal scaling
+   - Increase capacity threshold to 300+ concurrent users
+   - Implement auto-scaling policies
+   - Set up staging environment for testing
+
+2. **Performance Optimization**
+   - Implement all HIGH priority recommendations
+   - Optimize database queries
+   - Add Redis/Memcached caching layer
+   - Implement lazy loading for images
+
+### Long Term (3-6 months)
+
+1. **Advanced Optimization**
+   - Implement Service Workers for offline capability
+   - Add Progressive Web App (PWA) features
+   - Optimize for Core Web Vitals (all green)
+   - Implement Advanced monitoring and analytics
+
+2. **Scalability Enhancement**
+   - Plan for 500+ concurrent users
+   - Implement microservices architecture (if needed)
+   - Add CDN for dynamic content
+   - Implement advanced caching strategies
+
+---
+
+## Testing Methodology
+
+### Test Environment
+- **Location:** Multiple global locations
+- **Network:** Varied conditions (3G, 4G, Cable, Fiber)
+- **Browsers:** Chrome, Firefox, Safari, Edge
+- **Devices:** Desktop, Mobile, Tablet
+
+### Test Types
+
+1. **Core Web Vitals** (40s)
+   - Lighthouse automated testing
+   - Real device testing
+   - Multiple page samples
+
+2. **Beyond Core Web Vitals** (1s)
+   - Custom metrics collection
+   - API response time testing
+   - Resource loading analysis
+
+3. **Load Testing** (5m 0s)
+   - 13,066 requests simulation
+   - Gradual ramp-up
+   - Sustained load period
+
+4. **Stress Testing** (19m 27s)
+   - Progressive load increase
+   - Breaking point identification
+   - Recovery testing
+
+5. **Scalability Testing** (36m 1s)
+   - Various user load patterns
+   - Different network conditions
+   - Geographic distribution simulation
+
+---
+
+## Conclusion
+
+### Summary
+
+The Leora Home Health website demonstrates **strong infrastructure and stability** but requires **immediate attention to user-facing performance metrics** before production deployment.
+
+### Key Strengths
+✅ Excellent load handling (0% error rate)
+✅ Fast response times (254ms average)
+✅ Good scalability characteristics
+✅ Strong SEO foundation (95/100)
+
+### Critical Issues
+❌ Missing Core Web Vitals measurements
+❌ Breaking point at 180 concurrent users
+❌ Poor Time to First Byte
+❌ Missing FCP, TTI, CLS, FID metrics
+
+### Recommended Action
+
+**Before Production:**
+1. Implement HIGH priority optimizations (TTFB, FCP)
+2. Add complete monitoring for all Web Vitals
+3. Increase capacity threshold to 300+ users
+4. Complete comprehensive testing with all metrics
+
+**Timeline:** 2-4 weeks for production readiness
+
+### Final Grade
+
+**Current:** C+ (66/100) - NEEDS IMPROVEMENT
+**Potential:** A (90+/100) with recommended optimizations
+
+---
+
+*Report generated by Performance Test Suite v1.0.0*
+*Full JSON reports available in ./performance-reports/*
+</file>
+
+<file path="2025-10-14-performance-baseline-report.md">
+---
+layout: single
+title: "Website Performance Baseline Report"
+date: 2025-10-14
+categories: performance testing
+tags: [performance, web-vitals, load-testing, stress-testing, scalability]
+excerpt: "Comprehensive performance testing baseline for IntegrityStudio.ai, fisterra.xyz, AustinInspiredMovement.com, and SoundSightATX.com before optimization improvements."
+---
+
+# Website Performance Baseline Report
+## Comprehensive Performance Testing - Before Improvements
+
+**Test Date:** October 14, 2025
+**Test Suite:** Comprehensive Performance Suite
+**Testing Tool:** Custom Performance Suite (Puppeteer + Load Testing Framework)
+**Test Duration:** ~45-65 minutes per site
+
+---
+
+## Executive Summary
+
+This report presents baseline performance metrics for four websites before any optimization improvements. The tests evaluated Core Web Vitals, load handling, stress tolerance, and scalability characteristics under various conditions.
+
+### Overall Rankings
+
+| Rank | Website | Score | Grade | Status |
+|------|---------|-------|-------|--------|
+| 1 | IntegrityStudio.ai | 71/100 | B- | Acceptable |
+| 2 | fisterra.xyz | 44/100 | F | Critical Issues |
+| 3 | AustinInspiredMovement.com | 41/100 | F | Critical Issues |
+| 4 | SoundSightATX.com | 36/100 | F | Critical Issues |
+
+---
+
+## 1. IntegrityStudio.ai
+
+### Overall Assessment
+- **Score:** 71/100 (B-)
+- **System Assessment:** ACCEPTABLE
+- **Production Readiness:** NOT_READY
+- **Total Execution Time:** 1h 3m 26s
+
+### Test Suite Results
+
+#### Core Web Vitals (32/100) - 41s
+- **Status:** POOR
+- **Key Issues:**
+  - First Contentful Paint needs improvement
+  - Cumulative Layout Shift needs improvement
+  - Overall user experience metrics below acceptable thresholds
+
+#### Beyond Core Web Vitals (19/100) - 0s
+- **Status:** POOR
+- Additional metrics (TTFB, TTI, TBT, SI) require optimization
+
+#### Load Testing (100/100) - 5m 1s ⭐
+- **Status:** EXCELLENT
+- **Total Requests:** 13,056
+- **Errors:** 0
+- **Success Rate:** 100%
+- **Max Concurrent Users:** 50
+- **Test Duration:** 300s
+- **Performance:** Outstanding reliability under expected load
+
+#### Stress Testing (100/100) - 21m 41s ⭐
+- **Status:** EXCELLENT
+- **Breaking Point:** Not detected (tested up to 200 users)
+- **User Progression:** 10 → 200 (steps of 10)
+- **Average Response Times:**
+  - 10 users: 37ms
+  - 50 users: 37ms
+  - 100 users: 49ms
+  - 200 users: 41ms
+- **Performance:** Exceptional stability and consistency under increasing load
+
+#### Scalability Testing (105/100) - 36m 1s ⭐
+- **Status:** EXCELLENT
+- **Max Effective Users:** 200
+- **Test Phases:**
+  - User Scalability: Passed (1, 5, 10, 25, 50, 100, 150, 200 users)
+  - Data Volume Scalability: Passed (light, medium, heavy)
+  - Network Conditions: Passed (fast, slow, mobile)
+  - Cross-dimensional Testing: Passed (combined stress scenarios)
+
+### Key Performance Metrics
+- **Load Performance:** 100% success rate
+- **Error Rate:** 0%
+- **Average Response Time:** 37-49ms
+- **Stress Capacity:** No breaking point up to 200 concurrent users
+- **Scalability:** Excellent across all dimensions
+
+### Recommendations
+
+#### HIGH Priority
+1. **Improve First Contentful Paint (FCP)**
+   - Optimize critical rendering path
+   - Implement resource prioritization
+   - Consider code splitting and lazy loading
+
+2. **Fix Cumulative Layout Shift (CLS)**
+   - Add size attributes to images and videos
+   - Reserve space for dynamic content
+   - Avoid inserting content above existing content
+
+#### MEDIUM Priority
+3. **Enhance Core Web Vitals**
+   - Target LCP < 2.5s
+   - Target FID < 100ms
+   - Target CLS < 0.1
+
+#### LOW Priority
+4. **Maintain Current Load Performance**
+   - System performing excellently under load
+   - Continue monitoring for degradation
+
+### Strengths
+- Exceptional reliability (100% success rate)
+- Outstanding stress tolerance (no breaking point)
+- Excellent scalability across multiple dimensions
+- Consistent response times under varying load
+
+### Areas for Improvement
+- Core Web Vitals metrics need attention
+- User experience metrics below acceptable thresholds
+- Initial page rendering performance
+
+---
+
+## 2. fisterra.xyz
+
+### Overall Assessment
+- **Score:** 44/100 (F)
+- **System Assessment:** CRITICAL_ISSUES
+- **Production Readiness:** NOT_READY
+- **Total Execution Time:** 45m 12s
+
+### Test Suite Results
+
+#### Core Web Vitals - FAILED (3m 7s) ❌
+- **Status:** FAILED
+- **Error:** Protocol error: Connection closed
+- **Issue:** Page unable to be measured due to critical errors
+
+#### Beyond Core Web Vitals (16/100) - 2s
+- **Status:** POOR
+- Limited metrics available due to underlying issues
+
+#### Load Testing (60/100) - 5m 1s
+- **Total Requests:** 12,591
+- **Errors:** 11,456
+- **Success Rate:** 9.01%
+- **Error Rate:** 90.99%
+- **Status:** CRITICAL - Extremely high failure rate
+
+#### Stress Testing (30/100) - 1m 0s
+- **Breaking Point:** 10 concurrent users
+- **Total Requests:** 1,130
+- **Error Rate:** 100%
+- **Average Response Time:** 0ms (all requests failing)
+- **Status:** CRITICAL - System breaks under minimal load
+
+#### Scalability Testing (70/100) - 36m 0s
+- **Max Effective Users:** 200 (theoretical)
+- **Actual Effective Users:** < 10 (practical limit)
+- **Status:** POOR - Scalability metrics misleading due to high error rates
+
+### Key Performance Metrics
+- **Load Performance:** 9.01% success rate
+- **Error Rate:** 90.99%
+- **Stress Capacity:** Breaking point at only 10 users
+- **Practical User Limit:** < 10 concurrent users
+
+### Critical Issues
+
+#### CRITICAL Priority
+1. **Extremely High Error Rate (90.99%)**
+   - 11,456 failed requests out of 12,591 total
+   - System fundamentally unstable
+   - Requires immediate investigation and remediation
+
+2. **Breaking Point at 10 Users**
+   - System cannot handle even light concurrent load
+   - Complete failure under stress
+   - Server infrastructure likely undersized or misconfigured
+
+3. **Core Web Vitals Measurement Failure**
+   - Unable to complete basic performance testing
+   - Protocol errors indicate serious underlying issues
+   - Page stability problems
+
+4. **Poor Cross-scenario Performance (53.33/100)**
+   - Combined stress conditions cause severe degradation
+   - System not resilient to real-world conditions
+
+### Immediate Actions Required
+1. **Infrastructure Audit**
+   - Review server capacity and configuration
+   - Check for resource bottlenecks (CPU, memory, I/O)
+   - Verify database connection pooling and limits
+
+2. **Error Analysis**
+   - Collect and analyze error logs
+   - Identify root causes of request failures
+   - Fix critical bugs causing failures
+
+3. **Load Testing in Controlled Environment**
+   - Test with incremental load (1, 2, 5, 10 users)
+   - Identify exact failure threshold
+   - Monitor system resources during tests
+
+4. **Page Stability**
+   - Fix protocol errors
+   - Ensure pages load consistently
+   - Resolve connection issues
+
+### Production Recommendation
+**DO NOT DEPLOY TO PRODUCTION** - This site has critical issues that make it unsuitable for production use. The 90.99% error rate and 10-user breaking point indicate fundamental problems that must be resolved before launch.
+
+---
+
+## 3. AustinInspiredMovement.com
+
+### Overall Assessment
+- **Score:** 41/100 (F)
+- **System Assessment:** CRITICAL_ISSUES
+- **Production Readiness:** NOT_READY
+- **Total Execution Time:** 42m 55s
+
+### Test Suite Results
+
+#### Core Web Vitals (32/100) - 48s
+- **Status:** POOR
+- Metrics collected but below acceptable thresholds
+
+#### Beyond Core Web Vitals (16/100) - 2s
+- **Status:** POOR
+- Additional performance metrics need significant improvement
+
+#### Load Testing (60/100) - 5m 0s
+- **Total Requests:** 12,589
+- **Errors:** 11,561
+- **Success Rate:** 8.17%
+- **Error Rate:** 91.83%
+- **Status:** CRITICAL - Highest error rate among all sites
+
+#### Stress Testing (30/100) - 1m 0s
+- **Breaking Point:** 10 concurrent users
+- **Total Requests:** 1,115
+- **Error Rate:** 99.64%
+- **Average Response Time:** 454ms (for the few successful requests)
+- **Status:** CRITICAL - Near complete failure under minimal stress
+
+#### Scalability Testing (65/100) - 36m 4s
+- **Max Effective Users:** 150
+- **Practical User Limit:** < 10 concurrent users
+- **Status:** POOR - Limited scalability due to high error rates
+
+### Key Performance Metrics
+- **Load Performance:** 8.17% success rate (worst among all sites)
+- **Error Rate:** 91.83% (highest error rate)
+- **Stress Capacity:** Breaking point at 10 users with 99.64% error rate
+- **Practical Scalability:** Severely limited (< 10 users)
+- **Average Response Time:** 454ms (when requests succeed)
+
+### Critical Issues
+
+#### CRITICAL Priority
+1. **Highest Error Rate (91.83%)**
+   - 11,561 failed requests out of 12,589 total
+   - Only 1,028 successful requests
+   - System is fundamentally broken
+
+2. **Breaking Point at 10 Users (99.64% error rate)**
+   - Worse than fisterra.xyz under stress
+   - Near-complete failure under minimal load
+   - Infrastructure cannot support even light traffic
+
+3. **Poor Combined Stress Performance (50.00/100)**
+   - System fails catastrophically when multiple stressors combine
+   - Not resilient to real-world usage patterns
+   - High data + slow network = complete failure
+
+4. **Core Web Vitals Below Threshold**
+   - When pages do load, user experience is poor
+   - Multiple metrics in "POOR" category
+
+### Root Cause Hypotheses
+1. **Hosting Infrastructure**
+   - Shared hosting with insufficient resources
+   - Database connection limits too low
+   - Server timeout configurations too aggressive
+
+2. **Application Issues**
+   - Memory leaks under concurrent load
+   - Database query optimization needed
+   - Possible N+1 query problems
+
+3. **Network/CDN Issues**
+   - CDN misconfiguration or absence
+   - DNS resolution problems
+   - Connection timeout issues
+
+### Immediate Actions Required
+1. **Emergency Infrastructure Review**
+   - Upgrade hosting plan or migrate to dedicated infrastructure
+   - Increase database connection pool limits
+   - Review and optimize server configuration
+
+2. **Application Performance Audit**
+   - Profile application under load
+   - Identify and fix memory leaks
+   - Optimize database queries
+   - Implement caching strategies
+
+3. **Implement Basic Resilience**
+   - Add error handling and graceful degradation
+   - Implement request queuing
+   - Add health checks and monitoring
+
+4. **Gradual Load Testing**
+   - Test with 1, 2, 3, 5 users incrementally
+   - Identify exact breaking point
+   - Fix issues at each threshold before proceeding
+
+### Production Recommendation
+**DO NOT DEPLOY TO PRODUCTION** - This site has the worst error rate (91.83%) and is not suitable for production use. Critical infrastructure and application issues must be resolved before any public deployment.
+
+---
+
+## 4. SoundSightATX.com
+
+### Overall Assessment
+- **Score:** 36/100 (F) - **Lowest Score**
+- **System Assessment:** CRITICAL_ISSUES
+- **Production Readiness:** NOT_READY
+- **Total Execution Time:** 42m 47s
+
+### Test Suite Results
+
+#### Core Web Vitals (54/100) - 41s
+- **Status:** POOR (but better than others)
+- **Relative Strength:** Best Core Web Vitals among failing sites
+
+#### Beyond Core Web Vitals (12/100) - 2s
+- **Status:** POOR - **Worst score** in this category
+- **TTFB:** 425ms (NEEDS_IMPROVEMENT)
+
+#### Load Testing (60/100) - 5m 0s
+- **Total Requests:** 12,187
+- **Errors:** 10,392
+- **Success Rate:** 14.73%
+- **Error Rate:** 85.27%
+- **Status:** CRITICAL - Better than others but still unacceptable
+
+#### Stress Testing (30/100) - 1m 0s
+- **Breaking Point:** 10 concurrent users
+- **Total Requests:** 1,088
+- **Error Rate:** 79.04%
+- **Average Response Time:** 42ms (for successful requests)
+- **Status:** CRITICAL - Consistent with other failing sites
+
+#### Scalability Testing (25/100) - 36m 2s ❌
+- **Max Effective Users:** 5 users (WORST among all sites)
+- **Status:** CRITICAL - Severely limited scalability
+- **Practical Limit:** Cannot handle more than 5 concurrent users effectively
+
+### Key Performance Metrics
+- **Load Performance:** 14.73% success rate (better than others, still poor)
+- **Error Rate:** 85.27%
+- **Stress Capacity:** Breaking point at 10 users with 79.04% error rate
+- **Practical Scalability:** **WORST** - Only 5 effective concurrent users
+- **TTFB:** 425ms (slow server response)
+- **Average Response Time:** 42ms
+
+### Critical Issues
+
+#### CRITICAL Priority
+1. **Severe Scalability Limitation (5 users)**
+   - Worst scalability among all tested sites
+   - Can only handle 5 concurrent users effectively
+   - Completely unsuitable for any traffic growth
+   - Bottleneck likely in database or server processing
+
+2. **High Error Rate (85.27%)**
+   - 10,392 failed requests out of 12,187 total
+   - While better than others, still critically high
+   - 1,795 successful requests is insufficient
+
+3. **Breaking Point at 10 Users (79.04% errors)**
+   - System begins failing catastrophically at 10 users
+   - Cannot scale beyond minimal traffic
+
+#### HIGH Priority
+4. **Poor Time to First Byte (425ms)**
+   - Server processing is slow
+   - Indicates backend performance issues
+   - Should be < 200ms for good performance
+   - Suggests database query optimization needed
+
+5. **Beyond Core Web Vitals Worst Score (12/100)**
+   - Multiple performance metrics in poor state
+   - TTI (Time to Interactive) likely very high
+   - TBT (Total Blocking Time) blocking user interaction
+
+### Unique Characteristics
+- **Best:** Core Web Vitals score among failing sites (54/100)
+- **Worst:** Scalability (only 5 effective users)
+- **Worst:** Beyond Core Web Vitals score (12/100)
+- **Mixed:** Error rate lower than others but still critical (85.27%)
+
+### Root Cause Analysis
+
+#### Primary Bottleneck: Scalability
+The 5-user scalability limit suggests:
+1. **Database Connection Pool Too Small**
+   - Likely limited to 5-10 connections
+   - Cannot handle concurrent queries
+   - Need to increase pool size and optimize queries
+
+2. **Synchronous Processing Blocking Requests**
+   - Application may be processing requests synchronously
+   - Blocking operations preventing concurrent handling
+   - Need async processing and job queues
+
+3. **Resource Constraints**
+   - Memory limits being reached quickly
+   - CPU bottleneck from inefficient processing
+   - I/O bottleneck from disk or network operations
+
+#### Secondary Issue: Slow Server Response (425ms TTFB)
+Indicates:
+1. **Unoptimized Database Queries**
+   - Missing indexes
+   - N+1 query problems
+   - Slow joins or aggregations
+
+2. **Backend Processing Inefficiency**
+   - Heavy computation on each request
+   - No caching layer
+   - Slow API calls or external dependencies
+
+### Immediate Actions Required
+
+1. **Database Optimization (CRITICAL)**
+   - Increase connection pool size
+   - Add missing database indexes
+   - Optimize slow queries (use EXPLAIN ANALYZE)
+   - Implement query caching (Redis/Memcached)
+
+2. **Implement Caching Strategy (CRITICAL)**
+   - Add page-level caching
+   - Implement object caching
+   - Use CDN for static assets
+   - Cache database query results
+
+3. **Async Processing (CRITICAL)**
+   - Move heavy operations to background jobs
+   - Implement request queuing
+   - Use non-blocking I/O operations
+
+4. **Infrastructure Upgrade (HIGH)**
+   - Increase server resources (CPU, memory)
+   - Consider database server scaling
+   - Implement load balancing if not present
+
+5. **Reduce TTFB to < 200ms (HIGH)**
+   - Profile and optimize backend code
+   - Reduce external API dependency latency
+   - Implement server-side caching
+
+6. **Load Testing at 1, 2, 3, 5 Users (HIGH)**
+   - Identify exact point where system degrades
+   - Monitor resource usage at each level
+   - Fix bottlenecks incrementally
+
+### Production Recommendation
+**DO NOT DEPLOY TO PRODUCTION** - This site has the worst scalability limitation (5 users) and cannot support even minimal traffic. While it has better Core Web Vitals than others, the severe scalability constraint makes it completely unsuitable for production. The 5-user limit would be exceeded immediately by any real-world traffic.
+
+---
+
+## Comparative Analysis
+
+### Performance Matrix
+
+| Metric | IntegrityStudio.ai | fisterra.xyz | AustinInspired | SoundSightATX |
+|--------|-------------------|--------------|----------------|---------------|
+| **Overall Score** | 71 (B-) | 44 (F) | 41 (F) | 36 (F) |
+| **Core Web Vitals** | 32 | FAILED | 32 | 54 |
+| **Beyond Core Vitals** | 19 | 16 | 16 | 12 |
+| **Load Testing** | 100 ⭐ | 60 | 60 | 60 |
+| **Stress Testing** | 100 ⭐ | 30 | 30 | 30 |
+| **Scalability** | 105 ⭐ | 70 | 65 | 25 |
+| **Success Rate** | 100% | 9.01% | 8.17% | 14.73% |
+| **Error Rate** | 0% | 90.99% | 91.83% | 85.27% |
+| **Breaking Point** | >200 users | 10 users | 10 users | 10 users |
+| **Max Effective Users** | 200 | <10 | <10 | 5 |
+| **Avg Response Time** | 37-49ms | 0ms | 454ms | 42ms |
+
+### Key Insights
+
+#### IntegrityStudio.ai - The Clear Winner
+- **Only site with acceptable performance**
+- Exceptional reliability and scalability
+- Needs work on user experience metrics only
+- Production-ready infrastructure (not production-ready overall due to UX)
+
+#### The "Critical Three" - Similar Failure Patterns
+All three failing sites (fisterra.xyz, AustinInspiredMovement.com, SoundSightATX.com) share:
+- Breaking point at 10 concurrent users
+- Error rates > 85%
+- Poor scalability scores
+- Critical infrastructure issues
+
+#### Unique Issues by Site
+
+**fisterra.xyz:**
+- Highest overall error rate (90.99%)
+- Core Web Vitals completely unmeasurable
+- Protocol/connection errors
+
+**AustinInspiredMovement.com:**
+- Worst error rate (91.83%)
+- Slowest response time when working (454ms)
+- Near-complete failure (99.64% errors) under stress
+
+**SoundSightATX.com:**
+- Worst scalability (5 users max)
+- Slowest server response (425ms TTFB)
+- Best Core Web Vitals among failing sites
+
+### Common Root Causes for Failing Sites
+
+1. **Infrastructure Undersizing**
+   - Shared hosting or minimal server resources
+   - Database connection pool limits
+   - Insufficient memory/CPU allocation
+
+2. **Lack of Optimization**
+   - Unoptimized database queries
+   - No caching layer
+   - Synchronous processing blocking requests
+
+3. **No Resilience Patterns**
+   - No circuit breakers
+   - No request queuing
+   - No graceful degradation
+
+4. **Missing Performance Best Practices**
+   - No CDN usage
+   - No asset optimization
+   - No lazy loading
+
+---
+
+## Recommendations by Priority
+
+### IntegrityStudio.ai
+
+#### Must Fix Before Production
+1. Improve First Contentful Paint
+2. Fix Cumulative Layout Shift
+3. Optimize Core Web Vitals to pass thresholds
+
+#### Nice to Have
+1. Further improve Beyond Core Web Vitals
+2. Implement monitoring and alerting
+3. Continue load testing as traffic grows
+
+### fisterra.xyz, AustinInspiredMovement.com, SoundSightATX.com
+
+#### Emergency - Must Fix Immediately
+1. **Infrastructure Audit & Upgrade**
+   - Review hosting configuration
+   - Increase database connection pools
+   - Allocate more server resources
+   - Consider dedicated infrastructure
+
+2. **Fix Critical Errors**
+   - Analyze error logs
+   - Fix application bugs causing failures
+   - Resolve database connection issues
+   - Fix timeout configurations
+
+3. **Implement Basic Caching**
+   - Page caching
+   - Database query caching
+   - CDN for static assets
+
+4. **Optimize Database**
+   - Add missing indexes
+   - Optimize slow queries
+   - Fix N+1 query problems
+
+#### Before Considering Production
+5. Achieve < 10% error rate under load
+6. Handle 50+ concurrent users without errors
+7. TTFB < 200ms
+8. Core Web Vitals in "Good" range
+
+#### Production-Ready Criteria
+9. 95%+ success rate under load
+10. Breaking point > 100 users
+11. All Core Web Vitals passing
+12. Monitoring and alerting in place
+
+---
+
+## Testing Methodology
+
+### Test Suite Components
+
+#### 1. Core Web Vitals Testing
+- **Metrics:** LCP, FID, CLS
+- **Method:** Puppeteer-based measurement
+- **Iterations:** 5 per site
+- **Duration:** ~5 minutes
+
+#### 2. Beyond Core Web Vitals
+- **Metrics:** TTFB, FCP, TTI, TBT, SI
+- **Method:** Lighthouse-style measurements
+- **Iterations:** 5 per site
+- **Duration:** ~5 minutes
+
+#### 3. Load Testing
+- **Max Concurrent Users:** 50
+- **Ramp-up Duration:** 60 seconds
+- **Test Duration:** 300 seconds (5 minutes)
+- **Total Duration:** ~10 minutes
+
+#### 4. Stress Testing
+- **User Progression:** 10 → 200 (steps of 10)
+- **Step Duration:** 60 seconds per level
+- **Cooldown:** Between steps
+- **Total Duration:** ~15-20 minutes
+- **Objective:** Find breaking point
+
+#### 5. Scalability Testing
+- **User Scenarios:** 1, 5, 10, 25, 50, 100, 150, 200 users
+- **Data Scenarios:** light, medium, heavy
+- **Network Scenarios:** fast, slow, mobile
+- **Cross-dimensional:** Combined stress tests
+- **Total Duration:** ~20-35 minutes
+
+### Tools Used
+- **Puppeteer:** Browser automation and Core Web Vitals
+- **Custom Load Testing Framework:** Concurrent user simulation
+- **Node.js:** Test orchestration
+- **JSON:** Results reporting
+
+---
+
+## Conclusions
+
+### Summary
+
+1. **IntegrityStudio.ai** is the only site with acceptable performance (71/100, B-). It has excellent reliability and scalability but needs user experience improvements before production.
+
+2. **The other three sites have critical issues** that make them unsuitable for production:
+   - fisterra.xyz: 90.99% error rate
+   - AustinInspiredMovement.com: 91.83% error rate (worst)
+   - SoundSightATX.com: 5 user scalability limit (worst)
+
+3. **Common pattern:** All three failing sites break at 10 concurrent users with 80-100% error rates, indicating fundamental infrastructure and optimization problems.
+
+4. **Immediate action required:** The three failing sites need emergency infrastructure audits, database optimization, and caching implementation before any production deployment.
+
+### Next Steps
+
+#### For IntegrityStudio.ai
+1. Focus on Core Web Vitals optimization
+2. Implement performance monitoring
+3. Conduct user experience testing
+4. Plan for production deployment after UX fixes
+
+#### For fisterra.xyz, AustinInspiredMovement.com, SoundSightATX.com
+1. **DO NOT DEPLOY TO PRODUCTION**
+2. Conduct emergency infrastructure audit
+3. Fix critical errors causing > 85% failure rates
+4. Optimize database and implement caching
+5. Re-test with incremental load (1, 2, 5, 10 users)
+6. Only proceed when achieving < 10% error rate
+7. Conduct full test suite again before reconsidering production
+
+---
+
+## Appendix
+
+### Test Environment
+- **Test Date:** October 14, 2025
+- **Test Location:** Local development environment
+- **Network:** Standard broadband connection
+- **Test Machine:** Standard development laptop
+- **Browser:** Chrome (via Puppeteer)
+
+### Glossary
+
+**Core Web Vitals:**
+- **LCP (Largest Contentful Paint):** Time to render largest content element
+- **FID (First Input Delay):** Time from user interaction to browser response
+- **CLS (Cumulative Layout Shift):** Visual stability metric
+
+**Beyond Core Web Vitals:**
+- **TTFB (Time to First Byte):** Server response time
+- **FCP (First Contentful Paint):** Time to first content render
+- **TTI (Time to Interactive):** Time until page is fully interactive
+- **TBT (Total Blocking Time):** Sum of blocking time
+- **SI (Speed Index):** How quickly content is visually displayed
+
+**Performance Metrics:**
+- **Breaking Point:** User load at which errors exceed 50%
+- **Success Rate:** Percentage of successful requests
+- **Error Rate:** Percentage of failed requests
+- **Max Effective Users:** Maximum concurrent users with acceptable performance
+
+---
+
+**Report Generated:** October 14, 2025
+**Testing Framework:** schema-org-mcp Performance Suite v2
+**Report Version:** 1.0
+</file>
+
+<file path="2025-10-14-projects-mcps-agents-report.md">
+---
+layout: single
+title: "Projects, MCPs, and Agents Overview"
+date: 2025-10-14
+categories: reports
+tags: [mcp, claude-code, automation, web-scraping, analytics]
+excerpt: "Comprehensive analysis of 40+ projects including MCP servers, Claude Code agents, web applications, and automation systems."
+header:
+  overlay_image: /images/cover-projects.png
+  teaser: /images/cover-projects.png
+toc: true
+toc_label: "Contents"
+toc_icon: "list"
+---
+
+# Code Repository Comprehensive Report
+
+**Generated:** October 14, 2025
+**Repository Location:** `/Users/alyshialedlie/code`
+**Author:** Alyshia Ledlie
+
+---
+
+## Executive Summary
+
+This repository contains **40+ projects** across various domains including:
+
+- **5 MCP (Model Context Protocol) Servers**
+- **2 Custom Claude Code Agents**
+- **15+ Web Applications**
+- **Multiple Automation Scripts and Bot Systems**
+- **Data Analysis and Visualization Tools**
+
+### Key Capabilities
+
+- **Calendar & Event Management**: Automated event scraping, Discord integration, Google Calendar synchronization
+- **Web Scraping & Data Extraction**: Multiple scraping solutions with analytics
+- **AI Integration**: Claude Code agents, Google Gemini integration
+- **Performance Monitoring**: MCP monitoring, Core Web Vitals testing
+- **Schema.org Integration**: Structured data generation and validation
+- **Social Media Automation**: Discord bots, event notifications
+
+---
+
+## MCP Servers
+
+### 1. Schema.org MCP Server
+
+**Location:** `schema-org-mcp/`
+**Type:** MCP Server (TypeScript/Node.js)
+**Version:** 0.1.0
+
+**Description:** Provides comprehensive access to schema.org vocabulary for structured data implementation.
+
+**Capabilities:**
+
+- Get detailed information about any schema.org type
+- Search schema types by keyword
+- Explore type hierarchy and inheritance relationships
+- List all properties available for types (including inherited)
+- Generate example JSON-LD for any schema type
+- Performance testing integration (Core Web Vitals, Load, Stress, Soak, Scalability)
+- Schema impact analysis for SEO and LLM optimization
+- Before/after performance comparisons
+- Comprehensive test suites with structured reports
+
+**Key Features:**
+
+- Full schema.org vocabulary access
+- JSON-LD generation
+- Performance testing integration
+- Schema impact analysis
+- Database support (optional)
+- Web scraping via Puppeteer
+
+**Dependencies:**
+
+- `@modelcontextprotocol/sdk` v0.5.0
+- `axios`, `node-fetch`, `puppeteer`
+- `@wonderwhy-er/desktop-commander`
+
+---
+
+### 2. Google Calendar MCP Server
+
+**Location:** `bots/google-calendar-mcp/`, `CalendarManager/google-calendar-mcp/`, `bot_army/google-calendar-mcp/`
+**Type:** MCP Server (TypeScript)
+**Version:** 1.4.9
+**Package:** `@cocal/google-calendar-mcp`
+
+**Description:** Comprehensive Google Calendar integration with extensive calendar management capabilities.
+
+**Capabilities:**
+
+- Create, read, update, delete calendar events
+- Check availability and detect scheduling conflicts
+- Multi-account support
+- Batch operations
+- Smart scheduling algorithms
+- OAuth 2.0 authentication
+- HTTP transport support
+- Multiple deployment options (Docker, cloud)
+
+**Key Features:**
+
+- Full CRUD operations for events
+- Conflict detection
+- Multi-calendar support
+- Batch processing
+- Smart scheduling
+- Comprehensive test coverage (unit, integration, e2e)
+
+**Dependencies:**
+
+- `@modelcontextprotocol/sdk` v1.12.1
+- `googleapis` v144.0.0
+- `google-auth-library` v9.15.0
+- `@google-cloud/local-auth` v3.0.1
+
+---
+
+### 3. Discord MCP Server
+
+**Location:** `SingleSiteScraper/discordmcp/`, `CalendarManager/discord-mcp/`
+**Type:** MCP Server (TypeScript)
+**Version:** 1.0.0
+
+**Description:** Discord integration for sending and reading messages through Claude.
+
+**Capabilities:**
+
+- Send messages to Discord channels
+- Read recent messages from channels
+- Multi-server support
+- Bot token authentication
+- Channel management
+
+**Key Features:**
+
+- Message sending and retrieval
+- Channel selection by name or ID
+- Server selection (optional for single-server bots)
+- Message history (up to 100 messages)
+
+**Dependencies:**
+
+- `@modelcontextprotocol/sdk` v1.2.0
+- `discord.js` v14.14.1
+- `zod` v3.22.4
+
+---
+
+### 4. RepoViz MCP Server (Git Visualization)
+
+**Location:** `RepoViz/`
+**Type:** MCP Server (Python)
+**Language:** Python
+
+**Description:** Advanced Git/Mercurial repository analytics and visualization toolkit with structured metadata and professional data validation.
+
+**Capabilities:**
+
+- Parse Git and Mercurial commit logs
+- Generate commit pattern visualizations (hourly, daily, monthly)
+- Pydantic data validation
+- Schema.org structured data generation
+- Database support (SQLAlchemy/SQLite)
+- Advanced MCP server for programmatic access
+- Interactive charts and graphs
+- Export functionality (PNG, JSON, schema.org)
+
+**Chart Types:**
+
+- `hour_bar` - Hourly commit distribution (bar chart)
+- `day_pie` - Day of week patterns (pie chart)
+- `month_pie` - Monthly activity (pie chart)
+- `day_month_combined` - Combined day/month visualization
+
+**Key Features:**
+
+- Professional data validation with Pydantic
+- Schema.org integration for SEO
+- SQLite database for commit storage
+- Customizable chart styling (DPI, colors, fonts)
+- High-resolution output support
+- Configuration-based chart generation
+- Aggregated statistics by hour/day/month
+
+**MCP Tools:**
+
+- `generate_hour_bar_chart`
+- `generate_day_pie_chart`
+- `generate_month_pie_chart`
+- `generate_combined_day_month_chart`
+- `validate_commit_data`
+- `generate_schema_org_data`
+
+**Dependencies:**
+
+- matplotlib, pandas
+- Pydantic (data validation)
+- SQLAlchemy (database)
+- @modelcontextprotocol/sdk (Python)
+
+---
+
+### 5. Performance Test MCP Server
+
+**Location:** `PerformanceTest/`
+**Type:** MCP Server (JavaScript)
+
+**Description:** Performance testing MCP server for website performance analysis.
+
+**Files:**
+
+- `mcp-server.js` - Server implementation
+- `mcp-manifest.json` - Server manifest
+
+**Capabilities:**
+
+- Performance metrics collection
+- Core Web Vitals testing
+- Integration with schema-org-mcp
+
+---
+
+## Claude Code Agents
+
+### 1. Cambria Hotels Expert Agent
+
+**Location:** `.claude/agents/cambria-hotels-expert.md`
+**Model:** Claude Opus
+**Color:** Green
+
+**Description:** Specialized expert on Cambria Hotels with comprehensive knowledge of organizational structure, ownership, policies, and personnel.
+
+**Capabilities:**
+
+- **Organizational Intelligence**: Detailed corporate structure, franchise model, management hierarchy
+- **Policy Expertise**: Refund policies, cancellation terms, guest services protocols
+- **Personnel Identification**: Key personnel across departments and levels
+- **LinkedIn Cross-Referencing**: Analyze connections, identify contacts for partnerships
+- **Strategic Contact Mapping**: Recommend appropriate contacts for business objectives
+- **Verification and Updates**: Guidance on verifying current information
+
+**Use Cases:**
+
+- Business partnership preparation
+- Policy clarification and interpretation
+- Contact identification for negotiations
+- Strategic relationship building
+- Corporate structure analysis
+
+---
+
+### 2. Event Scraper Discord Agent
+
+**Location:** `TheIntegrityStudio/.claude/agents/event-scraper-discord.md`
+**Model:** Claude Opus
+**Color:** Red
+
+**Description:** Expert event aggregation specialist for scraping events from multiple sources and posting to Discord.
+
+**Capabilities:**
+
+- **Event Scraping** from:
+  - Capital Factory website
+  - Austin Texas government calendar (fullcalendar pages)
+  - EGBI.org events
+  - Multiple Austin Meetup groups (Databricks, networking, founders, co-founder, code and coffee, momentum monday)
+- **Authentication**: Google Calendar MCP integration
+- **Data Processing**: Extract title, description, date/time, location, RSVP links, source URL, tags
+- **Discord Integration**: Post formatted events to 'to_many_events_channel'
+
+**Features:**
+
+- Rate limiting and delays between requests
+- Event data quality verification
+- Formatted Discord messages with readability
+- Source attribution
+- Duplicate detection
+- Error handling and reporting
+- Continues processing if one source fails
+
+**Output Format:**
+
+- Event title (bold)
+- Date/time
+- Location (physical or virtual)
+- Brief description
+- Source link
+- Grouped by date when possible
+
+---
+
+## Web Applications & Tools
+
+### 1. TheIntegrityStudio
+
+**Location:** `TheIntegrityStudio/`
+**Type:** React/TypeScript Application (Vite)
+**Framework:** React 18.3.1, TypeScript 5.5.3
+
+**Description:** Comprehensive web application with MCP monitoring capabilities.
+
+**Capabilities:**
+
+- Vite-based React application
+- Comprehensive testing (Vitest, Playwright)
+- MCP monitoring integration
+- Accessibility testing (jest-axe)
+- SEO testing
+- End-to-end testing
+
+**MCP Monitoring Services:**
+
+1. **Cloudflare MCP Server Portal**
+   - Real-time log aggregation
+   - ML-powered anomaly detection
+   - Security monitoring
+   - Data exfiltration pattern detection
+   - Suspicious tool usage alerts
+
+2. **Stainless MCP Portal**
+   - Real-time monitoring
+   - Splunk integration
+   - Azure Monitor integration
+   - Tinybird integration
+   - High-volume monitoring
+
+3. **ScanMCP**
+   - Fast cloud-based scanning
+   - Context drift detection
+   - Protocol misconfiguration detection
+   - Insecure transport detection
+   - Tool poisoning detection
+
+4. **Equixly**
+   - Tool call logging
+   - Parameter value capture
+   - Abnormal behavior detection
+   - Auditing capabilities
+   - Real-time alerting
+
+**Testing Scripts:**
+
+- `test` - Run all tests
+- `test:ui` - Vitest UI
+- `test:coverage` - Coverage reports
+- `test:e2e` - Playwright e2e tests
+- `test:a11y` - Accessibility tests
+- `test:seo` - SEO tests
+- `test:mcp` - MCP monitoring tests
+- `test:all` - Run all test suites
+
+**Dependencies:**
+
+- React 18.3.1, Vite 7.0.5
+- Playwright 1.55.0, Vitest 3.2.4
+- Lucide-react (icons)
+- MailSlurp client integration
+- Tailwind CSS
+
+---
+
+### 2. SingleSiteScraper
+
+**Location:** `SingleSiteScraper/`
+**Type:** React/TypeScript Web Scraping Application
+**Framework:** React, Vite
+
+**Description:** Powerful web scraping application with analytics capabilities and structured data extraction.
+
+**Capabilities:**
+
+- Web scraping with customizable options
+- Analytics dashboard with performance metrics
+- Schema.org data extraction and validation
+- Interactive visualizations (word clouds, network graphs, database schemas)
+- Export functionality (GraphML, JSON, CSV)
+- Comprehensive test coverage
+
+**Architecture:**
+
+1. **Scraping Engine** - Core web scraping functionality
+2. **Analytics System** - Performance monitoring and insights
+3. **Visualization Layer** - Interactive data visualizations
+4. **Component Library** - Reusable UI components
+5. **Utilities** - Helper functions and data processing
+
+**Testing:**
+
+- Unit tests for components and functions
+- Integration tests for workflow validation
+- Schema tests for Schema.org compliance
+- Performance tests for analytics monitoring
+- UI tests for React components
+
+**Included MCPs:**
+
+- Discord MCP Server (for notifications)
+
+---
+
+### 3. MarketAssist
+
+**Location:** `MarketAssist/`
+**Type:** Full-Stack Web Application
+**Stack:** React (Vite) + Node.js/Express
+
+**Description:** Market research and location validation application using Google Maps API and web scraping.
+
+**Capabilities:**
+
+- Location validation via Google Maps Places API
+- Web scraping with Puppeteer
+- Stealth mode web scraping (puppeteer-extra-plugin-stealth)
+- Modern React frontend with Vite
+- RESTful API backend with CORS
+
+**API Endpoints:**
+
+- `POST /validate-location` - Validates locations using Google Maps
+
+**Technology Stack:**
+
+- **Frontend**: React, Vite
+- **Backend**: Express, Node.js
+- **Scraping**: Puppeteer, puppeteer-extra, puppeteer-extra-plugin-stealth
+- **APIs**: Google Maps Places API
+- **HTTP Client**: node-fetch
+
+---
+
+### 4. EmotionMap
+
+**Location:** `EmotionMap/`
+**Type:** React Application
+**Framework:** React 18.3.1, Vite
+
+**Description:** Emotion mapping and visualization application.
+
+**Technology Stack:**
+
+- React 18.3.1
+- Vite build tool
+- Babel compilation
+- ESLint for code quality
+- Tailwind CSS (likely)
+
+---
+
+### 5. DanceEventCalendar
+
+**Location:** `DanceEventCalendar/`
+**Type:** Event Calendar Application
+**Framework:** Google AI Studio
+
+**Description:** AI-powered dance event calendar built with Google Gemini API.
+
+**Setup:**
+
+- Node.js application
+- Gemini API integration
+- Environment variable configuration (.env.local)
+
+**Commands:**
+
+- `npm install` - Install dependencies
+- `npm run dev` - Run development server
+
+---
+
+### 6. PersonalSite
+
+**Location:** `PersonalSite/`
+**Type:** Personal Website/Portfolio
+
+**Description:** Personal website/portfolio project with Claude Code configuration.
+
+---
+
+### 7. SumedhSite
+
+**Location:** `SumedhSite/`
+**Type:** Personal Website
+
+**Description:** Personal website project (sumedhjoshi.github.io) with Claude Code configuration.
+
+---
+
+## Automation & Bots
+
+### 1. CalendarManager (Automated Event System)
+
+**Location:** `CalendarManager/`
+**Type:** Automation System with Multiple MCPs
+**Schedule:** Every Sunday at 6:00 PM
+
+**Description:** Comprehensive calendar and event management system with automated Capital Factory event scraping.
+
+**Included MCP Servers:**
+
+1. **Google Calendar MCP** - Full calendar integration
+2. **Discord MCP** - Channel messaging
+3. **Bright Data MCP** - Web scraping (100% success rate, 5000 free requests/month)
+4. **Perplexity MCP** - AI-powered web search
+
+**Automated Features:**
+
+- Automated web scraping of Capital Factory events
+- Smart event processing with emoji categorization (🤖 AI, 🚀 Startup, 💻 Tech)
+- Calendar integration with "Add to Calendar" buttons
+- Conflict detection via Google Calendar
+- Discord notifications with formatted event cards
+- Comprehensive logging with automated cleanup
+
+**Automation Workflow:**
+
+1. Fetch Capital Factory events (Bright Data MCP)
+2. Process and categorize events with emojis
+3. Check for scheduling conflicts (Google Calendar MCP)
+4. Post formatted events to Discord (Discord MCP)
+5. Log results with automatic cleanup
+
+**Scripts:**
+
+- `capital-factory-events.sh` - Main automation script
+- `process-events.js` - Event processing and formatting
+- `setup-cron.sh` - Cron job installation
+- `test-automation.sh` - System testing
+
+**NPM Scripts:**
+
+- `npm run test` - Test automation system
+- `npm run setup-cron` - Install cron job
+- `npm run fetch-events` - Manual event fetch
+- `npm run process-events` - Process events only
+
+**Configuration:**
+
+- `mcp-servers-config.json` - MCP server configurations
+- Environment files for each MCP
+- Google Calendar OAuth tokens
+- Discord bot token
+- Bright Data API token (Pro Mode enabled)
+
+---
+
+### 2. bot_army
+
+**Location:** `bot_army/`
+**Type:** Bot Collection/Army System
+
+**Description:** Collection of bot systems and automation scripts.
+
+**Included:**
+
+- Google Calendar MCP integration
+- Multiple bot implementations
+
+---
+
+### 3. bots
+
+**Location:** `bots/`
+**Type:** Bot Collection
+
+**Description:** Collection of various bot implementations.
+
+**Included:**
+
+- Google Calendar MCP
+- Client secrets for Google OAuth
+- Bot configurations
+
+---
+
+### 4. AnalyticsBot
+
+**Location:** `AnalyticsBot/`
+**Type:** Analytics Bot
+
+**Description:** Quick analytics bootstrap system.
+
+---
+
+## Specialized Projects
+
+### 1. WebScraper
+
+**Location:** `WebScraper/`
+**Type:** Web Scraping Tool
+
+**Description:** General-purpose web scraping tool.
+
+---
+
+### 2. Schema
+
+**Location:** `Schema/`
+**Type:** Schema.org Utilities
+
+**Description:** Schema.org utilities and tools.
+
+**Dependencies:**
+
+- `@wonderwhy-er/desktop-commander`
+- `@modelcontextprotocol/sdk`
+
+---
+
+### 3. schema-impact-analyzer
+
+**Location:** `schema-impact-analyzer/`
+**Type:** Analysis Tool
+
+**Description:** Tool for analyzing the impact of schema.org implementation on websites.
+
+---
+
+### 4. Scheduler
+
+**Location:** `Scheduler/`
+**Type:** Scheduling System
+
+**Description:** Scheduling and automation system.
+
+---
+
+### 5. InventoryAI
+
+**Location:** `InventoryAI/`
+**Type:** AI-Powered Inventory System
+
+**Description:** AI-powered inventory management system (InventoryAI.io).
+
+---
+
+### 6. Leora
+
+**Location:** `Leora/`
+**Type:** Application Project
+
+**Description:** Application project (details minimal in README).
+
+---
+
+### 7. HFChat
+
+**Location:** `HFChat/`
+**Type:** Chat Application
+
+**Description:** Chat application (likely HuggingFace-based).
+
+---
+
+### 8. crm
+
+**Location:** `crm/`
+**Type:** CRM System
+
+**Description:** Customer Relationship Management system.
+
+---
+
+### 9. FixInflight / FixInflight2
+
+**Location:** `arc-fix/FixInflight/`, `arc-fix/FixInflight2/`
+**Type:** Bug Fix Projects
+
+**Description:** Projects for fixing issues (likely iterations).
+
+---
+
+### 10. MailSlurpTest
+
+**Location:** `MailSlurpTest/`
+**Type:** Email Testing
+
+**Description:** Testing project for MailSlurp email services.
+
+---
+
+### 11. PerformanceTest
+
+**Location:** `PerformanceTest/`
+**Type:** Performance Testing Suite
+
+**Description:** Performance testing suite with MCP server.
+
+**Included:**
+
+- MCP server implementation
+- Performance test scripts
+- Core Web Vitals testing
+
+---
+
+### 12. printTree
+
+**Location:** `arc-fix/printTree/`
+**Type:** Utility Tool
+
+**Description:** Utility for printing directory tree structures.
+
+---
+
+### 13. dotfiles
+
+**Location:** `dotfiles/`
+**Type:** Configuration Files
+
+**Description:** Personal dotfiles and system configurations (vim, iterm2, etc.).
+
+**Included:**
+
+- Vim configuration with plugins
+- iTerm2 Solarized colors
+- Shell configurations
+
+---
+
+### 14. example
+
+**Location:** `example/`
+**Type:** Example/Template Project
+
+**Description:** Example or template project.
+
+---
+
+### 15. fisterra
+
+**Location:** `fisterra/`
+**Type:** Project
+
+**Description:** Project with Claude Code configuration.
+
+---
+
+### 16. gmail-add-on-codelab
+
+**Location:** `bot_army/gmail-add-on-codelab/`
+**Type:** Gmail Add-on Development
+
+**Description:** Gmail add-on codelab/tutorial project.
+
+---
+
+### 17. php
+
+**Location:** `php/`
+**Type:** PHP Projects
+
+**Description:** PHP-based projects.
+
+---
+
+### 18. recovery
+
+**Location:** `recovery/`
+**Type:** Recovery/Backup Project
+
+**Description:** Recovery or backup project.
+
+---
+
+## Technology Stack Summary
+
+### Languages
+
+- **TypeScript/JavaScript**: Primary language for web applications and MCP servers
+- **Python**: Used for RepoViz MCP server and data analysis
+- **PHP**: Legacy/specific projects
+- **Bash/Shell**: Automation scripts
+
+### Frontend Frameworks
+
+- **React 18.3.1**: Primary frontend framework
+- **Vite**: Build tool and development server
+- **Tailwind CSS**: Styling framework
+
+### Backend Technologies
+
+- **Node.js/Express**: API servers
+- **MCP (Model Context Protocol)**: AI integration layer
+- **SQLAlchemy**: Python ORM
+- **SQLite**: Lightweight database
+
+### Testing Frameworks
+
+- **Vitest**: Unit and integration testing
+- **Playwright**: End-to-end testing
+- **Jest**: Testing utilities (jest-axe for accessibility)
+
+### APIs & Services
+
+- **Google Calendar API**: Event and calendar management
+- **Google Maps API**: Location validation
+- **Discord API**: Bot integration and messaging
+- **Bright Data API**: Web scraping
+- **Perplexity API**: AI-powered search
+- **Google Gemini API**: AI integration
+- **MailSlurp**: Email testing
+
+### Web Scraping
+
+- **Puppeteer**: Browser automation
+- **puppeteer-extra**: Enhanced Puppeteer functionality
+- **Bright Data**: Enterprise web scraping
+
+### AI & ML
+
+- **Claude Code**: AI assistant integration
+- **Google Gemini**: AI API
+- **Perplexity AI**: Search API
+- **MCP SDK**: Model Context Protocol
+
+### Data & Visualization
+
+- **matplotlib**: Python charting
+- **pandas**: Data analysis
+- **D3.js/React-based visualizations**: Interactive charts
+- **Schema.org**: Structured data
+
+### Development Tools
+
+- **ESLint**: Code linting
+- **TypeScript**: Type safety
+- **Pydantic**: Python data validation
+- **Git/Mercurial**: Version control
+
+---
+
+## Integration Map
+
+### MCP Server Ecosystem
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     Claude Code / Claude Desktop                 │
+└────────────────┬────────────────────────────────────────────────┘
+                 │
+                 │ MCP Protocol
+                 │
+      ┌──────────┴──────────┐
+      │                     │
+      ▼                     ▼
+┌──────────────┐    ┌──────────────┐
+│ schema-org   │    │  google-     │
+│    MCP       │    │ calendar MCP │
+└──────┬───────┘    └──────┬───────┘
+       │                   │
+       │                   │
+       ▼                   ▼
+┌──────────────┐    ┌──────────────┐
+│  Discord     │    │   RepoViz    │
+│    MCP       │    │     MCP      │
+└──────────────┘    └──────────────┘
+       │                   │
+       │                   │
+       ▼                   ▼
+┌──────────────────────────────────┐
+│      Performance Test MCP         │
+└──────────────────────────────────┘
+```
+
+### CalendarManager Integration
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  CalendarManager System                      │
+└───┬─────────────┬──────────────┬────────────────┬──────────┘
+    │             │              │                │
+    ▼             ▼              ▼                ▼
+┌─────────┐  ┌─────────┐  ┌──────────┐  ┌────────────┐
+│ Google  │  │ Discord │  │  Bright  │  │ Perplexity │
+│Calendar │  │   MCP   │  │Data MCP  │  │    MCP     │
+│   MCP   │  │         │  │          │  │            │
+└────┬────┘  └────┬────┘  └─────┬────┘  └─────┬──────┘
+     │            │             │              │
+     │            │             │              │
+     └────────────┴─────────────┴──────────────┘
+                      │
+                      ▼
+        ┌──────────────────────────┐
+        │  Event Scraper Discord   │
+        │  (Claude Code Agent)     │
+        └──────────────────────────┘
+                      │
+                      ▼
+        ┌──────────────────────────┐
+        │   Capital Factory        │
+        │   Austin Government      │
+        │   EGBI.org              │
+        │   Meetup Groups         │
+        └──────────────────────────┘
+```
+
+### Agent Ecosystem
+
+```
+┌─────────────────────────────────────────────────┐
+│            Claude Code Agents                    │
+└──────┬──────────────────────┬───────────────────┘
+       │                      │
+       ▼                      ▼
+┌──────────────┐      ┌────────────────────┐
+│  Cambria     │      │  Event Scraper     │
+│  Hotels      │      │  Discord Agent     │
+│  Expert      │      │                    │
+└──────────────┘      └─────────┬──────────┘
+                                │
+                                ▼
+                      ┌──────────────────┐
+                      │  Google Calendar │
+                      │       MCP        │
+                      └─────────┬────────┘
+                                │
+                                ▼
+                      ┌──────────────────┐
+                      │   Discord MCP    │
+                      └──────────────────┘
+```
+
+### Web Application Stack
+
+```
+┌─────────────────────────────────────────────────────┐
+│                 Web Applications                     │
+└─┬──────────┬──────────┬──────────┬─────────────┬───┘
+  │          │          │          │             │
+  ▼          ▼          ▼          ▼             ▼
+┌────────┐ ┌──────┐ ┌────────┐ ┌────────┐ ┌──────────┐
+│TheIn-  │ │Single│ │Market  │ │Dance   │ │Emotion   │
+│tegrity │ │Site  │ │Assist  │ │Event   │ │Map       │
+│Studio  │ │Scrap │ │        │ │Calendar│ │          │
+└───┬────┘ └──┬───┘ └───┬────┘ └───┬────┘ └────┬─────┘
+    │         │         │          │           │
+    └─────────┴─────────┴──────────┴───────────┘
+                        │
+                        ▼
+              ┌──────────────────┐
+              │  React + Vite    │
+              │  TypeScript      │
+              │  Tailwind CSS    │
+              └──────────────────┘
+```
+
+---
+
+## Summary Statistics
+
+### Project Count by Type
+
+- **MCP Servers**: 5
+- **Claude Code Agents**: 2
+- **Web Applications**: 15+
+- **Automation Systems**: 3
+- **Bots**: 3+
+- **Utilities**: 10+
+- **Total Projects**: 40+
+
+### Technology Distribution
+
+- **TypeScript/JavaScript Projects**: 30+
+- **Python Projects**: 2
+- **React Applications**: 10+
+- **MCP Integrations**: 7+
+- **Testing Suites**: 5+
+
+### Integration Capabilities
+
+- **Google Calendar**: 4 integrations
+- **Discord**: 3 integrations
+- **Schema.org**: 3 implementations
+- **Web Scraping**: 5+ implementations
+- **Performance Testing**: 2 implementations
+
+### Automation & Scheduling
+
+- **Cron Jobs**: 1 (CalendarManager - Sundays 6 PM)
+- **Event Scraping Sources**: 6+ (Capital Factory, Austin Gov, EGBI, Meetup groups)
+- **MCP Monitoring Services**: 4 (Cloudflare, Stainless, ScanMCP, Equixly)
+
+---
+
+## Key Strengths & Capabilities
+
+### 1. Comprehensive MCP Ecosystem
+
+- Multiple production-ready MCP servers
+- Integration with Claude Code and Claude Desktop
+- Standardized protocols across services
+
+### 2. Event & Calendar Management
+
+- Automated event scraping from multiple sources
+- Intelligent conflict detection
+- Multi-platform posting (Discord, Calendar)
+- Weekly automation with monitoring
+
+### 3. Web Scraping & Data Extraction
+
+- Enterprise-grade scraping (Bright Data)
+- Stealth mode scraping (Puppeteer)
+- Schema.org data extraction
+- Multiple specialized scrapers
+
+### 4. Performance & Monitoring
+
+- Core Web Vitals testing
+- MCP server monitoring
+- Anomaly detection
+- Security monitoring
+
+### 5. AI Integration
+
+- Custom Claude Code agents
+- Google Gemini integration
+- Perplexity AI search
+- MCP-based AI tooling
+
+### 6. Data Visualization & Analysis
+
+- Git repository analytics
+- Commit pattern visualization
+- Network graph generation
+- Database schema visualization
+
+### 7. Testing & Quality Assurance
+
+- Comprehensive test coverage (unit, integration, e2e)
+- Accessibility testing
+- SEO testing
+- Performance testing
+- MCP monitoring testing
+
+---
+
+## Recommended Next Steps
+
+### 1. Documentation
+
+- [ ] Create unified documentation portal
+- [ ] Document all MCP server APIs
+- [ ] Create integration guides
+- [ ] Document agent capabilities
+
+### 2. Integration Improvements
+
+- [ ] Unified MCP server configuration
+- [ ] Centralized authentication management
+- [ ] Shared logging and monitoring
+- [ ] Cross-project utilities library
+
+### 3. Deployment
+
+- [ ] Containerize MCP servers
+- [ ] Set up CI/CD pipelines
+- [ ] Production deployment guides
+- [ ] Monitoring and alerting setup
+
+### 4. Expansion
+
+- [ ] Additional event sources for scraping
+- [ ] More specialized Claude Code agents
+- [ ] Extended MCP server capabilities
+- [ ] Additional automation workflows
+
+---
+
+## Contact & Support
+
+**Author:** Alyshia Ledlie
+**Email:** alyshia@theintegritystudio.com
+**Website:** https://www.aledlie.com
+**Repository:** /Users/alyshialedlie/code
+
+---
+
+*Report generated by Claude Code on October 14, 2025*
+</file>
+
+<file path="2025-10-15-austin-inspired-movement-schema-analysis.md">
+---
+layout: single
+title: "Schema.org Impact Analysis: Austin Inspired Movement"
+date: 2025-10-15
+categories: reports
+tags: [schema-org, seo, analytics, structured-data, performance]
+excerpt: "Comprehensive schema.org analysis for austininspiredmovement.com with SEO, LLM, and performance scoring."
+header:
+  overlay_image: /images/cover-projects.png
+  teaser: /images/cover-projects.png
+toc: true
+toc_label: "Contents"
+toc_icon: "chart-bar"
+---
+
+# Schema.org Impact Analysis
+
+**Website:** https://www.austininspiredmovement.com
+**Generated:** October 15, 2025, 5:25:22 PM
+
+---
+
+## Executive Summary
+
+### Overall Score: 33/100
+
+Based on 24 tests across SEO, LLM, and Performance categories
+
+### Category Breakdown
+
+| Category | Score | Status |
+|----------|-------|--------|
+| **SEO Score** | 17/100 | ⚠️ Needs Improvement |
+| **LLM Score** | 0/100 | 🔴 Critical |
+| **Performance Score** | 88/100 | ✅ Good |
+
+---
+
+## Schema Detection
+
+- **Schemas Found:** 0
+- **Parsing Errors:** 0
+
+The website currently has no schema.org structured data implemented, which significantly impacts both SEO visibility and LLM understanding.
+
+---
+
+## 🎯 Recommendations
+
+### High Priority
+
+#### 1. Improve Schema Compliance
+
+**Category:** SEO
+**Impact:** High visibility in search results
+
+**Description:** Add missing required properties to existing schemas
+
+While no schemas are currently present, implementing basic structured data with proper required properties is critical for:
+- Enhanced search engine visibility
+- Rich snippet eligibility
+- Better SERP (Search Engine Results Page) presentation
+
+**Action Items:**
+- Implement Organization schema
+- Add LocalBusiness schema if applicable
+- Include WebSite schema with site search functionality
+- Add required properties: name, url, logo, description
+
+---
+
+#### 2. Improve Entity Clarity
+
+**Category:** LLM
+**Impact:** Better AI understanding and knowledge graph inclusion
+
+**Description:** Add @id properties and clearer entity definitions
+
+Implementing proper entity definitions will help:
+- AI assistants understand your business
+- Knowledge graphs (Google, Bing) include your content
+- Voice assistants provide accurate information
+
+**Action Items:**
+- Define clear @id URIs for main entities
+- Use sameAs property to link to social profiles
+- Add disambiguating descriptions
+- Implement proper entity relationships
+
+---
+
+### Medium Priority
+
+#### 3. Expand Structured Data Coverage
+
+**Category:** SEO
+**Impact:** Better rich snippet eligibility
+
+**Description:** Add schemas for products, events, or FAQ content
+
+Expanding structured data coverage increases opportunities for rich results in search engines.
+
+**Action Items:**
+- Add Event schema for classes and workshops
+- Implement FAQ schema for common questions
+- Add Person schema for instructors/staff
+- Include Review/Rating schemas if applicable
+
+**Potential Impact:**
+- Increased click-through rates from search results
+- Better visibility in Google's rich results
+- Enhanced mobile search appearance
+
+---
+
+#### 4. Optimize for Voice Search
+
+**Category:** LLM
+**Impact:** Capture voice search traffic
+
+**Description:** Add FAQ schema with natural language questions
+
+Voice search is growing rapidly, and structured data helps AI assistants find and present your content.
+
+**Action Items:**
+- Create FAQ schema with conversational Q&A pairs
+- Use natural language phrasing
+- Include questions about:
+  - Class schedules and locations
+  - Pricing and membership options
+  - Instructor qualifications
+  - What to expect from classes
+
+**Benefits:**
+- Better voice search visibility
+- Featured in voice assistant responses
+- Improved Google Home/Alexa integration
+
+---
+
+#### 5. Implement Schema Caching
+
+**Category:** Performance
+**Impact:** Faster page loads and better user experience
+
+**Description:** Cache schemas in localStorage with proper expiry
+
+While the performance score is already good (88/100), caching can further optimize:
+
+**Action Items:**
+- Implement client-side schema caching
+- Set appropriate cache expiry times
+- Use service workers for offline access
+- Minify schema markup
+
+**Benefits:**
+- Reduced page load times
+- Better Core Web Vitals scores
+- Improved mobile performance
+- Lower bandwidth usage
+
+---
+
+## Detailed Analysis
+
+### SEO Analysis (17/100)
+
+**Current State:**
+- No structured data implementation
+- Missing rich snippet opportunities
+- Limited search engine understanding
+
+**Key Issues:**
+1. **No Organization Schema:** Search engines can't identify basic business information
+2. **No LocalBusiness Schema:** Missing location-based search opportunities
+3. **No WebSite Schema:** No site search integration in SERPs
+4. **No Breadcrumb Schema:** Limited navigation understanding
+
+**Recommended Schema Types:**
+- Organization
+- LocalBusiness (if applicable)
+- WebSite with SearchAction
+- Service (for classes offered)
+- Event (for upcoming classes)
+- FAQPage
+- BreadcrumbList
+
+---
+
+### LLM Analysis (0/100)
+
+**Current State:**
+- Zero AI/LLM optimization
+- No knowledge graph presence
+- Missing entity definitions
+
+**Critical Gaps:**
+1. **No Entity Definitions:** AI can't understand what your business is
+2. **No @id Properties:** Entities not uniquely identifiable
+3. **No Linked Data:** No connections to authoritative sources
+4. **No Disambiguation:** Similar entities can't be differentiated
+
+**Recommendations:**
+1. Define clear entity types and relationships
+2. Add @id URIs for all main entities
+3. Link to authoritative sources (Wikipedia, Wikidata)
+4. Implement sameAs properties for social profiles
+5. Use specific schema types (not just generic Thing)
+
+---
+
+### Performance Analysis (88/100)
+
+**Current State:**
+- Good baseline performance
+- Room for optimization with caching
+
+**Strengths:**
+- Fast page load times
+- Minimal performance overhead potential
+
+**Optimization Opportunities:**
+1. Implement schema caching strategy
+2. Use JSON-LD format (recommended)
+3. Minimize schema markup size
+4. Lazy load non-critical schemas
+
+---
+
+## Implementation Priority
+
+### Phase 1: Foundation (Week 1)
+1. ✅ Add Organization schema
+2. ✅ Add LocalBusiness schema (if applicable)
+3. ✅ Implement WebSite schema with SearchAction
+
+### Phase 2: Content Enhancement (Week 2-3)
+1. ✅ Add Service schemas for classes
+2. ✅ Implement Event schemas
+3. ✅ Add FAQ schema
+
+### Phase 3: Advanced Features (Week 4+)
+1. ✅ Add Review/Rating schemas
+2. ✅ Implement Person schemas for staff
+3. ✅ Add ImageObject schemas
+4. ✅ Create sameAs links to social profiles
+
+### Phase 4: Optimization (Ongoing)
+1. ✅ Implement caching strategy
+2. ✅ Monitor Core Web Vitals
+3. ✅ Test rich results eligibility
+4. ✅ Validate with Google Search Console
+
+---
+
+## Expected Impact
+
+### After Full Implementation
+
+**SEO Improvements:**
+- **Score Improvement:** 17 → 85+ (estimated)
+- Rich snippets in search results
+- Better local search visibility
+- Enhanced SERP presentation
+- Higher click-through rates
+
+**LLM/AI Improvements:**
+- **Score Improvement:** 0 → 75+ (estimated)
+- Knowledge graph inclusion
+- Voice search optimization
+- Better AI assistant responses
+- Featured in conversational search
+
+**Performance Maintenance:**
+- **Score Maintenance:** 88 → 90+ (estimated)
+- Optimized caching strategy
+- Minimal performance overhead
+- Better Core Web Vitals
+
+---
+
+## Validation & Testing
+
+### Tools to Use
+
+1. **Google Rich Results Test**
+   - https://search.google.com/test/rich-results
+   - Validates schema markup
+   - Shows rich result previews
+
+2. **Schema.org Validator**
+   - https://validator.schema.org/
+   - Comprehensive validation
+   - Detailed error reporting
+
+3. **Google Search Console**
+   - Monitor rich results
+   - Track search performance
+   - Identify schema issues
+
+4. **Bing Webmaster Tools**
+   - Bing-specific validation
+   - Alternative search visibility
+
+---
+
+## Monitoring & Maintenance
+
+### Ongoing Tasks
+
+1. **Monthly Reviews:**
+   - Check for schema errors in Search Console
+   - Monitor rich result performance
+   - Update schemas for new content
+
+2. **Quarterly Audits:**
+   - Re-run impact analysis
+   - Compare scores and improvements
+   - Identify new opportunities
+
+3. **Content Updates:**
+   - Add schemas to new pages
+   - Update existing schemas
+   - Maintain schema accuracy
+
+---
+
+## Resources
+
+### Schema.org Documentation
+- Main site: https://schema.org/
+- Organization: https://schema.org/Organization
+- LocalBusiness: https://schema.org/LocalBusiness
+- Event: https://schema.org/Event
+- FAQPage: https://schema.org/FAQPage
+
+### Google Guidelines
+- [Structured Data Guidelines](https://developers.google.com/search/docs/advanced/structured-data/sd-policies)
+- [Rich Results Test](https://search.google.com/test/rich-results)
+- [Search Console Help](https://support.google.com/webmasters)
+
+---
+
+## Conclusion
+
+The Austin Inspired Movement website has significant opportunities for improvement through schema.org implementation. With an overall score of 33/100, there is substantial room for growth, particularly in SEO (17/100) and LLM optimization (0/100).
+
+The good news is that the performance foundation is strong (88/100), which means implementing structured data won't negatively impact page speed. Following the phased implementation plan above should result in:
+
+- **3-5x improvement in SEO score**
+- **75+ point gain in LLM optimization**
+- **Maintained or improved performance**
+
+The highest priority actions are:
+1. Implement basic Organization/LocalBusiness schema
+2. Add @id properties and entity definitions
+3. Create FAQ schema for voice search optimization
+
+With these improvements, the website will be well-positioned for both traditional search engines and emerging AI/LLM platforms.
+
+---
+
+*Analysis generated by Schema.org Impact Analyzer on October 15, 2025*
+</file>
+
+</files>

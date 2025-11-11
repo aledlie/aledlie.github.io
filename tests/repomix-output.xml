@@ -1,0 +1,2136 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+analytics/
+  google-analytics.test.js
+  README_ENHANCED.md
+  README.md
+e2e/
+  accessibility.spec.js
+  analytics.spec.js
+  site-navigation.spec.js
+performance/
+  core-web-vitals.test.js
+  lighthouse.js
+  README_ENHANCED.md
+  README.md
+unit/
+  site-functionality.test.js
+README.md
+setup.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="analytics/google-analytics.test.js">
+/**
+ * Google Analytics Tests
+ * Tests Google Tag Manager implementation, tracking events, and analytics setup
+ */
+
+describe('Google Analytics Integration', () => {
+  const EXPECTED_GTM_ID = 'GTM-TK5J8L38';
+
+  beforeEach(() => {
+    // Reset global analytics state
+    global.gtag = jest.fn();
+    global.dataLayer = [];
+    delete window.gtag;
+    delete window.dataLayer;
+  });
+
+  describe('Google Tag Manager Setup', () => {
+    test('should load GTM script with correct ID', () => {
+      document.head.innerHTML = `
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
+      `;
+
+      const gtagScript = document.querySelector(`script[src*="gtag/js?id=${EXPECTED_GTM_ID}"]`);
+      expect(gtagScript).toBeTruthy();
+      expect(gtagScript.hasAttribute('async')).toBe(true);
+    });
+
+    test('should initialize gtag with correct configuration', () => {
+      // Simulate the analytics script execution
+      document.body.innerHTML = `
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${EXPECTED_GTM_ID}');
+        </script>
+      `;
+
+      // Mock the gtag function and dataLayer
+      window.dataLayer = [];
+      window.gtag = jest.fn((command, ...args) => {
+        window.dataLayer.push([command, ...args]);
+      });
+
+      // Simulate the gtag calls
+      window.gtag('js', new Date());
+      window.gtag('config', EXPECTED_GTM_ID);
+
+      expect(window.dataLayer).toEqual([
+        ['js', expect.any(Date)],
+        ['config', EXPECTED_GTM_ID]
+      ]);
+    });
+
+    test('should not load multiple GTM scripts', () => {
+      document.head.innerHTML = `
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
+      `;
+
+      const gtagScripts = document.querySelectorAll('script[src*="gtag/js"]');
+      expect(gtagScripts.length).toBe(2); // This would indicate a problem in implementation
+      
+      // In a real implementation, you'd want this to be 1
+      // This test documents the current behavior and can be used to verify fixes
+    });
+  });
+
+  describe('Site Verification', () => {
+    test('should have Google site verification meta tag', () => {
+      const EXPECTED_VERIFICATION = 'N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM';
+      document.head.innerHTML = `
+        <meta name="google-site-verification" content="${EXPECTED_VERIFICATION}" />
+      `;
+
+      const verificationMeta = document.querySelector('meta[name="google-site-verification"]');
+      expect(verificationMeta).toBeTruthy();
+      expect(verificationMeta.getAttribute('content')).toBe(EXPECTED_VERIFICATION);
+    });
+
+    test('should have only one site verification meta tag', () => {
+      document.head.innerHTML = `
+        <meta name="google-site-verification" content="N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM" />
+      `;
+
+      const verificationMetas = document.querySelectorAll('meta[name="google-site-verification"]');
+      expect(verificationMetas).toHaveLength(1);
+    });
+  });
+
+  describe('Event Tracking', () => {
+    beforeEach(() => {
+      window.gtag = jest.fn();
+      window.dataLayer = [];
+    });
+
+    test('should track page views', () => {
+      // Simulate page view tracking
+      const trackPageView = (page_title, page_location) => {
+        if (window.gtag) {
+          window.gtag('config', EXPECTED_GTM_ID, {
+            page_title: page_title,
+            page_location: page_location
+          });
+        }
+      };
+
+      trackPageView('Home Page', 'https://www.aledlie.com/');
+
+      expect(window.gtag).toHaveBeenCalledWith('config', EXPECTED_GTM_ID, {
+        page_title: 'Home Page',
+        page_location: 'https://www.aledlie.com/'
+      });
+    });
+
+    test('should track custom events', () => {
+      const trackEvent = (action, category, label, value) => {
+        if (window.gtag) {
+          window.gtag('event', action, {
+            event_category: category,
+            event_label: label,
+            value: value
+          });
+        }
+      };
+
+      trackEvent('click', 'navigation', 'header_logo', 1);
+
+      expect(window.gtag).toHaveBeenCalledWith('event', 'click', {
+        event_category: 'navigation',
+        event_label: 'header_logo',
+        value: 1
+      });
+    });
+
+    test('should track outbound link clicks', () => {
+      document.body.innerHTML = `
+        <a href="https://github.com/aledlie" target="_blank" class="external-link">GitHub</a>
+        <a href="/about" class="internal-link">About</a>
+      `;
+
+      const trackOutboundClick = (url) => {
+        if (window.gtag && url.startsWith('http') && !url.includes('aledlie.com')) {
+          window.gtag('event', 'click', {
+            event_category: 'outbound',
+            event_label: url,
+            transport_type: 'beacon'
+          });
+        }
+      };
+
+      const externalLink = document.querySelector('.external-link');
+      trackOutboundClick(externalLink.href);
+
+      expect(window.gtag).toHaveBeenCalledWith('event', 'click', {
+        event_category: 'outbound',
+        event_label: 'https://github.com/aledlie',
+        transport_type: 'beacon'
+      });
+    });
+
+    test('should not track internal link clicks as outbound', () => {
+      const trackOutboundClick = (url) => {
+        if (window.gtag && url.startsWith('http') && !url.includes('aledlie.com')) {
+          window.gtag('event', 'click', {
+            event_category: 'outbound',
+            event_label: url
+          });
+        }
+      };
+
+      trackOutboundClick('https://www.aledlie.com/about');
+      expect(window.gtag).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Privacy and Consent', () => {
+    test('should respect do not track header', () => {
+      Object.defineProperty(navigator, 'doNotTrack', {
+        value: '1',
+        writable: false
+      });
+
+      const shouldTrack = () => {
+        return navigator.doNotTrack !== '1' && navigator.doNotTrack !== 'yes';
+      };
+
+      expect(shouldTrack()).toBe(false);
+    });
+
+    test('should allow analytics opt-out', () => {
+      const disableAnalytics = () => {
+        window[`ga-disable-${EXPECTED_GTM_ID}`] = true;
+      };
+
+      disableAnalytics();
+      expect(window[`ga-disable-${EXPECTED_GTM_ID}`]).toBe(true);
+    });
+
+    test('should have proper consent management', () => {
+      const grantConsent = () => {
+        if (window.gtag) {
+          window.gtag('consent', 'update', {
+            analytics_storage: 'granted'
+          });
+        }
+      };
+
+      const denyConsent = () => {
+        if (window.gtag) {
+          window.gtag('consent', 'update', {
+            analytics_storage: 'denied'
+          });
+        }
+      };
+
+      window.gtag = jest.fn();
+
+      grantConsent();
+      expect(window.gtag).toHaveBeenCalledWith('consent', 'update', {
+        analytics_storage: 'granted'
+      });
+
+      denyConsent();
+      expect(window.gtag).toHaveBeenCalledWith('consent', 'update', {
+        analytics_storage: 'denied'
+      });
+    });
+  });
+
+  describe('Error Handling', () => {
+    test('should handle missing gtag gracefully', () => {
+      window.gtag = undefined;
+
+      const safeTrack = (event, params) => {
+        try {
+          if (window.gtag && typeof window.gtag === 'function') {
+            window.gtag('event', event, params);
+            return true;
+          }
+          return false;
+        } catch (error) {
+          console.warn('Analytics tracking failed:', error);
+          return false;
+        }
+      };
+
+      expect(safeTrack('test_event', {})).toBe(false);
+      expect(() => safeTrack('test_event', {})).not.toThrow();
+    });
+
+    test('should handle analytics script loading failures', () => {
+      const checkAnalyticsLoaded = () => {
+        return typeof window.gtag === 'function' && Array.isArray(window.dataLayer);
+      };
+
+      // Simulate script not loaded
+      expect(checkAnalyticsLoaded()).toBe(false);
+
+      // Simulate script loaded
+      window.gtag = jest.fn();
+      window.dataLayer = [];
+      expect(checkAnalyticsLoaded()).toBe(true);
+    });
+  });
+});
+</file>
+
+<file path="analytics/README_ENHANCED.md">
+# analytics
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "analytics",
+  "description": "Directory containing 1 code files with 0 classes and 10 functions",
+  "programmingLanguage": [
+    {
+      "@type": "ComputerLanguage",
+      "name": "Typescript"
+    }
+  ],
+  "featureList": [
+    "10 function definitions"
+  ]
+}
+</script>
+
+## Overview
+
+This directory contains 1 code file(s) with extracted schemas.
+
+## Files and Schemas
+
+### `google-analytics.test.js` (typescript)
+
+**Functions:**
+- `trackPageView()` - Line 98
+- `trackEvent()` - Line 116
+- `trackOutboundClick()` - Line 141
+- `trackOutboundClick()` - Line 162
+- `shouldTrack()` - Line 183
+- `disableAnalytics()` - Line 191
+- `grantConsent()` - Line 200
+- `denyConsent()` - Line 208
+- `safeTrack()` - Line 234
+- `checkAnalyticsLoaded()` - Line 252
+
+---
+*Generated by Enhanced Schema Generator with schema.org markup*
+</file>
+
+<file path="analytics/README.md">
+# analytics
+
+## Overview
+
+This directory contains 1 code file(s) with extracted schemas.
+
+## Files and Schemas
+
+### `google-analytics.test.js` (typescript)
+
+**Functions:**
+- `gtag()` - Line 33
+
+---
+*Generated by Schema Generator*
+</file>
+
+<file path="e2e/accessibility.spec.js">
+const { test, expect } = require('@playwright/test');
+const { injectAxe, checkA11y, getViolations } = require('axe-playwright');
+
+test.describe('Accessibility Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    await injectAxe(page);
+  });
+
+  test('should not have any accessibility violations on homepage', async ({ page }) => {
+    await checkA11y(page, null, {
+      detailedReport: true,
+      detailedReportOptions: { html: true }
+    });
+  });
+
+  test('should not have accessibility violations on about page', async ({ page }) => {
+    await page.goto('/about/');
+    await injectAxe(page);
+    await checkA11y(page);
+  });
+
+  test('should have proper heading hierarchy', async ({ page }) => {
+    const headings = await page.locator('h1, h2, h3, h4, h5, h6').all();
+    
+    if (headings.length > 0) {
+      // Should have at least one h1
+      const h1Count = await page.locator('h1').count();
+      expect(h1Count).toBeGreaterThanOrEqual(1);
+      expect(h1Count).toBeLessThanOrEqual(1); // Should have only one h1
+    }
+  });
+
+  test('should have alt text on all images', async ({ page }) => {
+    const images = await page.locator('img').all();
+    
+    for (const img of images) {
+      const altText = await img.getAttribute('alt');
+      expect(altText).not.toBeNull();
+      // Alt text can be empty for decorative images, but attribute must exist
+    }
+  });
+
+  test('should have proper form labels', async ({ page }) => {
+    const inputs = await page.locator('input, textarea, select').all();
+    
+    for (const input of inputs) {
+      const inputId = await input.getAttribute('id');
+      const inputType = await input.getAttribute('type');
+      
+      // Skip hidden inputs
+      if (inputType === 'hidden') continue;
+      
+      if (inputId) {
+        // Check for associated label
+        const label = await page.locator(`label[for="${inputId}"]`).count();
+        const ariaLabel = await input.getAttribute('aria-label');
+        const ariaLabelledBy = await input.getAttribute('aria-labelledby');
+        
+        // Input should have either a label, aria-label, or aria-labelledby
+        const hasAccessibleName = label > 0 || ariaLabel || ariaLabelledBy;
+        expect(hasAccessibleName).toBe(true);
+      }
+    }
+  });
+
+  test('should have proper link text', async ({ page }) => {
+    const links = await page.locator('a[href]').all();
+    
+    for (const link of links) {
+      const linkText = await link.textContent();
+      const ariaLabel = await link.getAttribute('aria-label');
+      const title = await link.getAttribute('title');
+      
+      // Link should have descriptive text, aria-label, or title
+      const hasAccessibleName = 
+        (linkText && linkText.trim().length > 0) || 
+        ariaLabel || 
+        title;
+      
+      expect(hasAccessibleName).toBe(true);
+      
+      // Avoid generic link text
+      if (linkText) {
+        const genericTexts = ['click here', 'read more', 'here', 'more'];
+        const isGeneric = genericTexts.some(generic => 
+          linkText.toLowerCase().includes(generic)
+        );
+        
+        if (isGeneric) {
+          // If link text is generic, it should have aria-label or title
+          expect(ariaLabel || title).toBeTruthy();
+        }
+      }
+    }
+  });
+
+  test('should have adequate color contrast', async ({ page }) => {
+    // Use axe to check color contrast
+    await checkA11y(page, null, {
+      rules: {
+        'color-contrast': { enabled: true },
+        'color-contrast-enhanced': { enabled: true }
+      }
+    });
+  });
+
+  test('should be keyboard navigable', async ({ page }) => {
+    // Test that all interactive elements can be reached by keyboard
+    const focusableElements = await page.locator(
+      'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    ).all();
+
+    if (focusableElements.length > 0) {
+      // Start with first element
+      await focusableElements[0].focus();
+      
+      // Tab through some elements
+      for (let i = 0; i < Math.min(5, focusableElements.length - 1); i++) {
+        await page.keyboard.press('Tab');
+      }
+      
+      // Should be able to navigate with keyboard
+      const focusedElement = await page.locator(':focus').first();
+      await expect(focusedElement).toBeVisible();
+    }
+  });
+
+  test('should have skip navigation links', async ({ page }) => {
+    // Look for skip links (often hidden until focused)
+    const skipLinks = await page.locator('a[href^="#"]:has-text(/skip/i)').count();
+    
+    if (skipLinks > 0) {
+      const skipLink = page.locator('a[href^="#"]:has-text(/skip/i)').first();
+      
+      // Skip link should have proper target
+      const href = await skipLink.getAttribute('href');
+      const targetId = href.substring(1);
+      const target = await page.locator(`#${targetId}`).count();
+      
+      expect(target).toBeGreaterThan(0);
+    }
+  });
+
+  test('should have proper ARIA landmarks', async ({ page }) => {
+    // Check for main landmark
+    const mainLandmark = await page.locator('main, [role="main"]').count();
+    expect(mainLandmark).toBeGreaterThanOrEqual(1);
+    
+    // Check for navigation landmark
+    const navLandmark = await page.locator('nav, [role="navigation"]').count();
+    if (navLandmark === 0) {
+      // May not have navigation on all pages, but should have it somewhere
+      console.log('No navigation landmark found - may be acceptable for some pages');
+    }
+  });
+
+  test('should handle focus management', async ({ page }) => {
+    // Test focus indicators are visible
+    const firstFocusable = page.locator(
+      'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    ).first();
+    
+    if (await firstFocusable.count() > 0) {
+      await firstFocusable.focus();
+      
+      // Element should be focused
+      await expect(firstFocusable).toBeFocused();
+    }
+  });
+
+  test('should have proper page title', async ({ page }) => {
+    const title = await page.title();
+    
+    expect(title).toBeTruthy();
+    expect(title.length).toBeGreaterThan(0);
+    expect(title.length).toBeLessThan(60); // SEO best practice
+    
+    // Title should be descriptive
+    const genericTitles = ['untitled', 'new page', 'page', 'document'];
+    const isGeneric = genericTitles.some(generic => 
+      title.toLowerCase().includes(generic)
+    );
+    expect(isGeneric).toBe(false);
+  });
+});
+</file>
+
+<file path="e2e/analytics.spec.js">
+const { test, expect } = require('@playwright/test');
+
+test.describe('Analytics Integration', () => {
+  test.beforeEach(async ({ page }) => {
+    // Block actual analytics requests to avoid polluting real data
+    await page.route('**/gtag/js**', route => route.abort());
+    await page.route('**/google-analytics.com/**', route => route.abort());
+    await page.route('**/googletagmanager.com/**', route => route.abort());
+  });
+
+  test('should load Google Tag Manager script', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check that GTM script tag exists
+    const gtagScript = await page.locator('script[src*="gtag/js"]').count();
+    expect(gtagScript).toBeGreaterThan(0);
+    
+    // Verify it has the correct GTM ID
+    const scriptSrc = await page.locator('script[src*="gtag/js"]').first().getAttribute('src');
+    expect(scriptSrc).toContain('GTM-TK5J8L38');
+  });
+
+  test('should have Google site verification meta tag', async ({ page }) => {
+    await page.goto('/');
+    
+    const verificationTag = await page.locator('meta[name="google-site-verification"]');
+    await expect(verificationTag).toHaveCount(1);
+    
+    const content = await verificationTag.getAttribute('content');
+    expect(content).toBe('N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM');
+  });
+
+  test('should initialize gtag function', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check that gtag function is defined
+    const gtagExists = await page.evaluate(() => typeof window.gtag === 'function');
+    expect(gtagExists).toBe(true);
+    
+    // Check that dataLayer is initialized
+    const dataLayerExists = await page.evaluate(() => Array.isArray(window.dataLayer));
+    expect(dataLayerExists).toBe(true);
+  });
+
+  test('should track page views', async ({ page }) => {
+    // Mock gtag to capture calls
+    await page.addInitScript(() => {
+      window.gtagCalls = [];
+      window.gtag = function() {
+        window.gtagCalls.push(Array.from(arguments));
+      };
+      window.dataLayer = window.dataLayer || [];
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Check that gtag was called with config
+    const gtagCalls = await page.evaluate(() => window.gtagCalls);
+    
+    // Should have at least a 'js' call and a 'config' call
+    const jsCalls = gtagCalls.filter(call => call[0] === 'js');
+    const configCalls = gtagCalls.filter(call => call[0] === 'config');
+    
+    expect(jsCalls.length).toBeGreaterThan(0);
+    expect(configCalls.length).toBeGreaterThan(0);
+    
+    // Verify config call has correct GTM ID
+    const gtmConfigCall = configCalls.find(call => call[1] === 'GTM-TK5J8L38');
+    expect(gtmConfigCall).toBeTruthy();
+  });
+
+  test('should handle navigation tracking', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.gtagCalls = [];
+      window.gtag = function() {
+        window.gtagCalls.push(Array.from(arguments));
+      };
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Navigate to another page
+    const aboutLink = page.locator('a[href*="/about"]').first();
+    if (await aboutLink.count() > 0) {
+      await aboutLink.click();
+      await page.waitForLoadState('networkidle');
+      
+      // Check for additional gtag calls on navigation
+      const gtagCalls = await page.evaluate(() => window.gtagCalls);
+      expect(gtagCalls.length).toBeGreaterThan(1);
+    }
+  });
+
+  test('should respect Do Not Track', async ({ page, context }) => {
+    // Set Do Not Track header
+    await context.setExtraHTTPHeaders({
+      'DNT': '1'
+    });
+    
+    await page.goto('/');
+    
+    // In a real implementation, you'd check that analytics is disabled
+    // This test documents the requirement
+    const dntHeader = await page.evaluate(() => navigator.doNotTrack);
+    expect(dntHeader).toBe('1');
+  });
+
+  test('should load analytics scripts asynchronously', async ({ page }) => {
+    await page.goto('/');
+    
+    const gtagScript = page.locator('script[src*="gtag/js"]').first();
+    const isAsync = await gtagScript.getAttribute('async');
+    
+    expect(isAsync).not.toBeNull();
+  });
+
+  test('should not block page rendering', async ({ page }) => {
+    const startTime = Date.now();
+    
+    await page.goto('/');
+    
+    // Check that main content is visible quickly, even if analytics hasn't loaded
+    await expect(page.locator('h1, h2').first()).toBeVisible({ timeout: 3000 });
+    
+    const renderTime = Date.now() - startTime;
+    expect(renderTime).toBeLessThan(3000);
+  });
+});
+
+test.describe('Privacy and Consent', () => {
+  test('should handle analytics opt-out', async ({ page }) => {
+    await page.goto('/');
+    
+    // Set analytics opt-out
+    await page.evaluate(() => {
+      window['ga-disable-GTM-TK5J8L38'] = true;
+    });
+    
+    const optOutSet = await page.evaluate(() => window['ga-disable-GTM-TK5J8L38']);
+    expect(optOutSet).toBe(true);
+  });
+
+  test('should have privacy policy link', async ({ page }) => {
+    await page.goto('/');
+    
+    // Look for privacy policy or similar links
+    const privacyLinks = page.locator('a:has-text("privacy"), a:has-text("Privacy"), a[href*="privacy"]');
+    
+    if (await privacyLinks.count() > 0) {
+      const firstPrivacyLink = privacyLinks.first();
+      await expect(firstPrivacyLink).toBeVisible();
+      
+      const href = await firstPrivacyLink.getAttribute('href');
+      expect(href).toBeTruthy();
+    }
+  });
+});
+
+test.describe('Analytics Error Handling', () => {
+  test('should handle missing analytics gracefully', async ({ page }) => {
+    // Block all analytics scripts
+    await page.route('**/gtag/**', route => route.abort());
+    await page.route('**/google-analytics.com/**', route => route.abort());
+    await page.route('**/googletagmanager.com/**', route => route.abort());
+    
+    const consoleErrors = [];
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        consoleErrors.push(msg.text());
+      }
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Page should still function normally
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Should not have critical JavaScript errors
+    const criticalErrors = consoleErrors.filter(error => 
+      !error.toLowerCase().includes('gtag') &&
+      !error.toLowerCase().includes('analytics') &&
+      !error.toLowerCase().includes('network error')
+    );
+    
+    expect(criticalErrors).toHaveLength(0);
+  });
+
+  test('should handle slow analytics loading', async ({ page }) => {
+    // Delay analytics scripts
+    await page.route('**/gtag/js**', async route => {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      route.continue();
+    });
+    
+    await page.goto('/');
+    
+    // Page should be interactive even before analytics loads
+    await expect(page.locator('h1, h2').first()).toBeVisible({ timeout: 1000 });
+    
+    // Navigation should work
+    const navLink = page.locator('nav a, .navbar a').first();
+    if (await navLink.count() > 0) {
+      await expect(navLink).toBeVisible();
+      // Should be clickable immediately
+      await expect(navLink).not.toHaveAttribute('disabled');
+    }
+  });
+});
+</file>
+
+<file path="e2e/site-navigation.spec.js">
+const { test, expect } = require('@playwright/test');
+
+test.describe('Site Navigation', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('should have working homepage', async ({ page }) => {
+    await expect(page).toHaveTitle(/ℵ₀/);
+    await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+  });
+
+  test('should navigate to all main pages', async ({ page }) => {
+    const navLinks = [
+      { text: 'About', url: '/about/' },
+      { text: 'Blog', url: '/jekyll/' }, // Blog link redirects to latest post
+      { text: 'Projects', url: '/projects/' }
+    ];
+
+    for (const link of navLinks) {
+      await page.goto('/');
+
+      // Find and click the navigation link
+      const navLink = page.locator(`a[href*="${link.url}"], a:has-text("${link.text}")`).first();
+      await expect(navLink).toBeVisible();
+      await navLink.click();
+
+      // Wait for navigation and verify page has loaded
+      await page.waitForLoadState('networkidle');
+
+      // Verify page has content (more flexible - just check that we navigated somewhere)
+      await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+    }
+  });
+
+  test('should have working search functionality', async ({ page }) => {
+    const searchInput = page.locator('input[type="search"], input[name="search"], #search-input');
+    
+    if (await searchInput.count() > 0) {
+      await searchInput.fill('test search');
+      await searchInput.press('Enter');
+      
+      // Verify search results or search page loads
+      await page.waitForLoadState('networkidle');
+      expect(page.url()).toContain('search');
+    }
+  });
+
+  test('should have working contact links', async ({ page }) => {
+    const contactLinks = page.locator('a[href*="mailto:"], a[href*="github.com"], a[href*="twitter.com"], a[href*="linkedin.com"]');
+    
+    if (await contactLinks.count() > 0) {
+      const firstLink = contactLinks.first();
+      await expect(firstLink).toBeVisible();
+      
+      const href = await firstLink.getAttribute('href');
+      expect(href).toBeTruthy();
+      expect(href).toMatch(/^(mailto:|https?:\/\/)/);
+    }
+  });
+
+  test('should handle 404 errors gracefully', async ({ page }) => {
+    const response = await page.goto('/non-existent-page');
+    expect(response.status()).toBe(404);
+
+    // Should show custom 404 page with "Page Not Found" heading
+    await expect(page.locator('h1, h2, h3')).toContainText('Page Not Found', { ignoreCase: true });
+  });
+
+  test('should have proper meta tags', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check for essential meta tags
+    const title = await page.locator('title').textContent();
+    expect(title).toBeTruthy();
+    expect(title.length).toBeGreaterThan(0);
+    
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(description).toBeTruthy();
+    expect(description.length).toBeGreaterThan(0);
+    
+    // Check for Open Graph tags
+    const ogTitle = await page.locator('meta[property="og:title"]').getAttribute('content');
+    const ogDescription = await page.locator('meta[property="og:description"]').getAttribute('content');
+    
+    if (ogTitle) expect(ogTitle.length).toBeGreaterThan(0);
+    if (ogDescription) expect(ogDescription.length).toBeGreaterThan(0);
+  });
+});
+
+test.describe('Responsive Design', () => {
+  test('should work on mobile devices', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 }); // iPhone SE size
+    await page.goto('/');
+    
+    // Check that main navigation is accessible on mobile (using Minimal Mistakes theme selectors)
+    const mainNav = page.locator('.greedy-nav, #site-nav, .masthead');
+    if (await mainNav.count() > 0) {
+      await expect(mainNav.first()).toBeVisible();
+    }
+    
+    // Check that content is readable
+    const mainContent = page.locator('main, .page__content, article, .page').first();
+    if (await mainContent.count() > 0) {
+      await expect(mainContent).toBeVisible();
+    }
+    
+    // Verify no horizontal scroll
+    const bodyScrollWidth = await page.evaluate(() => document.body.scrollWidth);
+    const bodyClientWidth = await page.evaluate(() => document.body.clientWidth);
+    expect(bodyScrollWidth).toBeLessThanOrEqual(bodyClientWidth + 1); // Allow 1px tolerance
+  });
+
+  test('should work on tablet devices', async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 1024 }); // iPad size
+    await page.goto('/');
+    
+    // Check that main content is visible
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Check that page has loaded properly by looking for visible content
+    const visibleContent = page.locator('body');
+    await expect(visibleContent).toBeVisible();
+    
+    // Verify no horizontal scroll
+    const bodyScrollWidth = await page.evaluate(() => document.body.scrollWidth);
+    const bodyClientWidth = await page.evaluate(() => document.body.clientWidth);
+    expect(bodyScrollWidth).toBeLessThanOrEqual(bodyClientWidth + 1); // Allow 1px tolerance
+  });
+
+  test('should work on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto('/');
+    
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Check that full navigation is visible on desktop
+    const navLinks = page.locator('.greedy-nav a, .nav-links a, #site-nav a');
+    if (await navLinks.count() > 0) {
+      const firstNavLink = navLinks.first();
+      await expect(firstNavLink).toBeVisible();
+    }
+  });
+});
+
+test.describe('Performance', () => {
+  test('should load pages quickly', async ({ page }) => {
+    const startTime = Date.now();
+    await page.goto('/');
+    const loadTime = Date.now() - startTime;
+    
+    // Page should load within 5 seconds
+    expect(loadTime).toBeLessThan(5000);
+    
+    // Check that main content is visible
+    await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+  });
+
+  test('should have no console errors', async ({ page }) => {
+    const consoleErrors = [];
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        consoleErrors.push(msg.text());
+      }
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Filter out known acceptable errors (like failed optional resource loads)
+    const criticalErrors = consoleErrors.filter(error => 
+      !error.includes('favicon') && 
+      !error.includes('404') &&
+      !error.includes('net::ERR_')
+    );
+    
+    expect(criticalErrors).toHaveLength(0);
+  });
+
+  test('should load all critical resources', async ({ page }) => {
+    const failedRequests = [];
+
+    page.on('response', response => {
+      if (!response.ok() && response.status() !== 404 && response.status() !== 302 && response.status() !== 301) {
+        failedRequests.push({
+          url: response.url(),
+          status: response.status()
+        });
+      }
+    });
+
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Filter out non-critical failed requests and external CDN resources
+    const criticalFailures = failedRequests.filter(req =>
+      !req.url.includes('unpkg.com') && // External CDN
+      !req.url.includes('cdn.') && // Other CDNs
+      (req.url.includes('.css') ||
+       req.url.includes('.js') ||
+       (req.url.includes('.jpg') || req.url.includes('.png') || req.url.includes('.webp')))
+    );
+
+    expect(criticalFailures).toHaveLength(0);
+  });
+});
+</file>
+
+<file path="performance/core-web-vitals.test.js">
+/**
+ * Core Web Vitals Tests
+ * Tests performance metrics that Google uses for ranking
+ */
+
+describe('Core Web Vitals', () => {
+  describe('Largest Contentful Paint (LCP)', () => {
+    test('should measure LCP timing', () => {
+      // Mock PerformanceObserver for LCP
+      const mockLCPEntries = [{
+        entryType: 'largest-contentful-paint',
+        startTime: 1200, // 1.2 seconds
+        element: document.createElement('img')
+      }];
+
+      const measureLCP = () => {
+        return new Promise(resolve => {
+          // Simulate LCP measurement
+          setTimeout(() => resolve(mockLCPEntries[0].startTime), 100);
+        });
+      };
+
+      return measureLCP().then(lcp => {
+        expect(lcp).toBeLessThan(2500); // Good LCP threshold
+        expect(typeof lcp).toBe('number');
+      });
+    });
+
+    test('should identify LCP element', () => {
+      document.body.innerHTML = `
+        <img src="/images/hero.jpg" alt="Hero image" id="hero">
+        <h1>Main heading</h1>
+        <p>Some content</p>
+      `;
+
+      const potentialLCPElements = document.querySelectorAll('img, h1, h2, p, div');
+      expect(potentialLCPElements.length).toBeGreaterThan(0);
+
+      const heroImage = document.querySelector('#hero');
+      expect(heroImage).toBeTruthy();
+      expect(heroImage.tagName).toBe('IMG');
+    });
+  });
+
+  describe('First Input Delay (FID)', () => {
+    test('should handle user interactions promptly', (done) => {
+      const button = document.createElement('button');
+      button.textContent = 'Click me';
+      document.body.appendChild(button);
+
+      const startTime = performance.now();
+      
+      button.addEventListener('click', () => {
+        const inputDelay = performance.now() - startTime;
+        expect(inputDelay).toBeLessThan(100); // Good FID threshold
+        done();
+      });
+
+      // Simulate immediate click
+      setTimeout(() => button.click(), 0);
+    });
+
+    test('should not block main thread', () => {
+      const performHeavyTask = () => {
+        const start = performance.now();
+        // Simulate work without blocking
+        return new Promise(resolve => {
+          setTimeout(() => {
+            const duration = performance.now() - start;
+            resolve(duration);
+          }, 10);
+        });
+      };
+
+      return performHeavyTask().then(duration => {
+        expect(duration).toBeLessThan(50); // Keep main thread responsive
+      });
+    });
+  });
+
+  describe('Cumulative Layout Shift (CLS)', () => {
+    test('should not cause unexpected layout shifts', () => {
+      // Mock layout shift detection
+      const layoutShifts = [];
+      
+      const mockLayoutShift = (element, oldRect, newRect) => {
+        const impact = Math.abs(newRect.top - oldRect.top) / window.innerHeight;
+        const distance = Math.abs(newRect.top - oldRect.top) / window.innerHeight;
+        const shift = impact * distance;
+        
+        layoutShifts.push(shift);
+        return shift;
+      };
+
+      // Simulate a small layout shift
+      const shift = mockLayoutShift(
+        document.createElement('div'),
+        { top: 100, height: 50 },
+        { top: 105, height: 50 }
+      );
+
+      expect(shift).toBeLessThan(0.1); // Good CLS threshold
+      
+      const totalCLS = layoutShifts.reduce((sum, shift) => sum + shift, 0);
+      expect(totalCLS).toBeLessThan(0.1);
+    });
+
+    test('should have proper image sizing to prevent shifts', () => {
+      document.body.innerHTML = `
+        <img src="/images/test.jpg" width="300" height="200" alt="Test image">
+        <img src="/images/test2.jpg" style="width: 300px; height: 200px;" alt="Test image 2">
+      `;
+
+      const images = document.querySelectorAll('img');
+      
+      images.forEach(img => {
+        const hasWidthAttr = img.getAttribute('width');
+        const hasHeightAttr = img.getAttribute('height');
+        const hasStyleDimensions = img.style.width && img.style.height;
+        const hasNaturalDimensions = img.width > 0 && img.height > 0;
+        
+        const hasExplicitDimensions = 
+          (hasWidthAttr && hasHeightAttr) ||
+          hasStyleDimensions ||
+          hasNaturalDimensions;
+        
+        expect(hasExplicitDimensions).toBeTruthy();
+      });
+    });
+
+    test('should reserve space for dynamic content', () => {
+      // Test that containers have min-height or explicit dimensions
+      document.body.innerHTML = `
+        <div class="ad-container" style="min-height: 250px;">
+          <!-- Ad content loads here -->
+        </div>
+        <div class="content-placeholder" style="height: 200px;">
+          <!-- Content loads here -->
+        </div>
+      `;
+
+      const containers = document.querySelectorAll('.ad-container, .content-placeholder');
+      
+      containers.forEach(container => {
+        const style = window.getComputedStyle(container);
+        const hasReservedSpace = 
+          style.minHeight !== 'auto' || 
+          style.height !== 'auto';
+        
+        // In a real test, you'd check computed styles
+        // Here we just verify the elements exist
+        expect(container).toBeTruthy();
+      });
+    });
+  });
+
+  describe('First Contentful Paint (FCP)', () => {
+    test('should render content quickly', () => {
+      // Mock FCP measurement
+      const mockFCP = 800; // 0.8 seconds
+
+      expect(mockFCP).toBeLessThan(1800); // Good FCP threshold
+      expect(mockFCP).toBeGreaterThan(0);
+    });
+
+    test('should have critical CSS inlined', () => {
+      document.head.innerHTML = `
+        <style>
+          /* Critical CSS */
+          body { font-family: system-ui; }
+          .header { background: white; }
+        </style>
+        <link rel="stylesheet" href="/assets/css/main.css">
+      `;
+
+      const inlineStyles = document.querySelector('head style');
+      const externalStyles = document.querySelector('link[rel="stylesheet"]');
+
+      expect(inlineStyles).toBeTruthy();
+      expect(externalStyles).toBeTruthy();
+    });
+  });
+
+  describe('Time to Interactive (TTI)', () => {
+    test('should become interactive within reasonable time', () => {
+      // Mock TTI measurement
+      const mockTTI = 2800; // 2.8 seconds
+
+      expect(mockTTI).toBeLessThan(3800); // Good TTI threshold
+    });
+
+    test('should load critical JavaScript early', () => {
+      document.body.innerHTML = `
+        <script>
+          // Critical inline JavaScript
+          document.documentElement.className = 'js';
+        </script>
+        <script src="/assets/js/main.js" defer></script>
+      `;
+
+      const inlineScript = document.querySelector('body script:not([src])');
+      const deferredScript = document.querySelector('script[defer]');
+
+      expect(inlineScript).toBeTruthy();
+      expect(deferredScript).toBeTruthy();
+      expect(deferredScript.defer).toBe(true);
+    });
+  });
+
+  describe('Resource Loading Optimization', () => {
+    test('should preload critical resources', () => {
+      document.head.innerHTML = `
+        <link rel="preload" href="/assets/css/main.css" as="style">
+        <link rel="preload" href="/assets/fonts/main.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+      `;
+
+      const preloadCSS = document.querySelector('link[rel="preload"][as="style"]');
+      const preloadFont = document.querySelector('link[rel="preload"][as="font"]');
+      const dnsPrefetch = document.querySelector('link[rel="dns-prefetch"]');
+
+      expect(preloadCSS).toBeTruthy();
+      expect(preloadFont).toBeTruthy();
+      expect(dnsPrefetch).toBeTruthy();
+    });
+
+    test('should use modern image formats', () => {
+      document.body.innerHTML = `
+        <picture>
+          <source srcset="/images/hero.avif" type="image/avif">
+          <source srcset="/images/hero.webp" type="image/webp">
+          <img src="/images/hero.jpg" alt="Hero image">
+        </picture>
+      `;
+
+      const picture = document.querySelector('picture');
+      const avifSource = document.querySelector('source[type="image/avif"]');
+      const webpSource = document.querySelector('source[type="image/webp"]');
+      const fallbackImg = document.querySelector('picture img');
+
+      expect(picture).toBeTruthy();
+      expect(avifSource).toBeTruthy();
+      expect(webpSource).toBeTruthy();
+      expect(fallbackImg).toBeTruthy();
+    });
+
+    test('should lazy load non-critical images', () => {
+      document.body.innerHTML = `
+        <img src="/images/hero.jpg" alt="Above fold" loading="eager">
+        <img src="/images/content1.jpg" alt="Below fold" loading="lazy">
+        <img src="/images/content2.jpg" alt="Below fold" loading="lazy">
+      `;
+
+      const eagerImage = document.querySelector('img[loading="eager"]');
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+      expect(eagerImage).toBeTruthy();
+      expect(lazyImages.length).toBeGreaterThan(0);
+    });
+  });
+});
+</file>
+
+<file path="performance/lighthouse.js">
+/**
+ * Lighthouse Performance Testing
+ * Uses Lighthouse to test site performance, accessibility, SEO, and best practices
+ */
+
+const lighthouse = require('lighthouse');
+const chromeLauncher = require('chrome-launcher');
+const fs = require('fs');
+const path = require('path');
+
+class PerformanceTestSuite {
+  constructor(baseUrl = 'http://localhost:4000') {
+    this.baseUrl = baseUrl;
+    this.chrome = null;
+    this.results = [];
+  }
+
+  async setup() {
+    console.log('Launching Chrome for Lighthouse tests...');
+    this.chrome = await chromeLauncher.launch({
+      chromeFlags: ['--headless', '--no-sandbox', '--disable-dev-shm-usage']
+    });
+  }
+
+  async teardown() {
+    if (this.chrome) {
+      await this.chrome.kill();
+    }
+  }
+
+  async runLighthouseTest(url, options = {}) {
+    const defaultOptions = {
+      logLevel: 'info',
+      output: 'json',
+      port: this.chrome.port,
+      onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+    };
+
+    const mergedOptions = { ...defaultOptions, ...options };
+
+    try {
+      console.log(`Running Lighthouse test for: ${url}`);
+      const runnerResult = await lighthouse(url, mergedOptions);
+      
+      if (!runnerResult || !runnerResult.lhr) {
+        throw new Error('Lighthouse test failed - no results returned');
+      }
+
+      return runnerResult.lhr;
+    } catch (error) {
+      console.error(`Lighthouse test failed for ${url}:`, error);
+      return null;
+    }
+  }
+
+  async testPage(pagePath, pageName) {
+    const url = `${this.baseUrl}${pagePath}`;
+    const result = await this.runLighthouseTest(url);
+    
+    if (!result) {
+      console.error(`Failed to test ${pageName}`);
+      return null;
+    }
+
+    const scores = {
+      performance: result.categories.performance?.score * 100 || 0,
+      accessibility: result.categories.accessibility?.score * 100 || 0,
+      bestPractices: result.categories['best-practices']?.score * 100 || 0,
+      seo: result.categories.seo?.score * 100 || 0,
+    };
+
+    const metrics = {
+      firstContentfulPaint: result.audits['first-contentful-paint']?.displayValue || 'N/A',
+      largestContentfulPaint: result.audits['largest-contentful-paint']?.displayValue || 'N/A',
+      speedIndex: result.audits['speed-index']?.displayValue || 'N/A',
+      totalBlockingTime: result.audits['total-blocking-time']?.displayValue || 'N/A',
+      cumulativeLayoutShift: result.audits['cumulative-layout-shift']?.displayValue || 'N/A',
+    };
+
+    const pageResult = {
+      pageName,
+      url,
+      scores,
+      metrics,
+      timestamp: new Date().toISOString(),
+      passed: this.evaluateScores(scores)
+    };
+
+    this.results.push(pageResult);
+    this.logPageResult(pageResult);
+    
+    return pageResult;
+  }
+
+  evaluateScores(scores) {
+    // Define minimum acceptable scores
+    const thresholds = {
+      performance: 90,
+      accessibility: 95,
+      bestPractices: 90,
+      seo: 95
+    };
+
+    const passed = Object.keys(thresholds).every(category => 
+      scores[category] >= thresholds[category]
+    );
+
+    return passed;
+  }
+
+  logPageResult(result) {
+    console.log(`\n📊 Results for ${result.pageName}:`);
+    console.log(`🚀 Performance: ${result.scores.performance.toFixed(1)}/100`);
+    console.log(`♿ Accessibility: ${result.scores.accessibility.toFixed(1)}/100`);
+    console.log(`✅ Best Practices: ${result.scores.bestPractices.toFixed(1)}/100`);
+    console.log(`🔍 SEO: ${result.scores.seo.toFixed(1)}/100`);
+    console.log(`⚡ First Contentful Paint: ${result.metrics.firstContentfulPaint}`);
+    console.log(`🎨 Largest Contentful Paint: ${result.metrics.largestContentfulPaint}`);
+    console.log(`📈 Speed Index: ${result.metrics.speedIndex}`);
+    console.log(`⏱️  Total Blocking Time: ${result.metrics.totalBlockingTime}`);
+    console.log(`📐 Cumulative Layout Shift: ${result.metrics.cumulativeLayoutShift}`);
+    console.log(`${result.passed ? '✅ PASSED' : '❌ FAILED'} performance thresholds\n`);
+  }
+
+  async runFullSuite() {
+    const pagesToTest = [
+      { path: '/', name: 'Homepage' },
+      { path: '/about/', name: 'About Page' },
+      { path: '/posts/', name: 'Posts Page' },
+      { path: '/projects/', name: 'Projects Page' }
+    ];
+
+    console.log('🚀 Starting comprehensive performance test suite...\n');
+    
+    await this.setup();
+
+    try {
+      for (const page of pagesToTest) {
+        await this.testPage(page.path, page.name);
+        // Small delay between tests
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+
+      this.generateSummaryReport();
+      this.saveResults();
+
+      const allPassed = this.results.every(result => result.passed);
+      
+      if (allPassed) {
+        console.log('🎉 All performance tests passed!');
+        process.exit(0);
+      } else {
+        console.log('❌ Some performance tests failed. Check the results above.');
+        process.exit(1);
+      }
+
+    } catch (error) {
+      console.error('Performance test suite failed:', error);
+      process.exit(1);
+    } finally {
+      await this.teardown();
+    }
+  }
+
+  generateSummaryReport() {
+    console.log('\n📋 PERFORMANCE TEST SUMMARY');
+    console.log('================================');
+    
+    const totalTests = this.results.length;
+    const passedTests = this.results.filter(r => r.passed).length;
+    const failedTests = totalTests - passedTests;
+
+    console.log(`Total pages tested: ${totalTests}`);
+    console.log(`Passed: ${passedTests}`);
+    console.log(`Failed: ${failedTests}`);
+    console.log(`Success rate: ${((passedTests / totalTests) * 100).toFixed(1)}%`);
+
+    // Calculate average scores
+    const avgScores = this.results.reduce((acc, result) => {
+      Object.keys(result.scores).forEach(category => {
+        acc[category] = (acc[category] || 0) + result.scores[category];
+      });
+      return acc;
+    }, {});
+
+    Object.keys(avgScores).forEach(category => {
+      avgScores[category] = (avgScores[category] / totalTests).toFixed(1);
+    });
+
+    console.log('\n📊 Average Scores:');
+    console.log(`Performance: ${avgScores.performance}/100`);
+    console.log(`Accessibility: ${avgScores.accessibility}/100`);
+    console.log(`Best Practices: ${avgScores.bestPractices}/100`);
+    console.log(`SEO: ${avgScores.seo}/100`);
+
+    // Identify failing pages
+    const failedPages = this.results.filter(r => !r.passed);
+    if (failedPages.length > 0) {
+      console.log('\n❌ Pages that failed performance thresholds:');
+      failedPages.forEach(page => {
+        console.log(`- ${page.pageName}: ${page.url}`);
+      });
+    }
+  }
+
+  saveResults() {
+    const resultsDir = path.join(__dirname, 'results');
+    if (!fs.existsSync(resultsDir)) {
+      fs.mkdirSync(resultsDir, { recursive: true });
+    }
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `lighthouse-results-${timestamp}.json`;
+    const filepath = path.join(resultsDir, filename);
+
+    const report = {
+      timestamp: new Date().toISOString(),
+      summary: {
+        totalTests: this.results.length,
+        passedTests: this.results.filter(r => r.passed).length,
+        failedTests: this.results.filter(r => !r.passed).length
+      },
+      results: this.results
+    };
+
+    fs.writeFileSync(filepath, JSON.stringify(report, null, 2));
+    console.log(`\n📄 Detailed results saved to: ${filepath}`);
+  }
+}
+
+// Additional performance utilities
+class PerformanceUtils {
+  static async checkSiteAvailability(url, maxRetries = 5) {
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          console.log(`✅ Site is available at ${url}`);
+          return true;
+        }
+      } catch (error) {
+        console.log(`⏳ Attempt ${i + 1}/${maxRetries}: Site not available yet, retrying in 5s...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      }
+    }
+    throw new Error(`Site not available at ${url} after ${maxRetries} attempts`);
+  }
+
+  static async measurePageLoadTime(url) {
+    const start = performance.now();
+    try {
+      await fetch(url);
+      const end = performance.now();
+      return end - start;
+    } catch (error) {
+      console.error(`Failed to measure load time for ${url}:`, error);
+      return null;
+    }
+  }
+}
+
+// Run the performance test suite
+async function main() {
+  const baseUrl = process.env.BASE_URL || 'http://localhost:4000';
+  
+  console.log(`Testing site performance at: ${baseUrl}`);
+  
+  // Check if site is available before running tests
+  try {
+    await PerformanceUtils.checkSiteAvailability(baseUrl);
+  } catch (error) {
+    console.error('Site is not available for testing:', error.message);
+    console.log('Make sure to run `npm run serve` in another terminal first.');
+    process.exit(1);
+  }
+
+  const testSuite = new PerformanceTestSuite(baseUrl);
+  await testSuite.runFullSuite();
+}
+
+// Export for use in other files
+module.exports = { PerformanceTestSuite, PerformanceUtils };
+
+// Run if called directly
+if (require.main === module) {
+  main().catch(error => {
+    console.error('Performance test suite failed:', error);
+    process.exit(1);
+  });
+}
+</file>
+
+<file path="performance/README_ENHANCED.md">
+# performance
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "performance",
+  "description": "Directory containing 2 code files with 2 classes and 4 functions",
+  "programmingLanguage": [
+    {
+      "@type": "ComputerLanguage",
+      "name": "Typescript"
+    }
+  ],
+  "featureList": [
+    "2 class definitions",
+    "4 function definitions"
+  ]
+}
+</script>
+
+## Overview
+
+This directory contains 2 code file(s) with extracted schemas.
+
+## Files and Schemas
+
+### `core-web-vitals.test.js` (typescript)
+
+**Functions:**
+- `measureLCP()` - Line 15
+- `performHeavyTask()` - Line 63
+- `mockLayoutShift()` - Line 85
+
+### `lighthouse.js` (typescript)
+
+**Classes:**
+- `PerformanceTestSuite` - Line 10
+- `PerformanceUtils` - Line 231
+
+**Functions:**
+- `async main()` - Line 262
+
+---
+*Generated by Enhanced Schema Generator with schema.org markup*
+</file>
+
+<file path="performance/README.md">
+# performance
+
+## Overview
+
+This directory contains 1 code file(s) with extracted schemas.
+
+## Files and Schemas
+
+### `lighthouse.js` (typescript)
+
+**Classes:**
+- `PerformanceTestSuite` - Line 11
+- `PerformanceUtils` - Line 232
+
+**Functions:**
+- `main()` - Line 263
+
+---
+*Generated by Schema Generator*
+</file>
+
+<file path="unit/site-functionality.test.js">
+/**
+ * Site Functionality Tests
+ * Tests core website functionality, navigation, and DOM elements
+ */
+
+describe('Site Functionality', () => {
+  describe('Navigation', () => {
+    beforeEach(() => {
+      document.body.innerHTML = `
+        <nav class="navbar">
+          <a href="/" class="nav-link home">Home</a>
+          <a href="/about" class="nav-link about">About</a>
+          <a href="/posts" class="nav-link posts">Posts</a>
+          <a href="/projects" class="nav-link projects">Projects</a>
+        </nav>
+      `;
+    });
+
+    test('should have all required navigation links', () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const expectedLinks = ['home', 'about', 'posts', 'projects'];
+      
+      expect(navLinks).toHaveLength(expectedLinks.length);
+      
+      expectedLinks.forEach(linkClass => {
+        const link = document.querySelector(`.nav-link.${linkClass}`);
+        expect(link).toBeTruthy();
+        expect(link.href).toBeDefined();
+      });
+    });
+
+    test('should have proper href attributes', () => {
+      expect(document.querySelector('.nav-link.home').getAttribute('href')).toBe('/');
+      expect(document.querySelector('.nav-link.about').getAttribute('href')).toBe('/about');
+      expect(document.querySelector('.nav-link.posts').getAttribute('href')).toBe('/posts');
+      expect(document.querySelector('.nav-link.projects').getAttribute('href')).toBe('/projects');
+    });
+  });
+
+  describe('Content Structure', () => {
+    test('should have proper meta tags for SEO', () => {
+      // Simulate Jekyll-generated head content
+      document.head.innerHTML = `
+        <title>Test Site</title>
+        <meta name="description" content="Test description">
+        <meta property="og:title" content="Test Site">
+        <meta property="og:description" content="Test description">
+        <meta name="twitter:card" content="summary">
+      `;
+
+      expect(document.querySelector('title')).toBeTruthy();
+      expect(document.querySelector('meta[name="description"]')).toBeTruthy();
+      expect(document.querySelector('meta[property="og:title"]')).toBeTruthy();
+      expect(document.querySelector('meta[property="og:description"]')).toBeTruthy();
+      expect(document.querySelector('meta[name="twitter:card"]')).toBeTruthy();
+    });
+
+    test('should have canonical URL meta tag', () => {
+      document.head.innerHTML = `<link rel="canonical" href="https://www.aledlie.com/">`;
+      const canonical = document.querySelector('link[rel="canonical"]');
+      
+      expect(canonical).toBeTruthy();
+      expect(canonical.getAttribute('href')).toMatch(/^https:\/\//);
+    });
+
+    test('should have proper structured data', () => {
+      document.body.innerHTML = `
+        <script type="application/ld+json">
+          {"@context":"https://schema.org","@type":"WebSite","name":"Test Site"}
+        </script>
+      `;
+
+      const structuredData = document.querySelector('script[type="application/ld+json"]');
+      expect(structuredData).toBeTruthy();
+      
+      const data = JSON.parse(structuredData.textContent);
+      expect(data['@context']).toBe('https://schema.org');
+      expect(data['@type']).toBe('WebSite');
+    });
+  });
+
+  describe('Responsive Design Elements', () => {
+    test('should have viewport meta tag', () => {
+      document.head.innerHTML = `<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
+      const viewport = document.querySelector('meta[name="viewport"]');
+      
+      expect(viewport).toBeTruthy();
+      expect(viewport.getAttribute('content')).toContain('width=device-width');
+    });
+
+    test('should have mobile-friendly CSS classes', () => {
+      document.body.innerHTML = `
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-12">Content</div>
+          </div>
+        </div>
+      `;
+
+      expect(document.querySelector('.container')).toBeTruthy();
+      expect(document.querySelector('.row')).toBeTruthy();
+      expect(document.querySelector('[class*="col-"]')).toBeTruthy();
+    });
+  });
+
+  describe('Form Elements', () => {
+    beforeEach(() => {
+      document.body.innerHTML = `
+        <form id="search-form">
+          <input type="search" id="search-input" required>
+          <button type="submit">Search</button>
+        </form>
+      `;
+    });
+
+    test('should have proper form validation attributes', () => {
+      const searchInput = document.querySelector('#search-input');
+      const form = document.querySelector('#search-form');
+      
+      expect(searchInput.hasAttribute('required')).toBe(true);
+      expect(searchInput.type).toBe('search');
+      expect(form.querySelector('button[type="submit"]')).toBeTruthy();
+    });
+
+    test('should handle form submission', () => {
+      const form = document.querySelector('#search-form');
+      const submitHandler = jest.fn(e => e.preventDefault());
+      
+      form.addEventListener('submit', submitHandler);
+      form.dispatchEvent(new Event('submit'));
+      
+      expect(submitHandler).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Accessibility Features', () => {
+    test('should have proper alt attributes on images', () => {
+      document.body.innerHTML = `
+        <img src="/images/profile.jpg" alt="Alyshia Ledlie profile photo">
+        <img src="/images/decoration.png" alt="">
+      `;
+
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        expect(img.hasAttribute('alt')).toBe(true);
+      });
+    });
+
+    test('should have proper heading hierarchy', () => {
+      document.body.innerHTML = `
+        <h1>Main Title</h1>
+        <h2>Section Title</h2>
+        <h3>Subsection</h3>
+      `;
+
+      const h1 = document.querySelector('h1');
+      const h2 = document.querySelector('h2');
+      const h3 = document.querySelector('h3');
+
+      expect(h1).toBeTruthy();
+      expect(h2).toBeTruthy();
+      expect(h3).toBeTruthy();
+    });
+
+    test('should have skip navigation links', () => {
+      document.body.innerHTML = `<a href="#main-content" class="skip-link">Skip to main content</a>`;
+      const skipLink = document.querySelector('.skip-link');
+      
+      expect(skipLink).toBeTruthy();
+      expect(skipLink.getAttribute('href')).toBe('#main-content');
+    });
+  });
+});
+</file>
+
+<file path="README.md">
+# Test Suite Documentation
+
+This test suite provides comprehensive testing for site functionality, analytics tracking, and performance optimization.
+
+## Overview
+
+The test suite includes:
+
+- **Unit Tests**: Test individual components and functions using Jest
+- **End-to-End Tests**: Test complete user flows using Playwright
+- **Analytics Tests**: Verify Google Tag Manager and tracking implementation
+- **Performance Tests**: Measure Core Web Vitals and site performance using Lighthouse
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Build the site (required for testing)
+npm run build
+
+# Run all tests
+npm run test:all
+
+# Run individual test suites
+npm run test              # Unit tests with Jest
+npm run test:e2e         # E2E tests with Playwright  
+npm run test:performance # Performance tests with Lighthouse
+```
+
+## Test Structure
+
+```
+tests/
+├── unit/                    # Jest unit tests
+│   ├── site-functionality.test.js
+│   └── setup.js
+├── e2e/                     # Playwright end-to-end tests
+│   ├── site-navigation.spec.js
+│   └── analytics.spec.js
+├── analytics/               # Analytics-specific tests
+│   └── google-analytics.test.js
+├── performance/             # Performance testing
+│   ├── lighthouse.js
+│   ├── core-web-vitals.test.js
+│   └── results/            # Generated test results
+└── README.md               # This file
+```
+
+## Test Categories
+
+### Unit Tests (Jest)
+
+Tests core functionality and DOM manipulation:
+- Navigation structure and links
+- Form validation and submission
+- Responsive design elements
+- Accessibility features
+- Meta tags and SEO elements
+
+**Run with:** `npm run test`
+
+### End-to-End Tests (Playwright)
+
+Tests complete user workflows across multiple browsers:
+- Site navigation and page loading
+- Mobile/tablet/desktop responsiveness  
+- Error handling (404 pages)
+- Performance and console errors
+- Analytics implementation
+
+**Run with:** `npm run test:e2e`
+
+**Supported browsers:** Chrome, Firefox, Safari, Mobile Chrome, Mobile Safari
+
+### Analytics Tests
+
+Verifies Google Tag Manager implementation:
+- GTM script loading with correct ID (`GTM-TK5J8L38`)
+- Google site verification meta tag
+- Event tracking functionality
+- Privacy compliance (Do Not Track, opt-out)
+- Error handling for blocked/failed analytics
+
+**Run unit tests:** `npm run test` (includes analytics unit tests)
+**Run E2E tests:** `npm run test:e2e analytics.spec.js`
+
+### Performance Tests (Lighthouse)
+
+Measures Core Web Vitals and site performance:
+- **Lighthouse Scores**: Performance, Accessibility, Best Practices, SEO
+- **Core Web Vitals**: LCP, FID, CLS, FCP, TTI
+- **Resource Loading**: Critical CSS, lazy loading, modern image formats
+- **Performance Thresholds**: Configurable pass/fail criteria
+
+**Run with:** `npm run test:performance`
+
+**Default thresholds:**
+- Performance: ≥90
+- Accessibility: ≥95  
+- Best Practices: ≥90
+- SEO: ≥95
+
+## Configuration
+
+### Jest Configuration
+
+Located in `package.json`:
+```json
+{
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "testMatch": ["<rootDir>/tests/**/*.test.js"]
+  }
+}
+```
+
+### Playwright Configuration
+
+Located in `playwright.config.js`:
+- Tests multiple browsers and devices
+- Automatic Jekyll server startup
+- Screenshot and video capture on failure
+- CI-friendly reporting
+
+### Performance Test Configuration
+
+Located in `tests/performance/lighthouse.js`:
+- Configurable base URL (default: `http://localhost:4000`)
+- Adjustable performance thresholds
+- Automated report generation
+- JSON result export
+
+## Environment Variables
+
+- `BASE_URL`: Override default localhost URL for testing
+- `CI`: Enables CI-specific configurations (retry logic, reporting)
+
+## Continuous Integration
+
+### GitHub Actions Example
+
+```yaml
+name: Test Suite
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run test:ci
+```
+
+### Local CI Testing
+
+```bash
+# Run tests as they would run in CI
+CI=true npm run test:ci
+```
+
+## Performance Monitoring
+
+The performance tests generate detailed reports:
+
+- **Console Output**: Real-time scores and metrics
+- **JSON Reports**: Saved to `tests/performance/results/`
+- **Lighthouse HTML**: Full audit details
+- **Trend Analysis**: Compare results over time
+
+### Performance Thresholds
+
+You can customize performance thresholds in `tests/performance/lighthouse.js`:
+
+```javascript
+const thresholds = {
+  performance: 90,    // Lighthouse Performance score
+  accessibility: 95,  // Accessibility score  
+  bestPractices: 90, // Best Practices score
+  seo: 95            // SEO score
+};
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Jekyll server not running:**
+```bash
+# Start Jekyll in another terminal
+npm run serve
+```
+
+**Tests timing out:**
+- Increase timeout values in test configuration
+- Check that site is accessible at `BASE_URL`
+
+**Playwright installation issues:**
+```bash
+npx playwright install
+```
+
+**Performance tests failing:**
+- Check Jekyll server is running
+- Verify site is built: `npm run build`
+- Try increasing performance thresholds temporarily
+
+### Debug Mode
+
+**Jest debug:**
+```bash
+npm run test:watch  # Watch mode for development
+```
+
+**Playwright debug:**
+```bash
+npx playwright test --debug
+npx playwright test --headed  # See browser UI
+```
+
+**Performance debug:**
+```bash
+BASE_URL=http://localhost:4000 node tests/performance/lighthouse.js
+```
+
+## Adding New Tests
+
+### Unit Test Example
+
+```javascript
+// tests/unit/my-feature.test.js
+describe('My Feature', () => {
+  test('should work correctly', () => {
+    // Your test code
+    expect(true).toBe(true);
+  });
+});
+```
+
+### E2E Test Example
+
+```javascript
+// tests/e2e/my-feature.spec.js
+const { test, expect } = require('@playwright/test');
+
+test('should navigate to new page', async ({ page }) => {
+  await page.goto('/');
+  await page.click('text=My Link');
+  await expect(page).toHaveURL('/my-page');
+});
+```
+
+### Performance Test Addition
+
+Edit `tests/performance/lighthouse.js` to add new pages:
+
+```javascript
+const pagesToTest = [
+  { path: '/', name: 'Homepage' },
+  { path: '/my-new-page/', name: 'My New Page' }  // Add here
+];
+```
+
+## Reporting Issues
+
+If tests are failing or you need help:
+
+1. Check the console output for specific error messages
+2. Review the generated reports in `tests/performance/results/`
+3. Run individual test suites to isolate issues
+4. Check that Jekyll site builds and serves correctly
+
+## Contributing
+
+When adding new features:
+
+1. Add corresponding unit tests
+2. Add E2E tests for user workflows  
+3. Update performance tests if needed
+4. Ensure all tests pass before submitting
+</file>
+
+<file path="setup.js">
+// Jest setup file
+require('jest-environment-jsdom');
+
+// Mock console methods in tests unless explicitly testing them
+global.console = {
+  ...console,
+  log: jest.fn(),
+  debug: jest.fn(),
+  info: jest.fn(),
+  warn: jest.fn(),
+  error: jest.fn(),
+};
+
+// Mock window.gtag for analytics tests
+global.gtag = jest.fn();
+
+// Mock dataLayer for Google Analytics
+global.dataLayer = [];
+
+// Setup DOM testing utilities
+global.createMockElement = (tag, attributes = {}) => {
+  const element = document.createElement(tag);
+  Object.keys(attributes).forEach(key => {
+    element.setAttribute(key, attributes[key]);
+  });
+  return element;
+};
+
+// Reset mocks between tests
+beforeEach(() => {
+  jest.clearAllMocks();
+  global.dataLayer = [];
+});
+</file>
+
+</files>

@@ -1,0 +1,288 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+custom.html
+discourse.html
+disqus.html
+facebook.html
+giscus.html
+scripts.html
+staticman_v2.html
+staticman.html
+utterances.html
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="custom.html">
+<!-- start custom comments snippet -->
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+    init({
+      el: '#waline',
+      serverURL: 'https://your-domain.vercel.app',
+      lang: 'en',
+    });
+  </script>
+<!-- end custom comments snippet -->
+</file>
+
+<file path="discourse.html">
+{% if site.comments.discourse.server %}
+{% capture canonical %}{% if site.permalink contains '.html' %}{{ page.url | absolute_url }}{% else %}{{ page.url | absolute_url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+<script type="text/javascript">
+    DiscourseEmbed = { discourseUrl: '//{{ site.comments.discourse.server }}/',
+                       discourseEmbedUrl: '{{ canonical }}' };
+   (function () {
+     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+     d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+   })();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="https://www.discourse.org/">Discourse.</a></noscript>
+{% endif %}
+</file>
+
+<file path="disqus.html">
+{% if site.comments.disqus.shortname %}
+  <script>
+    var disqus_config = function () {
+      this.page.url = "{{ page.url | absolute_url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "{{ page.id }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://{{ site.comments.disqus.shortname }}.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+</file>
+
+<file path="facebook.html">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5{% if site.comments.facebook.appid %}&appId={{ site.comments.facebook.appid }}{% endif %}";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</file>
+
+<file path="giscus.html">
+<script>
+  'use strict';
+
+  (function () {
+    var commentContainer = document.querySelector('#giscus-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    script.setAttribute('data-repo', '{{ site.repository | downcase }}');
+    script.setAttribute('data-repo-id', '{{ site.comments.giscus.repo_id }}');
+    script.setAttribute('data-category', '{{ site.comments.giscus.category_name }}');
+    script.setAttribute('data-category-id', '{{ site.comments.giscus.category_id }}');
+    script.setAttribute('data-mapping', '{{ site.comments.giscus.discussion_term | default: "pathname" }}');
+    script.setAttribute('data-strict', '{{ site.comments.giscus.strict | default: 0 }}');
+    script.setAttribute('data-reactions-enabled', '{{ site.comments.giscus.reactions_enabled | default: 1 }}');
+    script.setAttribute('data-emit-metadata', '{{ site.comments.giscus.emit_metadata | default: 0 }}');
+    script.setAttribute('data-input-position', '{{ site.comments.giscus.input_position | default: "top" }}');
+    script.setAttribute('data-theme', '{{ site.comments.giscus.theme | default: "light" }}');
+    script.setAttribute('data-lang',  '{{ site.comments.giscus.lang | default: "en" }}');
+    {% if site.comments.giscus.lazy %}
+    script.setAttribute('data-loading', 'lazy');
+    {% endif %}
+    script.setAttribute('crossorigin', 'anonymous');
+
+    script.setAttribute('async', '');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+</file>
+
+<file path="scripts.html">
+{% if site.comments.provider and page.comments %}
+{% case site.comments.provider %}
+  {% when "disqus" %}
+    {% include /comments-providers/disqus.html %}
+  {% when "discourse" %}
+    {% include /comments-providers/discourse.html %}
+  {% when "facebook" %}
+    {% include /comments-providers/facebook.html %}
+  {% when "staticman" %}
+    {% include /comments-providers/staticman.html %}
+  {% when "staticman_v2" %}
+    {% include /comments-providers/staticman_v2.html %}
+  {% when "utterances" %}
+    {% include /comments-providers/utterances.html %}
+  {% when "giscus" %}
+    {% include /comments-providers/giscus.html %}
+  {% when "custom" %}
+    {% include /comments-providers/custom_scripts.html %}
+{% endcase %}
+{% endif %}
+</file>
+
+<file path="staticman_v2.html">
+{% if site.repository and site.comments.staticman.branch %}
+  <script>
+    (function ($) {
+    $('#new_comment').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#comment-form-submit').html('<i class="fas fa-spinner fa-spin fa-fw"></i> {{ site.data.ui-text[site.locale].loading_label | default: "Loading..." }}');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submitted | default: "Submitted" }}');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('{{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site once it has been approved." }}');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submit  | default: "Submit Comment" }}');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('{{ site.data.ui-text[site.locale].comment_error_msg | default: "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again." }}');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
+    }
+  })(jQuery);
+  </script>
+{% endif %}
+</file>
+
+<file path="staticman.html">
+{% if site.repository and site.staticman.branch %}
+  <script>
+    (function ($) {
+    $('#new_comment').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#comment-form-submit').html('<i class="fas fa-spinner fa-spin fa-fw"></i> {{ site.data.ui-text[site.locale].loading_label | default: "Loading..." }}');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submitted | default: "Submitted" }}');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('{{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site once it has been approved." }}');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submit  | default: "Submit Comment" }}');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('{{ site.data.ui-text[site.locale].comment_error_msg | default: "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again." }}');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
+    }
+  })(jQuery);
+  </script>
+{% endif %}
+</file>
+
+<file path="utterances.html">
+<script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', '{{ site.repository }}');
+    script.setAttribute('issue-term', '{{ site.comments.utterances.issue_term | default: "pathname" }}');
+    {% if site.comments.utterances.label %}script.setAttribute('label', '{{ site.comments.utterances.label }}');{% endif %}
+    script.setAttribute('theme', '{{ site.comments.utterances.theme | default: "github-light" }}');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+</file>
+
+</files>

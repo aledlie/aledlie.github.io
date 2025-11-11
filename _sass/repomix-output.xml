@@ -1,0 +1,5569 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+minimal-mistakes/
+  _footer.scss
+  _search.scss
+  _sidebar.scss
+  _syntax.scss
+  _tables.scss
+  utils.scss
+_base.scss
+_buttons.scss
+_footer.scss
+_forms.scss
+_sidebar.scss
+coderay.scss
+elements.scss
+grid.scss
+minimal-mistakes.scss
+mixins.scss
+normalize.scss
+page.scss
+print.scss
+README.md
+site.scss
+typography.scss
+variables.scss
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="minimal-mistakes/_footer.scss">
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.page-footer {
+  @include clearfix;
+
+  float: inline-start;
+  margin-inline: 0;
+  width: 100%;
+  margin-top: 3em;
+  color: $muted-text-color;
+  animation: $intro-transition;
+  animation: $intro-transition;
+  animation-delay: 0.45s;
+  animation-delay: 0.45s;
+  background-color: $footer-background-color;
+
+  footer {
+    @include clearfix;
+
+    margin-inline: auto;
+    margin-top: 2em;
+    max-width: 100%;
+    padding: 0 1em 2em;
+
+    @include breakpoint($x-large) {
+      max-width: $x-large;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: $muted-text-color;
+  }
+}
+
+.page-footer-copyright {
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+}
+
+.page-footer-follow {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-6;
+    text-transform: uppercase;
+  }
+
+  li + li::before {
+    content: "";
+    padding-inline-end: 5px;
+  }
+
+  a {
+    padding-inline-end: 10px;
+    font-weight: bold;
+  }
+
+  .social-icons {
+    a {
+      white-space: nowrap;
+    }
+  }
+}
+</file>
+
+<file path="minimal-mistakes/_search.scss">
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+.layout--search {
+  .archive__item-teaser {
+    margin-bottom: 0.25em;
+  }
+}
+
+.search__toggle {
+  margin-inline: 1rem;
+  height: $nav-toggle-height;
+  border: 0;
+  outline: none;
+  color: $primary-color;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  transition: 0.2s;
+
+  &:hover {
+    color: mix(#000, $primary-color, 25%);
+  }
+}
+
+.search-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.search-content {
+  display: none;
+  visibility: hidden;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  &__inner-wrap {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1em;
+    animation: $intro-transition;
+    animation: $intro-transition;
+    animation-delay: 0.15s;
+    animation-delay: 0.15s;
+
+    @include breakpoint($x-large) {
+      max-width: $max-width;
+    }
+
+  }
+
+  &__form {
+    background-color: transparent;
+  }
+
+  .search-input {
+    display: block;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    font-size: $type-size-3;
+
+    @include breakpoint($large) {
+      font-size: $type-size-2;
+    }
+
+    @include breakpoint($x-large) {
+      font-size: $type-size-1;
+    }
+  }
+
+  &.is--visible {
+    display: block;
+    visibility: visible;
+
+    &::after {
+      content: "";
+      display: block;
+    }
+  }
+
+  .results__found {
+    margin-top: 0.5em;
+    font-size: $type-size-6;
+  }
+
+  .archive__item {
+    margin-bottom: 2em;
+
+    @include breakpoint($large) {
+      width: 75%;
+    }
+
+    @include breakpoint($x-large) {
+      width: 50%;
+    }
+  }
+
+  .archive__item-title {
+    margin-top: 0;
+  }
+
+  .archive__item-excerpt {
+    margin-bottom: 0;
+  }
+}
+
+/* Algolia search */
+
+.ais-search-box {
+  max-width: 100% !important;
+  margin-bottom: 2em;
+}
+
+.archive__item-title .ais-Highlight {
+  color: $primary-color;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.archive__item-excerpt .ais-Highlight {
+  color: $primary-color;
+  font-style: normal;
+  font-weight: bold;
+}
+</file>
+
+<file path="minimal-mistakes/_sidebar.scss">
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+/*
+   Default
+   ========================================================================== */
+
+.sidebar {
+  @include clearfix;
+
+  // @include breakpoint(max-width $large) {
+  //   /* fix z-index order of follow links */
+  //   position: relative;
+  //   z-index: 10;
+  //   -webkit-transform: translate3d(0, 0, 0);
+  //   transform: translate3d(0, 0, 0);
+  // }
+
+  @include breakpoint($large) {
+    float: inline-start;
+    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.sticky {
+      overflow-y: auto;
+
+      /* calculate height of nav list
+         viewport height - nav height - masthead x-padding
+      */
+      max-height: calc(100vh - #{$nav-height} - 2em);
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: calc(#{$right-sidebar-width} - 1em);
+  }
+
+  > * {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    font-family: $sans-serif-narrow;
+  }
+
+  p,
+  li {
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+    line-height: 1.5;
+  }
+
+  img {
+    width: 100%;
+
+    &.emoji {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    width: $right-sidebar-width-narrow;
+    margin-inline-end: -1 * $right-sidebar-width-narrow;
+    padding-inline-start: 1em;
+    z-index: 10;
+
+    &.sticky {
+      @include clearfix;
+
+      position: sticky;
+      position: sticky;
+      top: 2em;
+      float: inline-end;
+
+      .toc {
+        .toc__menu {
+          overflow-y: auto;
+          max-height: calc(100vh - 7em);
+        }
+      }
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: $right-sidebar-width;
+    margin-inline-end: -1 * $right-sidebar-width;
+  }
+}
+
+.splash .sidebar__right {
+  @include breakpoint($large) {
+    position: relative;
+    float: inline-end;
+    margin-inline-end: 0;
+  }
+
+  @include breakpoint($x-large) {
+    margin-inline-end: 0;
+  }
+}
+
+/*
+   Author profile and links
+   ========================================================================== */
+
+.author__avatar {
+  display: table-cell;
+  vertical-align: top;
+  width: 36px;
+  height: 36px;
+
+  @include breakpoint($large) {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  img {
+    max-width: 110px;
+    border-radius: 50%;
+
+    @include breakpoint($large) {
+      padding: 5px;
+      border: 1px solid $border-color;
+    }
+  }
+}
+
+.author__content {
+  display: table-cell;
+  vertical-align: top;
+  padding-inline: 15px 25px;
+  line-height: 1;
+
+  @include breakpoint($large) {
+    display: block;
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.author__name {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar .author__name {
+  font-family: $sans-serif;
+  font-size: $type-size-5;
+}
+
+.author__bio {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.author__urls-wrapper {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: $sans-serif;
+  z-index: 20;
+  cursor: pointer;
+
+  li:last-child {
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  .author__urls {
+    span.label {
+      padding-inline-start: 5px;
+    }
+  }
+
+  @include breakpoint($large) {
+    display: block;
+  }
+
+  button {
+    position: relative;
+    margin-bottom: 0;
+
+    &::before {
+      @supports (pointer-events: none) {
+        content: '';
+        position: fixed;
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    &.open {
+      &::before {
+        pointer-events: auto;
+      }
+    }
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+}
+
+.author__urls {
+  display: none;
+  position: absolute;
+  inset-inline-end: 0;
+  margin-top: 15px;
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+  cursor: default;
+
+  &.is--visible {
+    display: block;
+  }
+
+  @include breakpoint($large) {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $border-color transparent;
+    z-index: 0;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $background-color transparent;
+    z-index: 1;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  ul {
+    padding: 10px;
+    list-style-type: none;
+  }
+
+  li {
+    white-space: nowrap;
+  }
+
+  a {
+    display: block;
+    margin-bottom: 5px;
+    padding-block: 2px;
+    padding-inline-end: 5px;
+    color: inherit;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+   Wide Pages
+   ========================================================================== */
+
+.wide .sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: initial;
+    top: initial;
+    inset-inline-end: initial;
+    width: initial;
+    margin-inline-end: initial;
+    padding-inline-start: initial;
+    z-index: initial;
+
+    &.sticky {
+      float: none;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: initial;
+    margin-inline-end: initial;
+  }
+}
+</file>
+
+<file path="minimal-mistakes/_syntax.scss">
+/* ==========================================================================
+   Syntax highlighting
+   ========================================================================== */
+
+div.highlighter-rouge,
+figure.highlight {
+  position: relative;
+  margin-bottom: 1em;
+  background: $base00;
+  color: $base05;
+  font-family: $monospace;
+  font-size: $type-size-6;
+  line-height: 1.8;
+  border-radius: $border-radius;
+
+  [dir="rtl"] & {
+    direction: ltr;
+    text-align: start;
+  }
+
+  > pre,
+  pre.highlight {
+    margin: 0;
+    padding: 1em;
+  }
+}
+
+.highlight table {
+  margin-bottom: 0;
+  font-size: 1em;
+  border: 0;
+
+  td {
+    padding: 0;
+    width: calc(100% - 1em);
+    border: 0;
+
+    /* line numbers */
+    &.gutter,
+    &.rouge-gutter {
+      padding-inline-end: 1em;
+      width: 1em;
+      color: $base04;
+      border-inline-end: 1px solid $base04;
+      text-align: end;
+    }
+
+    /* code */
+    &.code,
+    &.rouge-code {
+      padding-inline-start: 1em;
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+}
+
+.highlight pre {
+  width: 100%;
+}
+
+.highlight .hll {
+  background-color: $base06;
+}
+
+.highlight {
+  .c {
+    /* Comment */
+    color: $base04;
+  }
+
+  .err {
+    /* Error */
+    color: $base08;
+  }
+
+  .k {
+    /* Keyword */
+    color: $base0e;
+  }
+
+  .l {
+    /* Literal */
+    color: $base09;
+  }
+
+  .n {
+    /* Name */
+    color: $base05;
+  }
+
+  .o {
+    /* Operator */
+    color: $base0c;
+  }
+
+  .p {
+    /* Punctuation */
+    color: $base05;
+  }
+
+  .cm {
+    /* Comment.Multiline */
+    color: $base04;
+  }
+
+  .cp {
+    /* Comment.Preproc */
+    color: $base04;
+  }
+
+  .c1 {
+    /* Comment.Single */
+    color: $base04;
+  }
+
+  .cs {
+    /* Comment.Special */
+    color: $base04;
+  }
+
+  .gd {
+    /* Generic.Deleted */
+    color: $base08;
+  }
+
+  .ge {
+    /* Generic.Emph */
+    font-style: italic;
+  }
+
+  .gh {
+    /* Generic.Heading */
+    color: $base05;
+    font-weight: bold;
+  }
+
+  .gi {
+    /* Generic.Inserted */
+    color: $base0b;
+  }
+
+  .gp {
+    /* Generic.Prompt */
+    color: $base04;
+    font-weight: bold;
+  }
+
+  .gs {
+    /* Generic.Strong */
+    font-weight: bold;
+  }
+
+  .gu {
+    /* Generic.Subheading */
+    color: $base0c;
+    font-weight: bold;
+  }
+
+  .kc {
+    /* Keyword.Constant */
+    color: $base0e;
+  }
+
+  .kd {
+    /* Keyword.Declaration */
+    color: $base0e;
+  }
+
+  .kn {
+    /* Keyword.Namespace */
+    color: $base0c;
+  }
+
+  .kp {
+    /* Keyword.Pseudo */
+    color: $base0e;
+  }
+
+  .kr {
+    /* Keyword.Reserved */
+    color: $base0e;
+  }
+
+  .kt {
+    /* Keyword.Type */
+    color: $base0a;
+  }
+
+  .ld {
+    /* Literal.Date */
+    color: $base0b;
+  }
+
+  .m {
+    /* Literal.Number */
+    color: $base09;
+  }
+
+  .s {
+    /* Literal.String */
+    color: $base0b;
+  }
+
+  .na {
+    /* Name.Attribute */
+    color: $base0d;
+  }
+
+  .nb {
+    /* Name.Builtin */
+    color: $base05;
+  }
+
+  .nc {
+    /* Name.Class */
+    color: $base0a;
+  }
+
+  .no {
+    /* Name.Constant */
+    color: $base08;
+  }
+
+  .nd {
+    /* Name.Decorator */
+    color: $base0c;
+  }
+
+  .ni {
+    /* Name.Entity */
+    color: $base05;
+  }
+
+  .ne {
+    /* Name.Exception */
+    color: $base08;
+  }
+
+  .nf {
+    /* Name.Function */
+    color: $base0d;
+  }
+
+  .nl {
+    /* Name.Label */
+    color: $base05;
+  }
+
+  .nn {
+    /* Name.Namespace */
+    color: $base0a;
+  }
+
+  .nx {
+    /* Name.Other */
+    color: $base0d;
+  }
+
+  .py {
+    /* Name.Property */
+    color: $base05;
+  }
+
+  .nt {
+    /* Name.Tag */
+    color: $base0c;
+  }
+
+  .nv {
+    /* Name.Variable */
+    color: $base08;
+  }
+
+  .ow {
+    /* Operator.Word */
+    color: $base0c;
+  }
+
+  .w {
+    /* Text.Whitespace */
+    color: $base05;
+  }
+
+  .mf {
+    /* Literal.Number.Float */
+    color: $base09;
+  }
+
+  .mh {
+    /* Literal.Number.Hex */
+    color: $base09;
+  }
+
+  .mi {
+    /* Literal.Number.Integer */
+    color: $base09;
+  }
+
+  .mo {
+    /* Literal.Number.Oct */
+    color: $base09;
+  }
+
+  .sb {
+    /* Literal.String.Backtick */
+    color: $base0b;
+  }
+
+  .sc {
+    /* Literal.String.Char */
+    color: $base05;
+  }
+
+  .sd {
+    /* Literal.String.Doc */
+    color: $base04;
+  }
+
+  .s2 {
+    /* Literal.String.Double */
+    color: $base0b;
+  }
+
+  .se {
+    /* Literal.String.Escape */
+    color: $base09;
+  }
+
+  .sh {
+    /* Literal.String.Heredoc */
+    color: $base0b;
+  }
+
+  .si {
+    /* Literal.String.Interpol */
+    color: $base09;
+  }
+
+  .sx {
+    /* Literal.String.Other */
+    color: $base0b;
+  }
+
+  .sr {
+    /* Literal.String.Regex */
+    color: $base0b;
+  }
+
+  .s1 {
+    /* Literal.String.Single */
+    color: $base0b;
+  }
+
+  .ss {
+    /* Literal.String.Symbol */
+    color: $base0b;
+  }
+
+  .bp {
+    /* Name.Builtin.Pseudo */
+    color: $base05;
+  }
+
+  .vc {
+    /* Name.Variable.Class */
+    color: $base08;
+  }
+
+  .vg {
+    /* Name.Variable.Global */
+    color: $base08;
+  }
+
+  .vi {
+    /* Name.Variable.Instance */
+    color: $base08;
+  }
+
+  .il {
+    /* Literal.Number.Integer.Long */
+    color: $base09;
+  }
+}
+
+.gist {
+  th, td {
+    border-bottom: 0;
+  }
+}
+</file>
+
+<file path="minimal-mistakes/_tables.scss">
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+
+table {
+  display: block;
+  margin-bottom: 1em;
+  width: 100%;
+  font-family: $global-font-family;
+  font-size: $type-size-6;
+  border-collapse: collapse;
+  overflow-x: auto;
+
+  & + table {
+    margin-top: 1em;
+  }
+}
+
+thead {
+  background-color: $border-color;
+  border-bottom: 2px solid mix(#000, $border-color, 25%);
+}
+
+th {
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: start;
+}
+
+td {
+  padding: 0.5em;
+  border-bottom: 1px solid mix(#000, $border-color, 25%);
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+</file>
+
+<file path="minimal-mistakes/utils.scss">
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/*
+   Visibility
+   ========================================================================== */
+
+/* http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/ */
+
+.hidden,
+.is--hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* for preloading images */
+
+.load {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+/* https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html */
+.visually-hidden,
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut,
+.sr-only,
+.sr-only-focusable:not(:focus) {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body:hover .visually-hidden a,
+body:hover .visually-hidden input,
+body:hover .visually-hidden button {
+  display: none !important;
+}
+
+/* screen readers */
+
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus {
+  clip: auto !important;
+  height: auto !important;
+  width: auto !important;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 15px 23px 14px;
+  background: #fff;
+  z-index: 100000;
+  text-decoration: none;
+  box-shadow: 0 0 2px 2px rgb(0 0 0 / 60%);
+}
+
+/*
+   Skip links
+   ========================================================================== */
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  margin: 0;
+  font-family: $sans-serif;
+  white-space: nowrap;
+}
+
+.skip-link li {
+  height: 0;
+  width: 0;
+  list-style: none;
+}
+
+/*
+   Type
+   ========================================================================== */
+
+$text-alignments: left, right, start, end, center, justify;
+@each $alignment in $text-alignments {
+  .text-#{$alignment} {
+    text-align: $alignment;
+  }
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/*
+   Task lists
+   ========================================================================== */
+
+.task-list {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+
+  .task-list-item-checkbox {
+    margin-inline-end: 0.5em;
+    opacity: 1;
+  }
+}
+
+.task-list .task-list {
+  margin-inline-start: 1em;
+}
+
+/*
+   Alignment
+   ========================================================================== */
+
+/* clearfix */
+
+.cf {
+  clear: both;
+}
+
+.wrapper {
+  margin-inline: auto;
+  width: 100%;
+}
+
+/*
+   Images
+   ========================================================================== */
+
+/* image align left */
+
+.align-left {
+  display: block;
+  margin-inline: auto;
+
+  @include breakpoint($small) {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+/* image align right */
+
+.align-right {
+  display: block;
+  margin-inline: auto;
+
+  @include breakpoint($small) {
+    float: right;
+    margin-left: 1em;
+  }
+}
+
+/* image align center */
+
+.align-center {
+  display: block;
+  margin-inline: auto;
+}
+
+/* file page content container */
+
+.full {
+  @include breakpoint($large) {
+    margin-inline-end: -1 * span(2.5 of 12) !important;
+  }
+}
+
+/*
+   Icons
+   ========================================================================== */
+.icon {
+  display: inline-block;
+  fill: currentcolor;
+  width: 1em;
+  height: 1.1em;
+  line-height: 1;
+  position: relative;
+  top: -0.1em;
+  vertical-align: middle;
+}
+
+/* social icons */
+
+.social-icons {
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: $text-color;
+  }
+
+  @each $color, $icons in (
+    $behance-color: ".fa-behance, .fa-behance-square",
+    $bitbucket-color: ".fa-bitbucket",
+    $dribbble-color: ".fa-dribbble, .fa-dribbble-square",
+    $facebook-color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
+    $flickr-color: ".fa-flickr",
+    $foursquare-color: ".fa-foursquare",
+    $github-color: ".fa-github, .fa-github-alt, .fa-github-square",
+    $gitlab-color: ".fa-gitlab",
+    $instagram-color: ".fa-instagram",
+    $keybase-color: ".fa-keybase",
+    $lastfm-color: ".fa-lastfm, .fa-lastfm-square",
+    $linkedin-color: ".fa-linkedin, .fa-linkedin-in",
+    $mastodon-color: ".fa-mastodon, .fa-mastodon-square",
+    $pinterest-color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
+    $reddit-color: ".fa-reddit",
+    $rss-color: ".fa-rss, .fa-rss-square",
+    $soundcloud-color: ".fa-soundcloud",
+    $stackoverflow-color: ".fa-stack-exchange, .fa-stack-overflow",
+    $tumblr-color: ".fa-tumblr, .fa-tumblr-square",
+    $twitter-color: ".fa-twitter, .fa-twitter-square",
+    $x-color: ".fa-x-twitter, .fa-square-x-twitter",
+    $vimeo-color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
+    $vine-color: ".fa-vine",
+    $xing-color: ".fa-xing, .fa-xing-square",
+    $youtube-color: ".fa-youtube",
+  ) {
+    #{$icons} {
+      color: $color;
+    }
+  }
+}
+
+/*
+   Navicons
+   ========================================================================== */
+.navicon {
+  position: relative;
+  width: $navicon-width;
+  height: $navicon-height;
+  background: $primary-color;
+  margin: auto;
+  transition: 0.3s;
+  transition: 0.3s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    width: $navicon-width;
+    height: $navicon-height;
+    background: $primary-color;
+    transition: 0.3s;
+    transition: 0.3s;
+  }
+
+  &::before {
+    top: (-2 * $navicon-height);
+  }
+
+  &::after {
+    bottom: (-2 * $navicon-height);
+  }
+}
+
+.close .navicon {
+  /* hide the middle line */
+  background: transparent;
+
+  /* overlay the lines by setting both their top values to 0 */
+  &::before,
+  &::after {
+    transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: 0;
+    width: $navicon-width;
+  }
+
+  /* rotate the lines to form the x shape */
+  &::before {
+    transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+
+  &::after {
+    transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+}
+
+.greedy-nav__toggle {
+  &::before {
+    @supports (pointer-events: none) {
+      content: '';
+      position: fixed;
+      top: 0;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: $background-color;
+      transition: $global-transition;
+      transition: $global-transition;
+      pointer-events: none;
+    }
+  }
+
+  &.close {
+    &::before {
+      opacity: 0.9;
+      transition: $global-transition;
+      transition: $global-transition;
+      pointer-events: auto;
+    }
+  }
+}
+
+.greedy-nav__toggle:hover {
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    background: mix(#000, $primary-color, 25%);
+  }
+
+  &.close {
+    .navicon {
+      background: transparent;
+    }
+  }
+}
+
+/*
+   Sticky, fixed to top content
+   ========================================================================== */
+
+.sticky {
+  @include breakpoint($large) {
+    @include clearfix;
+
+    position: sticky;
+    position: sticky;
+    top: 2em;
+
+    > * {
+      display: block;
+    }
+  }
+}
+
+/*
+   Wells
+   ========================================================================== */
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: $border-radius;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+/*
+   Modals
+   ========================================================================== */
+
+.show-modal {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgb(255 255 255 / 85%);
+  }
+
+  .modal {
+    display: block;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 300px;
+  top: 50%;
+  inset-inline-start: 50%;
+  margin-inline-start: -150px;
+  margin-top: -150px;
+  min-height: 0;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  &__title {
+    margin: 0;
+    padding: 0.5em 1em;
+  }
+
+  &__supporting-text {
+    padding: 0 1em 0.5em;
+  }
+
+  &__actions {
+    padding: 0.5em 1em;
+    border-top: 1px solid $border-color;
+  }
+}
+
+/*
+   Footnotes
+   ========================================================================== */
+
+.footnote {
+  color: mix(#fff, $gray, 25%);
+  text-decoration: none;
+}
+
+.footnotes {
+  color: mix(#fff, $gray, 25%);
+
+  ol,
+  li,
+  p {
+    margin-bottom: 0;
+    font-size: $type-size-6;
+  }
+}
+
+a.reversefootnote {
+  color: $gray;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/*
+   Required
+   ========================================================================== */
+
+.required {
+  color: $danger-color;
+  font-weight: bold;
+}
+
+/*
+   Google Custom Search Engine
+   ========================================================================== */
+
+.gsc-control-cse {
+  table,
+  tr,
+  td {
+    border: 0; /* remove table borders widget */
+  }
+}
+
+/*
+   Responsive Video Embed
+   ========================================================================== */
+
+.responsive-video-container {
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// full screen video fixes
+:-webkit-full-screen-ancestor {
+  .masthead,
+  .page__footer {
+    position: static;
+  }
+}
+
+/*
+   Copy <pre> block to clipboard
+   ========================================================================== */
+
+// a <textarea> to hold text for document.execCommand("copy")
+.clipboard-helper {
+  // Prevent zooming on iOS
+  font-size: 12pt !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  position: absolute;
+}
+
+pre {
+  &.highlight .clipboard-copy-button {
+    color: #ffffca;
+  }
+
+  .clipboard-copy-button {
+    display: block;
+    position: absolute;
+    top: 0.6em;
+    inset-inline-end: 0.5em;
+    width: 1.8em;
+    height: 1.5em;
+    z-index: 1;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 0.1em;
+    padding: 0.2em 0.5em;
+    opacity: 0.4;
+    transition: color 0.25s linear -0.25s, opacity 0.25s linear;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    i {
+      position: absolute;
+      top: 0.25em;
+      inset-inline-end: 0.25em;
+
+      &.copied {
+        opacity: 0;
+      }
+    }
+
+    &.copied i {
+      opacity: 0;
+
+      &.copied {
+        opacity: 1;
+      }
+    }
+
+    @at-root {
+      .no-copy & {
+        display: none;
+      }
+    }
+  }
+
+  &:hover .clipboard-copy-button {
+    opacity: 1;
+  }
+}
+</file>
+
+<file path="_base.scss">
+/* ==========================================================================
+   BASE ELEMENTS
+   ========================================================================== */
+
+html {
+  /* sticky footer fix */
+  position: relative;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+  font-family: $global-font-family;
+  line-height: 1.5;
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &.overflow--hidden {
+    /* when primary navigation is visible, the content in the background won't scroll */
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 2em 0 0.5em;
+  line-height: 1.2;
+  font-family: $header-font-family;
+  font-weight: bold;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: $h-size-1;
+}
+
+h2 {
+  font-size: $h-size-2;
+}
+
+h3 {
+  font-size: $h-size-3;
+}
+
+h4 {
+  font-size: $h-size-4;
+}
+
+h5 {
+  font-size: $h-size-5;
+}
+
+h6 {
+  font-size: $h-size-6;
+}
+
+small,
+.small {
+  font-size: $type-size-6;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+u,
+ins {
+  text-decoration: none;
+  border-bottom: 1px solid $text-color;
+
+  a {
+    color: inherit;
+  }
+}
+
+del a {
+  color: inherit;
+}
+
+/* reduce orphans and widows when printing */
+
+p,
+pre,
+blockquote,
+ul,
+ol,
+dl,
+figure,
+table,
+fieldset {
+  orphans: 3;
+  widows: 3;
+}
+
+/* abbreviations */
+
+abbr[title],
+abbr[data-original-title] {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted $text-color;
+}
+
+/* blockquotes */
+
+blockquote {
+  margin-block: 2em;
+  margin-inline-end: 1em;
+  padding-inline: 1em;
+  font-style: italic;
+  border-inline-start: 0.25em solid $primary-color;
+
+  cite {
+    font-style: italic;
+
+    &::before {
+      content: "\2014";
+      padding-inline-end: 5px;
+    }
+  }
+}
+
+/* links */
+
+/* stylelint-disable no-descending-specificity */
+a {
+  &:focus {
+    @extend %tab-focus;
+  }
+
+  &:visited {
+    color: $link-color-visited;
+  }
+
+  &:hover {
+    color: $link-color-hover;
+    outline: 0;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* buttons */
+
+button:focus {
+  @extend %tab-focus;
+}
+
+/* code */
+
+tt,
+code,
+kbd,
+samp,
+pre {
+  font-family: $monospace;
+}
+
+pre {
+  overflow-x: auto; /* add scrollbars to wide code blocks */
+}
+
+/* horizontal rule */
+
+hr {
+  display: block;
+  margin: 1em 0;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+/* lists */
+
+ul li,
+ol li {
+  margin-bottom: 0.5em;
+}
+
+li ul,
+li ol {
+  margin-top: 0.5em;
+}
+
+/*
+   Media and embeds
+   ========================================================================== */
+
+/* Figures and images */
+
+figure {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 2em 0;
+
+  img,
+  iframe,
+  .fluid-width-video-wrapper {
+    margin-bottom: 1em;
+  }
+
+  img {
+    width: 100%;
+    border-radius: $border-radius;
+    transition: $global-transition;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  > a {
+    display: block;
+  }
+
+  &.half {
+    > a,
+    > img {
+      @include breakpoint($small) {
+        width: calc(50% - 0.5em);
+      }
+    }
+
+    figcaption {
+      width: 100%;
+    }
+  }
+
+  &.third {
+    > a,
+    > img {
+      @include breakpoint($small) {
+        width: calc(33.3333% - 0.5em);
+      }
+    }
+
+    figcaption {
+      width: 100%;
+    }
+  }
+}
+
+/* Figure captions */
+
+/* stylelint-disable no-descending-specificity */
+figcaption {
+  margin-bottom: 0.5em;
+  color: $muted-text-color;
+  font-family: $caption-font-family;
+  font-size: $type-size-6;
+
+  a {
+    transition: $global-transition;
+
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Fix IE9 SVG bug */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/*
+   Navigation lists
+   ========================================================================== */
+
+/**
+ * Removes margins, padding, and bullet points from navigation lists
+ *
+ * Example usage:
+ * <nav>
+ *    <ul>
+ *      <li><a href="#link-1">Link 1</a></li>
+ *      <li><a href="#link-2">Link 2</a></li>
+ *      <li><a href="#link-3">Link 3</a></li>
+ *    </ul>
+ *  </nav>
+ */
+
+/* stylelint-disable no-descending-specificity */
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* override white-space for nested lists */
+  ul li,
+  ol li {
+    margin-bottom: 0;
+  }
+
+  li ul,
+  li ol {
+    margin-top: 0;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+</file>
+
+<file path="_buttons.scss">
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+/*
+   Default button
+   ========================================================================== */
+
+.btn {
+  /* default */
+  display: inline-block;
+  margin-bottom: 0.25em;
+  padding: 0.5em 1em;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-width: 0;
+  border-radius: $border-radius;
+  cursor: pointer;
+
+  .icon {
+    margin-inline-end: 0.5em;
+  }
+
+  .icon + .hidden {
+    margin-inline-start: -0.5em; /* override for hidden text */
+  }
+
+  /* button colors */
+  $buttoncolors:
+  (primary, $primary-color),
+  (inverse, #fff),
+  (light-outline, transparent),
+  (success, $success-color),
+  (warning, $warning-color),
+  (danger, $danger-color),
+  (info, $info-color),
+  /* brands */
+  (bluesky, $bluesky-color),
+  (facebook, $facebook-color),
+  (linkedin, $linkedin-color),
+  (mastodon, $mastodon-color),
+  (twitter, $twitter-color),
+  (x, $x-color);
+
+  @each $buttoncolor, $color in $buttoncolors {
+    &--#{$buttoncolor} {
+      @include yiq-contrasted($color);
+
+      @if $buttoncolor == inverse {
+        border: 1px solid $border-color;
+      }
+
+      @if $buttoncolor == light-outline {
+        border: 1px solid #fff;
+      }
+
+      &:visited {
+        @include yiq-contrasted($color);
+      }
+
+      &:hover {
+        /* stylelint-disable-next-line scss/no-global-function-names */
+        @include yiq-contrasted(mix(#000, $color, 20%));
+      }
+    }
+  }
+
+  /* fills width of parent container */
+  /* stylelint-disable-next-line selector-class-pattern */
+  &--block {
+    display: block;
+    width: 100%;
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    + .btn--block {
+      margin-top: 0.25em;
+    }
+  }
+
+  /* disabled */
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.65;
+  }
+
+  /* extra large button */
+  &--x-large {
+    font-size: $type-size-4;
+  }
+
+  /* large button */
+  &--large {
+    font-size: $type-size-5;
+  }
+
+  /* small button */
+  &--small {
+    font-size: $type-size-7;
+  }
+}
+</file>
+
+<file path="_footer.scss">
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+/* stylelint-disable selector-class-pattern */
+.page__footer {
+  @include clearfix;
+
+  float: inline-start;
+  margin-inline: 0;
+  width: 100%;
+  margin-top: 3em;
+  color: $muted-text-color;
+  animation: $intro-transition;
+  animation-delay: 0.45s;
+  background-color: $footer-background-color;
+
+  footer {
+    @include clearfix;
+
+    margin-inline: auto;
+    margin-top: 2em;
+    max-width: 100%;
+    padding: 0 1em 2em;
+
+    @include breakpoint($x-large) {
+      max-width: $x-large;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: $muted-text-color;
+  }
+}
+
+.page__footer-copyright {
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+}
+
+.page__footer-follow {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-6;
+    text-transform: uppercase;
+  }
+
+  li + li::before {
+    content: "";
+    padding-inline-end: 5px;
+  }
+
+  .social-icons {
+    a {
+      white-space: nowrap;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  a {
+    padding-inline-end: 10px;
+    font-weight: bold;
+  }
+}
+/* stylelint-enable selector-class-pattern */
+</file>
+
+<file path="_forms.scss">
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+form {
+  margin-bottom: 5px;
+  padding: 1em;
+  background-color: $form-background-color;
+
+  fieldset {
+    margin-bottom: 5px;
+    padding: 0;
+    border-width: 0;
+  }
+
+  legend {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px * 2;
+    margin-inline-start: -7px;
+    padding: 0;
+    color: $text-color;
+    border: 0;
+    white-space: normal;
+  }
+
+  p {
+    margin-bottom: (5px / 2);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0 0 5px;
+    padding: 0;
+  }
+
+  br {
+    display: none;
+  }
+}
+
+label,
+input,
+button,
+select,
+textarea {
+  vertical-align: baseline;
+}
+
+input,
+button,
+select,
+textarea {
+  box-sizing: border-box;
+  font-family: $sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25em;
+  color: $text-color;
+  cursor: pointer;
+
+  small {
+    font-size: $type-size-6;
+  }
+
+  input,
+  textarea,
+  select {
+    display: block;
+  }
+}
+
+/* stylelint-disable no-descending-specificity */
+input,
+textarea,
+select {
+  display: inline-block;
+  width: 100%;
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+  color: $text-color;
+  background-color: $background-color;
+  border: $border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.input-mini {
+  width: 60px;
+}
+
+.input-small {
+  width: 90px;
+}
+
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 3px 0;
+  line-height: normal;
+  cursor: pointer;
+  border-radius: 0;
+  border: 0 \9;
+  box-shadow: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="image"] {
+  border: 0;
+}
+
+input[type="file"] {
+  width: auto;
+  padding: initial;
+  line-height: initial;
+  border: initial;
+  background-color: initial;
+  box-shadow: none;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+select {
+  width: auto;
+  background-color: #fff;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+textarea {
+  resize: vertical;
+  height: auto;
+  overflow: auto;
+  vertical-align: top;
+}
+/* stylelint-enable no-descending-specificity */
+
+input[type="hidden"] {
+  display: none;
+}
+
+.form {
+  position: relative;
+}
+
+.radio,
+.checkbox {
+  padding-inline-start: 18px;
+  font-weight: normal;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: inline-start;
+  margin-inline-start: -18px;
+}
+
+.radio.inline,
+.checkbox.inline {
+  display: inline-block;
+  padding-top: 5px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-inline-start: 10px;
+}
+
+/*
+     Disabled state
+     ========================================================================== */
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*
+     Focus & active state
+     ========================================================================== */
+
+input:focus,
+textarea:focus {
+  border-color: $primary-color;
+  outline: 0;
+  box-shadow: inset 0 1px 3px rgba($text-color, 0.06),
+    0 0 5px rgba($primary-color, 0.7);
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+  box-shadow: none;
+}
+
+/*
+     Help text
+     ========================================================================== */
+
+.help-block,
+.help-inline {
+  color: $muted-text-color;
+}
+
+.help-block {
+  display: block;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+
+.help-inline {
+  display: inline-block;
+  vertical-align: middle;
+  padding-inline-start: 5px;
+}
+
+/*
+     .form-group
+     ========================================================================== */
+
+.form-group {
+  margin-bottom: 5px;
+  padding: 0;
+  border-width: 0;
+}
+
+/*
+     .form-inline
+     ========================================================================== */
+
+.form-inline input,
+.form-inline textarea,
+.form-inline select {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.form-inline label {
+  display: inline-block;
+}
+
+.form-inline .radio,
+.form-inline .checkbox {
+  padding-inline-start: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.form-inline .radio input[type="radio"],
+.form-inline .checkbox input[type="checkbox"] {
+  float: inline-start;
+  margin-inline: 0 3px 0 0;
+}
+
+/*
+     .form-search
+     ========================================================================== */
+
+.form-search input,
+.form-search textarea,
+.form-search select {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.form-search .search-query {
+  padding-inline: 14px;
+  margin-bottom: 0;
+  border-radius: 14px;
+}
+
+.form-search label {
+  display: inline-block;
+}
+
+.form-search .radio,
+.form-search .checkbox,
+.form-inline .radio {
+  padding-inline-start: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.form-search .radio input[type="radio"],
+.form-search .checkbox input[type="checkbox"] {
+  float: inline-start;
+  margin-inline: 0 3px 0 0;
+}
+
+/*
+     .form--loading
+     ========================================================================== */
+
+/* stylelint-disable selector-class-pattern */
+.form--loading::before {
+  content: "";
+}
+
+.form--loading .form__spinner {
+  display: block;
+}
+
+.form::before {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  /* stylelint-disable-next-line color-function-notation, alpha-value-notation */
+  background-color: rgb(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.form__spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  z-index: 11;
+}
+/* stylelint-enable selector-class-pattern */
+</file>
+
+<file path="_sidebar.scss">
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+/*
+   Default
+   ========================================================================== */
+
+/* stylelint-disable selector-class-pattern */
+.sidebar {
+  @include clearfix;
+
+  // @include breakpoint(max-width $large) {
+  //   /* fix z-index order of follow links */
+  //   position: relative;
+  //   z-index: 10;
+  //   -webkit-transform: translate3d(0, 0, 0);
+  //   transform: translate3d(0, 0, 0);
+  // }
+
+  @include breakpoint($large) {
+    float: inline-start;
+    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.sticky {
+      overflow-y: auto;
+
+      /* calculate height of nav list
+         viewport height - nav height - masthead x-padding
+      */
+      max-height: calc(100vh - #{$nav-height} - 2em);
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: calc(#{$right-sidebar-width} - 1em);
+  }
+
+  > * {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    font-family: $sans-serif-narrow;
+  }
+
+  p,
+  li {
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+    line-height: 1.5;
+  }
+
+  img {
+    width: 100%;
+
+    &.emoji {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    width: $right-sidebar-width-narrow;
+    margin-inline-end: -1 * $right-sidebar-width-narrow;
+    padding-inline-start: 1em;
+    z-index: 10;
+
+    &.sticky {
+      @include clearfix;
+
+      position: sticky;
+      top: 2em;
+      float: inline-end;
+
+      .toc {
+        .toc__menu {
+          overflow-y: auto;
+          max-height: calc(100vh - 7em);
+        }
+      }
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: $right-sidebar-width;
+    margin-inline-end: -1 * $right-sidebar-width;
+  }
+}
+
+.splash .sidebar__right {
+  @include breakpoint($large) {
+    position: relative;
+    float: inline-end;
+    margin-inline-end: 0;
+  }
+
+  @include breakpoint($x-large) {
+    margin-inline-end: 0;
+  }
+}
+
+/*
+   Author profile and links
+   ========================================================================== */
+
+.author__avatar {
+  display: table-cell;
+  vertical-align: top;
+  width: 36px;
+  height: 36px;
+
+  @include breakpoint($large) {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  img {
+    max-width: 110px;
+    border-radius: 50%;
+
+    @include breakpoint($large) {
+      padding: 5px;
+      border: 1px solid $border-color;
+    }
+  }
+}
+
+.author__content {
+  display: table-cell;
+  vertical-align: top;
+  padding-inline: 15px 25px;
+  line-height: 1;
+
+  @include breakpoint($large) {
+    display: block;
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.author__name {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar .author__name {
+  font-family: $sans-serif;
+  font-size: $type-size-5;
+}
+
+.author__bio {
+  margin: 0;
+
+  @include breakpoint($large) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.author__urls-wrapper {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: $sans-serif;
+  z-index: 20;
+  cursor: pointer;
+
+  li:last-child {
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  .author__urls {
+    span.label {
+      padding-inline-start: 5px;
+    }
+  }
+
+  @include breakpoint($large) {
+    display: block;
+  }
+
+  button {
+    position: relative;
+    margin-bottom: 0;
+
+    &::before {
+      @supports (pointer-events: none) {
+        content: '';
+        position: fixed;
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    &.open {
+      &::before {
+        pointer-events: auto;
+      }
+    }
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+}
+
+.author__urls {
+  display: none;
+  position: absolute;
+  inset-inline-end: 0;
+  margin-top: 15px;
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+  cursor: default;
+
+  &.is--visible {
+    display: block;
+  }
+
+  @include breakpoint($large) {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $border-color transparent;
+    z-index: 0;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    inset-inline-start: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: $background-color transparent;
+    z-index: 1;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  ul {
+    padding: 10px;
+    list-style-type: none;
+  }
+
+  li {
+    white-space: nowrap;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  a {
+    display: block;
+    margin-bottom: 5px;
+    padding-block: 2px;
+    padding-inline-end: 5px;
+    color: inherit;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  /* stylelint-enable no-descending-specificity */
+}
+/* stylelint-enable selector-class-pattern */
+
+/*
+   Wide Pages
+   ========================================================================== */
+
+/* stylelint-disable-next-line selector-class-pattern */
+.wide .sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: initial;
+    top: initial;
+    inset-inline-end: initial;
+    width: initial;
+    margin-inline-end: initial;
+    padding-inline-start: initial;
+    z-index: initial;
+
+    &.sticky {
+      float: none;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: initial;
+    margin-inline-end: initial;
+  }
+}
+</file>
+
+<file path="coderay.scss">
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ==========================================================================
+   Coderay syntax highlighting
+   ========================================================================== */
+
+/* stylelint-disable selector-class-pattern, declaration-block-single-line-max-declarations, block-no-empty, no-descending-specificity */
+.CodeRay {
+  background-color: #efefef;
+  font-family: $code-font;
+
+  @include font(12);
+
+  color: #333332;
+  margin-bottom: 1.5em;
+
+  @include rounded(4px);
+
+  pre {
+    margin: 0;
+    padding: 1em;
+  }
+}
+
+div.CodeRay {
+  /* empty rule for specificity */
+}
+
+span.CodeRay {
+  white-space: pre;
+  border: 0;
+  padding: 2px;
+}
+
+table.CodeRay {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 2px;
+}
+
+table.CodeRay td {
+  padding: 1em 0.5em;
+  vertical-align: top;
+}
+
+.CodeRay .line-numbers,
+.CodeRay .no {
+  background-color: #ECECEC;
+  color: #AAA;
+  text-align: right;
+}
+
+.CodeRay .line-numbers a {
+  color: #AAA;
+}
+
+.CodeRay .line-numbers tt {
+  font-weight: bold;
+}
+
+.CodeRay .line-numbers .highlighted {
+  color: red;
+}
+
+.CodeRay .line {
+  display: block;
+  float: left;
+  width: 100%;
+}
+.CodeRay span.line-numbers { padding: 0 24px 0 4px }
+.CodeRay .code { width: 100% }
+
+ol.CodeRay { font-size: 10pt }
+ol.CodeRay li { white-space: pre }
+
+.CodeRay .code pre { overflow: auto }
+.CodeRay .debug { color:white ! important; background:blue ! important; }
+
+.CodeRay .annotation { color:#007 }
+.CodeRay .attribute-name { color:#f08 }
+.CodeRay .attribute-value { color:#700 }
+.CodeRay .binary { color:#509; font-weight:bold }
+.CodeRay .comment  { color:#998; font-style: italic;}
+.CodeRay .char { color:#04D }
+.CodeRay .char .content { color:#04D }
+.CodeRay .char .delimiter { color:#039 }
+.CodeRay .class { color:#458; font-weight:bold }
+.CodeRay .complex { color:#A08; font-weight:bold }
+.CodeRay .constant { color:teal; }
+.CodeRay .color { color:#0A0 }
+.CodeRay .class-variable { color:#369 }
+.CodeRay .decorator { color:#B0B; }
+.CodeRay .definition { color:#099; font-weight:bold }
+.CodeRay .directive { color:#088; font-weight:bold }
+.CodeRay .delimiter { color:black }
+.CodeRay .doc { color:#970 }
+.CodeRay .doctype { color:#34b }
+.CodeRay .doc-string { color:#D42; font-weight:bold }
+.CodeRay .escape  { color:#666; font-weight:bold }
+.CodeRay .entity { color:#800; font-weight:bold }
+.CodeRay .error { color:#F00; background-color:#FAA }
+.CodeRay .exception { color:#C00; font-weight:bold }
+.CodeRay .filename { color:#099; }
+.CodeRay .function { color:#900; font-weight:bold }
+.CodeRay .global-variable { color:teal; font-weight:bold }
+.CodeRay .hex { color:#058; font-weight:bold }
+.CodeRay .integer  { color:#099; }
+.CodeRay .include { color:#B44; font-weight:bold }
+.CodeRay .inline { color: black }
+.CodeRay .inline .inline { background: #ccc }
+.CodeRay .inline .inline .inline { background: #bbb }
+.CodeRay .inline .inline-delimiter { color: #D14; }
+.CodeRay .inline-delimiter { color: #D14; }
+.CodeRay .important { color:#f00; }
+.CodeRay .interpreted { color:#B2B; font-weight:bold }
+.CodeRay .instance-variable { color:teal }
+.CodeRay .label { color:#970; font-weight:bold }
+.CodeRay .local-variable { color:#963 }
+.CodeRay .octal { color:#40E; font-weight:bold }
+.CodeRay .operator { }
+.CodeRay .predefined-constant {  font-weight:bold }
+.CodeRay .predefined { color:#369; font-weight:bold }
+.CodeRay .preprocessor { color:#579; }
+.CodeRay .pseudo-class { color:#00C; font-weight:bold }
+.CodeRay .predefined-type { color:#074; font-weight:bold }
+.CodeRay .reserved, .keyword  { color:#000; font-weight:bold }
+
+.CodeRay .key { color: #808; }
+.CodeRay .key .delimiter { color: #606; }
+.CodeRay .key .char { color: #80f; }
+.CodeRay .value { color: #088; }
+
+.CodeRay .regexp { background-color:#fff0ff }
+.CodeRay .regexp .content { color:#808 }
+.CodeRay .regexp .delimiter { color:#404 }
+.CodeRay .regexp .modifier { color:#C2C }
+.CodeRay .regexp .function  { color:#404; font-weight: bold }
+
+.CodeRay .string { color: #D20; }
+.CodeRay .string .string { }
+.CodeRay .string .string .string { background-color:#ffd0d0 }
+.CodeRay .string .content { color: #D14; }
+.CodeRay .string .char { color: #D14; }
+.CodeRay .string .delimiter { color: #D14; }
+
+.CodeRay .shell { color:#D14 }
+.CodeRay .shell .content { }
+.CodeRay .shell .delimiter { color:#D14 }
+
+.CodeRay .symbol { color:#990073 }
+.CodeRay .symbol .content { color:#A60 }
+.CodeRay .symbol .delimiter { color:#630 }
+
+.CodeRay .tag { color:#070 }
+.CodeRay .tag-special { color:#D70; font-weight:bold }
+.CodeRay .type { color:#339; font-weight:bold }
+.CodeRay .variable  { color:#036 }
+
+.CodeRay .insert { background: #afa; }
+.CodeRay .delete { background: #faa; }
+.CodeRay .change { color: #aaf; background: #007; }
+.CodeRay .head { color: #f8f; background: #505 }
+
+.CodeRay .insert .insert { color: #080; font-weight:bold }
+.CodeRay .delete .delete { color: #800; font-weight:bold }
+.CodeRay .change .change { color: #66f; }
+.CodeRay .head .head { color: #f4f; }
+/* stylelint-enable selector-class-pattern */
+</file>
+
+<file path="elements.scss">
+@use 'mixins' as *;
+@use 'variables' as *;
+@use 'grid' as *;
+
+/* 
+   Rules
+   ========================================================================== */
+
+hr { 
+	display: block; 
+	margin: 1em 0; 
+	padding: 0;
+	height: 1px; 
+	border: 0; 
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #fff; 
+}
+
+/* 
+   Figures and images
+   ========================================================================== */
+
+figure {
+	margin-bottom: $indent-var;
+}
+
+article img {
+	max-width: 100%;
+	height: auto;
+	border-width: 0; 
+	vertical-align: middle; 
+}
+
+svg:not(:root) {
+		overflow: hidden; 
+}
+
+/* 2 images of equal dimensions in a row */
+
+.half {
+	@include container;
+	@include clearfix;
+	@media #{$micro} {
+		img {
+			@include grid(12,6);
+		}
+
+		figcaption {
+			@include grid(12,12);
+		}
+	}
+}
+
+/* 3 images of equal dimensions in a row */
+
+.third {
+	@include container;
+	@include clearfix;
+	@media #{$micro} {
+		img {
+			@include grid(12,4);
+		}
+
+		figcaption {
+			@include grid(12,12);
+		}
+	}
+}
+
+/* 
+   Buttons
+   ========================================================================== */
+
+/* Default button */
+
+.btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  @include font-rem(14);
+
+  font-family: $heading-font;
+  font-weight: 700;
+  background-color: $primary;
+  color: $white;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: $primary;
+  text-decoration: none !important;
+  @include rounded(3px);
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $primary;
+  }
+}
+
+/* Success button */
+
+.btn-success {
+  background-color: $success;
+  color: $white;
+  border-color: $success;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $success;
+  }
+}
+
+/* Warning button */
+
+.btn-warning {
+  background-color: $warning;
+  color: $white;
+  border-color: $warning;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $warning;
+  }
+}
+
+/* Danger button */
+
+.btn-danger {
+  background-color: $danger;
+  color: $white;
+  border-color: $danger;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $danger;
+  }
+}
+
+/* Information button */
+
+.btn-info {
+  background-color: $info;
+  color: $white;
+  border-color: $info;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $info;
+  }
+}
+
+/* 
+   Wells
+   ========================================================================== */
+
+.well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	@include rounded(4px);
+	@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
+}
+</file>
+
+<file path="grid.scss">
+/* ==========================================================================
+   Grid mixins
+   ========================================================================== */
+
+/* 
+   Define number of columns in the grid
+   Common values would be 12, 16 or 24
+   ========================================================================== */
+
+@use "sass:math";
+
+$width: 100%;
+$def-grid: 12;
+$margin: 0;
+
+@mixin container(){
+  margin:0 auto;
+  width:$width;
+}
+
+/* 
+   Works out the width of elements based on total number of columns and width
+   number of columns being displayed. Removes 20px for margins.
+   ========================================================================== */
+
+@mixin grid($grid:$def-grid,$cols:'',$float:left,$display:inline){
+  display:$display;
+  float:$float;
+  width:(math.div(100%, $grid) * $cols) - ($margin * 2);
+}  
+
+/* 
+   Add x amount of column padding before an element
+   Example: @include prefix(1,12);
+   ========================================================================== */
+
+@mixin prefix($grid:$def-grid,$cols:''){
+  margin-left:(math.div(100%, $grid) * $cols);
+}
+
+/* 
+   Add x amount of column padding after an element
+   Example: @include suffix(2,12);
+   ========================================================================== */
+
+@mixin suffix($grid:$def-grid,$cols:''){  
+  margin-right:(math.div(100%, $grid) * $cols);    
+}
+
+/* 
+   Remove left margin
+   Example: @include first;
+   ========================================================================== */
+
+@mixin first(){
+  margin-left:0;
+}
+
+/* 
+   Remove right margin
+   Example: @include last;
+   ========================================================================== */
+
+@mixin last(){
+  margin-right:0;
+}
+
+/* 
+   Push an element x amount of column(s) to the right
+   Example: @include push(2,12);
+   ========================================================================== */
+
+@mixin push($grid:$def-grid,$move:'') {
+  position:relative;
+  left:(math.div(100%, $grid) * $move);
+} 
+
+/* 
+   Pull an element x amount of column(s) to the left
+   Example: @include pull(1,12);
+   ========================================================================== */
+
+@mixin pull($grid:$def-grid,$move:''){
+  position:relative;
+  left:(math.div(100%, $grid) * $move) * -1;
+}
+</file>
+
+<file path="minimal-mistakes.scss">
+/* Copyright comment */
+@import "minimal-mistakes/copyright";
+
+/* Variables */
+@import "minimal-mistakes/variables";
+
+/* Mixins and functions */
+@import "minimal-mistakes/vendor/breakpoint/breakpoint";
+@include breakpoint-set("to ems", true);
+@import "minimal-mistakes/vendor/magnific-popup/magnific-popup"; // Magnific Popup
+@import "minimal-mistakes/vendor/susy/susy";
+@import "minimal-mistakes/mixins";
+
+/* Core CSS */
+@import "minimal-mistakes/reset";
+@import "minimal-mistakes/base";
+@import "minimal-mistakes/forms";
+@import "minimal-mistakes/tables";
+@import "minimal-mistakes/animations";
+
+/* Components */
+@import "minimal-mistakes/buttons";
+@import "minimal-mistakes/notices";
+@import "minimal-mistakes/masthead";
+@import "minimal-mistakes/navigation";
+@import "minimal-mistakes/footer";
+@import "minimal-mistakes/search";
+@import "minimal-mistakes/syntax";
+
+/* Utility classes */
+@import "minimal-mistakes/utilities";
+
+/* Layout specific */
+@import "minimal-mistakes/page";
+@import "minimal-mistakes/archive";
+@import "minimal-mistakes/sidebar";
+@import "minimal-mistakes/print";
+</file>
+
+<file path="mixins.scss">
+@use "sass:color";
+@use "sass:math";
+@use 'variables' as *;
+
+/* ==========================================================================
+   Utility mixins
+   ========================================================================== */
+
+/* 
+   Clearfix
+   For clearing floats like a boss h5bp.com/q
+   ========================================================================== */
+
+@mixin clearfix {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+/* 
+   Webkit-style focus
+   ========================================================================== */
+
+@mixin tab-focus() {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* 
+   Center-align a block level element
+   ========================================================================== */
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Typography related mixins
+   ========================================================================== */
+
+/* 
+   Maintains vertical rhythm by setting a font-sizes proportional to
+   line-height and bottom margin
+   example: @include font-size(16);
+   ========================================================================== */
+
+@mixin font-size($size) {
+  font-size: #{$size}px;
+  font-size: #{math.div($size, $doc-font-size)}rem;
+  line-height: math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
+  margin-bottom: #{$doc-line-height}px;
+  margin-bottom: #{math.div($doc-line-height, $doc-font-size)}rem;
+}
+
+/* 
+   Just font-size (REMs + pixel fallback)
+   example: @include font-rem(16);
+   ========================================================================== */
+
+@mixin font-rem($size) {
+  font-size: #{$size}px;
+  font-size: #{math.div($size, $doc-font-size)}rem;
+}
+
+/* 
+   Just font-size (REMs + pixel fallback) and line-height
+   @include font(16);
+   ========================================================================== */
+
+@mixin font($size) {
+  font-size: #{$size}px;
+  font-size: #{math.div($size, $doc-font-size)}rem;
+  line-height: math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
+}
+
+/* 
+   Hide text overflow and end with ...
+   ========================================================================== */
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+/* Indentation variable */
+$indent-var: #{math.div($doc-line-height, $doc-font-size)}rem;
+
+/* ==========================================================================
+   Modern CSS Properties (vendor prefixes removed for modern browsers)
+   ========================================================================== */
+
+/* 
+   Border radius
+   example: @include rounded(4px);
+   ========================================================================== */
+
+@mixin rounded($radius: 4px) {
+  border-radius: $radius; 
+}
+
+/* 
+   Box shadow
+   example: @include box-shadow(0 1px 3px rgba(0,0,0,.25));
+   ========================================================================== */
+
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  box-shadow: $shadow; 
+}
+
+/* 
+   Text shadow
+   example: @include text-shadow(0 2px 3px rgba(0,0,0,.25));
+   ========================================================================== */
+
+@mixin text-shadow($shadow: 0 2px 3px rgba(0,0,0,.25)) {
+  text-shadow: $shadow;
+}
+
+/* 
+   Opacity
+   example: @include opacity(0.5); // 50% opacity
+   ========================================================================== */
+
+@mixin opacity($opacity: 0.5) {
+  opacity: $opacity; 
+}
+
+/* ==========================================================================
+   Transformations (modern syntax)
+   ========================================================================== */
+
+/* 
+   @include rotate(45deg);
+   ========================================================================== */
+
+@mixin rotate($deg) {
+  transform: rotate($deg); 
+}
+
+/* 
+   @include scale(1.5);
+   ========================================================================== */
+
+@mixin scale($ratio) {
+  transform: scale($ratio); 
+}
+
+/* 
+   @include skew(10deg, 5deg);
+   ========================================================================== */
+
+@mixin skew($x: 0, $y: 0) {
+  transform: skew($x, $y); 
+}
+
+/* 
+   @include transition(all 0.3s ease);
+   ========================================================================== */
+
+@mixin transition($transition) {
+  transition: $transition; 
+}
+
+/* 
+   @include translate(10px, 20px);
+   ========================================================================== */
+
+@mixin translate($x: 0, $y: 0) {
+  transform: translate($x, $y); 
+}
+
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
+  transform: translate3d($x, $y, $z); 
+}
+
+/* 
+   Modern animation mixin
+   ========================================================================== */
+
+@mixin animation($name, $duration: 300ms, $delay: 0, $ease: ease) {
+  animation: $name $duration $delay $ease;
+}
+
+/* ==========================================================================
+   Background utilities
+   ========================================================================== */
+
+/* 
+   @include background-alpha(#fff, 0.8);
+   ========================================================================== */
+
+@mixin background-alpha($color: $white, $alpha: 1) {
+  background-color: hsla(color.hue($color), color.saturation($color), color.lightness($color), $alpha); 
+}
+
+/* 
+   @include background-size(cover);
+   ========================================================================== */
+
+@mixin background-size($size) {
+  background-size: $size; 
+}
+
+/* 
+   Box-sizing (modern browsers support this natively)
+   example: @include box-sizing(border-box);
+   ========================================================================== */
+
+@mixin box-sizing($boxsize: border-box) {
+  box-sizing: $boxsize; 
+}
+
+/* ==========================================================================
+   Utility mixins
+   ========================================================================== */
+
+@mixin hide-text() {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin invisible() { 
+  visibility: hidden; 
+}
+
+@mixin resize($direction: both) {
+  resize: $direction;
+  overflow: auto; 
+}
+
+@mixin visually-hidden() { 
+  overflow: hidden; 
+  position: absolute;
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  width: 1px;
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+}
+
+/* ==========================================================================
+   Modern Flexbox and Grid utilities
+   ========================================================================== */
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Responsive breakpoint mixin
+   ========================================================================== */
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media #{$small} { @content; }
+  }
+  @else if $point == medium {
+    @media #{$medium} { @content; }
+  }
+  @else if $point == large {
+    @media #{$large} { @content; }
+  }
+  @else if $point == x-large {
+    @media #{$x-large} { @content; }
+  }
+  @else {
+    @media #{$point} { @content; }
+  }
+}
+</file>
+
+<file path="normalize.scss">
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-family: sans-serif; /* 1 */
+    text-size-adjust: 100%; /* 2 */
+    text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+}
+
+/**
+ * Set consistent quote types.
+ */
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+
+img {
+    border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    appearance: textfield; /* 1 */
+    box-sizing: content-box;
+    box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1.5em;
+    width: 100%; /* make full width */
+}
+</file>
+
+<file path="page.scss">
+@use 'elements' as *;
+
+/* ========================================================================== */
+
+/*   Page Meta */
+
+/* ========================================================================== */
+.page-meta {
+  margin-top: 2em;
+  color: $muted-text-color;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  text-shadow: 1px 1px 4px rgba(#000, 0.5);
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.page-meta-title {
+  margin-bottom: 10px;
+  font-size: $type-size-6;
+  text-transform: uppercase;
+}
+
+.page-meta-sep::before {
+  content: '\2022';
+  padding-inline: 0.5em;
+}
+
+/* =============================== Social Sharing ========================================================================== */
+
+.page-share {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid $border-color;
+
+  @include breakpoint(max-width $small) {
+    .btn span {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  }
+}
+
+.page-share-title {
+  margin-bottom: 10px;
+  font-size: $type-size-6;
+  text-transform: uppercase;
+}
+
+/* ========================================================================== */
+
+/*   Page Body (Partial) */
+
+/* ========================================================================== */
+body {
+  display: -webkit-box;
+  display: flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  background-color: variables.$bodycolor;
+  font-family: variables.$base-font;
+  color: variables.$text-color;
+}
+
+page-lead {
+  font-family: $global-font-family;
+  font-size: $type-size-4;
+}
+
+.page-title {
+  margin-top: 0;
+  line-height: 1;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+.page {
+  @include breakpoint($large) {
+    float: inline-end;
+    width: calc(100% - #{$right-sidebar-width-narrow});
+    padding-inline-end: $right-sidebar-width-narrow;
+  }
+
+  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+    padding-inline-end: $right-sidebar-width;
+  }
+
+  &.full-width {
+    @include breakpoint($large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+  }
+
+  .page-inner-wrap {
+    float: inline-start;
+    margin-top: 1em;
+    margin-inline: 0;
+    width: 100%;
+    clear: both;
+
+    .page-content,
+    .page-meta,
+    .page-share {
+      position: relative;
+      float: inline-start;
+      margin-inline: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+/* ========================================================================== */
+
+/*   Page  Layout */
+
+/* ========================================================================== */
+#main {
+  @include clearfix;
+
+  margin-inline: auto;
+  padding-inline: 1em;
+  animation: $intro-transition;
+  max-width: 100%;
+  animation-delay: 0.15s;
+
+  @include breakpoint($x-large) {
+    max-width: 95vw;
+    padding-inline: 2.5vw;
+  }
+}
+
+/* ========================================================================== */
+
+/*   Page  Hero */
+
+/* ========================================================================== */
+
+.page-hero {
+  position: relative;
+  margin-bottom: 2em;
+
+  .page-title,
+  .page-lead,
+  .btn {
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(#000, 0.5);
+  }
+
+  animation: $intro-transition;
+  animation-delay: 0.25s;
+
+  &-overlay {
+    position: relative;
+    margin-bottom: 2em;
+    padding: 3em 0;
+
+    @include clearfix;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: $intro-transition;
+    animation-delay: 0.25s;
+
+    a {
+      color: #fff;
+    }
+
+    .wrapper {
+      padding-inline: 1em;
+
+      @include breakpoint($x-large) {
+        max-width: $x-large;
+      }
+    }
+
+    .page-lead {
+      max-width: $medium;
+    }
+
+    .page-title {
+      font-size: $type-size-2;
+
+      @include breakpoint($small) {
+        font-size: $type-size-1;
+      }
+    }
+  }
+}
+
+/* ========================================================================== */
+
+/*  Related Content */
+
+/* ========================================================================== */
+
+.page-related {
+  @include clearfix;
+
+  float: inline-start;
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid $border-color;
+  @include breakpoint($large) {
+    float: inline-end;
+    width: calc(100% - #{$right-sidebar-width-narrow});
+  }
+  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.page-related-title {
+  margin-bottom: 10px;
+  font-size: $type-size-6;
+  text-transform: uppercase;
+}
+
+/* ========================================================================== */
+
+/*  Wide Pages */
+
+/* ========================================================================== */
+
+.wide {
+  .page,
+  .page-related {
+    @include breakpoint($large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+  }
+
+  #main {
+    @include breakpoint($large) {
+      max-width: 95vw;
+      padding-inline: 2.5vw;
+    }
+  }
+}
+
+/* ========================================================================== */
+
+/* === Initial/Search === */
+
+/* ============================================================================ */
+
+.initial-content,
+.search-content {
+  flex: 1 0 auto;
+}
+
+/* Full Width Layout Classes */
+.layout-wide,
+.layout-full-width {
+  #main {
+    @include breakpoint($large) {
+      max-width: 95vw;
+      padding-inline: 2.5vw;
+    }
+  }
+
+  .page {
+    @include breakpoint($large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      padding-inline-end: 0;
+    }
+  }
+}
+
+/* Page taxonomy ========================================================================== */
+
+.page-taxonomy {
+  .sep {
+    display: none;
+  }
+
+  strong {
+    margin-inline-end: 10px;
+  }
+}
+
+.page-taxonomy-item {
+  display: inline-block;
+  margin-inline-end: 5px;
+  margin-bottom: 8px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $link-color-hover;
+  }
+}
+
+.taxonomy-section {
+  padding-bottom: 1em;
+
+  &:not(:last-child) {
+    border-bottom: solid 1px $border-color;
+  }
+
+  .archive-item-title {
+    margin-top: 0;
+  }
+
+  .archive-subtitle {
+    clear: both;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+  }
+
+  + .taxonomy-section {
+    margin-top: 2em;
+  }
+}
+
+.taxonomy-title {
+  margin-bottom: 0.5em;
+  color: $muted-text-color;
+}
+
+.taxonomy-count {
+  color: $muted-text-color;
+}
+
+.taxonomy-index {
+  display: grid;
+  grid-column-gap: 2em;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 1.414em 0;
+  padding: 0;
+  font-size: 0.75em;
+  list-style: none;
+
+  @include breakpoint($large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  a {
+    display: -webkit-box;
+    display: flexbox;
+    display: flex;
+    padding: 0.25em 0;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.back-to-top {
+  display: block;
+  clear: both;
+  color: $muted-text-color;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  text-align: end;
+  text-decoration: none;
+}
+
+/* Comments ========================================================================== */
+
+.page-comments {
+  float: inline-start;
+  margin-inline: 0;
+  width: 100%;
+  clear: both;
+}
+
+.page-comments-title {
+  margin-top: 2rem;
+  margin-bottom: 10px;
+  padding-top: 2rem;
+  font-size: $type-size-6;
+  border-top: 1px solid $border-color;
+  text-transform: uppercase;
+}
+
+.page-comments-form {
+  transition: $global-transition;
+
+  &.disabled {
+    input,
+    button,
+    textarea,
+    label {
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: alpha(opacity=65);
+      box-shadow: none;
+      opacity: 0.65;
+    }
+  }
+}
+
+.comment {
+  @include clearfix;
+
+  margin: 1em 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.comment-avatar-wrapper {
+  float: inline-start;
+  width: 60px;
+  height: 60px;
+
+  @include breakpoint($large) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  @include breakpoint($large) {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    border: 1px solid $border-color;
+  }
+}
+
+.comment-content-wrapper {
+  float: inline-end;
+  width: calc(100% - 60px);
+
+  @include breakpoint($large) {
+    width: calc(100% - 100px);
+  }
+}
+
+.comment-author {
+  margin: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.comment-date {
+  @extend %page-meta;
+
+  margin: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/* ========================================================================== */
+
+/*  Page Content */
+
+/* ========================================================================== */
+
+.page-content {
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  h2 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $border-color;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    .header-link {
+      position: relative;
+      inset-inline-start: 0.5em;
+      opacity: 0;
+      font-size: 0.8em;
+      transition: opacity 0.2s ease-in-out 0.1s;
+    }
+
+    &:hover .header-link {
+      opacity: 1;
+    }
+  }
+
+  p,
+  li,
+  dl {
+    font-size: 1em;
+  }
+
+  /* paragraph indents */
+  p {
+    margin: 0 0 $indent-var;
+
+    /* sibling indentation */
+    @if $paragraph-indent == true {
+      & + p {
+        text-indent: $indent-var;
+        margin-top: -($indent-var);
+      }
+    }
+  }
+
+  a:not(.btn) {
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
+    }
+  }
+
+  :not(pre) > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: 0.8em;
+    background: $code-background-color;
+    border-radius: $border-radius;
+
+    &::before,
+    &::after {
+      letter-spacing: -0.2em;
+      content: '\00a0'; /* non-breaking space */
+    }
+  }
+
+  dt {
+    margin-top: 1em;
+    font-family: $sans-serif;
+    font-weight: bold;
+  }
+
+  dd {
+    margin-inline-start: 1em;
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+  }
+
+  .small {
+    font-size: $type-size-6;
+  }
+
+  /* blockquote citations */
+  blockquote + .small {
+    margin-top: -1.5em;
+    padding-inline-start: 1.25rem;
+  }
+}
+</file>
+
+<file path="print.scss">
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  [hidden] {
+    display: none;
+  }
+
+  * {
+    box-sizing: border-box;
+    box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    min-height: auto !important;
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0 auto;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 1rem;
+    line-height: 1.5;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 1.25rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+
+  a,
+  a:visited {
+    color: #000;
+    text-decoration: underline;
+    word-wrap: break-word;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  table,
+  th,
+  td {
+    border-bottom: 1px solid #000;
+  }
+
+  td,
+  th {
+    padding: 8px 16px;
+  }
+
+  img {
+    border: 0;
+    display: block;
+    max-width: 100% !important;
+    vertical-align: middle;
+  }
+
+  hr {
+    border: 0;
+    border-bottom: 2px solid #bbb;
+    height: 0;
+    margin: 2.25rem 0;
+    padding: 0;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  abbr[title],
+  acronym[title] {
+    border: 0;
+    text-decoration: none;
+  }
+
+  table,
+  blockquote,
+  pre,
+  code,
+  figure,
+  li,
+  hr,
+  ul,
+  ol,
+  a,
+  tr {
+    page-break-inside: avoid;
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  a {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1 + p,
+  h2 + p,
+  h3 + p {
+    page-break-before: avoid;
+  }
+
+  img {
+    page-break-after: auto;
+    page-break-before: auto;
+    page-break-inside: avoid;
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word;
+  }
+
+  a[href^='http://']:after,
+  a[href^='https://']:after,
+  a[href^='ftp://']:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+
+  abbr[title]::after,
+  acronym[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  #main {
+    max-width: 100%;
+  }
+
+  .page {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .page-break,
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  a.no-reformat::after {
+    content: '';
+  }
+
+  abbr[title].no-reformat::after,
+  acronym[title].no-reformat::after {
+    content: '';
+  }
+
+  .page__hero-caption {
+    color: #000 !important;
+    background: #fff !important;
+    opacity: 1;
+
+    a {
+      color: #000 !important;
+    }
+  }
+
+/*
+   Hide the following elements on print
+   ========================================================================== */
+
+  .masthead,
+  .toc,
+  .page__share,
+  .page__related,
+  .pagination,
+  .ads,
+  .page__footer,
+  .page__comments-form,
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper,
+  .nav__list,
+  .sidebar,
+  .adsbygoogle {
+    display: none !important;
+    height: 1px !important;
+  }
+}
+</file>
+
+<file path="README.md">
+# _sass Directory
+
+This directory contains all the Sass/SCSS stylesheets for "The Parlor" Jekyll site. The styles are organized in a modular structure for maintainability and follow modern Sass best practices.
+
+## 📁 Directory Structure
+
+```
+_sass/
+├── README.md                    # This file
+├── variables.scss               # Global Sass variables
+├── mixins.scss                  # Utility mixins and functions
+├── minimal-mistakes.scss        # Main theme import file
+├── _base.scss                   # Base HTML element styles
+├── _buttons.scss               # Button component styles
+├── _footer.scss                # Footer component styles
+├── _forms.scss                 # Form styling (modern version)
+├── _sidebar.scss               # Sidebar component styles
+├── coderay.scss                # CodeRay syntax highlighting
+├── elements.scss               # Base elements (buttons, wells, images)
+├── grid.scss                   # Grid system mixins
+├── normalize.scss              # CSS normalization/reset
+├── page.scss                   # Page layout and content styling
+├── print.scss                  # Print-specific styles
+├── site.scss                   # Site-wide global styles
+├── typography.scss             # Typography and font styles
+├── minimal-mistakes/           # Theme-specific components
+│   ├── _footer.scss
+│   ├── _search.scss
+│   ├── _sidebar.scss
+│   ├── _syntax.scss
+│   ├── _tables.scss
+│   └── utils.scss
+└── vendor/                     # Third-party styles
+    ├── _fonts.scss             # Google Fonts definitions
+    ├── google/                 # Google-specific vendor files
+    └── _site/                  # Site-specific vendor files
+```
+
+## 🎨 Key Features
+
+### **Modern Sass Architecture**
+- Uses `@use` instead of deprecated `@import`
+- Modular component-based organization
+- Proper namespace management with `as *` syntax
+- Modern CSS properties without outdated vendor prefixes
+
+### **Typography System**
+- **Primary Font**: PT Serif (serif font for body text)
+- **Heading Font**: PT Sans Narrow (sans-serif for headings)
+- **Code Font**: Monaco, Courier New (monospace for code)
+- Responsive typography with rem units and pixel fallbacks
+
+### **Color Palette**
+- Comprehensive color system with semantic naming
+- Brand colors for social media platforms
+- UI state colors (success, warning, danger, info)
+- Accessible contrast ratios
+
+### **Grid System**
+- Flexible 12-column grid system
+- Responsive breakpoints (micro, small, medium, large, x-large)
+- Utility mixins for grid manipulation
+
+## 🔧 Key Files Explained
+
+### **`variables.scss`**
+Central configuration file containing:
+- Typography settings and font stacks
+- Color palette (brand colors, UI colors, syntax highlighting)
+- Breakpoint definitions
+- Component-specific variables
+- Grid and layout settings
+
+### **`mixins.scss`** ⭐ *Recently Modernized*
+Utility mixins for common CSS patterns:
+- **Typography**: `font-size()`, `font-rem()`, `font()`
+- **Layout**: `clearfix()`, `center-block()`, `flex-center()`
+- **Effects**: `rounded()`, `box-shadow()`, `transition()`
+- **Responsive**: `breakpoint()` mixin for media queries
+- **Modern CSS**: Removed outdated vendor prefixes
+
+### **`minimal-mistakes.scss`**
+Main import file that loads the Minimal Mistakes theme components in the correct order.
+
+### **Component Files**
+- **`_buttons.scss`**: Button styles with color variants
+- **`_forms.scss`**: Form styling with focus states and validation
+- **`_sidebar.scss`**: Sidebar layout and author profile
+- **`_footer.scss`**: Footer layout and social links
+
+## 🚀 Recent Improvements
+
+### **✅ Completed Modernizations:**
+
+1. **Removed Duplicate Files**
+   - Consolidated `forms.scss` and `_forms.scss` (kept newer version)
+   - Removed duplicate `vendor/_fonts.scss''`
+
+2. **Updated Font Loading** 
+   - Changed Google Fonts URLs from HTTP to HTTPS
+   - Fixed `@font_face` syntax to `@font-face`
+
+3. **Modernized Sass Syntax**
+   - Updated `@use` statements with proper namespacing
+   - Removed outdated vendor prefixes (-webkit-, -moz-, -ms-, -o-)
+   - Simplified mixins for modern browser support
+   - Added modern flexbox utilities
+
+4. **Enhanced Mixins**
+   - Added `flex-center()` and `flex-between()` utilities
+   - Improved `breakpoint()` mixin for responsive design
+   - Streamlined animation and transform mixins
+
+5. **Code Quality**
+   - Consistent indentation and formatting
+   - Proper Sass variable scoping
+   - Removed IE-specific hacks and fallbacks
+
+## 📱 Responsive Design
+
+The stylesheet system includes comprehensive responsive design:
+
+```scss
+// Breakpoint variables
+$micro: "only screen and (min-width: 30em)";      // 480px
+$small: "only screen and (min-width: 37.5em)";    // 600px  
+$medium: "only screen and (min-width: 48em)";     // 768px
+$large: "only screen and (min-width: 62em)";      // 992px
+$x-large: "only screen and (min-width: 86.375em)"; // 1382px
+```
+
+Usage:
+```scss
+@include breakpoint(large) {
+  // Styles for large screens and up
+}
+```
+
+## 🎯 Performance Optimizations
+
+- **Minimal CSS Output**: Removed redundant vendor prefixes
+- **Efficient Imports**: Uses `@use` for better dependency management
+- **Optimized Fonts**: HTTPS font loading with proper fallbacks
+- **Print Styles**: Dedicated print stylesheet for better document printing
+
+## 🔍 Syntax Highlighting
+
+Code syntax highlighting is handled by:
+- **`coderay.scss`**: CodeRay syntax highlighter styles
+- **`minimal-mistakes/_syntax.scss`**: Theme's syntax highlighting
+- Supports multiple color schemes and programming languages
+
+## 🛠️ Development Guidelines
+
+### **Adding New Styles**
+1. Use existing variables from `variables.scss`
+2. Create mixins for reusable patterns
+3. Follow BEM-like naming conventions
+4. Test across all breakpoints
+
+### **Modifying Colors**
+1. Update variables in `variables.scss`
+2. Use Sass color functions for variations:
+   ```scss
+   color: color.adjust($primary-color, $lightness: 10%);
+   ```
+
+### **Adding Responsive Styles**
+```scss
+.my-component {
+  // Mobile-first base styles
+  padding: 1rem;
+  
+  @include breakpoint(medium) {
+    // Tablet styles
+    padding: 2rem;
+  }
+  
+  @include breakpoint(large) {
+    // Desktop styles  
+    padding: 3rem;
+  }
+}
+```
+
+## 📚 Dependencies
+
+- **Sass/SCSS**: Modern Sass with `@use` module system
+- **Minimal Mistakes Theme**: Base Jekyll theme
+- **Google Fonts**: PT Serif and PT Sans Narrow font families
+
+## 🔗 Related Files
+
+- **`assets/css/main.scss`**: Main stylesheet that imports these files
+- **`_config.yml`**: Jekyll configuration with theme settings
+- **`Gemfile`**: Ruby dependencies including Sass gems
+
+---
+
+*Last updated: August 2025*
+*Maintained by: The Parlor development team*
+</file>
+
+<file path="site.scss">
+@use "sass:color";
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* ==========================================================================
+   Site wide styles
+   ========================================================================== */
+
+/* 
+   Selection
+   ========================================================================== */
+
+::selection { 
+	background-color: color.adjust($basecolor, $lightness: 65%); 
+	color: $basecolor; 
+	text-shadow: none; 
+}  	
+
+::selection { 
+	background-color: color.adjust($basecolor, $lightness: 65%); 
+	color: $basecolor; 
+	text-shadow: none; 
+}
+
+/* 
+   Global classes
+   ========================================================================== */
+
+/* Capitalize */
+.all-caps {
+	text-transform: uppercase;
+}
+
+/* Float left */
+.pull-left {
+	float: left;
+}
+
+/* Float right */
+.pull-right {
+	float: right;
+}
+
+.image-pull-right {
+	float: right;
+	margin-top: 0;
+}
+
+/* Clearfix */
+.clearfix {
+	@include clearfix;
+}
+
+/* Remove bullets and indentation from list */
+.unstyled-list {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		list-style-type: none;
+	}
+}
+</file>
+
+<file path="typography.scss">
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+@use "grid" as *;
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* 
+   Headings
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $heading-font;
+}
+
+h1 {
+	@include font-size(32);
+}
+
+h2 {
+	@include font-size(28);
+}
+
+h3 {
+	@include font-size(24);
+}
+
+h4 {
+	@include font-size(18);
+}
+
+h5 {
+	@include font-size(16);
+}
+
+h6 {
+	@include font-size(14);
+}
+
+/* 
+   Links
+   ========================================================================== */
+
+a { 
+	text-decoration: none;
+	color: $link-color; 
+
+	&:visited { 
+		color: $linkcolorvisited; 
+	}
+
+	&:hover { 
+		color: $linkcolorhover; 
+	}
+
+	&:focus { 
+		outline: thin dotted; 
+		color: $linkcolorfocus;
+	}
+
+	&:hover, 
+	&:active { 
+		outline: 0; 
+	}
+}
+
+/* 
+   Figure captions
+   ========================================================================== */
+
+figcaption {
+	padding-top: 10px;
+	@include font(14);
+
+	line-height: 1.3;
+	color: color.adjust($text-color, $lightness: 10%);
+}
+
+/* 
+   Feature image captions
+   ========================================================================== */
+
+.image-credit {
+	@include grid(12,10);
+	@include prefix(12,1);
+	@include suffix(12,1);
+
+	display: block;
+	text-align: right;
+	@include font(12);
+
+	line-height: 1.3;
+	font-style: italic;
+	color: color.adjust($text-color, $lightness: 30%);
+	@media #{$small} {
+		@include grid(12,9);
+		@include prefix(12,0);
+		@include suffix(12,0);
+	}
+	@media #{$x-large} {
+		@include grid(12,8.5);
+	}
+
+	a {
+		color: color.adjust($text-color, $lightness: 30%);
+	}
+}
+
+/* 
+   Notices
+   ========================================================================== */
+
+.notice {
+	margin-top: 1.5em;
+	padding: .5em 1em;
+	text-indent: 0;
+	@include font-rem(14);
+
+	background-color: $body-color;
+	border: 1px solid color.adjust($body-color,$lightness: -20%);
+	@include rounded(3px);
+}
+
+/* 
+   Blockquotes
+   ========================================================================== */
+
+blockquote {
+	margin-left: -28px;
+	padding-left: 20px;
+	border-left: 8px solid $border-color;
+	font-family: $alt-font;
+	font-style: italic;
+}
+
+/* 
+   Footnotes
+   ========================================================================== */
+
+.footnotes {
+	ol, li, p {
+		margin-bottom: 0;
+		@include font-rem(14);
+	}
+}
+
+/* 
+   Paragraphs
+   ========================================================================== */
+
+p {
+	margin: 0 0 $indent-var;
+
+	// sibling indentation
+  @if $paragraph-indent == true {
+    & + p {
+			text-indent: $indent-var;
+			margin-top: -($indent-var);
+		}
+	}
+}
+
+/* 
+   Code snippets
+   ========================================================================== */
+
+tt, code, kbd, samp, pre {
+	font-family: $code-font;
+}
+
+p,
+li { 
+	code {
+		@include font-rem(12);
+
+		line-height: 1.5;
+		white-space: nowrap;
+		margin: 0 2px;
+		padding: 0 5px;
+		border: 1px solid color.adjust($black, $lightness: 90%);
+		background-color: #efefef;
+		@include rounded(3px);
+	}
+}
+
+pre {
+	@include font-rem(12);
+
+	line-height: 1.5;
+	overflow-x: auto;
+}
+</file>
+
+<file path="variables.scss">
+@use "sass:color";
+
+/* ==========================================================================
+   Sass variables
+   ========================================================================== */
+
+/*  Typography========================================================================== */
+
+$doc-font-size: 16;
+$doc-line-height: 26;
+$paragraph-indent: true !default;
+$base-font: 'PT Serif', serif;
+$heading-font: 'PT Sans Narrow', sans-serif;
+$code-font: monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+$alt-font: $base-font;
+
+/* ==============Colors========================================================================== */
+
+$basecolor      		: #343434;
+$background-color		: #fff !default;
+$black          		: #111;
+$border-color   		: #7a8288;
+$code-background-color		: #fafafa !default;
+$danger-color			: #ee5f5b !default;
+$dark-gray			: #4d5356 !default;
+$darker-gray			: #404548 !default;
+$form-background-color		: #f0f1f2 !default;
+$gray				: #7a8288 !default;
+$info-color			: #3b9cba !default;
+$light-gray			: #b6bcc1 !default;
+$lighter-gray			: #f0f1f2 !default;
+$muted-text-color		: #4d5356 !default;
+$primary-color			: #6f777d !default;
+$success-color			: #3fa63f !default;
+$text-color     		: #333332;
+$warning-color			: #d67f05 !default;
+$white          		: #fff;
+
+/* Academic theme colors */
+$academic-red: #8b2635;
+$academic-red-dark: #6d1e2a;
+$accent-blue: #3498db;
+$accent-blue-dark: #2980b9;
+$content-text: #2c3e50;
+
+/* Consolidated grays and borders */
+$border-light: #eee;
+$gray-medium: #666;
+$gray-darker: #555;
+$gray-lighter: #999;
+$bg-light: #f8f9fa;
+$bg-lighter: #e9ecef;
+$border-medium: #dee2e6;
+$text-dark: #333;
+
+/* YIQ color contrast */
+
+$yiq-contrasted-dark-default: $dark-gray !default;
+$yiq-contrasted-light-default: #fff !default;
+$yiq-contrasted-threshold: 175 !default;
+$yiq-debug: false !default;
+
+
+/* =========================brands ============================ */
+$facebook-color     	: #3b5998 !default;
+$flickr-color       	: #ff0084;
+$foursquare-color   	: #0cbadf;
+$instagram-color    	: #4e433c;
+$linkedin-color     	: #4875b4;
+$pinterest-color    	: #cb2027;
+$rss-color          	: #fa9b39;
+$tumblr-color       	: #2c4762;
+$twitter-color      	: #55acee;
+$vimeo-color        	: #1ab7ea;
+$youtube-color      	: #f33;
+$behance-color	    	: #1769ff !default;
+$bitbucket-color	: #205081 !default;
+$bluesky-color		: #1083fe !default;
+$dribbble-color		: #ea4c89 !default;
+$flickr-color		: #ff0084 !default;
+$foursquare-color	: #0072b1 !default;
+$github-color		: #171516 !default;
+$gitlab-color		: #e24329 !default;
+$instagram-color	: #517fa4 !default;
+$keybase-color		: #ef7639 !default;
+$lastfm-color		: #d51007 !default;
+$linkedin-color		: #007bb6 !default;
+$mastodon-color		: #2b90d9 !default;
+$pinterest-color	: #cb2027 !default;
+$reddit-color		: #ff4500 !default;
+$rss-color		: #fa9b39 !default;
+$soundcloud-color	: #f30 !default;
+$stackoverflow-color	: #fe7a15 !default;
+$tumblr-color		: #32506d !default;
+$twitter-color		: #55acee !default;
+$x-color		: #0f1419 !default;
+$vimeo-color		: #1ab7ea !default;
+$vine-color		: #00bf8f !default;
+$youtube-color		: #b00 !default;
+$xing-color		: #006567 !default;
+
+/* links */
+$link-color       	: #343434;
+$link-color-hover	: color.mix(#000, $link-color, 25%) !default;
+$link-color-visited	: color.mix(#fff, $link-color, 15%) !default;
+
+/* masthead links */
+$masthead-link-color: $primary-color !default;
+$masthead-link-color-hover: color.mix(#000, $primary-color, 25%) !default;
+$navicon-link-color-hover: color.mix(#fff, $primary-color, 75%) !default;
+
+/* notices */
+$notice-background-mix: 80% !default;
+$code-notice-background-mix: 90% !default;
+
+/* syntax highlighting (base16) */
+
+$base00: #263238 !default;
+$base01: #2e3c43 !default;
+$base02: #314549 !default;
+$base03: #546e7a !default;
+$base04: #b2ccd6 !default;
+$base05: #eff !default;
+$base06: #eff !default;
+$base07: #fff !default;
+$base08: #f07178 !default;
+$base09: #f78c6c !default;
+$base0a: #ffcb6b !default;
+$base0b: #c3e88d !default;
+$base0c: #89ddff !default;
+$base0d: #82aaff !default;
+$base0e: #c792ea !default;
+$base0f: #ff5370 !default;
+
+
+/* ================== Breakpoints ========================================================================== */
+   
+$micro            : "only screen and (min-width: 30em)";
+$small            : "only screen and (min-width: 37.5em)";
+$medium           : "only screen and (min-width: 48em)";
+$medium-wide	  : 900px !default;
+$large            : "only screen and (min-width: 62em)";
+$x-large          : "only screen and (min-width: 86.375em)";
+$max-width	  : $x-large !default;
+
+/*
+
+   Grid
+
+   ========================================================================== */
+$right-sidebar-width-narrow: 200px !default;
+$right-sidebar-width: 300px !default;
+$right-sidebar-width-wide: 400px !default;
+
+/*
+   Other
+   ========================================================================== */
+
+$border-radius: 4px !default;
+$box-shadow: 0 1px 1px rgb(0 0 0 / 12.5%) !default;
+$nav-height: 2em !default;
+$nav-toggle-height: 2rem !default;
+$navicon-width: 1.5rem !default;
+$navicon-height: 0.25rem !default;
+$global-transition: all 0.2s ease-in-out !default;
+$intro-transition: intro 0.3s both !default;
+</file>
+
+</files>

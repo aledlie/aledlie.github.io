@@ -1,0 +1,663 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+accessibility.spec.js
+analytics.spec.js
+site-navigation.spec.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="accessibility.spec.js">
+const { test, expect } = require('@playwright/test');
+const { injectAxe, checkA11y, getViolations } = require('axe-playwright');
+
+test.describe('Accessibility Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    await injectAxe(page);
+  });
+
+  test('should not have any accessibility violations on homepage', async ({ page }) => {
+    await checkA11y(page, null, {
+      detailedReport: true,
+      detailedReportOptions: { html: true }
+    });
+  });
+
+  test('should not have accessibility violations on about page', async ({ page }) => {
+    await page.goto('/about/');
+    await injectAxe(page);
+    await checkA11y(page);
+  });
+
+  test('should have proper heading hierarchy', async ({ page }) => {
+    const headings = await page.locator('h1, h2, h3, h4, h5, h6').all();
+    
+    if (headings.length > 0) {
+      // Should have at least one h1
+      const h1Count = await page.locator('h1').count();
+      expect(h1Count).toBeGreaterThanOrEqual(1);
+      expect(h1Count).toBeLessThanOrEqual(1); // Should have only one h1
+    }
+  });
+
+  test('should have alt text on all images', async ({ page }) => {
+    const images = await page.locator('img').all();
+    
+    for (const img of images) {
+      const altText = await img.getAttribute('alt');
+      expect(altText).not.toBeNull();
+      // Alt text can be empty for decorative images, but attribute must exist
+    }
+  });
+
+  test('should have proper form labels', async ({ page }) => {
+    const inputs = await page.locator('input, textarea, select').all();
+    
+    for (const input of inputs) {
+      const inputId = await input.getAttribute('id');
+      const inputType = await input.getAttribute('type');
+      
+      // Skip hidden inputs
+      if (inputType === 'hidden') continue;
+      
+      if (inputId) {
+        // Check for associated label
+        const label = await page.locator(`label[for="${inputId}"]`).count();
+        const ariaLabel = await input.getAttribute('aria-label');
+        const ariaLabelledBy = await input.getAttribute('aria-labelledby');
+        
+        // Input should have either a label, aria-label, or aria-labelledby
+        const hasAccessibleName = label > 0 || ariaLabel || ariaLabelledBy;
+        expect(hasAccessibleName).toBe(true);
+      }
+    }
+  });
+
+  test('should have proper link text', async ({ page }) => {
+    const links = await page.locator('a[href]').all();
+    
+    for (const link of links) {
+      const linkText = await link.textContent();
+      const ariaLabel = await link.getAttribute('aria-label');
+      const title = await link.getAttribute('title');
+      
+      // Link should have descriptive text, aria-label, or title
+      const hasAccessibleName = 
+        (linkText && linkText.trim().length > 0) || 
+        ariaLabel || 
+        title;
+      
+      expect(hasAccessibleName).toBe(true);
+      
+      // Avoid generic link text
+      if (linkText) {
+        const genericTexts = ['click here', 'read more', 'here', 'more'];
+        const isGeneric = genericTexts.some(generic => 
+          linkText.toLowerCase().includes(generic)
+        );
+        
+        if (isGeneric) {
+          // If link text is generic, it should have aria-label or title
+          expect(ariaLabel || title).toBeTruthy();
+        }
+      }
+    }
+  });
+
+  test('should have adequate color contrast', async ({ page }) => {
+    // Use axe to check color contrast
+    await checkA11y(page, null, {
+      rules: {
+        'color-contrast': { enabled: true },
+        'color-contrast-enhanced': { enabled: true }
+      }
+    });
+  });
+
+  test('should be keyboard navigable', async ({ page }) => {
+    // Test that all interactive elements can be reached by keyboard
+    const focusableElements = await page.locator(
+      'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    ).all();
+
+    if (focusableElements.length > 0) {
+      // Start with first element
+      await focusableElements[0].focus();
+      
+      // Tab through some elements
+      for (let i = 0; i < Math.min(5, focusableElements.length - 1); i++) {
+        await page.keyboard.press('Tab');
+      }
+      
+      // Should be able to navigate with keyboard
+      const focusedElement = await page.locator(':focus').first();
+      await expect(focusedElement).toBeVisible();
+    }
+  });
+
+  test('should have skip navigation links', async ({ page }) => {
+    // Look for skip links (often hidden until focused)
+    const skipLinks = await page.locator('a[href^="#"]:has-text(/skip/i)').count();
+    
+    if (skipLinks > 0) {
+      const skipLink = page.locator('a[href^="#"]:has-text(/skip/i)').first();
+      
+      // Skip link should have proper target
+      const href = await skipLink.getAttribute('href');
+      const targetId = href.substring(1);
+      const target = await page.locator(`#${targetId}`).count();
+      
+      expect(target).toBeGreaterThan(0);
+    }
+  });
+
+  test('should have proper ARIA landmarks', async ({ page }) => {
+    // Check for main landmark
+    const mainLandmark = await page.locator('main, [role="main"]').count();
+    expect(mainLandmark).toBeGreaterThanOrEqual(1);
+    
+    // Check for navigation landmark
+    const navLandmark = await page.locator('nav, [role="navigation"]').count();
+    if (navLandmark === 0) {
+      // May not have navigation on all pages, but should have it somewhere
+      console.log('No navigation landmark found - may be acceptable for some pages');
+    }
+  });
+
+  test('should handle focus management', async ({ page }) => {
+    // Test focus indicators are visible
+    const firstFocusable = page.locator(
+      'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    ).first();
+    
+    if (await firstFocusable.count() > 0) {
+      await firstFocusable.focus();
+      
+      // Element should be focused
+      await expect(firstFocusable).toBeFocused();
+    }
+  });
+
+  test('should have proper page title', async ({ page }) => {
+    const title = await page.title();
+    
+    expect(title).toBeTruthy();
+    expect(title.length).toBeGreaterThan(0);
+    expect(title.length).toBeLessThan(60); // SEO best practice
+    
+    // Title should be descriptive
+    const genericTitles = ['untitled', 'new page', 'page', 'document'];
+    const isGeneric = genericTitles.some(generic => 
+      title.toLowerCase().includes(generic)
+    );
+    expect(isGeneric).toBe(false);
+  });
+});
+</file>
+
+<file path="analytics.spec.js">
+const { test, expect } = require('@playwright/test');
+
+test.describe('Analytics Integration', () => {
+  test.beforeEach(async ({ page }) => {
+    // Block actual analytics requests to avoid polluting real data
+    await page.route('**/gtag/js**', route => route.abort());
+    await page.route('**/google-analytics.com/**', route => route.abort());
+    await page.route('**/googletagmanager.com/**', route => route.abort());
+  });
+
+  test('should load Google Tag Manager script', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check that GTM script tag exists
+    const gtagScript = await page.locator('script[src*="gtag/js"]').count();
+    expect(gtagScript).toBeGreaterThan(0);
+    
+    // Verify it has the correct GTM ID
+    const scriptSrc = await page.locator('script[src*="gtag/js"]').first().getAttribute('src');
+    expect(scriptSrc).toContain('GTM-TK5J8L38');
+  });
+
+  test('should have Google site verification meta tag', async ({ page }) => {
+    await page.goto('/');
+    
+    const verificationTag = await page.locator('meta[name="google-site-verification"]');
+    await expect(verificationTag).toHaveCount(1);
+    
+    const content = await verificationTag.getAttribute('content');
+    expect(content).toBe('N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM');
+  });
+
+  test('should initialize gtag function', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check that gtag function is defined
+    const gtagExists = await page.evaluate(() => typeof window.gtag === 'function');
+    expect(gtagExists).toBe(true);
+    
+    // Check that dataLayer is initialized
+    const dataLayerExists = await page.evaluate(() => Array.isArray(window.dataLayer));
+    expect(dataLayerExists).toBe(true);
+  });
+
+  test('should track page views', async ({ page }) => {
+    // Mock gtag to capture calls
+    await page.addInitScript(() => {
+      window.gtagCalls = [];
+      window.gtag = function() {
+        window.gtagCalls.push(Array.from(arguments));
+      };
+      window.dataLayer = window.dataLayer || [];
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Check that gtag was called with config
+    const gtagCalls = await page.evaluate(() => window.gtagCalls);
+    
+    // Should have at least a 'js' call and a 'config' call
+    const jsCalls = gtagCalls.filter(call => call[0] === 'js');
+    const configCalls = gtagCalls.filter(call => call[0] === 'config');
+    
+    expect(jsCalls.length).toBeGreaterThan(0);
+    expect(configCalls.length).toBeGreaterThan(0);
+    
+    // Verify config call has correct GTM ID
+    const gtmConfigCall = configCalls.find(call => call[1] === 'GTM-TK5J8L38');
+    expect(gtmConfigCall).toBeTruthy();
+  });
+
+  test('should handle navigation tracking', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.gtagCalls = [];
+      window.gtag = function() {
+        window.gtagCalls.push(Array.from(arguments));
+      };
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Navigate to another page
+    const aboutLink = page.locator('a[href*="/about"]').first();
+    if (await aboutLink.count() > 0) {
+      await aboutLink.click();
+      await page.waitForLoadState('networkidle');
+      
+      // Check for additional gtag calls on navigation
+      const gtagCalls = await page.evaluate(() => window.gtagCalls);
+      expect(gtagCalls.length).toBeGreaterThan(1);
+    }
+  });
+
+  test('should respect Do Not Track', async ({ page, context }) => {
+    // Set Do Not Track header
+    await context.setExtraHTTPHeaders({
+      'DNT': '1'
+    });
+    
+    await page.goto('/');
+    
+    // In a real implementation, you'd check that analytics is disabled
+    // This test documents the requirement
+    const dntHeader = await page.evaluate(() => navigator.doNotTrack);
+    expect(dntHeader).toBe('1');
+  });
+
+  test('should load analytics scripts asynchronously', async ({ page }) => {
+    await page.goto('/');
+    
+    const gtagScript = page.locator('script[src*="gtag/js"]').first();
+    const isAsync = await gtagScript.getAttribute('async');
+    
+    expect(isAsync).not.toBeNull();
+  });
+
+  test('should not block page rendering', async ({ page }) => {
+    const startTime = Date.now();
+    
+    await page.goto('/');
+    
+    // Check that main content is visible quickly, even if analytics hasn't loaded
+    await expect(page.locator('h1, h2').first()).toBeVisible({ timeout: 3000 });
+    
+    const renderTime = Date.now() - startTime;
+    expect(renderTime).toBeLessThan(3000);
+  });
+});
+
+test.describe('Privacy and Consent', () => {
+  test('should handle analytics opt-out', async ({ page }) => {
+    await page.goto('/');
+    
+    // Set analytics opt-out
+    await page.evaluate(() => {
+      window['ga-disable-GTM-TK5J8L38'] = true;
+    });
+    
+    const optOutSet = await page.evaluate(() => window['ga-disable-GTM-TK5J8L38']);
+    expect(optOutSet).toBe(true);
+  });
+
+  test('should have privacy policy link', async ({ page }) => {
+    await page.goto('/');
+    
+    // Look for privacy policy or similar links
+    const privacyLinks = page.locator('a:has-text("privacy"), a:has-text("Privacy"), a[href*="privacy"]');
+    
+    if (await privacyLinks.count() > 0) {
+      const firstPrivacyLink = privacyLinks.first();
+      await expect(firstPrivacyLink).toBeVisible();
+      
+      const href = await firstPrivacyLink.getAttribute('href');
+      expect(href).toBeTruthy();
+    }
+  });
+});
+
+test.describe('Analytics Error Handling', () => {
+  test('should handle missing analytics gracefully', async ({ page }) => {
+    // Block all analytics scripts
+    await page.route('**/gtag/**', route => route.abort());
+    await page.route('**/google-analytics.com/**', route => route.abort());
+    await page.route('**/googletagmanager.com/**', route => route.abort());
+    
+    const consoleErrors = [];
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        consoleErrors.push(msg.text());
+      }
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Page should still function normally
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Should not have critical JavaScript errors
+    const criticalErrors = consoleErrors.filter(error => 
+      !error.toLowerCase().includes('gtag') &&
+      !error.toLowerCase().includes('analytics') &&
+      !error.toLowerCase().includes('network error')
+    );
+    
+    expect(criticalErrors).toHaveLength(0);
+  });
+
+  test('should handle slow analytics loading', async ({ page }) => {
+    // Delay analytics scripts
+    await page.route('**/gtag/js**', async route => {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      route.continue();
+    });
+    
+    await page.goto('/');
+    
+    // Page should be interactive even before analytics loads
+    await expect(page.locator('h1, h2').first()).toBeVisible({ timeout: 1000 });
+    
+    // Navigation should work
+    const navLink = page.locator('nav a, .navbar a').first();
+    if (await navLink.count() > 0) {
+      await expect(navLink).toBeVisible();
+      // Should be clickable immediately
+      await expect(navLink).not.toHaveAttribute('disabled');
+    }
+  });
+});
+</file>
+
+<file path="site-navigation.spec.js">
+const { test, expect } = require('@playwright/test');
+
+test.describe('Site Navigation', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('should have working homepage', async ({ page }) => {
+    await expect(page).toHaveTitle(/ℵ₀/);
+    await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+  });
+
+  test('should navigate to all main pages', async ({ page }) => {
+    const navLinks = [
+      { text: 'About', url: '/about/' },
+      { text: 'Blog', url: '/jekyll/' }, // Blog link redirects to latest post
+      { text: 'Projects', url: '/projects/' }
+    ];
+
+    for (const link of navLinks) {
+      await page.goto('/');
+
+      // Find and click the navigation link
+      const navLink = page.locator(`a[href*="${link.url}"], a:has-text("${link.text}")`).first();
+      await expect(navLink).toBeVisible();
+      await navLink.click();
+
+      // Wait for navigation and verify page has loaded
+      await page.waitForLoadState('networkidle');
+
+      // Verify page has content (more flexible - just check that we navigated somewhere)
+      await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+    }
+  });
+
+  test('should have working search functionality', async ({ page }) => {
+    const searchInput = page.locator('input[type="search"], input[name="search"], #search-input');
+    
+    if (await searchInput.count() > 0) {
+      await searchInput.fill('test search');
+      await searchInput.press('Enter');
+      
+      // Verify search results or search page loads
+      await page.waitForLoadState('networkidle');
+      expect(page.url()).toContain('search');
+    }
+  });
+
+  test('should have working contact links', async ({ page }) => {
+    const contactLinks = page.locator('a[href*="mailto:"], a[href*="github.com"], a[href*="twitter.com"], a[href*="linkedin.com"]');
+    
+    if (await contactLinks.count() > 0) {
+      const firstLink = contactLinks.first();
+      await expect(firstLink).toBeVisible();
+      
+      const href = await firstLink.getAttribute('href');
+      expect(href).toBeTruthy();
+      expect(href).toMatch(/^(mailto:|https?:\/\/)/);
+    }
+  });
+
+  test('should handle 404 errors gracefully', async ({ page }) => {
+    const response = await page.goto('/non-existent-page');
+    expect(response.status()).toBe(404);
+
+    // Should show custom 404 page with "Page Not Found" heading
+    await expect(page.locator('h1, h2, h3')).toContainText('Page Not Found', { ignoreCase: true });
+  });
+
+  test('should have proper meta tags', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check for essential meta tags
+    const title = await page.locator('title').textContent();
+    expect(title).toBeTruthy();
+    expect(title.length).toBeGreaterThan(0);
+    
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(description).toBeTruthy();
+    expect(description.length).toBeGreaterThan(0);
+    
+    // Check for Open Graph tags
+    const ogTitle = await page.locator('meta[property="og:title"]').getAttribute('content');
+    const ogDescription = await page.locator('meta[property="og:description"]').getAttribute('content');
+    
+    if (ogTitle) expect(ogTitle.length).toBeGreaterThan(0);
+    if (ogDescription) expect(ogDescription.length).toBeGreaterThan(0);
+  });
+});
+
+test.describe('Responsive Design', () => {
+  test('should work on mobile devices', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 }); // iPhone SE size
+    await page.goto('/');
+    
+    // Check that main navigation is accessible on mobile (using Minimal Mistakes theme selectors)
+    const mainNav = page.locator('.greedy-nav, #site-nav, .masthead');
+    if (await mainNav.count() > 0) {
+      await expect(mainNav.first()).toBeVisible();
+    }
+    
+    // Check that content is readable
+    const mainContent = page.locator('main, .page__content, article, .page').first();
+    if (await mainContent.count() > 0) {
+      await expect(mainContent).toBeVisible();
+    }
+    
+    // Verify no horizontal scroll
+    const bodyScrollWidth = await page.evaluate(() => document.body.scrollWidth);
+    const bodyClientWidth = await page.evaluate(() => document.body.clientWidth);
+    expect(bodyScrollWidth).toBeLessThanOrEqual(bodyClientWidth + 1); // Allow 1px tolerance
+  });
+
+  test('should work on tablet devices', async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 1024 }); // iPad size
+    await page.goto('/');
+    
+    // Check that main content is visible
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Check that page has loaded properly by looking for visible content
+    const visibleContent = page.locator('body');
+    await expect(visibleContent).toBeVisible();
+    
+    // Verify no horizontal scroll
+    const bodyScrollWidth = await page.evaluate(() => document.body.scrollWidth);
+    const bodyClientWidth = await page.evaluate(() => document.body.clientWidth);
+    expect(bodyScrollWidth).toBeLessThanOrEqual(bodyClientWidth + 1); // Allow 1px tolerance
+  });
+
+  test('should work on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto('/');
+    
+    await expect(page.locator('h1, h2').first()).toBeVisible();
+    
+    // Check that full navigation is visible on desktop
+    const navLinks = page.locator('.greedy-nav a, .nav-links a, #site-nav a');
+    if (await navLinks.count() > 0) {
+      const firstNavLink = navLinks.first();
+      await expect(firstNavLink).toBeVisible();
+    }
+  });
+});
+
+test.describe('Performance', () => {
+  test('should load pages quickly', async ({ page }) => {
+    const startTime = Date.now();
+    await page.goto('/');
+    const loadTime = Date.now() - startTime;
+    
+    // Page should load within 5 seconds
+    expect(loadTime).toBeLessThan(5000);
+    
+    // Check that main content is visible
+    await expect(page.locator('h1, h2, h3').first()).toBeVisible();
+  });
+
+  test('should have no console errors', async ({ page }) => {
+    const consoleErrors = [];
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        consoleErrors.push(msg.text());
+      }
+    });
+    
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Filter out known acceptable errors (like failed optional resource loads)
+    const criticalErrors = consoleErrors.filter(error => 
+      !error.includes('favicon') && 
+      !error.includes('404') &&
+      !error.includes('net::ERR_')
+    );
+    
+    expect(criticalErrors).toHaveLength(0);
+  });
+
+  test('should load all critical resources', async ({ page }) => {
+    const failedRequests = [];
+
+    page.on('response', response => {
+      if (!response.ok() && response.status() !== 404 && response.status() !== 302 && response.status() !== 301) {
+        failedRequests.push({
+          url: response.url(),
+          status: response.status()
+        });
+      }
+    });
+
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Filter out non-critical failed requests and external CDN resources
+    const criticalFailures = failedRequests.filter(req =>
+      !req.url.includes('unpkg.com') && // External CDN
+      !req.url.includes('cdn.') && // Other CDNs
+      (req.url.includes('.css') ||
+       req.url.includes('.js') ||
+       (req.url.includes('.jpg') || req.url.includes('.png') || req.url.includes('.webp')))
+    );
+
+    expect(criticalFailures).toHaveLength(0);
+  });
+});
+</file>
+
+</files>
