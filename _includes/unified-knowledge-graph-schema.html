@@ -1,0 +1,247 @@
+{% comment %}
+Unified Knowledge Graph Schema
+This replaces multiple separate schema files with a single, comprehensive knowledge graph
+All entities use proper @id references following best practices from:
+https://momenticmarketing.com/blog/id-schema-for-seo-llms-knowledge-graphs
+
+Benefits:
+- Consistent entity identification across all pages
+- Bidirectional relationships using @id references
+- Scalable: add new entities without modifying existing ones
+- SEO: Search engines understand entity relationships
+- Knowledge Graphs: Build queryable knowledge base over time
+
+Generated using ast-grep-mcp server's build_entity_graph tool
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}#person",
+      "name": "{{ site.author.name }}",
+      "alternateName": ["{{ site.social.name | default: site.author.name }}", "Alyshia"],
+      "url": "{{ site.url }}/",
+      {% if site.author.avatar -%}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.author.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      {% endif -%}
+      {% if site.author.bio -%}
+      "description": "{{ site.author.bio }}",
+      {% endif -%}
+      {% if site.author.email -%}
+      "email": "{{ site.author.email }}",
+      {% endif -%}
+      {% if site.author.location -%}
+      "homeLocation": {
+        "@type": "Place",
+        "name": "{{ site.author.location | split: ' | ' | first | default: site.author.location }}"
+      },
+      {% endif -%}
+      "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Software Developer",
+          "occupationCategory": "Computer and Mathematical Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technology Consultant",
+          "occupationCategory": "Management Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technical Writer",
+          "occupationCategory": "Arts, Design, Entertainment, Sports, and Media Occupations"
+        }
+      ],
+      "worksFor": [
+        {
+          "@id": "{{ site.url }}/organizations/integrity-studios#organization"
+        },
+        {
+          "@id": "{{ site.url }}/organizations/inventoryai#organization"
+        }
+      ],
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technology Consulting",
+        "Business Automation",
+        "Technical Writing",
+        "Open Source Software"
+      ],
+      {% if site.author.links -%}
+      "sameAs": [
+        {% for link in site.author.links -%}
+          {% if link.url -%}
+            "{{ link.url }}"{% unless forloop.last %},{% endunless %}
+          {% endif -%}
+        {% endfor -%}
+      ],
+      {% endif -%}
+      "owns": {
+        "@id": "{{ site.url }}#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "{{ site.url }}/about#profilepage"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "professional",
+        {% if site.author.email -%}
+        "email": "{{ site.author.email }}",
+        {% endif -%}
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "alternateName": "{{ site.author.name }}'s Personal Blog",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "{{ site.url }}#person"
+      },
+      "author": {
+        "@id": "{{ site.url }}#person"
+      },
+      "copyrightHolder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "copyrightYear": "{{ site.time | date: '%Y' }}",
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "mainEntity": {
+        "@id": "{{ site.url }}#person"
+      },
+      "hasPart": [
+        {
+          "@id": "{{ site.url }}#blog"
+        },
+        {
+          "@id": "{{ site.url }}/about#profilepage"
+        },
+        {
+          "@id": "{{ site.url }}/projects#collectionpage"
+        }
+      ],
+      "about": [
+        "Software Development",
+        "Technology Consulting",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing",
+        "Business Automation"
+      ],
+      "keywords": "software development, technology, machine learning, AI, consulting, technical writing, automation",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ site.url }}/search/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
+        {
+          "@type": "ReadAction",
+          "target": "{{ site.url }}/posts/",
+          "name": "Read Blog Posts"
+        },
+        {
+          "@type": "ViewAction",
+          "target": "{{ site.url }}/projects/",
+          "name": "View Projects"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "{{ site.url }}#blog",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }} - Blog",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "author": {
+        "@id": "{{ site.url }}#person"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "about": [
+        "Software Development",
+        "Technology",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing"
+      ]{% if page.url == '/' %},
+      "blogPost": [
+        {% for post in site.posts limit: 10 -%}
+        {
+          "@type": "BlogPosting",
+          "@id": "{{ post.url | absolute_url }}#blogposting",
+          "headline": "{{ post.title }}",
+          "datePublished": "{{ post.date | date_to_xmlschema }}",
+          "author": {
+            "@id": "{{ site.url }}#person"
+          },
+          "publisher": {
+            "@id": "{{ site.url }}#person"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor -%}
+      ]{% endif %}
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/organizations/integrity-studios#organization",
+      "name": "Integrity Studios",
+      "url": "https://integritystudio.notion.site",
+      "sameAs": "https://integritystudio.notion.site",
+      "description": "Technology consulting and development studio",
+      "foundingDate": "2020",
+      "founder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "employee": {
+        "@id": "{{ site.url }}#person"
+      },
+      "industry": "Technology Consulting",
+      "knowsAbout": ["Software Development", "Web Development", "Technology Consulting", "Digital Transformation"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/organizations/inventoryai#organization",
+      "name": "InventoryAI.io",
+      "url": "https://amazing-froyo-8f05e0.netlify.app/",
+      "sameAs": "https://amazing-froyo-8f05e0.netlify.app/",
+      "description": "AI-powered inventory management solutions",
+      "foundingDate": "2023",
+      "founder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "employee": {
+        "@id": "{{ site.url }}#person"
+      },
+      "industry": "Artificial Intelligence",
+      "applicationCategory": "Business Software",
+      "knowsAbout": ["Artificial Intelligence", "Inventory Management", "Machine Learning", "Business Automation", "Supply Chain"]
+    }
+  ]
+}
+</script>

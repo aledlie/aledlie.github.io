@@ -1,0 +1,103 @@
+{% if page.schema_type == 'TechArticle' %}
+{% comment %}
+TechArticle Schema - For technical guides, tutorials, and documentation
+Conditional include based on page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in post front matter:
+---
+schema_type: TechArticle
+schema_dependencies: "Ruby 3.x, Jekyll 4.x, Bundler"
+schema_proficiency: "Intermediate"
+schema_section: "Jekyll"
+---
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "{{ page.url | absolute_url }}#techarticle",
+
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+
+  {% comment %}TechArticle-specific properties{% endcomment %}
+  {% if page.schema_dependencies -%}
+  "dependencies": {{ page.schema_dependencies | jsonify }},
+  {% endif -%}
+  {% if page.schema_proficiency -%}
+  "proficiencyLevel": {{ page.schema_proficiency | jsonify }},
+  {% endif -%}
+
+  {% comment %}Article properties{% endcomment %}
+  {% if page.schema_section -%}
+  "articleSection": {{ page.schema_section | jsonify }},
+  {% elsif page.categories -%}
+  "articleSection": {{ page.categories | jsonify }},
+  {% endif -%}
+
+  "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
+  "wordCount": {{ page.content | strip_html | number_of_words }},
+
+  {% comment %}Author and publisher via @id references{% endcomment %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% comment %}Dates{% endcomment %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+
+  {% comment %}Image{% endcomment %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+
+  {% comment %}Main entity of page{% endcomment %}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Keywords and tags{% endcomment %}
+  {% if page.schema_keywords -%}
+  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
+  {% elsif page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+
+  {% comment %}Language{% endcomment %}
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+
+  {% comment %}Part of blog{% endcomment %}
+  "isPartOf": {
+    "@id": "{{ site.url }}#blog"
+  },
+
+  {% comment %}About (optional subject matter){% endcomment %}
+  {% if page.schema_about -%}
+  "about": {
+    "@type": "Thing",
+    "name": {{ page.schema_about | jsonify }}
+  },
+  {% endif -%}
+
+  {% comment %}Creator (same as author for articles){% endcomment %}
+  "creator": {
+    "@id": "{{ site.url }}#person"
+  }
+}
+</script>
+{% endif %}

@@ -1,8 +1,13 @@
 {% if page.layout == "single" and page.date %}
+{% comment %}
+Blog Post Schema - References unified knowledge graph entities via @id
+Uses @id references to Person and Blog entities from unified-knowledge-graph-schema.html
+{% endcomment %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "@id": "{{ page.url | absolute_url }}#blogposting",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
   "image": {
@@ -12,34 +17,10 @@
     "height": 630
   },
   "author": {
-    "@type": "Person",
-    "name": "{{ page.author | default: site.author.name | default: site.social.name }}",
-    "url": "{{ site.url }}",
-    {% if site.author.avatar -%}
-    "image": "{{ site.author.avatar | absolute_url }}",
-    {% endif -%}
-    "sameAs": [
-      {% if site.author.links -%}
-        {% for link in site.author.links -%}
-          {% if link.url -%}
-            "{{ link.url }}"{% unless forloop.last %},{% endunless %}
-          {% endif -%}
-        {% endfor -%}
-      {% endif -%}
-    ]
+    "@id": "{{ site.url }}#person"
   },
   "publisher": {
-    "@type": "Person",
-    "name": "{{ site.author.name | default: site.social.name }}",
-    "url": "{{ site.url }}",
-    {% if site.author.avatar -%}
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.author.avatar | absolute_url }}",
-      "width": 60,
-      "height": 60
-    }
-    {% endif -%}
+    "@id": "{{ site.url }}#person"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -61,10 +42,7 @@
   "wordCount": {{ page.content | strip_html | number_of_words }},
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
   "isPartOf": {
-    "@type": "Blog",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "description": "{{ site.description }}"
+    "@id": "{{ site.url }}#blog"
   }
 }
 </script>

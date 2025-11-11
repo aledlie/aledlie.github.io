@@ -21,6 +21,13 @@ description: "A compelling description of your blog post that will appear in sea
 excerpt: "How to make your Wix website run 75% faster on 60% less data and ~$400 less in hosting fees - instantly."
 comments: true              # Enable/disable comments
 share: true                 # Enable/disable social sharing
+
+# Enhanced Schema.org structured data
+schema_type: AnalysisNewsArticle
+schema_about: "Web Performance Optimization"
+schema_dateline: "November 2025"
+schema_section: "Performance Analysis"
+schema_backstory: "Performance analysis based on real-world production data following Wix platform memory leak investigation and resolution"
 ---
 
 

@@ -129,27 +129,30 @@
 {% endif %}
 
 <!-- Structured Data -->
-{% if page.url == '/' %}
-  {% include homepage-enhanced-schema.html %}
-  {% include organization-schema.html %}
-{% endif %}
+{% comment %}
+Unified Knowledge Graph Schema - Single comprehensive schema with all entities
+Replaces 11 fragmented schema files with one unified knowledge graph
+Uses proper @id references following Schema.org best practices
+See: _includes/SCHEMA-KNOWLEDGE-GRAPH-GUIDE.md for details
+{% endcomment %}
+{% include unified-knowledge-graph-schema.html %}
 
-{% if page.layout == "single" and page.date %}
+{% comment %}
+Page-specific schemas - Enhanced schemas based on content type
+See: BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md for details
+{% endcomment %}
+{% if page.schema_type == 'TechArticle' %}
+  {% include tech-article-schema.html %}
+{% elsif page.schema_type == 'AnalysisNewsArticle' %}
+  {% include analysis-article-schema.html %}
+{% elsif page.schema_type == 'HowTo' %}
+  {% include how-to-schema.html %}
+{% elsif page.layout == "single" and page.date %}
   {% include post-schema.html %}
 {% endif %}
 
 {% include breadcrumb-schema.html %}
-{% include about-page-schema.html %}
-{% include projects-page-schema.html %}
-{% include creative-work-schema.html %}
 {% include webpage-schema.html %}
-
-{% comment %}
-Enhanced Person schema - included on all pages for better knowledge graph data
-{% endcomment %}
-{% unless page.url == '/' %}
-  {% include enhanced-person-schema.html %}
-{% endunless %}
 <!-- end structured data -->
 
 <!-- end _includes/seo.html -->

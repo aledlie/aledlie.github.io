@@ -1,7 +1,25 @@
 ---
 layout: single
 title: Updating a jekyll page after 8 years
+date: 2025-07-02
 author_profile: true
+categories:
+  - Jekyll
+  - Web Development
+tags:
+  - jekyll
+  - ruby
+  - bundler
+  - static-site-generator
+  - tutorial
+excerpt: "A guide to updating Jekyll after 8 years - from 2017 setup to 2025 best practices"
+
+# Enhanced Schema.org structured data
+schema_type: TechArticle
+schema_dependencies: "Ruby 3.x, Jekyll 4.x, Bundler 2.x"
+schema_proficiency: "Intermediate"
+schema_section: "Jekyll"
+schema_about: "Jekyll Static Site Generator"
 ---
 
 Welcome to the personal website I built back in 2017, over about 20 minutes on a Sunday.
