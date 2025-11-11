@@ -1,48 +1,28 @@
-import matplotlib.pyplot as plt
+"""
+Wrapper for plot_commits_by_hour - maintained for backward compatibility.
 
-def plot_bar_graph(input_file='commit_counts.txt', output_file='commits_by_hour.png', title='Git Commits by Hour of Day'):
-    """
-    Generate a bar graph of commit counts by hour from a file and save it as a PNG.
-    """
-    # Read the input file
-    try:
-        with open(input_file, 'r') as file:
-            lines = file.readlines()
-    except FileNotFoundError:
-        print(f"Error: {input_file} not found")
-        return
+This module provides the plot_bar_graph function which delegates to
+plot_commits_by_hour. Both functions are functionally identical.
+"""
+from plot_commits_by_hour import plot_commits_by_hour
 
-    # Parse hours and counts, aggregating duplicates
-    hour_counts = {}
-    for line in lines:
-        try:
-            parts = line.strip().split()
-            if len(parts) != 2:
-                continue
-            hour, count = parts
-            hour_int = int(hour)
-            if not (0 <= hour_int <= 23):
-                continue
-            count = int(count)
-            hour_counts[hour_int] = hour_counts.get(hour_int, 0) + count
-        except ValueError:
-            continue
 
-    # Ensure all 24 hours are present
-    all_hours = [f"{h:02d}" for h in range(24)]
-    all_counts = [hour_counts.get(h, 0) for h in range(24)]
+# Alias for backward compatibility
+plot_bar_graph = plot_commits_by_hour
 
-    # Create bar graph
-    plt.figure(figsize=(10, 6))
-    plt.bar(all_hours, all_counts, color='#4e79a7', edgecolor='#2e4977', linewidth=1)
-    plt.xlabel('Hour of Day (0-23)')
-    plt.ylabel('Number of Commits')
-    plt.title(title)
-    plt.grid(True, axis='y', linestyle='--', alpha=0.7)
-    plt.tight_layout()
 
-    # Save as PNG
-    plt.savefig(output_file, dpi=300, bbox_inches='tight')
-    plt.close()
+if __name__ == '__main__':
+    # When run as a script, delegate to plot_commits_by_hour
+    # Import and execute its argument parsing
+    import argparse
 
-    print(f"Bar graph saved as {output_file}")
+    parser = argparse.ArgumentParser(description='Generate bar graph of commits by hour')
+    parser.add_argument('--input', default='commit_counts.txt',
+                        help='Input file with hour and count data (default: commit_counts.txt)')
+    parser.add_argument('--output', default='commits_by_hour.png',
+                        help='Output PNG file (default: commits_by_hour.png)')
+    parser.add_argument('--title', default='Git Commits by Hour of Day',
+                        help='Chart title (default: Git Commits by Hour of Day)')
+
+    args = parser.parse_args()
+    plot_bar_graph(input_file=args.input, output_file=args.output, title=args.title)
