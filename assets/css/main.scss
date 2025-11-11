@@ -2,9 +2,9 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "minimal-mistakes";
-@use "variables" as *;
 @charset "utf-8";
+@use "variables" as *;
+@import "minimal-mistakes";
 
 /* Clean, minimal styling inspired by reference design */
 

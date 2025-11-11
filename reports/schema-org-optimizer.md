@@ -1,6 +1,25 @@
 ---
 name: schema-org-optimizer
-description: Use this agent when you need to enhance HTML with Schema.org structured data markup for improved SEO and rich results. This includes adding JSON-LD scripts, microdata, or RDFa to existing HTML, validating the markup using official Schema.org and Google Rich Results testing tools, and ensuring maximum semantic clarity for search engines. Examples:\n\n<example>\nContext: The user has just created or modified HTML content and wants to add structured data.\nuser: "I've updated the product page HTML, can you add proper schema markup?"\nassistant: "I'll use the schema-org-optimizer agent to add structured data and validate it."\n<commentary>\nSince the user needs Schema.org markup added to HTML, use the Task tool to launch the schema-org-optimizer agent.\n</commentary>\n</example>\n\n<example>\nContext: The user wants to ensure their website's structured data is properly implemented.\nuser: "Check if our article pages have the right schema markup for Google"\nassistant: "Let me use the schema-org-optimizer agent to review and validate your article schema markup."\n<commentary>\nThe user needs schema validation, so use the Task tool to launch the schema-org-optimizer agent.\n</commentary>\n</example>
+description: |
+  Use this agent when you need to enhance HTML with Schema.org structured data markup for improved SEO and rich results. This includes adding JSON-LD scripts, microdata, or RDFa to existing HTML, validating the markup using official Schema.org and Google Rich Results testing tools, and ensuring maximum semantic clarity for search engines. Examples:
+
+  <example>
+  Context: The user has just created or modified HTML content and wants to add structured data.
+  user: "I've updated the product page HTML, can you add proper schema markup?"
+  assistant: "I'll use the schema-org-optimizer agent to add structured data and validate it."
+  <commentary>
+  Since the user needs Schema.org markup added to HTML, use the Task tool to launch the schema-org-optimizer agent.
+  </commentary>
+  </example>
+
+  <example>
+  Context: The user wants to ensure their website's structured data is properly implemented.
+  user: "Check if our article pages have the right schema markup for Google"
+  assistant: "Let me use the schema-org-optimizer agent to review and validate your article schema markup."
+  <commentary>
+  The user needs schema validation, so use the Task tool to launch the schema-org-optimizer agent.
+  </commentary>
+  </example>
 model: opus
 color: red
 ---
