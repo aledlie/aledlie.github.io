@@ -7,6 +7,80 @@ description: true
 header:
   overlay_image: /images/cover-home.png
   teaser: /images/cover-home.png
+
+# Enhanced Schema.org structured data - Influential people and areas of knowledge
+schema_mentions:
+  # Literary & Creative Influences
+  - name: "Tim Kreider"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Tim_Kreider"
+
+  - name: "Neil Gaiman"
+    type: "Person"
+    url: "https://www.neilgaiman.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Neil_Gaiman"
+
+  - name: "Michael Lewis"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Michael_Lewis_(author)"
+
+  - name: "George R.R. Martin"
+    type: "Person"
+    url: "https://georgerrmartin.com/"
+    sameAs: "https://en.wikipedia.org/wiki/George_R._R._Martin"
+
+  # Philosophical Influences
+  - name: "Martha Nussbaum"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Martha_Nussbaum"
+    affiliation: "University of Chicago"
+
+  - name: "Amartya Sen"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Amartya_Sen"
+    affiliation: "Harvard University"
+
+  - name: "Hannah Arendt"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Hannah_Arendt"
+
+  - name: "John Rawls"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/John_Rawls"
+
+  # Special Tribute - Friend and inspiration
+  - name: "Sumedh Joshi"
+    type: "Person"
+    url: "https://www.sumedhmjoshi.com/"
+    description: "Friend and inspiration for this blog"
+
+  # Professional Mentors (names only for privacy)
+  - name: "Brian Day"
+    type: "Person"
+    jobTitle: "Mentor"
+
+  - name: "Phillip Jones"
+    type: "Person"
+    jobTitle: "Mentor"
+
+  - name: "Suba Vasudevan"
+    type: "Person"
+    jobTitle: "Mentor"
+
+  - name: "Julie Hardwick"
+    type: "Person"
+    jobTitle: "Mentor"
+
+# Areas of knowledge and expertise
+schema_knows_about:
+  - "Philosophy"
+  - "Ethics"
+  - "Political Theory"
+  - "Literature"
+  - "Creative Writing"
+  - "Software Development"
+  - "Web Performance Optimization"
+  - "Data Analysis"
 ---
 
 # Raised by a Constellation
