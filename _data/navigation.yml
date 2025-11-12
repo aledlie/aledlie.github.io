@@ -27,3 +27,6 @@ main:
   - title: "Case Studies"
     url: /reports/
 
+  - title: "Test Cases"
+    url: /test-cases/
+
