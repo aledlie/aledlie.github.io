@@ -1,7 +1,6 @@
-@use "sass:color";
-@use "variables" as *;
-@use "mixins" as *;
-@use "grid" as *;
+@import "variables";
+@import "mixins";
+@import "grid";
 
 /* ==========================================================================
    Typography
@@ -75,7 +74,7 @@ figcaption {
 	@include font(14);
 
 	line-height: 1.3;
-	color: color.adjust($text-color, $lightness: 10%);
+	color: adjust-color($text-color, $lightness: 10%);
 }
 
 /* 
@@ -93,18 +92,18 @@ figcaption {
 
 	line-height: 1.3;
 	font-style: italic;
-	color: color.adjust($text-color, $lightness: 30%);
-	@media #{$small} {
+	color: adjust-color($text-color, $lightness: 30%);
+	@media only screen and (min-width: #{$small}) {
 		@include grid(12,9);
 		@include prefix(12,0);
 		@include suffix(12,0);
 	}
-	@media #{$x-large} {
+	@media only screen and (min-width: #{$x-large}) {
 		@include grid(12,8.5);
 	}
 
 	a {
-		color: color.adjust($text-color, $lightness: 30%);
+		color: adjust-color($text-color, $lightness: 30%);
 	}
 }
 
@@ -119,7 +118,7 @@ figcaption {
 	@include font-rem(14);
 
 	background-color: $body-color;
-	border: 1px solid color.adjust($body-color,$lightness: -20%);
+	border: 1px solid adjust-color($body-color,$lightness: -20%);
 	@include rounded(3px);
 }
 
@@ -179,7 +178,7 @@ li {
 		white-space: nowrap;
 		margin: 0 2px;
 		padding: 0 5px;
-		border: 1px solid color.adjust($black, $lightness: 90%);
+		border: 1px solid adjust-color($black, $lightness: 90%);
 		background-color: #efefef;
 		@include rounded(3px);
 	}

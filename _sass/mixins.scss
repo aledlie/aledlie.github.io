@@ -1,6 +1,4 @@
-@use "sass:color";
-@use "sass:math";
-@use 'variables' as *;
+@import 'variables';
 
 /* ==========================================================================
    Utility mixins
@@ -56,10 +54,10 @@
 
 @mixin font-size($size) {
   font-size: #{$size}px;
-  font-size: #{math.div($size, $doc-font-size)}rem;
-  line-height: math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
+  font-size: #{($size / $doc-font-size)}rem;
+  line-height: (round(($doc-line-height / $size)*10000) / 10000);
   margin-bottom: #{$doc-line-height}px;
-  margin-bottom: #{math.div($doc-line-height, $doc-font-size)}rem;
+  margin-bottom: #{($doc-line-height / $doc-font-size)}rem;
 }
 
 /* 
@@ -69,7 +67,7 @@
 
 @mixin font-rem($size) {
   font-size: #{$size}px;
-  font-size: #{math.div($size, $doc-font-size)}rem;
+  font-size: #{($size / $doc-font-size)}rem;
 }
 
 /* 
@@ -79,8 +77,8 @@
 
 @mixin font($size) {
   font-size: #{$size}px;
-  font-size: #{math.div($size, $doc-font-size)}rem;
-  line-height: math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
+  font-size: #{($size / $doc-font-size)}rem;
+  line-height: (round(($doc-line-height / $size)*10000) / 10000);
 }
 
 /* 
@@ -94,7 +92,7 @@
 }
 
 /* Indentation variable */
-$indent-var: #{math.div($doc-line-height, $doc-font-size)}rem;
+$indent-var: #{($doc-line-height / $doc-font-size)}rem;
 
 /* ==========================================================================
    Modern CSS Properties (vendor prefixes removed for modern browsers)
@@ -201,7 +199,7 @@ $indent-var: #{math.div($doc-line-height, $doc-font-size)}rem;
    ========================================================================== */
 
 @mixin background-alpha($color: $white, $alpha: 1) {
-  background-color: hsla(color.hue($color), color.saturation($color), color.lightness($color), $alpha); 
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
 }
 
 /* 
@@ -278,16 +276,22 @@ $indent-var: #{math.div($doc-line-height, $doc-font-size)}rem;
 
 @mixin breakpoint($point) {
   @if $point == small {
-    @media #{$small} { @content; }
+    @media only screen and (min-width: #{$small}) { @content; }
   }
   @else if $point == medium {
-    @media #{$medium} { @content; }
+    @media only screen and (min-width: #{$medium}) { @content; }
   }
   @else if $point == large {
-    @media #{$large} { @content; }
+    @media only screen and (min-width: #{$large}) { @content; }
   }
   @else if $point == x-large {
-    @media #{$x-large} { @content; }
+    @media only screen and (min-width: #{$x-large}) { @content; }
+  }
+  @else if type-of($point) == 'list' {
+    // Handle cases like: @include breakpoint(max-width $small)
+    $property: nth($point, 1); // e.g., "max-width"
+    $value: nth($point, 2);    // e.g., "37.5em"
+    @media (#{$property}: #{$value}) { @content; }
   }
   @else {
     @media #{$point} { @content; }

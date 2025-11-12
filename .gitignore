@@ -66,6 +66,10 @@ vendor/bundle/
 .env.local
 .env.*.local
 
+# Doppler
+.doppler.yaml
+doppler.yaml
+
 # Vercel
 .vercel/
 
@@ -78,3 +82,6 @@ lib/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Repomix output files
+repomix-output.xml

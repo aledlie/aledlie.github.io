@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-# Use the github-pages gem to ensure compatibility with GitHub Pages
-gem 'github-pages', group: :jekyll_plugins
+# Note: Removed github-pages gem to allow modern Sass compiler
+# This site deploys to Vercel, not GitHub Pages
+gem "jekyll", "~> 4.3"
 gem "jekyll-include-cache", group: :jekyll_plugins
 
 # Explicitly include csv and logger for Ruby 3.4.4
@@ -18,12 +19,15 @@ gem 'faraday-retry'
 plugin 'bundler-graph'
 
 # Theme
-gem 'jekyll'
 gem 'minimal-mistakes-jekyll'
 
-# Additional plugins supported by GitHub Pages
+# Jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-seo-tag", "~> 2.8"
-  gem 'jekyll-sass-converter', '1.5.2'
+  gem 'jekyll-sass-converter', '~> 3.0'  # Modern Sass compiler support
+  gem "jekyll-paginate"
+  gem "jekyll-sitemap"
+  gem "jekyll-gist"
+  gem "jekyll-coffeescript"
 end

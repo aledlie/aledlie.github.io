@@ -1,6 +1,5 @@
-@use "sass:color";
-@use 'variables' as *;
-@use 'mixins' as *;
+@import 'variables';
+@import 'mixins';
 
 /* ==========================================================================
    Site wide styles
@@ -11,13 +10,13 @@
    ========================================================================== */
 
 ::selection { 
-	background-color: color.adjust($basecolor, $lightness: 65%); 
+	background-color: adjust-color($basecolor, $lightness: 65%); 
 	color: $basecolor; 
 	text-shadow: none; 
 }  	
 
 ::selection { 
-	background-color: color.adjust($basecolor, $lightness: 65%); 
+	background-color: adjust-color($basecolor, $lightness: 65%); 
 	color: $basecolor; 
 	text-shadow: none; 
 }

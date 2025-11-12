@@ -1,8 +1,8 @@
-@use 'mixins' as *;
-@use 'variables' as *;
-@use 'grid' as *;
+@import 'mixins';
+@import 'variables';
+@import 'grid';
 
-/* 
+/*
    Rules
    ========================================================================== */
 
@@ -40,7 +40,7 @@ svg:not(:root) {
 .half {
 	@include container;
 	@include clearfix;
-	@media #{$micro} {
+	@media only screen and (min-width: #{$micro}) {
 		img {
 			@include grid(12,6);
 		}
@@ -56,7 +56,7 @@ svg:not(:root) {
 .third {
 	@include container;
 	@include clearfix;
-	@media #{$micro} {
+	@media only screen and (min-width: #{$micro}) {
 		img {
 			@include grid(12,4);
 		}

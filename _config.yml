@@ -44,7 +44,9 @@ repository: 		"aledlie/aledlie.github.io"
 # Jekyll build configuration
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+# TEMPORARY: remote_theme disabled during refactoring due to SSL certificate issue
+# Will re-enable after fixing SSL or during Phase 3 deployment simplification
+# remote_theme: "mmistakes/minimal-mistakes@4.27.3"
 permalink:   /:categories/:title/
 plugins:
   - jekyll-feed
@@ -79,6 +81,7 @@ exclude:
   - vendor
   - .asset-cache
   - .bundle
+  - SumedhSite
   - .jekyll-assets-cache
   - .sass-cache
   - assets/js/plugins

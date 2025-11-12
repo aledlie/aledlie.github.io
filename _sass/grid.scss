@@ -2,12 +2,10 @@
    Grid mixins
    ========================================================================== */
 
-/* 
+/*
    Define number of columns in the grid
    Common values would be 12, 16 or 24
    ========================================================================== */
-
-@use "sass:math";
 
 $width: 100%;
 $def-grid: 12;
@@ -26,7 +24,7 @@ $margin: 0;
 @mixin grid($grid:$def-grid,$cols:'',$float:left,$display:inline){
   display:$display;
   float:$float;
-  width:(math.div(100%, $grid) * $cols) - ($margin * 2);
+  width:((100% / $grid) * $cols) - ($margin * 2);
 }  
 
 /* 
@@ -35,7 +33,7 @@ $margin: 0;
    ========================================================================== */
 
 @mixin prefix($grid:$def-grid,$cols:''){
-  margin-left:(math.div(100%, $grid) * $cols);
+  margin-left:((100% / $grid) * $cols);
 }
 
 /* 
@@ -43,8 +41,8 @@ $margin: 0;
    Example: @include suffix(2,12);
    ========================================================================== */
 
-@mixin suffix($grid:$def-grid,$cols:''){  
-  margin-right:(math.div(100%, $grid) * $cols);    
+@mixin suffix($grid:$def-grid,$cols:''){
+  margin-right:((100% / $grid) * $cols);
 }
 
 /* 
@@ -72,7 +70,7 @@ $margin: 0;
 
 @mixin push($grid:$def-grid,$move:'') {
   position:relative;
-  left:(math.div(100%, $grid) * $move);
+  left:((100% / $grid) * $move);
 } 
 
 /* 
@@ -82,5 +80,5 @@ $margin: 0;
 
 @mixin pull($grid:$def-grid,$move:''){
   position:relative;
-  left:(math.div(100%, $grid) * $move) * -1;
+  left:((100% / $grid) * $move) * -1;
 }
