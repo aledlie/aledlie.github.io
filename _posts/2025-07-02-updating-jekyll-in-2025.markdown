@@ -20,6 +20,32 @@ schema_dependencies: "Ruby 3.x, Jekyll 4.x, Bundler 2.x"
 schema_proficiency: "Intermediate"
 schema_section: "Jekyll"
 schema_about: "Jekyll Static Site Generator"
+
+# Entity mentions - technologies and tools discussed
+schema_mentions:
+  - name: "Jekyll"
+    type: "SoftwareApplication"
+    url: "https://jekyllrb.com/"
+  - name: "Ruby"
+    type: "ComputerLanguage"
+    url: "https://www.ruby-lang.org/"
+  - name: "Bundler"
+    type: "SoftwareApplication"
+    url: "https://bundler.io/"
+  - name: "Minimal Mistakes"
+    type: "SoftwareApplication"
+    url: "https://github.com/mmistakes/minimal-mistakes"
+  - name: "macOS"
+    type: "OperatingSystem"
+    url: "https://www.apple.com/macos/"
+  - name: "Ubuntu"
+    type: "OperatingSystem"
+    url: "https://ubuntu.com/"
+
+# Citation - expert resource referenced
+schema_citation:
+  name: "Moncef Belyamani"
+  url: "https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/"
 ---
 
 Welcome to the personal website I built back in 2017, over about 20 minutes on a Sunday.

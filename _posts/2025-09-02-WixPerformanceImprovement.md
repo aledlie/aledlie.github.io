@@ -28,6 +28,28 @@ schema_about: "Web Performance Optimization"
 schema_dateline: "November 2025"
 schema_section: "Performance Analysis"
 schema_backstory: "Performance analysis based on real-world production data following Wix platform memory leak investigation and resolution"
+
+# Entity mentions - packages and platforms analyzed
+schema_mentions:
+  - name: "inflight"
+    type: "SoftwareApplication"
+    url: "https://www.npmjs.com/package/inflight"
+    description: "Deprecated npm package with memory leak"
+  - name: "glob"
+    type: "SoftwareApplication"
+    url: "https://www.npmjs.com/package/glob"
+  - name: "LRU-Cache"
+    type: "SoftwareApplication"
+    url: "https://www.npmjs.com/package/lru-cache"
+  - name: "Wix"
+    type: "SoftwareApplication"
+    url: "https://www.wix.com/"
+  - name: "Node.js"
+    type: "SoftwareApplication"
+    url: "https://nodejs.org/"
+  - name: "npm"
+    type: "SoftwareApplication"
+    url: "https://www.npmjs.com/"
 ---
 
 
