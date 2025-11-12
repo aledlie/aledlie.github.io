@@ -1,8 +1,10 @@
 ---
-layout: page
-title: Test Suite
+layout: single
+title: "Test Suite"
 excerpt: "Comprehensive testing infrastructure for zero-regression refactoring and continuous quality assurance"
 modified: 2025-11-11
+toc: true
+toc_sticky: true
 ---
 
 ## Testing Infrastructure Overview

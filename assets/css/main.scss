@@ -214,6 +214,190 @@ body {
   }
 }
 
+/* CODE BLOCKS - Light theme matching site aesthetic */
+div.highlighter-rouge,
+figure.highlight,
+.highlight,
+.highlighter-rouge {
+  background: #f8f8f8 !important;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important;
+  overflow-x: auto !important;
+  font-family: 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.9em !important;
+  line-height: 1.5 !important;
+
+  code {
+    background: transparent !important;
+    color: #333 !important;
+    font-size: inherit !important;
+  }
+
+  pre,
+  pre.highlight {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
+/* Override dark syntax highlighting colors for light theme */
+.highlight {
+  color: #333 !important;
+
+  .c { color: #999 !important; }
+  .k { color: #c41a16 !important; }
+  .l { color: #0086d2 !important; }
+  .n { color: #333 !important; }
+  .o { color: #666 !important; }
+  .p { color: #333 !important; }
+  .cm { color: #999 !important; }
+  .cp { color: #999 !important; }
+  .c1 { color: #999 !important; }
+  .cs { color: #999 !important; }
+  .gd { color: #d40000 !important; }
+  .ge { font-style: italic !important; }
+  .gr { color: #d40000 !important; }
+  .gh { color: #000080 !important; }
+  .gi { color: #008000 !important; }
+  .go { color: #303030 !important; }
+  .gp { color: #c65911 !important; }
+  .gs { font-weight: bold !important; }
+  .gu { color: #800080 !important; }
+  .gt { color: #0040d0 !important; }
+  .kc { color: #c41a16 !important; }
+  .kd { color: #c41a16 !important; }
+  .kn { color: #c41a16 !important; }
+  .kp { color: #c41a16 !important; }
+  .kr { color: #c41a16 !important; }
+  .kt { color: #458 !important; }
+  .ld { color: #d40000 !important; }
+  .m { color: #0086d2 !important; }
+  .s { color: #d40000 !important; }
+  .na { color: #836c28 !important; }
+  .nb { color: #0086d2 !important; }
+  .nc { color: #458 !important; }
+  .no { color: #0086d2 !important; }
+  .nd { color: #458 !important; }
+  .ni { color: #800080 !important; }
+  .ne { color: #900 !important; }
+  .nf { color: #900 !important; }
+  .nl { color: #999 !important; }
+  .nn { color: #555 !important; }
+  .nx { color: #333 !important; }
+  .py { color: #999 !important; }
+  .nt { color: #c41a16 !important; }
+  .nv { color: #0086d2 !important; }
+  .ow { color: #c41a16 !important; }
+  .w { color: #bbb !important; }
+  .mf { color: #0086d2 !important; }
+  .mh { color: #0086d2 !important; }
+  .mi { color: #0086d2 !important; }
+  .mo { color: #0086d2 !important; }
+  .sb { color: #d40000 !important; }
+  .sc { color: #d40000 !important; }
+  .sd { color: #d40000 !important; }
+  .s2 { color: #d40000 !important; }
+  .se { color: #0086d2 !important; }
+  .sh { color: #d40000 !important; }
+  .si { color: #d40000 !important; }
+  .sx { color: #d40000 !important; }
+  .sr { color: #009926 !important; }
+  .s1 { color: #d40000 !important; }
+  .ss { color: #990073 !important; }
+}
+
+/* TABLES - Clean, readable styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95em;
+
+  thead {
+    background: #f8f8f8;
+    border-bottom: 2px solid #ddd;
+  }
+
+  th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+  }
+
+  td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    color: #555;
+  }
+
+  tbody tr {
+    &:hover {
+      background: #fafafa;
+    }
+
+    &:last-child td {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+/* STATUS INDICATORS */
+.status-pass::before {
+  content: "✓ ";
+  color: #2ecc71;
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+.status-fail::before {
+  content: "✗ ";
+  color: #e74c3c;
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+.status-warning::before {
+  content: "⚠ ";
+  color: #f39c12;
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+/* INFO BOXES */
+.notice-info {
+  background: #f0f7ff;
+  border-left: 4px solid #0066cc;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  font-size: 0.95em;
+
+  strong {
+    display: block;
+    color: #0066cc;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.notice-warning {
+  background: #fff8e1;
+  border-left: 4px solid #f39c12;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+
+  strong {
+    color: #f39c12;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* ARCHIVE LISTINGS - Academic post list matching target */
 .archive .list__item,
 .archive .archive__item,
