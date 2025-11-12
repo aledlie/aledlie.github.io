@@ -5,6 +5,40 @@ author_profile: true
 header:
   overlay_image: /images/cover-projects.png
   teaser: /images/cover-projects.png
+
+# Enhanced Schema.org structured data - Memorial tribute to Sumedh Joshi
+# Page is about Sumedh - memorial tribute
+schema_about_page:
+  type: "Person"
+  name: "Sumedh Joshi"
+  url: "https://www.sumedhmjoshi.com/"
+  description: "Husband, PhD candidate, sports writer, and inspiration for this blog"
+
+# Philosophers and thinkers who influenced us together
+schema_mentions:
+  - name: "Peter Singer"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Peter_Singer"
+
+  - name: "Martha Nussbaum"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Martha_Nussbaum"
+
+  - name: "Georg Cantor"
+    type: "Person"
+    sameAs: "https://en.wikipedia.org/wiki/Georg_Cantor"
+    description: "Mathematician whose diagonalization argument inspired the blog name ℵ₀"
+
+  # Publications that featured Sumedh
+  - name: "Burnt Orange Nation"
+    type: "WebSite"
+    url: "https://www.burntorangenation.com/"
+    description: "Sports blog where Sumedh wrote about Texas football"
+
+  - name: "The New York Times"
+    type: "NewsMediaOrganization"
+    url: "https://www.nytimes.com/"
+    sameAs: "https://en.wikipedia.org/wiki/The_New_York_Times"
 ---
 
 

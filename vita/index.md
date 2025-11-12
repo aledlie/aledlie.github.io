@@ -6,6 +6,88 @@ author_profile: true
 header:
   overlay_image: /images/cover-vita.png
   teaser: /images/cover-vita.png
+
+# Enhanced Schema.org structured data - Professional organizations, technologies, and education
+schema_mentions:
+  # Current Companies
+  - name: "InventoryAI.io"
+    type: "Organization"
+    url: "https://amazing-froyo-8f05e0.netlify.app/"
+
+  - name: "Integrity Studio"
+    type: "Organization"
+    url: "https://integritystudio.notion.site"
+
+  - name: "Concierge.io"
+    type: "Organization"
+
+  # Major Employers
+  - name: "Meta"
+    type: "Organization"
+    url: "https://www.meta.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Meta_Platforms"
+
+  - name: "The Advisory Board Company"
+    type: "Organization"
+    sameAs: "https://en.wikipedia.org/wiki/The_Advisory_Board_Company"
+
+  - name: "Access Sciences"
+    type: "Organization"
+    url: "https://www.accesssciences.com/"
+
+  # Business Partners
+  - name: "H-E-B"
+    type: "Organization"
+    url: "https://www.heb.com/"
+    sameAs: "https://en.wikipedia.org/wiki/H-E-B"
+
+  # Key Technologies
+  - name: "Splunk"
+    type: "SoftwareApplication"
+    url: "https://www.splunk.com/"
+
+  - name: "Nagios"
+    type: "SoftwareApplication"
+    url: "https://www.nagios.org/"
+
+  - name: "RabbitMQ"
+    type: "SoftwareApplication"
+    url: "https://www.rabbitmq.com/"
+
+  - name: "New Relic"
+    type: "SoftwareApplication"
+    url: "https://newrelic.com/"
+
+  # Charitable Organizations
+  - name: "Against Malaria Foundation"
+    type: "Organization"
+    url: "https://www.againstmalaria.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Against_Malaria_Foundation"
+
+# Educational institutions
+schema_alumni_of:
+  - name: "University of Texas at Austin"
+    type: "CollegeOrUniversity"
+    url: "https://www.utexas.edu/"
+    sameAs: "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin"
+
+  - name: "Cornell University"
+    type: "CollegeOrUniversity"
+    url: "https://www.cornell.edu/"
+    sameAs: "https://en.wikipedia.org/wiki/Cornell_University"
+
+# Professional expertise areas
+schema_knows_about:
+  - "Machine Learning"
+  - "Artificial Intelligence"
+  - "Trust & Safety Engineering"
+  - "Content Moderation"
+  - "Platform Integrity"
+  - "ML Infrastructure"
+  - "Software Development"
+  - "Startup Leadership"
+  - "Healthcare Analytics"
+  - "Legal & Regulatory History"
 ---
 
 
