@@ -3,6 +3,7 @@ layout: single
 title: About
 permalink: /about/
 author_profile: true
+breadcrumbs: true
 header:
   overlay_image: /images/cover-about.png
   teaser: /images/cover-about.png

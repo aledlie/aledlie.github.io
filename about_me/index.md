@@ -3,6 +3,10 @@ layout: single
 title: About Me
 permalink: /about_me/
 author_profile: true
+breadcrumbs: true
+header:
+  overlay_image: /images/cover-about.png
+  teaser: /images/cover-about.png
 ---
 
 I've done a lot of writing—during my brief stint in academia and then during 14 years or so of corporate work—but **this blog isn't for that**.
