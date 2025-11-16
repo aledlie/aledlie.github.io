@@ -1,0 +1,284 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.aledlie.com#blog",
+      "@type": "Blog",
+      "url": "https://www.aledlie.com/",
+      "name": "Alyshia Ledlie - Blog",
+      "description": "Personal blog and portfolio of Alyshia Ledlie, featuring insights on software development, technology consulting, and machine learning.",
+      "inLanguage": "en-US",
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "isPartOf": {
+        "@id": "https://www.aledlie.com#website"
+      },
+      "about": [
+        "Software Development",
+        "Technology",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing"
+      ],
+      "blogPost": [
+        {
+          "@id": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting"
+        },
+        {
+          "@id": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle"
+        }
+      ]
+    },
+    {
+      "@id": "https://www.aledlie.com#contactpoint",
+      "@type": "ContactPoint",
+      "contactType": "professional",
+      "email": "aledlie@gmail.com",
+      "availableLanguage": "English"
+    },
+    {
+      "@id": "https://www.aledlie.com#person",
+      "@type": "Person",
+      "name": "Alyshia Ledlie",
+      "alternateName": [
+        "Alyshia"
+      ],
+      "url": "https://www.aledlie.com/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.aledlie.com/images/profile.jpg",
+        "width": 400,
+        "height": 400
+      },
+      "description": "Software Developer, Technology Consultant, and Writer passionate about building accessible, user-focused solutions.",
+      "email": "aledlie@gmail.com",
+      "homeLocation": {
+        "@id": "https://www.aledlie.com/location/austin#place"
+      },
+      "jobTitle": [
+        "Software Developer",
+        "Technology Consultant",
+        "Writer"
+      ],
+      "hasOccupation": [
+        {
+          "@id": "https://www.aledlie.com/occupation/software-developer#occupation"
+        },
+        {
+          "@id": "https://www.aledlie.com/occupation/tech-consultant#occupation"
+        },
+        {
+          "@id": "https://www.aledlie.com/occupation/technical-writer#occupation"
+        }
+      ],
+      "worksFor": [
+        {
+          "@id": "https://www.aledlie.com/organizations/integrity-studios#organization"
+        },
+        {
+          "@id": "https://www.aledlie.com/organizations/inventoryai#organization"
+        }
+      ],
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technology Consulting",
+        "Business Automation",
+        "Technical Writing",
+        "Open Source Software"
+      ],
+      "sameAs": [
+        "https://github.com/alyshialedlie",
+        "https://www.linkedin.com/in/alyshia-ledlie"
+      ],
+      "owns": {
+        "@id": "https://www.aledlie.com#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.aledlie.com/about#profilepage"
+      },
+      "contactPoint": {
+        "@id": "https://www.aledlie.com#contactpoint"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com#readaction",
+      "@type": "ReadAction",
+      "target": "https://www.aledlie.com/posts/",
+      "name": "Read Blog Posts"
+    },
+    {
+      "@id": "https://www.aledlie.com#searchaction",
+      "@type": "SearchAction",
+      "target": {
+        "@id": "https://www.aledlie.com/search#entrypoint"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    {
+      "@id": "https://www.aledlie.com#viewaction",
+      "@type": "ViewAction",
+      "target": "https://www.aledlie.com/projects/",
+      "name": "View Projects"
+    },
+    {
+      "@id": "https://www.aledlie.com#website",
+      "@type": "WebSite",
+      "url": "https://www.aledlie.com/",
+      "name": "Alyshia Ledlie - Software Developer & Tech Consultant",
+      "alternateName": "Alyshia Ledlie's Personal Blog",
+      "description": "Personal blog and portfolio of Alyshia Ledlie, featuring insights on software development, technology consulting, and machine learning.",
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "copyrightHolder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "copyrightYear": "2025",
+      "dateModified": "2025-11-16T00:00:00Z",
+      "mainEntity": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "hasPart": [
+        {
+          "@id": "https://www.aledlie.com#blog"
+        },
+        {
+          "@id": "https://www.aledlie.com/about#profilepage"
+        },
+        {
+          "@id": "https://www.aledlie.com/projects#collectionpage"
+        }
+      ],
+      "about": [
+        "Software Development",
+        "Technology Consulting",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing",
+        "Business Automation"
+      ],
+      "keywords": "software development, technology, machine learning, AI, consulting, technical writing, automation",
+      "potentialAction": [
+        {
+          "@id": "https://www.aledlie.com#searchaction"
+        },
+        {
+          "@id": "https://www.aledlie.com#readaction"
+        },
+        {
+          "@id": "https://www.aledlie.com#viewaction"
+        }
+      ]
+    },
+    {
+      "@id": "https://www.aledlie.com/location/austin#place",
+      "@type": "Place",
+      "name": "Austin, TX"
+    },
+    {
+      "@id": "https://www.aledlie.com/occupation/software-developer#occupation",
+      "@type": "Occupation",
+      "name": "Software Developer",
+      "occupationCategory": "Computer and Mathematical Occupations"
+    },
+    {
+      "@id": "https://www.aledlie.com/occupation/tech-consultant#occupation",
+      "@type": "Occupation",
+      "name": "Technology Consultant",
+      "occupationCategory": "Management Occupations"
+    },
+    {
+      "@id": "https://www.aledlie.com/occupation/technical-writer#occupation",
+      "@type": "Occupation",
+      "name": "Technical Writer",
+      "occupationCategory": "Arts, Design, Entertainment, Sports, and Media Occupations"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/integrity-studios#organization",
+      "@type": "Organization",
+      "name": "Integrity Studios",
+      "url": "https://integritystudio.notion.site",
+      "sameAs": "https://integritystudio.notion.site",
+      "description": "Technology consulting and development studio specializing in software development, web development, and digital transformation.",
+      "foundingDate": "2020",
+      "founder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "employee": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "industry": "Technology Consulting",
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Technology Consulting",
+        "Digital Transformation"
+      ]
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/inventoryai#organization",
+      "@type": "Organization",
+      "name": "InventoryAI.io",
+      "url": "https://amazing-froyo-8f05e0.netlify.app/",
+      "sameAs": "https://amazing-froyo-8f05e0.netlify.app/",
+      "description": "AI-powered inventory management solutions using machine learning to optimize supply chain and business automation.",
+      "foundingDate": "2023",
+      "founder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "employee": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "industry": "Artificial Intelligence",
+      "applicationCategory": "Business Software",
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Inventory Management",
+        "Machine Learning",
+        "Business Automation",
+        "Supply Chain"
+      ]
+    },
+    {
+      "@id": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "@type": "TechArticle",
+      "headline": "Updating Jekyll in 2025",
+      "datePublished": "2025-07-02T00:00:00Z",
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting",
+      "@type": "BlogPosting",
+      "headline": "Down the Schema.org Rabbit Hole",
+      "datePublished": "2025-11-11T00:00:00Z",
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/search#entrypoint",
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.aledlie.com/search/?q={search_term_string}"
+    }
+  ]
+}

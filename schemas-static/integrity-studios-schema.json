@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/organizations/integrity-studios#organization",
+  "@type": "Organization",
+  "name": "Integrity Studios",
+  "url": "https://integritystudio.notion.site",
+  "sameAs": "https://integritystudio.notion.site",
+  "description": "Technology consulting and development studio specializing in software development, web development, and digital transformation.",
+  "foundingDate": "2020",
+  "founder": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "employee": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "industry": "Technology Consulting",
+  "knowsAbout": [
+    "Software Development",
+    "Web Development",
+    "Technology Consulting",
+    "Digital Transformation"
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "total_entities": 16,
+  "entities_by_type": {
+    "Blog": 1,
+    "ContactPoint": 1,
+    "Person": 1,
+    "ReadAction": 1,
+    "SearchAction": 1,
+    "ViewAction": 1,
+    "WebSite": 1,
+    "Place": 1,
+    "Occupation": 3,
+    "Organization": 2,
+    "TechArticle": 1,
+    "BlogPosting": 1,
+    "EntryPoint": 1
+  },
+  "total_relationships": 33,
+  "relationships": [
+    {
+      "source": "https://www.aledlie.com#blog",
+      "source_type": "Blog",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#blog",
+      "source_type": "Blog",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#blog",
+      "source_type": "Blog",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#website"
+    },
+    {
+      "source": "https://www.aledlie.com#blog",
+      "source_type": "Blog",
+      "property": "blogPost",
+      "target": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting"
+    },
+    {
+      "source": "https://www.aledlie.com#blog",
+      "source_type": "Blog",
+      "property": "blogPost",
+      "target": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "homeLocation",
+      "target": "https://www.aledlie.com/location/austin#place"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "hasOccupation",
+      "target": "https://www.aledlie.com/occupation/software-developer#occupation"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "hasOccupation",
+      "target": "https://www.aledlie.com/occupation/tech-consultant#occupation"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "hasOccupation",
+      "target": "https://www.aledlie.com/occupation/technical-writer#occupation"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "worksFor",
+      "target": "https://www.aledlie.com/organizations/integrity-studios#organization"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "worksFor",
+      "target": "https://www.aledlie.com/organizations/inventoryai#organization"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "owns",
+      "target": "https://www.aledlie.com#website"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "mainEntityOfPage",
+      "target": "https://www.aledlie.com/about#profilepage"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "contactPoint",
+      "target": "https://www.aledlie.com#contactpoint"
+    },
+    {
+      "source": "https://www.aledlie.com#searchaction",
+      "source_type": "SearchAction",
+      "property": "target",
+      "target": "https://www.aledlie.com/search#entrypoint"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "copyrightHolder",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "mainEntity",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "hasPart",
+      "target": "https://www.aledlie.com#blog"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "hasPart",
+      "target": "https://www.aledlie.com/about#profilepage"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "hasPart",
+      "target": "https://www.aledlie.com/projects#collectionpage"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "potentialAction",
+      "target": "https://www.aledlie.com#searchaction"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "potentialAction",
+      "target": "https://www.aledlie.com#readaction"
+    },
+    {
+      "source": "https://www.aledlie.com#website",
+      "source_type": "WebSite",
+      "property": "potentialAction",
+      "target": "https://www.aledlie.com#viewaction"
+    },
+    {
+      "source": "https://www.aledlie.com/organizations/integrity-studios#organization",
+      "source_type": "Organization",
+      "property": "founder",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/organizations/integrity-studios#organization",
+      "source_type": "Organization",
+      "property": "employee",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/organizations/inventoryai#organization",
+      "source_type": "Organization",
+      "property": "founder",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/organizations/inventoryai#organization",
+      "source_type": "Organization",
+      "property": "employee",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting",
+      "source_type": "BlogPosting",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting",
+      "source_type": "BlogPosting",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    }
+  ],
+  "relationships_by_property": {
+    "author": 4,
+    "publisher": 4,
+    "isPartOf": 1,
+    "blogPost": 2,
+    "homeLocation": 1,
+    "hasOccupation": 3,
+    "worksFor": 2,
+    "owns": 1,
+    "mainEntityOfPage": 1,
+    "contactPoint": 1,
+    "target": 1,
+    "copyrightHolder": 1,
+    "mainEntity": 1,
+    "hasPart": 3,
+    "potentialAction": 3,
+    "founder": 2,
+    "employee": 2
+  }
+}

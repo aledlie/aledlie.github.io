@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/organizations/inventoryai#organization",
+  "@type": "Organization",
+  "name": "InventoryAI.io",
+  "url": "https://amazing-froyo-8f05e0.netlify.app/",
+  "sameAs": "https://amazing-froyo-8f05e0.netlify.app/",
+  "description": "AI-powered inventory management solutions using machine learning to optimize supply chain and business automation.",
+  "foundingDate": "2023",
+  "founder": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "employee": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "industry": "Artificial Intelligence",
+  "applicationCategory": "Business Software",
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Inventory Management",
+    "Machine Learning",
+    "Business Automation",
+    "Supply Chain"
+  ]
+}
