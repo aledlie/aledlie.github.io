@@ -95,20 +95,18 @@ Their light has warmed me as it has bent the arc of my life, and everything I wr
 ### Lessons and Inheritances
 
 - **From Tim Kreider - "I am capable of learning nothing from almost any experience, no matter how profound."**
-  Kreider's special mix of witty, moody, and pessimistic cynicism is a poorly concealed fake-out for the lesson he teaches by coating each and every noun in real, relentless empathy - and the knowledge that it is what we owe it to everyone.  Inside unspeakable heartbreak he hides a lesson in real love, and what it means, and the how gorgeous it is to do the "messy work of understanding" each other, in all of our ridiculousness.
+  Kreider's special mix of witty, moody, and pessimistic cynicism is a poorly concealed fake-out for the lesson he teaches by coating his every noun in real, relentless empathy - and the fact that this relentless empathy is what we all owe to everyone.  Inside unspeakable heartbreak he hides a lesson in what real love truly means - that it all boils down to doing the "messy work of understanding" each other, in all of our ridiculousness, and he shows you - even makes you feel - how gorgeous that work is.
 > Anyone worth knowing is inevitably also going to be exasperating: making the same obvious mistakes over and over, dating imbeciles, endlessly relapsing into their dumb addictions and self-defeating habits, blind to their own hilarious flaws and blatant contradictions and fiercely devoted to whatever keeps them miserable.
   It’s out of that ridiculousness and absurdity that he reminds you of the strange beauty and boundless potential inside all of us - even him.
   Even you.
   Even me.
-  From him, I learned that to know is to love, and to love is to know.  And that giving each other understanding is the only thing really worth doing in life - everything is, really, just bullshit.
+  From him, I learned that to know is to love, and to love is to know.  And that giving each other understanding is the only thing really worth doing in life - everything else is, really, just bullshit.
 >This is one of the things we rely on our friends for: to think better of us than we think of ourselves. It makes us feel better, but it also makes us be better; we try to be the person they believe we are.
 
 
-- **From Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."** I was raised by a constellation.
-Not the kind that hangs in the night sky, but the kind made of people—brilliant, flawed, luminous in ways I still struggle to name.
+- **From Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."**
 
-Their light has bent the arc of my life, and everything I write and everything I am is, in some way, an echo of theirs.
-  Worlds can be spun out of shadow and wonder, surreal yet tethered to the heart.  There is comfort to be found in good madness, and fairy tales exist to teach us that every dragon - every challenge - can be beaten.  That inside of every person is a whole world of both Delirium and Delight - who, it turns out, is the same person, just at different times.  From Neil Gaiman, I learned that every else is so terribly wonderful and strange, that I might as well be exactly myself, and no more, and no less - and that sometimes the best thing to do is just lie back and enjoy the ride.
+  Neil Gaiman spins worlds out of shadow and wonder, surreal yet tethered to the heart.  He teaches that there is comfort to be found in good madness, and fairy tales exist to teach us that every dragon - every challenge, no matter how intimidating - can be overcome.  That inside of every person is a whole world of both Delirium and Delight - who, or which, it turns out, is the same thing, just from different angles.  From Neil Gaiman, I learned that everyone else is so terribly wonderful and strange, that I might as well be exactly myself, and no more, and no less - and that sometimes the best thing to do is just lie back and enjoy the ride.
 
 > “Everybody has a secret world inside of them. I mean everybody. All of the people in the whole world, I mean everybody — no matter how dull and boring they are on the outside. Inside them they've all got unimaginable, magnificent, wonderful, stupid, amazing worlds... Not just one world. Hundreds of them. Thousands, maybe.”
 
@@ -124,7 +122,7 @@ Their light has bent the arc of my life, and everything I write and everything I
 
 
 - **Michael Lewis and George R.R. Martin - "If you wanted to predict how people would behave, Munger said, you only had to look at their incentives.”**
-  The sly magic of hiding a cathedral of ideas inside a story of characters and drama so colorful you don’t notice the architecture until it has you surrounded.  In their writing I see the truth lived out that people will never remember what you said, but they will always remember how you made them feel.  I will never be able to smuggle a structuralist intellectual masterpiece, Trojan-horse style, into a story so engrossing you can't seem to put it down.  From them, I have learned that it will never matter how brilliant or clever you are, if you are boring.
+  The sly magic of hiding a cathedral of ideas inside a story of characters and drama so colorful you don’t notice the architecture until it has you surrounded.  In their writing I see the truth lived out that people will never remember what you said, but they will always remember how you made them feel.  I will never be able to smuggle a structuralist intellectual masterpiece, Trojan-horse style, into a story so engrossing you can't seem to put it down.  But I have learned from them that it will never matter how brilliant or clever you are, how correct or precise - unless you can turn your ideas into something people can *feel.*
 
 > Every systemic market injustice arose from some loophole in a regulation created to correct some prior injustice.
 > Reality is a cloud of possibility, not a point.
