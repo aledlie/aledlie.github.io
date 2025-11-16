@@ -10,7 +10,7 @@ google_site_verification: N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "GTM-TK5J8L38"
+    tracking_id: "G-J7TL7PQH7S"
     anonymize_ip: true # enabled for privacy compliance
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
@@ -171,7 +171,7 @@ owner:
   facebook: aledlie
   google:
     plus:
-    analytics: GTM-TK5J8L38
+    analytics: G-J7TL7PQH7S
     verify: gqKcgBHjbuRW6cYY8BO_GdFOVNsIekipkuiC_2pb6g0
     ad-client:
     ad-slot:
