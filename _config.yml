@@ -194,6 +194,9 @@ collections:
   reports:
     output: true
     permalink: /:collection/:path/
+  work:
+    output: true
+    permalink: /work/:path/
 
 category_archive:
   type: liquid
