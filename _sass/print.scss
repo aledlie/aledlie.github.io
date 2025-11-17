@@ -39,6 +39,8 @@
     line-height: 1.2;
     margin-bottom: 0.75rem;
     margin-top: 0;
+    page-break-after: avoid;
+    page-break-inside: avoid;
   }
 
   h1 {
@@ -65,6 +67,32 @@
     font-size: 1rem;
   }
 
+  // Page break rules - less specific selectors first
+  table,
+  blockquote,
+  pre,
+  code,
+  figure,
+  li,
+  hr,
+  ul,
+  ol,
+  a,
+  tr {
+    page-break-inside: avoid;
+  }
+
+  // Orphans and widows - less specific a selector
+  h2,
+  h3,
+  h4,
+  p,
+  a {
+    orphans: 3;
+    widows: 3;
+  }
+
+  // Link styling - more specific selectors after
   a,
   a:visited {
     color: #000;
@@ -96,6 +124,9 @@
     display: block;
     max-width: 100% !important;
     vertical-align: middle;
+    page-break-after: auto;
+    page-break-before: auto;
+    page-break-inside: avoid;
   }
 
   hr {
@@ -121,49 +152,10 @@
     text-decoration: none;
   }
 
-  table,
-  blockquote,
-  pre,
-  code,
-  figure,
-  li,
-  hr,
-  ul,
-  ol,
-  a,
-  tr {
-    page-break-inside: avoid;
-  }
-
-  h2,
-  h3,
-  h4,
-  p,
-  a {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-  }
-
   h1 + p,
   h2 + p,
   h3 + p {
     page-break-before: avoid;
-  }
-
-  img {
-    page-break-after: auto;
-    page-break-before: auto;
-    page-break-inside: avoid;
   }
 
   pre {
