@@ -264,6 +264,7 @@ Other           ████   6,981 ( 4.3%)
 
 ### 9. **ToolVizualizer** - 33 commits (3.3%)
 **Focus:** Tool visualization (variant spelling/separate repo)
+**Website:** [n0ai.studio](https://n0ai.studio)
 
 **Status:** Active development
 
@@ -352,9 +353,9 @@ Legacy                            6 commits ( 0.6%)
 ### Infrastructure & Public Sites (13.3%)
 
 **Repositories:**
-- IntegrityStudio.ai (61 commits)
+- IntegrityStudio.ai (61 commits) - [www.integritystudio.ai](https://www.integritystudio.ai)
 - ToolVisualizer (36 commits)
-- ToolVizualizer (33 commits)
+- ToolVizualizer (33 commits) - [n0ai.studio](https://n0ai.studio)
 - dotfiles (4 commits)
 
 **Total:** 134 commits
@@ -373,7 +374,7 @@ Legacy                            6 commits ( 0.6%)
 
 **Repositories:**
 - mcp-server-cloudflare (58 commits) *[Newly discovered]*
-- RepoViz (19 commits) - [n0ai.studio](https://n0ai.studio)
+- RepoViz (19 commits)
 - 1mcpserver (17 commits) *[Newly discovered]*
 - mcp-oauth-gateway (13 commits)
 - ast-grep-mcp (7 commits)
@@ -597,11 +598,11 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 ### Active Development (20-49 commits)
 7. **Leora** (45) - *[Newly discovered]* Client work
 8. **ToolVisualizer** (36) - Tool analytics
-9. **ToolVizualizer** (33) - Tool visualization
+9. **ToolVizualizer** (33) - Tool visualization → [n0ai.studio](https://n0ai.studio)
 10. **jobs** (27) - *[Newly discovered]* Job tracking
 
 ### Moderate Activity (10-19 commits)
-11. **RepoViz** (19) - Repository visualization → [n0ai.studio](https://n0ai.studio)
+11. **RepoViz** (19) - Repository visualization
 12. **1mcpserver** (17) - *[Newly discovered]* MCP server
 13. **mcp-oauth-gateway** (13) - OAuth integration
 14. **sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
