@@ -46,34 +46,68 @@ November 2025        ███████████████████�
 
 ---
 
-## Deep Scan Discoveries
+## Commits by Programming Language
 
-**Methodology Change:** This analysis scans up to 2 directories deep from ~/code, revealing previously hidden nested repositories.
+**Analysis:** File changes analyzed across all 1,007 commits to understand the technology stack and development focus.
 
-### Newly Discovered Repositories (5)
+### Visual Breakdown
 
-These repositories were invisible in shallow scans but contain significant development activity:
+```
+JavaScript      ██████████████████████████████████████████████████ 76,785 (47.7%)
+TypeScript      ██████████████ 23,656 (14.7%)
+JSON            ██████ 10,117 ( 6.3%)
+Markdown        █████  8,736 ( 5.4%)
+Python          ████   6,301 ( 3.9%)
+HTML            █      2,205 ( 1.4%)
+YAML                     800 ( 0.5%)
+CSS/SCSS                 552 ( 0.3%)
+Other           █████████████████████ 31,309 (19.4%)
+```
 
-| Repository | Commits | Category | Impact |
-|------------|---------|----------|--------|
-| **ISInternal/mcp-server-cloudflare** | 58 | MCP Servers | Major Cloudflare integration work |
-| **IntegrityStudioClients/Leora** | 45 | Client Work | Significant client deliverable |
-| **jobs** | 27 | Career | Job tracking and career management |
-| **ISInternal/1mcpserver** | 17 | MCP Servers | Early MCP server foundation |
-| **ISInternal/IntegrityMonitor** | 2 | Monitoring | Infrastructure monitoring |
+**Total:** 160,983 file changes across all commits
 
-**Total Hidden Work:** 149 commits (14.8% of all activity)
+### Language Distribution
 
-**Why This Matters:**
-- Previous analyses missed significant MCP server work (mcp-server-cloudflare: 58 commits)
-- Client work (Leora: 45 commits) was completely invisible
-- True MCP ecosystem size: 14 servers (not the previously visible 7-8)
-- Career management efforts (jobs: 27 commits) now tracked
-- More accurate project category distribution
+| Language | File Changes | % of Total | Repositories |
+|----------|--------------|------------|--------------|
+| **JavaScript** | 76,785 | 47.7% | 16 repos |
+| **TypeScript** | 23,656 | 14.7% | 13 repos |
+| **JSON** | 10,117 | 6.3% | 23 repos |
+| **Markdown** | 8,736 | 5.4% | 30 repos |
+| **Python** | 6,301 | 3.9% | 16 repos |
+| **HTML** | 2,205 | 1.4% | 16 repos |
+| **YAML** | 800 | 0.5% | 22 repos |
+| **CSS/SCSS** | 552 | 0.3% | 12 repos |
+| **C/C++** | 237 | 0.1% | 4 repos |
+| **Shell** | 206 | 0.1% | 21 repos |
+| **Other** | 31,309 | 19.4% | 24 repos |
 
-**Updated Statistics:**
-- **Previous:** 31 repos, 985 commits
-- **Current:** 33 repos, 1,007 commits (+2 repos, +22 commits, +2.2%)
+### Key Insights
+
+**JavaScript Dominance (47.7%):**
+- Primary language for MCP servers, web applications, and tooling
+- 16 repositories actively using JavaScript
+- Focus on Node.js/Express backends and frontend work
+
+**TypeScript Growth (14.7%):**
+- 13 repositories using TypeScript
+- Modern type-safe development practices
+- Significant investment in MCP server development
+
+**Configuration & Documentation (12.2%):**
+- JSON (6.3%) + Markdown (5.4%) + YAML (0.5%) = 12.2%
+- Heavy documentation culture (30 repos with .md files)
+- Extensive configuration management
+
+**Python for Data Work (3.9%):**
+- 16 repositories using Python
+- Primary language for data scraping and analytics
+- tcad-scraper, AnalyticsBot, utility scripts
+
+**Multi-Language Expertise:**
+- Active development in 10+ languages
+- Full-stack capabilities (JavaScript/TypeScript + Python + Ruby)
+- DevOps focus (Shell scripts in 21 repos, YAML configs in 22 repos)
 
 ---
 
@@ -622,28 +656,29 @@ Based on current trajectory:
 
 ## Conclusion
 
-The past 4+ months demonstrate consistent, high-quality development work with clear strategic direction and comprehensive coverage across nested repository structures. The deeper analysis (scanning 2 directories deep) revealed 22 additional commits and 5 previously untracked repositories, including significant work on mcp-server-cloudflare (58 commits) and client project Leora (45 commits).
+The past 4+ months demonstrate consistent, high-quality development work with clear strategic direction across a diverse technology stack. Analysis of 160,983 file changes reveals a JavaScript/TypeScript-focused development culture (62.4% combined) with strong Python capabilities for data work (3.9%) and comprehensive documentation practices (30 repos with Markdown).
 
 November's intensive sprint successfully delivered comprehensive Schema.org implementation, robust testing infrastructure, and multiple MCP servers. The work spans technical depth (schema implementation, zero-regression testing) and strategic breadth (14 MCP servers, data infrastructure, client work), positioning well for continued growth in AI-powered automation and semantic web optimization.
 
 **Key Metrics:**
 - ✅ 1,007 commits across 33 repositories
+- ✅ 160,983 file changes analyzed
 - ✅ 97% repository activity rate (32/33 active)
 - ✅ 7 major project categories
 - ✅ 14 MCP servers in development
+- ✅ 10+ programming languages actively used
 - ✅ Comprehensive testing infrastructure (4 test suites)
 - ✅ 20+ documentation files
-- ✅ 5 previously hidden repositories discovered
+- ✅ 6 live websites deployed
 
-**Deep Scan Impact:**
-The comprehensive 2-directory-deep scan revealed:
-- +22 commits from nested repositories
-- +2 repositories (33 vs 31)
-- Significant hidden work: mcp-server-cloudflare (58), Leora (45), jobs (27)
-- More accurate project category distribution
-- Complete picture of MCP ecosystem (14 servers vs previously visible 7)
+**Technology Stack Highlights:**
+- **JavaScript/TypeScript:** 62.4% of file changes (100,441 changes across 16 repos)
+- **Python:** Primary data processing language (6,301 changes across 16 repos)
+- **Documentation:** Heavy markdown usage (8,736 changes across 30 repos)
+- **Full-stack capability:** Backend (Node.js/Express), Frontend (React/Jekyll), Data (Python)
+- **DevOps culture:** YAML configs in 22 repos, shell scripts in 21 repos
 
-**Status:** Strong momentum heading into next quarter with mature infrastructure, comprehensive repository coverage, and clear roadmap.
+**Status:** Strong momentum heading into next quarter with mature infrastructure, diverse technical capabilities, and clear roadmap.
 
 ---
 
