@@ -5,6 +5,37 @@ date: 2025-11-16
 excerpt: "Comprehensive analysis of 1,007 commits across 33 repositories - tracking 4+ months of development work including newly discovered MCP servers, client projects, and nested repositories."
 ---
 
+<style>
+/* Increase font size for all text elements in SVG charts */
+.page__content svg text {
+  font-size: 16px !important;
+}
+
+/* Specific adjustments for different text elements */
+.page__content svg text.title {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.page__content svg text.label {
+  font-size: 15px !important;
+}
+
+.page__content svg text.value {
+  font-size: 14px !important;
+}
+
+/* Ensure axis labels are readable */
+.page__content svg .tick text {
+  font-size: 14px !important;
+}
+
+/* Legend text */
+.page__content svg .legend text {
+  font-size: 14px !important;
+}
+</style>
+
 ## Executive Summary
 
 **Period:** July 7, 2025 - November 16, 2025 (133 days)
