@@ -6,7 +6,8 @@ This directory contains all documentation for The Parlor (www.aledlie.com) Jekyl
 
 ## Quick Start
 
-- **New to this project?** Start with `REFACTORING_STATUS.md`
+- **New to this project?** Start with `ARCHITECTURE-DATA-FLOWS.md` for system overview
+- **Understanding the architecture?** See `ARCHITECTURE-DATA-FLOWS.md` for data flows and patterns
 - **Setting up locally?** See `setup/` directory
 - **Working with Schema.org?** See `schema/` directory
 - **Refactoring the codebase?** See `refactoring/` directory
@@ -123,6 +124,7 @@ docs/
 
 | File | Description |
 |------|-------------|
+| `ARCHITECTURE-DATA-FLOWS.md` | **Comprehensive architecture and data flow documentation** |
 | `REFACTORING_STATUS.md` | Current refactoring status and progress |
 | `START_HERE_OLD.md` | Legacy start guide (archived) |
 
@@ -160,10 +162,11 @@ docs/
 
 ## Need Help?
 
-1. **Schema.org questions?** → `schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
-2. **Refactoring stuck?** → `refactoring/TROUBLESHOOTING_GUIDE.md`
-3. **Build issues?** → `setup/BUILD_ISSUE_RESOLUTION.md`
-4. **General questions?** → `refactoring/FAQ.md`
+1. **Understanding the architecture?** → `ARCHITECTURE-DATA-FLOWS.md`
+2. **Schema.org questions?** → `schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
+3. **Refactoring stuck?** → `refactoring/TROUBLESHOOTING_GUIDE.md`
+4. **Build issues?** → `setup/BUILD_ISSUE_RESOLUTION.md`
+5. **General questions?** → `refactoring/FAQ.md`
 
 ---
 
