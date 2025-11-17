@@ -26,6 +26,14 @@ Over the past 4+ months, I've maintained consistent development activity across 
 
 ### Monthly Breakdown
 
+```
+July 2025            ███ 36 commits ( 3.7%)
+August 2025          ███████████████ 170 commits (17.3%)
+September 2025       ███████████ 124 commits (12.6%)
+October 2025         ████████ 95 commits ( 9.6%)
+November 2025        ██████████████████████████████████████████████████ 560 commits (56.9%)
+```
+
 | Month | Commits | Percentage | Trend |
 |-------|---------|------------|-------|
 | **November 2025** | 560 | 56.9% | ⬆️⬆️⬆️ Massive spike |
@@ -71,8 +79,24 @@ These repositories were invisible in shallow scans but contain significant devel
 
 ## Top 10 Most Active Repositories
 
+### Visual Overview
+
+```
+ 1. PersonalSite                             ██████████████████████████████████████████████████ 227
+ 2. ISPublicSites/tcad-scraper               ██████████████████████████████████████████ 193
+ 3. ISPublicSites/AnalyticsBot               ██████████████████████████████████ 157
+ 4. ISPublicSites/IntegrityStudio.ai         █████████████ 61
+ 5. ISInternal/mcp-server-cloudflare         ████████████ 58
+ 6. ISPublicSites/SingleSiteScraper          ███████████ 53
+ 7. IntegrityStudioClients/Leora             █████████ 45
+ 8. ISPublicSites/ToolVisualizer             ███████ 36
+ 9. ToolVizualizer                           ███████ 33
+10. jobs                                     █████ 27
+```
+
 ### 1. **PersonalSite** - 227 commits (22.5%)
 **Focus:** Jekyll personal website with comprehensive Schema.org implementation
+**Website:** [www.aledlie.com](https://www.aledlie.com)
 
 **Notable Work:**
 - Extensive Schema.org structured data enhancement
@@ -96,6 +120,7 @@ These repositories were invisible in shallow scans but contain significant devel
 
 ### 2. **ISPublicSites/tcad-scraper** - 193 commits (19.2%)
 **Focus:** Travis Central Appraisal District data scraping and analysis
+**Website:** [alephatx.info](https://alephatx.info)
 
 **Notable Work:**
 - Property data extraction automation
@@ -120,6 +145,7 @@ These repositories were invisible in shallow scans but contain significant devel
 
 ### 4. **ISPublicSites/IntegrityStudio.ai** - 61 commits (6.1%)
 **Focus:** Public-facing company website
+**Website:** [www.integritystudio.ai](https://www.integritystudio.ai)
 
 **Notable Work:**
 - Content management and updates
@@ -209,6 +235,18 @@ These repositories were invisible in shallow scans but contain significant devel
 
 ## Project Categories
 
+### Visual Overview
+
+```
+Data & Analytics               ████████████████████ 403 commits (40.0%)
+Personal Sites                 ███████████ 238 commits (23.6%)
+Infrastructure & Sites         ██████ 134 commits (13.3%)
+MCP Servers                    ██████ 130 commits (12.9%)
+Client Work & Career           ███  72 commits ( 7.1%)
+Business Apps                  █  24 commits ( 2.4%)
+Legacy                            6 commits ( 0.6%)
+```
+
 ### Data & Analytics (40.0%)
 
 **Repositories:**
@@ -274,7 +312,7 @@ These repositories were invisible in shallow scans but contain significant devel
 
 **Repositories:**
 - ISInternal/mcp-server-cloudflare (58 commits) *[Newly discovered]*
-- ISInternal/RepoViz (19 commits)
+- ISInternal/RepoViz (19 commits) - [n0ai.studio](https://n0ai.studio)
 - ISInternal/1mcpserver (17 commits) *[Newly discovered]*
 - ISInternal/mcp-oauth-gateway (13 commits)
 - ast-grep-mcp (7 commits)
@@ -488,10 +526,10 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 ## Complete Repository Breakdown
 
 ### Very Active Development (50+ commits)
-1. **PersonalSite** (227) - Personal website with Schema.org
-2. **ISPublicSites/tcad-scraper** (193) - Property data scraping
+1. **PersonalSite** (227) - Personal website with Schema.org → [www.aledlie.com](https://www.aledlie.com)
+2. **ISPublicSites/tcad-scraper** (193) - Property data scraping → [alephatx.info](https://alephatx.info)
 3. **ISPublicSites/AnalyticsBot** (157) - Analytics automation
-4. **ISPublicSites/IntegrityStudio.ai** (61) - Company website
+4. **ISPublicSites/IntegrityStudio.ai** (61) - Company website → [www.integritystudio.ai](https://www.integritystudio.ai)
 5. **ISInternal/mcp-server-cloudflare** (58) - *[Newly discovered]* Cloudflare MCP
 6. **ISPublicSites/SingleSiteScraper** (53) - Web scraping tool
 
@@ -502,11 +540,11 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 10. **jobs** (27) - *[Newly discovered]* Job tracking
 
 ### Moderate Activity (10-19 commits)
-11. **ISInternal/RepoViz** (19) - Repository visualization
+11. **ISInternal/RepoViz** (19) - Repository visualization → [n0ai.studio](https://n0ai.studio)
 12. **ISInternal/1mcpserver** (17) - *[Newly discovered]* MCP server
 13. **ISInternal/mcp-oauth-gateway** (13) - OAuth integration
-14. **SumedhSite/sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site
-15. **InventoryAI** (10) - AI inventory features
+14. **SumedhSite/sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
+15. **InventoryAI** (10) - AI inventory features → [www.inventoryai.io](https://www.inventoryai.io)
 
 ### Light Development (5-9 commits)
 16. **Inventory** (9) - Inventory management
