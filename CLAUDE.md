@@ -68,6 +68,37 @@ npm run format:scss
 - **Pagination:** 8 posts per page via jekyll-paginate
 - **Sass:** jekyll-sass-converter ~> 3.0 (modern Sass compiler)
 
+### Schema.org Architecture
+
+**Critical:** This site implements extensive Schema.org structured data for SEO optimization. Schema includes are modular and can be combined.
+
+**Schema Implementation Pattern:**
+- **Unified Knowledge Graph:** `_includes/unified-knowledge-graph-schema.html` - Core organization/person entity definitions used site-wide
+- **Page-Specific Schema:** Included conditionally based on page type (blog posts, about pages, projects)
+- **Entity Relationships:** Uses `@id` references to connect entities across pages (author, organization, citations)
+
+**Available Schema Includes:**
+- `post-schema.html` - Blog posts (BlogPosting with enhanced metadata)
+- `tech-article-schema.html` - Technical articles (TechArticle)
+- `analysis-article-schema.html` - Analysis pieces (AnalysisNewsArticle)
+- `how-to-schema.html` - Tutorial content (HowTo)
+- `about-page-schema.html` - About page (Person/ProfilePage with detailed properties)
+- `organization-schema.html` - Organization entity
+- `enhanced-person-schema.html` - Person entity with comprehensive properties
+- `breadcrumb-schema.html` - Breadcrumb navigation
+- `search-action-schema.html` - Site search functionality
+- `webpage-schema.html` - Generic webpage markup
+
+**Schema Documentation:**
+- Implementation guides in `docs/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
+- Testing procedures in `docs/SCHEMA-TESTING-VALIDATION-GUIDE.md`
+- Analysis and comparisons in `docs/BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md`
+
+**Testing Schema Changes:**
+- Use Google Rich Results Test: https://search.google.com/test/rich-results
+- Use Schema.org validator: https://validator.schema.org/
+- Check `docs/SEARCH-CONSOLE-MONITORING-GUIDE.md` for monitoring procedures
+
 ### Key Directories
 
 ```
@@ -101,7 +132,7 @@ npm run format:scss
 
 **Key Layouts:**
 - **home.html**: Homepage layout (extends archive) - displays recent posts with pagination
-- **single.html**: Individual pages and posts - supports headers, breadcrumbs, author profile
+- **single.html**: Individual pages and posts - supports headers, breadcrumbs, author profile, schema includes
 - **post-index.html**: Blog archive (extends archive) - groups posts by year
 - **archive.html**: Base archive layout - used by home and post-index
 - **collection.html**: For projects, reports, and work collections
@@ -110,6 +141,7 @@ npm run format:scss
 - **Header Images:** Controlled by `header.overlay_image` and `header.teaser` in front matter
 - **Breadcrumbs:** Enabled via `breadcrumbs: true` in front matter (requires site.breadcrumbs or page.breadcrumbs)
 - **Author Profile:** Enabled via `author_profile: true` in front matter
+- **Schema.org Markup:** Automatic inclusion based on layout and page type (see Schema.org Architecture section)
 
 **Front Matter Pattern for Pages:**
 ```yaml
@@ -124,6 +156,29 @@ header:
   teaser: /images/cover-image.png
 ---
 ```
+
+**Front Matter Pattern for Blog Posts with Schema:**
+```yaml
+---
+layout: single
+title: "Article Title"
+date: YYYY-MM-DD
+categories: [category]
+tags: [tag1, tag2]
+excerpt: "Brief description for SEO"
+schema_type: tech-article  # Options: tech-article, analysis-article, how-to
+citations:  # Optional: for academic/analysis posts
+  - title: "Reference Title"
+    url: "https://example.com"
+    author: "Author Name"
+---
+```
+
+**Schema Type Selection:**
+- Use `schema_type: tech-article` for technical tutorials
+- Use `schema_type: analysis-article` for data analysis or investigative pieces
+- Use `schema_type: how-to` for step-by-step guides
+- Default: BlogPosting (no schema_type needed)
 
 ### Custom Styling Architecture
 
@@ -274,6 +329,12 @@ git commit -m "Update Sumedh's site submodule"
 
 6. **Analytics Privacy:** GTM implementation includes Do Not Track respect and opt-out capabilities.
 
+7. **Schema.org Validation:** Always validate schema changes using Google Rich Results Test and Schema.org validator before deploying.
+
+8. **Visual Regression:** Run `npm run test:visual` before committing CSS changes to catch unintended visual differences.
+
+9. **Test Suite Requirements:** All tests must pass before deployment. Run `npm run test:all` before pushing to production.
+
 ## Excluded from Build
 
 Important paths excluded in `_config.yml`:
@@ -286,3 +347,67 @@ Important paths excluded in `_config.yml`:
 ## RSS Feeds
 
 - Main feed: `/feed.xml` (Jekyll Feed plugin)
+
+## Utilities and Scripts
+
+### Code Quality Tools
+
+**Duplication Detection** (`utils/find-duplicates.sh`):
+- Executable script for finding duplicate code using ast-grep MCP
+- Presets: `--preset js`, `--preset scss`, `--preset all`
+- Customizable similarity threshold (0.0-1.0, default: 0.8)
+- Documentation: `utils/DUPLICATION-FINDER.md`
+
+**Usage:**
+```bash
+# Quick JavaScript scan
+./utils/find-duplicates.sh --preset js
+
+# Custom scan with stricter matching
+./utils/find-duplicates.sh --language javascript --similarity 0.9
+```
+
+### Visual Regression Testing
+
+**Purpose:** Ensure pixel-perfect visual consistency during refactoring
+
+**Workflow:**
+```bash
+# Capture baseline screenshots
+npm run test:visual-baseline
+
+# Run comparison after changes
+npm run test:visual
+
+# View diffs in tests/visual/diffs/
+```
+
+**Zero-tolerance policy:** ANY visual difference during refactoring is considered a bug.
+
+### Baseline Performance Testing
+
+**Statistical validation of build performance:**
+```bash
+# Capture new baseline
+npm run test:capture-baseline
+
+# Compare against baseline (statistical analysis)
+npm run test:compare-baseline
+```
+
+**Metrics tracked:**
+- Clean build time (statistical significance testing)
+- Incremental build time
+- CSS file size
+- HTML output size
+- Memory usage during build
+
+## Refactoring Documentation
+
+Extensive refactoring documentation exists in `docs/`:
+- `docs/START_HERE.md` - Entry point for refactoring work
+- `docs/REFACTORING_README.md` - Overview of refactoring phases
+- `docs/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md` - Schema.org enhancement guide
+- Multiple entity analysis files for different page types
+
+**When making significant changes:** Consult refactoring docs to understand existing patterns and testing requirements.
