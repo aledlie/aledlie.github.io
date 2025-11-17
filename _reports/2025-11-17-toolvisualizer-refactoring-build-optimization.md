@@ -47,6 +47,7 @@ The ToolVisualizer project generates 252 HTML pages (126 directory pages + 126 m
 #### Files Created
 
 **`public/templates/base.html`** - Base template with progressive enhancement
+{% raw %}
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +67,7 @@ The ToolVisualizer project generates 252 HTML pages (126 directory pages + 126 m
 </body>
 </html>
 ```
+{% endraw %}
 
 **`public/templates/directory.html`** - Directory page template
 - Extends base.html
@@ -123,6 +125,7 @@ def generate_page_html(directory_name, schema_data, depth=0):
 #### Files Created
 
 **`public/templates/mindmap.html`**
+{% raw %}
 ```html
 {% extends "base.html" %}
 
@@ -138,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 {% endblock %}
 ```
+{% endraw %}
 
 #### Files Modified
 
