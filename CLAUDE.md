@@ -16,14 +16,19 @@ A Jekyll-based personal website ("The Parlor") built on the Minimal Mistakes the
 # Install Ruby dependencies
 bundle install
 
-# Serve site locally (with Ruby warnings suppressed)
-RUBYOPT="-W0" bundle exec jekyll serve
+# Serve site locally
+bundle exec jekyll serve
 # Site will be available at http://localhost:4000
 
 # Build for production
 bundle exec jekyll build
 # Output to _site/ directory
 ```
+
+**Build Notes:**
+- Bundler 2.6.9 is required (matches Gemfile.lock)
+- SCSS deprecation warnings from vendor files (Susy, Magnific Popup) are expected and can be ignored
+- Custom SCSS files use modern Sass module system (sass:color, sass:meta, sass:list)
 
 ### Testing
 
