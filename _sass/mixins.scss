@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "sass:meta";
+@use "sass:list";
 @import 'variables';
 
 /* ==========================================================================
@@ -199,7 +202,7 @@ $indent-var: #{($doc-line-height / $doc-font-size)}rem;
    ========================================================================== */
 
 @mixin background-alpha($color: $white, $alpha: 1) {
-  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  background-color: hsla(color.hue($color), color.saturation($color), color.lightness($color), $alpha);
 }
 
 /* 
@@ -287,10 +290,10 @@ $indent-var: #{($doc-line-height / $doc-font-size)}rem;
   @else if $point == x-large {
     @media only screen and (min-width: #{$x-large}) { @content; }
   }
-  @else if type-of($point) == 'list' {
+  @else if meta.type-of($point) == 'list' {
     // Handle cases like: @include breakpoint(max-width $small)
-    $property: nth($point, 1); // e.g., "max-width"
-    $value: nth($point, 2);    // e.g., "37.5em"
+    $property: list.nth($point, 1); // e.g., "max-width"
+    $value: list.nth($point, 2);    // e.g., "37.5em"
     @media (#{$property}: #{$value}) { @content; }
   }
   @else {
