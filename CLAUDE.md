@@ -90,14 +90,15 @@ npm run format:scss
 - `webpage-schema.html` - Generic webpage markup
 
 **Schema Documentation:**
-- Implementation guides in `docs/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
-- Testing procedures in `docs/SCHEMA-TESTING-VALIDATION-GUIDE.md`
-- Analysis and comparisons in `docs/BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md`
+- Implementation guides in `docs/schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
+- Testing procedures in `docs/schema/SCHEMA-TESTING-VALIDATION-GUIDE.md`
+- Analysis and comparisons in `docs/schema/BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md`
+- Complete analysis in `docs/schema/PERSONALSITE-SCHEMA-COMPLETE-ANALYSIS.md`
 
 **Testing Schema Changes:**
 - Use Google Rich Results Test: https://search.google.com/test/rich-results
 - Use Schema.org validator: https://validator.schema.org/
-- Check `docs/SEARCH-CONSOLE-MONITORING-GUIDE.md` for monitoring procedures
+- Check `docs/schema/SEARCH-CONSOLE-MONITORING-GUIDE.md` for monitoring procedures
 
 ### Key Directories
 
@@ -239,6 +240,22 @@ Key customizations:
 - **Privacy:** Anonymous IP enabled
 - **Testing:** Comprehensive unit and E2E tests in `tests/analytics/`
 
+### MCP Integration
+
+**AST-Grep MCP Server:**
+- Provides AST-based code analysis capabilities
+- Schema.org validation and generation tools
+- Duplicate code detection via MCP
+- Documentation: `_reports/2025-11-16-ast-grep-mcp-*.md`
+
+**Available MCP Tools:**
+- `mcp__ast-grep__find_code` - AST-based code search
+- `mcp__ast-grep__find_duplication` - Detect duplicate code patterns
+- `mcp__ast-grep__validate_entity_id` - Schema.org @id validation
+- Full list available via Claude Code's MCP tools
+
+**When using MCP tools:** Prefer MCP-based duplication detection over manual analysis for consistency.
+
 ## Collections
 
 Three custom collections with permalinks:
@@ -256,9 +273,9 @@ collections:
     permalink: /work/:path/
 ```
 
-- **_projects/**: Portfolio/project showcase items
-- **_reports/**: Case studies and reports
-- **_work/**: Work-related content and current projects
+- **_projects/**: Portfolio/project showcase items (permanent work)
+- **_reports/**: Technical case studies and analysis reports (completed investigations)
+- **_work/**: Work-in-progress content, current projects, and activity summaries (ongoing work)
 
 ## Common Development Patterns
 
@@ -335,6 +352,8 @@ git commit -m "Update Sumedh's site submodule"
 
 9. **Test Suite Requirements:** All tests must pass before deployment. Run `npm run test:all` before pushing to production.
 
+10. **Reports and Work Tracking:** Technical reports go in `_reports/` collection, while ongoing work and activity summaries go in `_work/`. Both are public-facing collections with permalinks.
+
 ## Excluded from Build
 
 Important paths excluded in `_config.yml`:
@@ -366,6 +385,12 @@ Important paths excluded in `_config.yml`:
 # Custom scan with stricter matching
 ./utils/find-duplicates.sh --language javascript --similarity 0.9
 ```
+
+**Git Activity Reports** (`_work/YYYY-MM-DD-git-activity-summary.md`):
+- Automated git activity summaries with SVG visualizations
+- Programming language breakdown analysis
+- Tracks contributions across time periods
+- Located in `_work/` collection for ongoing work tracking
 
 ### Visual Regression Testing
 
@@ -405,9 +430,11 @@ npm run test:compare-baseline
 ## Refactoring Documentation
 
 Extensive refactoring documentation exists in `docs/`:
-- `docs/START_HERE.md` - Entry point for refactoring work
-- `docs/REFACTORING_README.md` - Overview of refactoring phases
-- `docs/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md` - Schema.org enhancement guide
-- Multiple entity analysis files for different page types
+- **Documentation Index:** `docs/README.md` - Complete documentation overview
+- **Refactoring Status:** `docs/REFACTORING_STATUS.md` - Current status and progress
+- **Master Guide:** `docs/refactoring/MASTER_IMPLEMENTATION_GUIDE.md` - Complete refactoring roadmap
+- **Setup Guides:** `docs/setup/` - Local development setup (Doppler, build issues, Ruby compatibility)
+- **Schema Guides:** `docs/schema/` - Schema.org implementation and entity analysis
+- **Testing:** `docs/refactoring/TESTING-QUICKSTART.md` - Testing strategy and procedures
 
 **When making significant changes:** Consult refactoring docs to understand existing patterns and testing requirements.
