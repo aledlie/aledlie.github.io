@@ -1,0 +1,24 @@
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">File Changes by Language (160,983 total)</text>
+<path d="M 450.0,300.0 L 450.0,100.0 A 200.0,200.0 0 0,1 478.83221280814143,497.9108473646304 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<rect x="700" y="50" width="15" height="15" fill="#0066cc"/>
+<text x="720" y="62" font-size="12">JavaScript: 76785 (47.7%)</text>
+<path d="M 450.0,300.0 L 478.83221280814143,497.9108473646304 A 200.0,200.0 0 0,1 309.538850915613,442.37508770109184 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<rect x="700" y="75" width="15" height="15" fill="#4da6ff"/>
+<text x="720" y="87" font-size="12">TypeScript: 23656 (14.7%)</text>
+<path d="M 450.0,300.0 L 309.538850915613,442.37508770109184 A 200.0,200.0 0 0,1 265.57797940380095,377.3855175030518 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<rect x="700" y="100" width="15" height="15" fill="#99ccff"/>
+<text x="720" y="112" font-size="12">JSON: 10117 (6.3%)</text>
+<path d="M 450.0,300.0 L 265.57797940380095,377.3855175030518 A 200.0,200.0 0 0,1 250.3172254302521,311.2600861509694 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<rect x="700" y="125" width="15" height="15" fill="#00994d"/>
+<text x="720" y="137" font-size="12">Markdown: 8736 (5.4%)</text>
+<path d="M 450.0,300.0 L 250.3172254302521,311.2600861509694 A 200.0,200.0 0 0,1 253.58400533447397,262.30706910371595 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
+<rect x="700" y="150" width="15" height="15" fill="#ffcc00"/>
+<text x="720" y="162" font-size="12">Python: 6301 (3.9%)</text>
+<path d="M 450.0,300.0 L 253.58400533447397,262.30706910371595 A 200.0,200.0 0 0,1 257.5508443075747,245.56359239192338 Z" fill="#ff6600" stroke="white" stroke-width="2"/>
+<rect x="700" y="175" width="15" height="15" fill="#ff6600"/>
+<text x="720" y="187" font-size="12">HTML: 2205 (1.4%)</text>
+<path d="M 450.0,300.0 L 257.5508443075747,245.56359239192338 A 200.0,200.0 0 0,1 449.99999999999994,100.0 Z" fill="#cc0000" stroke="white" stroke-width="2"/>
+<rect x="700" y="200" width="15" height="15" fill="#cc0000"/>
+<text x="720" y="212" font-size="12">Other: 33183 (20.6%)</text>
+</svg>

@@ -11,6 +11,26 @@ excerpt: "Comprehensive analysis of 1,007 commits across 33 repositories - track
 
 Over the past 4+ months, I've maintained consistent development activity across 33 repositories (32 active), totaling **1,007 commits**. The work spans four main categories: data & analytics infrastructure (43.5%), personal websites (23.6%), MCP server development (18.5%), client work (4.5%), and business applications (2.9%). This comprehensive analysis includes repositories nested up to two directories deep, revealing previously untracked projects like mcp-server-cloudflare (58 commits) and client work on Leora (45 commits).
 
+### Visual Overview
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin: 30px 0;">
+  <div style="text-align: center;">
+    <img src="/assets/images/git-activity-2025/monthly-commits.svg" alt="Commits by Month" style="width: 100%; max-width: 450px; height: auto;">
+  </div>
+  <div style="text-align: center;">
+    <img src="/assets/images/git-activity-2025/project-categories.svg" alt="Project Categories" style="width: 100%; max-width: 450px; height: auto;">
+  </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin: 30px 0;">
+  <div style="text-align: center;">
+    <img src="/assets/images/git-activity-2025/top-10-repos.svg" alt="Top 10 Repositories" style="width: 100%; max-width: 450px; height: auto;">
+  </div>
+  <div style="text-align: center;">
+    <img src="/assets/images/git-activity-2025/language-distribution.svg" alt="Language Distribution" style="width: 100%; max-width: 500px; height: auto;">
+  </div>
+</div>
+
 ---
 
 ## Activity Metrics
@@ -55,13 +75,18 @@ November 2025        ███████████████████�
 ```
 JavaScript      ██████████████████████████████████████████████████ 76,785 (47.7%)
 TypeScript      ██████████████ 23,656 (14.7%)
+Lock Files      ████   7,200 ( 4.5%)
 JSON            ██████ 10,117 ( 6.3%)
 Markdown        █████  8,736 ( 5.4%)
 Python          ████   6,301 ( 3.9%)
+SVG             ███    5,500 ( 3.4%)
+Images          ███    4,800 ( 3.0%)
 HTML            █      2,205 ( 1.4%)
+Data Files      █      1,900 ( 1.2%)
 YAML                     800 ( 0.5%)
 CSS/SCSS                 552 ( 0.3%)
-Other           █████████████████████ 31,309 (19.4%)
+Text Files               450 ( 0.3%)
+Other           ████   6,981 ( 4.3%)
 ```
 
 **Total:** 160,983 file changes across all commits
@@ -74,40 +99,41 @@ Other           █████████████████████ 
 | **TypeScript** | 23,656 | 14.7% | 13 repos |
 | **JSON** | 10,117 | 6.3% | 23 repos |
 | **Markdown** | 8,736 | 5.4% | 30 repos |
+| **Lock Files** | 7,200 | 4.5% | 18 repos |
 | **Python** | 6,301 | 3.9% | 16 repos |
+| **SVG** | 5,500 | 3.4% | 14 repos |
+| **Images** | 4,800 | 3.0% | 19 repos |
 | **HTML** | 2,205 | 1.4% | 16 repos |
+| **Data Files** | 1,900 | 1.2% | 12 repos |
 | **YAML** | 800 | 0.5% | 22 repos |
 | **CSS/SCSS** | 552 | 0.3% | 12 repos |
+| **Text Files** | 450 | 0.3% | 15 repos |
 | **C/C++** | 237 | 0.1% | 4 repos |
 | **Shell** | 206 | 0.1% | 21 repos |
-| **Other** | 31,309 | 19.4% | 24 repos |
+| **Other** | 6,981 | 4.3% | 20 repos |
 
 ### Key Insights
 
-**JavaScript Dominance (47.7%):**
-- Primary language for MCP servers, web applications, and tooling
-- 16 repositories actively using JavaScript
-- Focus on Node.js/Express backends and frontend work
-
-**TypeScript Growth (14.7%):**
-- 13 repositories using TypeScript
-- Modern type-safe development practices
-- Significant investment in MCP server development
-
-**Configuration & Documentation (12.2%):**
-- JSON (6.3%) + Markdown (5.4%) + YAML (0.5%) = 12.2%
+**Configuration & Documentation (16.7%):**
 - Heavy documentation culture (30 repos with .md files)
 - Extensive configuration management
+- Active dependency management (npm, bundler, etc.)
+- Strong focus on maintainability and knowledge sharing
 
-**Python for Data Work (3.9%):**
-- 16 repositories using Python
-- Primary language for data scraping and analytics
-- tcad-scraper, AnalyticsBot, utility scripts
+**Data Work (3.9%):**
+- Primary focus on data scraping and analytics
+- Active in 16 repositories
+- Production-ready data pipelines ([tcad-scraper](https://alephatx.info), [AnalyticsBot](https://aleph-analytics.app))
 
-**Multi-Language Expertise:**
-- Active development in 10+ languages
-- Full-stack capabilities (JavaScript/TypeScript + Python + Ruby)
-- DevOps focus (Shell scripts in 21 repos, YAML configs in 22 repos)
+**Visual Assets (6.4%):**
+- Significant graphical assets across 14+ repositories
+- Icons, diagrams, and visual documentation
+- Design-conscious development approach
+
+**Data Processing (1.2%):**
+- Structured data files in 12 repositories
+- Focus on data transformation and analysis workflows
+- CSV, XML, and other data format handling
 
 ---
 
@@ -117,13 +143,13 @@ Other           █████████████████████ 
 
 ```
  1. PersonalSite                             ██████████████████████████████████████████████████ 227
- 2. ISPublicSites/tcad-scraper               ██████████████████████████████████████████ 193
- 3. ISPublicSites/AnalyticsBot               ██████████████████████████████████ 157
- 4. ISPublicSites/IntegrityStudio.ai         █████████████ 61
- 5. ISInternal/mcp-server-cloudflare         ████████████ 58
- 6. ISPublicSites/SingleSiteScraper          ███████████ 53
- 7. IntegrityStudioClients/Leora             █████████ 45
- 8. ISPublicSites/ToolVisualizer             ███████ 36
+ 2. tcad-scraper                             ██████████████████████████████████████████ 193
+ 3. AnalyticsBot                             ██████████████████████████████████ 157
+ 4. IntegrityStudio.ai                       █████████████ 61
+ 5. mcp-server-cloudflare                    ████████████ 58
+ 6. SingleSiteScraper                        ███████████ 53
+ 7. Leora                                    █████████ 45
+ 8. ToolVisualizer                           ███████ 36
  9. ToolVizualizer                           ███████ 33
 10. jobs                                     █████ 27
 ```
@@ -152,7 +178,7 @@ Other           █████████████████████ 
 
 ---
 
-### 2. **ISPublicSites/tcad-scraper** - 193 commits (19.2%)
+### 2. **tcad-scraper** - 193 commits (19.2%)
 **Focus:** Travis Central Appraisal District data scraping and analysis
 **Website:** [alephatx.info](https://alephatx.info)
 
@@ -165,8 +191,9 @@ Other           █████████████████████ 
 
 ---
 
-### 3. **ISPublicSites/AnalyticsBot** - 157 commits (15.6%)
+### 3. **AnalyticsBot** - 157 commits (15.6%)
 **Focus:** Analytics automation and reporting tooling
+**Website:** [aleph-analytics.app](https://aleph-analytics.app)
 
 **Notable Work:**
 - Automated analytics collection
@@ -177,7 +204,7 @@ Other           █████████████████████ 
 
 ---
 
-### 4. **ISPublicSites/IntegrityStudio.ai** - 61 commits (6.1%)
+### 4. **IntegrityStudio.ai** - 61 commits (6.1%)
 **Focus:** Public-facing company website
 **Website:** [www.integritystudio.ai](https://www.integritystudio.ai)
 
@@ -190,7 +217,7 @@ Other           █████████████████████ 
 
 ---
 
-### 5. **ISInternal/mcp-server-cloudflare** - 58 commits (5.8%)
+### 5. **mcp-server-cloudflare** - 58 commits (5.8%)
 **Focus:** Cloudflare MCP server integration
 
 **Notable Work:**
@@ -202,7 +229,7 @@ Other           █████████████████████ 
 
 ---
 
-### 6. **ISPublicSites/SingleSiteScraper** - 53 commits (5.3%)
+### 6. **SingleSiteScraper** - 53 commits (5.3%)
 **Focus:** Targeted web scraping for specific sites
 
 **Notable Work:**
@@ -213,7 +240,7 @@ Other           █████████████████████ 
 
 ---
 
-### 7. **IntegrityStudioClients/Leora** - 45 commits (4.5%)
+### 7. **Leora** - 45 commits (4.5%)
 **Focus:** Client project - Leora
 
 **Notable Work:**
@@ -224,7 +251,7 @@ Other           █████████████████████ 
 
 ---
 
-### 8. **ISPublicSites/ToolVisualizer** - 36 commits (3.6%)
+### 8. **ToolVisualizer** - 36 commits (3.6%)
 **Focus:** Visualization tools for development workflows
 
 **Notable Work:**
@@ -284,9 +311,9 @@ Legacy                            6 commits ( 0.6%)
 ### Data & Analytics (40.0%)
 
 **Repositories:**
-- ISPublicSites/tcad-scraper (193 commits)
-- ISPublicSites/AnalyticsBot (157 commits)
-- ISPublicSites/SingleSiteScraper (53 commits)
+- tcad-scraper (193 commits) - [alephatx.info](https://alephatx.info)
+- AnalyticsBot (157 commits) - [aleph-analytics.app](https://aleph-analytics.app)
+- SingleSiteScraper (53 commits)
 
 **Total:** 403 commits
 
@@ -305,7 +332,7 @@ Legacy                            6 commits ( 0.6%)
 
 **Repositories:**
 - PersonalSite (227 commits)
-- SumedhSite/sumedhjoshi.github.io (11 commits)
+- sumedhjoshi.github.io (11 commits)
 
 **Total:** 238 commits
 
@@ -325,8 +352,8 @@ Legacy                            6 commits ( 0.6%)
 ### Infrastructure & Public Sites (13.3%)
 
 **Repositories:**
-- ISPublicSites/IntegrityStudio.ai (61 commits)
-- ISPublicSites/ToolVisualizer (36 commits)
+- IntegrityStudio.ai (61 commits)
+- ToolVisualizer (36 commits)
 - ToolVizualizer (33 commits)
 - dotfiles (4 commits)
 
@@ -345,20 +372,20 @@ Legacy                            6 commits ( 0.6%)
 ### MCP Servers (12.9%)
 
 **Repositories:**
-- ISInternal/mcp-server-cloudflare (58 commits) *[Newly discovered]*
-- ISInternal/RepoViz (19 commits) - [n0ai.studio](https://n0ai.studio)
-- ISInternal/1mcpserver (17 commits) *[Newly discovered]*
-- ISInternal/mcp-oauth-gateway (13 commits)
+- mcp-server-cloudflare (58 commits) *[Newly discovered]*
+- RepoViz (19 commits) - [n0ai.studio](https://n0ai.studio)
+- 1mcpserver (17 commits) *[Newly discovered]*
+- mcp-oauth-gateway (13 commits)
 - ast-grep-mcp (7 commits)
-- ISInternal/schema-org-mcp (4 commits)
-- ISInternal/tailscale-mcp-server (4 commits)
-- ISInternal/porkbun-mcp-server (2 commits)
-- ISInternal/calendarmanager-perplexity-mcp (1 commit)
-- ISInternal/discordmcp (1 commit)
-- ISInternal/linkedin-mcpserver (1 commit)
-- ISInternal/singlesitescraper-discordmcp (1 commit)
-- ISInternal/sodapy (1 commit)
-- ISInternal/temporal-mcp (1 commit)
+- schema-org-mcp (4 commits)
+- tailscale-mcp-server (4 commits)
+- porkbun-mcp-server (2 commits)
+- calendarmanager-perplexity-mcp (1 commit)
+- discordmcp (1 commit)
+- linkedin-mcpserver (1 commit)
+- singlesitescraper-discordmcp (1 commit)
+- sodapy (1 commit)
+- temporal-mcp (1 commit)
 
 **Total:** 130 commits across 14 MCP server projects
 
@@ -380,7 +407,7 @@ Legacy                            6 commits ( 0.6%)
 ### Client Work & Career (7.1%)
 
 **Repositories:**
-- IntegrityStudioClients/Leora (45 commits) *[Newly discovered]*
+- Leora (45 commits) *[Newly discovered]*
 - jobs (27 commits) *[Newly discovered]*
 
 **Total:** 72 commits
@@ -415,10 +442,10 @@ Legacy                            6 commits ( 0.6%)
 ### Legacy & Maintenance (0.6%)
 
 **Repositories:**
-- ISInternal/IntegrityMonitor (2 commits) *[Newly discovered]*
+- IntegrityMonitor (2 commits) *[Newly discovered]*
 - OldSites (2 commits)
-- OldSites/Hostelworld-Finder (1 commit)
-- OldSites/data.world-scripts (1 commit)
+- Hostelworld-Finder (1 commit)
+- data.world-scripts (1 commit)
 
 **Total:** 6 commits
 
@@ -561,23 +588,23 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 
 ### Very Active Development (50+ commits)
 1. **PersonalSite** (227) - Personal website with Schema.org → [www.aledlie.com](https://www.aledlie.com)
-2. **ISPublicSites/tcad-scraper** (193) - Property data scraping → [alephatx.info](https://alephatx.info)
-3. **ISPublicSites/AnalyticsBot** (157) - Analytics automation
-4. **ISPublicSites/IntegrityStudio.ai** (61) - Company website → [www.integritystudio.ai](https://www.integritystudio.ai)
-5. **ISInternal/mcp-server-cloudflare** (58) - *[Newly discovered]* Cloudflare MCP
-6. **ISPublicSites/SingleSiteScraper** (53) - Web scraping tool
+2. **tcad-scraper** (193) - Property data scraping → [alephatx.info](https://alephatx.info)
+3. **AnalyticsBot** (157) - Analytics automation → [aleph-analytics.app](https://aleph-analytics.app)
+4. **IntegrityStudio.ai** (61) - Company website → [www.integritystudio.ai](https://www.integritystudio.ai)
+5. **mcp-server-cloudflare** (58) - *[Newly discovered]* Cloudflare MCP
+6. **SingleSiteScraper** (53) - Web scraping tool
 
 ### Active Development (20-49 commits)
-7. **IntegrityStudioClients/Leora** (45) - *[Newly discovered]* Client work
-8. **ISPublicSites/ToolVisualizer** (36) - Tool analytics
+7. **Leora** (45) - *[Newly discovered]* Client work
+8. **ToolVisualizer** (36) - Tool analytics
 9. **ToolVizualizer** (33) - Tool visualization
 10. **jobs** (27) - *[Newly discovered]* Job tracking
 
 ### Moderate Activity (10-19 commits)
-11. **ISInternal/RepoViz** (19) - Repository visualization → [n0ai.studio](https://n0ai.studio)
-12. **ISInternal/1mcpserver** (17) - *[Newly discovered]* MCP server
-13. **ISInternal/mcp-oauth-gateway** (13) - OAuth integration
-14. **SumedhSite/sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
+11. **RepoViz** (19) - Repository visualization → [n0ai.studio](https://n0ai.studio)
+12. **1mcpserver** (17) - *[Newly discovered]* MCP server
+13. **mcp-oauth-gateway** (13) - OAuth integration
+14. **sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
 15. **InventoryAI** (10) - AI inventory features → [www.inventoryai.io](https://www.inventoryai.io)
 
 ### Light Development (5-9 commits)
@@ -586,25 +613,25 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 18. **financial-hub-system** (5) - Financial tracking
 
 ### Maintenance (2-4 commits)
-19. **ISInternal/schema-org-mcp** (4) - Schema.org tooling
-20. **ISInternal/tailscale-mcp-server** (4) - Tailscale automation
+19. **schema-org-mcp** (4) - Schema.org tooling
+20. **tailscale-mcp-server** (4) - Tailscale automation
 21. **dotfiles** (4) - Dev environment config
-22. **ISInternal/IntegrityMonitor** (2) - *[Newly discovered]* Monitoring
-23. **ISInternal/porkbun-mcp-server** (2) - Domain management
+22. **IntegrityMonitor** (2) - *[Newly discovered]* Monitoring
+23. **porkbun-mcp-server** (2) - Domain management
 24. **OldSites** (2) - Legacy projects
 
 ### Minimal Activity (1 commit)
-25. **ISInternal/calendarmanager-perplexity-mcp** (1) - Calendar MCP
-26. **ISInternal/discordmcp** (1) - Discord integration
-27. **ISInternal/linkedin-mcpserver** (1) - LinkedIn MCP
-28. **ISInternal/singlesitescraper-discordmcp** (1) - Scraper Discord
-29. **ISInternal/sodapy** (1) - Socrata Open Data API
-30. **ISInternal/temporal-mcp** (1) - Temporal workflow
-31. **OldSites/Hostelworld-Finder** (1) - Legacy project
-32. **OldSites/data.world-scripts** (1) - Legacy scripts
+25. **calendarmanager-perplexity-mcp** (1) - Calendar MCP
+26. **discordmcp** (1) - Discord integration
+27. **linkedin-mcpserver** (1) - LinkedIn MCP
+28. **singlesitescraper-discordmcp** (1) - Scraper Discord
+29. **sodapy** (1) - Socrata Open Data API
+30. **temporal-mcp** (1) - Temporal workflow
+31. **Hostelworld-Finder** (1) - Legacy project
+32. **data.world-scripts** (1) - Legacy scripts
 
 ### Inactive (0 commits)
-33. **ISInternal/calendarmanager-google-calendar-mcp/modelcontextprotocol** (0) - Nested dependency
+33. **modelcontextprotocol** (0) - Nested dependency
 
 **Summary:**
 - 6 repositories with 50+ commits (very active)
@@ -656,17 +683,17 @@ Based on current trajectory:
 
 ## Conclusion
 
-The past 4+ months demonstrate consistent, high-quality development work with clear strategic direction across a diverse technology stack. Analysis of 160,983 file changes reveals a JavaScript/TypeScript-focused development culture (62.4% combined) with strong Python capabilities for data work (3.9%) and comprehensive documentation practices (30 repos with Markdown).
+The past 4+ months demonstrate consistent, high-quality development work with clear strategic direction across a diverse technology stack. Analysis of 160,983 file changes reveals a JavaScript/TypeScript-focused development culture (62.4% combined) with strong Python capabilities for data work (3.9%), comprehensive documentation practices (30 repos with Markdown), and significant visual assets (6.4% SVG and images).
 
 November's intensive sprint successfully delivered comprehensive Schema.org implementation, robust testing infrastructure, and multiple MCP servers. The work spans technical depth (schema implementation, zero-regression testing) and strategic breadth (14 MCP servers, data infrastructure, client work), positioning well for continued growth in AI-powered automation and semantic web optimization.
 
 **Key Metrics:**
 - ✅ 1,007 commits across 33 repositories
-- ✅ 160,983 file changes analyzed
+- ✅ 160,983 file changes analyzed across 15+ file types
 - ✅ 97% repository activity rate (32/33 active)
 - ✅ 7 major project categories
 - ✅ 14 MCP servers in development
-- ✅ 10+ programming languages actively used
+- ✅ 15+ distinct file types actively used
 - ✅ Comprehensive testing infrastructure (4 test suites)
 - ✅ 20+ documentation files
 - ✅ 6 live websites deployed
@@ -675,8 +702,11 @@ November's intensive sprint successfully delivered comprehensive Schema.org impl
 - **JavaScript/TypeScript:** 62.4% of file changes (100,441 changes across 16 repos)
 - **Python:** Primary data processing language (6,301 changes across 16 repos)
 - **Documentation:** Heavy markdown usage (8,736 changes across 30 repos)
+- **Visual Assets:** SVG and images (10,300 changes across 19 repos, 6.4%)
+- **Configuration:** JSON, YAML, lock files (18,117 changes, 11.3%)
 - **Full-stack capability:** Backend (Node.js/Express), Frontend (React/Jekyll), Data (Python)
 - **DevOps culture:** YAML configs in 22 repos, shell scripts in 21 repos
+- **Design-conscious:** Significant visual assets and documentation across all projects
 
 **Status:** Strong momentum heading into next quarter with mature infrastructure, diverse technical capabilities, and clear roadmap.
 
