@@ -13,71 +13,228 @@ This site maintains a comprehensive test suite ensuring zero regressions during 
 
 ---
 
+## Choose Your Path
+
+**Different users have different needs. Pick the path that matches your goal:**
+
+### 🚀 Quick Start (Developers Running Tests)
+**Goal**: Run tests right now
+**Time**: 2 minutes
+Jump to: [Quick Start Commands](#quick-start-commands) → [Status Dashboard](#test-status-dashboard)
+
+### 📚 Onboarding (New Contributors)
+**Goal**: Understand how testing works
+**Time**: 15 minutes
+Jump to: [Testing Philosophy](#testing-philosophy) → [Test Categories](#test-categories) → [Infrastructure](#test-infrastructure-files)
+
+### 📊 Monitoring (Managers/Reviewers)
+**Goal**: Check current status and metrics
+**Time**: 5 minutes
+Jump to: [Status Dashboard](#test-status-dashboard) → [Success Metrics](#success-metrics)
+
+---
+
+## Quick Start Commands
+
+**To run all tests (5-10 minutes):**
+```bash
+npm run test:all
+```
+
+**To run individual test suites:**
+```bash
+npm run test                  # Unit tests (~30s)
+npm run test:e2e             # E2E tests (2-3 min)
+npm run test:performance     # Lighthouse (3-5 min)
+npm run test:visual          # Visual regression (2-3 min)
+```
+
+**For development workflow:**
+```bash
+npm run test:smoke           # Quick smoke tests (1-2 min)
+npm run test:critical        # Critical tests only (2-3 min)
+```
+
+**For baseline comparison:**
+```bash
+npm run test:capture-baseline  # Capture new baseline
+npm run test:compare-baseline  # Compare to baseline
+```
+
+---
+
+## Test Status Dashboard
+
+**Current Status - All Systems Operational ✅**
+
+| Test Type | Status | Score/Tests | Time | Action Required |
+|-----------|--------|-------------|------|-----------------|
+| **Unit Tests** | ✅ Pass | 12/12 (100%) | ~30s | None |
+| **E2E Tests** | ✅ Pass | 8/8 (100%) | ~2-3min | None |
+| **Analytics** | ✅ Pass | 6/6 (100%) | ~1min | None |
+| **Performance** | ✅ Pass | 95/100 avg | ~3-5min | None |
+| **Visual Regression** | ✅ Pass | 15/15 (0 diffs) | ~2-3min | None |
+
+**Lighthouse Summary (Latest Scan)**
+
+| Page | Performance | Accessibility | Best Practices | SEO |
+|------|-------------|---------------|----------------|-----|
+| Homepage | 95 ✅ | 98 ✅ | 92 ✅ | 100 ✅ |
+| About | 93 ✅ | 98 ✅ | 92 ✅ | 98 ✅ |
+| Posts | 94 ✅ | 97 ✅ | 92 ✅ | 100 ✅ |
+| Projects | 93 ✅ | 98 ✅ | 92 ✅ | 98 ✅ |
+
+**Core Web Vitals - All Excellent ✅**
+
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| LCP (Largest Contentful Paint) | <3s | 1.8s | ✅ Excellent |
+| FID (First Input Delay) | <100ms | 45ms | ✅ Excellent |
+| CLS (Cumulative Layout Shift) | <0.1 | 0.05 | ✅ Excellent |
+| FCP (First Contentful Paint) | <2s | 1.2s | ✅ Excellent |
+| TTI (Time to Interactive) | <5s | 3.4s | ✅ Good |
+
+### Understanding Your Scores
+
+**Performance (≥90 is good)**
+What it means: Page loads quickly and responds to user interaction promptly.
+If below 90: Check Core Web Vitals below and investigate slow-loading resources.
+
+**Accessibility (≥95 is good)**
+What it means: Site is usable by people with disabilities and follows WCAG guidelines.
+If below 95: Test with keyboard navigation and screen readers. Check color contrast.
+
+**Best Practices (≥90 is good)**
+What it means: Code follows modern web standards and security practices.
+If below 90: Check browser console for deprecation warnings and security issues.
+
+**SEO (≥95 is good)**
+What it means: Content is properly indexed by search engines with good metadata.
+If below 95: Verify meta tags, structured data, and sitemap configuration.
+
+---
+
+## Before You Commit - Verification Checklist
+
+**✅ Green Flags (All must be present before committing):**
+- [ ] All tests pass (no failures in any suite)
+- [ ] Visual regression: 0 differences detected
+- [ ] Lighthouse scores maintained or improved
+- [ ] No console errors in browser
+- [ ] CSS file size same or smaller
+- [ ] Build completes without warnings
+
+**🚨 Red Flags (Stop and investigate if you see any):**
+- [ ] Visual differences in visual regression tests
+- [ ] "SIGNIFICANTLY SLOWER" in benchmark comparison
+- [ ] CSS file size increased
+- [ ] Console errors in browser
+- [ ] Lighthouse scores dropped
+- [ ] Tests that were passing now fail
+- [ ] Build errors or warnings
+
+---
+
 ## Test Categories
 
 ### 🧪 Unit Tests (Jest)
 **Purpose**: Test core functionality and DOM manipulation
-**Run with**: `npm run test`
+**When to run**: After any JavaScript or HTML changes
 **Test Time**: ~30 seconds
 
-**Coverage**:
+**To run unit tests:**
+```bash
+npm run test
+```
+
+**What gets tested**:
 - Navigation structure and links
 - Form validation and submission
 - Responsive design elements
 - Accessibility features
 - Meta tags and SEO elements
 
+---
+
 ### 🎭 End-to-End Tests (Playwright)
 **Purpose**: Test complete user workflows across multiple browsers
-**Run with**: `npm run test:e2e`
+**When to run**: Before committing significant changes
 **Test Time**: ~2-3 minutes
+
+**To run E2E tests:**
+```bash
+npm run test:e2e
+```
 
 **Browser Coverage**:
 - Chrome (Desktop & Mobile)
 - Firefox
 - Safari (Desktop & Mobile)
 
-**Test Scenarios**:
+**What gets tested**:
 - Site navigation and page loading
 - Mobile/tablet/desktop responsiveness
 - Error handling (404 pages)
 - Performance and console errors
 - Analytics implementation
 
+---
+
 ### 📊 Analytics Tests
 **Purpose**: Verify Google Tag Manager implementation
 **GTM Container**: `GTM-TK5J8L38`
+**When to run**: After modifying analytics code or includes
 
-**Validation**:
+**To run analytics tests:**
+```bash
+npm run test  # Analytics tests are part of unit tests
+```
+
+**What gets validated**:
 - GTM script loading with correct ID
 - Google site verification meta tag
 - Event tracking functionality
 - Privacy compliance (Do Not Track, opt-out)
 - Error handling for blocked/failed analytics
 
+---
+
 ### ⚡ Performance Tests (Lighthouse)
 **Purpose**: Measure Core Web Vitals and site performance
-**Run with**: `npm run test:performance`
+**When to run**: Before deployment or after major changes
 **Test Time**: ~3-5 minutes
 
-**Metrics Tracked**:
-- **Performance Score**: ≥90
-- **Accessibility Score**: ≥95
-- **Best Practices**: ≥90
-- **SEO Score**: ≥95
+**To run performance tests:**
+```bash
+npm run test:performance
+```
 
-**Core Web Vitals**:
+**Metrics Tracked**:
+- **Performance Score**: ≥90 (page load speed)
+- **Accessibility Score**: ≥95 (WCAG compliance)
+- **Best Practices**: ≥90 (modern web standards)
+- **SEO Score**: ≥95 (search engine optimization)
+
+**Core Web Vitals Targets**:
 - **LCP** (Largest Contentful Paint): <3s
 - **FID** (First Input Delay): <100ms
 - **CLS** (Cumulative Layout Shift): <0.1
 - **FCP** (First Contentful Paint): <2s
 - **TTI** (Time to Interactive): <5s
 
+---
+
 ### 🎨 Visual Regression Tests
 **Purpose**: Ensure pixel-perfect visual consistency during refactoring
-**Run with**: `npm run test:visual`
+**When to run**: Before every commit during refactoring
+**Test Time**: ~2-3 minutes
 
-**Methodology**:
+**To run visual regression tests:**
+```bash
+npm run test:visual
+```
+
+**How it works**:
 1. Capture baseline screenshots before refactoring
 2. Take new screenshots after changes
 3. Pixel-by-pixel comparison (0.1% tolerance)
@@ -92,11 +249,24 @@ This site maintains a comprehensive test suite ensuring zero regressions during 
 
 **⚠️ Zero-tolerance policy**: During refactoring, ANY visual difference is considered a bug.
 
+---
+
 ### 📈 Baseline Performance Tests
 **Purpose**: Statistical validation of build performance
-**Run with**: `npm run test:compare-baseline`
+**When to run**: At the end of each refactoring phase
+**Test Time**: ~10-15 minutes
 
-**Metrics**:
+**To compare against baseline:**
+```bash
+npm run test:compare-baseline
+```
+
+**To capture a new baseline:**
+```bash
+npm run test:capture-baseline
+```
+
+**What gets measured**:
 - Clean build time
 - Incremental build time
 - CSS file size
@@ -111,65 +281,9 @@ This site maintains a comprehensive test suite ensuring zero regressions during 
 
 ---
 
-## Quick Start Commands
-
-```bash
-# Run all tests
-npm run test:all              # Full suite (5-10 min)
-
-# Individual test suites
-npm run test                  # Unit tests (~30s)
-npm run test:e2e             # E2E tests (2-3 min)
-npm run test:performance     # Lighthouse (3-5 min)
-npm run test:visual          # Visual regression (2-3 min)
-
-# Development workflow
-npm run test:smoke           # Quick smoke tests (1-2 min)
-npm run test:critical        # Critical tests only (2-3 min)
-
-# Baseline comparison
-npm run test:capture-baseline  # Capture new baseline
-npm run test:compare-baseline  # Compare to baseline
-```
-
----
-
-## Test Results & Metrics
-
-### Current Test Status
-
-| Test Suite | Status | Tests | Pass Rate | Time |
-|------------|--------|-------|-----------|------|
-| Unit Tests | ✅ Passing | 12 | 100% | ~30s |
-| E2E Tests | ✅ Passing | 8 | 100% | ~2-3min |
-| Analytics | ✅ Passing | 6 | 100% | ~1min |
-| Performance | ✅ Passing | 4 pages | 100% | ~3-5min |
-| Visual Regression | ✅ Passing | 15 screenshots | 100% | ~2-3min |
-
-### Lighthouse Scores (Latest)
-
-| Page | Performance | Accessibility | Best Practices | SEO |
-|------|-------------|---------------|----------------|-----|
-| Homepage | 95 | 98 | 92 | 100 |
-| About | 93 | 98 | 92 | 98 |
-| Posts | 94 | 97 | 92 | 100 |
-| Projects | 93 | 98 | 92 | 98 |
-
-### Core Web Vitals
-
-| Metric | Target | Actual | Status |
-|--------|--------|--------|--------|
-| LCP | <3s | 1.8s | ✅ Excellent |
-| FID | <100ms | 45ms | ✅ Excellent |
-| CLS | <0.1 | 0.05 | ✅ Excellent |
-| FCP | <2s | 1.2s | ✅ Excellent |
-| TTI | <5s | 3.4s | ✅ Good |
-
----
-
 ## Testing Philosophy
 
-### Zero-Regression Refactoring
+This site uses a **zero-regression approach** to refactoring: every change must maintain or improve quality metrics. Statistical validation ensures changes are genuine improvements, not random fluctuations.
 
 **Core Principles**:
 1. **Control Groups**: Keep old code until verified
@@ -177,18 +291,10 @@ npm run test:compare-baseline  # Compare to baseline
 3. **Statistical Validation**: Multiple runs, 95% confidence
 4. **Reproducibility**: Deterministic tests, version-controlled baselines
 
-### Test-Driven Workflow
+**Simple Workflow**:
+1. Run tests (baseline) → 2. Make change → 3. Run tests (should still pass) → 4. If fail: revert and fix → 5. If pass: commit
 
-```
-1. Run tests (baseline) ✅
-2. Make change
-3. Run tests (should still pass) ✅
-4. If fail: revert and fix ❌
-5. If pass: commit ✅
-6. Repeat
-```
-
-### When to Run Tests
+**When to Run Which Tests**:
 
 | Scenario | Test Suite | Time | Frequency |
 |----------|------------|------|-----------|
@@ -197,69 +303,103 @@ npm run test:compare-baseline  # Compare to baseline
 | Before committing | `test:all` | 5-10 min | Every commit |
 | End of phase | `test:compare-baseline` | 10-15 min | Phase completion |
 
+**Learn More**: See [Testing Strategy (66 pages)](/documentation/refactoring/testing-strategy-2025-11-11.md) for comprehensive methodology and examples.
+
 ---
 
 ## Rollback Procedures
 
-### Phase Rollback (<5 minutes)
-```bash
-# Rollback specific phase
-bash rollback-phase-N.sh
+**Every refactoring phase must be reversible in <5 minutes.** Choose the appropriate rollback method based on severity:
 
-# Verify
+### Phase Rollback (<5 minutes) - Recommended
+**When to use**: Rollback a specific refactoring phase while keeping other work
+
+**To rollback a specific phase:**
+```bash
+bash rollback-phase-N.sh
+```
+
+**Then verify everything works:**
+```bash
 npm run test:all
 ```
 
-### Emergency Rollback (<3 minutes)
-```bash
-# Nuclear option - revert everything
-bash emergency-rollback.sh
+---
 
-# Verify
-npm run test:smoke
+### Git Rollback - For Specific Commits
+**When to use**: Undo specific commits or changes
+
+**To revert a specific commit:**
+```bash
+git revert [commit-hash]
 ```
 
-### Git Rollback
+**To hard reset to master (⚠️ Warning: loses uncommitted work):**
 ```bash
-# Revert specific commit
-git revert [commit-hash]
-
-# Hard reset to master
 git reset --hard origin/master
 ```
 
-**Requirement**: Every phase must be reversible in <5 minutes.
+---
+
+### 🚨 Emergency Rollback (<3 minutes) - Nuclear Option
+**When to use**: Site is broken in production and you need immediate recovery
+
+**⚠️ WARNING**: This reverts ALL changes. Use only in emergencies.
+
+**To execute emergency rollback:**
+```bash
+bash emergency-rollback.sh
+```
+
+**Then verify site is functional:**
+```bash
+npm run test:smoke
+```
 
 ---
 
 ## Test Infrastructure Files
 
+**Legend**: [Critical] = Read/run first | [Important] = Key functionality | [Reference] = Auto-generated or docs
+
 ```
 tests/
-├── unit/                           # Jest unit tests
-│   ├── site-functionality.test.js
-│   └── setup.js
-├── e2e/                            # Playwright E2E tests
-│   ├── site-navigation.spec.js
-│   ├── analytics.spec.js
-│   └── mobile-responsiveness.spec.js
-├── analytics/                      # Analytics-specific tests
-│   └── google-analytics.test.js
-├── performance/                    # Performance testing
-│   ├── lighthouse.js
-│   ├── core-web-vitals.test.js
-│   └── results/                   # Generated test results
-├── baseline/                       # Baseline metrics
-│   ├── README.md
-│   ├── measure-build-performance.sh
-│   └── compare-to-baseline.sh
-├── visual/                         # Visual regression tests
-│   ├── README.md
-│   ├── baseline/                  # Reference screenshots
-│   ├── current/                   # Current screenshots
-│   └── diffs/                     # Difference images
-└── README.md                       # Test documentation
+├── README.md                                    [Critical - Read first]
+│
+├── unit/                                        ⚡ RUN THIS: Core functionality tests
+│   ├── site-functionality.test.js               [Critical - Tests navigation, forms, SEO]
+│   └── setup.js                                 [Reference - Test configuration]
+│
+├── e2e/                                         ⚡ RUN THIS: Complete user workflows
+│   ├── site-navigation.spec.js                  [Critical - Tests all page navigation]
+│   ├── analytics.spec.js                        [Important - Validates GTM tracking]
+│   └── mobile-responsiveness.spec.js            [Important - Tests responsive design]
+│
+├── analytics/                                   📊 MONITOR: Analytics implementation
+│   └── google-analytics.test.js                 [Important - Verifies GTM setup]
+│
+├── performance/                                 📈 MONITOR: Lighthouse metrics
+│   ├── lighthouse.js                            [Important - Performance testing]
+│   ├── core-web-vitals.test.js                  [Important - Web vitals validation]
+│   └── results/                                 [Reference - Auto-generated reports]
+│
+├── baseline/                                    📏 COMPARE: Build performance tracking
+│   ├── README.md                                [Critical - Read before using]
+│   ├── measure-build-performance.sh             [Important - Capture new baselines]
+│   └── compare-to-baseline.sh                   [Important - Statistical comparison]
+│
+└── visual/                                      🎨 RUN BEFORE COMMIT: Visual regression
+    ├── README.md                                [Critical - Read first]
+    ├── baseline/                                [Reference - Reference screenshots]
+    ├── current/                                 [Reference - Auto-generated]
+    └── diffs/                                   [Reference - Auto-generated]
 ```
+
+**Quick Navigation**:
+- **New to testing?** Start with `tests/README.md`
+- **Running tests?** Focus on `unit/` and `e2e/` directories
+- **Before committing?** Run `visual/` tests to catch any visual changes
+- **Measuring performance?** Check `baseline/` for comparison tools
 
 ---
 
@@ -293,32 +433,6 @@ Tests run automatically on:
 - **[Testing Strategy](/documentation/refactoring/testing-strategy-2025-11-11.md)** - 66-page comprehensive strategy
 - **[Baseline Testing](/tests/baseline/README.md)** - Build performance tracking
 - **[Visual Regression](/tests/visual/README.md)** - Screenshot comparison testing
-
----
-
-## Red Flags 🚨
-
-**Stop and investigate if you see**:
-- ❌ Any visual differences in visual regression tests
-- ❌ "SIGNIFICANTLY SLOWER" in benchmark comparison
-- ❌ CSS file size increased
-- ❌ Console errors in browser
-- ❌ Lighthouse scores dropped
-- ❌ Tests that were passing now fail
-- ❌ Build errors or warnings
-
----
-
-## Green Flags ✅
-
-**Good to continue when you see**:
-- ✅ All tests pass
-- ✅ Visual regression: 0 differences
-- ✅ "NO SIGNIFICANT DIFFERENCE" or "SIGNIFICANTLY FASTER"
-- ✅ CSS size same or smaller
-- ✅ No console errors
-- ✅ Lighthouse scores maintained or improved
-- ✅ Build completes without warnings
 
 ---
 
