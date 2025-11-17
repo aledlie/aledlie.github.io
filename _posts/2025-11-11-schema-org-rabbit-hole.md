@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "That Time I Fell Remembered IDs are important"
+title: "That Time I Remembered IDs are important"
 date: 2025-11-11
 author_profile: true
 categories:

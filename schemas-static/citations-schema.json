@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/people/moncef-belyamani#person",
+  "@type": "Person",
+  "name": "Moncef Belyamani",
+  "url": "https://www.moncefbelyamani.com/",
+  "sameAs": "https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/",
+  "description": "Ruby and macOS development expert",
+  "knowsAbout": [
+    "Ruby",
+    "macOS",
+    "Development Environment Setup",
+    "Homebrew",
+    "RVM"
+  ]
+}

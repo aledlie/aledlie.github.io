@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/test-cases#webpage",
+  "@type": "WebPage",
+  "name": "Test Suite",
+  "url": "https://www.aledlie.com/test-cases/",
+  "description": "Comprehensive testing infrastructure for zero-regression refactoring and continuous quality assurance",
+  "about": "Software Testing Infrastructure",
+  "author": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "isPartOf": {
+    "@id": "https://www.aledlie.com#website"
+  },
+  "mentions": [
+    {
+      "@id": "https://www.aledlie.com/software/jest#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/playwright#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/lighthouse#softwareapplication"
+    }
+  ]
+}

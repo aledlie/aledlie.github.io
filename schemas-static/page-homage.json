@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/homage#webpage",
+  "@type": "WebPage",
+  "name": "Homage",
+  "url": "https://www.aledlie.com/homage/",
+  "description": "Memorial tribute to Sumedh Joshi",
+  "about": {
+    "@id": "https://www.aledlie.com/people/sumedh-joshi#person"
+  },
+  "author": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "publisher": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "isPartOf": {
+    "@id": "https://www.aledlie.com#website"
+  },
+  "mentions": [
+    {
+      "@id": "https://www.aledlie.com/people/sumedh-joshi#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/people/peter-singer#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/people/martha-nussbaum#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/people/georg-cantor#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/people/sarang-joshi#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/people/neil-gaiman#person"
+    },
+    {
+      "@id": "https://www.aledlie.com/websites/burnt-orange-nation#website"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/new-york-times#newsmediaorganization"
+    }
+  ]
+}

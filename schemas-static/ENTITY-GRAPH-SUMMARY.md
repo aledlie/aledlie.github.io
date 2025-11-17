@@ -1,21 +1,19 @@
-# PersonalSite Entity Graph Summary
+# Www Entity Graph Summary
 
 **Site**: https://www.aledlie.com
 **Created**: 2025-11-16
-**Method**: `build_entity_graph` tool from ast-grep-mcp
+**Method**: `schema-graph-builder.py`
 **Status**: ✅ Complete & Validated
 
 ---
 
 ## Executive Summary
 
-Successfully created a **unified knowledge graph** for PersonalSite (aledlie.com) from 5 static Schema.org JSON files, resulting in:
+Successfully created a **unified knowledge graph** for Www from 16 Schema.org JSON files, resulting in:
 
-- **16 unique entities** across 13 Schema.org types
-- **33 relationships** connecting entities
-- **283 lines** of JSON-LD
+- **58 unique entities** across 21 Schema.org types
+- **95 relationships** connecting entities
 - **100% valid** JSON-LD format
-- **All @id values** follow best practices
 
 ---
 
@@ -23,418 +21,309 @@ Successfully created a **unified knowledge graph** for PersonalSite (aledlie.com
 
 | Metric | Value |
 |--------|-------|
-| **Source Files** | 5 JSON files |
-| **Total Entities** | 16 unique |
-| **Entity Types** | 13 unique types |
-| **Relationships** | 33 connections |
-| **Hub Entities** | 2 (Person, WebSite) |
-| **File Size** | 283 lines |
+| **Source Files** | 16 JSON files |
+| **Total Entities** | 58 unique |
+| **Entity Types** | 21 unique types |
+| **Relationships** | 95 connections |
 | **Validation** | ✅ Valid JSON-LD |
 
 ---
 
 ## Entity Breakdown
 
-### By Type (13 Types)
+### By Type (21 Types)
 
-| Type | Count | Entities |
-|------|-------|----------|
-| **Person** | 1 | Alyshia Ledlie |
-| **Organization** | 2 | Integrity Studios, InventoryAI.io |
-| **WebSite** | 1 | aledlie.com |
-| **Blog** | 1 | Blog section |
-| **BlogPosting** | 1 | Schema.org Rabbit Hole post |
-| **TechArticle** | 1 | Jekyll 2025 update post |
-| **Occupation** | 3 | Software Developer, Tech Consultant, Writer |
-| **SearchAction** | 1 | Site search functionality |
-| **ReadAction** | 1 | Blog reading action |
-| **ViewAction** | 1 | Projects viewing action |
-| **ContactPoint** | 1 | Professional contact |
-| **Place** | 1 | Austin, TX location |
-| **EntryPoint** | 1 | Search entry point |
+| Type | Count |
+|------|-------|
+| **AnalysisNewsArticle** | 1 |
+| **Blog** | 1 |
+| **BlogPosting** | 1 |
+| **CollegeOrUniversity** | 2 |
+| **ComputerLanguage** | 2 |
+| **ContactPoint** | 1 |
+| **EntryPoint** | 1 |
+| **NewsMediaOrganization** | 1 |
+| **Occupation** | 3 |
+| **OperatingSystem** | 2 |
+| **Organization** | 8 |
+| **Person** | 8 |
+| **Place** | 1 |
+| **ProfilePage** | 1 |
+| **ReadAction** | 1 |
+| **SearchAction** | 1 |
+| **SoftwareApplication** | 16 |
+| **TechArticle** | 2 |
+| **ViewAction** | 1 |
+| **WebPage** | 2 |
+| **WebSite** | 2 |
 
 ---
 
 ## Source Files
 
-### 1. person-schema.json
-**Entities Extracted**: 6
-- Person (main entity)
-- ContactPoint
-- Place (homeLocation)
-- Occupation × 3
+### 1. blog-post-jekyll-update.json
 
-**Key Properties**:
-- name, alternateName, jobTitle
-- worksFor, owns, knowsAbout
-- sameAs (GitHub, LinkedIn)
+### 2. blog-post-schema-rabbit-hole.json
 
----
+### 3. blog-post-wix-performance.json
 
-### 2. website-schema.json
-**Entities Extracted**: 5
-- WebSite (main entity)
-- SearchAction
-- ReadAction
-- ViewAction
-- EntryPoint
+### 4. blog-schema.json
 
-**Key Properties**:
-- hasPart (Blog, About, Projects)
-- potentialAction (Search, Read, View)
-- publisher, author, copyrightHolder
+### 5. citations-schema.json
 
----
+### 6. education-schema.json
 
-### 3. blog-schema.json
-**Entities Extracted**: 3
-- Blog (main entity)
-- BlogPosting
-- TechArticle
+### 7. integrity-studios-schema.json
 
-**Key Properties**:
-- blogPost (recent posts)
-- isPartOf (WebSite)
-- author, publisher
+### 8. inventoryai-schema.json
 
----
+### 9. organizations-schema.json
 
-### 4. integrity-studios-schema.json
-**Entities Extracted**: 1
-- Organization (Integrity Studios)
+### 10. page-homage.json
 
-**Key Properties**:
-- founder, employee
-- knowsAbout, industry
-- foundingDate: 2020
+### 11. page-test-cases.json
 
----
+### 12. page-vita.json
 
-### 5. inventoryai-schema.json
-**Entities Extracted**: 1
-- Organization (InventoryAI.io)
+### 13. people-schema.json
 
-**Key Properties**:
-- founder, employee
-- knowsAbout, applicationCategory
-- foundingDate: 2023
+### 14. person-schema.json
 
----
+### 15. software-tools-schema.json
 
-## Entity Relationship Map
-
-### Hub Entity #1: Person (9 relationships)
-
-```
-Person (#person) [PRIMARY HUB]
-├─→ homeLocation: Place (Austin)
-├─→ hasOccupation: [Software Developer, Tech Consultant, Writer]
-├─→ worksFor: [Integrity Studios, InventoryAI]
-├─→ owns: WebSite
-├─→ mainEntityOfPage: /about (ProfilePage)
-├─→ contactPoint: ContactPoint
-├←─ WebSite: publisher, author, copyrightHolder, mainEntity
-├←─ Blog: author, publisher
-├←─ Organizations (2): founder, employee
-└←─ Blog Posts (2): author, publisher
-```
-
-**Total Connections**: 9 outgoing + many incoming
-
----
-
-### Hub Entity #2: WebSite (10 relationships)
-
-```
-WebSite (#website) [SECONDARY HUB]
-├─→ publisher: Person
-├─→ author: Person
-├─→ copyrightHolder: Person
-├─→ mainEntity: Person
-├─→ hasPart: [Blog, /about, /projects]
-├─→ potentialAction: [SearchAction, ReadAction, ViewAction]
-└←─ Person: owns
-```
-
-**Total Connections**: 10 outgoing + 1 incoming
-
----
-
-### Supporting Entities
-
-**Blog** → connects to WebSite and Person
-- isPartOf: WebSite
-- author, publisher: Person
-- blogPost: [BlogPosting, TechArticle]
-
-**Organizations (2)** → both connected to Person
-- founder: Person
-- employee: Person
-
-**Actions (3)** → enable search and navigation
-- SearchAction → EntryPoint
-- ReadAction → Blog URL
-- ViewAction → Projects URL
-
-**Blog Posts (2)** → connected to Person
-- author, publisher: Person
+### 16. website-schema.json
 
 ---
 
 ## Relationship Analysis
 
-### By Property (17 Types)
+### By Property (22 Types)
 
-| Property | Count | Description |
-|----------|-------|-------------|
-| **author** | 4 | Blog posts → Person |
-| **publisher** | 4 | Content → Person |
-| **hasOccupation** | 3 | Person → Occupations |
-| **hasPart** | 3 | WebSite → sections |
-| **potentialAction** | 3 | WebSite → actions |
-| **worksFor** | 2 | Person → Organizations |
-| **founder** | 2 | Organizations → Person |
-| **employee** | 2 | Organizations → Person |
-| **blogPost** | 2 | Blog → posts |
-| **owns** | 1 | Person → WebSite |
-| **homeLocation** | 1 | Person → Place |
-| **contactPoint** | 1 | Person → ContactPoint |
-| **mainEntity** | 1 | WebSite → Person |
-| **mainEntityOfPage** | 1 | Person → ProfilePage |
-| **isPartOf** | 1 | Blog → WebSite |
-| **copyrightHolder** | 1 | WebSite → Person |
-| **target** | 1 | SearchAction → EntryPoint |
-
----
-
-## Entity Hierarchy
-
-### Person Branch
-```
-Person (#person)
-├── ContactPoint (#contactpoint)
-├── Place (Austin)
-├── Occupation (Software Developer)
-├── Occupation (Tech Consultant)
-├── Occupation (Technical Writer)
-├── Organization (Integrity Studios) [bidirectional]
-└── Organization (InventoryAI) [bidirectional]
-```
-
-### WebSite Branch
-```
-WebSite (#website)
-├── Person (#person) [publisher/author/copyright/mainEntity]
-├── Blog (#blog)
-│   ├── Person [author/publisher]
-│   ├── BlogPosting
-│   │   └── Person [author/publisher]
-│   └── TechArticle
-│       └── Person [author/publisher]
-├── ProfilePage (/about)
-├── CollectionPage (/projects)
-└── Actions (3)
-    ├── SearchAction → EntryPoint
-    ├── ReadAction
-    └── ViewAction
-```
+| Property | Count |
+|----------|-------|
+| **mentions** | 37 |
+| **author** | 8 |
+| **publisher** | 7 |
+| **isPartOf** | 7 |
+| **programmingLanguage** | 6 |
+| **hasOccupation** | 3 |
+| **hasPart** | 3 |
+| **potentialAction** | 3 |
+| **blogPost** | 2 |
+| **worksFor** | 2 |
+| **alumniOf** | 2 |
+| **mainEntity** | 2 |
+| **about** | 2 |
+| **founder** | 2 |
+| **employee** | 2 |
+| **homeLocation** | 1 |
+| **owns** | 1 |
+| **mainEntityOfPage** | 1 |
+| **contactPoint** | 1 |
+| **target** | 1 |
+| **copyrightHolder** | 1 |
+| **citation** | 1 |
 
 ---
 
-## @id Format Analysis
+## Entity Relationship Map
 
-All 16 entities use proper @id format following best practices:
+**Blog**
+- @id: `https://www.aledlie.com#blog`
+- Relationships:
+  - author → `#person`
+  - publisher → `#person`
+  - isPartOf → `#website`
+  - blogPost → `/posts/2025-11-11-schema-org-rabbit-hole#blogposting`
+  - blogPost → `/posts/2025-07-02-updating-jekyll-in-2025#techarticle`
 
-### Homepage Entities (Simple Fragment)
-- `https://www.aledlie.com#person`
-- `https://www.aledlie.com#website`
-- `https://www.aledlie.com#blog`
-- `https://www.aledlie.com#contactpoint`
-- `https://www.aledlie.com#searchaction`
-- `https://www.aledlie.com#readaction`
-- `https://www.aledlie.com#viewaction`
+**Person**
+- @id: `https://www.aledlie.com#person`
+- Relationships:
+  - homeLocation → `/location/austin#place`
+  - hasOccupation → `/occupation/software-developer#occupation`
+  - hasOccupation → `/occupation/tech-consultant#occupation`
+  - hasOccupation → `/occupation/technical-writer#occupation`
+  - worksFor → `/organizations/integrity-studios#organization`
+  - worksFor → `/organizations/inventoryai#organization`
+  - alumniOf → `/education/university-of-texas#collegeuniversity`
+  - alumniOf → `/education/cornell-university#collegeuniversity`
+  - owns → `#website`
+  - mainEntityOfPage → `/about#profilepage`
+  - contactPoint → `#contactpoint`
 
-### Sub-Page Entities (Path + Fragment)
-- `https://www.aledlie.com/location/austin#place`
-- `https://www.aledlie.com/occupation/software-developer#occupation`
-- `https://www.aledlie.com/occupation/tech-consultant#occupation`
-- `https://www.aledlie.com/occupation/technical-writer#occupation`
-- `https://www.aledlie.com/organizations/integrity-studios#organization`
-- `https://www.aledlie.com/organizations/inventoryai#organization`
-- `https://www.aledlie.com/search#entrypoint`
+**SearchAction**
+- @id: `https://www.aledlie.com#searchaction`
+- Relationships:
+  - target → `/search#entrypoint`
 
-### Blog Post Entities (Post Path + Fragment)
-- `https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting`
-- `https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle`
+**WebSite**
+- @id: `https://www.aledlie.com#website`
+- Relationships:
+  - publisher → `#person`
+  - author → `#person`
+  - copyrightHolder → `#person`
+  - mainEntity → `#person`
+  - hasPart → `#blog`
+  - hasPart → `/about#profilepage`
+  - hasPart → `/projects#collectionpage`
+  - potentialAction → `#searchaction`
+  - potentialAction → `#readaction`
+  - potentialAction → `#viewaction`
 
-**Validation**: ✅ All @id values follow hash fragment pattern
+**WebPage**
+- @id: `https://www.aledlie.com/homage#webpage`
+- Relationships:
+  - about → `/people/sumedh-joshi#person`
+  - author → `#person`
+  - publisher → `#person`
+  - isPartOf → `#website`
+  - mentions → `/people/sumedh-joshi#person`
+  - mentions → `/people/peter-singer#person`
+  - mentions → `/people/martha-nussbaum#person`
+  - mentions → `/people/georg-cantor#person`
+  - mentions → `/people/sarang-joshi#person`
+  - mentions → `/people/neil-gaiman#person`
+  - mentions → `/websites/burnt-orange-nation#website`
+  - mentions → `/organizations/new-york-times#newsmediaorganization`
 
----
+**Organization**
+- @id: `https://www.aledlie.com/organizations/integrity-studios#organization`
+- Relationships:
+  - founder → `#person`
+  - employee → `#person`
 
-## Comparison: Static JSON vs Liquid Template
+**Organization**
+- @id: `https://www.aledlie.com/organizations/inventoryai#organization`
+- Relationships:
+  - founder → `#person`
+  - employee → `#person`
 
-### Static JSON Implementation (This Graph)
-- **Files**: 5 separate JSON files
-- **Entities**: 16
-- **Format**: Pure JSON (no templating)
-- **Use Case**: Static reference, testing, analysis
+**TechArticle**
+- @id: `https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle`
+- Relationships:
+  - author → `#person`
+  - publisher → `#person`
+  - isPartOf → `#blog`
+  - mentions → `/software/jekyll#softwareapplication`
+  - mentions → `/languages/ruby#computerlanguage`
+  - mentions → `/software/bundler#softwareapplication`
+  - mentions → `/software/minimal-mistakes#softwareapplication`
+  - mentions → `/platforms/macos#operatingsystem`
+  - mentions → `/platforms/ubuntu#operatingsystem`
+  - citation → `/people/moncef-belyamani#person`
 
-### Liquid Template Implementation (Production)
-- **File**: 1 unified-knowledge-graph-schema.html
-- **Entities**: 5 core (dynamic blog posts added)
-- **Format**: Liquid + JSON-LD
-- **Use Case**: Production deployment on Jekyll site
+**AnalysisNewsArticle**
+- @id: `https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle`
+- Relationships:
+  - author → `#person`
+  - publisher → `#person`
+  - isPartOf → `#blog`
+  - mentions → `/software/inflight#softwareapplication`
+  - mentions → `/software/glob#softwareapplication`
+  - mentions → `/software/lru-cache#softwareapplication`
+  - mentions → `/software/wix#softwareapplication`
+  - mentions → `/software/nodejs#softwareapplication`
+  - mentions → `/software/npm#softwareapplication`
 
-### Relationship
-The static JSON files represent a **snapshot** of the unified knowledge graph structure. The production Liquid template uses the same @id pattern and entity structure but renders dynamically with Jekyll variables.
+**BlogPosting**
+- @id: `https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting`
+- Relationships:
+  - author → `#person`
+  - publisher → `#person`
 
----
+**TechArticle**
+- @id: `https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#techarticle`
+- Relationships:
+  - author → `#person`
+  - publisher → `#person`
+  - isPartOf → `#blog`
 
-## Benefits Achieved
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/bundler#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/ruby#computerlanguage`
 
-### 1. Entity Consolidation ✅
-- Person entity defined once, referenced 16 times
-- Organizations referenced bidirectionally
-- No duplicate entity definitions
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/jekyll#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/ruby#computerlanguage`
 
-### 2. Knowledge Graph Structure ✅
-- Clear entity hierarchy
-- Bidirectional relationships (Person ↔ Organizations)
-- Hub-and-spoke architecture (Person and WebSite as hubs)
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/jest#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/javascript#computerlanguage`
 
-### 3. SEO Optimization ✅
-**Rich Result Eligibility**:
-- ✅ Person cards (sameAs, jobTitle, knowsAbout)
-- ✅ Organization snippets (2 organizations)
-- ✅ Blog post rich results (BlogPosting, TechArticle)
-- ✅ Sitelinks search box (SearchAction)
-- ✅ Breadcrumb navigation (entity hierarchy)
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/lighthouse#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/javascript#computerlanguage`
 
-### 4. Semantic Clarity ✅
-- Clear entity types
-- Explicit relationships
-- Stable @id identifiers
-- Complete property sets
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/nodejs#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/javascript#computerlanguage`
+
+**SoftwareApplication**
+- @id: `https://www.aledlie.com/software/playwright#softwareapplication`
+- Relationships:
+  - programmingLanguage → `/languages/javascript#computerlanguage`
+
+**WebPage**
+- @id: `https://www.aledlie.com/test-cases#webpage`
+- Relationships:
+  - author → `#person`
+  - isPartOf → `#website`
+  - mentions → `/software/jest#softwareapplication`
+  - mentions → `/software/playwright#softwareapplication`
+  - mentions → `/software/lighthouse#softwareapplication`
+
+**ProfilePage**
+- @id: `https://www.aledlie.com/vita#profilepage`
+- Relationships:
+  - about → `#person`
+  - mainEntity → `#person`
+  - isPartOf → `#website`
+  - mentions → `/organizations/inventoryai#organization`
+  - mentions → `/organizations/integrity-studios#organization`
+  - mentions → `/organizations/concierge#organization`
+  - mentions → `/organizations/meta#organization`
+  - mentions → `/organizations/advisory-board#organization`
+  - mentions → `/organizations/access-sciences#organization`
+  - mentions → `/organizations/heb#organization`
+  - mentions → `/organizations/against-malaria-foundation#organization`
+  - mentions → `/software/splunk#softwareapplication`
+  - mentions → `/software/nagios#softwareapplication`
+  - mentions → `/software/rabbitmq#softwareapplication`
+  - mentions → `/software/new-relic#softwareapplication`
+  - mentions → `/education/university-of-texas#collegeuniversity`
+  - mentions → `/education/cornell-university#collegeuniversity`
 
 ---
 
 ## Validation Results
 
 ### JSON-LD Validation
-```bash
-python3 -m json.tool unified-entity-graph.json
-```
-**Result**: ✅ Valid JSON-LD
+✅ Valid JSON-LD format
 
 ### @id Validation
-All @id values follow best practices:
-- ✅ Full HTTPS URLs
-- ✅ Hash fragments present
-- ✅ No timestamps or dynamic values
-- ✅ Descriptive entity types
-- ✅ No query parameters
-
-### Relationship Validation
-- ✅ 33 valid relationships
-- ✅ All references point to existing entities
-- ✅ Bidirectional relationships properly formed
+- ✅ 58 @id values validated
+- ✅ No validation warnings
 
 ---
 
-## Implementation Notes
+## Build Statistics
 
-### Created Files
-1. `person-schema.json` - Person entity + nested entities
-2. `website-schema.json` - WebSite entity + actions
-3. `blog-schema.json` - Blog entity + blog posts
-4. `integrity-studios-schema.json` - Integrity Studios organization
-5. `inventoryai-schema.json` - InventoryAI organization
-6. `unified-entity-graph.json` - **Complete entity graph** (283 lines)
-7. `entity-graph-analysis.json` - Relationship analysis data
-8. `build-personalsite-entity-graph.py` - Graph builder script
-9. `ENTITY-GRAPH-SUMMARY.md` - This documentation
-
-### Usage
-
-**Build Graph** (if schemas change):
-```bash
-cd ~/code/PersonalSite/schemas-static
-python3 build-personalsite-entity-graph.py
-```
-
-**Validate Graph**:
-```bash
-python3 -m json.tool unified-entity-graph.json > /dev/null
-echo $?  # Should output 0
-```
-
-**View Analysis**:
-```bash
-cat entity-graph-analysis.json | jq
-```
+- Files processed: 16
+- Entities extracted: 59
+- Entities unique: 58
+- Relationships found: 95
+- IDs validated: 58
 
 ---
 
-## Next Steps
-
-### For Production Use
-
-1. **Option A**: Use Static JSON
-   ```html
-   <script type="application/ld+json" src="/schemas-static/unified-entity-graph.json"></script>
-   ```
-
-2. **Option B**: Convert to Liquid Template (Current Production)
-   - Already implemented in `_includes/unified-knowledge-graph-schema.html`
-   - Uses same @id pattern
-   - Dynamic data from Jekyll variables
-
-### Future Enhancements
-
-1. **Add More Entities**
-   - Individual project pages (SoftwareApplication)
-   - Educational credentials (EducationalOccupationalCredential)
-   - More blog posts (BlogPosting, TechArticle, AnalysisNewsArticle, HowTo)
-
-2. **Expand Relationships**
-   - Projects → author → Person
-   - Blog posts → mentions → Projects
-   - Credentials → almaMater → CollegeOrUniversity
-
-3. **Monitor & Optimize**
-   - Track Google Search Console structured data
-   - Monitor rich results appearance
-   - Measure Knowledge Graph impact
-
----
-
-## Conclusion
-
-Successfully created a **unified knowledge graph** for PersonalSite with:
-
-✅ 16 entities across 13 Schema.org types
-✅ 33 relationships connecting entities
-✅ Hub-and-spoke architecture (Person & WebSite as hubs)
-✅ 100% valid JSON-LD format
-✅ All @id values follow best practices
-✅ Clear entity hierarchy and relationships
-✅ SEO rich result eligibility (Person, Organization, BlogPosting, TechArticle)
-
-The graph provides a **complete semantic representation** of the PersonalSite knowledge base, enabling:
-- Search engine entity recognition
-- Knowledge graph building
-- Rich results eligibility
-- LLM training data quality
-
-**Status**: ✅ Complete & Production Ready
-**Validation**: ✅ 100% Pass Rate
-**Ready for**: Deployment or integration with existing Liquid template
-
----
-
-**Created**: 2025-11-16
-**Tool**: ast-grep-mcp `build_entity_graph`
+**Created**: 2025-11-16 20:57:54
 **Base URL**: https://www.aledlie.com
-**Entities**: 16
-**Relationships**: 33
+**Entities**: 58
+**Relationships**: 95
 **Validation**: ✅ Pass

@@ -1,21 +1,29 @@
 {
-  "total_entities": 16,
+  "total_entities": 58,
   "entities_by_type": {
     "Blog": 1,
     "ContactPoint": 1,
-    "Person": 1,
+    "Person": 8,
     "ReadAction": 1,
     "SearchAction": 1,
     "ViewAction": 1,
-    "WebSite": 1,
+    "WebSite": 2,
+    "CollegeOrUniversity": 2,
+    "WebPage": 2,
+    "ComputerLanguage": 2,
     "Place": 1,
     "Occupation": 3,
-    "Organization": 2,
-    "TechArticle": 1,
+    "Organization": 8,
+    "NewsMediaOrganization": 1,
+    "OperatingSystem": 2,
+    "TechArticle": 2,
+    "AnalysisNewsArticle": 1,
     "BlogPosting": 1,
-    "EntryPoint": 1
+    "EntryPoint": 1,
+    "SoftwareApplication": 16,
+    "ProfilePage": 1
   },
-  "total_relationships": 33,
+  "total_relationships": 95,
   "relationships": [
     {
       "source": "https://www.aledlie.com#blog",
@@ -82,6 +90,18 @@
       "source_type": "Person",
       "property": "worksFor",
       "target": "https://www.aledlie.com/organizations/inventoryai#organization"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "alumniOf",
+      "target": "https://www.aledlie.com/education/university-of-texas#collegeuniversity"
+    },
+    {
+      "source": "https://www.aledlie.com#person",
+      "source_type": "Person",
+      "property": "alumniOf",
+      "target": "https://www.aledlie.com/education/cornell-university#collegeuniversity"
     },
     {
       "source": "https://www.aledlie.com#person",
@@ -168,6 +188,78 @@
       "target": "https://www.aledlie.com#viewaction"
     },
     {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "about",
+      "target": "https://www.aledlie.com/people/sumedh-joshi#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#website"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/sumedh-joshi#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/peter-singer#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/martha-nussbaum#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/georg-cantor#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/sarang-joshi#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/people/neil-gaiman#person"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/websites/burnt-orange-nation#website"
+    },
+    {
+      "source": "https://www.aledlie.com/homage#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/new-york-times#newsmediaorganization"
+    },
+    {
       "source": "https://www.aledlie.com/organizations/integrity-studios#organization",
       "source_type": "Organization",
       "property": "founder",
@@ -204,6 +296,108 @@
       "target": "https://www.aledlie.com#person"
     },
     {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#blog"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/jekyll#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/languages/ruby#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/bundler#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/minimal-mistakes#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/platforms/macos#operatingsystem"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/platforms/ubuntu#operatingsystem"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-07-02-updating-jekyll-in-2025#techarticle",
+      "source_type": "TechArticle",
+      "property": "citation",
+      "target": "https://www.aledlie.com/people/moncef-belyamani#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#blog"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/inflight#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/glob#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/lru-cache#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/wix#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/nodejs#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+      "source_type": "AnalysisNewsArticle",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/npm#softwareapplication"
+    },
+    {
       "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#blogposting",
       "source_type": "BlogPosting",
       "property": "author",
@@ -214,25 +408,216 @@
       "source_type": "BlogPosting",
       "property": "publisher",
       "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#techarticle",
+      "source_type": "TechArticle",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#techarticle",
+      "source_type": "TechArticle",
+      "property": "publisher",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/posts/2025-11-11-schema-org-rabbit-hole#techarticle",
+      "source_type": "TechArticle",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#blog"
+    },
+    {
+      "source": "https://www.aledlie.com/software/bundler#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/ruby#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/software/jekyll#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/ruby#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/software/jest#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/javascript#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/software/lighthouse#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/javascript#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/software/nodejs#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/javascript#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/software/playwright#softwareapplication",
+      "source_type": "SoftwareApplication",
+      "property": "programmingLanguage",
+      "target": "https://www.aledlie.com/languages/javascript#computerlanguage"
+    },
+    {
+      "source": "https://www.aledlie.com/test-cases#webpage",
+      "source_type": "WebPage",
+      "property": "author",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/test-cases#webpage",
+      "source_type": "WebPage",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#website"
+    },
+    {
+      "source": "https://www.aledlie.com/test-cases#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/jest#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/test-cases#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/playwright#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/test-cases#webpage",
+      "source_type": "WebPage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/lighthouse#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "about",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mainEntity",
+      "target": "https://www.aledlie.com#person"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "isPartOf",
+      "target": "https://www.aledlie.com#website"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/inventoryai#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/integrity-studios#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/concierge#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/meta#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/advisory-board#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/access-sciences#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/heb#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/organizations/against-malaria-foundation#organization"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/splunk#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/nagios#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/rabbitmq#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/software/new-relic#softwareapplication"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/education/university-of-texas#collegeuniversity"
+    },
+    {
+      "source": "https://www.aledlie.com/vita#profilepage",
+      "source_type": "ProfilePage",
+      "property": "mentions",
+      "target": "https://www.aledlie.com/education/cornell-university#collegeuniversity"
     }
   ],
   "relationships_by_property": {
-    "author": 4,
-    "publisher": 4,
-    "isPartOf": 1,
+    "author": 8,
+    "publisher": 7,
+    "isPartOf": 7,
     "blogPost": 2,
     "homeLocation": 1,
     "hasOccupation": 3,
     "worksFor": 2,
+    "alumniOf": 2,
     "owns": 1,
     "mainEntityOfPage": 1,
     "contactPoint": 1,
     "target": 1,
     "copyrightHolder": 1,
-    "mainEntity": 1,
+    "mainEntity": 2,
     "hasPart": 3,
     "potentialAction": 3,
+    "about": 2,
+    "mentions": 37,
     "founder": 2,
-    "employee": 2
+    "employee": 2,
+    "citation": 1,
+    "programmingLanguage": 6
   }
 }

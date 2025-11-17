@@ -55,7 +55,22 @@
     "Technology Consulting",
     "Business Automation",
     "Technical Writing",
-    "Open Source Software"
+    "Open Source Software",
+    "Trust & Safety Engineering",
+    "Content Moderation",
+    "Platform Integrity",
+    "ML Infrastructure",
+    "Startup Leadership",
+    "Healthcare Analytics",
+    "Legal & Regulatory History"
+  ],
+  "alumniOf": [
+    {
+      "@id": "https://www.aledlie.com/education/university-of-texas#collegeuniversity"
+    },
+    {
+      "@id": "https://www.aledlie.com/education/cornell-university#collegeuniversity"
+    }
   ],
   "sameAs": [
     "https://github.com/alyshialedlie",

@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement#analysisnewsarticle",
+  "@type": "AnalysisNewsArticle",
+  "headline": "Making your Wix website ~75% better, instantly",
+  "alternativeHeadline": "75% faster operations, 90% memory reduction, $391.68 annual savings",
+  "datePublished": "2025-09-02T00:00:00Z",
+  "dateModified": "2025-09-02T00:00:00Z",
+  "author": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "publisher": {
+    "@id": "https://www.aledlie.com#person"
+  },
+  "about": "Web Performance Optimization",
+  "articleSection": "Performance Analysis",
+  "dateline": "November 2025",
+  "backstory": "Performance analysis based on real-world production data following Wix platform memory leak investigation and resolution",
+  "keywords": "performance, wix, memory leak, optimization, benchmarking, analytics",
+  "description": "How to make your Wix website run 75% faster on 60% less data and ~$400 less in hosting fees - instantly",
+  "url": "https://www.aledlie.com/posts/2025-09-02-WixPerformanceImprovement",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://www.aledlie.com#blog"
+  },
+  "mentions": [
+    {
+      "@id": "https://www.aledlie.com/software/inflight#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/glob#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/lru-cache#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/wix#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/nodejs#softwareapplication"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/npm#softwareapplication"
+    }
+  ]
+}

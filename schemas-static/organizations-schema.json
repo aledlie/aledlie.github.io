@@ -1,0 +1,72 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.aledlie.com/organizations/meta#organization",
+      "@type": "Organization",
+      "name": "Meta",
+      "alternateName": "Facebook",
+      "url": "https://www.meta.com/",
+      "sameAs": "https://en.wikipedia.org/wiki/Meta_Platforms",
+      "description": "Social media and technology company",
+      "industry": "Social Media, Technology"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/concierge#organization",
+      "@type": "Organization",
+      "name": "Concierge.io",
+      "description": "Luxury travel and services platform",
+      "industry": "Travel, Luxury Services"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/advisory-board#organization",
+      "@type": "Organization",
+      "name": "The Advisory Board Company",
+      "sameAs": "https://en.wikipedia.org/wiki/The_Advisory_Board_Company",
+      "description": "Healthcare research and consulting firm",
+      "industry": "Healthcare Consulting"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/access-sciences#organization",
+      "@type": "Organization",
+      "name": "Access Sciences",
+      "url": "https://www.accesssciences.com/",
+      "description": "Information management consulting firm",
+      "industry": "Information Management, Consulting"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/heb#organization",
+      "@type": "Organization",
+      "name": "H-E-B",
+      "url": "https://www.heb.com/",
+      "sameAs": "https://en.wikipedia.org/wiki/H-E-B",
+      "description": "Texas-based grocery store chain",
+      "industry": "Retail, Grocery"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/against-malaria-foundation#organization",
+      "@type": "Organization",
+      "name": "Against Malaria Foundation",
+      "url": "https://www.againstmalaria.com/",
+      "sameAs": "https://en.wikipedia.org/wiki/Against_Malaria_Foundation",
+      "description": "Charity providing insecticide-treated bed nets to prevent malaria",
+      "industry": "Nonprofit, Healthcare"
+    },
+    {
+      "@id": "https://www.aledlie.com/organizations/new-york-times#newsmediaorganization",
+      "@type": "NewsMediaOrganization",
+      "name": "The New York Times",
+      "url": "https://www.nytimes.com/",
+      "sameAs": "https://en.wikipedia.org/wiki/The_New_York_Times",
+      "description": "American newspaper based in New York City"
+    },
+    {
+      "@id": "https://www.aledlie.com/websites/burnt-orange-nation#website",
+      "@type": "WebSite",
+      "name": "Burnt Orange Nation",
+      "url": "https://www.burntorangenation.com/",
+      "description": "Sports blog where Sumedh wrote about Texas football",
+      "about": "Texas Football, Sports"
+    }
+  ]
+}

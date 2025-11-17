@@ -1,0 +1,182 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.aledlie.com/software/inflight#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "inflight",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Node.js",
+      "url": "https://www.npmjs.com/package/inflight",
+      "description": "Deprecated npm package with memory leak"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/glob#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "glob",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Node.js",
+      "url": "https://www.npmjs.com/package/glob",
+      "description": "Match files using the patterns the shell uses"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/lru-cache#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "LRU-Cache",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Node.js",
+      "url": "https://www.npmjs.com/package/lru-cache",
+      "description": "A cache object that deletes the least-recently-used items"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/wix#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Wix",
+      "applicationCategory": "WebApplication",
+      "url": "https://www.wix.com/",
+      "description": "Website builder platform"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/nodejs#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Node.js",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://nodejs.org/",
+      "description": "JavaScript runtime built on Chrome's V8 JavaScript engine",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/javascript#computerlanguage"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/software/npm#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "npm",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://www.npmjs.com/",
+      "description": "Node package manager"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/jekyll#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Jekyll",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://jekyllrb.com/",
+      "description": "Transform your plain text into static websites and blogs",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/ruby#computerlanguage"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/software/bundler#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Bundler",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://bundler.io/",
+      "description": "Manage Ruby application dependencies",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/ruby#computerlanguage"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/software/minimal-mistakes#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Minimal Mistakes",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://github.com/mmistakes/minimal-mistakes",
+      "description": "A flexible two-column Jekyll theme"
+    },
+    {
+      "@id": "https://www.aledlie.com/languages/ruby#computerlanguage",
+      "@type": "ComputerLanguage",
+      "name": "Ruby",
+      "url": "https://www.ruby-lang.org/",
+      "description": "A dynamic, open source programming language with a focus on simplicity and productivity"
+    },
+    {
+      "@id": "https://www.aledlie.com/languages/javascript#computerlanguage",
+      "@type": "ComputerLanguage",
+      "name": "JavaScript",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "description": "High-level, interpreted programming language"
+    },
+    {
+      "@id": "https://www.aledlie.com/platforms/macos#operatingsystem",
+      "@type": "OperatingSystem",
+      "name": "macOS",
+      "url": "https://www.apple.com/macos/",
+      "description": "Apple's desktop operating system"
+    },
+    {
+      "@id": "https://www.aledlie.com/platforms/ubuntu#operatingsystem",
+      "@type": "OperatingSystem",
+      "name": "Ubuntu",
+      "url": "https://ubuntu.com/",
+      "description": "Linux distribution based on Debian"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/splunk#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Splunk",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://www.splunk.com/",
+      "description": "Platform for searching, monitoring, and analyzing machine-generated big data"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/nagios#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Nagios",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://www.nagios.org/",
+      "description": "Open source monitoring system for IT infrastructure"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/rabbitmq#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "RabbitMQ",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://www.rabbitmq.com/",
+      "description": "Open source message broker software"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/new-relic#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "New Relic",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://newrelic.com/",
+      "description": "Application performance monitoring and observability platform"
+    },
+    {
+      "@id": "https://www.aledlie.com/software/jest#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Jest",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://jestjs.io/",
+      "description": "JavaScript testing framework",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/javascript#computerlanguage"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/software/playwright#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Playwright",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://playwright.dev/",
+      "description": "End-to-end testing framework for web applications",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/javascript#computerlanguage"
+      }
+    },
+    {
+      "@id": "https://www.aledlie.com/software/lighthouse#softwareapplication",
+      "@type": "SoftwareApplication",
+      "name": "Lighthouse",
+      "applicationCategory": "DeveloperApplication",
+      "url": "https://developers.google.com/web/tools/lighthouse",
+      "description": "Automated tool for improving web page quality and performance",
+      "programmingLanguage": {
+        "@id": "https://www.aledlie.com/languages/javascript#computerlanguage"
+      }
+    }
+  ]
+}
