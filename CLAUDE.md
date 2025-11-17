@@ -61,10 +61,12 @@ npm run format:scss
 
 ### Jekyll Configuration
 
-- **Theme:** Minimal Mistakes 4.27.3 with "contrast" skin
+- **Jekyll Version:** 4.3 (NOT using github-pages gem - deploys to Vercel)
+- **Theme:** Minimal Mistakes with "contrast" skin
 - **Ruby:** 3.4.4 (requires compatibility gems: csv, logger, webrick, base64)
 - **Markdown:** kramdown with rouge syntax highlighting
 - **Pagination:** 8 posts per page via jekyll-paginate
+- **Sass:** jekyll-sass-converter ~> 3.0 (modern Sass compiler)
 
 ### Key Directories
 
@@ -73,18 +75,54 @@ npm run format:scss
 ├── _config.yml           # Site-wide configuration (title, author, analytics, plugins)
 ├── _data/
 │   └── navigation.yml    # Custom navigation menu structure
-├── _includes/            # Reusable template components (analytics, schema, headers)
-├── _layouts/             # Page templates (home, single, archive, collection)
-├── _posts/              # Blog posts (YYYY-MM-DD-title.md format)
-├── _reports/            # Reports collection (output: true)
-├── _sass/               # SCSS partials (theme styling)
+├── _includes/            # ~80 template components (analytics, schema, headers, pagination)
+├── _layouts/             # 16 page templates (home, single, post-index, archive, collection, etc.)
+├── _posts/               # Blog posts (YYYY-MM-DD-title.md format)
+├── _projects/            # Projects collection
+├── _reports/             # Reports collection
+├── _work/                # Work-related content collection
+├── _sass/                # SCSS partials (theme styling)
 ├── assets/
-│   ├── css/main.scss    # HEAVILY CUSTOMIZED - Complete CSS overhaul
-│   ├── js/              # JavaScript files
-│   └── images/          # Profile and header images
-├── tests/               # Comprehensive test suite (unit, e2e, performance, analytics)
-├── utils/               # Python utilities and shell scripts
-└── SumedhSite/          # Separate site (git submodule for sumedhjoshi.github.io)
+│   ├── css/main.scss     # HEAVILY CUSTOMIZED - Complete CSS overhaul
+│   ├── js/               # JavaScript files
+│   └── images/           # Profile and header images
+├── tests/                # Comprehensive test suite (unit, e2e, performance, analytics)
+│   ├── e2e/              # Playwright tests (accessibility, navigation, etc.)
+│   ├── performance/      # Lighthouse performance tests
+│   └── unit/             # Jest unit tests
+├── index.html            # Homepage (uses 'home' layout for blog listing)
+├── about/                # About page
+├── about_me/             # About Me page
+├── posts/                # Posts archive (uses 'post-index' layout)
+└── SumedhSite/           # Separate site (git submodule for sumedhjoshi.github.io)
+```
+
+### Layout System Architecture
+
+**Key Layouts:**
+- **home.html**: Homepage layout (extends archive) - displays recent posts with pagination
+- **single.html**: Individual pages and posts - supports headers, breadcrumbs, author profile
+- **post-index.html**: Blog archive (extends archive) - groups posts by year
+- **archive.html**: Base archive layout - used by home and post-index
+- **collection.html**: For projects, reports, and work collections
+
+**Layout Features:**
+- **Header Images:** Controlled by `header.overlay_image` and `header.teaser` in front matter
+- **Breadcrumbs:** Enabled via `breadcrumbs: true` in front matter (requires site.breadcrumbs or page.breadcrumbs)
+- **Author Profile:** Enabled via `author_profile: true` in front matter
+
+**Front Matter Pattern for Pages:**
+```yaml
+---
+layout: single
+title: "Page Title"
+permalink: /page-url/
+author_profile: true
+breadcrumbs: true
+header:
+  overlay_image: /images/cover-image.png
+  teaser: /images/cover-image.png
+---
 ```
 
 ### Custom Styling Architecture
@@ -104,17 +142,20 @@ Key customizations:
 
 ### Deployment Configuration
 
-**GitHub Pages:**
-- Auto-deploys from `master` branch
-- Uses github-pages gem for compatibility
-- Requires Jekyll-compatible plugins only
+**Primary Deployment: Vercel (vercel.json)**
+- **Build Command:** `bundle exec jekyll build --baseurl ''`
+- **Install Command:** `bundle install --deployment`
+- **Output Directory:** `_site`
+- **Environment Variables:**
+  - `JEKYLL_ENV=production`
+  - `LANG=en_US.UTF-8` (fixes character encoding in SCSS)
+  - `LC_ALL=en_US.UTF-8`
+- **Security Headers:** CSP, HSTS, X-Frame-Options, X-XSS-Protection, Referrer-Policy
+- **Cache Strategy:** 1 year for static assets (CSS, JS, images)
+- **URL Configuration:** Clean URLs enabled, trailing slashes enforced
+- **Content-Type Headers:** Explicit UTF-8 charset for CSS and JS
 
-**Vercel (vercel.json):**
-- Custom build command: `bundle exec jekyll build --baseurl ''`
-- Encoding fixes: `LANG=en_US.UTF-8`, `LC_ALL=en_US.UTF-8`
-- Security headers: CSP, HSTS, X-Frame-Options, etc.
-- Cache headers: 1 year for static assets
-- Clean URLs and trailing slashes enabled
+**Note:** This site uses Jekyll 4.3 (not github-pages gem) for modern Sass compiler support
 
 ### Testing Infrastructure
 
@@ -145,7 +186,7 @@ Key customizations:
 
 ## Collections
 
-Two custom collections with permalinks:
+Three custom collections with permalinks:
 
 ```yaml
 collections:
@@ -155,7 +196,14 @@ collections:
   reports:
     output: true
     permalink: /:collection/:path/
+  work:
+    output: true
+    permalink: /work/:path/
 ```
+
+- **_projects/**: Portfolio/project showcase items
+- **_reports/**: Case studies and reports
+- **_work/**: Work-related content and current projects
 
 ## Common Development Patterns
 
@@ -174,11 +222,31 @@ collections:
    ```
 3. Build and test locally before pushing
 
-### Running Tests Before Deploy
+### Running Individual Tests
 
-Always run full test suite before deployment:
 ```bash
-npm run build && npm run test:all
+# Run specific test file
+npm run test tests/unit/site-functionality.test.js
+
+# Run E2E tests for specific browser
+npx playwright test --project=chromium
+
+# Run E2E tests with UI (helpful for debugging)
+npx playwright test --ui
+
+# Run performance tests on specific URL
+# Edit .lighthouserc.js to configure URLs
+npm run test:performance
+```
+
+### Testing Vercel Deployment Locally
+
+```bash
+# Set Vercel environment variables
+JEKYLL_ENV=production LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build --baseurl ''
+
+# Then serve the _site directory
+cd _site && python -m http.server 8000
 ```
 
 ### Working with Submodules
@@ -190,13 +258,6 @@ git pull origin master
 cd ../..
 git add SumedhSite/sumedhjoshi.github.io
 git commit -m "Update Sumedh's site submodule"
-```
-
-### Testing Vercel Deployment Locally
-
-```bash
-# Set Vercel environment variables
-JEKYLL_ENV=production LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build --baseurl ''
 ```
 
 ## Important Notes
@@ -225,4 +286,3 @@ Important paths excluded in `_config.yml`:
 ## RSS Feeds
 
 - Main feed: `/feed.xml` (Jekyll Feed plugin)
-- Football RSS: `/football-rss.xml` (custom RSS for Sumedh's content)
