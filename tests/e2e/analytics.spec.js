@@ -8,16 +8,16 @@ test.describe('Analytics Integration', () => {
     await page.route('**/googletagmanager.com/**', route => route.abort());
   });
 
-  test('should load Google Tag Manager script', async ({ page }) => {
+  test('should load Google Analytics script', async ({ page }) => {
     await page.goto('/');
-    
-    // Check that GTM script tag exists
+
+    // Check that gtag script tag exists
     const gtagScript = await page.locator('script[src*="gtag/js"]').count();
     expect(gtagScript).toBeGreaterThan(0);
-    
-    // Verify it has the correct GTM ID
+
+    // Verify it has the correct GA4 tracking ID
     const scriptSrc = await page.locator('script[src*="gtag/js"]').first().getAttribute('src');
-    expect(scriptSrc).toContain('GTM-TK5J8L38');
+    expect(scriptSrc).toContain('G-J7TL7PQH7S');
   });
 
   test('should have Google site verification meta tag', async ({ page }) => {
@@ -64,10 +64,10 @@ test.describe('Analytics Integration', () => {
     
     expect(jsCalls.length).toBeGreaterThan(0);
     expect(configCalls.length).toBeGreaterThan(0);
-    
-    // Verify config call has correct GTM ID
-    const gtmConfigCall = configCalls.find(call => call[1] === 'GTM-TK5J8L38');
-    expect(gtmConfigCall).toBeTruthy();
+
+    // Verify config call has correct GA4 tracking ID
+    const gaConfigCall = configCalls.find(call => call[1] === 'G-J7TL7PQH7S');
+    expect(gaConfigCall).toBeTruthy();
   });
 
   test('should handle navigation tracking', async ({ page }) => {
@@ -132,13 +132,13 @@ test.describe('Analytics Integration', () => {
 test.describe('Privacy and Consent', () => {
   test('should handle analytics opt-out', async ({ page }) => {
     await page.goto('/');
-    
-    // Set analytics opt-out
+
+    // Set analytics opt-out (GA4 format)
     await page.evaluate(() => {
-      window['ga-disable-GTM-TK5J8L38'] = true;
+      window['ga-disable-G-J7TL7PQH7S'] = true;
     });
-    
-    const optOutSet = await page.evaluate(() => window['ga-disable-GTM-TK5J8L38']);
+
+    const optOutSet = await page.evaluate(() => window['ga-disable-G-J7TL7PQH7S']);
     expect(optOutSet).toBe(true);
   });
 

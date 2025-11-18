@@ -1,10 +1,10 @@
 /**
  * Google Analytics Tests
- * Tests Google Tag Manager implementation, tracking events, and analytics setup
+ * Tests Google Analytics 4 (GA4) implementation, tracking events, and analytics setup
  */
 
 describe('Google Analytics Integration', () => {
-  const EXPECTED_GTM_ID = 'GTM-TK5J8L38';
+  const EXPECTED_GA_ID = 'G-J7TL7PQH7S';
 
   beforeEach(() => {
     // Reset global analytics state
@@ -14,13 +14,13 @@ describe('Google Analytics Integration', () => {
     delete window.dataLayer;
   });
 
-  describe('Google Tag Manager Setup', () => {
-    test('should load GTM script with correct ID', () => {
+  describe('Google Analytics Setup', () => {
+    test('should load GA4 script with correct ID', () => {
       document.head.innerHTML = `
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
       `;
 
-      const gtagScript = document.querySelector(`script[src*="gtag/js?id=${EXPECTED_GTM_ID}"]`);
+      const gtagScript = document.querySelector(`script[src*="gtag/js?id=${EXPECTED_GA_ID}"]`);
       expect(gtagScript).toBeTruthy();
       expect(gtagScript.hasAttribute('async')).toBe(true);
     });
@@ -32,7 +32,7 @@ describe('Google Analytics Integration', () => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${EXPECTED_GTM_ID}');
+          gtag('config', '${EXPECTED_GA_ID}');
         </script>
       `;
 
@@ -44,23 +44,23 @@ describe('Google Analytics Integration', () => {
 
       // Simulate the gtag calls
       window.gtag('js', new Date());
-      window.gtag('config', EXPECTED_GTM_ID);
+      window.gtag('config', EXPECTED_GA_ID);
 
       expect(window.dataLayer).toEqual([
         ['js', expect.any(Date)],
-        ['config', EXPECTED_GTM_ID]
+        ['config', EXPECTED_GA_ID]
       ]);
     });
 
-    test('should not load multiple GTM scripts', () => {
+    test('should not load multiple GA4 scripts', () => {
       document.head.innerHTML = `
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GTM_ID}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
       `;
 
       const gtagScripts = document.querySelectorAll('script[src*="gtag/js"]');
       expect(gtagScripts.length).toBe(2); // This would indicate a problem in implementation
-      
+
       // In a real implementation, you'd want this to be 1
       // This test documents the current behavior and can be used to verify fixes
     });
@@ -98,7 +98,7 @@ describe('Google Analytics Integration', () => {
       // Simulate page view tracking
       const trackPageView = (page_title, page_location) => {
         if (window.gtag) {
-          window.gtag('config', EXPECTED_GTM_ID, {
+          window.gtag('config', EXPECTED_GA_ID, {
             page_title: page_title,
             page_location: page_location
           });
@@ -107,7 +107,7 @@ describe('Google Analytics Integration', () => {
 
       trackPageView('Home Page', 'https://www.aledlie.com/');
 
-      expect(window.gtag).toHaveBeenCalledWith('config', EXPECTED_GTM_ID, {
+      expect(window.gtag).toHaveBeenCalledWith('config', EXPECTED_GA_ID, {
         page_title: 'Home Page',
         page_location: 'https://www.aledlie.com/'
       });
@@ -190,11 +190,11 @@ describe('Google Analytics Integration', () => {
 
     test('should allow analytics opt-out', () => {
       const disableAnalytics = () => {
-        window[`ga-disable-${EXPECTED_GTM_ID}`] = true;
+        window[`ga-disable-${EXPECTED_GA_ID}`] = true;
       };
 
       disableAnalytics();
-      expect(window[`ga-disable-${EXPECTED_GTM_ID}`]).toBe(true);
+      expect(window[`ga-disable-${EXPECTED_GA_ID}`]).toBe(true);
     });
 
     test('should have proper consent management', () => {

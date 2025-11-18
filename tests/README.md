@@ -76,8 +76,8 @@ Tests complete user workflows across multiple browsers:
 
 ### Analytics Tests
 
-Verifies Google Tag Manager implementation:
-- GTM script loading with correct ID (`GTM-TK5J8L38`)
+Verifies Google Analytics 4 (GA4) implementation:
+- GA4 script loading with correct tracking ID (`G-J7TL7PQH7S`)
 - Google site verification meta tag
 - Event tracking functionality
 - Privacy compliance (Do Not Track, opt-out)

@@ -16,19 +16,25 @@ A Jekyll-based personal website ("The Parlor") built on the Minimal Mistakes the
 # Install Ruby dependencies
 bundle install
 
-# Serve site locally
+# Serve site locally (with Ruby warnings suppressed)
 bundle exec jekyll serve
+# Or with warnings suppressed:
+RUBYOPT="-W0" bundle exec jekyll serve
 # Site will be available at http://localhost:4000
 
 # Build for production
 bundle exec jekyll build
 # Output to _site/ directory
+
+# Quick serve via npm script
+npm run serve
 ```
 
 **Build Notes:**
 - Bundler 2.6.9 is required (matches Gemfile.lock)
 - SCSS deprecation warnings from vendor files (Susy, Magnific Popup) are expected and can be ignored
 - Custom SCSS files use modern Sass module system (sass:color, sass:meta, sass:list)
+- Use `RUBYOPT="-W0"` to suppress Ruby deprecation warnings during local development
 
 ### Testing
 
@@ -66,12 +72,13 @@ npm run format:scss
 
 ### Jekyll Configuration
 
-- **Jekyll Version:** 4.3 (NOT using github-pages gem - deploys to Vercel)
-- **Theme:** Minimal Mistakes with "contrast" skin
+- **Jekyll Version:** 4.3 (deploys to Vercel; Jekyll 3.10.0 via github-pages gem for compatibility)
+- **Theme:** minimal-mistakes-jekyll with "contrast" skin
 - **Ruby:** 3.4.4 (requires compatibility gems: csv, logger, webrick, base64)
 - **Markdown:** kramdown with rouge syntax highlighting
 - **Pagination:** 8 posts per page via jekyll-paginate
 - **Sass:** jekyll-sass-converter ~> 3.0 (modern Sass compiler)
+- **Note:** The site currently uses the local theme gem, not remote_theme (temporarily disabled during refactoring)
 
 ### Schema.org Architecture
 
@@ -240,9 +247,10 @@ Key customizations:
 
 ### Analytics Implementation
 
-- **Provider:** Google Tag Manager (GTM-TK5J8L38)
-- **Implementation:** `_includes/_google_analytics.html`
-- **Privacy:** Anonymous IP enabled
+- **Provider:** Google Analytics (GA4)
+- **Tracking ID:** G-J7TL7PQH7S
+- **Implementation Type:** google-gtag (configured in `_config.yml`)
+- **Privacy:** Anonymous IP enabled for privacy compliance
 - **Testing:** Comprehensive unit and E2E tests in `tests/analytics/`
 
 ### MCP Integration
@@ -339,9 +347,9 @@ git commit -m "Update Sumedh's site submodule"
 
 ## Important Notes
 
-1. **Ruby Warnings:** Always use `RUBYOPT="-W0"` when serving locally to suppress deprecation warnings from the theme.
+1. **Ruby Warnings:** Use `RUBYOPT="-W0"` when serving locally to suppress deprecation warnings from vendor theme files. This is already configured in the `npm run serve` script.
 
-2. **Character Encoding:** Vercel requires explicit UTF-8 encoding settings to handle special characters in SCSS.
+2. **Character Encoding:** Vercel requires explicit UTF-8 encoding settings (`LANG=en_US.UTF-8` and `LC_ALL=en_US.UTF-8`) to handle special characters in SCSS compilation.
 
 3. **CSS Specificity:** Some CSS overrides use `!important` to ensure theme defaults are properly overridden. This is intentional.
 
