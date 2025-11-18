@@ -47,9 +47,8 @@ The ToolVisualizer project generates 252 HTML pages (126 directory pages + 126 m
 #### Files Created
 
 **`public/templates/base.html`** - Base template with progressive enhancement
-{% raw %}
 ```html
-<!DOCTYPE html>
+{% raw %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,9 +64,8 @@ The ToolVisualizer project generates 252 HTML pages (126 directory pages + 126 m
     <script type="module" src="{{ js_path.replace('main.js', 'main-modular.js') }}"></script>
     <script nomodule src="{{ js_path }}"></script>
 </body>
-</html>
+</html>{% endraw %}
 ```
-{% endraw %}
 
 **`public/templates/directory.html`** - Directory page template
 - Extends base.html
@@ -242,10 +240,10 @@ initNavigation();
 **`public/templates/base.html`** updated:
 ```html
 <!-- Modern browsers: ES6 modules -->
-<script type="module" src="{{ js_path.replace('main.js', 'main-modular.js') }}"></script>
+{% raw %}<script type="module" src="{{ js_path.replace('main.js', 'main-modular.js') }}"></script>{% endraw %}
 
 <!-- Legacy browsers: Fallback to bundled script -->
-<script nomodule src="{{ js_path }}"></script>
+{% raw %}<script nomodule src="{{ js_path }}"></script>{% endraw %}
 ```
 
 #### Phase 3 Results

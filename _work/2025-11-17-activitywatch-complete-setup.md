@@ -1,5 +1,5 @@
 ---
-layout: work
+layout: single
 title: "ActivityWatch Complete Tracking System Setup"
 date: 2025-11-17
 category: productivity
