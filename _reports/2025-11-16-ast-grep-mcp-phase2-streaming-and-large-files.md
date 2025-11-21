@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "AST-Grep MCP Server: Phase 2 Performance Enhancements - Streaming & Large File Handling"
 date: 2025-11-16
 categories: [software-development, open-source, mcp]

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"
 date: 2025-11-17
 categories: [refactoring, build-optimization, code-quality]

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"
 date: 2025-11-17
 categories: [repository-organization, refactoring, documentation]

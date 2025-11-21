@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"
 date: 2025-11-17
 categories: [ast-grep-mcp, testing, batch-operations]

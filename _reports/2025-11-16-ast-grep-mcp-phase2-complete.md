@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "AST-Grep MCP Server: Phase 2 Complete - Performance & Scalability Achieved"
 date: 2025-11-16
 categories: [software-development, open-source, mcp, performance]

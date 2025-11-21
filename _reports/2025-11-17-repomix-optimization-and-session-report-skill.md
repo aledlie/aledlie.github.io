@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Repomix Optimization and Session Report Skill Creation"
 date: 2025-11-17
 categories: [automation, optimization, skill-development]
@@ -279,7 +279,7 @@ Created a Claude Code skill that provides comprehensive guidelines for generatin
 **Jekyll Frontmatter Template:**
 ```yaml
 ---
-layout: post
+layout: single
 title: "Descriptive Title of Work Completed"
 date: YYYY-MM-DD
 categories: [primary-category, secondary-category, tertiary-category]

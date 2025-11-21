@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Bug #2 Fix: Unified Penalty System for Duplicate Detection"
 date: 2025-11-17
 categories: [duplicate-detection, precision-improvement, architectural-fix]

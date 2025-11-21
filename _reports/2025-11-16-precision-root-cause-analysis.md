@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Precision Root Cause Analysis: Debugging a Duplicate Detection Pipeline"
 date: 2025-11-16
 categories: [debugging, code-quality, machine-learning]
