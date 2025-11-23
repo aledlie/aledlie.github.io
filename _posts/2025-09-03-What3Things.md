@@ -7,16 +7,15 @@ excerpt:  "On Signal, Noise, & Sustainability : The limits of overclocking"
 ---
 ##  Pre-2023 Facebook
 
-In the hazy before-times of 2014 tech, I joined Facebook. I was the first person hired
-specifically as an engineer in an Austin office that employed fewer than 200 people in all roles. One of them was my brother. It was not a company back then so much
-as a cult. My first 6 years there were the hardest I've ever worked, the most I've ever learned,
+In the hazy before-times of 2014 tech; I joined Facebook. I was the first person hired
+specifically as an engineer in an Austin office that employed fewer than 200 people in all roles. One of them was my brother. Back then it resembled a cult more than a company. My first 6 years there were the hardest I've ever worked; the most I've ever learned;
 and, to quote a project manager of mine at the time, a ticket into "a theme park for psychos,"
 who would gleefully stay after work to keep talking about work... we just also
 added drinking and played video games when 6-7pm or so rolled around.
 
 For ~6 months I was a completely useless little ball of stress held together by imposter syndrome, intense curiosity, and a stubborn refusal to admit defeat by a series of 1s
-and 0s. Then, all in one moment, I woke as an "SME" - someone who other people went to
-for advice and help and was considered senior, and In Charge Of Things. This was not because I all of a sudden had become an expert; it was just a common on a team where we had only 1 engineer for every 300 million users, and if you'd been around for 6 months, that was longer than 50% of everyone else.  But it didn't help with the imposter syndrome.
+and 0s. Then, all in one moment, I woke as an "SME" - someone other people sought out
+for advice and help, someone considered senior and In Charge Of Things. This happened not because I all of a sudden had become an expert; it was just common on a team where we had only 1 engineer for every 300 million users, and if you'd been around for 6 months, that was longer than 50% of everyone else.  But it didn't help with the imposter syndrome.
 
 For about 8 years after that, my job was roughly divided like this:
 
@@ -35,9 +34,9 @@ After a few years of finding myself accidentally working as a mostly full-time t
 
 Those posts became a ritual over time that helped me to incorporate balance, calmness, and perspective in an environment where the potential for error was huge, and everything always seemed to be on fire.
 
-## When Everything *Must* Be Done at Once
+## When You *Must* Do Everything at Once
 
-Sometimes, though, the idea of "not doing everything at once" just doesn’t hold up. Right now, I’m in one of those moments where I *do* need to tackle **everything at once**. So, I’m restarting my **"What 3 Things Alyshia’s Doing This Week"** posts with a clear purpose:
+Sometimes, though, the idea of "not doing everything at once" just doesn't hold up. Right now, I'm in one of those moments where I *do* need to tackle **everything at once**. So, I’m restarting my **"What 3 Things Alyshia’s Doing This Week"** posts with a clear purpose:
 
 - **Track Everything**: By documenting my priorities, I can monitor the size of my workload over time.
 - **Ease the Crunch**: My goal is to watch that workload shrink as I chip away at it before the **September 12th** deadline.
@@ -47,7 +46,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
 #TODO Silly List 📝
 
 - [x] ~~Make a TODO list~~ ✅ (Finally accomplished something today!)
-- [ ] Actually figure out what all of my projects are, what domain manager
+- [ ] Actually catalog all my projects and identify which domain manager handles each
 - [ ] Document domain managers & where they are stored
 - [x] Write a proper README.mds that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
 - [ ] Add the projects that have been living on my local for btw 1-12 years, add
@@ -76,7 +75,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
 - [ ] Update [this post](https://www.sumedhmjoshi.com/misc/how-manys-are-there-to-get-from-austin-to-mumbai/) with 2025 data from [this](https://openflights.org/) website
 - [x] Update [this post](https://www.sumedhmjoshi.com/programming/when-do-i-write-code/) with data from my own github profile
 - [ ] Use [this post](https://www.sumedhmjoshi.com/golf/how-good-is-the-average-golfer/) and [this post](https://www.sumedhmjoshi.com/golf/how-many-of-me-would-it-take-to-shoot-par-in-a-scramble/) to explain why a neural network trained on your brain would be better than you are at golf, or knowing your own name.
-- [ ] Read [this article](https://artificialanalysis.ai/) on NN performance, which was probably out of date the moment it was published.
+- [ ] Read [this article](https://artificialanalysis.ai/) on NN performance, which probably became outdated the moment it went live.
 - [ ] Work these two quotes somewhere into this website:
   - “Selection bias is a hell of a drug.” ~F. Perry Wilson, MD, MSCE
   - The price of reliability is the pursuit of the utmost simplicity. ~C.A.R. Hoare (1980 ACM Turing Award Lecture)

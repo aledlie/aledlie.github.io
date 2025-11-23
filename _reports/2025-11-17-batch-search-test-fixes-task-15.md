@@ -14,7 +14,7 @@ tags: [python, testing, pytest, mocking, parallel-execution, ast-grep, mcp]
 
 ## Executive Summary
 
-Successfully debugged and fixed all 18 failing batch_search tests by identifying and correcting the test setup and mocking strategy. The key issue was that `register_mcp_tools()` was not being called during test setup, and tests were attempting to mock non-existent module-level functions. After fixing the test infrastructure, all 236 unit tests now pass (248 total including integration tests). Completed documentation updates and created git commit `a0550e7` to finalize Task 15 (Batch Operations).
+Successfully debugged and fixed all 18 failing batch_search tests by identifying and correcting the test setup and mocking strategy. The key issue: `register_mcp_tools()` lacked a call during test setup; tests attempted to mock non-existent module-level functions. After fixing the test infrastructure, all 236 unit tests now pass (248 total including integration tests). Completed documentation updates and created git commit `a0550e7` to finalize Task 15 (Batch Operations).
 
 **Key Metrics:**
 - 18 batch operation tests: 0 → 18 passing (100% success rate)
@@ -25,17 +25,17 @@ Successfully debugged and fixed all 18 failing batch_search tests by identifying
 
 ## Problem Statement
 
-After implementing the `batch_search` tool in a previous session, all 18 unit tests were failing with errors:
+After implementing the `batch_search` tool in a previous session, all 18 unit tests failed with errors:
 - `AssertionError: batch_search tool not registered`
-- `AttributeError: <module 'main'> does not have the attribute 'find_code'`
+- `AttributeError: <module 'main'> lacks the attribute 'find_code'`
 
-The tests were attempting to patch `main.find_code` and `main.find_code_by_rule`, which don't exist as module-level functions. In the ast-grep-mcp architecture, all tools are defined inside the `register_mcp_tools()` function closure and registered via FastMCP decorators.
+The tests attempted to patch `main.find_code` and `main.find_code_by_rule`, which don't exist as module-level functions. In the ast-grep-mcp architecture, the `register_mcp_tools()` function closure defines all tools and registers them via FastMCP decorators.
 
 ## Root Cause Analysis
 
 ### Issue #1: Missing Tool Registration
 
-The test file was not calling `register_mcp_tools()` after importing the main module:
+The test file failed to call `register_mcp_tools()` after importing the main module:
 
 ```python
 # Import with mocked decorators
@@ -57,10 +57,10 @@ def test_batch_search_single_query(self, mock_find_code: Mock):
     mock_find_code.return_value = json.dumps([...])
 ```
 
-**Why this failed**:
-- `find_code` and `find_code_by_rule` are defined inside `register_mcp_tools()` as closures
-- They don't exist in the module namespace until `register_mcp_tools()` is called
-- Even then, they're only accessible via `main.mcp.tools` dictionary
+**Why this fails**:
+- `register_mcp_tools()` defines `find_code` and `find_code_by_rule` as closures
+- They don't exist in the module namespace until `register_mcp_tools()` runs
+- Even then, only `main.mcp.tools` dictionary provides access
 
 ### Issue #3: Wrong Function Mocked
 
@@ -68,14 +68,14 @@ Initially attempted to mock `run_ast_grep()`, but the actual execution path uses
 - `find_code()` → `stream_ast_grep_results()` → `subprocess.Popen()`
 - `find_code_by_rule()` → `stream_ast_grep_results()` → `subprocess.Popen()`
 
-**Correct target**: `stream_ast_grep_results()` is the function that actually executes ast-grep.
+**Correct target**: `stream_ast_grep_results()` executes ast-grep.
 
 ### Issue #4: Incorrect Return Value Type
 
-Mock was returning JSON strings instead of iterators:
+Mock returned JSON strings instead of iterators:
 
 ```python
-# ❌ Wrong: stream_ast_grep_results returns iterator, not JSON string
+# ❌ Wrong: stream_ast_grep_results returns iterator; not JSON string
 mock_stream.return_value = json.dumps([{"file": "test.py", ...}])
 
 # ✅ Correct: Return an iterator
@@ -207,7 +207,7 @@ $ uv run pytest tests/unit/ -q
 - Renumbered Code Rewrite Tools from 6-8 to 7-9
 
 **Architecture Section** (`CLAUDE.md:393-416`):
-- Updated file size from ~3190 lines (approximate, may vary)
+- Updated file size from ~3190 lines (approximate; may vary)
 - Changed tool registration from "16 tools (5 ast-grep search + 3 ast-grep rewrite + 8 Schema.org)" to "17 tools (6 ast-grep search + 3 ast-grep rewrite + 8 Schema.org)"
 - Added comprehensive Batch Operations description with 5 key features
 
@@ -219,7 +219,7 @@ $ uv run pytest tests/unit/ -q
 
 ## Batch Search Tool Capabilities
 
-The completed `batch_search` tool provides:
+The completed `batch_search` tool offers:
 
 ### Core Features
 
@@ -229,8 +229,8 @@ The completed `batch_search` tool provides:
    - Significant performance improvement on multi-query workloads
 
 2. **Result Deduplication**
-   - Removes duplicate matches based on file path + line number + text content
-   - Optional (can be disabled with `deduplicate=false`)
+   - Eliminates duplicate matches based on file path + line number + text content
+   - Optional (disable with `deduplicate=false`)
    - Reduces noise in aggregated results
 
 3. **Conditional Execution**
@@ -239,7 +239,7 @@ The completed `batch_search` tool provides:
    - Enables complex query chaining and fallback logic
 
 4. **Per-Query Statistics**
-   - Tracks execution status, match count, and failure reasons
+   - Tracks execution status; records match count and failure reasons
    - Provides `query_id` field in all matches for traceability
    - Auto-assigns query IDs if not provided
 
@@ -309,8 +309,8 @@ queries = [
 - Enables early termination and progress logging
 - Returns iterator of match dictionaries
 
-**Alternative Considered**: Mock `run_ast_grep()` which is used for non-streaming operations
-**Why Rejected**: Wrong level of abstraction - tests would execute real subprocess calls
+**Alternative Considered**: Mock `run_ast_grep()` for non-streaming operations
+**Why Rejected**: Wrong level of abstraction - would execute real subprocess calls
 
 ### Decision 2: Use `iter()` for Mock Return Values
 
@@ -331,10 +331,10 @@ queries = [
 
 ### Challenge 1: Understanding Tool Registration Pattern
 
-**Problem**: Tools are defined inside `register_mcp_tools()` closure, not at module level
+**Problem**: `register_mcp_tools()` closure defines tools internally; not at module level
 **Investigation**: Examined `test_duplication.py` to understand the correct pattern
 **Solution**: Call `main.register_mcp_tools()` immediately after importing main module
-**Lesson**: When adding new tools, always check existing test files for patterns
+**Lesson**: Always check existing test files for patterns when adding new tools
 
 ### Challenge 2: Identifying Correct Mock Target
 
@@ -350,7 +350,7 @@ queries = [
 ### Challenge 3: Bulk Replacement Efficiency
 
 **Problem**: 14 test methods needed identical changes
-**Solution**: Used Edit tool with `replace_all=true` for efficient bulk updates
+**Solution**: Edit tool with `replace_all=true` enabled efficient bulk updates
 **Changes**:
 - `@patch("main.run_ast_grep")` → `@patch("main.stream_ast_grep_results")`
 - `mock_run` → `mock_stream`
@@ -390,8 +390,8 @@ Implementation (main.py):
 
 Testing (tests/unit/test_batch.py):
 - 18 comprehensive unit tests with mocked subprocess calls
-- Tests cover: basic functionality, result aggregation, conditional
-  execution, error handling
+- Tests cover basic functionality; result aggregation; conditional
+  execution; and error handling
 - All tests passing (236 total unit tests, 248 total tests)
 
 Documentation (CLAUDE.md):
@@ -423,16 +423,16 @@ Documentation (CLAUDE.md):
 Mocking `stream_ast_grep_results()` provides:
 - No subprocess overhead
 - No ast-grep binary dependency for unit tests
-- Deterministic, reproducible test results
+- Deterministic and reproducible test results
 - Fast test execution (< 2 seconds for 18 tests)
 
 ## Lessons Learned
 
-1. **Tool Architecture Understanding**: In MCP servers using FastMCP, tools are often defined inside registration functions. Always check how tools are registered before writing tests.
+1. **Tool Architecture Understanding**: MCP servers using FastMCP have registration functions that often define tools internally. Always check tool registration before writing tests.
 
 2. **Mock the Right Layer**: Mock at the lowest level that provides isolation. For ast-grep-mcp, that's `stream_ast_grep_results()`, not the tool functions themselves.
 
-3. **Examine Existing Patterns**: When adding new features, examine similar existing code and tests. The `test_duplication.py` file provided the exact pattern needed.
+3. **Examine Existing Patterns**: Adding new features requires examining similar existing code and tests. The `test_duplication.py` file provided the exact pattern needed.
 
 4. **Return Type Matters**: Pay attention to whether functions return values, lists, iterators, or generators. Mocks must match the actual return type.
 
@@ -443,9 +443,9 @@ Mocking `stream_ast_grep_results()` provides:
 ## Next Steps
 
 ### Immediate
-- ✅ All tests passing
-- ✅ Documentation updated
-- ✅ Git commit created
+- ✅ Completed all tests
+- ✅ Finished documentation
+- ✅ Finalized git commit
 - ✅ Task 15 complete
 
 ### Future Enhancements (Tasks 12-14)
