@@ -1,4 +1,5 @@
 @use "sass:color";
+
 /* ==========================================================================
    Sass variables
    ========================================================================== */
@@ -156,7 +157,7 @@ $right-sidebar-width-wide: 400px !default;
    ========================================================================== */
 
 $border-radius: 4px !default;
-$box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default; // Fixed for old Sass compatibility
+$box-shadow: 0 1px 1px rgb(0 0 0 / 12.5%) !default; // Fixed for old Sass compatibility
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
 $navicon-width: 1.5rem !default;
