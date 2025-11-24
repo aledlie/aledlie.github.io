@@ -331,6 +331,16 @@ td code,
   }
 }
 
+/* LANGUAGE PLAINTEXT - Remove all padding */
+.language-plaintext.highlighter-rouge {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  code {
+    padding: 0 !important;
+  }
+}
+
 /* TABLES - Clean, readable styling */
 table {
   width: 100%;
