@@ -2,7 +2,13 @@
 layout: single
 title: "Current Projects & Active TODO List"
 date: 2025-11-16
+author_profile: true
+breadcrumbs: true
+categories: [work-updates]
 excerpt: "What I'm building, learning, and working on right now - from MCP servers to schema optimization, and everything in between."
+header:
+  overlay_image: /images/cover-work.png
+  teaser: /images/cover-work.png
 ---
 
 ## Fun Websites/Projects I've Made
