@@ -3,6 +3,10 @@
 # Script to migrate deprecated SCSS global functions to Sass module system
 # Usage: ./migrate-scss-functions.sh [--dry-run]
 # Example: ./migrate-scss-functions.sh --dry-run  # Preview changes without applying
+#
+# Note: Vendor directories are intentionally excluded. Third-party library files
+# (Susy, Magnific Popup, etc.) contain deprecated functions that cannot be updated
+# without modifying the upstream libraries. These warnings should be ignored.
 
 set -e
 
@@ -50,8 +54,8 @@ trap "rm -f $TMP_FILE" EXIT
 echo -e "${GREEN}Scanning SCSS files for deprecated functions...${NC}"
 echo ""
 
-# Find all SCSS files
-find "$SCSS_DIR" -name "*.scss" -type f | while read -r file; do
+# Find all SCSS files (excluding vendor directories)
+find "$SCSS_DIR" -name "*.scss" -type f | grep -v "/vendor/" | while read -r file; do
     FILE_CHANGED=false
     FILE_REPLACEMENTS=0
     NEEDS_COLOR_MODULE=false
