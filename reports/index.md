@@ -4,8 +4,8 @@ title: "Case Studies"
 permalink: /reports/
 author_profile: true
 header:
-  overlay_image: /images/cover-projects.png
-  teaser: /images/cover-projects.png
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 Technical reports, case studies, and detailed analyses of projects and implementations. Newest reports first.
