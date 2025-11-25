@@ -1,12 +1,17 @@
 ---
-layout: report
+layout: single
 title: "Open Source Middleware & Controller Generation Tools for Full-Suite Applications"
 date: 2025-11-24
 author: "Alyshia Ledlie (via Claude Code Web Research Specialist)"
+author_profile: true
+breadcrumbs: true
 categories: [research, backend, tooling]
 tags: [middleware, controllers, code-generation, typescript, nodejs, express, fastify, nestjs, openapi, security, observability]
 excerpt: "Comprehensive analysis of 15+ open-source tools for generating modular, observable, secure, and flexible middleware/controllers for full-suite software applications."
 toc: true
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Open Source Middleware & Controller Generation Tools for Full-Suite Applications

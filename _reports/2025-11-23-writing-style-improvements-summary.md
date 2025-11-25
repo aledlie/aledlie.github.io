@@ -2,8 +2,14 @@
 layout: single
 title: "Writing Style Improvements: Batch Analysis and Fixes"
 date: 2025-11-23
+author_profile: true
+breadcrumbs: true
 categories: [documentation, writing-quality, batch-processing]
 tags: [elements-of-style, style-analyzer, technical-writing, passive-voice, clarity]
+excerpt: "Systematic improvement of 23 technical reports using Elements of Style analyzer, achieving 20-50 point score increases across the board."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Writing Style Improvements: Batch Analysis and Fixes

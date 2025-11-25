@@ -2,8 +2,14 @@
 layout: single
 title: "Repomix Optimization and Session Report Skill Creation"
 date: 2025-11-17
+author_profile: true
+breadcrumbs: true
 categories: [automation, optimization, skill-development]
 tags: [repomix, git, directory-scanning, performance, claude-code, skills, documentation]
+excerpt: "Repomix Optimization and Session Report Skill Creation"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Repomix Optimization and Session Report Skill Creation

@@ -2,9 +2,14 @@
 layout: single
 title: "AST-Grep MCP Server: Phase 2 Complete - Performance & Scalability Achieved"
 date: 2025-11-16
+author_profile: true
+breadcrumbs: true
 categories: [software-development, open-source, mcp, performance]
 tags: [ast-grep, performance-optimization, streaming, caching, parallel-execution, python, mcp-server]
 excerpt: "Phase 2 completion report: Five major performance enhancements transforming the ast-grep MCP server from MVP to production-ready tool capable of handling massive codebases efficiently."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 ## Executive Summary

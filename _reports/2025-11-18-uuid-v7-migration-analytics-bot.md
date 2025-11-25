@@ -2,8 +2,14 @@
 layout: single
 title: "AnalyticsBot: UUID v7 Migration for Distributed System Compatibility"
 date: 2025-11-18
+author_profile: true
+breadcrumbs: true
 categories: [database-migration, id-generation, distributed-systems]
 tags: [uuid-v7, postgresql, prisma, typescript, performance-optimization, best-practices]
+excerpt: "AnalyticsBot: UUID v7 Migration for Distributed System Compatibility"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # AnalyticsBot: UUID v7 Migration for Distributed System Compatibility

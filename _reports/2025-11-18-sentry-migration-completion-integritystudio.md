@@ -2,8 +2,14 @@
 layout: single
 title: "IntegrityStudio.ai Sentry Migration Completion: 20 Error Handlers Migrated"
 date: 2025-11-18
+author_profile: true
+breadcrumbs: true
 categories: [sentry-integration, error-tracking, production-monitoring]
 tags: [sentry, react, typescript, error-handling, production-ready, vite, migration]
+excerpt: "IntegrityStudio.ai Sentry Migration Completion"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # IntegrityStudio.ai Sentry Migration Completion

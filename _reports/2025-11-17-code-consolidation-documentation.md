@@ -2,8 +2,14 @@
 layout: single
 title: "Code Consolidation System: Comprehensive Technical Documentation"
 date: 2025-11-17
+author_profile: true
+breadcrumbs: true
 categories: [documentation, architecture, duplicate-detection]
 tags: [data-flow, similarity-algorithm, pipeline, code-consolidation, mermaid-diagrams, technical-writing, ast-grep, python]
+excerpt: "Code Consolidation System: Comprehensive Technical Documentation"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Code Consolidation System: Comprehensive Technical Documentation

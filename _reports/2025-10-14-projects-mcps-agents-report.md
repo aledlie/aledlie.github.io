@@ -2,12 +2,14 @@
 layout: single
 title: "Projects, MCPs, and Agents Overview"
 date: 2025-10-14
-categories: reports
+author_profile: true
+breadcrumbs: true
+categories: [reports]
 tags: [mcp, claude-code, automation, web-scraping, analytics]
 excerpt: "Comprehensive analysis of 40+ projects including MCP servers, Claude Code agents, web applications, and automation systems."
 header:
-  overlay_image: /images/cover-projects.png
-  teaser: /images/cover-projects.png
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "list"

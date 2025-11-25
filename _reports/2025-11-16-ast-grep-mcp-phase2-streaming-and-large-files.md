@@ -2,9 +2,14 @@
 layout: single
 title: "AST-Grep MCP Server: Phase 2 Performance Enhancements - Streaming & Large File Handling"
 date: 2025-11-16
+author_profile: true
+breadcrumbs: true
 categories: [software-development, open-source, mcp]
 tags: [ast-grep, performance, streaming, python, mcp-server]
 excerpt: "Implementing streaming architecture and large file handling for the ast-grep MCP server to enable memory-efficient code search across massive codebases."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 ## Executive Summary

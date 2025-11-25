@@ -2,8 +2,14 @@
 layout: single
 title: "AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure"
 date: 2025-11-17
+author_profile: true
+breadcrumbs: true
 categories: [bug-fix, testing-infrastructure, job-queue]
 tags: [javascript, retry-logic, circuit-breaker, test-fixtures, sidequest-server, duplicate-detection]
+excerpt: "AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure

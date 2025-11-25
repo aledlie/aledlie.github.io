@@ -2,8 +2,14 @@
 layout: post
 title: "Phase 1 Pattern Analysis Engine for Enhanced Duplication Detection"
 date: 2025-11-23
+author_profile: true
+breadcrumbs: true
 categories: [ast-grep-mcp, duplication-detection, feature-implementation]
 tags: [python, ast-grep, code-analysis, refactoring, mcp-server, testing]
+excerpt: "Phase 1 Pattern Analysis Engine for Enhanced Duplication Detection"
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Phase 1 Pattern Analysis Engine for Enhanced Duplication Detection
