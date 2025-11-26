@@ -130,7 +130,7 @@ body {
 
   .author-bio {
     font-style: italic;
-    color: $gray-medium;
+    color: #595959;  /* Darkened from $gray-medium (#666) for WCAG AAA contrast */
     font-size: 1.1em;
     line-height: 1.4;
   }
@@ -162,7 +162,7 @@ body {
   .btn {
     background: $bg-light !important;
     border: 1px solid $border-medium;
-    color: $gray-medium;
+    color: #595959;  /* Darkened from $gray-medium (#666) for WCAG AAA contrast */
     font-size: 1em;
     display: block;
 
