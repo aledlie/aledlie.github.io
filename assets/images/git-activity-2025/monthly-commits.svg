@@ -1,0 +1,18 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+<text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Commits by Month (July - November 2025)</text>
+<path d="M 400.0,300.0 L 400.0,100.0 A 200.0,200.0 0 0,1 445.5252536505345,105.25028554564068 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<rect x="600" y="50" width="15" height="15" fill="#0066cc"/>
+<text x="620" y="62" font-size="12">July: 36 (3.7%)</text>
+<path d="M 400.0,300.0 L 445.5252536505345,105.25028554564068 A 200.0,200.0 0 0,1 593.4441048573782,249.21241986540736 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<rect x="600" y="75" width="15" height="15" fill="#4da6ff"/>
+<text x="620" y="87" font-size="12">August: 170 (17.3%)</text>
+<path d="M 400.0,300.0 L 593.4441048573782,249.21241986540736 A 200.0,200.0 0 0,1 572.1321676710515,401.8357346556943 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<rect x="600" y="100" width="15" height="15" fill="#99ccff"/>
+<text x="620" y="112" font-size="12">September: 124 (12.6%)</text>
+<path d="M 400.0,300.0 L 572.1321676710515,401.8357346556943 A 200.0,200.0 0 0,1 483.4784255726174,481.7452955757507 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<rect x="600" y="125" width="15" height="15" fill="#00994d"/>
+<text x="620" y="137" font-size="12">October: 95 (9.6%)</text>
+<path d="M 400.0,300.0 L 483.4784255726174,481.7452955757507 A 200.0,200.0 0 1,1 399.99999999999994,100.0 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
+<rect x="600" y="150" width="15" height="15" fill="#ffcc00"/>
+<text x="620" y="162" font-size="12">November: 560 (56.9%)</text>
+</svg>

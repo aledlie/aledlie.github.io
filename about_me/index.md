@@ -1,20 +1,36 @@
 ---
 layout: single
-title: Shower Thoughts
-subtitle: true
-permalink: /
+title: About Me
+permalink: /about_me/
 author_profile: true
-description: true
+breadcrumbs: true
+header:
+  overlay_image: /images/cover-about.png
+  teaser: /images/cover-about.png
 ---
-This started the way most interesting things do: not with a plan, but with a pattern. Around 2 a.m., long after a twilight hush had wrapped the world in quiet, a certain kind of idea would show up - stray tangents, shower arguments, metaphysical quandries - and start demanding sandwiches with the crusts cut off and somewhere to sit.  They were uninvited, underdressed, and annoyingly persistent.  Although rarely brilliant, they were never boring. They'd linger.  Argue.  Sometimes even make a point.
 
-So I gave them a room: something between a study, a speakeasy, and a holding pen for mental clutter that occationally surprises you by being useful.
+I've done a lot of writing—during my brief stint in academia and then during 14 years or so of corporate work—but **this blog isn't for that**.
 
-This isn't a manifesto or a master plan.  Some of what happens here might sound like philosophy, or psychology, or the kind of essay people write when they’ve read too much Kierkegaard and slept too little. But mostly, it’s just me trying to make sense of things the way anyone does: slowly, sideways, and often out loud. You won’t find answers here. But you might find a kind of comfort in the questions, or at least some company in the confusion.
+It's really just supposed to be for me: the journal articles I particularly like, or a way to nail down how I'm thinking about something abstract. Here, you will find the person my friends know, what it's like to ramble with me until way after you were supposed to go bed.
 
-Come in. The fire’s on, and the tea's ready. The thoughts are restless. Let's see where they take us. 
+I started it in 2017 and picked it up again a few weeks ago, orignially meant to be a one-shot homage to Sumedh Joshi, and the blog he used to write.
 
-## Recent Posts
-{% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
-{% endfor %}
+---
+
+But I'm going to try to keep posting to it. If you enjoy it, hopefully you pop by again for the jokes and absurdity, and, well, stay for the jokes and absurdity. I promise I won't include too many articles like this one.
+
+> But, to quote the great Neil Gaiman, all stories are lies, and all writers are liars.
+
+And I am *chock full of lies*. So take that promise for what it's worth, which is practically nothing, and I'll either never post here again, or see you here next week with a cartoon and meme about why people spending so much time on RAG databases and fine-tuning is gilding a lily (and just silly), to explain why we should all be taking more creatine supplements, and argue, with absolutely no ground to stand on, with a nobel laureate about the end of the world.
+
+---
+
+Cheers, you brave souls who have somehow gotten to the end of this very short post.
+
+And as always, I'll leave you and the rest of our bizarre, fabulous, disorienting universe with all of my love, delight, and delirium, after finally crashing out and signing off on this at **8:15 a.m.**, a few dozen research articles into a handful of fields deep, and having nerd sniped 4 of my PhD friends into staying up with me to chatter about nonsense, and giggle, and feed off of each others' unbounded curiosity.
+
+*It's been a great night here at The Parlor, and I hope it's been at yours, too.*
+
+<br>
+
+~ Alyshia

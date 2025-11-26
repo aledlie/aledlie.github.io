@@ -1,0 +1,291 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/contrast"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Clean, minimal styling inspired by reference design */
+
+/* GLOBAL OVERRIDES - Only what differs from theme defaults */
+body {
+  font-size: 14px; // Smaller than theme default
+  line-height: 1.6;
+}
+
+/* HEADER - Compact cover images */
+.page-hero {
+  height: 120px;
+  
+  .page-hero-image,
+  img {
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .page-hero-caption {
+    display: none;
+  }
+}
+
+.page-hero-overlay {
+  height: 120px;
+  
+  .page-hero-content {
+    display: none;
+  }
+}
+
+/* NAVIGATION - Custom styling for academic look */
+.masthead {
+  border-bottom: 1px solid #eee;
+  padding: 2em 0 1em;
+}
+
+.greedy-nav {
+  font-family: "PT Sans Narrow", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+
+  .site-title {
+    width: 16.6666666667%;
+    margin-right: 4.1666666667%;
+    margin-left: 4.1666666667%;
+  }
+
+  .nav-links {
+    margin-right: 4.1666666667%;
+    margin-left: 4.1666666667%;
+
+    a {
+      color: #666;
+      font-weight: 700;
+      margin-right: 4.1666666667%;
+      white-space: nowrap;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+
+/* MAIN CONTENT - Constrained width and minimal padding */
+#main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.25rem;
+}
+
+.initial-content {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* SIDEBAR - Compact spacing */
+.sidebar {
+  padding: 0.5rem;
+
+  .author-avatar img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .author-name {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .author-bio {
+    font-style: italic;
+    color: #666;
+  }
+
+  .author-urls {
+    margin-top: 0;
+
+    li a {
+      font-size: 1em;
+      
+      &:hover {
+        color: #333 !important;
+      }
+    }
+  }
+}
+
+/* CONTENT HEADINGS - Tighter spacing */
+.page-content {
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.3em;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+}
+
+/* ARCHIVE LISTINGS - Compact post list */
+.archive .list__item,
+.archive .archive__item,
+.list__item,
+.archive__item {
+  padding: 0;
+  margin-bottom: 0;
+
+  .archive__item-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+
+    a {
+      color: #333 !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+
+      &:hover {
+        color: #0066cc !important;
+      }
+    }
+  }
+
+  .archive__item-excerpt {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .archive__item-date {
+    color: #999;
+    font-size: 0.85em;
+  }
+}
+
+/* SINGLE POST - Enhanced typography */
+.single {
+  .page-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .page-meta {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* FOOTER - Clean styling */
+.page-footer {
+  border-top: 1px solid #eee;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  text-align: center;
+
+  .page-footer-copyright {
+    color: #999;
+    font-size: 0.85em;
+  }
+}
+
+/* GLOBAL LINK OVERRIDES - Clean black text */
+a {
+  color: #333 !important;
+  text-decoration: none !important;
+
+  &:hover {
+    color: #0066cc !important;
+  }
+}
+
+/* Preserve navigation link styling */
+.greedy-nav a {
+  color: #666 !important;
+
+  &:hover {
+    color: #333 !important;
+  }
+}
+
+/* SOCIAL SHARING */
+.page-share {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+
+  .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  #main {
+    padding: 0.25rem;
+  }
+
+  .sidebar {
+    padding: 0.25rem;
+    text-align: center;
+
+    .author-avatar img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .page-content {
+    padding: 0 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .greedy-nav {
+    padding: 0.1rem 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .site-title {
+      margin-right: 0;
+      margin-bottom: 0.1rem;
+      font-size: 1.2em;
+    }
+
+    .visible-links {
+      gap: 0.02rem;
+
+      a {
+        padding: 0.1rem 0.2rem;
+        font-size: 0.9em;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .single .page-title {
+    font-size: 1.8em;
+  }
+
+  .archive .list__item .archive__item-title {
+    font-size: 1.2em;
+  }
+}

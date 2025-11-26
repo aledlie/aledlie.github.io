@@ -1,0 +1,14 @@
+# Submodules
+SumedhSite/**
+
+# Vendor libraries
+**/vendor/**
+
+# Build output
+_site/**
+.sass-cache/**
+
+# Dependencies
+node_modules/**
+.bundle/**
+vendor/bundle/**

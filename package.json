@@ -1,0 +1,47 @@
+{
+  "scripts": {
+    "lint:scss": "stylelint '**/*.scss'",
+    "lint:scss --fix": "stylelint '**/*.scss' --fix",
+    "format:scss": "prettier --write '**/*.scss'",
+    "build": "RUBYOPT=\"-W0\" bundle exec jekyll build",
+    "serve": "RUBYOPT=\"-W0\" bundle exec jekyll serve",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:e2e": "playwright test",
+    "test:performance": "node tests/performance/lighthouse.js",
+    "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance",
+    "test:ci": "npm run build && jest --ci --coverage && playwright test --reporter=github"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "axe-core": "^4.8.3",
+    "axe-playwright": "^2.1.0",
+    "chrome-launcher": "^1.1.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "lighthouse": "^12.8.2",
+    "puppeteer": "^24.19.0",
+    "stylelint": "^16.23.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
+  },
+  "overrides": {
+    "glob": "^10.4.5",
+    "inflight": "npm:@bokuweb/inflight@^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "assets/js/**/*.js",
+      "!assets/js/vendor/**",
+      "!node_modules/**"
+    ]
+  }
+}

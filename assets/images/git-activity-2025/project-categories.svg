@@ -1,0 +1,15 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+<text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Project Categories (6 repos)</text>
+<path d="M 400.0,300.0 L 400.0,100.0 A 200.0,200.0 0 0,1 573.2050807568878,200.0 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<rect x="600" y="50" width="15" height="15" fill="#0066cc"/>
+<text x="620" y="62" font-size="12">Personal Sites: 1 (16.7%)</text>
+<path d="M 400.0,300.0 L 573.2050807568878,200.0 A 200.0,200.0 0 0,1 573.2050807568878,400.0 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<rect x="600" y="75" width="15" height="15" fill="#4da6ff"/>
+<text x="620" y="87" font-size="12">MCP Servers: 1 (16.7%)</text>
+<path d="M 400.0,300.0 L 573.2050807568878,400.0 A 200.0,200.0 0 0,1 226.79491924311225,400.0 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<rect x="600" y="100" width="15" height="15" fill="#99ccff"/>
+<text x="620" y="112" font-size="12">Client Work: 2 (33.3%)</text>
+<path d="M 400.0,300.0 L 226.79491924311225,400.0 A 200.0,200.0 0 0,1 399.99999999999994,100.0 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<rect x="600" y="125" width="15" height="15" fill="#00994d"/>
+<text x="620" y="137" font-size="12">Legacy: 2 (33.3%)</text>
+</svg>

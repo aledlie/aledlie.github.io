@@ -1,0 +1,13 @@
+# Top 10 Most Active Repositories
+(July 7 - November 16, 2025)
+
+ 1. PersonalSite                             ██████████████████████████████████████████████████ 227
+ 2. ISPublicSites/tcad-scraper               ██████████████████████████████████████████ 193
+ 3. ISPublicSites/AnalyticsBot               ██████████████████████████████████ 157
+ 4. ISPublicSites/IntegrityStudio.ai         █████████████ 61
+ 5. ISInternal/mcp-server-cloudflare         ████████████ 58
+ 6. ISPublicSites/SingleSiteScraper          ███████████ 53
+ 7. IntegrityStudioClients/Leora             █████████ 45
+ 8. ISPublicSites/ToolVisualizer             ███████ 36
+ 9. ToolVizualizer                           ███████ 33
+10. jobs                                     █████ 27

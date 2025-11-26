@@ -5,35 +5,51 @@
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   {% if author.avatar %}
-    <div class="author__avatar">
+    <div class="author-avatar">
       <a href="{{ author.home | default: '/' | absolute_url }}">
         <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
       </a>
     </div>
   {% endif %}
 
-  <div class="author__content">
-    <h3 class="author__name p-name" itemprop="name">
+  <div class="author-content">
+    <h3 class="author-name p-name" itemprop="name">
       <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
     </h3>
     {% if author.bio %}
-      <div class="author__bio p-note" itemprop="description">
+      <div class="author-bio p-note" itemprop="description">
         {{ author.bio | markdownify }}
       </div>
     {% endif %}
   </div>
 
-  <h3 itemprop="name">{{ author.name }}</h3>
-  <p>{{ author.bio }}</p>
-  {% if author.email %}<a href="mailto:{{ author.email }}" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>{% endif %}
-  {% if author.twitter %}<a href="https://twitter.com/{{ author.twitter }}" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-  {% if author.facebook %}<a href="https://facebook.com/{{ author.facebook }}" class="author-social" target="_blank"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a>{% endif %}
-  {% if author.google.plus %}<a href="https://plus.google.com/+{{ author.google.plus }}" class="author-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
-  {% if author.linkedin %}<a href="https://linkedin.com/in/{{ author.linkedin }}" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
-  {% if author.xing %}<a href="https://www.xing.com/profile/{{ author.xing }}" class="author-social" target="_blank"><i class="fa fa-fw fa-xing-square"></i> XING</a>{% endif %}
-  {% if author.instagram %}<a href="https://instagram.com/{{ author.instagram }}" class="author-social" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a>{% endif %}
+
+<!-- Button Links -->
+<div class="social-buttons">
+
+  <a href="mailto:{{ author.email }}" target="_blank" class="btn">
+    <i class="fa fa-fw fa-envelope-square"></i> Email
+  </a>
+  <a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank" class="btn">
+    <i class="fab fa-twitter"></i> Twitter
+  </a>
+  <a href="https://facebook.com/{{ site.owner.facebook }}" target="_blank" class="btn">
+    <i class="fab fa-facebook"></i> Facebook
+  </a>
+  <a href="https://linkedin.com/in/{{ site.owner.linkedin }}" target="_blank" class="btn">
+    <i class="fa fa-fw fa-linkedin-square"></i> LinkedIn
+  </a>
+  <a href="https://www.xing.com/profile/{{ author.xing }}" class="btn" target="_blank">
+    <i class="fa fa-fw fa-xing-square"></i> XING
+  </a>
+  <a href="https://instagram.com/{{ author.instagram }}" class="btn" target="_blank">
+    <i class="fa fa-fw fa-instagram"></i> Instagram
+  </a>
+  <a href="https://github.com/{{ author.github }}" class="btn" target="_blank">
+    <i class="fa fa-fw fa-github"></i> Github
+  </a>
+
   {% if author.tumblr %}<a href="https://{{ author.tumblr }}.tumblr.com" class="author-social" target="_blank"><i class="fa fa-fw fa-tumblr-square"></i> Tumblr</a>{% endif %}
-  {% if author.github %}<a href="https://github.com/{{ author.github }}" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
   {% if author.stackoverflow %}<a href="https://stackoverflow.com/users/{{ author.stackoverflow }}" class="author-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>{% endif %}
   {% if author.lastfm %}<a href="https://lastfm.com/user/{{ author.lastfm }}" class="author-social" target="_blank"><i class="fa fa-fw fa-music"></i> Last.fm</a>{% endif %}
   {% if author.dribbble %}<a href="https://dribbble.com/{{ author.dribbble }}" class="author-social" target="_blank"><i class="fa fa-fw fa-dribbble"></i> Dribbble</a>{% endif %}

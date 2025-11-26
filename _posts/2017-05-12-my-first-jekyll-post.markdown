@@ -1,17 +1,18 @@
 ---
-layout: posts
+layout: single
 title:  "How to Write Posts With Redcarpet"
 date:   2017-05-14 13:23:43 -0500
 categories: jekyll update
+author_profile: true
 ---
 
 ## My Quick Style Reference for Jekyll/Markdown/Redcarpet
 
 [Git Readme file for Redcarpet](https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use)
 
-### Code Snippits
+### Code Snippets
 
-Look at me, I'm a php code snippit:
+Look at me, I'm a php code snippet:
 
 ```php?start_inline=true
 public static function helloWorld(): string {
@@ -37,7 +38,7 @@ No language indicated, so no syntax highlighting.
 But let's throw in a <b>tag</b>.
 ```
 
-Can also add inline code snippits with `backticks`.
+Can also add inline code snippets with `backticks`.
 
 ### Markdown style Quick Reference:
 

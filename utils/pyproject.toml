@@ -1,0 +1,38 @@
+[project]
+name = "git-commit-viz"
+version = "0.1.0"
+description = "A tool to generate charts for git commit activity by hour, day of week, and month, served via an MCP server."
+readme = "README.md"
+license = {file = "LICENSE.md"}
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.10.5",
+    "numpy>=2.0.0",
+    "mcp[cli]>=0.3.2"
+]
+authors = [
+    {name = "Alyshia Ledlie", email = "alyshialedlie@example.com"}
+]
+keywords = ["git", "charts", "mcp", "commit-analysis"]
+
+[project.scripts]
+run-mcp-server = "git_commit_charts.mcp_server:main"
+run-tests = "git_commit_charts.test_commit_charts:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+    "git_commit_charts/*.py",
+    "scripts/*.sh"
+]
+exclude = [
+    "__pycache__",
+    "*.pyc"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["git_commit_charts"]
+artifacts = ["scripts/*.sh"]

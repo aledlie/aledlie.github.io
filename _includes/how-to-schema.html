@@ -1,0 +1,148 @@
+{% if page.schema_type == 'HowTo' %}
+{% comment %}
+HowTo Schema - For step-by-step instructional content
+Conditional include based on page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in post front matter:
+---
+schema_type: HowTo
+schema_total_time: "PT30M"  # ISO 8601 duration (30 minutes)
+schema_estimated_cost: "0"  # Free, or specific amount
+schema_cost_currency: "USD"
+schema_tools:
+  - "Text editor"
+  - "Terminal"
+schema_supplies:
+  - "Ruby 3.x"
+  - "Bundler"
+schema_steps:
+  - name: "Step 1: Install dependencies"
+    text: "Run bundle install to install all required gems"
+  - name: "Step 2: Update configuration"
+    text: "Edit _config.yml and update Jekyll version"
+  - name: "Step 3: Test locally"
+    text: "Run bundle exec jekyll serve to test changes"
+---
+
+Note: Steps can also be parsed from content if using structured headings
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "{{ page.url | absolute_url }}#howto",
+
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+
+  {% comment %}Time and cost{% endcomment %}
+  {% if page.schema_total_time -%}
+  "totalTime": "{{ page.schema_total_time }}",
+  {% endif -%}
+  {% if page.schema_estimated_cost -%}
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "{{ page.schema_cost_currency | default: 'USD' }}",
+    "value": "{{ page.schema_estimated_cost }}"
+  },
+  {% endif -%}
+
+  {% comment %}Tools needed{% endcomment %}
+  {% if page.schema_tools -%}
+  "tool": [
+    {% for tool in page.schema_tools -%}
+    {
+      "@type": "HowToTool",
+      "name": {{ tool | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+
+  {% comment %}Supplies/materials needed{% endcomment %}
+  {% if page.schema_supplies -%}
+  "supply": [
+    {% for supply in page.schema_supplies -%}
+    {
+      "@type": "HowToSupply",
+      "name": {{ supply | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+
+  {% comment %}Steps - the core of HowTo{% endcomment %}
+  {% if page.schema_steps -%}
+  "step": [
+    {% for step in page.schema_steps -%}
+    {
+      "@type": "HowToStep",
+      "position": {{ forloop.index }},
+      "name": {{ step.name | jsonify }},
+      "text": {{ step.text | jsonify }}
+      {% if step.url -%}
+      ,
+      "url": "{{ step.url | absolute_url }}"
+      {% endif -%}
+      {% if step.image -%}
+      ,
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ step.image | absolute_url }}"
+      }
+      {% endif -%}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+
+  {% comment %}Author and publisher via @id references{% endcomment %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% comment %}Dates{% endcomment %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+
+  {% comment %}Image{% endcomment %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+
+  {% comment %}Main entity of page{% endcomment %}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Keywords{% endcomment %}
+  {% if page.schema_keywords -%}
+  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
+  {% elsif page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+
+  {% comment %}Language{% endcomment %}
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+
+  {% comment %}Part of blog{% endcomment %}
+  "isPartOf": {
+    "@id": "{{ site.url }}#blog"
+  }
+}
+</script>
+{% endif %}

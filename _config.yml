@@ -1,10 +1,17 @@
 # Site Wide Configs
-title: The Parlor
+title: ℵ₀
 title_separator: "-"
-#subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense. 
+#subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense.
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
+encoding: utf-8
+google_site_verification: N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-J7TL7PQH7S"
+    anonymize_ip: true # enabled for privacy compliance
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
   # posts
@@ -14,19 +21,17 @@ defaults:
     values:
       layout: single
       show_date: true
-      read_time: true
       author_profile: true
-      read_time: true
   # pages
   - scope:
       path: ""
       type: pages
     values:
       layout: single
-      show_date: true
-      read_time: true
-      author_profile: true
-      read_time: true
+      show_date: false
+social:
+  name: Alyshia
+
 
 # Github
 github_username: 	aledlie
@@ -34,13 +39,14 @@ github: 		[metadata]
 repository: 		"aledlie/aledlie.github.io"
 
 # Theme
-remote_theme: "mmistakes/minimal-mistakes@4.27.1"
-minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 
 # Jekyll build configuration
 theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin: "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# TEMPORARY: remote_theme disabled during refactoring due to SSL certificate issue
+# Will re-enable after fixing SSL or during Phase 3 deployment simplification
+# remote_theme: "mmistakes/minimal-mistakes@4.27.3"
 permalink:   /:categories/:title/
 plugins:
   - jekyll-feed
@@ -64,14 +70,75 @@ excerpt_separator: "\n\n"
 incremental: false
 
 # Exclude from processing
+# Reading Files
+include:
+  - .htaccess
+  - _pages
 exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - schema-org-optimizer.md
+  - vendor
+  - .asset-cache
+  - .bundle
+  - SumedhSite
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - Capfile
+  - CHANGELOG
+  - config
   - Gemfile
-  - Gemfile.lock
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - minimal-mistakes-jekyll.gemspec
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+  - test_results
+  - tests
+keep_files:
+  - .git
+  - .svn
+
+# Pagination with jekyll-paginate
+paginate: 8 # amount of posts to show
+paginate_path: /page:num/
+
+# Pagination with jekyll-paginate-v2
+# See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
+#   for configuration details
+pagination:
+  # Set enabled to true to use paginate v2
+  # enabled: true
+  debug: false
+  collection: 'posts'
+  per_page: 10
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  category: 'posts'
+  tag: ''
+  locale: ''
+  trail:
+    before: 2
+    after: 2
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
 
 # Author
 author:
@@ -83,14 +150,15 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:alyshia@inventoryai.io"
+      # Note: Email is obfuscated via JavaScript in production. Base64: YWx5c2hpYUBpbnZlbnRvcnlhaS5pbw==
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aledlie"
     - label: "Integrity Studios"
-      icon: "fa-solid fa-scale-balance"
-      url: "https://integritystudio.notion.site"
+      icon: "fas fa-fw fa-balance-scale"
+      url: "https://integritystudio.ai"
     - label: "InventoryAI.io"
-      icon: "fa-solid fa-wharehouse"
+      icon: "fas fa-fw fa-warehouse"
       url: "https://amazing-froyo-8f05e0.netlify.app/"
 
 # Owner
@@ -103,12 +171,12 @@ owner:
   facebook: aledlie
   google:
     plus:
-    analytics: G-B9B1KCGBC4
+    analytics: G-J7TL7PQH7S
     verify: gqKcgBHjbuRW6cYY8BO_GdFOVNsIekipkuiC_2pb6g0
     ad-client:
     ad-slot:
   github: aledlie
-  stackoverflow: 
+  stackoverflow:
   linkedin: aledlie
   instagram: alyshialedlie
   tumblr: #username
@@ -123,5 +191,23 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
+  reports:
+    output: true
+    permalink: /:collection/:path/
+  work:
+    output: true
+    permalink: /work/:path/
 
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
 
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

@@ -1,0 +1,7 @@
+# Monthly Commit Activity
+
+July 2025            ███  36 commits ( 3.7%)
+August 2025          ███████████████ 170 commits (17.3%)
+September 2025       ███████████ 124 commits (12.6%)
+October 2025         ████████  95 commits ( 9.6%)
+November 2025        ██████████████████████████████████████████████████ 560 commits (56.9%)

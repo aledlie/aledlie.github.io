@@ -1,6 +1,8 @@
 @use "sass:color";
-@use "sass:math";
-@use 'variables' as *;
+@use "sass:meta";
+@use "sass:list";
+@import 'variables';
+
 /* ==========================================================================
    Utility mixins
    ========================================================================== */
@@ -11,16 +13,14 @@
    ========================================================================== */
 
 @mixin clearfix {
-  *zoom: 1;
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     display: table;
     content: "";
-    /* Fixes Opera/contenteditable bug: */
-    /* http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952 */
     line-height: 0;
   }
-  &:after {
+
+  &::after {
     clear: both;
   }
 }
@@ -30,9 +30,7 @@
    ========================================================================== */
 
 @mixin tab-focus() {
-  /* Default */
   outline: thin dotted #333;
-  /* Webkit */
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -54,15 +52,15 @@
 /* 
    Maintains vertical rhythm by setting a font-sizes proportional to
    line-height and bottom margin
-   example: @font-size(16);
+   example: @include font-size(16);
    ========================================================================== */
 
 @mixin font-size($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
-  line-height: 0 + math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
-  margin-bottom: 0px + $doc-line-height;
-  margin-bottom: 0rem + math.div($doc-line-height, $doc-font-size);
+  font-size: #{$size}px;
+  font-size: #{($size / $doc-font-size)}rem;
+  line-height: (round(($doc-line-height / $size)*10000) / 10000);
+  margin-bottom: #{$doc-line-height}px;
+  margin-bottom: #{($doc-line-height / $doc-font-size)}rem;
 }
 
 /* 
@@ -71,8 +69,8 @@
    ========================================================================== */
 
 @mixin font-rem($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
+  font-size: #{$size}px;
+  font-size: #{($size / $doc-font-size)}rem;
 }
 
 /* 
@@ -81,9 +79,9 @@
    ========================================================================== */
 
 @mixin font($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
-  line-height: 0 + math.div(math.round(math.div($doc-line-height, $size)*10000), 10000);
+  font-size: #{$size}px;
+  font-size: #{($size / $doc-font-size)}rem;
+  line-height: (round(($doc-line-height / $size)*10000) / 10000);
 }
 
 /* 
@@ -97,103 +95,28 @@
 }
 
 /* Indentation variable */
-
-$indent-var: 0rem + math.div($doc-line-height, $doc-font-size);
-
-/* ==========================================================================
-   Gradient mixins
-   ========================================================================== */
-
-@mixin horizontal($startColor : $white, $endColor : $lightergrey) {
-  background-color: $endColor;
-  background-image  : -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-  background-image  : -webkit-linear-gradient(left, $startColor, $endColor);           // Safari 5.1+, Chrome 10+
-  background-image  : -moz-linear-gradient(left, $startColor, $endColor);            // FF 3.6+
-  background-image  : -ms-linear-gradient(left, $startColor, $endColor);             // IE10
-  background-image  : -o-linear-gradient(left, $startColor, $endColor);              // Opera 11.10
-  background-image  : linear-gradient(left, $startColor, $endColor);               // W3C
-  background-repeat : repeat-x;
- }
-
-@mixin vertical($startColor : $white, $endColor:  $lightergrey) {
-  background-image  : -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-  background-image  : -webkit-linear-gradient(top, $startColor, $endColor);            // Safari 5.1+, Chrome 10+
-  background-color  : $endColor;
-  background-image  : -moz-linear-gradient(top, $startColor, $endColor);             // FF 3.6+
-  background-image  : -ms-linear-gradient(top, $startColor, $endColor);              // IE10
-  background-image  : -o-linear-gradient(top, $startColor, $endColor);             // Opera 11.10
-  background-image  : linear-gradient(top, $startColor, $endColor);                // W3C
-  background-repeat : repeat-x; 
-}
-
-@mixin directional($startColor : $white, $endColor : $lightergrey, $deg : 45deg) {
-  background-color  : $endColor;
-  background-image  : -moz-linear-gradient($deg, $startColor, $endColor);           // FF 3.6+
-  background-image  : -ms-linear-gradient($deg, $startColor, $endColor);            // IE10
-  background-image  : -webkit-linear-gradient($deg, $startColor, $endColor);          // Safari 5.1+, Chrome 10+
-  background-image  : -o-linear-gradient($deg, $startColor, $endColor);             // Opera 11.10
-  background-image  : linear-gradient($deg, $startColor, $endColor);              // W3C
-  background-repeat : repeat-x; 
-}
-
-// .bordered(COLOR, COLOR, COLOR, COLOR);
-@mixin bordered($top-color: #eee, $right-color: #eee, $bottom-color: #eee, $left-color: #eee) {
-  border-top : solid 1px $top-color;
-  border-left : solid 1px $left-color;
-  border-right : solid 1px $right-color;
-  border-bottom : solid 1px $bottom-color; 
-}
+$indent-var: #{($doc-line-height / $doc-font-size)}rem;
 
 /* ==========================================================================
-   Rounded corners
+   Modern CSS Properties (vendor prefixes removed for modern browsers)
    ========================================================================== */
-
-
 
 /* 
-   Round all corners
+   Border radius
    example: @include rounded(4px);
    ========================================================================== */
 
-@mixin rounded($radius:4px) {
-  border-radius : $radius; 
-}
-
-/* 
-   Round individual corners (top right, bottom right, bottom left, top left)
-   example: @include border-radius(4px, 0, 0, 4px);
-   ========================================================================== */
-
-@mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
-  border-top-right-radius: $topright;
-  border-bottom-right-radius: $bottomright;
-  border-bottom-left-radius: $bottomleft;
-  border-top-left-radius: $topleft;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;  
-  background-clip: padding-box; 
+@mixin rounded($radius: 4px) {
+  border-radius: $radius; 
 }
 
 /* 
    Box shadow
-   example: @include box-shadow(HORIZONTAL VERTICAL BLUR COLOR));
+   example: @include box-shadow(0 1px 3px rgba(0,0,0,.25));
    ========================================================================== */
 
 @mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
-  -webkit-box-shadow: $shadow;
-  -moz-box-shadow: $shadow;
   box-shadow: $shadow; 
-}
-
-/* 
-   Drop shadow
-   example: @include drop-shadow(HORIZONTAL, VERTICAL, BLUR, ALPHA);
-   ========================================================================== */
-
-@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
-  -webkit-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
-  -moz-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
-  box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha); 
 }
 
 /* 
@@ -202,7 +125,8 @@ $indent-var: 0rem + math.div($doc-line-height, $doc-font-size);
    ========================================================================== */
 
 @mixin text-shadow($shadow: 0 2px 3px rgba(0,0,0,.25)) {
-text-shadow: $shadow; }
+  text-shadow: $shadow;
+}
 
 /* 
    Opacity
@@ -214,120 +138,92 @@ text-shadow: $shadow; }
 }
 
 /* ==========================================================================
-   Transformations
+   Transformations (modern syntax)
    ========================================================================== */
 
 /* 
-   @include rotate(VALUEdeg);
+   @include rotate(45deg);
    ========================================================================== */
 
 @mixin rotate($deg) {
-  -webkit-transform: rotate($deg);
-  -moz-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  -o-transform: rotate($deg);
   transform: rotate($deg); 
 }
 
 /* 
-   @include scale(VALUE);
+   @include scale(1.5);
    ========================================================================== */
 
 @mixin scale($ratio) {
-  -webkit-transform: scale($ratio);
-  -moz-transform: scale($ratio);
-  -ms-transform: scale($ratio);
-  -o-transform: scale($ratio);
   transform: scale($ratio); 
 }
 
 /* 
-   @include skew(VALUE, VALUE);
+   @include skew(10deg, 5deg);
    ========================================================================== */
 
 @mixin skew($x: 0, $y: 0) {
-  -webkit-transform: skew($x, $y);
-  -moz-transform: skew($x, $y);
-  -ms-transform: skew($x, $y);
-  -o-transform: skew($x, $y);
   transform: skew($x, $y); 
 }
 
 /* 
-   @include transition(PROPERTY DURATION DELAY(OPTIONAL) TIMING-FINCTION);
+   @include transition(all 0.3s ease);
    ========================================================================== */
 
 @mixin transition($transition) {
-  -webkit-transition: $transition;
-  -moz-transition: $transition;
-  -ms-transition: $transition;
-  -o-transition: $transition;
   transition: $transition; 
 }
 
 /* 
-   @include translate(VALUE, VALUE);
+   @include translate(10px, 20px);
    ========================================================================== */
 
 @mixin translate($x: 0, $y: 0) {
-  -webkit-transform: translate($x, $y);
-  -moz-transform: translate($x, $y);
-  -ms-transform: translate($x, $y);
-  -o-transform: translate($x, $y);
   transform: translate($x, $y); 
 }
 
 @mixin translate3d($x: 0, $y: 0, $z: 0) {
-  -webkit-transform: translate($x, $y, $z);
-  -moz-transform: translate($x, $y, $z);
-  -ms-transform: translate($x, $y, $z);
-  -o-transform: translate($x, $y, $z);
-  transform: translate($x, $y, $z); 
+  transform: translate3d($x, $y, $z); 
 }
 
+/* 
+   Modern animation mixin
+   ========================================================================== */
+
 @mixin animation($name, $duration: 300ms, $delay: 0, $ease: ease) {
-  -webkit-animation: $name $duration $delay $ease;
-  -moz-animation:    $name $duration $delay $ease;
-  -ms-animation:     $name $duration $delay $ease;
+  animation: $name $duration $delay $ease;
 }
 
 /* ==========================================================================
-   Background
+   Background utilities
    ========================================================================== */
 
 /* 
-   @include background-alpha(VALUE VALUE);
+   @include background-alpha(#fff, 0.8);
    ========================================================================== */
 
 @mixin background-alpha($color: $white, $alpha: 1) {
-  background-color: hsla(color.hue($color), color.saturation($color), color.lightness($color), $alpha); 
+  background-color: hsla(color.hue($color), color.saturation($color), color.lightness($color), $alpha);
 }
 
 /* 
-   @include background-size(VALUE VALUE);
+   @include background-size(cover);
    ========================================================================== */
 
-@mixin background-size($size){
-  -webkit-background-size: $size;
-  -moz-background-size: $size;
-  -o-background-size: $size;
+@mixin background-size($size) {
   background-size: $size; 
 }
 
 /* 
-   Box-sizing
-   example: @include box-sizing(VALUE); //(border-box, padding-box, content-box)
+   Box-sizing (modern browsers support this natively)
+   example: @include box-sizing(border-box);
    ========================================================================== */
 
 @mixin box-sizing($boxsize: border-box) {
-  -webkit-box-sizing: $boxsize;
-  -moz-box-sizing: $boxsize;
-  -ms-box-sizing: $boxsize;
   box-sizing: $boxsize; 
 }
 
 /* ==========================================================================
-   Image replacement
+   Utility mixins
    ========================================================================== */
 
 @mixin hide-text() {
@@ -336,44 +232,71 @@ text-shadow: $shadow; }
   overflow: hidden; 
 }
 
-/* 
-   Hide from visual and speaking browsers
-   ========================================================================== */
-
 @mixin hidden {
   display: none;
   visibility: hidden;
 }
 
-/* 
-   Hide but maintain layout
-   ========================================================================== */
-
 @mixin invisible() { 
   visibility: hidden; 
 }
-
-/* 
-   Resize
-   example: @include resize(VALUE); //(none, both, horizontal, vertical, inherit)
-
-   ========================================================================== */
 
 @mixin resize($direction: both) {
   resize: $direction;
   overflow: auto; 
 }
 
-/* 
-   Hidden but available to speaking browsers
+@mixin visually-hidden() { 
+  overflow: hidden; 
+  position: absolute;
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  width: 1px;
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+}
+
+/* ==========================================================================
+   Modern Flexbox and Grid utilities
    ========================================================================== */
 
-@mixin visuallyhidden() { 
-overflow: hidden; 
-position: absolute;
-clip: rect(0 0 0 0); 
-height: 1px; 
-width: 1px;
-margin: -1px; 
-padding: 0; 
-border: 0; }
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Responsive breakpoint mixin
+   ========================================================================== */
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media only screen and (min-width: #{$small}) { @content; }
+  }
+  @else if $point == medium {
+    @media only screen and (min-width: #{$medium}) { @content; }
+  }
+  @else if $point == large {
+    @media only screen and (min-width: #{$large}) { @content; }
+  }
+  @else if $point == x-large {
+    @media only screen and (min-width: #{$x-large}) { @content; }
+  }
+  @else if meta.type-of($point) == 'list' {
+    // Handle cases like: @include breakpoint(max-width $small)
+    $property: list.nth($point, 1); // e.g., "max-width"
+    $value: list.nth($point, 2);    // e.g., "37.5em"
+    @media (#{$property}: #{$value}) { @content; }
+  }
+  @else {
+    @media #{$point} { @content; }
+  }
+}

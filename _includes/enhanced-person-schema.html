@@ -1,0 +1,111 @@
+{% comment %}
+Enhanced Person schema with more professional details
+This provides richer information about the author for knowledge graphs
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ site.url }}/#person",
+  "name": "{{ site.author.name }}",
+  "alternateName": ["{{ site.social.name | default: site.author.name }}", "Alyshia"],
+  "url": "{{ site.url }}/",
+  {% if site.author.avatar -%}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.author.avatar | absolute_url }}",
+    "width": 400,
+    "height": 400
+  },
+  {% endif -%}
+  {% if site.author.bio -%}
+  "description": "{{ site.author.bio }}",
+  {% endif -%}
+  {% if site.author.location -%}
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ site.author.location | split: ' | ' | first | default: site.author.location }}"
+  },
+  {% endif -%}
+  {% if site.author.email -%}
+  "email": "{{ site.author.email }}",
+  {% endif -%}
+  "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
+  "hasOccupation": [
+    {
+      "@type": "Occupation",
+      "name": "Software Developer",
+      "occupationCategory": "Computer and Mathematical Occupations"
+    },
+    {
+      "@type": "Occupation", 
+      "name": "Technology Consultant",
+      "occupationCategory": "Management Occupations"
+    },
+    {
+      "@type": "Occupation",
+      "name": "Technical Writer", 
+      "occupationCategory": "Arts, Design, Entertainment, Sports, and Media Occupations"
+    }
+  ],
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Integrity Studios",
+      "url": "https://integritystudio.notion.site"
+    },
+    {
+      "@type": "Organization",
+      "name": "InventoryAI.io", 
+      "url": "https://amazing-froyo-8f05e0.netlify.app/"
+    }
+  ],
+  "knowsAbout": [
+    "Software Development",
+    "Web Development", 
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Technology Consulting",
+    "Business Automation",
+    "Technical Writing",
+    "Open Source Software"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Software Development Experience",
+      "credentialCategory": "Professional Experience"
+    }
+  ],
+  {% if site.author.links -%}
+  "sameAs": [
+    {% for link in site.author.links -%}
+      {% if link.url -%}
+        "{{ link.url }}"{% unless forloop.last %},{% endunless %}
+      {% endif -%}
+    {% endfor -%}
+  ],
+  {% endif -%}
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "professional",
+    {% if site.author.email -%}
+    "email": "{{ site.author.email }}",
+    {% endif -%}
+    "availableLanguage": "English"
+  },
+  "owns": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website"
+    }
+  ],
+  "creator": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Personal Blog",
+      "url": "{{ site.url }}"
+    }
+  ]
+}
+</script>

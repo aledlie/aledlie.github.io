@@ -1,0 +1,42 @@
+---
+layout: null
+---
+{
+  "title": "{{ site.title | xml_escape }}",
+  "subtitle": "{{ site.description | xml_escape }}",
+  "link": "{{ site.url }}",
+  "updated": "{{ site.time | date_to_xmlschema }}",
+  "author": {
+    "name": "{{ site.author.name | xml_escape }}",
+    "uri": "{{ site.url }}",
+    "jobTitle": "Software Developer",
+    "organization": "Integrity Studios",
+    "organizationUrl": "https://integritystudio.ai"
+  },
+  "entries": [
+    {%- assign all_content = site.posts | concat: site.reports | sort: 'date' | reverse -%}
+    {%- for post in all_content limit: 50 -%}
+    {
+      "id": "{{ post.url | absolute_url | xml_escape }}",
+      "title": {{ post.title | jsonify }},
+      "link": "{{ post.url | absolute_url }}",
+      "published": "{{ post.date | date_to_xmlschema }}",
+      "updated": "{{ post.last_modified_at | default: post.date | date_to_xmlschema }}",
+      "summary": {{ post.excerpt | strip_html | truncate: 300 | jsonify }},
+      "content": {{ post.content | jsonify }},
+      "author": {
+        "name": "{{ post.author | default: site.author.name | xml_escape }}",
+        "uri": "{{ site.url }}"
+      },
+      "categories": {{ post.categories | jsonify }},
+      "schema": {
+        "headline": {{ post.title | jsonify }},
+        "datePublished": "{{ post.date | date_to_xmlschema }}",
+        "dateModified": "{{ post.last_modified_at | default: post.date | date_to_xmlschema }}",
+        "articleSection": "{{ post.categories | first | default: 'Blog' }}",
+        "keywords": "{{ post.tags | join: ', ' }}"
+      }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}

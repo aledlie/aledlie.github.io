@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+{% include sidebar.html %}
+
+<div id="main">
+  <div class="archive">
+    {% if page.title %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% elsif page.url == "/" %}
+      <h1 class="page-title">Recent Posts</h1>
+    {% else %}
+      <h1 class="page-title">{{ site.data.ui-text[site.locale].page_title | default: site.title }}</h1>
+    {% endif %}
+    {{ content }}
+  </div>
+</div>

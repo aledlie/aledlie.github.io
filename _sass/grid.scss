@@ -2,15 +2,13 @@
    Grid mixins
    ========================================================================== */
 
-/* 
+/*
    Define number of columns in the grid
    Common values would be 12, 16 or 24
    ========================================================================== */
 
-@use "sass:math";
-
 $width: 100%;
-$def_grid: 12;
+$def-grid: 12;
 $margin: 0;
 
 @mixin container(){
@@ -23,10 +21,10 @@ $margin: 0;
    number of columns being displayed. Removes 20px for margins.
    ========================================================================== */
 
-@mixin grid($grid:$def_grid,$cols:'',$float:left,$display:inline){
+@mixin grid($grid:$def-grid,$cols:'',$float:left,$display:inline){
   display:$display;
   float:$float;
-  width:(math.div(100%, $grid) * $cols) - ($margin * 2);
+  width:((100% / $grid) * $cols) - ($margin * 2);
 }  
 
 /* 
@@ -34,8 +32,8 @@ $margin: 0;
    Example: @include prefix(1,12);
    ========================================================================== */
 
-@mixin prefix($grid:$def_grid,$cols:''){
-  margin-left:(math.div(100%, $grid) * $cols);
+@mixin prefix($grid:$def-grid,$cols:''){
+  margin-left:((100% / $grid) * $cols);
 }
 
 /* 
@@ -43,8 +41,8 @@ $margin: 0;
    Example: @include suffix(2,12);
    ========================================================================== */
 
-@mixin suffix($grid:$def_grid,$cols:''){  
-  margin-right:(math.div(100%, $grid) * $cols);    
+@mixin suffix($grid:$def-grid,$cols:''){
+  margin-right:((100% / $grid) * $cols);
 }
 
 /* 
@@ -70,9 +68,9 @@ $margin: 0;
    Example: @include push(2,12);
    ========================================================================== */
 
-@mixin push($grid:$def_grid,$move:'') {
+@mixin push($grid:$def-grid,$move:'') {
   position:relative;
-  left:(math.div(100%, $grid) * $move);
+  left:((100% / $grid) * $move);
 } 
 
 /* 
@@ -80,7 +78,7 @@ $margin: 0;
    Example: @include pull(1,12);
    ========================================================================== */
 
-@mixin pull($grid:$def_grid,$move:''){
+@mixin pull($grid:$def-grid,$move:''){
   position:relative;
-  left:(math.div(100%, $grid) * $move) * -1;
+  left:((100% / $grid) * $move) * -1;
 }

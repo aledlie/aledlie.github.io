@@ -1,33 +1,51 @@
-@use "variables" as *;
-@use "mixins" as *;
+@import "variables";
+@import "mixins";
 
 /* ==========================================================================
    Coderay syntax highlighting
    ========================================================================== */
 
+/* stylelint-disable selector-class-pattern, declaration-block-single-line-max-declarations, block-no-empty, no-descending-specificity */
 .CodeRay {
   background-color: #efefef;
   font-family: $code-font;
+
   @include font(12);
+
   color: #333332;
   margin-bottom: 1.5em;
+
   @include rounded(4px);
+
   pre {
-    margin: 0px;
+    margin: 0;
     padding: 1em;
   }
 }
 
-div.CodeRay { }
-span.CodeRay { white-space: pre; border: 0px; padding: 2px }
+div.CodeRay {
+  /* empty rule for specificity */
+}
 
-table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
+span.CodeRay {
+  white-space: pre;
+  border: 0;
+  padding: 2px;
+}
+
+table.CodeRay {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 2px;
+}
+
 table.CodeRay td {
   padding: 1em 0.5em;
   vertical-align: top;
 }
 
-.CodeRay .line-numbers, .CodeRay .no {
+.CodeRay .line-numbers,
+.CodeRay .no {
   background-color: #ECECEC;
   color: #AAA;
   text-align: right;
@@ -37,9 +55,19 @@ table.CodeRay td {
   color: #AAA;
 }
 
-.CodeRay .line-numbers tt { font-weight: bold }
-.CodeRay .line-numbers .highlighted { color: red }
-.CodeRay .line { display: block; float: left; width: 100%; }
+.CodeRay .line-numbers tt {
+  font-weight: bold;
+}
+
+.CodeRay .line-numbers .highlighted {
+  color: red;
+}
+
+.CodeRay .line {
+  display: block;
+  float: left;
+  width: 100%;
+}
 .CodeRay span.line-numbers { padding: 0 24px 0 4px }
 .CodeRay .code { width: 100% }
 
@@ -138,3 +166,4 @@ ol.CodeRay li { white-space: pre }
 .CodeRay .delete .delete { color: #800; font-weight:bold }
 .CodeRay .change .change { color: #66f; }
 .CodeRay .head .head { color: #f4f; }
+/* stylelint-enable selector-class-pattern */

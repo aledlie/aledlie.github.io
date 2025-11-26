@@ -1,0 +1,49 @@
+{% if page.layout == "single" and page.date %}
+{% comment %}
+Blog Post Schema - References unified knowledge graph entities via @id
+Uses @id references to Person and Blog entities from unified-knowledge-graph-schema.html
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ page.url | absolute_url }}#blogposting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  {% if page.categories -%}
+  "articleSection": {{ page.categories | jsonify }},
+  {% endif -%}
+  {% if page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+  "wordCount": {{ page.content | strip_html | number_of_words }},
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "isPartOf": {
+    "@id": "{{ site.url }}#blog"
+  }
+}
+</script>
+{% endif %}

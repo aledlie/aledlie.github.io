@@ -1,0 +1,10 @@
+# Project Categories Distribution
+(1,007 total commits)
+
+Data & Analytics               ████████████████████ 403 commits (40.0%)
+Personal Sites                 ███████████ 238 commits (23.6%)
+Infrastructure & Sites         ██████ 134 commits (13.3%)
+MCP Servers                    ██████ 130 commits (12.9%)
+Client Work & Career           ███  72 commits ( 7.1%)
+Business Apps                  █  24 commits ( 2.4%)
+Legacy                            6 commits ( 0.6%)

@@ -1,3 +1,97 @@
+---
+layout: single
+title: Vita
+permalink: /vita/
+author_profile: true
+header:
+  overlay_image: /images/cover-vita.png
+  teaser: /images/cover-vita.png
+
+# Enhanced Schema.org structured data - Professional organizations, technologies, and education
+schema_mentions:
+  # Current Companies
+  - name: "InventoryAI.io"
+    type: "Organization"
+    url: "https://amazing-froyo-8f05e0.netlify.app/"
+
+  - name: "Integrity Studio"
+    type: "Organization"
+    url: "https://integritystudio.notion.site"
+
+  - name: "Concierge.io"
+    type: "Organization"
+
+  # Major Employers
+  - name: "Meta"
+    type: "Organization"
+    url: "https://www.meta.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Meta_Platforms"
+
+  - name: "The Advisory Board Company"
+    type: "Organization"
+    sameAs: "https://en.wikipedia.org/wiki/The_Advisory_Board_Company"
+
+  - name: "Access Sciences"
+    type: "Organization"
+    url: "https://www.accesssciences.com/"
+
+  # Business Partners
+  - name: "H-E-B"
+    type: "Organization"
+    url: "https://www.heb.com/"
+    sameAs: "https://en.wikipedia.org/wiki/H-E-B"
+
+  # Key Technologies
+  - name: "Splunk"
+    type: "SoftwareApplication"
+    url: "https://www.splunk.com/"
+
+  - name: "Nagios"
+    type: "SoftwareApplication"
+    url: "https://www.nagios.org/"
+
+  - name: "RabbitMQ"
+    type: "SoftwareApplication"
+    url: "https://www.rabbitmq.com/"
+
+  - name: "New Relic"
+    type: "SoftwareApplication"
+    url: "https://newrelic.com/"
+
+  # Charitable Organizations
+  - name: "Against Malaria Foundation"
+    type: "Organization"
+    url: "https://www.againstmalaria.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Against_Malaria_Foundation"
+
+# Educational institutions
+schema_alumni_of:
+  - name: "University of Texas at Austin"
+    type: "CollegeOrUniversity"
+    url: "https://www.utexas.edu/"
+    sameAs: "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin"
+
+  - name: "Cornell University"
+    type: "CollegeOrUniversity"
+    url: "https://www.cornell.edu/"
+    sameAs: "https://en.wikipedia.org/wiki/Cornell_University"
+
+# Professional expertise areas
+schema_knows_about:
+  - "Machine Learning"
+  - "Artificial Intelligence"
+  - "Trust & Safety Engineering"
+  - "Content Moderation"
+  - "Platform Integrity"
+  - "ML Infrastructure"
+  - "Software Development"
+  - "Startup Leadership"
+  - "Healthcare Analytics"
+  - "Legal & Regulatory History"
+---
+
+
+---
 <!-- Banner or Profile Header (Optional) -->
 <p align="center">
   <img src="https://img.shields.io/badge/ML%2FAI-Infrastructure-blueviolet?style=flat-square" />
@@ -5,13 +99,13 @@
   <img src="https://img.shields.io/badge/Location-Austin%2C%20TX-orange?style=flat-square" />
   <img src="https://img.shields.io/badge/Status-Founder%20%26%20CTO-red?style=flat-square" />
 </p>
+---
 
 # Alyshia Ledlie
-## My Vita
-###### As according to a ChatGPT Pro search that a friend ran on me last week
-
-ZZ**GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
-
+## My Vita..as written by a ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) websearch
+---
+**GitHub:** [aledlie](https://github.com/aledlie) • **LinkedIn:** [Profile](https://www.linkedin.com/in/alyshia-ledlie-2aa52466) • **Twitter/X:** [@AlyshiaLedlie](https://twitter.com/alyshialedlie)  
+---
 > *Technology leader with 11+ years in ML/AI infrastructure, trust & safety systems, and startup leadership. Building scalable, risk-mitigating automation for diverse industries.*  
 
 ---
@@ -28,9 +122,9 @@ presence, academic background, and other relevant details.
 ### **Founder & CTO – [InventoryAI](#) & [Integrity Studio](#)** *(2024–Present)*
 Founder & CTO of InventoryAI and Integrity Studio (2024–Present):
 - In February 2024, Alyshia Ledlie launched two startup ventures – InventoryAI and Integrity Studio – where she leads as
-Founder and Chief Technology Officer.  These ventures focus on automation-driven solutions for retail, security, compliance, and non-profit sectors.  
+Founder and Chief Technology Officer.  These ventures focus on automation-driven solutions for retail, security, compliance, and non-profit sectors.
 - Under her leadership, both startups have secured multiple B2B clients, seed funding, and partnerships with HEB, Austin governments, and accelerator interest.
-- Integrity Studio's partnerships with Austin area non-profits has reduced their partner acquistion costs and contributed to the local community.
+- Integrity Studio's partnerships with Austin area non-profits has reduced their partner acquisition costs and contributed to the local community.
 
 ### **Entrepreneur-in-Residence / Consultant – Concierge.io** *(2023–Present)*
 Since February 2023, Ledlie has served in an Entrepreneur-in-Residence/independent consultant role for Concierge.io, a
@@ -38,16 +132,16 @@ luxury travel and services platform. In this capacity, she worked on multiple pr
 automating day-to-day operations for multiple clients within a year.
 
 ### **Meta (Facebook)** *(2015–2023)*
-• Trust & Safety Engineering Leadership (2015–2023): Alyshia spent 8 years at Facebook/Meta in technical roles focused on Trust & Safety (i.e. maintaining platform integrity and
+• Trust & Safety Engineering Leadership (2015–2023): Alyshia spent 8 years at Facebook/Meta in technical roles focused on Trust & Safety (i.e., maintaining platform integrity and
 combating abuse):
 • **Technical Principal, AI Development Engineering (Meta, 2021–2023)**:
-As a senior engineering lead at Meta’s Integrity org in Austin, she built a static-analysis and code-generation platform for managing ML-driven integrity automation (content moderation rules, features, models). This unified UI allowed developers and operations teams to deploy and monitor model performance and costs.
-She also co-led development of an “Integrity Orchestration Platform” that unified fragmented trust & safety systems, cutting enforcement launch times by over 60%. In addition, she mentored engineers and defined performance metrics aligned with business needs.
+As a senior engineering lead at Meta's Integrity org in Austin, she built a static-analysis and code-generation platform for managing ML-driven integrity automation (content moderation rules, features, models). This unified UI allowed developers and operations teams to deploy and monitor model performance and costs.
+She also co-led development of an "Integrity Orchestration Platform" that unified fragmented trust & safety systems, cutting enforcement launch times by over 60%. In addition, she mentored engineers and defined performance metrics aligned with business needs.
 • **Technical Principal, Trust & Safety Engineering (Facebook, 2017–2021)**:
 Led the architecture and development of scalable Trust & Safety infrastructure at Facebook. Notably, she oversaw the zero-error-tolerance political advertisement risk management system for the 2020 U.S. election. Her initiatives improved automation in content enforcement workflows by 44% and reduced compliance-related workloads by 90%.  She also delivered 30+ internal lectures and executive briefings to drive adoption of improved tools across the company.
 
 • **Technical Operations Engineer, Trust & Safety (Facebook, 2015–2017)**:
-In her earlier role, Ledlie focusedon automating abuse-prevention workflows. She collaborated with engineering, data science, and product teams to raise automation rates above 98% for low- and medium-risk workflows 10. She acted as a “gatekeeper of system integrity,” troubleshooting stability issues and implementing solutions to emerging abuse vectors 10. She also built large-scale monitoring and alert systems to detect fraud trends, identifying “hundreds of new avenues for abuse” on the platform.
+In her earlier role, Ledlie focused on automating abuse-prevention workflows. She collaborated with engineering, data science, and product teams to raise automation rates above 98% for low- and medium-risk workflows 10. She acted as a "gatekeeper of system integrity," troubleshooting stability issues and implementing solutions to emerging abuse vectors 10. She also built large-scale monitoring and alert systems to detect fraud trends, identifying "hundreds of new avenues for abuse" on the platform.
 
 
 ### **Other Roles**
@@ -57,10 +151,10 @@ automatically alert on website performance issues 12. She helped enforce data pr
 software implementations. This role honed her skills in client-facing technical leadership.
 •
 Technical Consultant (Engineering & Analytics) – *Access Sciences* (2014): In mid-2014, Ledlie had a short tenure at Access Sciences in Houston, TX. There she developed an internal communication
-platform (inspired by Facebook’s interface) for the company’s dispersed consulting teams. Her solution was quickly adopted by 100% of the team within 2 months, improving knowledge-sharing among consultants.
+platform (inspired by Facebook's interface) for the company's dispersed consulting teams. Her solution was quickly adopted by 100% of the team within 2 months, improving knowledge-sharing among consultants.
 
 
-> *Ledlie’s professional history as a purpose-driven leader displays a unique passion for observability, transparency, and creating responsible automation while optimizing scalablity and performance. This blend of technical and regulatory expertise now informs her work as a startup founder, where she aims to build “scalable, risk-mitigating automation” for clients .
+> *Ledlie's professional history as a purpose-driven leader displays a unique passion for observability, transparency, and creating responsible automation while optimizing scalability and performance. This blend of technical and regulatory expertise now informs her work as a startup founder, where she aims to build "scalable, risk-mitigating automation" for clients.
 
 ---
 
@@ -130,7 +224,7 @@ sources, as cited, and reflects the most up-to-date details available about her 
   <img src="https://img.shields.io/badge/Location-Austin%2C%20TX-orange?style=for-the-badge" />
 </p>
 ---
-##### p.s. Frankly, this gives me a bit of imposter syndrome.  And I actually cut data out of it.  I *vastly* prefered the results I got by hacking myself with a tool called [maigret](file:///Users/alyshialedlie/Downloads/report_aledlie.html), which was (a) hilarious (b) actualy managed to pull quite a bit about me with only my github username and about ~2 seconds of runtime, (c) along with a bunch of accurate information about me, also pulled in 26 Russian accounts that were, how shall we say, NSFW.  Oh, and most importantly (d) be safe out there; don't use maigret, or any other open source hacking tools, unless you know what you're doing and have a strong and multi-layered system of passkeys.  
+p.s. Frankly, this gives me a bit of imposter syndrome.  And I actually cut data out of it.  I *vastly* preferred the results I got by hacking myself with a tool called [maigret](file:///Users/alyshialedlie/Downloads/report_aledlie.html), which was (a) hilarious (b) actually managed to pull quite a bit about me with only my github username and about ~2 seconds of runtime, (c) along with a bunch of accurate information about me, also pulled in 26 Russian accounts that were, how shall we say, NSFW.  Oh, and most importantly (d) be safe out there; don't use maigret, or any other open source hacking tools, unless you know what you're doing and have a strong and multi-layered system of passkeys.  
 
 
 
