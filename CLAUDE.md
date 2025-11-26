@@ -8,6 +8,8 @@ A Jekyll-based personal website ("The Parlor") built on the Minimal Mistakes the
 
 **Primary URL:** https://www.aledlie.com
 
+**Accessibility Status:** WCAG 2.1 Level AA compliant as of 2025-11-26. All E2E accessibility tests passing with zero violations.
+
 ## Build and Development Commands
 
 ### Local Development
@@ -80,6 +82,36 @@ npm run format:scss
 - **Sass:** jekyll-sass-converter ~> 3.0 (modern Sass compiler)
 - **Note:** The site currently uses the local theme gem, not remote_theme (temporarily disabled during refactoring)
 
+### Accessibility Architecture
+
+**Status:** WCAG 2.1 Level AA compliant (validated 2025-11-26)
+
+**Key Accessibility Features:**
+- Semantic HTML structure with proper heading hierarchy (H1→H2→H3)
+- ARIA attributes used only on landmarks and interactive elements
+- Color contrast ratios meet WCAG AA standards (4.5:1 minimum)
+- Skip navigation links for keyboard users
+- Proper list structures for navigation and content
+- All pages have H1 headings (including overlay header pages)
+- Author profile uses proper heading levels (H2 for name, H3 for sections)
+- Footer links have explicit high-contrast colors
+
+**Accessibility Files:**
+- `_includes/skip-links.html` - Skip navigation implementation
+- `_includes/breadcrumbs.html` - Accessible breadcrumb navigation
+- `_includes/author-profile.html` - Semantic author information
+- `_includes/page__hero.html` - Overlay headers with H1 support
+- `_sass/_footer.scss` - Footer contrast improvements
+
+**Testing:**
+- Playwright E2E tests in `tests/e2e/accessibility.spec.js`
+- Tests run on desktop and mobile viewports
+- All pages tested: Homepage, About, Posts, Archive
+- Keyboard navigation and focus indicator tests included
+
+**Documentation:**
+- Accessibility compliance report: `_reports/2025-11-26-accessibility-quick-wins-wcag-compliance.md`
+
 ### Schema.org Architecture
 
 **Critical:** This site implements extensive Schema.org structured data for SEO optimization. Schema includes are modular and can be combined.
@@ -120,12 +152,18 @@ npm run format:scss
 ├── _data/
 │   └── navigation.yml    # Custom navigation menu structure
 ├── _includes/            # ~80 template components (analytics, schema, headers, pagination)
+│   ├── skip-links.html   # Accessible skip navigation (WCAG 2.4.3)
+│   ├── breadcrumbs.html  # Semantic breadcrumb navigation (WCAG 1.3.1)
+│   ├── author-profile.html # Author info with proper heading hierarchy
+│   └── page__hero.html   # Overlay headers with H1 support
 ├── _layouts/             # 16 page templates (home, single, post-index, archive, collection, etc.)
 ├── _posts/               # Blog posts (YYYY-MM-DD-title.md format)
 ├── _projects/            # Projects collection
-├── _reports/             # Reports collection
+├── _reports/             # Reports collection (technical documentation)
 ├── _work/                # Work-related content collection
 ├── _sass/                # SCSS partials (theme styling)
+│   ├── _footer.scss      # Footer styles with WCAG AA contrast
+│   └── (other partials)
 ├── assets/
 │   ├── css/main.scss     # HEAVILY CUSTOMIZED - Complete CSS overhaul
 │   ├── js/               # JavaScript files
@@ -147,7 +185,7 @@ npm run format:scss
 - **home.html**: Homepage layout (extends archive) - displays recent posts with pagination
 - **single.html**: Individual pages and posts - supports headers, breadcrumbs, author profile, schema includes
 - **post-index.html**: Blog archive (extends archive) - groups posts by year
-- **archive.html**: Base archive layout - used by home and post-index
+- **archive.html**: Base archive layout - used by home and post-index, includes H1 fallback
 - **collection.html**: For projects, reports, and work collections
 
 **Layout Features:**
@@ -155,6 +193,7 @@ npm run format:scss
 - **Breadcrumbs:** Enabled via `breadcrumbs: true` in front matter (requires site.breadcrumbs or page.breadcrumbs)
 - **Author Profile:** Enabled via `author_profile: true` in front matter
 - **Schema.org Markup:** Automatic inclusion based on layout and page type (see Schema.org Architecture section)
+- **H1 Headings:** All pages include H1 headings, including overlay header pages
 
 **Front Matter Pattern for Pages:**
 ```yaml
@@ -205,8 +244,9 @@ Key customizations:
 - Academic profile layout in sidebar
 - Custom post list styling (no blue underlined titles)
 - Color scheme: Black text (#333) on white, subtle gray accents
+- **Accessibility**: WCAG AA contrast ratios on all text (footer: #595959, links: #333333)
 
-**When editing styles:** Always test that changes don't break the carefully crafted minimal aesthetic.
+**When editing styles:** Always test that changes don't break the carefully crafted minimal aesthetic and maintain WCAG AA contrast requirements.
 
 ### Deployment Configuration
 
@@ -238,6 +278,7 @@ Key customizations:
 - Auto-starts Jekyll server on port 4000
 - Screenshots/videos on failure
 - Base URL override: `BASE_URL` environment variable
+- **Accessibility tests:** `tests/e2e/accessibility.spec.js` - validates WCAG compliance
 
 **Lighthouse (Performance):**
 - Config: `.lighthouserc.js`
@@ -319,6 +360,9 @@ npx playwright test --project=chromium
 # Run E2E tests with UI (helpful for debugging)
 npx playwright test --ui
 
+# Run accessibility tests specifically
+npx playwright test tests/e2e/accessibility.spec.js
+
 # Run performance tests on specific URL
 # Edit .lighthouserc.js to configure URLs
 npm run test:performance
@@ -375,6 +419,13 @@ git commit -m "Update Sumedh's site submodule"
     ```
     {% endraw %}
     ```
+
+12. **Accessibility Requirements:** All HTML changes must maintain WCAG 2.1 Level AA compliance. Run `npx playwright test tests/e2e/accessibility.spec.js` to verify. Key requirements:
+    - Maintain proper heading hierarchy (H1→H2→H3)
+    - Use ARIA attributes only on landmarks and interactive elements
+    - Ensure color contrast ratios meet 4.5:1 minimum for text
+    - Keep semantic HTML structure (nav, main, aside, footer)
+    - Preserve skip navigation links
 
 ## Excluded from Build
 
@@ -460,3 +511,61 @@ Extensive refactoring documentation exists in `docs/`:
 - **Testing:** `docs/refactoring/TESTING-QUICKSTART.md` - Testing strategy and procedures
 
 **When making significant changes:** Consult refactoring docs to understand existing patterns and testing requirements.
+
+## Recent Updates (Updated: 2025-11-26)
+
+### Accessibility Improvements (November 2025)
+
+Comprehensive WCAG 2.1 Level AA compliance work completed:
+
+**Quick Wins Implemented:**
+- Removed positive tabindex values from skip links (WCAG 2.4.3)
+- Improved color contrast ratios to WCAG AA standards (WCAG 1.4.3)
+- Added H1 fallback for archive pages (WCAG 2.4.6)
+- Fixed breadcrumb list structure (WCAG 1.3.1)
+- Removed nested landmark roles (WCAG 1.3.1)
+- Corrected heading hierarchy across site (WCAG 2.4.6)
+
+**Final Fixes (2025-11-26):**
+- Added H1 headings to overlay header pages (`_includes/page__hero.html`)
+- Removed aria-label from non-landmark page-meta div (`_layouts/single.html`)
+- Fixed heading hierarchy in author profile (H3→H2, H4→H3) (`_includes/author-profile.html`)
+- Improved footer color contrast to WCAG AAA levels (`_sass/_footer.scss`)
+- Removed improper role/aria-label from sidebar div (`_includes/sidebar.html`)
+
+**Test Results:**
+- All 7 E2E accessibility tests now passing
+- Zero WCAG violations across homepage, about, posts, mobile, tablet
+- Keyboard navigation and focus indicators validated
+
+**Documentation:**
+- Comprehensive compliance report: `_reports/2025-11-26-accessibility-quick-wins-wcag-compliance.md`
+- Contains detailed before/after analysis, WCAG citations, implementation details
+
+### Writing Quality Improvements (November 2025)
+
+Applied Elements of Style principles across reports and posts:
+- Eliminated passive voice constructions
+- Removed unnecessary words and phrases
+- Improved sentence structure and flow
+- Documentation: `_reports/2025-11-23-elements-of-style-batch-improvements.md`
+
+### SCSS Modernization (November 2025)
+
+Migrated from deprecated SCSS functions to modern Sass module system:
+- Replaced `darken()`, `lighten()` with `sass:color` functions
+- Updated `percentage()` to `sass:math.div()`
+- Migration script: `utils/migrate-scss-functions.sh`
+- All custom SCSS now uses `@use` instead of `@import`
+
+### Reports Collection Enhancement (November 2024-2025)
+
+- Standardized front matter across all reports
+- Added unique collection header images
+- Improved visual formatting and readability
+- Fixed sidebar alignment issues in reports
+- Added comprehensive formatting audit documentation
+
+---
+
+**Last Major Update:** 2025-11-26 - Accessibility WCAG 2.1 AA compliance achieved
