@@ -1,0 +1,284 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║            REPORTS COLLECTION FORMATTING ANALYSIS - VISUAL SUMMARY           ║
+║                           November 25, 2025                                  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+CURRENT STATE AT A GLANCE
+════════════════════════════════════════════════════════════════════════════════
+
+    Total Reports: 30
+    ├─ Compliant: 28 (93%)  ✅ Following standards
+    └─ Non-Compliant: 2 (7%) ❌ Need fixes
+
+    Compliance by Category:
+    ├─ Layout Type: 28/30 (93%)    ❌ 2 using 'post' instead of 'single'
+    ├─ Author Profile: 28/30 (93%) ❌ Missing on 2 reports
+    ├─ Breadcrumbs: 28/30 (93%)    ❌ Missing on 2 reports
+    ├─ Excerpt: 28/30 (93%)        ❌ Missing on 2 reports
+    └─ Header: 28/30 (93%)         ❌ Missing on 2 reports
+
+    All other aspects: 30/30 (100%) ✅ No issues
+
+
+PROBLEM REPORTS (2 files with identical issues)
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ REPORT 1 ─────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│ File: 2025-11-25-test-fixture-migration-documentation-review.md            │
+│                                                                             │
+│ Issues (5 total):                                                          │
+│   ❌ Layout: post (should be: single)                                      │
+│   ❌ Missing: author_profile: true                                         │
+│   ❌ Missing: breadcrumbs: true                                            │
+│   ❌ Missing: excerpt                                                      │
+│   ❌ Missing: header (overlay_image, teaser)                               │
+│                                                                             │
+│ Fix Effort: 10 minutes                                                     │
+│ Impact: HIGH (visual rendering + SEO)                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ REPORT 2 ─────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│ File: 2025-11-25-todo-resolution-cicd-fix-cross-platform.md                │
+│                                                                             │
+│ Issues (5 total):                                                          │
+│   ❌ Layout: post (should be: single)                                      │
+│   ❌ Missing: author_profile: true                                         │
+│   ❌ Missing: breadcrumbs: true                                            │
+│   ❌ Missing: excerpt                                                      │
+│   ❌ Missing: header (overlay_image, teaser)                               │
+│                                                                             │
+│ Fix Effort: 10 minutes                                                     │
+│ Impact: HIGH (visual rendering + SEO)                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+WHY THIS MATTERS
+════════════════════════════════════════════════════════════════════════════════
+
+From User Experience Perspective:
+
+  When browsing /reports/ collection:
+
+    Report A (28 reports - CORRECT)          Report B (2 reports - BROKEN)
+    ─────────────────────────────────────    ────────────────────────────────
+    [Header Image]                           [No Image]
+    Excerpt Preview                          No Preview
+    Professional appearance                  Looks unfinished
+
+
+From Design Philosophy Perspective:
+
+  Your site values: Consistency, Clarity, Simplicity, Professional appearance
+
+  Current State:
+    • 93% of reports follow consistency principle
+    • 2 reports break consistency principle
+    • Inconsistency = cognitive friction
+    • Missing elements = reduced clarity
+    • Result: Undermines minimalist aesthetic
+
+
+From SEO Perspective:
+
+  Missing excerpts = no preview in Google Search results
+  Impact: Reduced click-through rate, lost visibility
+
+  Missing breadcrumbs = lost navigation context
+  Impact: Disoriented users, increased bounce rate
+
+
+WHAT NEEDS TO CHANGE
+════════════════════════════════════════════════════════════════════════════════
+
+BEFORE (Current - WRONG):
+──────────────────────────
+
+---
+layout: post                                    ← PROBLEM: Should be 'single'
+title: "Report Title"
+date: 2025-11-25
+categories: [category]
+tags: [tag1, tag2]
+---
+
+
+AFTER (Fixed - CORRECT):
+────────────────────────
+
+---
+layout: single                                  ← FIXED: Now 'single'
+title: "Report Title"
+date: 2025-11-25
+author_profile: true                            ← ADDED: Author sidebar
+breadcrumbs: true                               ← ADDED: Navigation
+categories: [category]
+tags: [tag1, tag2]
+excerpt: "Brief description for search results." ← ADDED: SEO preview
+header:                                         ← ADDED: Visual header
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
+---
+
+Changes:
+  • 1 modification (layout type)
+  • 4 additions (author_profile, breadcrumbs, excerpt, header)
+  • Total: 5 lines per file
+
+
+IMPLEMENTATION TIMELINE
+════════════════════════════════════════════════════════════════════════════════
+
+    Phase 1: Critical Rendering Fix        2 minutes
+    ├─ Change layout: post → layout: single
+    ├─ Impact: Immediate visual correction
+    └─ Effort: 2 character changes per file
+
+
+    Phase 2: Complete Missing Fields       10 minutes
+    ├─ Add author_profile: true
+    ├─ Add breadcrumbs: true
+    ├─ Add excerpt with meaningful text
+    ├─ Add header section
+    └─ Effort: 5 lines per file
+
+
+    Phase 3: Visual Verification            5 minutes
+    ├─ Start Jekyll server
+    ├─ Check /reports/ collection page
+    ├─ Visit both report pages
+    ├─ Verify all elements display
+    └─ Test navigation links
+
+
+    TOTAL: 17 minutes
+
+
+EXPECTED OUTCOME AFTER FIXES
+════════════════════════════════════════════════════════════════════════════════
+
+    BEFORE                              AFTER
+    ──────────────────────────────────  ────────────────────────────────────
+    Compliance: 93%                     Compliance: 100% ✅
+    Consistent styling: 28 reports      Consistent styling: 30 reports ✅
+    Visual quality: Mixed               Visual quality: Professional ✅
+    SEO visibility: 28/30 reports       SEO visibility: 30/30 reports ✅
+    Navigation: 28 reports              Navigation: 30 reports ✅
+    Design philosophy: Mostly aligned   Design philosophy: 100% aligned ✅
+
+
+STANDARD TEMPLATE (FOR FUTURE REPORTS)
+════════════════════════════════════════════════════════════════════════════════
+
+Always use this structure for new reports in _reports/ collection:
+
+---
+layout: single                                    ← Always 'single'
+title: "Clear, Descriptive Title"
+date: YYYY-MM-DD
+author_profile: true                              ← Always true
+breadcrumbs: true                                 ← Always true
+categories: [category1, category2]                ← 2-3 topics
+tags: [tag1, tag2, tag3, tag4, tag5]              ← 3-5 keywords
+excerpt: "1-2 sentence summary for search results."  ← Brief description
+header:
+  overlay_image: /images/cover-reports.png        ← Standard image
+  teaser: /images/cover-reports.png
+---
+
+
+DOCUMENTATION FILES CREATED
+════════════════════════════════════════════════════════════════════════════════
+
+All files saved in: /Users/alyshialedlie/code/PersonalSite/
+
+1. REPORTS_ANALYSIS_INDEX.md
+   Purpose: Navigation hub, quick reference, Q&A
+   Read this for: Quick overview and links to detailed analysis
+
+2. REPORTS_FORMATTING_FIXES.md
+   Purpose: Step-by-step before/after with implementation plan
+   Read this for: Immediate fix instructions
+
+3. REPORTS_FORMATTING_ANALYSIS.md
+   Purpose: Comprehensive technical analysis
+   Read this for: Full context and detailed findings
+
+4. REPORTS_DESIGN_REVIEW.md
+   Purpose: UX/design perspective and philosophy alignment
+   Read this for: Design and user experience details
+
+5. REPORTS_VISUAL_SUMMARY.txt
+   Purpose: This file - visual quick reference
+   Read this for: At-a-glance summary
+
+
+QUICK CHECKLIST
+════════════════════════════════════════════════════════════════════════════════
+
+Files to Fix:
+  [ ] 2025-11-25-test-fixture-migration-documentation-review.md
+  [ ] 2025-11-25-todo-resolution-cicd-fix-cross-platform.md
+
+For Each File:
+  [ ] Change layout: post → layout: single
+  [ ] Add author_profile: true
+  [ ] Add breadcrumbs: true
+  [ ] Add excerpt (1-2 sentences)
+  [ ] Add header section with overlay_image and teaser
+
+After Making Changes:
+  [ ] Start Jekyll: bundle exec jekyll serve
+  [ ] Visit /reports/ collection page
+  [ ] Check both report pages load correctly
+  [ ] Verify headers display
+  [ ] Verify breadcrumbs appear
+  [ ] Verify author sidebar shows
+  [ ] Test all navigation links
+  [ ] Commit changes to git
+
+
+KEY INSIGHTS
+════════════════════════════════════════════════════════════════════════════════
+
+1. Minimalist Design Principle
+   Your site's strength is CONSISTENCY. Breaking it (even in 7% of content)
+   undermines your entire design philosophy.
+
+2. User Expectations
+   Users mentally group similar items. When 2 reports look different,
+   they assume those reports are lower quality or incomplete.
+
+3. SEO Impact
+   Missing excerpts = lost search visibility. Each report should appear
+   in Google with a compelling preview that drives clicks.
+
+4. Navigation Clarity
+   Breadcrumbs aren't decorative—they're functional. They answer:
+   "Where am I?" and "How do I get back?"
+
+5. Professional Appearance
+   Headers serve two purposes: (1) Visual interest, (2) Completeness.
+   Missing headers make pages look unfinished.
+
+
+BOTTOM LINE
+════════════════════════════════════════════════════════════════════════════════
+
+Status:    93% compliance (28/30 reports)
+Issues:    2 reports with identical problems
+Effort:    17 minutes to fix
+Complexity: Low (front matter only, no content changes)
+Impact:    HIGH (visual consistency, UX, SEO, design philosophy)
+
+Recommendation: Implement fixes today. Quick, easy, high-impact improvement.
+
+Result: Transform visual consistency from 93% to 100%
+        All 30 reports will appear professional, polished, and complete.
+
