@@ -18,7 +18,7 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main">
   {% include sidebar.html %}
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %} role="article">
@@ -52,13 +52,13 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn-primary" aria-label="Direct link to {{ page.title }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      <footer class="page-meta" role="contentinfo" aria-label="Article metadata">
+      <div class="page-meta" aria-label="Article metadata">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page-meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
-      </footer>
+      </div>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
