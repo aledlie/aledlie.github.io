@@ -12,9 +12,9 @@
   {% endif %}
 
   <div class="author-content">
-    <h3 class="author-name p-name" itemprop="name">
+    <h2 class="author-name p-name" itemprop="name">
       <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
-    </h3>
+    </h2>
     {% if author.bio %}
       <div class="author-bio p-note" itemprop="description">
         {{ author.bio | markdownify }}
@@ -23,7 +23,7 @@
   </div>
 
   <section class="author-urls-wrapper">
-    <h4 class="visually-hidden">Social Media Links</h4>
+    <h3 class="visually-hidden">Social Media Links</h3>
     <button class="btn btn-inverse" aria-label="Show social media links">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
     <ul class="author-urls social-icons" role="list" aria-label="Social media links">
       {% if author.location %}
