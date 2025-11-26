@@ -367,6 +367,15 @@ git commit -m "Update Sumedh's site submodule"
 
 10. **Reports and Work Tracking:** Technical reports go in `_reports/` collection, while ongoing work and activity summaries go in `_work/`. Both are public-facing collections with permalinks.
 
+11. **Liquid Template Conflicts:** When including code examples with template syntax (like `{{...}}` from Handlebars, Plop.js, or similar tools), wrap code blocks with `{% raw %}...{% endraw %}` tags to prevent Jekyll's Liquid processor from interpreting them. Example:
+    ```markdown
+    {% raw %}
+    ```javascript
+    // Code with {{template}} syntax here
+    ```
+    {% endraw %}
+    ```
+
 ## Excluded from Build
 
 Important paths excluded in `_config.yml`:
