@@ -3,7 +3,7 @@
     "lint:scss": "stylelint '**/*.scss'",
     "lint:scss --fix": "stylelint '**/*.scss' --fix",
     "format:scss": "prettier --write '**/*.scss'",
-    "build": "bundle exec jekyll build",
+    "build": "RUBYOPT=\"-W0\" bundle exec jekyll build",
     "serve": "RUBYOPT=\"-W0\" bundle exec jekyll serve",
     "test": "jest",
     "test:watch": "jest --watch",
