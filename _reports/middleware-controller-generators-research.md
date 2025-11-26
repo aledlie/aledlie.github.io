@@ -589,6 +589,7 @@ Plop is a micro-generator framework that helps you create boilerplate code consi
 - **ActionTypes:** Custom action types for complex operations
 
 #### Example Configuration (plopfile.js)
+{% raw %}
 ```javascript
 module.exports = function (plop) {
   // Controller generator
@@ -634,6 +635,7 @@ module.exports = function (plop) {
   });
 };
 ```
+{% endraw %}
 
 #### Pros
 - Extremely flexible—works with any framework, language, or project structure
