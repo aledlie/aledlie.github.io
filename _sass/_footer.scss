@@ -48,6 +48,15 @@
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
+  color: #595959;  /* WCAG AA contrast (4.85:1 on white) */
+
+  a {
+    color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+
+    &:hover {
+      color: #0066cc !important;
+    }
+  }
 }
 
 .page__footer-follow {
@@ -74,6 +83,11 @@
   .social-icons {
     a {
       white-space: nowrap;
+      color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+
+      &:hover {
+        color: #0066cc !important;
+      }
     }
   }
 
@@ -81,6 +95,11 @@
   a {
     padding-inline-end: 10px;
     font-weight: bold;
+    color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+
+    &:hover {
+      color: #0066cc !important;
+    }
   }
 }
 /* stylelint-enable selector-class-pattern */
