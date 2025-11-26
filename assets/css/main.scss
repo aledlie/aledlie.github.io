@@ -102,6 +102,19 @@ body {
   align-items: center;
   text-align: center;
 
+  // Override theme's table-cell display for proper centering
+  .author__content {
+    display: block !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .author__name,
+  .author__bio,
+  .author__urls-wrapper {
+    text-align: center;
+  }
+
   .author-avatar img {
     width: 150px;
     height: 150px;
