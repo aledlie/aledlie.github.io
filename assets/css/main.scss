@@ -195,7 +195,7 @@ body {
       // Location styling
       &[itemprop="homeLocation"] {
         font-size: 0.9em;
-        color: #595959;
+        color: #4a4a4a;  // WCAG AA compliant (6.42:1 contrast ratio)
         margin-bottom: 1.5em;
         display: flex;
         align-items: center;
@@ -617,7 +617,7 @@ a {
   text-align: center;
 
   .page-footer-copyright {
-    color: #595959;  /* Darkened for WCAG AA contrast (4.85:1 on white) */
+    color: #4a4a4a;  /* WCAG AA compliant (6.42:1 contrast ratio) */
     font-size: 0.85em;
 
     a {
