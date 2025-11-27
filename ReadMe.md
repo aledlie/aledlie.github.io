@@ -1,6 +1,6 @@
 # The Parlor - Personal Website
 
-A Jekyll-based personal website using the Minimal Mistakes theme, completely redesigned with a clean, minimal aesthetic inspired by professional academic blogs. Optimized for GitHub Pages and Vercel deployment.
+A Jekyll-based personal website using the Minimal Mistakes theme, completely redesigned with a clean, minimal aesthetic inspired by professional academic blogs. Deployed via GitHub Pages.
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
 [![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)
@@ -91,7 +91,7 @@ This site is built on the [Minimal Mistakes Jekyll theme](https://mmistakes.gith
 #### **Technical Improvements:**
 - Fixed CSS specificity issues with `!important` overrides where necessary
 - Targeted correct Jekyll-generated classes (`.list__item`, `.archive__item`)
-- Resolved character encoding issues for Vercel deployment
+- Resolved character encoding issues for production deployment
 - Consolidated redundant CSS rules (reduced file size by ~25%)
 - Added proper SCSS organization and nesting
 
@@ -160,9 +160,8 @@ gem "webrick"
 gem "base64"
 ```
 
-### **Deployment Platforms:**
-- **GitHub Pages** - Primary hosting
-- **Vercel** - Alternative deployment (with encoding fixes)
+### **Deployment Platform:**
+- **GitHub Pages** - Automated deployment via GitHub Actions
 
 ## Key Features
 
@@ -181,8 +180,7 @@ gem "base64"
 - ✅ **RSS feeds** and XML sitemap
 
 ### **Technical Features:**
-- ✅ **GitHub Pages compatible** deployment
-- ✅ **Vercel deployment ready** with encoding fixes
+- ✅ **Automated deployment** via GitHub Actions to GitHub Pages
 - ✅ **Analytics integration** (Google Analytics)
 - ✅ **Performance optimized** CSS and JavaScript
 - ✅ **Cross-browser compatible** with modern web standards
@@ -252,5 +250,5 @@ This project uses the MIT License inherited from the Minimal Mistakes theme. See
 
 - **Base Theme**: [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) by Michael Rose
 - **Design Inspiration**: Professional academic blog layouts
-- **Hosting**: GitHub Pages and Vercel
+- **Hosting**: GitHub Pages
 - **Development**: Jekyll static site generator

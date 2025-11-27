@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A Jekyll-based personal website ("The Parlor") built on the Minimal Mistakes theme with extensive custom styling. The site features clean, minimal academic blog aesthetics, comprehensive SEO/analytics, and is optimized for both GitHub Pages and Vercel deployment.
+A Jekyll-based personal website ("The Parlor") built on the Minimal Mistakes theme with extensive custom styling. The site features clean, minimal academic blog aesthetics, comprehensive SEO/analytics, and is deployed via GitHub Pages.
 
 **Primary URL:** https://www.aledlie.com
 
@@ -74,7 +74,7 @@ npm run format:scss
 
 ### Jekyll Configuration
 
-- **Jekyll Version:** 4.3 (deploys to Vercel; Jekyll 3.10.0 via github-pages gem for compatibility)
+- **Jekyll Version:** 4.3 (Jekyll 3.10.0 via github-pages gem for GitHub Pages compatibility)
 - **Theme:** minimal-mistakes-jekyll with "contrast" skin
 - **Ruby:** 3.4.4 (requires compatibility gems: csv, logger, webrick, base64)
 - **Markdown:** kramdown with rouge syntax highlighting
@@ -250,20 +250,16 @@ Key customizations:
 
 ### Deployment Configuration
 
-**Primary Deployment: Vercel (vercel.json)**
-- **Build Command:** `bundle exec jekyll build --baseurl ''`
-- **Install Command:** `bundle install --deployment`
+**Primary Deployment: GitHub Pages**
+- **Deployment Method:** GitHub Actions workflow (`.github/workflows/jekyll.yml`)
+- **Branch:** `master` (configured in workflow)
+- **Build Command:** Automated via GitHub Actions
 - **Output Directory:** `_site`
-- **Environment Variables:**
-  - `JEKYLL_ENV=production`
-  - `LANG=en_US.UTF-8` (fixes character encoding in SCSS)
-  - `LC_ALL=en_US.UTF-8`
-- **Security Headers:** CSP, HSTS, X-Frame-Options, X-XSS-Protection, Referrer-Policy
-- **Cache Strategy:** 1 year for static assets (CSS, JS, images)
-- **URL Configuration:** Clean URLs enabled, trailing slashes enforced
-- **Content-Type Headers:** Explicit UTF-8 charset for CSS and JS
+- **Jekyll Version:** GitHub Pages uses Jekyll 3.10.0 via github-pages gem
+- **Environment:** Production builds automatically on push to master
+- **Custom Domain:** https://www.aledlie.com (configured via CNAME)
 
-**Note:** This site uses Jekyll 4.3 (not github-pages gem) for modern Sass compiler support
+**Note:** Site uses github-pages gem for deployment compatibility, though local development may use Jekyll 4.3
 
 ### Testing Infrastructure
 
@@ -368,13 +364,13 @@ npx playwright test tests/e2e/accessibility.spec.js
 npm run test:performance
 ```
 
-### Testing Vercel Deployment Locally
+### Testing Production Build Locally
 
 ```bash
-# Set Vercel environment variables
-JEKYLL_ENV=production LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build --baseurl ''
+# Build site in production mode
+JEKYLL_ENV=production bundle exec jekyll build
 
-# Then serve the _site directory
+# Serve the _site directory
 cd _site && python -m http.server 8000
 ```
 
@@ -393,7 +389,7 @@ git commit -m "Update Sumedh's site submodule"
 
 1. **Ruby Warnings:** Use `RUBYOPT="-W0"` when serving locally to suppress deprecation warnings from vendor theme files. This is already configured in the `npm run serve` script.
 
-2. **Character Encoding:** Vercel requires explicit UTF-8 encoding settings (`LANG=en_US.UTF-8` and `LC_ALL=en_US.UTF-8`) to handle special characters in SCSS compilation.
+2. **Character Encoding:** Production builds may require UTF-8 encoding settings (`LANG=en_US.UTF-8` and `LC_ALL=en_US.UTF-8`) to handle special characters in SCSS compilation.
 
 3. **CSS Specificity:** Some CSS overrides use `!important` to ensure theme defaults are properly overridden. This is intentional.
 
