@@ -1,9 +1,15 @@
 ---
-layout: post
+layout: single
 title: "Phase 1+2 Complexity Refactoring: Quantitative Analysis of Zero Violations Achievement"
 date: 2025-11-29
+author_profile: true
+breadcrumbs: true
 categories: [code-quality, refactoring, metrics-analysis]
 tags: [python, complexity-analysis, cognitive-complexity, cyclomatic-complexity, ast-grep-mcp, technical-debt-elimination, quality-metrics]
+excerpt: "Quantitative analysis verifying 100% elimination of technical debt with zero complexity violations across 397 functions."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Phase 1+2 Complexity Refactoring: Quantitative Analysis of Zero Violations Achievement

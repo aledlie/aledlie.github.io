@@ -2,10 +2,14 @@
 layout: single
 title: "Code Quality Analysis - Refactoring Assistants Feature"
 date: 2025-11-26
-session_type: code_quality_review
-project: ast-grep-mcp
-branch: feature/refactoring-assistants
+author_profile: true
+breadcrumbs: true
+categories: [code-analysis, code-quality, ast-grep-mcp]
 tags: [code-analysis, complexity, refactoring, best-practices, testing]
+excerpt: "Code quality analysis of refactoring assistants feature using MCP code analysis tools for complexity, code smells, and standards."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
 ---
 
 # Session Report: Code Quality Analysis - Refactoring Assistants Feature

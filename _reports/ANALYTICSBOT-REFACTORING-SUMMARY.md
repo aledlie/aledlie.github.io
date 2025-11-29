@@ -1,3 +1,17 @@
+---
+layout: single
+title: "AnalyticsBot Refactoring - Summary Report"
+date: 2025-11-27
+author_profile: true
+breadcrumbs: true
+categories: [refactoring, code-quality, technical-report]
+tags: [typescript, analyticsbot, complexity-reduction, manual-implementation, code-review]
+excerpt: "Summary report recommending manual implementation over automated refactoring for AnalyticsBot high-priority improvements."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
+---
+
 # AnalyticsBot Refactoring - Summary Report
 
 **Date:** 2025-11-27

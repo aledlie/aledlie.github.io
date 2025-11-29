@@ -1,3 +1,17 @@
+---
+layout: single
+title: "Batch Test Coverage Optimization - Implementation Summary"
+date: 2025-11-27
+author_profile: true
+breadcrumbs: true
+categories: [performance-optimization, testing, implementation]
+tags: [python, ast-grep-mcp, test-coverage, batch-processing, optimization]
+excerpt: "Implementation of optimized batch test coverage detection achieving 51-69% performance improvement over legacy implementation."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
+---
+
 # Batch Test Coverage Optimization - Implementation Summary
 
 **Date:** 2025-11-27

@@ -1,3 +1,17 @@
+---
+layout: single
+title: "AnalyticsBot Refactoring Implementation Guide"
+date: 2025-11-27
+author_profile: true
+breadcrumbs: true
+categories: [refactoring, implementation-guide, technical-documentation]
+tags: [typescript, analyticsbot, refactoring-patterns, testing, production-safety]
+excerpt: "Detailed implementation guide for AnalyticsBot refactoring with manual approach recommendations and step-by-step instructions."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
+---
+
 # AnalyticsBot Refactoring Implementation Guide
 
 **Date:** 2025-11-27

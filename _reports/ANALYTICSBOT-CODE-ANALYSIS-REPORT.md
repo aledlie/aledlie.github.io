@@ -1,3 +1,17 @@
+---
+layout: single
+title: "AnalyticsBot Code Analysis Report"
+date: 2025-11-27
+author_profile: true
+breadcrumbs: true
+categories: [code-analysis, technical-report, code-quality]
+tags: [typescript, javascript, ast-grep-mcp, complexity-metrics, code-smells, security-analysis]
+excerpt: "Comprehensive code analysis of AnalyticsBot codebase covering complexity metrics, code smells, and security vulnerabilities across 303 files."
+header:
+  overlay_image: /images/cover-reports.png
+  teaser: /images/cover-reports.png
+---
+
 # AnalyticsBot Code Analysis Report
 
 **Date:** 2025-11-27
