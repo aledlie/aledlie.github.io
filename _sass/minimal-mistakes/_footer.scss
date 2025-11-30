@@ -47,6 +47,16 @@
 .page-footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
+  color: #595959; /* WCAG AA compliant contrast */
+
+  a {
+    color: #333333; /* Darker link color for WCAG AA compliance */
+    text-decoration: underline;
+
+    &:hover {
+      color: #000000;
+    }
+  }
 }
 
 .page-footer-follow {
@@ -73,6 +83,11 @@
   a {
     padding-inline-end: 10px;
     font-weight: bold;
+    color: #333333; /* WCAG AA compliant contrast */
+
+    &:hover {
+      color: #000000;
+    }
   }
 
   .social-icons {

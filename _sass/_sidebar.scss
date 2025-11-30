@@ -187,11 +187,6 @@
   }
 }
 
-/* Location text - ensure WCAG AA color contrast */
-.p-locality {
-  color: #595959; /* 7:1 contrast ratio against white for WCAG AAA compliance */
-}
-
 .author__urls-wrapper {
   position: relative;
   display: table-cell;
