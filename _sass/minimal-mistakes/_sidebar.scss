@@ -186,9 +186,9 @@
   }
 }
 
-/* Location text - ensure WCAG AA color contrast */
+/* Location text - ensure WCAG AA color contrast even with sidebar opacity:0.75 */
 .p-locality {
-  color: #595959; /* 7:1 contrast ratio against white for WCAG AAA compliance */
+  color: #333333; /* Darker color to maintain contrast with sidebar opacity */
 }
 
 .author__urls-wrapper {
