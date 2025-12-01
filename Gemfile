@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Note: Removed github-pages gem to allow modern Sass compiler
-# This site deploys to Vercel, not GitHub Pages
+# This site deploys to GitHub Pages via GitHub Actions
 gem "jekyll", "~> 4.3"
 gem "jekyll-include-cache", group: :jekyll_plugins
 

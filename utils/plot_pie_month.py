@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_pie_month(input_file='commit_counts_month.txt', output_file='commits_by_month.png', title='Commits by Month'):
+def plot_pie_month(input_file='commit_counts_month.txt', output_file='images/commits_by_month.png', title='Commits by Month'):
     """
     Generate a pie chart of commit counts by month from a file and save it as a PNG.
     """

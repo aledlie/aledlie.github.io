@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     # Customize plot title and output file
     title = f"Commits by Day of Week and Month for {repo_name}"
-    output_file = f"commits_by_day_month_{repo_name}.png"
+    output_file = f"images/commits_by_day_month_{repo_name}.png"
 
     # Generate the plot
     plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_counts_month.txt', output_file=output_file, title=title)

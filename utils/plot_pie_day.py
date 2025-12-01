@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_pie_day(input_file='commit_counts_day.txt', output_file='commits_by_day.png', title='Commits by Day of Week'):
+def plot_pie_day(input_file='commit_counts_day.txt', output_file='images/commits_by_day.png', title='Commits by Day of Week'):
     """
     Generate a pie chart of commit counts by day of week from a file and save it as a PNG.
     """

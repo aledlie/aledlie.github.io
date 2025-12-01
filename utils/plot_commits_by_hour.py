@@ -1,7 +1,7 @@
 import argparse
 import matplotlib.pyplot as plt
 
-def plot_commits_by_hour(input_file='commit_counts.txt', output_file='commits_by_hour.png', title='Git Commits by Hour of Day'):
+def plot_commits_by_hour(input_file='commit_counts.txt', output_file='images/commits_by_hour.png', title='Git Commits by Hour of Day'):
     """
     Generate a bar graph of commit counts by hour from a file and save it as a PNG.
 
@@ -60,8 +60,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate bar graph of commits by hour')
     parser.add_argument('--input', default='commit_counts.txt',
                         help='Input file with hour and count data (default: commit_counts.txt)')
-    parser.add_argument('--output', default='commits_by_hour.png',
-                        help='Output PNG file (default: commits_by_hour.png)')
+    parser.add_argument('--output', default='images/commits_by_hour.png',
+                        help='Output PNG file (default: images/commits_by_hour.png)')
     parser.add_argument('--title', default='Git Commits by Hour of Day',
                         help='Chart title (default: Git Commits by Hour of Day)')
 

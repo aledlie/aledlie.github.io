@@ -1,9 +1,12 @@
-# The Parlor - Personal Website
+# ℵ₀ - Personal Website
 
 A Jekyll-based personal website using the Minimal Mistakes theme, completely redesigned with a clean, minimal aesthetic inspired by professional academic blogs. Deployed via GitHub Pages.
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
-[![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)
+[![Jekyll](https://img.shields.io/badge/Jekyll-4.3-CC0000.svg)](https://jekyllrb.com/)
+[![Ruby](https://img.shields.io/badge/Ruby-3.4-red.svg)](https://www.ruby-lang.org/)
+[![Theme](https://img.shields.io/badge/Theme-Minimal%20Mistakes-blue.svg)](https://mmistakes.github.io/minimal-mistakes/)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222.svg)](https://pages.github.com/)
 
 ## Project Structure
 
@@ -113,13 +116,14 @@ main:
 **Status**: 🟡 **MODIFIED** - Personalized settings
 
 #### **Key Configurations:**
-- **Title**: "The Parlor"
+- **Title**: "ℵ₀"
 - **Description**: "An archive for midnight rambles"
 - **URL**: https://www.aledlie.com
 - **Theme**: minimal-mistakes-jekyll with contrast skin
 - **Author Profile**: Complete with bio, location, social links
-- **Analytics**: Google Analytics integration
+- **Analytics**: Google Analytics (GA4) integration
 - **Plugins**: SEO, feeds, pagination, sitemap
+- **Collections**: Projects, Reports, Work
 
 ### **4. Content Structure**
 **Status**: 🟢 **STANDARD** - Uses theme defaults
@@ -137,14 +141,14 @@ main:
 ## Technology Stack
 
 ### **Core Technologies:**
-- **Jekyll** 3.10.0 - Static site generator
+- **Jekyll** 4.3 - Static site generator
 - **Ruby** 3.4.4 - Runtime environment
-- **SCSS** - CSS preprocessing
+- **SCSS** - CSS preprocessing (modern Sass compiler)
 - **Liquid** - Templating language
 
 ### **Ruby Gems:**
 ```ruby
-gem "github-pages", "~> 232"           # GitHub Pages compatibility
+gem "jekyll", "~> 4.3"                 # Static site generator
 gem "minimal-mistakes-jekyll"          # Base theme
 gem "jekyll-feed"                      # RSS feeds
 gem "jekyll-seo-tag"                   # SEO optimization
@@ -152,12 +156,23 @@ gem "jekyll-paginate"                  # Post pagination
 gem "jekyll-sitemap"                   # XML sitemap
 gem "jekyll-gist"                      # GitHub Gist embedding
 gem "jekyll-include-cache"             # Performance optimization
+gem "jekyll-sass-converter", "~> 3.0"  # Modern Sass compiler
 
 # Ruby 3.4.4 compatibility gems
 gem "csv"
-gem "logger" 
+gem "logger"
 gem "webrick"
 gem "base64"
+```
+
+### **Testing Stack:**
+```json
+{
+  "jest": "^30.2.0",           // Unit tests
+  "@playwright/test": "^1.40", // E2E tests
+  "lighthouse": "^12.8.2",     // Performance tests
+  "stylelint": "^16.23.1"      // SCSS linting
+}
 ```
 
 ### **Deployment Platform:**
@@ -189,18 +204,38 @@ gem "base64"
 
 ### **Local Development:**
 ```bash
-# Install dependencies
+# Install Ruby dependencies
 bundle install
 
+# Install Node.js dependencies (for testing)
+npm install
+
 # Serve locally (with Ruby warnings suppressed)
-RUBYOPT="-W0" bundle exec jekyll serve
+npm run serve
+# or: RUBYOPT="-W0" bundle exec jekyll serve
 
 # Build for production
-bundle exec jekyll build
+npm run build
+# or: bundle exec jekyll build
+```
+
+### **Testing:**
+```bash
+# Run all tests
+npm run test:all
+
+# Individual test suites
+npm run test              # Jest unit tests
+npm run test:e2e          # Playwright E2E tests
+npm run test:performance  # Lighthouse performance
+
+# SCSS linting
+npm run lint:scss
+npm run "lint:scss --fix"  # Auto-fix issues
 ```
 
 ### **Deployment:**
-- **Automatic**: Push to `master` branch triggers GitHub Pages deployment
+- **Automatic**: Push to `main` branch triggers GitHub Pages deployment via GitHub Actions
 - **Manual**: Build locally and deploy `_site/` directory to hosting provider
 
 ## Customization Notes
@@ -252,3 +287,9 @@ This project uses the MIT License inherited from the Minimal Mistakes theme. See
 - **Design Inspiration**: Professional academic blog layouts
 - **Hosting**: GitHub Pages
 - **Development**: Jekyll static site generator
+
+---
+
+**Author**: Alyshia Ledlie
+**Site**: [aledlie.com](https://www.aledlie.com)
+**GitHub**: [@aledlie](https://github.com/aledlie)

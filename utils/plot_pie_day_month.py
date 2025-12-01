@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_counts_month.txt', output_file='commits_by_day_month.png', title='Commits by Day of Week and Month'):
+def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_counts_month.txt', output_file='images/commits_by_day_month.png', title='Commits by Day of Week and Month'):
     """
     Generate two pie charts: one for commits by day of week and one for commits by month, and save them in a single PNG.
 

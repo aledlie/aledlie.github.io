@@ -46,7 +46,7 @@ def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Plot commit distribution as a bar chart.')
     parser.add_argument('-i', '--input', default='average_commits.txt', help='Input file with commit data (default: results.txt)')
-    parser.add_argument('-o', '--output', default='average_commits.png', help='Output file for the bar chart (default: commit_distribution.png)')
+    parser.add_argument('-o', '--output', default='images/average_commits.png', help='Output file for the bar chart (default: images/average_commits.png)')
     args = parser.parse_args()
 
     # Parse the results file
