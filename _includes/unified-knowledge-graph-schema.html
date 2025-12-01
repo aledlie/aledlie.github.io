@@ -208,6 +208,71 @@ Generated using ast-grep-mcp server's build_entity_graph tool
       ]{% endif %}
     },
     {
+      "@type": "ProfilePage",
+      "@id": "{{ site.url }}/about#profilepage",
+      "url": "{{ site.url }}/about/",
+      "name": "About {{ site.author.name }}",
+      "description": "Learn more about {{ site.author.name }} - software developer, technology consultant, and technical writer.",
+      "mainEntity": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "{{ site.url }}/about/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ site.url }}/projects#collectionpage",
+      "url": "{{ site.url }}/projects/",
+      "name": "Projects - {{ site.author.name }}",
+      "description": "Portfolio of software development projects, open source contributions, and technical work by {{ site.author.name }}.",
+      "about": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Project Portfolio",
+        "description": "Collection of software and technology projects"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "{{ site.url }}/projects/"
+          }
+        ]
+      }
+    },
+    {
       "@type": "Organization",
       "@id": "{{ site.url }}/organizations/integrity-studios#organization",
       "name": "Integrity Studios",
@@ -222,7 +287,15 @@ Generated using ast-grep-mcp server's build_entity_graph tool
         "@id": "{{ site.url }}#person"
       },
       "industry": "Technology Consulting",
-      "knowsAbout": ["Software Development", "Web Development", "Technology Consulting", "Digital Transformation"]
+      "knowsAbout": ["Software Development", "Web Development", "Technology Consulting", "Digital Transformation"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "business inquiries",
+        {% if site.author.email -%}
+        "email": "{{ site.author.email }}",
+        {% endif -%}
+        "availableLanguage": "English"
+      }
     },
     {
       "@type": "Organization",
@@ -240,7 +313,13 @@ Generated using ast-grep-mcp server's build_entity_graph tool
       },
       "industry": "Artificial Intelligence",
       "applicationCategory": "Business Software",
-      "knowsAbout": ["Artificial Intelligence", "Inventory Management", "Machine Learning", "Business Automation", "Supply Chain"]
+      "knowsAbout": ["Artificial Intelligence", "Inventory Management", "Machine Learning", "Business Automation", "Supply Chain"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "alyshia@inventoryai.io",
+        "availableLanguage": "English"
+      }
     }
   ]
 }

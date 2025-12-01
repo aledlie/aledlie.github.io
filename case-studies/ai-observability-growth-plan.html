@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Observability Company - Comprehensive Growth Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066cc;
+            --primary-teal: #00a89d;
+            --dark-blue: #001f3f;
+            --light-blue: #e6f2ff;
+            --light-teal: #e8f8f6;
+            --text-dark: #1a1a2e;
+            --text-light: #666;
+            --border-light: #e8e8e8;
+            --bg-light: #f5f7fa;
+            --success: #00b894;
+            --warning: #ffa502;
+            --danger: #e74c3c;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .header-subtitle span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Sidebar Navigation */
+        .container-with-sidebar {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        aside {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .toc-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+            border-left-color: var(--primary-blue);
+            background-color: var(--light-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+            border-left-color: var(--primary-blue);
+            font-weight: 600;
+            background-color: var(--light-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-teal);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            color: var(--white);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.95rem;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: var(--bg-light);
+        }
+
+        tbody tr:hover {
+            background-color: var(--light-blue);
+            transition: background-color 0.2s ease;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--text-dark);
+            color: #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-left: 4px solid var(--primary-teal);
+        }
+
+        code {
+            font-family: 'Source Code Pro', monospace;
+            background-color: var(--bg-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        /* Cards & Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-teal) 100%);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-blue);
+        }
+
+        /* Card Grids */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 102, 204, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .card h4 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Revenue Cards */
+        .revenue-card {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            color: var(--white);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revenue-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .revenue-card h4,
+        .revenue-card p {
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .revenue-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+        }
+
+        .revenue-label {
+            opacity: 0.9;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary-blue);
+        }
+
+        .timeline-item h4 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+
+        .timeline-item .label {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        /* OKR Cards */
+        .okr-card {
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--white);
+        }
+
+        .okr-objective {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .okr-objective-title {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .okr-krs {
+            background-color: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+        }
+
+        .okr-kr {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .okr-kr:last-child {
+            margin-bottom: 0;
+        }
+
+        .okr-kr::before {
+            content: '→';
+            color: var(--primary-teal);
+            font-weight: 600;
+            margin-right: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        /* Checklist */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background-color: var(--bg-light);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-teal);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 0.2rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary-teal);
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .checklist-item input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        /* Risk Matrix */
+        .risk-card {
+            border-left: 4px solid var(--warning);
+            background-color: rgba(255, 165, 2, 0.05);
+        }
+
+        .risk-card.high-impact {
+            border-left-color: var(--danger);
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+
+        .risk-card.low-impact {
+            border-left-color: var(--success);
+            background-color: rgba(0, 184, 148, 0.05);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-primary {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .badge-success {
+            background-color: rgba(0, 184, 148, 0.15);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background-color: rgba(255, 165, 2, 0.15);
+            color: var(--warning);
+        }
+
+        .badge-danger {
+            background-color: rgba(231, 76, 60, 0.15);
+            color: var(--danger);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container-with-sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: relative;
+                top: auto;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container-with-sidebar {
+                padding: 1.5rem 1rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-subtitle {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.15rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.6rem;
+            }
+
+            nav a {
+                padding: 0.5rem 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            pre {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            body {
+                background: var(--white);
+                color: #000;
+            }
+
+            header {
+                background: var(--white);
+                color: #000;
+                border-bottom: 2px solid var(--border-light);
+                padding: 1rem;
+            }
+
+            header h1 {
+                color: var(--primary-blue);
+                font-size: 1.8rem;
+            }
+
+            .container-with-sidebar {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            aside {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+
+            .card, table {
+                page-break-inside: avoid;
+            }
+
+            header::before,
+            header::after {
+                display: none;
+            }
+
+            .revenue-card::before {
+                display: none;
+            }
+
+            pre {
+                border: 1px solid var(--border-light);
+            }
+
+            a {
+                color: var(--primary-blue);
+                text-decoration: underline;
+            }
+
+            .card {
+                border: 1px solid #000;
+            }
+
+            .card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .border-accent {
+            border-top: 3px solid var(--primary-teal);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>AI Observability Company</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9; margin-top: 0.5rem;">Comprehensive Growth Plan</p>
+        <div class="header-subtitle">
+            <span>📊 24-Month Plan</span>
+            <span>💰 $0 to $5M+ ARR</span>
+            <span>🚀 Series A Ready</span>
+        </div>
+    </header>
+
+    <div class="container-with-sidebar">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <div class="toc-title">Contents</div>
+            <nav>
+                <ul>
+                    <li><a href="#executive-summary">Executive Summary</a></li>
+                    <li><a href="#gtm-strategy">Go-to-Market</a></li>
+                    <li><a href="#acquisition-funnel">Acquisition Funnel</a></li>
+                    <li><a href="#revenue-model">Revenue Model</a></li>
+                    <li><a href="#customer-success">Customer Success</a></li>
+                    <li><a href="#team-plan">Team & Organization</a></li>
+                    <li><a href="#financial-plan">Financial Plan</a></li>
+                    <li><a href="#milestones">Milestones & OKRs</a></li>
+                    <li><a href="#risk-management">Risk Management</a></li>
+                    <li><a href="#action-plan">90-Day Action Plan</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Executive Summary -->
+            <section id="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>This growth plan outlines the strategy to scale an AI Observability company from $0 to $5M+ ARR within 24 months, positioning for a strong Series A raise. The plan combines Product-Led Growth (PLG) with strategic sales motions to capture the rapidly expanding $4.8B AI Observability market.</p>
+
+                <div class="highlight-box">
+                    <strong>Key Strategic Pillars:</strong>
+                    <ol style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                        <li><strong>Developer-First PLG:</strong> Generous free tier driving bottom-up adoption</li>
+                        <li><strong>Content-Led Acquisition:</strong> Thought leadership establishing category authority</li>
+                        <li><strong>Strategic Sales Overlay:</strong> Enterprise motion layered after PLG proves unit economics</li>
+                        <li><strong>Community Building:</strong> Developer community as competitive moat</li>
+                    </ol>
+                </div>
+
+                <h3>Target Outcomes</h3>
+                <div class="card-grid">
+                    <div class="card revenue-card">
+                        <div class="revenue-label">Month 12</div>
+                        <div class="revenue-amount">$1.5M</div>
+                        <p class="mb-2">Annual Recurring Revenue</p>
+                        <p class="text-muted">200 customers | LTV:CAC >3:1</p>
+                    </div>
+                    <div class="card revenue-card">
+                        <div class="revenue-label">Month 24</div>
+                        <div class="revenue-amount">$5M+</div>
+                        <p class="mb-2">Annual Recurring Revenue</p>
+                        <p class="text-muted">400 customers | Series A ready</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Go-to-Market Strategy -->
+            <section id="gtm-strategy">
+                <h2>Go-to-Market Strategy</h2>
+
+                <h3>1.1 Target Market Segmentation</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Primary: AI-Native Startups</h4>
+                        <p class="text-muted">60% of effort</p>
+                        <p><strong>Profile:</strong> Series A-C startups with AI/ML as core product</p>
+                        <p><strong>Size:</strong> 20-200 employees, 5-30 engineers</p>
+                        <p><strong>ACV:</strong> $15K-$40K</p>
+                        <span class="badge badge-primary">High Pain Intensity</span>
+                    </div>
+                    <div class="card">
+                        <h4>Secondary: AI-Adopting Tech</h4>
+                        <p class="text-muted">30% of effort</p>
+                        <p><strong>Profile:</strong> Tech companies adding AI features</p>
+                        <p><strong>Size:</strong> 100-1,000 employees, 20-100 engineers</p>
+                        <p><strong>ACV:</strong> $40K-$100K</p>
+                        <span class="badge badge-success">Medium-High Pain</span>
+                    </div>
+                    <div class="card">
+                        <h4>Tertiary: Enterprise</h4>
+                        <p class="text-muted">10% of effort (Year 2)</p>
+                        <p><strong>Profile:</strong> F500 enterprises deploying AI</p>
+                        <p><strong>Size:</strong> 1,000+ employees</p>
+                        <p><strong>ACV:</strong> $100K-$300K</p>
+                        <span class="badge badge-warning">Governance Focus</span>
+                    </div>
+                </div>
+
+                <h3>1.2 Go-to-Market Motion</h3>
+                <p><strong>Phase 1: PLG Foundation (Months 1-9)</strong></p>
+                <pre>ACQUISITION           ACTIVATION              RETENTION/EXPANSION
+-----------          -----------              -------------------
+Content → Signup → First Trace → Weekly Use → Team Invite → Paid Upgrade
+                         ↑
+                    <5 minutes
+                    (critical)</pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Goal</th>
+                            <th>Tactic</th>
+                            <th>Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Awareness</td>
+                            <td>Drive signups</td>
+                            <td>SEO, content, social</td>
+                            <td>1,000+ signups/month</td>
+                        </tr>
+                        <tr>
+                            <td>Activation</td>
+                            <td>First value</td>
+                            <td>&lt;5 min onboarding</td>
+                            <td>50% activation rate</td>
+                        </tr>
+                        <tr>
+                            <td>Retention</td>
+                            <td>Daily use</td>
+                            <td>Email nudges, in-app guidance</td>
+                            <td>40% WAU/MAU</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue</td>
+                            <td>Convert to paid</td>
+                            <td>Usage limits, feature gates</td>
+                            <td>5% conversion</td>
+                        </tr>
+                        <tr>
+                            <td>Expansion</td>
+                            <td>Increase ACV</td>
+                            <td>Team invites, feature upsells</td>
+                            <td>120% NRR</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Phase 2: Sales-Assisted Growth (Months 9-18)</strong></p>
+                <pre>PLG Pipeline ─────────────────────────────────→ Self-Serve Conversion (70%)
+      │
+      └─→ Sales Qualification ─→ Demo ─→ Trial ─→ Close (30%)
+             ↑
+       Triggers:
+       - 10+ team members
+       - Enterprise domain
+       - $50K+ projected ACV
+       - Compliance questions</pre>
+
+                <h3>1.3 Channel Strategy</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Phase 1</th>
+                            <th>Phase 2</th>
+                            <th>Phase 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Organic content</td>
+                            <td>40%</td>
+                            <td>30%</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Developer community</td>
+                            <td>25%</td>
+                            <td>20%</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Paid acquisition</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Partnerships</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Direct sales</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>25%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Customer Acquisition Funnel -->
+            <section id="acquisition-funnel">
+                <h2>Customer Acquisition Funnel</h2>
+
+                <h3>2.1 Funnel Metrics & Benchmarks</h3>
+                <p><strong>Awareness → Signup</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>Month 6</th>
+                            <th>Month 12</th>
+                            <th>Month 24</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly website visitors</td>
+                            <td>0</td>
+                            <td>30,000</td>
+                            <td>75,000</td>
+                            <td>150,000</td>
+                        </tr>
+                        <tr>
+                            <td>Signup rate</td>
+                            <td>-</td>
+                            <td>2.5%</td>
+                            <td>3.5%</td>
+                            <td>4%</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly signups</td>
+                            <td>0</td>
+                            <td>750</td>
+                            <td>2,625</td>
+                            <td>6,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Signup → Activation</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target</th>
+                            <th>Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Day 0 activation</td>
+                            <td>50%</td>
+                            <td>Sent first trace</td>
+                        </tr>
+                        <tr>
+                            <td>Day 7 activation</td>
+                            <td>35%</td>
+                            <td>Used 3+ days</td>
+                        </tr>
+                        <tr>
+                            <td>Day 30 activation</td>
+                            <td>25%</td>
+                            <td>Used 10+ days</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 Acquisition Campaigns</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Campaign 1: Debug Your AI</h4>
+                        <p class="text-muted">Always-On</p>
+                        <p><strong>Message:</strong> From bug report to root cause in 60 seconds</p>
+                        <p><strong>Channels:</strong> SEO, Google Ads, Twitter</p>
+                        <p><strong>Target:</strong> 40% of total signups</p>
+                        <span class="badge badge-primary">Problem-Aware</span>
+                    </div>
+                    <div class="card">
+                        <h4>Campaign 2: AI Cost Control</h4>
+                        <p class="text-muted">Always-On</p>
+                        <p><strong>Message:</strong> Know your AI spend before the bill arrives</p>
+                        <p><strong>Channels:</strong> LinkedIn, Google Ads, Content</p>
+                        <p><strong>Target:</strong> 30% of total signups</p>
+                        <span class="badge badge-success">Cost-Focused</span>
+                    </div>
+                    <div class="card">
+                        <h4>Campaign 3: Product Launch</h4>
+                        <p class="text-muted">Event-Driven</p>
+                        <p><strong>Message:</strong> Feature-specific value</p>
+                        <p><strong>Channels:</strong> Product Hunt, HackerNews</p>
+                        <p><strong>Target:</strong> 500+ signups per launch</p>
+                        <span class="badge badge-warning">Launch Buzz</span>
+                    </div>
+                </div>
+
+                <h3>2.3 Activation Strategy</h3>
+                <div class="highlight-box">
+                    <strong>Critical Metric: Time to First Trace</strong><br><br>
+                    Target: &lt;5 minutes from signup to first trace<br><br>
+                    <strong>Onboarding Flow:</strong>
+                    <ol style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Signup (30 seconds)</li>
+                        <li>Choose language/framework (15 seconds)</li>
+                        <li>Copy/paste SDK install command (30 seconds)</li>
+                        <li>Copy/paste initialization code (30 seconds)</li>
+                        <li>Add @observe decorator to existing function (30 seconds)</li>
+                        <li>Run code, see trace in dashboard (2 minutes)</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Revenue Growth Model -->
+            <section id="revenue-model">
+                <h2>Revenue Growth Model</h2>
+
+                <h3>3.1 Revenue Projections</h3>
+                <p><strong>Year 1 Monthly ARR Progression</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>New ARR</th>
+                            <th>Expansion</th>
+                            <th>Churn</th>
+                            <th>Total ARR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>$15K</td>
+                            <td>$0</td>
+                            <td>$0</td>
+                            <td>$15K</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>$35K</td>
+                            <td>$3K</td>
+                            <td>-$2K</td>
+                            <td>$76K</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>$80K</td>
+                            <td>$12K</td>
+                            <td>-$6K</td>
+                            <td>$283K</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>$125K</td>
+                            <td>$30K</td>
+                            <td>-$15K</td>
+                            <td>$648K</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>$170K</td>
+                            <td>$59K</td>
+                            <td>-$30K</td>
+                            <td><strong>$1.2M</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Year 2 Monthly ARR Progression (Selected Months)</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>New ARR</th>
+                            <th>Expansion</th>
+                            <th>Churn</th>
+                            <th>Total ARR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>13</td>
+                            <td>$185K</td>
+                            <td>$71K</td>
+                            <td>-$36K</td>
+                            <td>$1.4M</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>$220K</td>
+                            <td>$99K</td>
+                            <td>-$49K</td>
+                            <td>$1.9M</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>$280K</td>
+                            <td>$152K</td>
+                            <td>-$76K</td>
+                            <td>$2.9M</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>$340K</td>
+                            <td>$222K</td>
+                            <td>-$111K</td>
+                            <td>$4.2M</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>$400K</td>
+                            <td>$309K</td>
+                            <td>-$155K</td>
+                            <td><strong>$5.7M</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.2 Unit Economics Targets</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Month 6</th>
+                            <th>Month 12</th>
+                            <th>Month 24</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Blended CAC</strong></td>
+                            <td>$5,000</td>
+                            <td>$4,000</td>
+                            <td>$3,500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blended LTV</strong></td>
+                            <td>$15,000</td>
+                            <td>$20,000</td>
+                            <td>$30,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LTV:CAC Ratio</strong></td>
+                            <td>3:1</td>
+                            <td>5:1</td>
+                            <td>8.5:1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payback Period</strong></td>
+                            <td>14 months</td>
+                            <td>10 months</td>
+                            <td>7 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gross Margin</strong></td>
+                            <td>78%</td>
+                            <td>83%</td>
+                            <td>87%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.3 Pricing Evolution</h3>
+                <p><strong>Phase 1 (Months 1-6): Aggressive Free Tier</strong></p>
+                <p class="text-muted">Goal: Maximize adoption, gather usage data</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Price</th>
+                            <th>Traces/Month</th>
+                            <th>Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Free</td>
+                            <td>$0</td>
+                            <td>100K</td>
+                            <td>Very generous to drive adoption</td>
+                        </tr>
+                        <tr>
+                            <td>Pro</td>
+                            <td>$29/mo</td>
+                            <td>500K</td>
+                            <td>Low barrier to paid</td>
+                        </tr>
+                        <tr>
+                            <td>Team</td>
+                            <td>$99/mo</td>
+                            <td>2M</td>
+                            <td>Early enterprise test</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mt-3"><strong>Phase 3 (Months 13-24): Capture Value</strong></p>
+                <p class="text-muted">Goal: Maximize revenue from proven segments</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Price</th>
+                            <th>Traces/Month</th>
+                            <th>Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Free</td>
+                            <td>$0</td>
+                            <td>50K</td>
+                            <td>Maintain for PLG</td>
+                        </tr>
+                        <tr>
+                            <td>Pro</td>
+                            <td>$79/mo + usage</td>
+                            <td>150K</td>
+                            <td>Price increase (proven value)</td>
+                        </tr>
+                        <tr>
+                            <td>Team</td>
+                            <td>$299/mo + usage</td>
+                            <td>750K</td>
+                            <td>Price increase</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise</td>
+                            <td>$50K-$300K/year</td>
+                            <td>Custom</td>
+                            <td>Multi-year deals</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Customer Success & Retention -->
+            <section id="customer-success">
+                <h2>Customer Success & Retention</h2>
+
+                <h3>4.1 Customer Lifecycle Management</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="label">Days 1-30</span>
+                        <h4>Onboarding Phase</h4>
+                        <p>Welcome email and quick start guides. Focus on getting first value (first trace sent).</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="label">Days 31-90</span>
+                        <h4>Adoption Phase</h4>
+                        <p>Feature discovery, team expansion, and usage growth. Trigger interventions for low usage.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="label">Days 91-180</span>
+                        <h4>Value Realization</h4>
+                        <p>QBRs for high-ACV customers. ROI documentation and success celebrations.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="label">Ongoing</span>
+                        <h4>Expansion & Renewal</h4>
+                        <p>Tier upgrades, seat expansion, and annual renewal negotiations.</p>
+                    </div>
+                </div>
+
+                <h3>4.2 Retention Playbooks</h3>
+                <p><strong>Playbook 1: At-Risk Customer (Usage Declining)</strong></p>
+                <p class="text-muted">Trigger: 50% usage decline over 4 weeks</p>
+                <pre>Week 1:
+- Automated: "We noticed usage is down - everything OK?"
+- If no response: CSM outreach
+
+Week 2:
+- CSM: Direct call or email
+- Goal: Understand blockers
+
+Week 3:
+- CSM: Offer training / consultation
+- Goal: Re-engagement plan
+
+Week 4:
+- CSM: Executive escalation if needed
+- Goal: Prevent churn</pre>
+
+                <p><strong>Playbook 2: Contract Renewal (60 Days Out)</strong></p>
+                <pre>Day -60: CSM schedules renewal discussion
+Day -45: Present renewal proposal with expansion recommendations
+Day -30: Negotiate terms, escalate for review
+Day -14: Close contract execution
+Day 0:  Renewal complete, celebrate success</pre>
+            </section>
+
+            <!-- Team & Organizational Plan -->
+            <section id="team-plan">
+                <h2>Team & Organizational Plan</h2>
+
+                <h3>5.1 Hiring Plan</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Q5</th>
+                            <th>Q6</th>
+                            <th>Q7</th>
+                            <th>Q8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Engineering</strong></td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>9</td>
+                            <td>11</td>
+                            <td>13</td>
+                            <td>16</td>
+                            <td>19</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Product</strong></td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Design</strong></td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing</strong></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sales</strong></td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CS/Support</strong></td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td><strong>G&A</strong></td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr style="background: var(--light-blue);">
+                            <td><strong>Total</strong></td>
+                            <td><strong>8</strong></td>
+                            <td><strong>14</strong></td>
+                            <td><strong>21</strong></td>
+                            <td><strong>28</strong></td>
+                            <td><strong>35</strong></td>
+                            <td><strong>44</strong></td>
+                            <td><strong>52</strong></td>
+                            <td><strong>62</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>5.2 Key Hires by Quarter</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Q1</h4>
+                        <p class="text-muted">Months 1-3</p>
+                        <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+                            <li>Senior Backend Engineer</li>
+                            <li>Developer Advocate</li>
+                            <li>Product Manager</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Q2</h4>
+                        <p class="text-muted">Months 4-6</p>
+                        <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+                            <li>Frontend Engineer</li>
+                            <li>Content Marketer</li>
+                            <li>SDR</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Q3</h4>
+                        <p class="text-muted">Months 7-9</p>
+                        <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+                            <li>ML Engineer</li>
+                            <li>Account Executive</li>
+                            <li>Customer Success Manager</li>
+                            <li>Designer</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Q4</h4>
+                        <p class="text-muted">Months 10-12</p>
+                        <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+                            <li>2x Engineers</li>
+                            <li>VP Sales</li>
+                            <li>2x Account Executives</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Plan -->
+            <section id="financial-plan">
+                <h2>Financial Plan</h2>
+
+                <h3>6.1 Funding Requirements</h3>
+                <p><strong>Seed Round (Month 1-3)</strong></p>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Target Raise</h4>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue); margin: 0.5rem 0;">$3M-$5M</div>
+                        <p class="text-muted">24-month runway</p>
+                    </div>
+                    <div class="card">
+                        <h4>Valuation</h4>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-teal); margin: 0.5rem 0;">$15M-$25M</div>
+                        <p class="text-muted">Pre-money</p>
+                    </div>
+                </div>
+
+                <p class="mt-3"><strong>Use of Funds ($4M raise):</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Percentage</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Engineering & Product</td>
+                            <td>50%</td>
+                            <td>$2.0M</td>
+                        </tr>
+                        <tr>
+                            <td>Go-to-Market</td>
+                            <td>30%</td>
+                            <td>$1.2M</td>
+                        </tr>
+                        <tr>
+                            <td>Infrastructure</td>
+                            <td>10%</td>
+                            <td>$400K</td>
+                        </tr>
+                        <tr>
+                            <td>G&A</td>
+                            <td>10%</td>
+                            <td>$400K</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mt-4"><strong>Series A (Month 20-24)</strong></p>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Target Raise</h4>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue); margin: 0.5rem 0;">$15M-$25M</div>
+                    </div>
+                    <div class="card">
+                        <h4>Valuation</h4>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-teal); margin: 0.5rem 0;">$70M-$120M</div>
+                        <p class="text-muted">Pre-money</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Series A Readiness Criteria:</strong>
+                    <ul style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                        <li>ARR: $5M+</li>
+                        <li>Growth: 200%+ YoY</li>
+                        <li>LTV:CAC: >5:1</li>
+                        <li>Payback: <12 months</li>
+                        <li>NRR: >120%</li>
+                        <li>Customer count: 300+</li>
+                    </ul>
+                </div>
+
+                <h3>6.2 Monthly Burn & Runway</h3>
+                <p><strong>Monthly Expenses (Month 12):</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Monthly</th>
+                            <th>% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Salaries & Benefits</td>
+                            <td>$280K</td>
+                            <td>62%</td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Infrastructure</td>
+                            <td>$45K</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing & Sales</td>
+                            <td>$65K</td>
+                            <td>14%</td>
+                        </tr>
+                        <tr>
+                            <td>Software & Tools</td>
+                            <td>$20K</td>
+                            <td>4%</td>
+                        </tr>
+                        <tr>
+                            <td>Office & Misc</td>
+                            <td>$25K</td>
+                            <td>6%</td>
+                        </tr>
+                        <tr>
+                            <td>Legal & Professional</td>
+                            <td>$15K</td>
+                            <td>4%</td>
+                        </tr>
+                        <tr style="background: var(--light-blue);">
+                            <td><strong>Total</strong></td>
+                            <td><strong>$450K</strong></td>
+                            <td><strong>100%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Milestones & OKRs -->
+            <section id="milestones">
+                <h2>Milestones & Success Metrics</h2>
+
+                <h3>7.1 Monthly Milestones</h3>
+                <p><strong>Year 1 Milestones:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>ARR Target</th>
+                            <th>Customers</th>
+                            <th>Key Milestone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>$15K</td>
+                            <td>10</td>
+                            <td>Beta launch, first 10 customers</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>$40K</td>
+                            <td>25</td>
+                            <td>Product Hunt launch</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>$283K</td>
+                            <td>120</td>
+                            <td>First sales hire productive</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>$648K</td>
+                            <td>210</td>
+                            <td>$500K ARR milestone</td>
+                        </tr>
+                        <tr style="background: var(--light-blue);">
+                            <td>12</td>
+                            <td><strong>$1.2M</strong></td>
+                            <td><strong>320</strong></td>
+                            <td><strong>$1M ARR achieved</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mt-3"><strong>Year 2 Milestones:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>ARR Target</th>
+                            <th>Customers</th>
+                            <th>Key Milestone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>14</td>
+                            <td>$1.6M</td>
+                            <td>340</td>
+                            <td>Sales team of 4</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>$2.9M</td>
+                            <td>380</td>
+                            <td>Series A process begins</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>$3.7M</td>
+                            <td>400</td>
+                            <td>Term sheets received</td>
+                        </tr>
+                        <tr style="background: var(--light-teal);">
+                            <td>24</td>
+                            <td><strong>$5.7M</strong></td>
+                            <td><strong>450</strong></td>
+                            <td><strong>Series A closed</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>7.2 OKRs by Quarter</h3>
+                <div class="okr-card">
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q1: Launch and Validate</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">Ship public beta with 100 active users</div>
+                            <div class="okr-kr">Achieve &lt;10 minute time to first trace</div>
+                            <div class="okr-kr">Collect 50 NPS responses (target: 40+ score)</div>
+                        </div>
+                    </div>
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q1: Build Content Engine</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">Publish 12 blog posts</div>
+                            <div class="okr-kr">Reach 10,000 monthly website visitors</div>
+                            <div class="okr-kr">Grow Twitter to 2,000 followers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="okr-card">
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q2: Scale Acquisition</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">2,000 monthly signups</div>
+                            <div class="okr-kr">50% signup-to-activation rate</div>
+                            <div class="okr-kr">5% free-to-paid conversion</div>
+                        </div>
+                    </div>
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q2: Prove Unit Economics</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">CAC &lt;$5,000 (self-serve)</div>
+                            <div class="okr-kr">LTV:CAC &gt;3:1</div>
+                            <div class="okr-kr">Payback period &lt;15 months</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="okr-card">
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q3: Build Sales Motion</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">Hire 2 AEs</div>
+                            <div class="okr-kr">Close 10 sales-assisted deals</div>
+                            <div class="okr-kr">Average ACV &gt;$25K for sales deals</div>
+                        </div>
+                    </div>
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q3: Expand Product</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">Launch prompt versioning</div>
+                            <div class="okr-kr">Launch hallucination detection (beta)</div>
+                            <div class="okr-kr">Achieve 15+ integrations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="okr-card">
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q4: Hit $1M ARR</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">$1.2M ARR</div>
+                            <div class="okr-kr">300+ customers</div>
+                            <div class="okr-kr">NRR >115%</div>
+                        </div>
+                    </div>
+                    <div class="okr-objective">
+                        <div class="okr-objective-title">Q4: Series A Ready</div>
+                        <div class="okr-krs">
+                            <div class="okr-kr">SOC2 Type II in progress</div>
+                            <div class="okr-kr">VP Sales hired and onboarded</div>
+                            <div class="okr-kr">Clear path to $5M ARR documented</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-4">7.3 Dashboard KPIs</h3>
+                <p><strong>Weekly Review:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Weekly signups</td>
+                            <td>+10% WoW</td>
+                        </tr>
+                        <tr>
+                            <td>Activation rate (% sent first trace in 7 days)</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td>New MRR</td>
+                            <td>+15% MoM</td>
+                        </tr>
+                        <tr>
+                            <td>Expansion MRR</td>
+                            <td>+10% MoM</td>
+                        </tr>
+                        <tr>
+                            <td>Churn MRR</td>
+                            <td>&lt;3% monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Pipeline created</td>
+                            <td>+20% WoW</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mt-3"><strong>Quarterly Review:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ARR</td>
+                            <td>Per projection</td>
+                        </tr>
+                        <tr>
+                            <td>NRR (Net Revenue Retention)</td>
+                            <td>&gt;120%</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Margin</td>
+                            <td>&gt;85%</td>
+                        </tr>
+                        <tr>
+                            <td>Rule of 40</td>
+                            <td>Growth Rate + Profit Margin &gt;100</td>
+                        </tr>
+                        <tr>
+                            <td>Runway</td>
+                            <td>&gt;12 months</td>
+                        </tr>
+                        <tr>
+                            <td>Employee count</td>
+                            <td>Per plan</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Risk Management -->
+            <section id="risk-management">
+                <h2>Risk Management</h2>
+
+                <h3>8.1 Key Risks & Mitigations</h3>
+                <div class="card-grid">
+                    <div class="card risk-card high-impact">
+                        <h4>Risk 1: Slow Product-Market Fit</h4>
+                        <p class="text-muted">Probability: Medium | Impact: High</p>
+                        <p><strong>Indicators:</strong> &lt;3% conversion, NPS &lt;30, high churn</p>
+                        <p><strong>Mitigation:</strong> Extensive customer development, rapid iteration</p>
+                    </div>
+                    <div class="card risk-card">
+                        <h4>Risk 2: Competitive Pressure</h4>
+                        <p class="text-muted">Probability: High | Impact: Medium</p>
+                        <p><strong>Indicators:</strong> Lost deals to competitors, pricing pressure</p>
+                        <p><strong>Mitigation:</strong> Developer experience moat, open standards</p>
+                    </div>
+                    <div class="card risk-card high-impact">
+                        <h4>Risk 3: Burn Rate Exceeds Plan</h4>
+                        <p class="text-muted">Probability: Medium | Impact: High</p>
+                        <p><strong>Indicators:</strong> Spending ahead of plan, runway &lt;12 months</p>
+                        <p><strong>Mitigation:</strong> Monthly finance reviews, scenario planning</p>
+                    </div>
+                    <div class="card risk-card">
+                        <h4>Risk 4: Key Hire Departures</h4>
+                        <p class="text-muted">Probability: Medium | Impact: Medium</p>
+                        <p><strong>Indicators:</strong> Regrettable attrition, engagement decline</p>
+                        <p><strong>Mitigation:</strong> Competitive comp, strong culture, equity refresh</p>
+                    </div>
+                    <div class="card risk-card low-impact">
+                        <h4>Risk 5: Market Timing (AI Winter)</h4>
+                        <p class="text-muted">Probability: Low | Impact: High</p>
+                        <p><strong>Indicators:</strong> Reduced AI investment, customer budget cuts</p>
+                        <p><strong>Mitigation:</strong> Focus on ROI (cost savings messaging)</p>
+                    </div>
+                </div>
+
+                <h3>8.2 Scenario Planning</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Upside Scenario</h4>
+                        <p class="text-muted">Things Go Very Well</p>
+                        <p><strong>Triggers:</strong></p>
+                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Viral content hits (10x traffic)</li>
+                            <li>Strategic partnership (major vendor)</li>
+                            <li>Key enterprise win (reference customer)</li>
+                        </ul>
+                        <p class="mt-2"><strong>Actions:</strong> Accelerate hiring, raise Series A early at higher valuation</p>
+                    </div>
+                    <div class="card">
+                        <h4>Base Scenario</h4>
+                        <p class="text-muted">Plan Execution</p>
+                        <p><strong>Execution:</strong></p>
+                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Hit monthly milestones</li>
+                            <li>Maintain runway targets</li>
+                            <li>Series A on schedule (Month 20-24)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Downside Scenario</h4>
+                        <p class="text-muted">Significant Challenges</p>
+                        <p><strong>Triggers:</strong></p>
+                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>&lt;50% of ARR target by Month 9</li>
+                            <li>CAC >2x target</li>
+                            <li>Key team departures</li>
+                        </ul>
+                        <p class="mt-2"><strong>Actions:</strong> Reduce burn, narrow focus, seek bridge financing</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 90-Day Action Plan -->
+            <section id="action-plan">
+                <h2>90-Day Action Plan</h2>
+
+                <h3>Month 1: Foundation</h3>
+                <p><strong>Week 1-2:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Finalize core product for beta</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Set up analytics (Amplitude/Posthog)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task3">
+                        <label for="task3">Create onboarding flow</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task4">
+                        <label for="task4">Write documentation</label>
+                    </div>
+                </div>
+
+                <p><strong>Week 3-4:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task5">
+                        <label for="task5">Launch private beta (25 users)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task6">
+                        <label for="task6">Gather feedback daily</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task7">
+                        <label for="task7">Iterate on activation flow</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task8">
+                        <label for="task8">Start content engine (first 4 blog posts)</label>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Month 1 Targets:</strong>
+                    <ul style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                        <li>50 beta users</li>
+                        <li>30% activation rate</li>
+                        <li>NPS responses collected</li>
+                        <li>5,000 website visitors</li>
+                    </ul>
+                </div>
+
+                <h3>Month 2: Validation</h3>
+                <p><strong>Week 1-2:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task9">
+                        <label for="task9">Implement feedback from beta</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task10">
+                        <label for="task10">Prepare for Product Hunt launch</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task11">
+                        <label for="task11">Build social presence (Twitter, LinkedIn)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task12">
+                        <label for="task12">Line up first 3 paying customers</label>
+                    </div>
+                </div>
+
+                <p><strong>Week 3-4:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task13">
+                        <label for="task13">Product Hunt launch</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task14">
+                        <label for="task14">HackerNews "Show HN" post</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task15">
+                        <label for="task15">First paying customers onboarded</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task16">
+                        <label for="task16">Validate pricing with real transactions</label>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Month 2 Targets:</strong>
+                    <ul style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                        <li>200 signups</li>
+                        <li>10 paying customers</li>
+                        <li>Product Hunt top 5</li>
+                        <li>$30K ARR</li>
+                    </ul>
+                </div>
+
+                <h3>Month 3: Scale Preparation</h3>
+                <p><strong>Week 1-2:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task17">
+                        <label for="task17">Analyze conversion data</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task18">
+                        <label for="task18">Optimize onboarding (target: 50% activation)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task19">
+                        <label for="task19">Publish "State of AI Observability" content</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task20">
+                        <label for="task20">First sales hire started</label>
+                    </div>
+                </div>
+
+                <p><strong>Week 3-4:</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task21">
+                        <label for="task21">Public launch (open registration)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task22">
+                        <label for="task22">Launch referral program</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task23">
+                        <label for="task23">First conference appearance</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task24">
+                        <label for="task24">Series A investor outreach begins</label>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Month 3 Targets:</strong>
+                    <ul style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                        <li>500 signups</li>
+                        <li>50 paying customers</li>
+                        <li>$80K ARR</li>
+                        <li>5% conversion rate</li>
+                        <li>Investor pipeline: 20 funds contacted</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section class="border-accent">
+                <p class="text-center text-muted">
+                    <strong>Growth Plan Document Complete</strong><br>
+                    Document Version 1.0 | Date: November 30, 2025<br>
+                    Next Review: Monthly
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Update active link
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Update active navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Checklist persistence
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const key = 'checklist_' + checkbox.id;
+            if (localStorage.getItem(key)) {
+                checkbox.checked = true;
+            }
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    localStorage.setItem(key, 'true');
+                } else {
+                    localStorage.removeItem(key);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

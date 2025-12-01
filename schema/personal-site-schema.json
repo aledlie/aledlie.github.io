@@ -1,0 +1,279 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.aledlie.com#person",
+      "name": "Alyshia Ledlie",
+      "alternateName": [
+        "Alyshia",
+        "Alyshia"
+      ],
+      "url": "https://www.aledlie.com/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.aledlie.com/images/profile.jpg",
+        "width": 400,
+        "height": 400
+      },
+      "description": "I write code, make aggressively mediocre jokes, and scale companies.",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "ATX"
+      },
+      "jobTitle": [
+        "Software Developer",
+        "Technology Consultant",
+        "Writer"
+      ],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Software Developer",
+          "occupationCategory": "Computer and Mathematical Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technology Consultant",
+          "occupationCategory": "Management Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technical Writer",
+          "occupationCategory": "Arts, Design, Entertainment, Sports, and Media Occupations"
+        }
+      ],
+      "worksFor": [
+        {
+          "@id": "https://www.aledlie.com/organizations/integrity-studios#organization"
+        },
+        {
+          "@id": "https://www.aledlie.com/organizations/inventoryai#organization"
+        }
+      ],
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technology Consulting",
+        "Business Automation",
+        "Technical Writing",
+        "Open Source Software"
+      ],
+      "sameAs": [
+        "mailto:alyshia@inventoryai.io",
+        "https://github.com/aledlie",
+        "https://integritystudio.ai",
+        "https://amazing-froyo-8f05e0.netlify.app/"
+      ],
+      "owns": {
+        "@id": "https://www.aledlie.com#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.aledlie.com/about#profilepage"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "professional",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.aledlie.com#website",
+      "url": "https://www.aledlie.com/",
+      "name": "\u2135\u2080",
+      "alternateName": "Alyshia Ledlie's Personal Blog",
+      "description": "An archive for midnight rambles.",
+      "inLanguage": "en_US",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "copyrightHolder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "copyrightYear": "2025",
+      "dateModified": "2025-11-29T22:29:15-05:00",
+      "mainEntity": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "hasPart": [
+        {
+          "@id": "https://www.aledlie.com#blog"
+        },
+        {
+          "@id": "https://www.aledlie.com/about#profilepage"
+        },
+        {
+          "@id": "https://www.aledlie.com/projects#collectionpage"
+        }
+      ],
+      "about": [
+        "Software Development",
+        "Technology Consulting",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing",
+        "Business Automation"
+      ],
+      "keywords": "software development, technology, machine learning, AI, consulting, technical writing, automation",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.aledlie.com/search/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
+        {
+          "@type": "ReadAction",
+          "target": "https://www.aledlie.com/posts/",
+          "name": "Read Blog Posts"
+        },
+        {
+          "@type": "ViewAction",
+          "target": "https://www.aledlie.com/projects/",
+          "name": "View Projects"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://www.aledlie.com#blog",
+      "url": "https://www.aledlie.com/",
+      "name": "\u2135\u2080 - Blog",
+      "description": "An archive for midnight rambles.",
+      "inLanguage": "en_US",
+      "author": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "publisher": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "isPartOf": {
+        "@id": "https://www.aledlie.com#website"
+      },
+      "about": [
+        "Software Development",
+        "Technology",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing"
+      ],
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://www.aledlie.com/web%20development/seo/schema.org/schema-org-rabbit-hole/#blogposting",
+          "headline": "That Time I Remembered IDs are important",
+          "datePublished": "2025-11-11T00:00:00-05:00",
+          "author": {
+            "@id": "https://www.aledlie.com#person"
+          },
+          "publisher": {
+            "@id": "https://www.aledlie.com#person"
+          }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://www.aledlie.com/What3Things/#blogposting",
+          "headline": "What 3 Things",
+          "datePublished": "2025-09-03T00:00:00-05:00",
+          "author": {
+            "@id": "https://www.aledlie.com#person"
+          },
+          "publisher": {
+            "@id": "https://www.aledlie.com#person"
+          }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://www.aledlie.com/technology/site%20performance/wix/memory%20leaks/benchmarking/analytics/testing/WixPerformanceImprovement/#blogposting",
+          "headline": "Making your Wix website ~75% better, instantly",
+          "datePublished": "2025-09-02T00:00:00-05:00",
+          "author": {
+            "@id": "https://www.aledlie.com#person"
+          },
+          "publisher": {
+            "@id": "https://www.aledlie.com#person"
+          }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://www.aledlie.com/jekyll/web%20development/updating-jekyll-in-2025/#blogposting",
+          "headline": "Updating a jekyll page after 8 years",
+          "datePublished": "2025-07-02T00:00:00-05:00",
+          "author": {
+            "@id": "https://www.aledlie.com#person"
+          },
+          "publisher": {
+            "@id": "https://www.aledlie.com#person"
+          }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://www.aledlie.com/jekyll/update/my-first-jekyll-post/#blogposting",
+          "headline": "How to Write Posts With Redcarpet",
+          "datePublished": "2017-05-14T13:23:43-05:00",
+          "author": {
+            "@id": "https://www.aledlie.com#person"
+          },
+          "publisher": {
+            "@id": "https://www.aledlie.com#person"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.aledlie.com/organizations/integrity-studios#organization",
+      "name": "Integrity Studios",
+      "url": "https://integritystudio.notion.site",
+      "sameAs": "https://integritystudio.notion.site",
+      "description": "Technology consulting and development studio",
+      "foundingDate": "2020",
+      "founder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "employee": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "industry": "Technology Consulting",
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Technology Consulting",
+        "Digital Transformation"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.aledlie.com/organizations/inventoryai#organization",
+      "name": "InventoryAI.io",
+      "url": "https://amazing-froyo-8f05e0.netlify.app/",
+      "sameAs": "https://amazing-froyo-8f05e0.netlify.app/",
+      "description": "AI-powered inventory management solutions",
+      "foundingDate": "2023",
+      "founder": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "employee": {
+        "@id": "https://www.aledlie.com#person"
+      },
+      "industry": "Artificial Intelligence",
+      "applicationCategory": "Business Software",
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Inventory Management",
+        "Machine Learning",
+        "Business Automation",
+        "Supply Chain"
+      ]
+    }
+  ]
+}

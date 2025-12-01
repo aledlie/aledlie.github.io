@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Observability Market Analysis & Business Metrics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --primary-lighter: #334155;
+            --accent: #06b6d4;
+            --accent-dark: #0891b2;
+            --accent-light: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #f8fafc;
+            --bg-lighter: #f1f5f9;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --border-dark: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Sticky Navigation */
+        .sidebar-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-nav h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-light);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-nav h3:first-child {
+            margin-top: 0;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0.75rem;
+            display: block;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: var(--accent-light);
+            background-color: rgba(34, 211, 238, 0.1);
+            border-left-color: var(--accent);
+        }
+
+        .sidebar-nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-nav .logo span {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 12px;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            margin-left: 280px;
+            padding: 3rem;
+            max-width: 1200px;
+            margin-right: auto;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .metadata {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .metadata-value {
+            color: var(--text-muted);
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(34, 211, 238, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .executive-summary h2 {
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .executive-summary p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .metric-card .label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .metric-card .suffix {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.375rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-light);
+        }
+
+        h4 {
+            font-size: 1.125rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        thead {
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--bg-lighter);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(6, 182, 212, 0.05);
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--primary);
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            border: 1px solid var(--border-dark);
+        }
+
+        code {
+            font-family: 'Source Code Pro', monospace;
+            background: var(--bg-lighter);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            color: var(--accent-dark);
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-dark);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.375rem;
+            border: 1px solid var(--border);
+        }
+
+        .callout.success {
+            border-left-color: var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .callout.warning {
+            border-left-color: var(--warning);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .callout.danger {
+            border-left-color: var(--danger);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .callout strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Dashboard Cards */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-metric {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .card.accent {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            color: white;
+            border: none;
+        }
+
+        .card.accent .card-title {
+            color: var(--accent-light);
+        }
+
+        .card.accent .card-metric {
+            color: var(--accent-light);
+        }
+
+        .card.accent .card-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Charts/Visualization */
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .chart-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Bar chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 300px;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 0.375rem 0.375rem 0 0;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: white;
+            font-weight: 600;
+            padding-top: 0.75rem;
+        }
+
+        .bar:hover {
+            filter: brightness(1.1);
+            transform: translateY(-4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                width: 250px;
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                margin-left: 250px;
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .dashboard,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+
+            .metadata {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .sidebar-nav {
+                position: fixed;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                width: 100%;
+                max-width: 250px;
+                z-index: 2000;
+            }
+
+            .sidebar-nav.active {
+                transform: translateX(0);
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1.125rem;
+            }
+
+            pre {
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+
+            .bar-chart {
+                height: 200px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .container {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            table, pre {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--accent-dark);
+                text-decoration: none;
+            }
+
+            .card, .callout {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(6, 182, 212, 0.2), rgba(34, 211, 238, 0.2));
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        strong {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        /* Checkmark styling */
+        .check {
+            color: var(--success);
+        }
+
+        /* Stage badges */
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.5rem;
+        }
+
+        .badge-primary {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-dark);
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav">
+        <div class="logo">
+            <span>AI</span> ObserveMetrics
+        </div>
+
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#market-size">Market Analysis</a></li>
+            <li><a href="#unit-economics">Unit Economics</a></li>
+            <li><a href="#growth">Growth Benchmarks</a></li>
+            <li><a href="#funding">Funding Strategy</a></li>
+            <li><a href="#revenue">Revenue Models</a></li>
+            <li><a href="#recommendations">Recommendations</a></li>
+            <li><a href="#appendix">Appendix</a></li>
+        </ul>
+
+        <h3>Key Metrics</h3>
+        <ul>
+            <li><a href="#tam">TAM Analysis</a></li>
+            <li><a href="#ltv-cac">LTV:CAC Ratios</a></li>
+            <li><a href="#nrr">Net Revenue Retention</a></li>
+            <li><a href="#payback">Payback Period</a></li>
+        </ul>
+
+        <h3>Funding Stages</h3>
+        <ul>
+            <li><a href="#seed">Seed Stage</a></li>
+            <li><a href="#series-a">Series A</a></li>
+            <li><a href="#series-b">Series B</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header" id="overview">
+            <h1>AI Observability Market Analysis & Business Metrics</h1>
+            <p>Comprehensive Strategic Report for Early-Stage Companies</p>
+            <div class="metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Report Date:</span>
+                    <span class="metadata-value">November 30, 2025</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Industry:</span>
+                    <span class="metadata-value">AI/ML Observability & Monitoring</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Stage Focus:</span>
+                    <span class="metadata-value">Seed to Series B</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>The AI Observability market represents a high-growth opportunity within the broader $50B+ application performance monitoring (APM) and observability space. With AI/ML adoption accelerating across enterprises, the need for specialized monitoring, debugging, and optimization tools creates a <strong>$3-5B addressable market by 2027, growing at 45-60% CAGR.</strong></p>
+
+            <h3>Key Investment Thesis Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="label">Target LTV:CAC</div>
+                    <div class="value">4-6<span class="suffix">:1</span></div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem;">Best-in-class: >6:1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Payback Period</div>
+                    <div class="value">12-18<span class="suffix">mo</span></div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem;">Target <12 months</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Net Revenue Retention</div>
+                    <div class="value">120-140<span class="suffix">%</span></div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem;">Target >130%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Free-to-Paid Conversion</div>
+                    <div class="value">3-8<span class="suffix">%</span></div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem;">PLG motion</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">ARR Growth Rate</div>
+                    <div class="value">200-300<span class="suffix">%</span></div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem;">Seed/early Series A</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Market Size Analysis -->
+        <section id="market-size">
+            <h2>Market Size Analysis</h2>
+
+            <h3 id="tam">Total Addressable Market (TAM)</h3>
+            <div class="dashboard">
+                <div class="card accent">
+                    <div class="card-title">Conservative TAM</div>
+                    <div class="card-metric">$4.8B</div>
+                    <div class="card-description">by 2027</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Market Growth</div>
+                    <div class="card-metric">45-60%</div>
+                    <div class="card-description">CAGR 2025-2027</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Production ML Models</div>
+                    <div class="card-metric">45K</div>
+                    <div class="card-description">Deployed globally</div>
+                </div>
+            </div>
+
+            <h4>Market Sizing Methodology: Bottom-Up</h4>
+            <p><strong>Component 1: Enterprise AI/ML Teams</strong></p>
+            <ul>
+                <li><strong>Number of companies deploying production ML models:</strong> ~45,000 globally
+                    <ul>
+                        <li>Fortune 2000: 1,800 companies (90% AI adoption)</li>
+                        <li>Mid-market tech companies (500-5000 employees): 8,000 companies</li>
+                        <li>High-growth startups with ML in production: 35,000 companies</li>
+                    </ul>
+                </li>
+                <li><strong>Average spend per company on AI observability:</strong>
+                    <ul>
+                        <li>Enterprise (>5000 employees): $180,000/year</li>
+                        <li>Mid-market (500-5000 employees): $45,000/year</li>
+                        <li>Growth stage (<500 employees): $18,000/year</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>Calculation:</strong></p>
+            <pre>TAM = (1,800 × $180K) + (8,000 × $45K) + (35,000 × $18K)
+    = $324M + $360M + $630M
+    = $1.314B (2025 baseline)
+
+Projected 2027 TAM with 45% CAGR:
+    = $1.314B × 1.45 × 1.45
+    = $2.76B</pre>
+
+            <p><strong>Component 2: Traditional APM Market Share Capture</strong></p>
+            <ul>
+                <li>Traditional APM/Observability market: $8.5B (2025)</li>
+                <li>AI-specific observability as specialized category: 15-20% of APM spend</li>
+                <li>Addressable: $1.28B - $1.7B</li>
+            </ul>
+
+            <p><strong>Component 3: Adjacent Markets</strong></p>
+            <ul>
+                <li>MLOps platform market: $4B (2025)</li>
+                <li>Model governance/compliance: $800M</li>
+                <li>AI cost optimization: $600M</li>
+                <li>Overlap-adjusted AI observability share: 8-12% = $432M - $648M</li>
+            </ul>
+
+            <div class="callout success">
+                <strong>Consolidated TAM (2027): $4.2B - $5.4B</strong>
+                <p>Conservative estimate: <span class="highlight">$4.8B</span></p>
+            </div>
+
+            <h3>Serviceable Addressable Market (SAM)</h3>
+            <div class="dashboard">
+                <div class="card accent">
+                    <div class="card-title">Target SAM 2027</div>
+                    <div class="card-metric">$2.0B</div>
+                    <div class="card-description">$1.8B - $2.2B range</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Geographic Coverage</div>
+                    <div class="card-metric">65-75%</div>
+                    <div class="card-description">of global AI spending</div>
+                </div>
+            </div>
+
+            <p><strong>Geographic Focus:</strong> North America + Western Europe + APAC tech hubs</p>
+            <ul>
+                <li>Represents 65-75% of global enterprise AI spending</li>
+                <li>SAM = TAM × 0.45 (geographic + go-to-market constraints)</li>
+            </ul>
+
+            <h4>Segment Prioritization</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Priority Level</th>
+                        <th>Segment</th>
+                        <th>Share of SAM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-primary">Core Target</span></td>
+                        <td>ML infrastructure teams at tech companies</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">Secondary</span></td>
+                        <td>Financial services, healthcare AI teams</td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-primary">Tertiary</span></td>
+                        <td>Retail, manufacturing AI initiatives</td>
+                        <td>30%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Serviceable Obtainable Market (SOM)</h3>
+            <p><strong>Market Share Projections by Stage</strong></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Timeframe</th>
+                        <th>Target Share</th>
+                        <th>SOM (ARR)</th>
+                        <th>Customer Base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-success">Seed</span></td>
+                        <td>Year 1-2</td>
+                        <td>0.3-0.5%</td>
+                        <td><strong>$8M - $12M</strong></td>
+                        <td>50-80 customers</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-success">Series A</span></td>
+                        <td>Year 3-4</td>
+                        <td>1.5-2.5%</td>
+                        <td><strong>$30M - $50M</strong></td>
+                        <td>200-350 customers</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-success">Series B</span></td>
+                        <td>Year 5-6</td>
+                        <td>4-7%</td>
+                        <td><strong>$80M - $140M</strong></td>
+                        <td>500-800 customers</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <strong>Competitive Landscape Context:</strong>
+                <ul>
+                    <li>Market leader target share: 15-25% (e.g., Datadog in APM)</li>
+                    <li>Top 3 players: Combined 45-60% share</li>
+                    <li>Fragmentation window: 2025-2028 (consolidation starts 2029+)</li>
+                </ul>
+            </div>
+
+            <h3>Growth Rate Projections</h3>
+            <p><strong>Market Growth Drivers:</strong></p>
+            <ol>
+                <li><strong>AI Model Production Deployment:</strong> 55% CAGR (2025-2028)
+                    <ul>
+                        <li>Generative AI adoption: 80% of enterprises by 2027</li>
+                        <li>Real-time inference monitoring needs</li>
+                    </ul>
+                </li>
+                <li><strong>Regulatory Compliance:</strong> EU AI Act, US executive orders
+                    <ul>
+                        <li>Model auditability requirements</li>
+                        <li>Bias detection and monitoring mandates</li>
+                    </ul>
+                </li>
+                <li><strong>AI Cost Explosion:</strong> Average enterprise AI spend $5M → $25M (2025-2027)
+                    <ul>
+                        <li>LLM inference costs: $0.50 - $2.00 per 1M tokens</li>
+                        <li>Cost optimization ROI: 10-30% savings</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Market Segment</th>
+                        <th>CAGR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LLM/Generative AI observability</td>
+                        <td><strong>65-80%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Traditional ML model monitoring</td>
+                        <td><strong>35-45%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>AI data quality/drift detection</td>
+                        <td><strong>40-50%</strong></td>
+                    </tr>
+                    <tr style="background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent);">
+                        <td><strong>Overall blended</strong></td>
+                        <td><strong style="color: var(--accent-dark);">45-60% CAGR</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 2. Unit Economics -->
+        <section id="unit-economics">
+            <h2>Unit Economics Analysis</h2>
+
+            <h3>Customer Acquisition Cost (CAC)</h3>
+
+            <h4>Product-Led Growth (PLG) Motion</h4>
+            <pre>Marketing Spend Breakdown (Monthly):
+├── Content marketing: $15,000
+├── Developer community: $8,000
+├── Conference/events: $12,000
+├── Paid acquisition (Google, LinkedIn): $25,000
+├── Tools/infrastructure: $5,000
+└── Total monthly: $65,000
+
+Conversion Funnel:
+├── Free users/month: 400 signups
+├── Activated users (run first trace): 200 (50% activation)
+├── Active for 30 days: 80 (40% retention)
+├── Convert to paid: 4 customers (5% conversion)
+└── Blended CAC = $65,000 / 4 = $16,250</pre>
+
+            <h4>Sales-Assisted Motion (Enterprise)</h4>
+            <pre>Sales & Marketing Spend:
+├── AE compensation (3 AEs × $180K OTE): $45,000/month
+├── SDR team (2 SDRs × $80K OTE): $13,300/month
+├── Marketing (events, content, ads): $35,000/month
+├── Sales ops/tools: $8,000/month
+└── Total monthly: $101,300
+
+Pipeline Metrics:
+├── SQLs per month: 25
+├── Opportunity conversion: 40% → 10 opps
+├── Close rate: 30% → 3 customers/month
+└── Enterprise CAC = $101,300 / 3 = $33,767</pre>
+
+            <h4>Hybrid Model Benchmarks</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer Segment</th>
+                        <th>CAC Range</th>
+                        <th>Target CAC</th>
+                        <th>Acquisition Motion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Self-serve (<$10K ACV)</td>
+                        <td>$3K - $8K</td>
+                        <td>$5,000</td>
+                        <td>PLG, automated onboarding</td>
+                    </tr>
+                    <tr>
+                        <td>SMB ($10K-$50K ACV)</td>
+                        <td>$8K - $18K</td>
+                        <td>$12,000</td>
+                        <td>PLG + inside sales assist</td>
+                    </tr>
+                    <tr>
+                        <td>Mid-market ($50K-$150K ACV)</td>
+                        <td>$18K - $35K</td>
+                        <td>$25,000</td>
+                        <td>Sales-led, solutions engineer</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise (>$150K ACV)</td>
+                        <td>$35K - $80K</td>
+                        <td>$50,000</td>
+                        <td>Field sales, multi-threading</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <strong>Industry Benchmarks (B2B DevTools/Infrastructure):</strong>
+                <ul>
+                    <li>Median CAC: 1.2 - 1.5× first-year ACV (healthy range)</li>
+                    <li>Best-in-class: 0.8 - 1.0× first-year ACV</li>
+                    <li>Red flag: >2.0× first-year ACV</li>
+                </ul>
+            </div>
+
+            <h3 id="ltv-cac">Lifetime Value (LTV) & LTV:CAC Ratios</h3>
+
+            <p><strong>LTV Calculation Framework:</strong></p>
+            <pre>LTV = (ARPU × Gross Margin) / Churn Rate
+
+Where:
+├── ARPU = Average Revenue Per User (monthly or annual)
+├── Gross Margin = (Revenue - COGS) / Revenue
+└── Churn Rate = Monthly customer churn % (or 1/lifetime months)</pre>
+
+            <h4>Segment-Specific LTV Analysis</h4>
+
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card-title">Self-Serve LTV</div>
+                    <div class="card-metric">$17K</div>
+                    <div class="card-description">ACV: $8,400 | Margin: 85%</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">SMB LTV</div>
+                    <div class="card-metric">$92K</div>
+                    <div class="card-description">ACV: $28,000 | Margin: 87%</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Mid-Market LTV</div>
+                    <div class="card-metric">$476K</div>
+                    <div class="card-description">ACV: $85,000 | Margin: 88%</div>
+                </div>
+                <div class="card accent">
+                    <div class="card-title">Enterprise LTV</div>
+                    <div class="card-metric">$2.6M</div>
+                    <div class="card-description">ACV: $220,000 | Margin: 90%</div>
+                </div>
+            </div>
+
+            <p><strong>Detailed Segment Calculations:</strong></p>
+            <pre>1. Self-Serve Segment
+├── Average ACV: $8,400 ($700/month)
+├── Gross margin: 85% (low touch, infrastructure costs only)
+├── Monthly churn: 3.5%
+├── Average customer lifetime: 28.6 months
+└── LTV = ($700 × 0.85) / 0.035 = $17,000
+
+2. SMB Segment
+├── Average ACV: $28,000 ($2,333/month)
+├── Gross margin: 87%
+├── Monthly churn: 2.2%
+├── Average customer lifetime: 45.5 months
+└── LTV = ($2,333 × 0.87) / 0.022 = $92,227
+
+3. Mid-Market Segment
+├── Average ACV: $85,000 ($7,083/month)
+├── Gross margin: 88%
+├── Monthly churn: 1.5%
+├── Average customer lifetime: 66.7 months
+├── Expansion revenue: 15% annual upsell
+└── LTV = ($7,083 × 0.88) / 0.015 × 1.15 = $475,858
+
+4. Enterprise Segment
+├── Average ACV: $220,000 ($18,333/month)
+├── Gross margin: 90% (economies of scale)
+├── Monthly churn: 0.8%
+├── Average customer lifetime: 125 months (10.4 years)
+├── Expansion revenue: 25% annual upsell
+└── LTV = ($18,333 × 0.90) / 0.008 × 1.25 = $2,578,078</pre>
+
+            <h4>LTV:CAC Ratio Performance</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>LTV</th>
+                        <th>CAC</th>
+                        <th>LTV:CAC Ratio</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Self-Serve</td>
+                        <td>$17,000</td>
+                        <td>$5,000</td>
+                        <td><strong>3.4:1</strong></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>SMB</td>
+                        <td>$92,227</td>
+                        <td>$12,000</td>
+                        <td><strong>7.7:1</strong></td>
+                        <td><span class="check">✓✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mid-Market</td>
+                        <td>$475,858</td>
+                        <td>$25,000</td>
+                        <td><strong>19:1</strong></td>
+                        <td><span class="check">✓✓✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td>$2,578,078</td>
+                        <td>$50,000</td>
+                        <td><strong>51.6:1</strong></td>
+                        <td><span class="check">✓✓✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout success">
+                <strong>Strategic Implications:</strong>
+                <ul>
+                    <li><strong>Seed stage:</strong> Focus on SMB segment (7.7:1 ratio, faster close)</li>
+                    <li><strong>Series A:</strong> Layer in mid-market motion (high LTV, scalable)</li>
+                    <li><strong>Series B:</strong> Build enterprise capability (maximum LTV, brand building)</li>
+                </ul>
+            </div>
+
+            <h3 id="payback">Payback Period</h3>
+            <p><strong>Calculation:</strong></p>
+            <pre>Payback Period (months) = CAC / (ARPU × Gross Margin)</pre>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>CAC</th>
+                        <th>Monthly ARPU</th>
+                        <th>Gross Margin</th>
+                        <th>Payback Period</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Self-serve</td>
+                        <td>$5,000</td>
+                        <td>$700</td>
+                        <td>85%</td>
+                        <td>8.4 months</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>SMB</td>
+                        <td>$12,000</td>
+                        <td>$2,333</td>
+                        <td>87%</td>
+                        <td>5.9 months</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mid-market</td>
+                        <td>$25,000</td>
+                        <td>$7,083</td>
+                        <td>88%</td>
+                        <td>4.0 months</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td>$50,000</td>
+                        <td>$18,333</td>
+                        <td>90%</td>
+                        <td>3.0 months</td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <strong>Industry Benchmarks:</strong>
+                <ul>
+                    <li><strong>World-class:</strong> <6 months (rare, indicates PLG efficiency)</li>
+                    <li><strong>Excellent:</strong> 6-12 months (VC-fundable, capital efficient)</li>
+                    <li><strong>Acceptable:</strong> 12-18 months (growth-stage norm)</li>
+                    <li><strong>Warning:</strong> 18-24 months (requires strong NRR)</li>
+                    <li><strong>Red flag:</strong> >24 months (unsustainable)</li>
+                </ul>
+            </div>
+
+            <h3>Gross Margin Economics</h3>
+            <pre>Revenue: $100,000 MRR
+├── Cloud infrastructure (AWS/GCP): $8,000 (8%)
+│   ├── Data ingestion/storage: $4,500
+│   ├── Compute (analysis pipelines): $2,200
+│   └── Data egress: $1,300
+├── Third-party APIs/tools: $2,000 (2%)
+├── Customer success (allocated): $3,500 (3.5%)
+└── COGS total: $13,500
+
+Gross Margin = ($100K - $13.5K) / $100K = 86.5%</pre>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Target Gross Margin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Seed</td>
+                        <td>70-80% (acceptable, still optimizing infrastructure)</td>
+                    </tr>
+                    <tr>
+                        <td>Series A</td>
+                        <td>80-85% (improving efficiency, economies of scale)</td>
+                    </tr>
+                    <tr>
+                        <td>Series B+</td>
+                        <td>85-90% (mature cost structure, target 88%+)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3. Growth Benchmarks -->
+        <section id="growth">
+            <h2>Growth Benchmarks</h2>
+
+            <h3>ARR Growth Rate Targets</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>ARR Range</th>
+                        <th>Target YoY Growth</th>
+                        <th>Exceptional Growth</th>
+                        <th>Minimum Viable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Seed</td>
+                        <td>$0-$2M</td>
+                        <td><strong>300-500%</strong></td>
+                        <td>>500%</td>
+                        <td>200%</td>
+                    </tr>
+                    <tr>
+                        <td>Series A</td>
+                        <td>$2M-$10M</td>
+                        <td><strong>200-300%</strong></td>
+                        <td>>350%</td>
+                        <td>150%</td>
+                    </tr>
+                    <tr>
+                        <td>Series B</td>
+                        <td>$10M-$30M</td>
+                        <td><strong>150-200%</strong></td>
+                        <td>>250%</td>
+                        <td>120%</td>
+                    </tr>
+                    <tr>
+                        <td>Series C</td>
+                        <td>$30M-$75M</td>
+                        <td><strong>100-150%</strong></td>
+                        <td>>180%</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Series D+</td>
+                        <td>$75M+</td>
+                        <td><strong>70-100%</strong></td>
+                        <td>>120%</td>
+                        <td>50%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout success">
+                <strong>AI Observability Specific (2025-2027 market timing):</strong>
+                <p>Add 20-30% premium to benchmarks due to market tailwinds</p>
+                <p><strong>Example:</strong> Series A company target = 220-330% growth (vs. 200-300% baseline)</p>
+            </div>
+
+            <h3 id="nrr">Net Revenue Retention (NRR)</h3>
+
+            <p><strong>Definition:</strong></p>
+            <pre>NRR = (Starting ARR + Expansion - Contraction - Churn) / Starting ARR × 100%
+
+Where:
+├── Expansion: Upsells, cross-sells, usage growth
+├── Contraction: Downgrades, seat reductions
+└── Churn: Customer cancellations</pre>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company Stage</th>
+                        <th>Minimum NRR</th>
+                        <th>Target NRR</th>
+                        <th>Best-in-Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Seed/Early A</td>
+                        <td>100%</td>
+                        <td>110%</td>
+                        <td>120%</td>
+                    </tr>
+                    <tr>
+                        <td>Series A/B</td>
+                        <td>110%</td>
+                        <td>120%</td>
+                        <td>130%</td>
+                    </tr>
+                    <tr>
+                        <td>Series C+</td>
+                        <td>120%</td>
+                        <td>130%</td>
+                        <td>140%+</td>
+                    </tr>
+                    <tr>
+                        <td>Public SaaS</td>
+                        <td>115%</td>
+                        <td>125%</td>
+                        <td>135%+ (Datadog: 130%)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>AI Observability NRR Drivers</h4>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">Usage-Based Expansion</div>
+                    <div class="card-metric">287%</div>
+                    <div class="card-description">Annual expansion from usage growth alone</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Feature Tier Upsells</div>
+                    <div class="card-metric">25-30%</div>
+                    <div class="card-description">of total expansion revenue</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Multi-Product Attach</div>
+                    <div class="card-metric">20-25%</div>
+                    <div class="card-description">of total expansion revenue</div>
+                </div>
+                <div class="card accent">
+                    <div class="card-title">Target Blended NRR</div>
+                    <div class="card-metric">120-130%</div>
+                    <div class="card-description">across all segments</div>
+                </div>
+            </div>
+
+            <h4>Target NRR by Segment</h4>
+            <pre>Self-serve: 105-110% (limited expansion, higher churn)
+SMB: 115-120% (usage growth, moderate expansion)
+Mid-market: 125-135% (strong expansion, stable)
+Enterprise: 130-150% (multi-product, land & expand)
+
+Blended: 120-130% (healthy mix)</pre>
+
+            <div class="callout warning">
+                <strong>Red Flags:</strong>
+                <ul>
+                    <li>NRR <100%: Revenue shrinking from existing customers</li>
+                    <li>NRR 100-105%: Weak product-market fit or pricing issues</li>
+                    <li>Gross churn >15% annually: Customer success problems</li>
+                </ul>
+            </div>
+
+            <h3>PLG Conversion Metrics</h3>
+            <pre>Stage 1: Website Visitor → Free Signup
+├── Industry median: 2-3%
+├── Best-in-class: 5-8%
+└── AI observability target: 3.5% (technical audience, high intent)
+
+Stage 2: Signup → Activation (first value event)
+├── Industry median: 30-40%
+├── Best-in-class: 60-70%
+└── Target: 50% (complete SDK integration, first trace sent)
+
+Stage 3: Activation → Weekly Active User (WAU)
+├── Industry median: 35-45%
+├── Best-in-class: 60-75%
+└── Target: 55% (using product 3+ times/week)
+
+Stage 4: WAU → Paid Conversion
+├── Industry median: 3-5%
+├── Best-in-class: 8-12%
+└── Target: 5-7% (usage-based pricing trigger)
+
+Overall Visitor → Paid Conversion:
+= 3.5% × 50% × 55% × 6%
+= 0.058% (58 per 100,000 visitors)</pre>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Median</th>
+                        <th>Target</th>
+                        <th>Best-in-Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Signup → Activation</td>
+                        <td>7 days</td>
+                        <td>3 days</td>
+                        <td>24 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Activation → Regular usage</td>
+                        <td>21 days</td>
+                        <td>14 days</td>
+                        <td>7 days</td>
+                    </tr>
+                    <tr>
+                        <td>Regular usage → Trial start</td>
+                        <td>45 days</td>
+                        <td>30 days</td>
+                        <td>14 days</td>
+                    </tr>
+                    <tr>
+                        <td>Trial start → Paid conversion</td>
+                        <td>21 days</td>
+                        <td>14 days</td>
+                        <td>7 days</td>
+                    </tr>
+                    <tr style="background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent);">
+                        <td><strong>Total: Signup → Paid</strong></td>
+                        <td><strong>90 days</strong></td>
+                        <td><strong>60 days</strong></td>
+                        <td><strong>30 days</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 4. Funding Considerations -->
+        <section id="funding">
+            <h2>Funding Considerations</h2>
+
+            <h3>Investor Metrics Scorecard</h3>
+            <h4>Tier 1: Must-Have Metrics (Make or Break)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Seed</th>
+                        <th>Series A</th>
+                        <th>Series B</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ARR Growth Rate</strong></td>
+                        <td>>250%</td>
+                        <td>>200%</td>
+                        <td>>150%</td>
+                        <td>Primary indicator of market traction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gross Margin</strong></td>
+                        <td>>75%</td>
+                        <td>>80%</td>
+                        <td>>85%</td>
+                        <td>Validates SaaS business model viability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LTV:CAC Ratio</strong></td>
+                        <td>>2.5:1</td>
+                        <td>>4:1</td>
+                        <td>>5:1</td>
+                        <td>Proves unit economics work at scale</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Revenue Retention</strong></td>
+                        <td>>105%</td>
+                        <td>>115%</td>
+                        <td>>125%</td>
+                        <td>Shows product stickiness and expansion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payback Period</strong></td>
+                        <td><18 mo</td>
+                        <td><12 mo</td>
+                        <td><10 mo</td>
+                        <td>Capital efficiency indicator</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Tier 2: Competitive Differentiators</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Good</th>
+                        <th>Great</th>
+                        <th>Exceptional</th>
+                        <th>Investor Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Magic Number</strong></td>
+                        <td>>0.75</td>
+                        <td>>1.0</td>
+                        <td>>1.5</td>
+                        <td>Sales efficiency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CAC Payback</strong></td>
+                        <td>12-18 mo</td>
+                        <td>6-12 mo</td>
+                        <td><6 mo</td>
+                        <td>Capital efficiency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burn Multiple</strong></td>
+                        <td><2.0</td>
+                        <td><1.5</td>
+                        <td><1.0</td>
+                        <td>Capital discipline</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rule of 40</strong></td>
+                        <td>>20%</td>
+                        <td>>40%</td>
+                        <td>>60%</td>
+                        <td>Growth + profitability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Free-to-Paid %</strong></td>
+                        <td>3-5%</td>
+                        <td>5-8%</td>
+                        <td>>8%</td>
+                        <td>PLG effectiveness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="seed">
+                <h3>Seed Round ($2M-$5M raise)</h3>
+                <h4>Entry Criteria</h4>
+                <ul>
+                    <li>Product: Beta or early GA, 10-30 paying customers</li>
+                    <li>ARR: $100K-$500K</li>
+                    <li>Team: 3-8 people, technical founders</li>
+                    <li>Traction: Strong early PMF signals, design partner testimonials</li>
+                </ul>
+
+                <h4>Ideal Metrics to Raise</h4>
+                <div class="dashboard">
+                    <div class="card">
+                        <div class="card-title">ARR Target</div>
+                        <div class="card-metric">$300K-$500K</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Growth Rate</div>
+                        <div class="card-metric">30-50%</div>
+                        <div class="card-description">MoM for 3+ months</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Customer Count</div>
+                        <div class="card-metric">20-40</div>
+                        <div class="card-description">logos</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Average ACV</div>
+                        <div class="card-metric">$10K-$25K</div>
+                    </div>
+                </div>
+
+                <h4>Valuation</h4>
+                <ul>
+                    <li><strong>Pre-money:</strong> $8M-$15M</li>
+                    <li><strong>Post-money:</strong> $10M-$20M</li>
+                    <li><strong>Multiple:</strong> 20-40x ARR (high risk premium)</li>
+                </ul>
+
+                <h4>Use of Funds (18-24 month runway)</h4>
+                <ul>
+                    <li>Product development: 40% (core platform, integrations)</li>
+                    <li>Go-to-market: 35% (first sales hires, marketing foundation)</li>
+                    <li>Operations: 15% (customer success, infrastructure)</li>
+                    <li>Reserve: 10% (contingency, opportunistic hires)</li>
+                </ul>
+            </div>
+
+            <div id="series-a">
+                <h3>Series A ($8M-$15M raise)</h3>
+                <h4>Entry Criteria</h4>
+                <ul>
+                    <li>ARR: $2M-$4M</li>
+                    <li>Growth: 200-300% YoY</li>
+                    <li>Team: 15-30 people, complete exec team</li>
+                    <li>Repeatability: Proven sales playbook, clear ICP</li>
+                </ul>
+
+                <h4>Ideal Metrics to Raise</h4>
+                <div class="dashboard">
+                    <div class="card">
+                        <div class="card-title">ARR Target</div>
+                        <div class="card-metric">$3M-$5M</div>
+                        <div class="card-description">Sweet spot: $4M+</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">YoY Growth</div>
+                        <div class="card-metric">250%+</div>
+                        <div class="card-description">15-20% MoM</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">LTV:CAC</div>
+                        <div class="card-metric">>4:1</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">NRR</div>
+                        <div class="card-metric">>115%</div>
+                    </div>
+                </div>
+
+                <h4>Valuation</h4>
+                <ul>
+                    <li><strong>Pre-money:</strong> $35M-$80M</li>
+                    <li><strong>Post-money:</strong> $45M-$95M</li>
+                    <li><strong>Multiple:</strong> 15-25x ARR</li>
+                </ul>
+            </div>
+
+            <div id="series-b">
+                <h3>Series B ($20M-$40M raise)</h3>
+                <h4>Entry Criteria</h4>
+                <ul>
+                    <li>ARR: $10M-$15M</li>
+                    <li>Growth: 150-250% YoY</li>
+                    <li>Team: 50-100 people, full leadership bench</li>
+                    <li>Market position: Top 3 in category awareness</li>
+                </ul>
+
+                <h4>Ideal Metrics to Raise</h4>
+                <div class="dashboard">
+                    <div class="card">
+                        <div class="card-title">ARR Target</div>
+                        <div class="card-metric">$15M-$25M</div>
+                        <div class="card-description">Sweet spot: $20M+</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">YoY Growth</div>
+                        <div class="card-metric">180%+</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">NRR</div>
+                        <div class="card-metric">>125%</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Enterprise Mix</div>
+                        <div class="card-metric">>40%</div>
+                        <div class="card-description">of ARR</div>
+                    </div>
+                </div>
+
+                <h4>Valuation</h4>
+                <ul>
+                    <li><strong>Pre-money:</strong> $150M-$300M</li>
+                    <li><strong>Post-money:</strong> $170M-$340M</li>
+                    <li><strong>Multiple:</strong> 12-20x ARR</li>
+                </ul>
+            </div>
+
+            <h3>Comparable Company Valuations</h3>
+            <h4>Public Company Comps (AI/ML Infrastructure & Observability)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Ticker</th>
+                        <th>ARR</th>
+                        <th>EV/Revenue</th>
+                        <th>Growth Rate</th>
+                        <th>NRR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Datadog</strong></td>
+                        <td>DDOG</td>
+                        <td>$2.7B</td>
+                        <td>16x</td>
+                        <td>27%</td>
+                        <td>130%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Snowflake</strong></td>
+                        <td>SNOW</td>
+                        <td>$3.2B</td>
+                        <td>10x</td>
+                        <td>38%</td>
+                        <td>158%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Confluent</strong></td>
+                        <td>CFLT</td>
+                        <td>$900M</td>
+                        <td>8x</td>
+                        <td>26%</td>
+                        <td>120%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elastic</strong></td>
+                        <td>ESTC</td>
+                        <td>$1.2B</td>
+                        <td>5x</td>
+                        <td>18%</td>
+                        <td>110%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 5. Revenue Models -->
+        <section id="revenue">
+            <h2>Revenue Model Analysis</h2>
+
+            <h3>AI Observability Pricing Model Framework</h3>
+            <p><strong>Recommended: Hybrid Consumption Model</strong></p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">Free Tier</div>
+                    <div class="card-metric">1M</div>
+                    <div class="card-description">traces/month</div>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">PLG funnel, community building</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Team Tier</div>
+                    <div class="card-metric">$499</div>
+                    <div class="card-description">/month base</div>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">10M traces included, overages at $0.05/1K</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Professional Tier</div>
+                    <div class="card-metric">$1,499</div>
+                    <div class="card-description">/month base</div>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">50M traces included, AI features</p>
+                </div>
+                <div class="card accent">
+                    <div class="card-title">Enterprise Tier</div>
+                    <div class="card-metric">Custom</div>
+                    <div class="card-description">pricing</div>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">$100K-$500K+ annual</p>
+                </div>
+            </div>
+
+            <h3>Pricing Psychology & Anchors</h3>
+            <p><strong>Value Metric Anchoring:</strong></p>
+            <pre>Customer Pain Point: "We spent $50K debugging a model failure that took 3 weeks to find"
+
+Pricing Anchor:
+├── Your cost: $2,000/month
+├── Value delivered: $50K incident avoidance
+├── ROI: 25:1 (or 2,400% annual return)
+└── Positioning: "Insurance policy that pays for itself"</pre>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alternative</th>
+                        <th>Annual Cost</th>
+                        <th>Coverage</th>
+                        <th>Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Build in-house</td>
+                        <td>$300K-$500K</td>
+                        <td>Partial, ongoing maintenance</td>
+                        <td>"Why reinvent the wheel?"</td>
+                    </tr>
+                    <tr>
+                        <td>General APM (Datadog)</td>
+                        <td>$100K-$150K</td>
+                        <td>Generic, not AI-specific</td>
+                        <td>"ML needs specialized tools"</td>
+                    </tr>
+                    <tr>
+                        <td>Point solutions</td>
+                        <td>$30K-$60K each</td>
+                        <td>Fragmented, integration tax</td>
+                        <td>"Unified platform advantage"</td>
+                    </tr>
+                    <tr style="background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent);">
+                        <td><strong>Your Solution</strong></td>
+                        <td><strong>$50K-$100K</strong></td>
+                        <td><strong>Complete AI observability</strong></td>
+                        <td><strong>"Best value, purpose-built"</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pricing Optimization Levers</h3>
+            <h4>Volume Discounts (Enterprise Tier)</h4>
+            <pre>Traces/Month:
+├── <100M: $0.04/1K traces
+├── 100M-500M: $0.035/1K traces (12.5% discount)
+├── 500M-1B: $0.03/1K traces (25% discount)
+└── >1B: Custom (negotiate 30-40% discount)</pre>
+
+            <h4>Annual Prepay Incentives</h4>
+            <pre>Monthly billing: List price
+Annual prepay: 15% discount (2 months free equivalent)
+Multi-year: 20% discount + price protection</pre>
+
+            <h4>Add-On Monetization</h4>
+            <pre>Core Platform: $1,500/month
+├── Cost optimization: +$400/month (27% attach rate target)
+├── Compliance reports: +$300/month (15% attach rate)
+├── Custom integrations: $5K one-time (10% attach rate)
+└── Average total: $2,200/month (47% expansion)</pre>
+        </section>
+
+        <!-- 6. Strategic Recommendations -->
+        <section id="recommendations">
+            <h2>Strategic Recommendations</h2>
+
+            <div id="phase-1">
+                <h3>Phase 1: Seed Stage ($0-$2M ARR)</h3>
+                <h4>Primary Objectives</h4>
+                <ol>
+                    <li>Validate product-market fit with 40-80 paying customers</li>
+                    <li>Achieve LTV:CAC >3:1 in target segment</li>
+                    <li>Prove repeatability of customer acquisition</li>
+                </ol>
+
+                <h4>GTM Strategy</h4>
+                <ul>
+                    <li><strong>Channel mix:</strong> 80% PLG, 20% founder-led sales</li>
+                    <li><strong>ICP:</strong> Series A-C ML-native companies, 10-50 engineers</li>
+                    <li><strong>Pricing:</strong> Team tier ($499/mo base), land at $10K-$25K ACV</li>
+                </ul>
+
+                <h4>Key Metrics to Prove</h4>
+                <ul>
+                    <li>Free-to-paid conversion: 4-6%</li>
+                    <li>Time to first value: <3 days (SDK integration complete)</li>
+                    <li>Monthly churn: <3.5%</li>
+                    <li>NRR: >105%</li>
+                </ul>
+
+                <h4>Raise Series A When</h4>
+                <ul>
+                    <li>ARR: $2M+ with 200%+ growth</li>
+                    <li>Customer count: 80-150 logos</li>
+                    <li>Proven sales playbook (2-3 AEs hitting quota)</li>
+                </ul>
+            </div>
+
+            <div id="phase-2">
+                <h3>Phase 2: Series A ($2M-$10M ARR)</h3>
+                <h4>Primary Objectives</h4>
+                <ol>
+                    <li>Build repeatable, scalable sales engine</li>
+                    <li>Expand into mid-market segment ($50K-$100K ACV)</li>
+                    <li>Establish category leadership positioning</li>
+                </ol>
+
+                <h4>Key Metrics to Prove</h4>
+                <ul>
+                    <li>ARR growth: 200-300% YoY</li>
+                    <li>LTV:CAC: >4:1</li>
+                    <li>CAC payback: <12 months</li>
+                    <li>NRR: >120%</li>
+                    <li>Magic Number: >0.9</li>
+                </ul>
+            </div>
+
+            <div id="phase-3">
+                <h3>Phase 3: Series B ($10M-$40M ARR)</h3>
+                <h4>Primary Objectives</h4>
+                <ol>
+                    <li>Dominate AI observability category (Top 3 positioning)</li>
+                    <li>Build multi-product platform</li>
+                    <li>Establish enterprise market leadership</li>
+                </ol>
+
+                <h4>Path to IPO/Strategic Exit</h4>
+                <ul>
+                    <li>Target: $100M ARR within 48-60 months</li>
+                    <li>Profitability path: Rule of 40 score >60%, approaching break-even</li>
+                    <li>Market position: #1 or #2 in AI observability category</li>
+                </ul>
+            </div>
+
+            <h3>Critical Success Factors</h3>
+            <ol>
+                <li><strong>Nail Product-Market Fit Early (Months 0-18)</strong>
+                    <ul>
+                        <li>Obsess over time-to-value: <72 hours from signup to first insight</li>
+                        <li>Ruthlessly prioritize ICP: Say no to customers outside target profile</li>
+                        <li>Measure religiously: Weekly cohort retention, NPS, feature adoption</li>
+                    </ul>
+                </li>
+                <li><strong>Balance PLG + Sales (Months 18-36)</strong>
+                    <ul>
+                        <li>Use PLG to build pipeline: 50-70% of sales opportunities from product usage</li>
+                        <li>Sales assists expansion: Convert free users, upgrade tiers, expand usage</li>
+                        <li>Avoid channel conflict: Clear handoff rules (usage triggers, ACV thresholds)</li>
+                    </ul>
+                </li>
+                <li><strong>Optimize Unit Economics Before Scaling (Months 24-42)</strong>
+                    <ul>
+                        <li>Don't scale broken unit economics: LTV:CAC >4:1 before aggressive hiring</li>
+                        <li>Test pricing power: Annual 10-15% price increases for new customers</li>
+                        <li>Expand within accounts: 40%+ of growth from existing customers (NRR >120%)</li>
+                    </ul>
+                </li>
+                <li><strong>Build for Enterprise Early (Months 30-48)</strong>
+                    <ul>
+                        <li>SOC2 by $5M ARR: Table stakes for selling into F500</li>
+                        <li>Enterprise features: SSO, RBAC, audit logs before you need them</li>
+                        <li>Reference customers: Land 3-5 name-brand logos by Series A</li>
+                    </ul>
+                </li>
+                <li><strong>Own the Category (Months 36-60)</strong>
+                    <ul>
+                        <li>Thought leadership: Founders as category evangelists (conferences, podcasts)</li>
+                        <li>Developer community: 10K+ GitHub stars, active Slack/Discord</li>
+                        <li>Content moat: Become authoritative source (benchmarks, reports, tutorials)</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Appendix -->
+        <section id="appendix">
+            <h2>Appendix & Resources</h2>
+
+            <h3>5-Year ARR Projection (Seed to Series B)</h3>
+            <pre>YEAR 1 (Seed Stage)
+├── Q1: $100K → $150K → $225K (50% QoQ avg)
+├── Q2: $300K → $375K → $469K (25% QoQ avg)
+├── Q3: $586K → $703K → $844K (20% QoQ avg)
+├── Q4: $1.01M → $1.16M → $1.33M (15% QoQ avg)
+└── Exit: $1.33M ARR (+1230% YoY from $100K start)
+
+YEAR 2 (Series A Prep/Raise)
+├── Q1: $1.59M → $1.91M → $2.29M (20% QoQ avg)
+├── Q2: $2.75M → $3.16M → $3.63M (15% QoQ avg)
+├── Q3: $4.18M → $4.60M → $5.06M (10% QoQ avg)
+├── Q4: $5.56M → $6.12M → $6.73M (10% QoQ avg)
+└── Exit: $6.73M ARR (+406% YoY)
+
+YEAR 3 (Series A Execution)
+├── Q1: $7.40M → $8.14M → $8.96M (10% QoQ avg)
+├── Q2: $9.85M → $10.54M → $11.28M (7% QoQ avg)
+├── Q3: $12.07M → $12.82M → $13.61M (6% QoQ avg)
+├── Q4: $14.45M → $15.17M → $15.93M (5% QoQ avg)
+└── Exit: $15.93M ARR (+137% YoY)
+
+YEAR 4 (Series B Prep/Raise)
+├── Q1: $17.21M → $18.58M → $20.05M (8% QoQ avg)
+├── Q2: $21.65M → $23.39M → $25.26M (8% QoQ avg)
+├── Q3: $27.28M → $28.91M → $30.64M (6% QoQ avg)
+├── Q4: $32.48M → $34.10M → $35.81M (5% QoQ avg)
+└── Exit: $35.81M ARR (+125% YoY)
+
+YEAR 5 (Series B Execution)
+├── Q1: $38.67M → $41.75M → $45.09M (8% QoQ avg)
+├── Q2: $48.70M → $51.40M → $54.22M (5% QoQ avg)
+├── Q3: $57.18M → $59.87M → $62.67M (5% QoQ avg)
+├── Q4: $65.80M → $68.50M → $71.30M (4% QoQ avg)
+└── Exit: $71.30M ARR (+99% YoY)</pre>
+
+            <h4>Cumulative Metrics</h4>
+            <ul>
+                <li>5-year ARR CAGR: 154%</li>
+                <li>Total capital raised: ~$50M-$60M (Seed + A + B)</li>
+                <li>Implied valuation (Year 5): $850M-$1.2B (12-17x ARR at Series B pricing)</li>
+            </ul>
+
+            <div class="callout success">
+                <strong>Key Takeaway</strong>
+                <p>Companies that win will combine technical depth (purpose-built for AI/ML) with commercial excellence (efficient go-to-market) and market timing (riding the generative AI wave). With disciplined execution against these benchmarks, building a multi-billion dollar AI observability business is achievable within 5-7 years.</p>
+            </div>
+
+            <h3>Document Information</h3>
+            <ul>
+                <li><strong>Version:</strong> 1.0</li>
+                <li><strong>Last Updated:</strong> November 30, 2025</li>
+                <li><strong>Format:</strong> Strategic Analysis & Financial Benchmarks</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 3rem 0; border-top: 2px solid var(--border); margin-top: 3rem; color: var(--text-muted);">
+            <p>AI Observability Business Analysis Report | Comprehensive Strategic Framework for Early-Stage Companies</p>
+            <p style="font-size: 0.875rem; margin-top: 1rem;">This document provides market analysis, unit economics frameworks, and growth benchmarks for AI/ML observability companies at seed through Series B stages.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '-100px 0px -66% 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .header').forEach(section => {
+            if (section.id) observer.observe(section);
+        });
+    </script>
+</body>
+</html>

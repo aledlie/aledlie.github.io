@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Observability Platform | Debug LLMs in Production</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --primary-light: #e6f0ff;
+            --secondary: #00d9ff;
+            --accent: #ff6b35;
+            --background: #ffffff;
+            --surface: #f5f7fa;
+            --surface-dark: #e8ecf1;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-tertiary: #718096;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Table of Contents Sidebar */
+        .toc-sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 6rem;
+            width: 200px;
+            max-height: calc(100vh - 8rem);
+            overflow-y: auto;
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .toc-sidebar h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .toc-sidebar ul {
+            list-style: none;
+        }
+
+        .toc-sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-sidebar a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 0.3rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 0.8rem;
+        }
+
+        .toc-sidebar a:hover {
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 250px;
+            margin-right: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Spacing */
+        section {
+            margin-bottom: 6rem;
+            scroll-margin-top: 80px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            margin-top: 0;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .subheadline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Hero Sections */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(0, 217, 255, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 102, 255, 0.3);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .button-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .button-small {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Social Proof Bar */
+        .social-proof {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .social-proof p {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .proof-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .proof-logo {
+            color: var(--text-tertiary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Three Column Grid */
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .column-card {
+            padding: 2rem;
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .column-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
+        }
+
+        .column-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .grid-card {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .grid-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.15);
+        }
+
+        .grid-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .grid-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .code-label {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--background);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table thead {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        table td {
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        table tbody tr:nth-child(odd) {
+            background: var(--surface);
+        }
+
+        table tbody tr:hover {
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        table tbody tr:nth-child(even) {
+            background: var(--background);
+        }
+
+        table strong {
+            color: var(--text-primary);
+        }
+
+        /* Feature Cards */
+        .feature-section {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials / Quote Cards */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.1;
+            top: -10px;
+            left: 10px;
+        }
+
+        .quote {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .quote-author {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .quote-author strong {
+            color: var(--text-primary);
+        }
+
+        /* Metrics Bar */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pricing-card {
+            background: var(--background);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 12px 36px rgba(0, 102, 255, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .pricing-card:hover:not(.featured) {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .pricing-tier {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price-period {
+            color: var(--text-tertiary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-features li {
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .pricing-best-for {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        /* FAQ Section */
+        .faq {
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Integration Grid */
+        .integration-section {
+            margin: 3rem 0;
+        }
+
+        .integration-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .integration-category h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .integration-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .integration-badge {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 0.7rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .integration-badge:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            margin: 3rem 0;
+        }
+
+        .comparison-table table {
+            margin-top: 1.5rem;
+        }
+
+        .comparison-table td:not(:first-child) {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .comparison-table tr td:nth-child(2),
+        .comparison-table tr td:nth-child(3) {
+            color: var(--text-primary);
+        }
+
+        .comparison-checkmark {
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .comparison-cross {
+            color: var(--text-tertiary);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            margin-top: 6rem;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 2rem 0;
+        }
+
+        /* Document Info */
+        .doc-header {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .doc-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .doc-meta-item {
+            font-size: 0.9rem;
+        }
+
+        .doc-meta-label {
+            color: var(--text-tertiary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+
+        .doc-meta-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .toc-sidebar {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            table th, table td {
+                padding: 0.7rem 0.5rem;
+            }
+
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .subheadline {
+                font-size: 1rem;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .code-block {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav {
+                display: none;
+            }
+
+            .toc-sidebar {
+                display: none;
+            }
+
+            main {
+                margin: 0;
+            }
+
+            .button {
+                color: var(--primary);
+                border: 2px solid var(--primary);
+                background: white;
+            }
+
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 3rem;
+            }
+
+            h1, h2 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--primary);
+            }
+
+            .doc-header {
+                border: 2px solid var(--primary);
+            }
+
+            body {
+                color: black;
+                background: white;
+            }
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--text-tertiary);
+        }
+
+        .mt-4 {
+            margin-top: 3rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 3rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(0, 217, 255, 0.3) 0%, rgba(0, 102, 255, 0.3) 100%);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AIObserve</div>
+            <ul class="nav-links">
+                <li><a href="#homepage">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc-sidebar">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#homepage">Homepage</a></li>
+            <li><a href="#features">Features Page</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#docs">Getting Started</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Document Header -->
+            <section class="doc-header">
+                <h2>AI Observability Company - Complete Website Content</h2>
+                <div class="doc-meta">
+                    <div class="doc-meta-item">
+                        <div class="doc-meta-label">Document Version</div>
+                        <div class="doc-meta-value">1.0</div>
+                    </div>
+                    <div class="doc-meta-item">
+                        <div class="doc-meta-label">Date</div>
+                        <div class="doc-meta-value">November 30, 2025</div>
+                    </div>
+                    <div class="doc-meta-item">
+                        <div class="doc-meta-label">Purpose</div>
+                        <div class="doc-meta-value">Production-ready website copy</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOMEPAGE SECTION -->
+            <section id="homepage">
+                <h2>Homepage</h2>
+
+                <!-- Hero Section -->
+                <section class="hero">
+                    <h1>Debug Your AI Like You Debug Your Code</h1>
+                    <p class="subheadline">Ship AI features with confidence. Get instant visibility into every LLM call, token cost, and response quality - from development through production.</p>
+                    <div class="cta-group">
+                        <button class="button button-primary">Start Free <br><span style="font-size: 0.75rem;">50K traces/month</span></button>
+                        <button class="button button-secondary">Book Demo <br><span style="font-size: 0.75rem;">For teams of 50+</span></button>
+                    </div>
+                </section>
+
+                <!-- Social Proof -->
+                <section class="social-proof">
+                    <p>Trusted by 500+ AI teams</p>
+                    <div class="proof-logos">
+                        <span class="proof-logo">Y Combinator</span>
+                        <span class="proof-logo">Andreessen Horowitz</span>
+                        <span class="proof-logo">Tech Leaders</span>
+                    </div>
+                </section>
+
+                <!-- Problem Statement -->
+                <section>
+                    <h2>AI Debugging Shouldn't Take Longer Than Building the Feature</h2>
+                    <div class="three-column">
+                        <div class="column-card">
+                            <h3>The Debugging Problem</h3>
+                            <p><strong>"Why did my model say that?"</strong></p>
+                            <p>84% of ML teams struggle to detect and diagnose model problems. Without proper observability, debugging AI becomes guesswork - hours spent in logs when you could be shipping.</p>
+                        </div>
+                        <div class="column-card">
+                            <h3>The Cost Problem</h3>
+                            <p><strong>"Our AI bill is how much?!"</strong></p>
+                            <p>Teams discover $50K+ cost overruns after the bill arrives. Token costs are invisible until it's too late. Multi-step agents rack up charges no one anticipated.</p>
+                        </div>
+                        <div class="column-card">
+                            <h3>The Trust Problem</h3>
+                            <p><strong>"Did my AI just hallucinate?"</strong></p>
+                            <p>38% of GenAI incidents are reported by users - not monitoring tools. Hallucination rates in specialized domains reach 88%. Traditional monitoring can't detect semantic failures.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Solution Section -->
+                <section>
+                    <h2>One Platform for Your Entire AI Stack</h2>
+                    <div class="grid-4">
+                        <div class="grid-card">
+                            <h3>Trace Every Call</h3>
+                            <p>Complete visibility into every LLM request and response. See exactly what your model said, why it said it, and how long it took - across OpenAI, Anthropic, Azure, and 20+ providers.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h3>Track Every Dollar</h3>
+                            <p>Real-time token counting and cost attribution by team, feature, and user. Know your AI spend before the bill arrives. Get alerts when costs spike.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h3>Catch Every Issue</h3>
+                            <p>AI-powered hallucination detection, latency monitoring, and anomaly alerts. Find problems in seconds, not hours. Debug with context, not guesswork.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h3>Ship With Confidence</h3>
+                            <p>Prompt versioning, A/B testing, and evaluation frameworks. Know that your changes make things better, not worse. Deploy with data, not hope.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works -->
+                <section>
+                    <h2>From Setup to Insights in Under 5 Minutes</h2>
+
+                    <h3>Step 1: Install</h3>
+                    <div class="code-block">
+                        <span class="code-label">Python</span>
+                        <pre>pip install aiobserve
+# or
+npm install @aiobserve/sdk</pre>
+                    </div>
+                    <p>One line. That's it. Works with your existing stack.</p>
+
+                    <h3>Step 2: Trace</h3>
+                    <div class="code-block">
+                        <span class="code-label">Python</span>
+                        <pre>from aiobserve import observe
+
+@observe
+def my_ai_function(prompt):
+    return openai.chat.complete(prompt)</pre>
+                    </div>
+                    <p>Automatically capture every LLM call with full request/response context.</p>
+
+                    <h3>Step 3: Observe</h3>
+                    <p>Access real-time dashboards showing latency percentiles, token usage, cost trends, and quality scores. Get alerts before users notice problems.</p>
+                    <div class="cta-group">
+                        <button class="button button-primary button-small">Try It Now - Free</button>
+                    </div>
+                </section>
+
+                <!-- Features Grid -->
+                <section>
+                    <h2>Everything You Need to Run AI in Production</h2>
+
+                    <h3>Tracing & Debugging</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Full Request Logging</strong></td>
+                                    <td>Capture every prompt and response with configurable PII redaction</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Distributed Tracing</strong></td>
+                                    <td>Follow multi-step agent workflows across services</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Span Visualization</strong></td>
+                                    <td>Interactive timeline showing latency breakdown</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Context Preservation</strong></td>
+                                    <td>See the full conversation context that led to any response</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Cost Management</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Real-Time Cost Tracking</strong></td>
+                                    <td>Token-level billing visibility as it happens</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Team Attribution</strong></td>
+                                    <td>Know which team, feature, or user is driving spend</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Budget Alerts</strong></td>
+                                    <td>Get notified before costs exceed thresholds</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Optimization Recommendations</strong></td>
+                                    <td>AI-powered suggestions to reduce spend 20-40%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Quality & Reliability</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hallucination Detection</strong></td>
+                                    <td>LLM-as-Judge evaluation for semantic correctness</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Latency Monitoring</strong></td>
+                                    <td>P50/P95/P99 tracking with alerting</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anomaly Detection</strong></td>
+                                    <td>ML-powered alerting for unusual patterns</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quality Scoring</strong></td>
+                                    <td>Automated evaluation of response quality</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Developer Experience</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Prompt Versioning</strong></td>
+                                    <td>Git-style version control for your prompts</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prompt Playground</strong></td>
+                                    <td>Test and iterate on prompts with live comparison</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Evaluation Framework</strong></td>
+                                    <td>Run test suites on prompt changes before deploy</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>20+ Integrations</strong></td>
+                                    <td>OpenAI, Anthropic, Azure, LangChain, and more</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Social Proof / Testimonials -->
+                <section>
+                    <h2>Teams Ship Faster With AIObserve</h2>
+                    <div class="testimonials">
+                        <div class="testimonial">
+                            <p class="quote">We reduced our debugging time from 6 hours to 6 minutes. Now I can actually find the prompt that caused the issue instead of guessing.</p>
+                            <p class="quote-author"><strong>Sarah Chen</strong>, ML Engineer @ AI Startup</p>
+                        </div>
+                        <div class="testimonial">
+                            <p class="quote">We caught a $12K cost spike on day one. The platform literally paid for itself in the first week.</p>
+                            <p class="quote-author"><strong>Marcus Johnson</strong>, Engineering Manager @ Series B Company</p>
+                        </div>
+                        <div class="testimonial">
+                            <p class="quote">Finally, observability built for how AI actually works. Not another APM tool trying to bolt on LLM support.</p>
+                            <p class="quote-author"><strong>Dr. Emily Patel</strong>, VP Engineering @ Enterprise Customer</p>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4">Proven Results</h3>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-value">60%</div>
+                            <div class="metric-label">Reduction in debugging time</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Cost savings through optimization</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">3x</div>
+                            <div class="metric-label">Faster incident resolution</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;5min</div>
+                            <div class="metric-label">Time to first trace</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pricing Section -->
+                <section id="pricing">
+                    <h2>Pricing That Scales With You</h2>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <div class="pricing-tier">Free</div>
+                            <div class="pricing-price">$0</div>
+                            <div class="pricing-price-period">/month</div>
+                            <ul class="pricing-features">
+                                <li>50K traces/month</li>
+                                <li>7-day retention</li>
+                                <li>3 team members</li>
+                                <li>All integrations</li>
+                                <li>Community support</li>
+                            </ul>
+                            <div class="pricing-best-for">Best for: Individual developers, side projects</div>
+                            <button class="button button-secondary button-small">Start Free</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <div class="pricing-tier">Pro</div>
+                            <div class="pricing-price">$49</div>
+                            <div class="pricing-price-period">/month + $0.30 per 1K traces over 100K</div>
+                            <ul class="pricing-features">
+                                <li>100K traces included</li>
+                                <li>30-day retention</li>
+                                <li>10 team members</li>
+                                <li>Prompt management</li>
+                                <li>Evaluations</li>
+                                <li>Email support</li>
+                            </ul>
+                            <div class="pricing-best-for">Best for: Startup teams shipping AI</div>
+                            <button class="button button-primary button-small">Start Trial</button>
+                        </div>
+
+                        <div class="pricing-card featured">
+                            <div class="pricing-tier">Team</div>
+                            <div class="pricing-price">$199</div>
+                            <div class="pricing-price-period">/month + $0.20 per 1K traces over 500K</div>
+                            <ul class="pricing-features">
+                                <li>500K traces included</li>
+                                <li>90-day retention</li>
+                                <li>Unlimited team members</li>
+                                <li>SSO</li>
+                                <li>Anomaly detection</li>
+                                <li>Priority support</li>
+                            </ul>
+                            <div class="pricing-best-for">Best for: Growing teams with production AI</div>
+                            <button class="button button-primary button-small">Start Trial</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <div class="pricing-tier">Enterprise</div>
+                            <div class="pricing-price">Custom</div>
+                            <div class="pricing-price-period">pricing</div>
+                            <ul class="pricing-features">
+                                <li>Custom volume commitments</li>
+                                <li>1+ year retention</li>
+                                <li>VPC/on-prem deployment</li>
+                                <li>SOC2, HIPAA compliance</li>
+                                <li>Dedicated CSM</li>
+                                <li>99.9% SLA</li>
+                            </ul>
+                            <div class="pricing-best-for">Best for: Enterprises with compliance needs</div>
+                            <button class="button button-secondary button-small">Contact Sales</button>
+                        </div>
+                    </div>
+
+                    <!-- Pricing FAQ -->
+                    <h3 class="mt-4">Frequently Asked Questions</h3>
+                    <div class="faq">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do you count traces?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                One trace = one LLM call, including all retries. Multi-step agents count each LLM call separately.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Can I upgrade/downgrade anytime?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Yes. Upgrades take effect immediately. Downgrades take effect at the next billing cycle.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Do you offer annual discounts?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Yes. Annual plans get 20% off (2 months free).
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="hero" style="margin-top: 4rem;">
+                    <h2>Ready to See What Your AI is Really Doing?</h2>
+                    <p class="subheadline">Join 500+ teams who ship AI features faster with complete observability.</p>
+                    <div class="cta-group">
+                        <button class="button button-primary">Start Free - No Credit Card Required</button>
+                        <button class="button button-secondary">Book a Demo</button>
+                    </div>
+                </section>
+            </section>
+
+            <!-- FEATURES PAGE -->
+            <section id="features">
+                <h2>Features - Every Tool You Need to Run AI in Production</h2>
+                <p class="subheadline">From your first trace to enterprise-scale deployment, get complete visibility into your AI systems.</p>
+
+                <!-- Tracing Deep Dive -->
+                <section class="feature-section">
+                    <h3>See Everything Your AI Does</h3>
+                    <p><strong>Traditional logging gives you strings. We give you understanding.</strong></p>
+                    <p>Every LLM call is captured with full context: the prompt, the response, the tokens used, the latency incurred. See the complete picture of how your AI responds to real users in real time.</p>
+
+                    <h4 style="margin-top: 2rem;">Key Capabilities</h4>
+                    <ul style="list-style: none; margin: 1rem 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--primary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Distributed Tracing:</strong> Follow requests across your entire AI pipeline. When an agent makes tool calls that trigger other LLM calls, see the complete trace as one connected story.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--primary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Configurable Capture:</strong> Choose what to log. Full prompts and responses for debugging. Metadata-only for cost tracking. Automatic PII redaction for compliance.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--primary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>OpenTelemetry Native:</strong> Built on open standards. Export traces to your existing observability stack - Datadog, New Relic, Jaeger, or anything that speaks OTLP.
+                        </li>
+                        <li style="padding-left: 1.5rem; border-left: 3px solid var(--primary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Real-Time Streaming:</strong> Watch traces flow in real-time during debugging sessions. No waiting for batch processing. See issues as they happen.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Cost Management Deep Dive -->
+                <section class="feature-section">
+                    <h3>Know Your AI Spend Before the Bill Arrives</h3>
+                    <p><strong>LLM costs are the new cloud costs. Invisible until they're catastrophic.</strong></p>
+                    <p>We count every token as it happens. You see exactly what you're spending, broken down by team, feature, model, and user. Set budgets. Get alerts. Sleep at night.</p>
+
+                    <h4 style="margin-top: 2rem;">Key Capabilities</h4>
+                    <ul style="list-style: none; margin: 1rem 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--secondary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Real-Time Token Counting:</strong> See token usage as requests complete. Not after the bill arrives. Not in a weekly report. Now.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--secondary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Attribution at Every Level:</strong> Which team is driving costs? Which feature? Which user? Drill down to the exact endpoint burning budget.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--secondary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Budget Alerts:</strong> Set thresholds by team, project, or total spend. Get Slack alerts before costs exceed limits. Auto-pause traffic when budgets are exhausted.
+                        </li>
+                        <li style="padding-left: 1.5rem; border-left: 3px solid var(--secondary); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Optimization Intelligence:</strong> Our AI analyzes your usage patterns and recommends optimizations. Switch models for low-value requests. Cache common prompts. Compress verbose outputs. Save 20-40% automatically.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Quality Assurance Deep Dive -->
+                <section class="feature-section">
+                    <h3>Catch Issues Before Users Do</h3>
+                    <p><strong>38% of AI incidents are discovered by users. That's unacceptable.</strong></p>
+                    <p>We monitor your AI for semantic correctness, not just uptime. Detect hallucinations. Flag inappropriate responses. Alert on quality degradation. Find problems before they become incidents.</p>
+
+                    <h4 style="margin-top: 2rem;">Key Capabilities</h4>
+                    <ul style="list-style: none; margin: 1rem 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--success); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Hallucination Detection:</strong> Our LLM-as-Judge pipeline evaluates responses for factual accuracy against provided context. Configurable thresholds for different use cases.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--success); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Anomaly Detection:</strong> ML-powered alerting detects unusual patterns: latency spikes, cost anomalies, quality degradation. Get alerted on the 1% that matters.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--success); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Quality Scoring:</strong> Automated evaluation across dimensions: relevance, helpfulness, safety. Track quality trends over time. Catch degradation before users complain.
+                        </li>
+                        <li style="padding-left: 1.5rem; border-left: 3px solid var(--success); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Custom Evaluators:</strong> Define your own quality criteria. Evaluate against your specific requirements. Run evaluations in CI/CD before shipping.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Developer Experience Deep Dive -->
+                <section class="feature-section">
+                    <h3>Debug AI Like a Developer, Not an Archaeologist</h3>
+                    <p><strong>Your prompts deserve version control. Your changes deserve testing. Your debugging sessions deserve better tools.</strong></p>
+                    <p>We built the developer experience that AI engineering deserves. Version prompts. Test changes. Debug with context. Ship with confidence.</p>
+
+                    <h4 style="margin-top: 2rem;">Key Capabilities</h4>
+                    <ul style="list-style: none; margin: 1rem 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--accent); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Prompt Versioning:</strong> Git-style version control for prompts. See what changed, when, and by whom. Rollback bad changes instantly.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--accent); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Prompt Playground:</strong> Test prompt variations side-by-side. Compare outputs, latency, and costs. Find the optimal configuration before deploying.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--accent); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>Evaluation Framework:</strong> Define test cases for your prompts. Run them automatically on changes. Catch regressions before they reach production.
+                        </li>
+                        <li style="padding-left: 1.5rem; border-left: 3px solid var(--accent); padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <strong>IDE Integration:</strong> VS Code and JetBrains plugins. Debug traces without leaving your editor. Click to jump from error to source.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Integrations -->
+                <section class="integration-section">
+                    <h2>Works With Everything You Already Use</h2>
+
+                    <div class="integration-category">
+                        <h4>LLM Providers</h4>
+                        <div class="integration-items">
+                            <span class="integration-badge">OpenAI</span>
+                            <span class="integration-badge">Anthropic</span>
+                            <span class="integration-badge">Azure OpenAI</span>
+                            <span class="integration-badge">Google Gemini</span>
+                            <span class="integration-badge">Mistral</span>
+                            <span class="integration-badge">Cohere</span>
+                            <span class="integration-badge">Llama</span>
+                            <span class="integration-badge">Bedrock</span>
+                        </div>
+                    </div>
+
+                    <div class="integration-category">
+                        <h4>Frameworks</h4>
+                        <div class="integration-items">
+                            <span class="integration-badge">LangChain</span>
+                            <span class="integration-badge">LangGraph</span>
+                            <span class="integration-badge">LlamaIndex</span>
+                            <span class="integration-badge">Haystack</span>
+                            <span class="integration-badge">AutoGen</span>
+                            <span class="integration-badge">CrewAI</span>
+                            <span class="integration-badge">Vercel AI SDK</span>
+                            <span class="integration-badge">Semantic Kernel</span>
+                        </div>
+                    </div>
+
+                    <div class="integration-category">
+                        <h4>Observability</h4>
+                        <div class="integration-items">
+                            <span class="integration-badge">Datadog</span>
+                            <span class="integration-badge">New Relic</span>
+                            <span class="integration-badge">Grafana</span>
+                            <span class="integration-badge">Prometheus</span>
+                            <span class="integration-badge">Splunk</span>
+                            <span class="integration-badge">Elastic</span>
+                            <span class="integration-badge">Jaeger</span>
+                        </div>
+                    </div>
+
+                    <div class="integration-category">
+                        <h4>Alerting</h4>
+                        <div class="integration-items">
+                            <span class="integration-badge">Slack</span>
+                            <span class="integration-badge">PagerDuty</span>
+                            <span class="integration-badge">Opsgenie</span>
+                            <span class="integration-badge">Discord</span>
+                            <span class="integration-badge">Microsoft Teams</span>
+                            <span class="integration-badge">Email</span>
+                            <span class="integration-badge">Webhooks</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- DOCS / GETTING STARTED -->
+            <section id="docs">
+                <h2>Get Started in 5 Minutes</h2>
+                <p class="subheadline">From signup to your first trace in less time than it takes to make coffee.</p>
+
+                <h3>Quickstart Guide</h3>
+
+                <h4>Step 1: Create Your Account</h4>
+                <p>Visit the signup link and create your free account. No credit card required.</p>
+
+                <h4>Step 2: Install the SDK</h4>
+                <p><strong>Python:</strong></p>
+                <div class="code-block">
+                    <pre>pip install aiobserve</pre>
+                </div>
+
+                <p><strong>JavaScript/TypeScript:</strong></p>
+                <div class="code-block">
+                    <pre>npm install @aiobserve/sdk
+# or
+yarn add @aiobserve/sdk</pre>
+                </div>
+
+                <h4>Step 3: Initialize</h4>
+                <p><strong>Python:</strong></p>
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre>import aiobserve
+
+aiobserve.init(
+    api_key="your-api-key",  # Find this in Settings > API Keys
+    project_name="my-project"
+)</pre>
+                </div>
+
+                <p><strong>JavaScript:</strong></p>
+                <div class="code-block">
+                    <span class="code-label">JavaScript</span>
+                    <pre>import { init } from '@aiobserve/sdk';
+
+init({
+    apiKey: 'your-api-key',
+    projectName: 'my-project'
+});</pre>
+                </div>
+
+                <h4>Step 4: Trace Your First Call</h4>
+                <div class="code-block">
+                    <span class="code-label">Python with OpenAI</span>
+                    <pre>from aiobserve import observe
+import openai
+
+@observe(name="chat_completion")
+def get_response(user_message):
+    response = openai.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": user_message}]
+    )
+    return response.choices[0].message.content
+
+# Traces are automatically captured!
+result = get_response("What is the capital of France?")</pre>
+                </div>
+
+                <h4>Step 5: View Your Traces</h4>
+                <p>Open your dashboard. You should see your first trace within seconds.</p>
+
+                <h3 class="mt-4">Framework Integrations</h3>
+
+                <p><strong>LangChain Integration:</strong></p>
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre>from aiobserve.integrations.langchain import AIObserveCallbackHandler
+
+handler = AIObserveCallbackHandler()
+
+chain = LLMChain(llm=llm, prompt=prompt)
+result = chain.run(input, callbacks=[handler])</pre>
+                </div>
+
+                <p><strong>Vercel AI SDK Integration:</strong></p>
+                <div class="code-block">
+                    <span class="code-label">JavaScript</span>
+                    <pre>import { AIObserveProvider } from '@aiobserve/vercel';
+
+export default AIObserveProvider(async (req) => {
+    // Your AI route handler
+});</pre>
+                </div>
+            </section>
+
+            <!-- ABOUT PAGE -->
+            <section id="about">
+                <h2>Making AI Systems Trustworthy</h2>
+                <p class="subheadline">We believe AI should be as observable as any other software system.</p>
+
+                <p>Today, 84% of ML teams struggle to detect and diagnose model problems. Debugging takes hours instead of minutes. Costs explode without warning. Users encounter hallucinations before engineers know there's an issue.</p>
+
+                <p>We're building the observability platform that AI engineering deserves. Purpose-built for LLMs and AI agents. Developer-first in design. Enterprise-ready in scale.</p>
+
+                <p><strong>Because if you can't see what your AI is doing, you can't trust it. And if you can't trust it, you can't ship it.</strong></p>
+
+                <h3 class="mt-4">Our Values</h3>
+
+                <div class="three-column">
+                    <div class="column-card">
+                        <h4>Developer Experience First</h4>
+                        <p>The best tool is the one developers actually use. We obsess over time-to-value, documentation quality, and the small details that make debugging a joy instead of a chore.</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>Open Standards</h4>
+                        <p>We're built on OpenTelemetry because vendor lock-in is the enemy of good engineering. Your data is yours. Your choice of observability stack is yours.</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>Honesty in AI</h4>
+                        <p>AI systems fail in new and unexpected ways. We're honest about what observability can and can't catch. We'd rather tell you the truth than overpromise and underdeliver.</p>
+                    </div>
+                </div>
+
+                <!-- Comparison Pages -->
+                <h2 class="mt-4">Competitive Advantages</h2>
+
+                <h3>vs. Helicone</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>AIObserve</th>
+                                <th>Helicone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>LLM Tracing</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Full distributed tracing</td>
+                                <td>Proxy-based logging</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hallucination Detection</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> LLM-as-Judge evaluation</td>
+                                <td><span class="comparison-cross">—</span> Not available</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prompt Management</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Full versioning + playground</td>
+                                <td>Basic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OpenTelemetry Support</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Native</td>
+                                <td><span class="comparison-cross">—</span> Not available</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Self-Hosted Option</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Available</td>
+                                <td><span class="comparison-checkmark">✓</span> Available</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Free Tier</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> 50K traces/month</td>
+                                <td>10K requests/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>vs. LangSmith</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>AIObserve</th>
+                                <th>LangSmith</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Framework Lock-In</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> None (works with any framework)</td>
+                                <td>Optimized for LangChain</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OpenTelemetry Support</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Native</td>
+                                <td><span class="comparison-cross">—</span> Not available</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Non-LangChain Support</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Full</td>
+                                <td>Limited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Enterprise Features</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Full SSO, RBAC, compliance</td>
+                                <td>Basic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pricing Model</strong></td>
+                                <td><span class="comparison-checkmark">✓</span> Transparent usage-based</td>
+                                <td>Variable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Newsletter CTA -->
+            <section class="hero" style="margin-bottom: 3rem;">
+                <h2>Stay Updated on AI Observability</h2>
+                <p class="subheadline">Get monthly insights on AI debugging, cost optimization, and reliability best practices. No spam, unsubscribe anytime.</p>
+                <div style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto;">
+                    <input type="email" placeholder="Enter your email" style="flex: 1; padding: 0.9rem; border: 2px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.95rem;">
+                    <button class="button button-primary">Subscribe</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#">Integrations</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">For Startups</a></li>
+                    <li><a href="#">For Enterprise</a></li>
+                    <li><a href="#">For Agencies</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AIObserve. All rights reserved. | Built for developers. Trusted by enterprises.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const toggle = this.querySelector('.faq-toggle');
+
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Button click handlers (for demo purposes)
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.tagName === 'BUTTON') {
+                    console.log('CTA clicked:', this.textContent.trim());
+                }
+            });
+        });
+    </script>
+</body>
+</html>
