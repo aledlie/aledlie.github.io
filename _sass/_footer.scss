@@ -51,10 +51,10 @@
   color: #595959;  /* WCAG AA contrast (4.85:1 on white) */
 
   a {
-    color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+    color: #333 !important;  /* WCAG AA contrast (7.7:1 on white) */
 
     &:hover {
-      color: #0066cc !important;
+      color: #06c !important;
     }
   }
 }
@@ -83,10 +83,10 @@
   .social-icons {
     a {
       white-space: nowrap;
-      color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+      color: #333 !important;  /* WCAG AA contrast (7.7:1 on white) */
 
       &:hover {
-        color: #0066cc !important;
+        color: #06c !important;
       }
     }
   }
@@ -95,10 +95,10 @@
   a {
     padding-inline-end: 10px;
     font-weight: bold;
-    color: #333333 !important;  /* WCAG AA contrast (7.7:1 on white) */
+    color: #333 !important;  /* WCAG AA contrast (7.7:1 on white) */
 
     &:hover {
-      color: #0066cc !important;
+      color: #06c !important;
     }
   }
 }

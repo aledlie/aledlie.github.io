@@ -10,16 +10,10 @@
    Selection
    ========================================================================== */
 
-::selection { 
-	background-color: color.adjust($basecolor, $lightness: 65%); 
-	color: $basecolor; 
-	text-shadow: none; 
-}  	
-
-::selection { 
-	background-color: color.adjust($basecolor, $lightness: 65%); 
-	color: $basecolor; 
-	text-shadow: none; 
+::selection {
+	background-color: color.adjust($basecolor, $lightness: 65%);
+	color: $basecolor;
+	text-shadow: none;
 }
 
 /* 
