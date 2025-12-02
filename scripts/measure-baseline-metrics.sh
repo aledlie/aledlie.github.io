@@ -31,7 +31,7 @@ echo "  \"build_metrics\": {" >> ${BASELINE_FILE}
 echo "  Measuring clean build time..."
 rm -rf _site .jekyll-cache .sass-cache
 START_TIME=$(date +%s.%N)
-bundle exec jekyll build > ${BASELINE_DIR}/build-clean.log 2>&1
+BUNDLE_GEMFILE=config/Gemfile bundle exec jekyll build --config config/_config.yml > ${BASELINE_DIR}/build-clean.log 2>&1
 END_TIME=$(date +%s.%N)
 CLEAN_BUILD_TIME=$(echo "$END_TIME - $START_TIME" | bc)
 echo "    Clean build: ${CLEAN_BUILD_TIME}s"
@@ -41,7 +41,7 @@ echo "    \"clean_build_seconds\": ${CLEAN_BUILD_TIME}," >> ${BASELINE_FILE}
 echo "  Measuring incremental build time..."
 touch _posts/*.md 2>/dev/null || touch README.md
 START_TIME=$(date +%s.%N)
-bundle exec jekyll build > ${BASELINE_DIR}/build-incremental.log 2>&1
+BUNDLE_GEMFILE=config/Gemfile bundle exec jekyll build --config config/_config.yml > ${BASELINE_DIR}/build-incremental.log 2>&1
 END_TIME=$(date +%s.%N)
 INCREMENTAL_BUILD_TIME=$(echo "$END_TIME - $START_TIME" | bc)
 echo "    Incremental build: ${INCREMENTAL_BUILD_TIME}s"
@@ -51,7 +51,7 @@ echo "    \"incremental_build_seconds\": ${INCREMENTAL_BUILD_TIME}," >> ${BASELI
 echo "  Measuring bundle install time..."
 rm -rf .bundle vendor/bundle
 START_TIME=$(date +%s.%N)
-bundle install > ${BASELINE_DIR}/bundle-install.log 2>&1
+BUNDLE_GEMFILE=config/Gemfile bundle install > ${BASELINE_DIR}/bundle-install.log 2>&1
 END_TIME=$(date +%s.%N)
 BUNDLE_INSTALL_TIME=$(echo "$END_TIME - $START_TIME" | bc)
 echo "    Bundle install: ${BUNDLE_INSTALL_TIME}s"
@@ -59,9 +59,9 @@ echo "    \"bundle_install_seconds\": ${BUNDLE_INSTALL_TIME}," >> ${BASELINE_FIL
 
 # NPM install time
 echo "  Measuring npm install time..."
-rm -rf node_modules package-lock.json
+rm -rf node_modules config/package-lock.json
 START_TIME=$(date +%s.%N)
-npm install > ${BASELINE_DIR}/npm-install.log 2>&1
+cd config && npm install > ../${BASELINE_DIR}/npm-install.log 2>&1 && cd ..
 END_TIME=$(date +%s.%N)
 NPM_INSTALL_TIME=$(echo "$END_TIME - $START_TIME" | bc)
 echo "    NPM install: ${NPM_INSTALL_TIME}s"
@@ -133,13 +133,13 @@ echo "=== 3. Dependency Metrics ===" | tee -a ${BASELINE_DIR}/baseline.log
 echo "  \"dependency_metrics\": {" >> ${BASELINE_FILE}
 
 # Ruby gems count
-RUBY_GEM_COUNT=$(grep -c "^gem" Gemfile || echo 0)
+RUBY_GEM_COUNT=$(grep -c "^gem" config/Gemfile || echo 0)
 echo "    Ruby gems: ${RUBY_GEM_COUNT}"
 echo "    \"ruby_gems\": ${RUBY_GEM_COUNT}," >> ${BASELINE_FILE}
 
 # NPM packages count
-NPM_DEV_COUNT=$(cat package.json | jq '.devDependencies | length' 2>/dev/null || echo 0)
-NPM_PROD_COUNT=$(cat package.json | jq '.dependencies | length' 2>/dev/null || echo 0)
+NPM_DEV_COUNT=$(cat config/package.json | jq '.devDependencies | length' 2>/dev/null || echo 0)
+NPM_PROD_COUNT=$(cat config/package.json | jq '.dependencies | length' 2>/dev/null || echo 0)
 NPM_TOTAL=$((NPM_DEV_COUNT + NPM_PROD_COUNT))
 echo "    NPM packages: ${NPM_TOTAL} (${NPM_PROD_COUNT} prod, ${NPM_DEV_COUNT} dev)"
 echo "    \"npm_packages_total\": ${NPM_TOTAL}," >> ${BASELINE_FILE}
@@ -207,8 +207,8 @@ cp _site/assets/css/main.css ${BASELINE_DIR}/main-baseline.css
 echo "    ✓ Copied compiled CSS"
 
 # Copy package.json and Gemfile
-cp package.json ${BASELINE_DIR}/package-baseline.json
-cp Gemfile ${BASELINE_DIR}/Gemfile-baseline
+cp config/package.json ${BASELINE_DIR}/package-baseline.json
+cp config/Gemfile ${BASELINE_DIR}/Gemfile-baseline
 echo "    ✓ Copied dependency manifests"
 
 # Create SCSS file listing
