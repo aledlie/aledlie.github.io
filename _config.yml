@@ -88,16 +88,14 @@ exclude:
   - assets/js/_main.js
   - Capfile
   - CHANGELOG
-  - config
-  - Gemfile
+  - config/Gemfile
+  - config/package.json
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
   - log
   - minimal-mistakes-jekyll.gemspec
   - node_modules
-  - package.json
-  - package-lock.json
   - Rakefile
   - README
   - tmp

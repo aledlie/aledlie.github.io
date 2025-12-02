@@ -1,16 +1,16 @@
 {
   "scripts": {
-    "lint:scss": "stylelint '**/*.scss'",
-    "lint:scss --fix": "stylelint '**/*.scss' --fix",
-    "format:scss": "prettier --write '**/*.scss'",
-    "build": "RUBYOPT=\"-W0\" bundle exec jekyll build",
-    "serve": "RUBYOPT=\"-W0\" bundle exec jekyll serve",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:e2e": "playwright test",
-    "test:performance": "node tests/performance/lighthouse.js",
+    "lint:scss": "cd .. && stylelint '**/*.scss'",
+    "lint:scss --fix": "cd .. && stylelint '**/*.scss' --fix",
+    "format:scss": "cd .. && prettier --write '**/*.scss'",
+    "build": "cd .. && RUBYOPT=\"-W0\" BUNDLE_GEMFILE=config/Gemfile bundle exec jekyll build --config config/_config.yml",
+    "serve": "cd .. && RUBYOPT=\"-W0\" BUNDLE_GEMFILE=config/Gemfile bundle exec jekyll serve --config config/_config.yml",
+    "test": "cd .. && jest --config config/package.json",
+    "test:watch": "cd .. && jest --watch --config config/package.json",
+    "test:e2e": "cd .. && playwright test --config playwright.config.js",
+    "test:performance": "cd .. && node tests/performance/lighthouse.js",
     "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance",
-    "test:ci": "npm run build && jest --ci --coverage && playwright test --reporter=github"
+    "test:ci": "npm run build && cd .. && jest --ci --coverage --config config/package.json && playwright test --config playwright.config.js --reporter=github"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
@@ -32,6 +32,7 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "rootDir": "..",
     "setupFilesAfterEnv": [
       "<rootDir>/tests/setup.js"
     ],
