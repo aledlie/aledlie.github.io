@@ -3,8 +3,6 @@
  * Uses Lighthouse to test site performance, accessibility, SEO, and best practices
  */
 
-const lighthouse = require('lighthouse');
-const chromeLauncher = require('chrome-launcher');
 const fs = require('fs');
 const path = require('path');
 
@@ -13,11 +11,20 @@ class PerformanceTestSuite {
     this.baseUrl = baseUrl;
     this.chrome = null;
     this.results = [];
+    this.lighthouse = null;
+    this.chromeLauncher = null;
+  }
+
+  async loadModules() {
+    // Dynamic import for ESM modules
+    this.lighthouse = (await import('lighthouse')).default;
+    this.chromeLauncher = await import('chrome-launcher');
   }
 
   async setup() {
     console.log('Launching Chrome for Lighthouse tests...');
-    this.chrome = await chromeLauncher.launch({
+    await this.loadModules();
+    this.chrome = await this.chromeLauncher.launch({
       chromeFlags: ['--headless', '--no-sandbox', '--disable-dev-shm-usage']
     });
   }
@@ -40,8 +47,8 @@ class PerformanceTestSuite {
 
     try {
       console.log(`Running Lighthouse test for: ${url}`);
-      const runnerResult = await lighthouse(url, mergedOptions);
-      
+      const runnerResult = await this.lighthouse(url, mergedOptions);
+
       if (!runnerResult || !runnerResult.lhr) {
         throw new Error('Lighthouse test failed - no results returned');
       }
@@ -56,7 +63,7 @@ class PerformanceTestSuite {
   async testPage(pagePath, pageName) {
     const url = `${this.baseUrl}${pagePath}`;
     const result = await this.runLighthouseTest(url);
-    
+
     if (!result) {
       console.error(`Failed to test ${pageName}`);
       return null;
@@ -88,7 +95,7 @@ class PerformanceTestSuite {
 
     this.results.push(pageResult);
     this.logPageResult(pageResult);
-    
+
     return pageResult;
   }
 
@@ -101,7 +108,7 @@ class PerformanceTestSuite {
       seo: 95
     };
 
-    const passed = Object.keys(thresholds).every(category => 
+    const passed = Object.keys(thresholds).every(category =>
       scores[category] >= thresholds[category]
     );
 
@@ -109,17 +116,17 @@ class PerformanceTestSuite {
   }
 
   logPageResult(result) {
-    console.log(`\n📊 Results for ${result.pageName}:`);
-    console.log(`🚀 Performance: ${result.scores.performance.toFixed(1)}/100`);
-    console.log(`♿ Accessibility: ${result.scores.accessibility.toFixed(1)}/100`);
-    console.log(`✅ Best Practices: ${result.scores.bestPractices.toFixed(1)}/100`);
-    console.log(`🔍 SEO: ${result.scores.seo.toFixed(1)}/100`);
-    console.log(`⚡ First Contentful Paint: ${result.metrics.firstContentfulPaint}`);
-    console.log(`🎨 Largest Contentful Paint: ${result.metrics.largestContentfulPaint}`);
-    console.log(`📈 Speed Index: ${result.metrics.speedIndex}`);
-    console.log(`⏱️  Total Blocking Time: ${result.metrics.totalBlockingTime}`);
-    console.log(`📐 Cumulative Layout Shift: ${result.metrics.cumulativeLayoutShift}`);
-    console.log(`${result.passed ? '✅ PASSED' : '❌ FAILED'} performance thresholds\n`);
+    console.log(`\n Results for ${result.pageName}:`);
+    console.log(`Performance: ${result.scores.performance.toFixed(1)}/100`);
+    console.log(`Accessibility: ${result.scores.accessibility.toFixed(1)}/100`);
+    console.log(`Best Practices: ${result.scores.bestPractices.toFixed(1)}/100`);
+    console.log(`SEO: ${result.scores.seo.toFixed(1)}/100`);
+    console.log(`First Contentful Paint: ${result.metrics.firstContentfulPaint}`);
+    console.log(`Largest Contentful Paint: ${result.metrics.largestContentfulPaint}`);
+    console.log(`Speed Index: ${result.metrics.speedIndex}`);
+    console.log(`Total Blocking Time: ${result.metrics.totalBlockingTime}`);
+    console.log(`Cumulative Layout Shift: ${result.metrics.cumulativeLayoutShift}`);
+    console.log(`${result.passed ? 'PASSED' : 'FAILED'} performance thresholds\n`);
   }
 
   async runFullSuite() {
@@ -130,8 +137,8 @@ class PerformanceTestSuite {
       { path: '/projects/', name: 'Projects Page' }
     ];
 
-    console.log('🚀 Starting comprehensive performance test suite...\n');
-    
+    console.log('Starting comprehensive performance test suite...\n');
+
     await this.setup();
 
     try {
@@ -145,12 +152,12 @@ class PerformanceTestSuite {
       this.saveResults();
 
       const allPassed = this.results.every(result => result.passed);
-      
+
       if (allPassed) {
-        console.log('🎉 All performance tests passed!');
+        console.log('All performance tests passed!');
         process.exit(0);
       } else {
-        console.log('❌ Some performance tests failed. Check the results above.');
+        console.log('Some performance tests failed. Check the results above.');
         process.exit(1);
       }
 
@@ -163,9 +170,9 @@ class PerformanceTestSuite {
   }
 
   generateSummaryReport() {
-    console.log('\n📋 PERFORMANCE TEST SUMMARY');
+    console.log('\nPERFORMANCE TEST SUMMARY');
     console.log('================================');
-    
+
     const totalTests = this.results.length;
     const passedTests = this.results.filter(r => r.passed).length;
     const failedTests = totalTests - passedTests;
@@ -187,7 +194,7 @@ class PerformanceTestSuite {
       avgScores[category] = (avgScores[category] / totalTests).toFixed(1);
     });
 
-    console.log('\n📊 Average Scores:');
+    console.log('\nAverage Scores:');
     console.log(`Performance: ${avgScores.performance}/100`);
     console.log(`Accessibility: ${avgScores.accessibility}/100`);
     console.log(`Best Practices: ${avgScores.bestPractices}/100`);
@@ -196,7 +203,7 @@ class PerformanceTestSuite {
     // Identify failing pages
     const failedPages = this.results.filter(r => !r.passed);
     if (failedPages.length > 0) {
-      console.log('\n❌ Pages that failed performance thresholds:');
+      console.log('\nPages that failed performance thresholds:');
       failedPages.forEach(page => {
         console.log(`- ${page.pageName}: ${page.url}`);
       });
@@ -224,7 +231,7 @@ class PerformanceTestSuite {
     };
 
     fs.writeFileSync(filepath, JSON.stringify(report, null, 2));
-    console.log(`\n📄 Detailed results saved to: ${filepath}`);
+    console.log(`\nDetailed results saved to: ${filepath}`);
   }
 }
 
@@ -235,11 +242,11 @@ class PerformanceUtils {
       try {
         const response = await fetch(url);
         if (response.ok) {
-          console.log(`✅ Site is available at ${url}`);
+          console.log(`Site is available at ${url}`);
           return true;
         }
       } catch (error) {
-        console.log(`⏳ Attempt ${i + 1}/${maxRetries}: Site not available yet, retrying in 5s...`);
+        console.log(`Attempt ${i + 1}/${maxRetries}: Site not available yet, retrying in 5s...`);
         await new Promise(resolve => setTimeout(resolve, 5000));
       }
     }
@@ -262,9 +269,9 @@ class PerformanceUtils {
 // Run the performance test suite
 async function main() {
   const baseUrl = process.env.BASE_URL || 'http://localhost:4000';
-  
+
   console.log(`Testing site performance at: ${baseUrl}`);
-  
+
   // Check if site is available before running tests
   try {
     await PerformanceUtils.checkSiteAvailability(baseUrl);
