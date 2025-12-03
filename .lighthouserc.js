@@ -2,14 +2,14 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:4000',
-        'http://localhost:4000/about/',
-        'http://localhost:4000/posts/',
-        'http://localhost:4000/projects/'
+        'http://127.0.0.1:4000',
+        'http://127.0.0.1:4000/about/',
+        'http://127.0.0.1:4000/posts/',
+        'http://127.0.0.1:4000/projects/'
       ],
       numberOfRuns: 3,
       settings: {
-        chromeFlags: '--no-sandbox --disable-dev-shm-usage'
+        chromeFlags: '--no-sandbox --disable-dev-shm-usage --headless=new --disable-gpu'
       }
     },
     assert: {
