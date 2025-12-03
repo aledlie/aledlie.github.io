@@ -50,12 +50,12 @@ jobs:
     - name: Start Jekyll server for performance tests
       run: |
         bundle exec jekyll serve &
-        npx wait-on http://localhost:4000 --timeout 60000
+        npx wait-on http://127.0.0.1:4000 --timeout 60000
 
     - name: Run performance tests
       run: npm run test:performance
       env:
-        BASE_URL: http://localhost:4000
+        BASE_URL: http://127.0.0.1:4000
         CI: true
         
     - name: Upload test results
