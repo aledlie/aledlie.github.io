@@ -11,9 +11,28 @@ const { injectAxe, checkA11y } = require('axe-playwright');
  * catching real accessibility issues.
  */
 
+// Helper to wait for CSS to be fully applied
+async function waitForStyles(page) {
+  await page.waitForLoadState('load');
+  // Wait for footer styles to be applied (indicates CSS is loaded)
+  await page.waitForFunction(() => {
+    const footer = document.querySelector('.page__footer-copyright');
+    if (!footer) return true; // No footer on page
+    const style = window.getComputedStyle(footer);
+    // Check if custom font family is applied (not browser defaults)
+    const fontFamily = style.fontFamily.toLowerCase();
+    return fontFamily.includes('apple') || fontFamily.includes('roboto') ||
+           fontFamily.includes('segoe') || fontFamily.includes('helvetica') ||
+           fontFamily.includes('sans-serif');
+  }, { timeout: 5000 }).catch(() => {});
+  // Additional small delay to ensure CSS is fully parsed and applied
+  await page.waitForTimeout(200);
+}
+
 test.describe('Core Accessibility', () => {
   test('homepage should meet WCAG standards', async ({ page }) => {
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     // axe-core automatically checks:
@@ -32,6 +51,7 @@ test.describe('Core Accessibility', () => {
 
   test('about page should meet WCAG standards', async ({ page }) => {
     await page.goto('/about/');
+    await waitForStyles(page);
     await injectAxe(page);
     await checkA11y(page, null, {
       detailedReport: true
@@ -40,6 +60,7 @@ test.describe('Core Accessibility', () => {
 
   test('posts page should meet WCAG standards', async ({ page }) => {
     await page.goto('/posts/');
+    await waitForStyles(page);
     await injectAxe(page);
     await checkA11y(page, null, {
       detailedReport: true
@@ -76,6 +97,7 @@ test.describe('Responsive Design', () => {
   test('should be accessible on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     // Should still meet accessibility standards on mobile
@@ -85,6 +107,7 @@ test.describe('Responsive Design', () => {
   test('should be accessible on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     await checkA11y(page);
