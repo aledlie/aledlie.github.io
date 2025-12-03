@@ -108,10 +108,10 @@ jobs:
         bundle exec jekyll serve &
         npx wait-on http://127.0.0.1:4000 --timeout 60000
 
-    - name: Run Lighthouse CI
+    - name: Run Lighthouse CI with xvfb
       run: |
         npm install -g @lhci/cli@0.12.x
-        lhci autorun
+        xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' lhci autorun
       env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}

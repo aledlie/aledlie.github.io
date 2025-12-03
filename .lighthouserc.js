@@ -9,7 +9,7 @@ module.exports = {
       ],
       numberOfRuns: 3,
       settings: {
-        chromeFlags: '--no-sandbox --disable-dev-shm-usage --headless=new --disable-gpu'
+        chromeFlags: '--no-sandbox --disable-dev-shm-usage --disable-gpu'
       }
     },
     assert: {
