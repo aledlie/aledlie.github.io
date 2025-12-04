@@ -565,3 +565,4 @@ Migrated from deprecated SCSS functions to modern Sass module system:
 ---
 
 **Last Major Update:** 2025-11-26 - Accessibility WCAG 2.1 AA compliance achieved
+- always use uv pip install for new python libraries
