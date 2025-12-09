@@ -8,8 +8,8 @@ categories: [testing, documentation, code-quality]
 tags: [pytest, fixtures, test-architecture, ast-grep-mcp, migration-tracking]
 excerpt: "Review of test fixture migration achieving 18.4% code reduction with 100% test pass rate, identifying 41% tool registration limitation."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Test Fixture Migration: Documentation Review and Status Assessment

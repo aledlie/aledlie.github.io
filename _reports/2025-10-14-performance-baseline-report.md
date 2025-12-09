@@ -8,8 +8,8 @@ categories: performance testing
 tags: [performance, web-vitals, load-testing, stress-testing, scalability]
 excerpt: "Comprehensive performance testing baseline for IntegrityStudio.ai, fisterra.xyz, AustinInspiredMovement.com, and SoundSightATX.com before optimization improvements."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Website Performance Baseline Report

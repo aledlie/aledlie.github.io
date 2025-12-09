@@ -8,8 +8,8 @@ categories: [ast-grep-mcp, testing, batch-operations]
 tags: [python, testing, pytest, mocking, parallel-execution, ast-grep, mcp]
 excerpt: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion

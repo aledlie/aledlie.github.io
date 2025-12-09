@@ -8,8 +8,8 @@ categories: [ast-grep-mcp, duplication-detection, feature-implementation]
 tags: [python, ast-grep, code-analysis, refactoring, mcp-server, testing]
 excerpt: "Implementation of Phase 1 Pattern Analysis Engine for enhanced duplication detection in ast-grep-mcp."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Phase 1 Pattern Analysis Engine for Enhanced Duplication Detection

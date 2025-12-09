@@ -8,8 +8,8 @@ categories: [software-development, data-analysis]
 tags: [precision, duplicate-detection, ast-grep, performance-metrics]
 excerpt: "Scientific analysis of duplicate detection system achieving only 59.09% precision - identifying root causes and proposing solutions to reach 90% target."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 **Date:** 2025-11-16

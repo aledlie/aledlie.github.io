@@ -8,8 +8,8 @@ categories: reports development
 tags: [ast-grep, mcp, schema-org, cli-tools, documentation, python]
 excerpt: "Enhanced the ast-grep-mcp project documentation and created a new standalone CLI tool for Schema.org vocabulary queries. Improved developer experience through better documentation and provided quick command-line access to three essential Schema.org MCP tools."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # ast-grep-mcp Documentation Enhancement and CLI Tools Development

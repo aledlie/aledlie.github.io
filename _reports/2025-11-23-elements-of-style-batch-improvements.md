@@ -8,8 +8,8 @@ categories: [documentation, writing-quality, batch-processing]
 tags: [elements-of-style, style-analyzer, technical-writing, passive-voice, clarity, automated-analysis]
 excerpt: "Systematic improvement of 23 technical reports using automated style analysis achieving 20-50 point score increases."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Elements of Style: Batch Writing Quality Improvements Across 23 Reports

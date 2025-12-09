@@ -8,8 +8,8 @@ categories: [reports, refactoring]
 tags: [typescript, refactoring, code-quality, testing, git, analytics]
 excerpt: "Complete refactoring of 3 high-priority large classes (1,437 lines) into 16 focused modules achieving 70% code reduction per module with zero breaking changes."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "code"

@@ -8,8 +8,8 @@ categories: [code-quality, duplicate-detection, technical-debt]
 tags: [python, typescript, ast-grep, code-analysis, refactoring, analytics-bot, tool-visualizer, tcad-scraper]
 excerpt: "Code Duplication Analysis: ISPublicSites Repository Audit"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Code Duplication Analysis: ISPublicSites Repository Audit

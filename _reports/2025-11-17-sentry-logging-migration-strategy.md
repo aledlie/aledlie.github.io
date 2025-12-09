@@ -10,8 +10,8 @@ excerpt: "Sentry Logging Migration Strategy"
 status: active
 priority: P0
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Sentry Logging Migration Strategy

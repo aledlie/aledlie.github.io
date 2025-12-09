@@ -8,8 +8,8 @@ categories: [software-development, open-source, mcp]
 tags: [ast-grep, performance, streaming, python, mcp-server]
 excerpt: "Implementing streaming architecture and large file handling for the ast-grep MCP server to enable memory-efficient code search across massive codebases."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 ## Executive Summary

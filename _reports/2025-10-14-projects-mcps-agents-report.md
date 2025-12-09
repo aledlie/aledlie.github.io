@@ -8,8 +8,8 @@ categories: [reports]
 tags: [mcp, claude-code, automation, web-scraping, analytics]
 excerpt: "Comprehensive analysis of 40+ projects including MCP servers, Claude Code agents, web applications, and automation systems."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "list"

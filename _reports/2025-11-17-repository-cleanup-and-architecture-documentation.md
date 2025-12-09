@@ -8,8 +8,8 @@ categories: [maintenance, documentation, tooling]
 tags: [cleanup, architecture, automation, repository-maintenance, data-flows, jekyll]
 excerpt: "Comprehensive repository cleanup removing 85MB+ of bloat, creation of data architecture documentation, and development of universal cleanup automation script"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Repository Cleanup and Architecture Documentation Session

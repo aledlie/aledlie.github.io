@@ -8,8 +8,8 @@ categories: [refactoring, code-quality, technical-report]
 tags: [typescript, analyticsbot, complexity-reduction, manual-implementation, code-review]
 excerpt: "Summary report recommending manual implementation over automated refactoring for AnalyticsBot high-priority improvements."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # AnalyticsBot Refactoring - Summary Report

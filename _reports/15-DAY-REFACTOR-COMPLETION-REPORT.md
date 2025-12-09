@@ -10,8 +10,8 @@ tags: [python, modular-architecture, ast-grep, mcp, testing, documentation, code
 excerpt: "Comprehensive completion report documenting the successful transformation of ast-grep-mcp from a 19,477-line monolithic codebase to a clean modular architecture with 46 specialized modules, achieving 99.2% code reduction in the main entry point."
 toc: true
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # 15-Day Modular Refactoring: Completion Report

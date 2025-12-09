@@ -8,8 +8,8 @@ categories: [repository-organization, code-quality, technical-debt-elimination]
 tags: [analyticsbot, typescript, cleanup, documentation, database, refactoring, mermaid-diagrams, organization]
 excerpt: "Systematic repository cleanup removing 25 orphaned files, consolidating 3 archive directories, and eliminating 450KB of duplicate/unused content across AnalyticsBot."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # AnalyticsBot Repository Organization: Comprehensive Cleanup and Consolidation
