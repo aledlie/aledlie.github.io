@@ -227,7 +227,7 @@ Each step in `schema_steps` can have:
 - name: "Step title"           # Required
   text: "Detailed instructions" # Required
   url: "/path/to/section"      # Optional: link to step anchor
-  image: "/images/step1.jpg"   # Optional: step illustration
+  image: "/assets/images/step1.jpg"   # Optional: step illustration
 ```
 
 ### ISO 8601 Duration Format
@@ -478,10 +478,10 @@ For HowTo posts with visual steps:
 schema_steps:
   - name: "Step 1: Open settings"
     text: "Navigate to Settings > Configuration"
-    image: "/images/tutorials/step1.png"
+    image: "/assets/images/tutorials/step1.png"
   - name: "Step 2: Enable feature"
     text: "Toggle the feature switch to ON"
-    image: "/images/tutorials/step2.png"
+    image: "/assets/images/tutorials/step2.png"
 ```
 
 ---

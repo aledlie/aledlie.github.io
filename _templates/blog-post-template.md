@@ -14,9 +14,9 @@ tags:
 description: "A compelling description of your blog post that will appear in search results and social media shares. Keep it under 160 characters for best SEO results."
 excerpt: "A brief excerpt that appears on your blog listing pages. This can be longer than the description."
 header:
-  image: /images/your-featured-image.jpg          # Optional: Featured image
-  teaser: /images/your-teaser-image.jpg           # Optional: Smaller teaser image
-  overlay_image: /images/your-overlay-image.jpg   # Optional: Background overlay image
+  image: /assets/images/your-featured-image.jpg          # Optional: Featured image
+  teaser: /assets/images/your-teaser-image.jpg           # Optional: Smaller teaser image
+  overlay_image: /assets/images/your-overlay-image.jpg   # Optional: Background overlay image
   overlay_filter: 0.5                            # Optional: Darken overlay (0.0 to 1.0)
   caption: "Photo credit: [Your Name](https://example.com)"
 toc: true                    # Optional: Table of contents
@@ -44,7 +44,7 @@ console.log("Hello, world!");
 
 ## Images
 
-![Alt text for accessibility](/images/your-image.jpg)
+![Alt text for accessibility](/assets/images/your-image.jpg)
 
 ## Lists
 

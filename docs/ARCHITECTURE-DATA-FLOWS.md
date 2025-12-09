@@ -1171,7 +1171,7 @@ graph TD
       ]
     },
     {
-      "source": "/images/(.*)",
+      "source": "/assets/images/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
@@ -1394,8 +1394,8 @@ graph TD
 title: "My Project"
 excerpt: "Brief description"
 header:
-  overlay_image: /images/project-header.jpg
-  teaser: /images/project-teaser.jpg
+  overlay_image: /assets/images/project-header.jpg
+  teaser: /assets/images/project-teaser.jpg
 ---
 
 Project content here...

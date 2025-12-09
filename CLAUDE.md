@@ -204,8 +204,8 @@ permalink: /page-url/
 author_profile: true
 breadcrumbs: true
 header:
-  overlay_image: /images/cover-image.png
-  teaser: /images/cover-image.png
+  overlay_image: /assets/images/cover-image.png
+  teaser: /assets/images/cover-image.png
 ---
 ```
 

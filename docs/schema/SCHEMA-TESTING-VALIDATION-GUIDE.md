@@ -231,8 +231,8 @@ bundle exec jekyll serve
 **Symptom:** Image URL issues in structured data
 **Fix:** Check image URLs are absolute, not relative:
 ```
-✓ "https://www.aledlie.com/images/avatar.jpg"
-✗ "/images/avatar.jpg"
+✓ "https://www.aledlie.com/assets/images/avatar.jpg"
+✗ "/assets/images/avatar.jpg"
 ```
 
 ---

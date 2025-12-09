@@ -136,7 +136,7 @@ main:
 #### **Content Organization:**
 - Blog posts in `_posts/` with YAML front matter
 - Static pages (about.md) in root directory
-- Images organized in `assets/images/` and `images/`
+- Images organized in `assets/images/`
 
 ## Technology Stack
 
