@@ -4,8 +4,7 @@ module.exports = {
       url: [
         'http://127.0.0.1:4000',
         'http://127.0.0.1:4000/about/',
-        'http://127.0.0.1:4000/posts/',
-        'http://127.0.0.1:4000/projects/'
+        'http://127.0.0.1:4000/posts/'
       ],
       numberOfRuns: 3,
       settings: {

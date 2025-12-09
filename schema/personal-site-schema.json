@@ -103,9 +103,6 @@
         },
         {
           "@id": "https://www.aledlie.com/about#profilepage"
-        },
-        {
-          "@id": "https://www.aledlie.com/projects#collectionpage"
         }
       ],
       "about": [
@@ -130,11 +127,6 @@
           "@type": "ReadAction",
           "target": "https://www.aledlie.com/posts/",
           "name": "Read Blog Posts"
-        },
-        {
-          "@type": "ViewAction",
-          "target": "https://www.aledlie.com/projects/",
-          "name": "View Projects"
         }
       ]
     },
@@ -188,41 +180,6 @@
             "position": 2,
             "name": "About",
             "item": "https://www.aledlie.com/about/"
-          }
-        ]
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": "https://www.aledlie.com/projects#collectionpage",
-      "url": "https://www.aledlie.com/projects/",
-      "name": "Projects - Alyshia Ledlie",
-      "description": "Portfolio of software development projects, open source contributions, and technical work by Alyshia Ledlie.",
-      "about": {
-        "@id": "https://www.aledlie.com#person"
-      },
-      "isPartOf": {
-        "@id": "https://www.aledlie.com#website"
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "name": "Project Portfolio",
-        "description": "Collection of software and technology projects"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.aledlie.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Projects",
-            "item": "https://www.aledlie.com/projects/"
           }
         ]
       }

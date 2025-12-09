@@ -133,8 +133,7 @@ class PerformanceTestSuite {
     const pagesToTest = [
       { path: '/', name: 'Homepage' },
       { path: '/about/', name: 'About Page' },
-      { path: '/posts/', name: 'Posts Page' },
-      { path: '/projects/', name: 'Projects Page' }
+      { path: '/posts/', name: 'Posts Page' }
     ];
 
     console.log('Starting comprehensive performance test suite...\n');

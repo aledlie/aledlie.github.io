@@ -11,5 +11,5 @@
 <text x="620" y="112" font-size="12">Client Work: 1 (25.0%)</text>
 <path d="M 400.0,300.0 L 200.0,300.0 A 200.0,200.0 0 0,1 399.99999999999994,100.0 Z" fill="#00994d" stroke="white" stroke-width="2"/>
 <rect x="600" y="125" width="15" height="15" fill="#00994d"/>
-<text x="620" y="137" font-size="12">Business Apps: 1 (25.0%)</text>
+<text x="620" y="137" font-size="12">Legacy: 1 (25.0%)</text>
 </svg>
