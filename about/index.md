@@ -5,8 +5,8 @@ permalink: /about/
 author_profile: true
 breadcrumbs: true
 header:
-  overlay_image: /images/cover-about.png
-  teaser: /images/cover-about.png
+  overlay_image: /assets/images/cover-about.png
+  teaser: /assets/images/cover-about.png
 ---
 
 Very much a work in progress, started in 2017 and picked up again a few weeks ago.

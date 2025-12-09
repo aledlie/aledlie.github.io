@@ -4,8 +4,8 @@ title: Vita
 permalink: /vita/
 author_profile: true
 header:
-  overlay_image: /images/cover-vita.png
-  teaser: /images/cover-vita.png
+  overlay_image: /assets/images/cover-vita.png
+  teaser: /assets/images/cover-vita.png
 
 # Enhanced Schema.org structured data - Professional organizations, technologies, and education
 schema_mentions:

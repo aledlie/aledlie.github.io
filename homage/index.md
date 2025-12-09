@@ -3,8 +3,8 @@ layout: single
 title: "Homage"
 author_profile: true
 header:
-  overlay_image: /images/cover-projects.png
-  teaser: /images/cover-projects.png
+  overlay_image: /assets/images/cover-projects.png
+  teaser: /assets/images/cover-projects.png
 
 # Enhanced Schema.org structured data - Memorial tribute to Sumedh Joshi
 # Page is about Sumedh - memorial tribute
