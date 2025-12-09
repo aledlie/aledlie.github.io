@@ -432,9 +432,6 @@ Important paths excluded in `_config.yml`:
 - schema-org-optimizer.md
 - Various config and build files
 
-## RSS Feeds
-
-- Main feed: `/feed.xml` (Jekyll Feed plugin)
 
 ## Utilities and Scripts
 

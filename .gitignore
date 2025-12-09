@@ -73,7 +73,6 @@ doppler.yaml
 .vercel/
 
 # Build artifacts
-dist/
 build/
 lib/
 
