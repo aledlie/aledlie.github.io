@@ -7,8 +7,8 @@ breadcrumbs: true
 categories: [work-updates]
 excerpt: "A whirlwind week of fixing build bugs, improving schema.org implementation, and diving deep into MCP server development."
 header:
-  overlay_image: /images/cover-work.png
-  teaser: /images/cover-work.png
+  overlay_image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
 ---
 
 ## What I Accomplished This Week
