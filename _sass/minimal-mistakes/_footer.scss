@@ -50,11 +50,11 @@
   color: #595959; /* WCAG AA compliant contrast */
 
   a {
-    color: #333333; /* Darker link color for WCAG AA compliance */
+    color: #333; /* Darker link color for WCAG AA compliance */
     text-decoration: underline;
 
     &:hover {
-      color: #000000;
+      color: #000;
     }
   }
 }
@@ -83,10 +83,10 @@
   a {
     padding-inline-end: 10px;
     font-weight: bold;
-    color: #333333; /* WCAG AA compliant contrast */
+    color: #333; /* WCAG AA compliant contrast */
 
     &:hover {
-      color: #000000;
+      color: #000;
     }
   }
 
