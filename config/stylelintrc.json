@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "ignoreFiles": [
+    "SumedhSite/**",
+    "**/vendor/**",
+    "_site/**",
+    "node_modules/**",
+    ".bundle/**"
+  ],
+  "rules": {
+  }
+}

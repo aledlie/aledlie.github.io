@@ -137,7 +137,7 @@ jobs:
     - name: Check for vulnerable dependencies
       run: |
         npm install -g audit-ci
-        audit-ci --config audit-ci.json
+        audit-ci --config config/audit-ci.json
         
   accessibility:
     runs-on: ubuntu-latest

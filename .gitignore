@@ -25,7 +25,6 @@ yarn-error.log*
 
 # Project-specific
 schema_org_optimizer.md
-audit-ci.json
 drafts/
 
 # macOS

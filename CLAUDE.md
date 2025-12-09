@@ -269,7 +269,7 @@ Key customizations:
 - Coverage: `assets/js/**/*.js` (excluding vendor)
 
 **Playwright (E2E Tests):**
-- Config: `playwright.config.js`
+- Config: `config/playwright.config.js`
 - Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
 - Auto-starts Jekyll server on port 4000
 - Screenshots/videos on failure
@@ -277,7 +277,7 @@ Key customizations:
 - **Accessibility tests:** `tests/e2e/accessibility.spec.js` - validates WCAG compliance
 
 **Lighthouse (Performance):**
-- Config: `.lighthouserc.js`
+- Config: `config/lighthouserc.js`
 - Tests: Homepage, About, Posts, Projects
 - Thresholds: Performance ≥85%, Accessibility ≥95%, SEO ≥95%
 - Core Web Vitals monitoring (LCP, FID, CLS, FCP, TTI)
@@ -360,7 +360,7 @@ npx playwright test --ui
 npx playwright test tests/e2e/accessibility.spec.js
 
 # Run performance tests on specific URL
-# Edit .lighthouserc.js to configure URLs
+# Edit config/lighthouserc.js to configure URLs
 npm run test:performance
 ```
 
