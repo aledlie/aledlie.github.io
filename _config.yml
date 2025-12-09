@@ -141,7 +141,7 @@ whitelist:
 # Author
 author:
   name: Alyshia Ledlie
-  avatar: /images/profile.jpg
+  avatar: /assets/images/profile.jpg
   bio: I write code, make aggressively mediocre jokes, and scale companies.
   location: ATX | La Ventana | Rio
   links:
@@ -162,7 +162,7 @@ author:
 # Owner
 owner:
   name: Alyshia Ledlie
-  avatar: /images/profile.jpg
+  avatar: /assets/images/profile.jpg
   bio: It is enough to be benign, to be gentle, to be funny, to be kind
   email: alyshia@inventoryai.io
   twitter: AlyshiaLedlie
