@@ -26,6 +26,7 @@ Major structural cleanup and consolidation.
 - Fixed 404 page duplicate archive link
 - Removed unused `dist/` from `.gitignore`
 - Deleted redundant `ReadMe.md` (content in CLAUDE.md)
+- Fixed duplicate H1 title on pages with overlay headers (archive layout)
 
 ### CI Improvements
 - Made Lighthouse CI non-blocking with `continue-on-error`
