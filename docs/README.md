@@ -1,6 +1,6 @@
 # Documentation Index
 
-**Last Updated:** 2025-11-17
+**Last Updated:** 2025-12-27
 
 This directory contains all documentation for The Parlor (www.aledlie.com) Jekyll site.
 
@@ -19,6 +19,7 @@ docs/
 ├── schema/              # Schema.org implementation & SEO
 ├── refactoring/         # Codebase refactoring guides
 ├── setup/               # Local development setup
+├── CHANGELOG.md         # Project change history
 └── REFACTORING_STATUS.md
 ```
 
@@ -124,9 +125,9 @@ docs/
 
 | File | Description |
 |------|-------------|
-| `ARCHITECTURE-DATA-FLOWS.md` | **Comprehensive architecture and data flow documentation** |
+| `CHANGELOG.md` | **Project change history** - all notable changes |
+| `ARCHITECTURE-DATA-FLOWS.md` | Comprehensive architecture and data flow documentation |
 | `REFACTORING_STATUS.md` | Current refactoring status and progress |
-| `START_HERE_OLD.md` | Legacy start guide (archived) |
 
 ---
 

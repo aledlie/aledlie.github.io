@@ -167,7 +167,14 @@ npm run format:scss
 ├── assets/
 │   ├── css/main.scss     # HEAVILY CUSTOMIZED - Complete CSS overhaul
 │   ├── js/               # JavaScript files
-│   └── images/           # Profile and header images
+│   └── images/           # ALL site images (profile, headers, covers, visualizations)
+├── config/               # Consolidated configuration files
+│   ├── _octopress.yml    # Octopress configuration
+│   ├── audit-ci.json     # CI audit configuration
+│   ├── lighthouserc.js   # Lighthouse performance config
+│   ├── playwright.config.js # Playwright E2E test config
+│   ├── prettierrc.json   # Prettier formatting config
+│   └── stylelintrc.json  # Stylelint SCSS linting config
 ├── tests/                # Comprehensive test suite (unit, e2e, performance, analytics)
 │   ├── e2e/              # Playwright tests (accessibility, navigation, etc.)
 │   ├── performance/      # Lighthouse performance tests
@@ -429,8 +436,12 @@ Important paths excluded in `_config.yml`:
 - node_modules/
 - tests/
 - test_results/
+- SumedhSite/
+- config/Gemfile, config/package.json
 - schema-org-optimizer.md
-- Various config and build files
+- Various build, vendor, and cache files
+
+**Note:** Files in `config/` (like `.js` and `.json`) are not processed by Jekyll since they lack front matter.
 
 
 ## Utilities and Scripts
@@ -505,61 +516,18 @@ Extensive refactoring documentation exists in `docs/`:
 
 **When making significant changes:** Consult refactoring docs to understand existing patterns and testing requirements.
 
-## Recent Updates (Updated: 2025-11-26)
+## Recent Updates
 
-### Accessibility Improvements (November 2025)
+See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-Comprehensive WCAG 2.1 Level AA compliance work completed:
+**Latest (2025-12-27):** Repository refactoring - consolidated images to `assets/images/`, configs to `config/`, removed unused templates
 
-**Quick Wins Implemented:**
-- Removed positive tabindex values from skip links (WCAG 2.4.3)
-- Improved color contrast ratios to WCAG AA standards (WCAG 1.4.3)
-- Added H1 fallback for archive pages (WCAG 2.4.6)
-- Fixed breadcrumb list structure (WCAG 1.3.1)
-- Removed nested landmark roles (WCAG 1.3.1)
-- Corrected heading hierarchy across site (WCAG 2.4.6)
-
-**Final Fixes (2025-11-26):**
-- Added H1 headings to overlay header pages (`_includes/page__hero.html`)
-- Removed aria-label from non-landmark page-meta div (`_layouts/single.html`)
-- Fixed heading hierarchy in author profile (H3→H2, H4→H3) (`_includes/author-profile.html`)
-- Improved footer color contrast to WCAG AAA levels (`_sass/_footer.scss`)
-- Removed improper role/aria-label from sidebar div (`_includes/sidebar.html`)
-
-**Test Results:**
-- All 7 E2E accessibility tests now passing
-- Zero WCAG violations across homepage, about, posts, mobile, tablet
-- Keyboard navigation and focus indicators validated
-
-**Documentation:**
-- Comprehensive compliance report: `_reports/2025-11-26-accessibility-quick-wins-wcag-compliance.md`
-- Contains detailed before/after analysis, WCAG citations, implementation details
-
-### Writing Quality Improvements (November 2025)
-
-Applied Elements of Style principles across reports and posts:
-- Eliminated passive voice constructions
-- Removed unnecessary words and phrases
-- Improved sentence structure and flow
-- Documentation: `_reports/2025-11-23-elements-of-style-batch-improvements.md`
-
-### SCSS Modernization (November 2025)
-
-Migrated from deprecated SCSS functions to modern Sass module system:
-- Replaced `darken()`, `lighten()` with `sass:color` functions
-- Updated `percentage()` to `sass:math.div()`
-- Migration script: `utils/migrate-scss-functions.sh`
-- All custom SCSS now uses `@use` instead of `@import`
-
-### Reports Collection Enhancement (November 2024-2025)
-
-- Standardized front matter across all reports
-- Added unique collection header images
-- Improved visual formatting and readability
-- Fixed sidebar alignment issues in reports
-- Added comprehensive formatting audit documentation
+**Previous:**
+- 2025-11-26: WCAG 2.1 Level AA accessibility compliance achieved
+- 2025-11: SCSS modernization (sass:color, sass:math modules)
+- 2025-11: Reports collection formatting standardization
 
 ---
 
-**Last Major Update:** 2025-11-26 - Accessibility WCAG 2.1 AA compliance achieved
+**Last Major Update:** 2025-12-27
 - always use uv pip install for new python libraries
