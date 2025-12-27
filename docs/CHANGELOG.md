@@ -30,6 +30,7 @@ Major structural cleanup and consolidation.
 ### CI Improvements
 - Made Lighthouse CI non-blocking with `continue-on-error`
 - Added xvfb virtual display for Lighthouse Chrome in CI
+- Fixed accessibility job Playwright config path after config consolidation
 
 ---
 
