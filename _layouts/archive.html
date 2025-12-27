@@ -18,13 +18,15 @@ layout: default
 
 <div id="main">
   <div class="archive">
-    {% if page.title %}
-      <h1 class="page-title">{{ page.title }}</h1>
-    {% elsif page.url == "/" %}
-      <h1 class="page-title">Recent Posts</h1>
-    {% else %}
-      <h1 class="page-title">{{ site.data.ui-text[site.locale].page_title | default: site.title }}</h1>
-    {% endif %}
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      {% if page.title %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% elsif page.url == "/" %}
+        <h1 class="page-title">Recent Posts</h1>
+      {% else %}
+        <h1 class="page-title">{{ site.data.ui-text[site.locale].page_title | default: site.title }}</h1>
+      {% endif %}
+    {% endunless %}
     {{ content }}
   </div>
 </div>
