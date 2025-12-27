@@ -1,12 +1,12 @@
 <svg width="800" height="220" xmlns="http://www.w3.org/2000/svg">
 <text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
 <rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="70.0" text-anchor="end" font-size="14">Inventory</text>
-<text x="705.0" y="70.0" font-size="14" font-weight="bold">291</text>
-<rect x="250" y="90" width="17.010309278350515" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="110.0" text-anchor="end" font-size="14">jobs</text>
-<text x="272.0103092783505" y="110.0" font-size="14" font-weight="bold">11</text>
-<rect x="250" y="130" width="15.463917525773196" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="70.0" text-anchor="end" font-size="14">jobs</text>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">14</text>
+<rect x="250" y="90" width="321.42857142857144" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="110.0" text-anchor="end" font-size="14">Inventory</text>
+<text x="576.4285714285714" y="110.0" font-size="14" font-weight="bold">10</text>
+<rect x="250" y="130" width="32.142857142857146" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="150.0" text-anchor="end" font-size="14">PersonalSite</text>
-<text x="270.4639175257732" y="150.0" font-size="14" font-weight="bold">10</text>
+<text x="287.14285714285717" y="150.0" font-size="14" font-weight="bold">1</text>
 </svg>
