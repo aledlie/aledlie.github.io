@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# AnalyticsBot: UUID v7 Migration for Distributed System Compatibility
 **Session Date**: 2025-11-18
 **Project**: AnalyticsBot - Multi-tenant Analytics Platform
 **Focus**: Migrate from auto-increment integers to UUID v7 for distributed system readiness

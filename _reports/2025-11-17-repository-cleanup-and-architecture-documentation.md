@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Repository Cleanup and Architecture Documentation Session
 ## Data Architecture Analysis and Automated Maintenance Tools
 
 **Test Date:** November 17, 2025

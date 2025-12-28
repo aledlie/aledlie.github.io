@@ -12,6 +12,7 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
+# Scientific Analysis of Precision Problem in Duplicate Detection System
 **Date:** 2025-11-16
 **Analyst:** Claude Code
 **Current Metrics:** Precision 59.09% (Target: 90%, Gap: -30.9%)

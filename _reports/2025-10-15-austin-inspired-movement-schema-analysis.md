@@ -14,6 +14,8 @@ toc: true
 toc_label: "Contents"
 toc_icon: "chart-bar"
 ---
+
+# Schema.org Impact Analysis: Austin Inspired Movement
 **Website:** https://www.austininspiredmovement.com
 **Generated:** October 15, 2025, 5:25:22 PM
 

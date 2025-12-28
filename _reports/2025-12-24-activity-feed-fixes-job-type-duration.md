@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Activity Feed Fixes: Job Type and Duration Display
 **Session Date**: 2025-12-24
 **Project**: AlephAuto - Job Queue Dashboard
 **Focus**: Fix activity feed displaying incorrect job type and duration information

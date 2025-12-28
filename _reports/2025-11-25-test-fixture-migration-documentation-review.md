@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Test Fixture Migration: Documentation Review and Status Assessment
 **Session Date**: 2025-11-25
 **Project**: ast-grep-mcp
 **Focus**: Review test fixture migration progress and tool registration status

@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Writing Style Improvements: Batch Analysis and Fixes
 **Session Date**: 2025-11-23
 **Project**: PersonalSite Reports - Writing Quality Enhancement
 **Focus**: Systematic improvement of 23 technical reports using Elements of Style analyzer

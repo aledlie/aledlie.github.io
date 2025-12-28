@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Code Duplication Analysis: ISPublicSites Repository Audit
 **Session Date**: 2025-11-17
 **Project**: ISPublicSites - Multi-project monorepo
 **Focus**: Systematic code duplication detection and refactoring recommendations

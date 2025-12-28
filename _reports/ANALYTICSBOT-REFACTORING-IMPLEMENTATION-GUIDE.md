@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# AnalyticsBot Refactoring Implementation Guide
 **Date:** 2025-11-27
 **Status:** READY FOR REVIEW
 **Risk Level:** HIGH - Requires careful testing

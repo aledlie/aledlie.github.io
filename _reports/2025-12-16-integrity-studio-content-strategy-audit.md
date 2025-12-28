@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Integrity Studio Landing Page Content Strategy Audit and Competitive Intelligence
 **Session Date**: 2025-12-16
 **Project**: IntegrityStudio.ai2 - AI Observability Platform Landing Page
 **Focus**: Competitive research and content effectiveness analysis for landing page optimization

@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Phase 1+2 Complexity Refactoring: Quantitative Analysis of Zero Violations Achievement
 **Session Date**: 2025-11-29
 **Project**: ast-grep-mcp
 **Focus**: Verification and documentation of complete Phase 1+2 complexity refactoring with numerical analysis

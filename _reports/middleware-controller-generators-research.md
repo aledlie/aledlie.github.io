@@ -13,6 +13,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Open Source Middleware & Controller Generation Tools for Full-Suite Applications
 **Research Date:** November 24, 2025
 **Author:** Claude Code (Web Research Specialist)
 **Purpose:** Comprehensive analysis of open-source tools for generating modular, observable, secure, and flexible middleware/controllers

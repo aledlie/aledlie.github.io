@@ -14,6 +14,8 @@ toc: true
 toc_label: "Contents"
 toc_icon: "list"
 ---
+
+# Projects, MCPs, and Agents Overview
 **Generated:** October 14, 2025
 **Repository Location:** `/Users/alyshialedlie/code`
 **Author:** Alyshia Ledlie

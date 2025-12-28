@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Optimization Analysis: analysis_orchestrator.py
 **Date:** 2025-11-27
 **File:** `src/ast_grep_mcp/features/deduplication/analysis_orchestrator.py`
 **Lines:** 334

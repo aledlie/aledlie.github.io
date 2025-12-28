@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# ast-grep-mcp Documentation Enhancement and CLI Tools Development
 **Date**: November 16, 2025
 **Session Type**: Documentation Review & Tool Development
 **Repository**: ast-grep-mcp

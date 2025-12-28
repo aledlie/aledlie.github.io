@@ -12,6 +12,7 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
+# AST-Grep MCP Server: Phase 2 Performance Enhancements - Streaming & Large File Handling
 ## Executive Summary
 
 This report documents the implementation of two critical performance enhancements for the ast-grep MCP server as part of Phase 2 (Performance & Scalability) of the strategic development plan:

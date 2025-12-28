@@ -12,6 +12,7 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
+# AST-Grep MCP Server: Phase 2 Complete - Performance & Scalability Achieved
 ## Executive Summary
 
 **Phase 2: Performance & Scalability is now 100% COMPLETE** ✅

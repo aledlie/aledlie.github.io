@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Repository Refactoring: Comprehensive Architecture Documentation and Organization
 **Session Date**: 2025-11-17
 **Project**: Jobs Automation System (AlephAuto)
 **Focus**: Repository organization, architecture documentation, and comprehensive refactoring

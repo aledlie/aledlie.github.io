@@ -11,6 +11,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# LLM Cost Optimization Page: From 580-Line Plan to Perfect Lighthouse Scores
 **Session Date**: 2025-12-27
 **Project**: IntegrityStudio.ai
 **Focus**: Build and launch LLM cost optimization page with calculator, achieve perfect Lighthouse scores

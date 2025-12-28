@@ -13,6 +13,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Sentry Logging Migration Strategy - ISPublicSites
 ## Executive Summary
 
 **Objective**: Replace 2,000+ console/print statements with Sentry-based structured logging across 5 ISPublicSites projects, including AI agent monitoring.

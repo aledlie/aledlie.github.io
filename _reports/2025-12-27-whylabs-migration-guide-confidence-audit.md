@@ -12,6 +12,7 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
+# WhyLabs Migration Guide: Confidence Audit and Fact Verification
 **Session Date**: 2025-12-27
 **Project**: IntegrityStudio.ai2 - WhyLabs Migration Guide
 **Focus**: Critical review of document assumptions, fact verification, and confidence scoring

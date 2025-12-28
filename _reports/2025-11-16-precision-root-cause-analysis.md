@@ -12,6 +12,8 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
+
+# Precision Root Cause Analysis: Debugging a Duplicate Detection Pipeline
 **Investigation Method**: Systematic hypothesis testing
 **Starting Precision**: 59.09%
 **Current Precision**: 73.68%
