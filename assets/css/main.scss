@@ -181,8 +181,9 @@ body {
     width: 100%;
     text-align: center;  /* Center the Follow button */
 
-    > button {
-      display: inline-block;  /* Allow text-align to center it */
+    > button,
+    > button.btn {
+      display: inline-block !important;  /* Override theme's block display */
       margin-bottom: 1em;
     }
   }
