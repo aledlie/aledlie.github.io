@@ -2,6 +2,34 @@
 
 All notable changes to this project are documented in this file.
 
+## [2025-12-28] - Homepage Redesign & Cover Photo Cleanup
+
+### Homepage Changes
+- Moved "The Parlor" title from cover photo overlay to H1 heading below image
+- Changed homepage header from `overlay_image` to `image` type for clean cover photo
+- Added "The Parlor" as H1 in `_layouts/home.html` for accessibility compliance
+
+### Site-wide Cover Photo Changes
+- Removed title overlays from all 75 pages (changed `overlay_image` to `image`)
+- Cover photos now display without text overlays across entire site
+- Added `width: 100%` to `.page-hero-image` CSS for full-width cover photos
+
+### Accessibility Fixes (WCAG Compliance)
+- Fixed duplicate banner landmarks by changing `<header>` to `<div>` in:
+  - `_includes/page__hero.html` - hero section no longer creates banner landmark
+  - `_layouts/single.html` - inner header changed to `<div class="page-header">`
+- Added H1 headings for pages with `image` header type:
+  - `_layouts/home.html` - "The Parlor" H1
+  - `_layouts/post-index.html` - page title as H1
+  - `_layouts/single.html` - shows H1 for non-overlay pages
+- Updated `_layouts/archive.html` condition to check for `page.header.image`
+
+### Test Results
+- All E2E accessibility tests passing
+- Both Deploy and Test Suite workflows succeeded
+
+---
+
 ## [2025-12-27] - Repository Refactoring
 
 Major structural cleanup and consolidation.
