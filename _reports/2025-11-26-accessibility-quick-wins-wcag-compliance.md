@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Accessibility Quick Wins: WCAG Compliance Improvements
-
 **Session Date**: 2025-11-26
 **Project**: PersonalSite (aledlie.github.io)
 **Focus**: Systematic bugfix planning and implementation of accessibility improvements

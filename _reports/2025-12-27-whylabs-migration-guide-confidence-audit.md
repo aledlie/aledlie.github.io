@@ -8,11 +8,9 @@ categories: [content-strategy, fact-checking, risk-assessment]
 tags: [whylabs, confidence-scoring, fact-verification, testimonials, enterprise-claims, apple-acquisition, documentation-audit]
 excerpt: "Comprehensive confidence audit of the WhyLabs migration guide, identifying fabricated content, verifying factual claims, and providing section-by-section risk scoring."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# WhyLabs Migration Guide: Confidence Audit and Fact Verification
 
 **Session Date**: 2025-12-27
 **Project**: IntegrityStudio.ai2 - WhyLabs Migration Guide

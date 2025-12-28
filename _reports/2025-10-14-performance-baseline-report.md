@@ -11,8 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Website Performance Baseline Report
 ## Comprehensive Performance Testing - Before Improvements
 
 **Test Date:** October 14, 2025

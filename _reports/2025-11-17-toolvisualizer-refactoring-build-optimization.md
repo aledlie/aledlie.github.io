@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# ToolVisualizer: 4-Phase Refactoring and Build Optimization
-
 **Session Date**: 2025-11-17
 **Project**: ToolVisualizer - Code Directory Visualization Tool
 **Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching

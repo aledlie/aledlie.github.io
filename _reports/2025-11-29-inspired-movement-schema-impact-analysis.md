@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Schema.org Impact Analysis: Inspired Movement Dance Studio
-
 **Session Date**: 2025-11-29
 **Project**: Inspired Movement Dance Studio - Austin
 **Website**: [https://www.austininspiredmovement.com](https://www.austininspiredmovement.com)

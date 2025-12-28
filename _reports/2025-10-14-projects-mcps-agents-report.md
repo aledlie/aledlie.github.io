@@ -14,9 +14,6 @@ toc: true
 toc_label: "Contents"
 toc_icon: "list"
 ---
-
-# Code Repository Comprehensive Report
-
 **Generated:** October 14, 2025
 **Repository Location:** `/Users/alyshialedlie/code`
 **Author:** Alyshia Ledlie

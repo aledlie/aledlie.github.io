@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# IntegrityStudio.ai Sentry Migration Completion
-
 **Session Date**: 2025-11-18
 **Project**: IntegrityStudio.ai - ISPublicSites
 **Focus**: Complete Sentry error tracking migration and production readiness

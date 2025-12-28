@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure
-
 **Session Date**: 2025-11-17
 **Project**: AlephAuto (jobs)
 **Focus**: Fix critical retry logic bug and test path validation issues

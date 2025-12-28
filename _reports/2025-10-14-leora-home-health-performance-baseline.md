@@ -14,9 +14,6 @@ toc: true
 toc_label: "Contents"
 toc_icon: "chart-line"
 ---
-
-# Performance Test Report
-
 **Website:** https://www.leorahomehealth.com
 **Test Date:** October 14, 2025
 **Duration:** 1h 1m 12s

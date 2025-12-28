@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# AnalyticsBot Code Analysis Report
-
 **Date:** 2025-11-27
 **Analyzer:** ast-grep-mcp code analysis tools
 **Project:** ISPublicSites/AnalyticsBot

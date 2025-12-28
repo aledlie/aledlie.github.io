@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Phase 1 Pattern Analysis Engine for Enhanced Duplication Detection
-
 **Session Date**: 2025-11-23
 **Project**: ast-grep-mcp
 **Focus**: Implement Phase 1 of enhanced duplication detection - Pattern Analysis Engine

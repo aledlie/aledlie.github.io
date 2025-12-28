@@ -8,12 +8,9 @@ categories: [feature-implementation, pipeline-architecture, dashboard-integratio
 tags: [python, typescript, react, preprocessing, deduplication, indexing, tanstack-query, mui, performance-optimization]
 excerpt: "Completed 7-phase preprocessing pipeline for tool identification with full dashboard integration, achieving 0% performance overhead and 361 passing tests."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Preprocessing Pipeline Complete: 7-Phase Implementation with Dashboard Integration
-
 **Session Date**: 2025-12-26
 **Project**: Inventory - Tool Identification System
 **Focus**: Complete preprocessing pipeline implementation and React dashboard integration

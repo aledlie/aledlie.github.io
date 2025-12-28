@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Session Report: Code Quality Analysis - Refactoring Assistants Feature
-
 **Date:** 2025-11-26
 **Project:** ast-grep-mcp
 **Branch:** feature/refactoring-assistants

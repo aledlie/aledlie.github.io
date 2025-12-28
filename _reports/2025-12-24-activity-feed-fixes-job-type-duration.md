@@ -8,12 +8,9 @@ categories: [bug-fixes, dashboard, websocket]
 tags: [nodejs, typescript, websocket, activity-feed, real-time, pm2, production-deployment]
 excerpt: "Fixed activity feed displaying 'unknown' for job types and 'unknown duration' for completed jobs. Implemented timestamp-based duration calculation and proper job type propagation."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Activity Feed Fixes: Job Type and Duration Display
-
 **Session Date**: 2025-12-24
 **Project**: AlephAuto - Job Queue Dashboard
 **Focus**: Fix activity feed displaying incorrect job type and duration information

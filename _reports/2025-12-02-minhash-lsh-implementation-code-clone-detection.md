@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# MinHash + LSH Implementation: O(n) Code Clone Detection for ast-grep-mcp
-
 **Session Date**: 2025-12-02
 **Project**: ast-grep-mcp - Code Deduplication System
 **Focus**: Implement Recommendations 1 & 2 from similarity algorithm analysis

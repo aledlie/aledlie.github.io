@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Session Documentation: Priority 1 Refactoring (applicator.py)
-
 **Date:** 2025-11-27
 **Duration:** ~2 hours
 **Status:** ✅ COMPLETE

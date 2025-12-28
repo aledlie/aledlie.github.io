@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Bug #2 Fix: Unified Penalty System for Duplicate Detection
-
 **Session Date**: 2025-11-17
 **Project**: Code Consolidation System - Duplicate Detection Pipeline
 **Focus**: Fixing critical architectural bug in semantic penalty detection

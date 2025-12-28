@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Phase 2 Performance Optimizations: Score Caching and Analysis Workflow Speedup
-
 **Session Date**: 2025-11-28
 **Project**: ast-grep-mcp - Deduplication Analysis System
 **Focus**: Implement score caching optimization and verify Phase 2 performance improvements

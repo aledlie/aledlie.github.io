@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Elements of Style: Batch Writing Quality Improvements Across 23 Reports
-
 **Session Date**: 2025-11-23
 **Project**: PersonalSite Reports - Writing Quality Enhancement
 **Focus**: Systematic improvement of technical writing quality using automated style analysis and targeted fixes

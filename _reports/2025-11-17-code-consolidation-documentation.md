@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# Code Consolidation System: Comprehensive Technical Documentation
-
 **Session Date**: 2025-11-17
 **Project**: Jobs Automation System - Duplicate Detection
 **Focus**: Creating comprehensive technical documentation for the code consolidation pipeline and multi-layer similarity algorithm

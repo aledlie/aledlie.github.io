@@ -11,9 +11,6 @@ header:
   overlay_image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
-
-# AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion
-
 **Session Date**: 2025-11-17
 **Project**: ast-grep-mcp (MCP Server)
 **Focus**: Fix failing batch_search tests and complete Task 15 (Batch Operations) implementation
