@@ -3,6 +3,7 @@ layout: single
 title: About Me
 permalink: /about_me/
 author_profile: true
+breadcrumbs: false
 header:
   image: /assets/images/cover-about.png
   teaser: /assets/images/cover-about.png
