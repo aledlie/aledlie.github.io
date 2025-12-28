@@ -9,6 +9,7 @@ Gemfile.lock
 test-results/
 test_results/
 playwright-report/
+.playwright-mcp/
 coverage/
 .nyc_output/
 
