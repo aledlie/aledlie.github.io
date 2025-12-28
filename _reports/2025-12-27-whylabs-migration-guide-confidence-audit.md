@@ -24,6 +24,7 @@ header:
 Conducted a comprehensive confidence audit of the WhyLabs migration guide (`web/resources/whylabs-migration-guide.html`) to identify areas of low confidence, verify factual claims, and assess publication risk. The audit revealed an **overall confidence score of 68/100**, with critical issues in fabricated testimonials (0% confidence) and unverified product feature claims (22% confidence).
 
 **Key Findings:**
+
 | Category | Finding |
 |----------|---------|
 | **Overall Score** | 68/100 (Moderate-High Risk) |
