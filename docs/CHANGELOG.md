@@ -30,6 +30,13 @@ Major structural cleanup and consolidation.
 - Centered Follow button in author sidebar
 - Centered location text in author sidebar (switched from flexbox to block with text-align)
 
+### Reports Collection Fixes
+- Fixed image paths in 9 reports still using old `/images/` path
+- Fixed duplicate H1 titles in 55 reports with overlay headers
+  - Reports with `overlay_image` in front matter already render title via `page__hero.html`
+  - Removed redundant markdown `# Title` from content to prevent duplicate H1 headings
+  - Improves accessibility (single H1 per page) and visual consistency
+
 ### CI Improvements
 - Made Lighthouse CI non-blocking with `continue-on-error`
 - Added xvfb virtual display for Lighthouse Chrome in CI
