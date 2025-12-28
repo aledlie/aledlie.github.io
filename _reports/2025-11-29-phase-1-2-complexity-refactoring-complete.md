@@ -3,7 +3,6 @@ layout: single
 title: "Phase 1+2 Complexity Refactoring: 100% Complete - Zero Violations Achieved"
 date: 2025-11-29
 author_profile: true
-breadcrumbs: true
 categories: [code-quality, refactoring, technical-debt]
 tags: [python, complexity-analysis, cognitive-complexity, cyclomatic-complexity, ast-grep-mcp, code-refactoring, quality-gates]
 excerpt: "Final 1% of complexity refactoring completed, achieving zero violations across all 397 functions with 15/15 regression tests passing."

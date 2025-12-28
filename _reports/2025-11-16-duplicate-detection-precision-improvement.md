@@ -3,7 +3,6 @@ layout: single
 title: "Precision Improvement Refactoring - AlephAuto Duplicate Detection System"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: reports development
 tags: [refactoring, duplicate-detection, code-quality, precision, semantic-analysis, python]
 excerpt: "Implemented a comprehensive 5-phase refactoring plan to improve duplicate detection precision from 59.09% to 65.00%. Added semantic validation layers, method chain validation, and quality filtering while maintaining recall at 81.25%."

@@ -3,7 +3,6 @@ layout: single
 title: "AnalyticsBot Refactoring - Summary Report"
 date: 2025-11-27
 author_profile: true
-breadcrumbs: true
 categories: [refactoring, code-quality, technical-report]
 tags: [typescript, analyticsbot, complexity-reduction, manual-implementation, code-review]
 excerpt: "Summary report recommending manual implementation over automated refactoring for AnalyticsBot high-priority improvements."

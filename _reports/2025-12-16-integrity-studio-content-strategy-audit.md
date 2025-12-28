@@ -3,7 +3,6 @@ layout: single
 title: "Integrity Studio Landing Page Content Strategy Audit and Competitive Intelligence"
 date: 2025-12-16
 author_profile: true
-breadcrumbs: true
 categories: [content-strategy, competitive-intelligence, landing-page-optimization]
 tags: [flutter, ai-observability, llm-monitoring, eu-ai-act, saas, b2b, marketing, seo]
 excerpt: "Comprehensive competitive analysis and content strategy audit for Integrity Studio AI Observability landing page, identifying EU AI Act compliance as key differentiation opportunity."

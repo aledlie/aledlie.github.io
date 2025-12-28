@@ -3,7 +3,6 @@ layout: single
 title: "Accessibility Quick Wins: WCAG Compliance Improvements"
 date: 2025-11-26
 author_profile: true
-breadcrumbs: true
 categories: [accessibility, wcag-compliance, bug-fixes]
 tags: [a11y, html, css, jekyll, screen-readers, color-contrast, semantic-html, seo]
 excerpt: "Implementation of 3 high-impact accessibility quick wins reducing WCAG violations by 43-57% per page, completed 55% faster than estimated."

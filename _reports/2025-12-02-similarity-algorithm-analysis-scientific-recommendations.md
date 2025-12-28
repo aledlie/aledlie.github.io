@@ -3,7 +3,6 @@ layout: single
 title: "Similarity Algorithm Analysis: Scientific Recommendations for Code Clone Detection"
 date: 2025-12-02
 author_profile: true
-breadcrumbs: true
 categories: [code-quality, algorithm-analysis, research]
 tags: [python, ast-grep-mcp, similarity, minhash, code-clone-detection, scientific-research, performance-optimization]
 excerpt: "Comprehensive analysis of code similarity algorithms with scientific recommendations for improving clone detection scalability from O(n²) to O(n) using MinHash, AST edit distance, and hybrid approaches."

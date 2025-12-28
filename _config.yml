@@ -29,6 +29,23 @@ defaults:
     values:
       layout: single
       show_date: false
+      breadcrumbs: false
+  # reports
+  - scope:
+      path: ""
+      type: reports
+    values:
+      layout: single
+      breadcrumbs: false
+      author_profile: true
+  # work
+  - scope:
+      path: ""
+      type: work
+    values:
+      layout: single
+      breadcrumbs: false
+      author_profile: true
 social:
   name: Alyshia
 

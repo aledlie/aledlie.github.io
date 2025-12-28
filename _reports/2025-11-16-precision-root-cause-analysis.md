@@ -3,7 +3,6 @@ layout: single
 title: "Precision Root Cause Analysis: Debugging a Duplicate Detection Pipeline"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: [debugging, code-quality, machine-learning]
 tags: [python, javascript, ast-grep, scientific-method, hypothesis-testing]
 author: Alyshia Lედlie

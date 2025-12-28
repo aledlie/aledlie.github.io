@@ -3,7 +3,6 @@ layout: single
 title: "Test Fixture Migration: Documentation Review and Status Assessment"
 date: 2025-11-25
 author_profile: true
-breadcrumbs: true
 categories: [testing, documentation, code-quality]
 tags: [pytest, fixtures, test-architecture, ast-grep-mcp, migration-tracking]
 excerpt: "Review of test fixture migration achieving 18.4% code reduction with 100% test pass rate, identifying 41% tool registration limitation."

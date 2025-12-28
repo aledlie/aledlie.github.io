@@ -3,7 +3,6 @@ layout: single
 title: "Bug #2 Fix: Unified Penalty System for Duplicate Detection"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [duplicate-detection, precision-improvement, architectural-fix]
 tags: [python, semantic-analysis, penalty-system, accuracy-testing]
 excerpt: "Bug #2 Fix: Unified Penalty System for Duplicate Detection"

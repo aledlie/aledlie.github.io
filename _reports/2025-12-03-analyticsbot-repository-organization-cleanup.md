@@ -3,7 +3,6 @@ layout: single
 title: "AnalyticsBot Repository Organization: Comprehensive Cleanup and Consolidation"
 date: 2025-12-03
 author_profile: true
-breadcrumbs: true
 categories: [repository-organization, code-quality, technical-debt-elimination]
 tags: [analyticsbot, typescript, cleanup, documentation, database, refactoring, mermaid-diagrams, organization]
 excerpt: "Systematic repository cleanup removing 25 orphaned files, consolidating 3 archive directories, and eliminating 450KB of duplicate/unused content across AnalyticsBot."

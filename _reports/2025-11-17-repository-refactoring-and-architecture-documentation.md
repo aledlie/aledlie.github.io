@@ -3,7 +3,6 @@ layout: single
 title: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [repository-organization, refactoring, documentation]
 tags: [architecture, mermaid-diagrams, code-organization, documentation, claude-code, alephauto]
 excerpt: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"

@@ -3,7 +3,6 @@ layout: single
 title: "Website Performance Baseline Report"
 date: 2025-10-14
 author_profile: true
-breadcrumbs: true
 categories: performance testing
 tags: [performance, web-vitals, load-testing, stress-testing, scalability]
 excerpt: "Comprehensive performance testing baseline for IntegrityStudio.ai, fisterra.xyz, AustinInspiredMovement.com, and SoundSightATX.com before optimization improvements."

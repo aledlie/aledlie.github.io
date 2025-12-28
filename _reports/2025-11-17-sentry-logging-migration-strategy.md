@@ -3,7 +3,6 @@ layout: single
 title: "Sentry Logging Migration Strategy - ISPublicSites"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [devops, monitoring, logging]
 tags: [sentry, error-tracking, migration, typescript, python, logging]
 excerpt: "Sentry Logging Migration Strategy"

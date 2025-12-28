@@ -3,7 +3,6 @@ layout: single
 title: "Backend Refactoring Phase 2: Large Class Modularization"
 date: 2025-11-25
 author_profile: true
-breadcrumbs: true
 categories: [reports, refactoring]
 tags: [typescript, refactoring, code-quality, testing, git, analytics]
 excerpt: "Complete refactoring of 3 high-priority large classes (1,437 lines) into 16 focused modules achieving 70% code reduction per module with zero breaking changes."

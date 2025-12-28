@@ -3,7 +3,6 @@ layout: single
 title: "Agentic Observability Blog Post: Scientific Claim Verification Audit"
 date: 2025-12-27
 author_profile: true
-breadcrumbs: true
 categories: [content-audit, fact-checking, regulatory-compliance]
 tags: [eu-ai-act, agentic-ai, observability, claim-verification, scientific-audit, compliance, statistics]
 excerpt: "Rigorous scientific audit of the End-to-End Agentic Observability blog post, verifying statistical claims, EU AI Act article mappings, and identifying unsourced assertions."

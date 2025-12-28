@@ -3,7 +3,6 @@ layout: single
 title: "Activity Feed Fixes: Job Type and Duration Display"
 date: 2025-12-24
 author_profile: true
-breadcrumbs: true
 categories: [bug-fixes, dashboard, websocket]
 tags: [nodejs, typescript, websocket, activity-feed, real-time, pm2, production-deployment]
 excerpt: "Fixed activity feed displaying 'unknown' for job types and 'unknown duration' for completed jobs. Implemented timestamp-based duration calculation and proper job type propagation."

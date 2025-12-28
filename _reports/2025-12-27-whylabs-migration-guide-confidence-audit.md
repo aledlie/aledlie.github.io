@@ -3,7 +3,6 @@ layout: single
 title: "WhyLabs Migration Guide: Confidence Audit and Fact Verification"
 date: 2025-12-27
 author_profile: true
-breadcrumbs: true
 categories: [content-strategy, fact-checking, risk-assessment]
 tags: [whylabs, confidence-scoring, fact-verification, testimonials, enterprise-claims, apple-acquisition, documentation-audit]
 excerpt: "Comprehensive confidence audit of the WhyLabs migration guide, identifying fabricated content, verifying factual claims, and providing section-by-section risk scoring."

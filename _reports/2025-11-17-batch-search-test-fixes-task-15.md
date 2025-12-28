@@ -3,7 +3,6 @@ layout: single
 title: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [ast-grep-mcp, testing, batch-operations]
 tags: [python, testing, pytest, mocking, parallel-execution, ast-grep, mcp]
 excerpt: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"

@@ -3,7 +3,6 @@ layout: single
 title: "Performance Test Report: Leora Home Health"
 date: 2025-10-14
 author_profile: true
-breadcrumbs: true
 categories: reports
 tags: [performance, testing, web-vitals, load-testing, stress-testing]
 excerpt: "Comprehensive performance analysis of Leora Home Health website including Core Web Vitals, load testing, stress testing, and scalability analysis."

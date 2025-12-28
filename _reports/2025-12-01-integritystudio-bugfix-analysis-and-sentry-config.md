@@ -3,7 +3,6 @@ layout: single
 title: "IntegrityStudio.ai Bugfix Analysis and Sentry Configuration Improvements"
 date: 2025-12-01
 author_profile: true
-breadcrumbs: true
 categories: [bug-analysis, build-configuration, error-tracking]
 tags: [integritystudio, sentry, vite, eslint, accessibility, typescript, bugfix-planning, ci-cd]
 excerpt: "Comprehensive error analysis identifying 7 bugs across IntegrityStudio.ai with prioritized bugfix plan, plus Sentry plugin configuration improvements for reliable source map uploads."

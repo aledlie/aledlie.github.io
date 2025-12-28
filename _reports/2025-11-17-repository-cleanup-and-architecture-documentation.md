@@ -3,7 +3,6 @@ layout: single
 title: "Repository Cleanup and Architecture Documentation Session"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [maintenance, documentation, tooling]
 tags: [cleanup, architecture, automation, repository-maintenance, data-flows, jekyll]
 excerpt: "Comprehensive repository cleanup removing 85MB+ of bloat, creation of data architecture documentation, and development of universal cleanup automation script"

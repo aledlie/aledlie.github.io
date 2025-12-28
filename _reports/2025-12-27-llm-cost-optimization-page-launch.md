@@ -3,7 +3,6 @@ layout: single
 title: "LLM Cost Optimization Page: From 580-Line Plan to Perfect Lighthouse Scores"
 date: 2025-12-27
 author_profile: true
-breadcrumbs: true
 categories: [feature-implementation, seo-optimization, accessibility]
 tags: [llm-pricing, calculator, lighthouse, wcag, sitemap, cloudflare, javascript, html, css]
 excerpt: "Built and launched an LLM cost calculator page achieving 100/100/100/100 Lighthouse scores after simplifying a 580-line plan to a 180-line MVP."

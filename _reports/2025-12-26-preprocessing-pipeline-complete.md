@@ -3,7 +3,6 @@ layout: single
 title: "Preprocessing Pipeline Complete: 7-Phase Implementation with Dashboard Integration"
 date: 2025-12-26
 author_profile: true
-breadcrumbs: true
 categories: [feature-implementation, pipeline-architecture, dashboard-integration]
 tags: [python, typescript, react, preprocessing, deduplication, indexing, tanstack-query, mui, performance-optimization]
 excerpt: "Completed 7-phase preprocessing pipeline for tool identification with full dashboard integration, achieving 0% performance overhead and 361 passing tests."

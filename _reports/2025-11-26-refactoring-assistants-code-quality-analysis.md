@@ -3,7 +3,6 @@ layout: single
 title: "Code Quality Analysis - Refactoring Assistants Feature"
 date: 2025-11-26
 author_profile: true
-breadcrumbs: true
 categories: [code-analysis, code-quality, ast-grep-mcp]
 tags: [code-analysis, complexity, refactoring, best-practices, testing]
 excerpt: "Code quality analysis of refactoring assistants feature using MCP code analysis tools for complexity, code smells, and standards."

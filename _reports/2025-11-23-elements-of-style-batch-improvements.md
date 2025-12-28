@@ -3,7 +3,6 @@ layout: single
 title: "Elements of Style: Batch Writing Quality Improvements Across 23 Reports"
 date: 2025-11-23
 author_profile: true
-breadcrumbs: true
 categories: [documentation, writing-quality, batch-processing]
 tags: [elements-of-style, style-analyzer, technical-writing, passive-voice, clarity, automated-analysis]
 excerpt: "Systematic improvement of 23 technical reports using automated style analysis achieving 20-50 point score increases."

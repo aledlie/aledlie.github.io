@@ -3,7 +3,6 @@ layout: single
 title: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [refactoring, build-optimization, code-quality]
 tags: [python, jinja2, javascript, es6-modules, caching, sha256, duplicate-elimination, performance]
 excerpt: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"

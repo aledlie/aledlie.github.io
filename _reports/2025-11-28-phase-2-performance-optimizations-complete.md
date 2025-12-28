@@ -3,7 +3,6 @@ layout: single
 title: "Phase 2 Performance Optimizations: Score Caching and Analysis Workflow Speedup"
 date: 2025-11-28
 author_profile: true
-breadcrumbs: true
 categories: [performance-optimization, deduplication-analysis, caching]
 tags: [python, ast-grep-mcp, score-caching, sha256, performance, testing, optimization]
 excerpt: "Implementation of SHA256-based score caching achieving 20-30% speedup with 85-120% cumulative performance improvement."

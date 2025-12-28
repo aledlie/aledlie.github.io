@@ -3,7 +3,6 @@ layout: single
 title: "MinHash + LSH Implementation: O(n) Code Clone Detection for ast-grep-mcp"
 date: 2025-12-02
 author_profile: true
-breadcrumbs: true
 categories: [performance-optimization, algorithm-implementation, code-quality]
 tags: [python, ast-grep-mcp, minhash, lsh, similarity, datasketch, code-clone-detection, performance]
 excerpt: "Replaced O(n²) SequenceMatcher with O(n) MinHash + LSH for 100-1000x speedup in code clone detection, enabling analysis of 100,000+ function codebases."

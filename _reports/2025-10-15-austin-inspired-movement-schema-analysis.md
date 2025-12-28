@@ -3,7 +3,6 @@ layout: single
 title: "Schema.org Impact Analysis: Austin Inspired Movement"
 date: 2025-10-15
 author_profile: true
-breadcrumbs: true
 categories: reports
 tags: [schema-org, seo, analytics, structured-data, performance]
 excerpt: "Comprehensive schema.org analysis for austininspiredmovement.com with SEO, LLM, and performance scoring."

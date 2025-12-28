@@ -3,7 +3,6 @@ layout: single
 title: "File Organizer Enhancement: Copyright Pattern Normalization for Organization Folders"
 date: 2025-12-13
 author_profile: true
-breadcrumbs: true
 categories: [feature-implementation, file-organization, text-processing]
 tags: [python, regex, schema-org, file-organizer, normalization, copyright-detection]
 excerpt: "Added company name normalization to extract actual organization names from copyright notices, consolidating folders like 'copyright 2024 Google' into 'Google'."

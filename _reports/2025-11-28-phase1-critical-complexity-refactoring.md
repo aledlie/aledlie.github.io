@@ -3,7 +3,6 @@ layout: single
 title: "Phase 1 Critical Complexity Refactoring: Reducing Technical Debt by 70%"
 date: 2025-11-28
 author_profile: true
-breadcrumbs: true
 categories: [refactoring, code-quality, technical-debt]
 tags: [python, complexity-analysis, code-refactor-agent, ast-grep-mcp, testing, strategy-pattern]
 excerpt: "Phase 1 critical refactoring reducing cognitive complexity by 90% and cyclomatic complexity by 70% with all 102 tests passing."

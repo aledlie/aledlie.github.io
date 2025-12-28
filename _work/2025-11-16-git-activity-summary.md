@@ -3,7 +3,6 @@ layout: single
 title: "Git Activity Report: July 7 - November 16, 2025"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: [work-updates]
 excerpt: "Comprehensive analysis of 1,007 commits across 33 repositories - tracking 4+ months of development work including newly discovered MCP servers, client projects, and nested repositories."
 header:

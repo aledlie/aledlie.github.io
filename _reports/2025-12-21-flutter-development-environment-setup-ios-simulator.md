@@ -3,7 +3,6 @@ layout: single
 title: "Flutter Development Environment Setup: Full Platform Support and iOS Simulator Launch"
 date: 2025-12-21
 author_profile: true
-breadcrumbs: true
 categories: [flutter, development-environment, ios-development]
 tags: [flutter, xcode, ios-simulator, android-studio, cocoapods, ruby, sentry, widget-fixes]
 excerpt: "Complete Flutter development environment setup for iOS, Android, and web platforms, including Xcode 26.2 configuration, CocoaPods installation, Sentry compatibility fixes, and AnimatedOrb widget corrections."

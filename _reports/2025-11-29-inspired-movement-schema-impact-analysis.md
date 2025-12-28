@@ -3,7 +3,6 @@ layout: single
 title: "Schema.org Impact Analysis: Inspired Movement Dance Studio"
 date: 2025-11-29
 author_profile: true
-breadcrumbs: true
 categories: [seo, schema-org, json-ld, analytics]
 tags: [structured-data, local-business, wix, performance, llm-compatibility, voice-search]
 excerpt: "Comprehensive JSON-LD structured data impact assessment achieving 91/100 score with projected 29% organic traffic increase."

@@ -3,7 +3,6 @@ layout: single
 title: "Fisterra Dance Organization Schema.org Enhancement: SEO Score 47.5 to 100"
 date: 2025-11-29
 author_profile: true
-breadcrumbs: true
 categories: [schema-org, seo-optimization, client-work]
 tags: [json-ld, structured-data, google-rich-results, faq-schema, event-schema, python, bug-fix]
 excerpt: "Enhanced Schema.org structured data improving SEO completeness score from 47.5 to 100, enabling multiple Google Rich Results."
