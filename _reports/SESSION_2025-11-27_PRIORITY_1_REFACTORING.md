@@ -8,7 +8,7 @@ categories: [refactoring, code-quality, technical-debt]
 tags: [python, ast-grep-mcp, complexity-reduction, modular-architecture, testing]
 excerpt: "Successfully completed Priority 1 refactoring, transforming a 683-line monolithic file into clean modular architecture with 61% complexity reduction."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

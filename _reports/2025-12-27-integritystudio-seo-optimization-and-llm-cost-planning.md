@@ -8,7 +8,7 @@ categories: [seo-optimization, content-strategy, multi-agent-analysis]
 tags: [schema-org, structured-data, llm-cost-optimization, trend-analysis, cloudflare, growth-hacking, product-strategy]
 excerpt: "Comprehensive SEO optimization across 8 HTML pages with Schema.org structured data, trend audit creation, and multi-agent strategic analysis for LLM Cost Optimization page planning."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

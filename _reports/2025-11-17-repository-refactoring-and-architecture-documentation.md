@@ -8,7 +8,7 @@ categories: [repository-organization, refactoring, documentation]
 tags: [architecture, mermaid-diagrams, code-organization, documentation, claude-code, alephauto]
 excerpt: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

@@ -8,7 +8,7 @@ categories: [automation, ci-cd, code-quality]
 tags: [parallel-processing, github-actions, polyglot, nodejs, python, verification, dependency-management, skill-creation]
 excerpt: "Resolved 6 TODO comments in parallel, fixed CI/CD build errors, and created reusable cross-platform CI/CD skill."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

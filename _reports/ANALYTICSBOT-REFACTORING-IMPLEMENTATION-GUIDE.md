@@ -8,7 +8,7 @@ categories: [refactoring, implementation-guide, technical-documentation]
 tags: [typescript, analyticsbot, refactoring-patterns, testing, production-safety]
 excerpt: "Detailed implementation guide for AnalyticsBot refactoring with manual approach recommendations and step-by-step instructions."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

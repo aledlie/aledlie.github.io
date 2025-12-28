@@ -5,7 +5,7 @@ permalink: /about/
 author_profile: true
 breadcrumbs: true
 header:
-  overlay_image: /assets/images/cover-about.png
+  image: /assets/images/cover-about.png
   teaser: /assets/images/cover-about.png
 
 # Schema.org structured data - people mentioned/quoted on this page

@@ -8,7 +8,7 @@ categories: [schema-org, seo-optimization, client-work]
 tags: [json-ld, structured-data, google-rich-results, faq-schema, event-schema, python, bug-fix]
 excerpt: "Enhanced Schema.org structured data improving SEO completeness score from 47.5 to 100, enabling multiple Google Rich Results."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

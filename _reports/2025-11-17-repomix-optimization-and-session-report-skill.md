@@ -8,7 +8,7 @@ categories: [automation, optimization, skill-development]
 tags: [repomix, git, directory-scanning, performance, claude-code, skills, documentation]
 excerpt: "Repomix Optimization and Session Report Skill Creation"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

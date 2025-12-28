@@ -8,7 +8,7 @@ categories: [duplicate-detection, precision-improvement, architectural-fix]
 tags: [python, semantic-analysis, penalty-system, accuracy-testing]
 excerpt: "Bug #2 Fix: Unified Penalty System for Duplicate Detection"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

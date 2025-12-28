@@ -8,7 +8,7 @@ categories: [code-analysis, technical-report, code-quality]
 tags: [typescript, javascript, ast-grep-mcp, complexity-metrics, code-smells, security-analysis]
 excerpt: "Comprehensive code analysis of AnalyticsBot codebase covering complexity metrics, code smells, and security vulnerabilities across 303 files."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

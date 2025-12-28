@@ -8,7 +8,7 @@ categories: reports
 tags: [performance, testing, web-vitals, load-testing, stress-testing]
 excerpt: "Comprehensive performance analysis of Leora Home Health website including Core Web Vitals, load testing, stress testing, and scalability analysis."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"

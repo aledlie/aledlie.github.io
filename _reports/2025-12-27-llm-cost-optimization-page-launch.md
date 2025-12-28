@@ -8,7 +8,7 @@ categories: [feature-implementation, seo-optimization, accessibility]
 tags: [llm-pricing, calculator, lighthouse, wcag, sitemap, cloudflare, javascript, html, css]
 excerpt: "Built and launched an LLM cost calculator page achieving 100/100/100/100 Lighthouse scores after simplifying a 580-line plan to a 180-line MVP."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

@@ -8,7 +8,7 @@ categories: [code-quality, refactoring, metrics-analysis]
 tags: [python, complexity-analysis, cognitive-complexity, cyclomatic-complexity, ast-grep-mcp, technical-debt-elimination, quality-metrics]
 excerpt: "Quantitative analysis verifying 100% elimination of technical debt with zero complexity violations across 397 functions."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

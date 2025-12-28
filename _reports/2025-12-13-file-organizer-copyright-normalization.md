@@ -8,7 +8,7 @@ categories: [feature-implementation, file-organization, text-processing]
 tags: [python, regex, schema-org, file-organizer, normalization, copyright-detection]
 excerpt: "Added company name normalization to extract actual organization names from copyright notices, consolidating folders like 'copyright 2024 Google' into 'Google'."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

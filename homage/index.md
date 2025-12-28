@@ -3,7 +3,7 @@ layout: single
 title: "Homage"
 author_profile: true
 header:
-  overlay_image: /assets/images/cover-projects.png
+  image: /assets/images/cover-projects.png
   teaser: /assets/images/cover-projects.png
 
 # Enhanced Schema.org structured data - Memorial tribute to Sumedh Joshi

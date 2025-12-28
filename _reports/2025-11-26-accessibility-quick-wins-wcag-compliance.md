@@ -8,7 +8,7 @@ categories: [accessibility, wcag-compliance, bug-fixes]
 tags: [a11y, html, css, jekyll, screen-readers, color-contrast, semantic-html, seo]
 excerpt: "Implementation of 3 high-impact accessibility quick wins reducing WCAG violations by 43-57% per page, completed 55% faster than estimated."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

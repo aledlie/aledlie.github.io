@@ -14,7 +14,7 @@ tags:
   - json-ld
   - jekyll
   - over-engineering
-excerpt: "Or: graphs are cool, but unified graphs would be cooler"
+excerpt: "Or: graphs are cool, but it would be a whole lot cooler if they were DAGs"
 
 # Enhanced Schema.org structured data
 schema_type: TechArticle
@@ -26,9 +26,9 @@ schema_about: "Schema.org Structured Data Implementation"
 
 ## The Setup
 
-So there I was, trying to live my life and not spend all of it at a computer, when I noticed that I initially created this site with **11 separate Schema.org include files**. Eleven! Like some kind of schema hoarder who couldn't let go of a single `<script type="application/ld+json">` tag.
+So there I was, trying to live my marginally normal life and not spend all of it at a computer, when I noticed that I initially created this site with **11 separate Schema.org include files**. Eleven! Like some kind of schema hoarder who couldn't let go of a single `<script type="application/ld+json">` tag.
 
-I restarted writing this blog in July, when I was still just sorting out what was available to me in the open source world for big projects, as opposed to the facebook core stack that I'd gotten used to over 8 years.  You know that feeling when you look at code you wrote years ago and think "what was I even *doing* here?" Or you just shudder in horror want want to look away?  Yeah. That.  Except it only took 3-4 months.
+I restarted writing this blog in July, when I was still just sorting out what was available to me in the open source world for big projects, as opposed to the facebook core stack that I'd gotten used to over 8 years.  You know that feeling when you look at code you wrote years ago and think "what was I even *doing* here?" Or you just shudder in horror and want to look (or run) away?  Yeah. That.  Except it only took 3-4 months.
 
 When I was first researching, schema.org seemed like the best open-source equivalent of a universal taxonomy/language for 'things' and 'things related to those things' and 'how the things are related' that one of my personal heros, Oliver Dodd, designed at Facebook and called EntSchema.  So I started using it for this blog in July.
 

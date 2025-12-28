@@ -8,7 +8,7 @@ categories: [ui-ux, css-fixes, documentation-quality]
 tags: [jekyll, minimal-mistakes, css, sidebar, formatting-audit, ui-consistency]
 excerpt: "Comprehensive audit of 30 reports in _reports collection achieving 93% formatting compliance, plus CSS fix for sidebar author profile center-alignment issue."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 
@@ -169,7 +169,7 @@ categories: [uuid-migration, distributed-systems, data-integrity]
 tags: [uuid, uuidv7, cron-jobs, node-cron, schema-migration, postgres]
 excerpt: "Migration from UUID v4 to UUID v7 in AnalyticsBot cron job system..."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 ```
@@ -366,7 +366,7 @@ categories: [category1, category2, category3]
 tags: [tag1, tag2, tag3, tag4, tag5]
 excerpt: "Brief description for search results and collection archives."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 ```

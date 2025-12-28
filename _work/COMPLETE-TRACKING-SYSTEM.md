@@ -8,7 +8,7 @@ categories: [work-updates, productivity]
 tags: [activitywatch, tracking, automation]
 excerpt: "Installation and verification of a complete activity tracking ecosystem monitoring websites, code, Claude tools, directories, and git commits."
 header:
-  overlay_image: /assets/images/cover-work.png
+  image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png
 ---
 

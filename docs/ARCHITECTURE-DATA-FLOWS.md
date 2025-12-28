@@ -1394,7 +1394,7 @@ graph TD
 title: "My Project"
 excerpt: "Brief description"
 header:
-  overlay_image: /assets/images/project-header.jpg
+  image: /assets/images/project-header.jpg
   teaser: /assets/images/project-teaser.jpg
 ---
 

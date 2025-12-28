@@ -8,7 +8,7 @@ categories: [bug-fix, testing-infrastructure, job-queue]
 tags: [javascript, retry-logic, circuit-breaker, test-fixtures, sidequest-server, duplicate-detection]
 excerpt: "AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

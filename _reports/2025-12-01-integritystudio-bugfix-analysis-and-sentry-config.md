@@ -8,7 +8,7 @@ categories: [bug-analysis, build-configuration, error-tracking]
 tags: [integritystudio, sentry, vite, eslint, accessibility, typescript, bugfix-planning, ci-cd]
 excerpt: "Comprehensive error analysis identifying 7 bugs across IntegrityStudio.ai with prioritized bugfix plan, plus Sentry plugin configuration improvements for reliable source map uploads."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

@@ -8,7 +8,7 @@ categories: reports
 tags: [schema-org, seo, analytics, structured-data, performance]
 excerpt: "Comprehensive schema.org analysis for austininspiredmovement.com with SEO, LLM, and performance scoring."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"

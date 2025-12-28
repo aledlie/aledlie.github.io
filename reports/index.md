@@ -4,7 +4,7 @@ title: "Case Studies"
 permalink: /reports/
 author_profile: true
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

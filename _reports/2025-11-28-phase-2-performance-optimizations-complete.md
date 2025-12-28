@@ -8,7 +8,7 @@ categories: [performance-optimization, deduplication-analysis, caching]
 tags: [python, ast-grep-mcp, score-caching, sha256, performance, testing, optimization]
 excerpt: "Implementation of SHA256-based score caching achieving 20-30% speedup with 85-120% cumulative performance improvement."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

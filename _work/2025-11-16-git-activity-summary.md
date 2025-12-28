@@ -7,7 +7,7 @@ breadcrumbs: true
 categories: [work-updates]
 excerpt: "Comprehensive analysis of 1,007 commits across 33 repositories - tracking 4+ months of development work including newly discovered MCP servers, client projects, and nested repositories."
 header:
-  overlay_image: /assets/images/cover-work.png
+  image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png
 ---
 

@@ -8,7 +8,7 @@ categories: [content-strategy, multi-agent-workflow, security-audit]
 tags: [whylabs, ai-observability, llm-monitoring, security, seo, b2b-sales, schema-org, opentelemetry, agentic-ai]
 excerpt: "Comprehensive audit and enhancement of WhyLabs migration guide using 5 specialized agents, resulting in 530+ lines of improvements across security, SEO, sales positioning, and 2025 trend alignment."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

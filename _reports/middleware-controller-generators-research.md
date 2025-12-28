@@ -10,7 +10,7 @@ tags: [middleware, controllers, code-generation, typescript, nodejs, express, fa
 excerpt: "Comprehensive analysis of 15+ open-source tools for generating modular, observable, secure, and flexible middleware/controllers for full-suite software applications."
 toc: true
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

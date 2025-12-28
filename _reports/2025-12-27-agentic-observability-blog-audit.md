@@ -8,7 +8,7 @@ categories: [content-audit, fact-checking, regulatory-compliance]
 tags: [eu-ai-act, agentic-ai, observability, claim-verification, scientific-audit, compliance, statistics]
 excerpt: "Rigorous scientific audit of the End-to-End Agentic Observability blog post, verifying statistical claims, EU AI Act article mappings, and identifying unsourced assertions."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

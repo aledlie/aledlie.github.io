@@ -8,7 +8,7 @@ categories: [database-migration, id-generation, distributed-systems]
 tags: [uuid-v7, postgresql, prisma, typescript, performance-optimization, best-practices]
 excerpt: "AnalyticsBot: UUID v7 Migration for Distributed System Compatibility"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

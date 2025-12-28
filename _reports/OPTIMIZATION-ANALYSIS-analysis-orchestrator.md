@@ -8,7 +8,7 @@ categories: [performance-optimization, code-analysis, technical-report]
 tags: [python, ast-grep-mcp, parallel-execution, caching, batching, refactoring]
 excerpt: "Analysis identifying 15 optimization opportunities across performance, code quality, architecture, and error handling categories."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

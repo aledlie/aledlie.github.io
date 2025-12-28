@@ -8,7 +8,7 @@ categories: [documentation, writing-quality, batch-processing]
 tags: [elements-of-style, style-analyzer, technical-writing, passive-voice, clarity, automated-analysis]
 excerpt: "Systematic improvement of 23 technical reports using automated style analysis achieving 20-50 point score increases."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

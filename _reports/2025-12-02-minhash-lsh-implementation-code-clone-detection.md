@@ -8,7 +8,7 @@ categories: [performance-optimization, algorithm-implementation, code-quality]
 tags: [python, ast-grep-mcp, minhash, lsh, similarity, datasketch, code-clone-detection, performance]
 excerpt: "Replaced O(n²) SequenceMatcher with O(n) MinHash + LSH for 100-1000x speedup in code clone detection, enabling analysis of 100,000+ function codebases."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

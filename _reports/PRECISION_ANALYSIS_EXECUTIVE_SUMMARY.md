@@ -8,7 +8,7 @@ categories: [software-development, data-analysis]
 tags: [precision, duplicate-detection, ast-grep, code-analysis]
 excerpt: "Executive summary of duplicate detection system precision analysis - identifying critical 64.29% false positive rate and root cause in code normalization."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

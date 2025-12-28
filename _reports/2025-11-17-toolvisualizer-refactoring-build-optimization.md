@@ -8,7 +8,7 @@ categories: [refactoring, build-optimization, code-quality]
 tags: [python, jinja2, javascript, es6-modules, caching, sha256, duplicate-elimination, performance]
 excerpt: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

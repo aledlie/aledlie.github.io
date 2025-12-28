@@ -8,7 +8,7 @@ categories: [performance-optimization, testing, implementation]
 tags: [python, ast-grep-mcp, test-coverage, batch-processing, optimization]
 excerpt: "Implementation of optimized batch test coverage detection achieving 51-69% performance improvement over legacy implementation."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

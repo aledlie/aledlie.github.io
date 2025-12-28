@@ -9,7 +9,7 @@ tags: [python, javascript, ast-grep, scientific-method, hypothesis-testing]
 author: Alyshia Lედlie
 excerpt: "A systematic scientific investigation into false positives in a duplicate code detection pipeline, uncovering critical bugs through hypothesis-driven debugging. Achieved 14.59% precision improvement by fixing ast-grep pattern extraction."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

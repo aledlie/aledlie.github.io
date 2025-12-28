@@ -8,7 +8,7 @@ categories: [sentry-integration, error-tracking, production-monitoring]
 tags: [sentry, react, typescript, error-handling, production-ready, vite, migration]
 excerpt: "IntegrityStudio.ai Sentry Migration Completion"
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

@@ -8,7 +8,7 @@ categories: [work-updates, productivity]
 tags: [activitywatch, tracking, automation, productivity, ai-assisted-development]
 excerpt: "Complete setup and configuration of ActivityWatch tracking system with multiple watchers for comprehensive productivity monitoring."
 header:
-  overlay_image: /assets/images/cover-work.png
+  image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png
 ---
 

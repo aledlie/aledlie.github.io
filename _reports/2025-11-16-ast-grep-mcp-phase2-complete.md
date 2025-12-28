@@ -8,7 +8,7 @@ categories: [software-development, open-source, mcp, performance]
 tags: [ast-grep, performance-optimization, streaming, caching, parallel-execution, python, mcp-server]
 excerpt: "Phase 2 completion report: Five major performance enhancements transforming the ast-grep MCP server from MVP to production-ready tool capable of handling massive codebases efficiently."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

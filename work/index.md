@@ -4,7 +4,7 @@ title: "What Do You Do?"
 permalink: /work/
 author_profile: true
 header:
-  overlay_image: /assets/images/cover-work.png
+  image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png
 ---
 

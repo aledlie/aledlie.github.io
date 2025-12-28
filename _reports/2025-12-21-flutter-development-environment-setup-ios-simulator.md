@@ -8,7 +8,7 @@ categories: [flutter, development-environment, ios-development]
 tags: [flutter, xcode, ios-simulator, android-studio, cocoapods, ruby, sentry, widget-fixes]
 excerpt: "Complete Flutter development environment setup for iOS, Android, and web platforms, including Xcode 26.2 configuration, CocoaPods installation, Sentry compatibility fixes, and AnimatedOrb widget corrections."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 
