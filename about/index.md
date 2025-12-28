@@ -7,6 +7,15 @@ breadcrumbs: true
 header:
   overlay_image: /assets/images/cover-about.png
   teaser: /assets/images/cover-about.png
+
+# Schema.org structured data - people mentioned/quoted on this page
+schema_mentions:
+  - name: "Neil Gaiman"
+    type: "Person"
+    url: "https://www.neilgaiman.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Neil_Gaiman"
+    jobTitle: "Author"
+    description: "Author quoted on writing and storytelling"
 ---
 
 Very much a work in progress, started in 2017 and picked up again a few weeks ago.

@@ -7,6 +7,20 @@ breadcrumbs: true
 header:
   overlay_image: /assets/images/cover-about.png
   teaser: /assets/images/cover-about.png
+
+# Schema.org structured data - people mentioned on this page
+schema_mentions:
+  - name: "Sumedh Joshi"
+    type: "Person"
+    url: "https://www.sumedhmjoshi.com/"
+    description: "Inspiration for this blog"
+
+  - name: "Neil Gaiman"
+    type: "Person"
+    url: "https://www.neilgaiman.com/"
+    sameAs: "https://en.wikipedia.org/wiki/Neil_Gaiman"
+    jobTitle: "Author"
+    description: "Author quoted on writing and storytelling"
 ---
 
 I've done a lot of writing—during my brief stint in academia and then during 14 years or so of corporate work—but **this blog isn't for that**.
