@@ -28,6 +28,7 @@ Major structural cleanup and consolidation.
 - Deleted redundant `ReadMe.md` (content in CLAUDE.md)
 - Fixed duplicate H1 title on pages with overlay headers (archive layout)
 - Centered Follow button in author sidebar
+- Centered location text in author sidebar (switched from flexbox to block with text-align)
 
 ### CI Improvements
 - Made Lighthouse CI non-blocking with `continue-on-error`

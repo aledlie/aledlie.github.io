@@ -205,14 +205,13 @@ body {
         font-size: 0.9em;
         color: #4a4a4a;  // WCAG AA compliant (6.42:1 contrast ratio)
         margin-bottom: 1.5em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5em;
+        display: block;
+        text-align: center;
 
         i {
           font-size: 1.1em;
           color: $academic-red;
+          margin-right: 0.5em;
         }
       }
 
