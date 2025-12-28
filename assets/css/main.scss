@@ -17,8 +17,8 @@ body {
 /* HEADER - Compact cover images */
 .page-hero {
   height: 100px;
-  padding-bottom: 0;  /* Removed 2em to eliminate excessive spacing */
-  margin-bottom: 1em;  /* Minimal spacing after header */
+  padding-bottom: 0;
+  margin-bottom: 2em;
 
   .page-hero-image,
   img {
@@ -34,8 +34,8 @@ body {
 
 .page-hero-overlay {
   height: 100px;
-  padding-bottom: 0;  /* Removed padding */
-  margin-bottom: 1em;  /* Minimal spacing after header */
+  padding-bottom: 0;
+  margin-bottom: 2em;
 
   .page-hero-content {
     display: none;
