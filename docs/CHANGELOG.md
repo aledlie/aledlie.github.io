@@ -13,6 +13,9 @@ All notable changes to this project are documented in this file.
 - Removed title overlays from all 75 pages (changed `overlay_image` to `image`)
 - Cover photos now display without text overlays across entire site
 - Added `width: 100%` to `.page-hero-image` CSS for full-width cover photos
+- Increased `margin-bottom` from 1em to 2em for `.page-hero` and `.page-hero-overlay`
+- Added `position: relative` to `.page-hero-overlay`
+- Removed breadcrumbs from About and About Me pages
 
 ### Accessibility Fixes (WCAG Compliance)
 - Fixed duplicate banner landmarks by changing `<header>` to `<div>` in:
