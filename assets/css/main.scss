@@ -172,12 +172,18 @@ body {
     margin-bottom: 1.5em;  /* Explicit bottom margin */
   }
 
-  .author__urls-wrapper {
+  .author__urls-wrapper,
+  .author-urls-wrapper {
     margin-top: 2em;  /* Clear separation from bio */
     margin-bottom: 1.5em;
     padding-top: 1em;
     border-top: 1px solid #e8e8e8;  /* Subtle visual divider */
     width: 100%;
+    text-align: center;  /* Center the Follow button */
+
+    > button {
+      margin-bottom: 1em;
+    }
   }
 
   .author-urls {
