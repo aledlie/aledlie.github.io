@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280">
+  <defs>
+    <linearGradient id="year2017" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#95a5a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="year2025" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="year2026" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="280" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#333">Commits by Year</text>
+
+  <!-- Timeline visualization -->
+  <!-- Base line -->
+  <line x1="50" y1="180" x2="450" y2="180" stroke="#ddd" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 2017 marker -->
+  <circle cx="100" cy="180" r="8" fill="url(#year2017)"/>
+  <line x1="100" y1="172" x2="100" y2="100" stroke="#95a5a6" stroke-width="2" stroke-dasharray="4,4"/>
+  <rect x="60" y="60" width="80" height="40" fill="white" stroke="#95a5a6" stroke-width="2" rx="6"/>
+  <text x="100" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#7f8c8d">22</text>
+  <text x="100" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#95a5a6">commits</text>
+  <text x="100" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#555">2017</text>
+  <text x="100" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#888">Initial setup</text>
+
+  <!-- Gap indicator -->
+  <text x="200" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#ccc">...</text>
+  <text x="200" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#aaa">7 year gap</text>
+
+  <!-- 2025 marker (large) -->
+  <circle cx="320" cy="180" r="12" fill="url(#year2025)"/>
+  <line x1="320" y1="168" x2="320" y2="60" stroke="#3498db" stroke-width="2"/>
+  <rect x="265" y="35" width="110" height="50" fill="white" stroke="#3498db" stroke-width="2" rx="6"/>
+  <text x="320" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#2980b9">380</text>
+  <text x="320" y="77" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3498db">commits (94.3%)</text>
+  <text x="320" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#555">2025</text>
+  <text x="320" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#888">Major development</text>
+
+  <!-- 2026 marker -->
+  <circle cx="420" cy="180" r="6" fill="url(#year2026)"/>
+  <line x1="420" y1="174" x2="420" y2="130" stroke="#2ecc71" stroke-width="2" stroke-dasharray="4,4"/>
+  <rect x="390" y="100" width="60" height="30" fill="white" stroke="#2ecc71" stroke-width="2" rx="6"/>
+  <text x="420" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#27ae60">1</text>
+  <text x="420" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#555">2026</text>
+  <text x="420" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#888">Current</text>
+
+  <!-- Insight -->
+  <text x="250" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#555">Site created in 2017, major development surge in 2025</text>
+</svg>
