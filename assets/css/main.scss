@@ -61,7 +61,8 @@ body {
   .site-title {
     width: 16.6666666667%;
     margin-right: 4.1666666667%;
-    margin-left: 4.1666666667%;
+    margin-left: 6%;  /* Increased from 4.1666666667% to center better */
+    text-align: center;
   }
 
   a {
@@ -122,8 +123,10 @@ body {
   }
 
   // Remove clear on desktop so sidebar and content float side-by-side
+  // Add left padding to center author profile in sidebar space
   @media (min-width: 62em) {  // At $large breakpoint and above
     clear: none !important;
+    padding-left: 1.5em;  /* Push content toward center of sidebar area */
   }
 
   text-align: center;
