@@ -161,6 +161,8 @@ author:
   avatar: /assets/images/profile.jpg
   bio: I write code, make aggressively mediocre jokes, and scale companies.
   location: ATX | La Ventana | Rio
+  email: alyshia@inventoryai.io
+  github: aledlie
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
