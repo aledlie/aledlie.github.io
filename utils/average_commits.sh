@@ -11,27 +11,27 @@ fi
 
 # Extract hour and date (YYYY-MM-DD) from Date lines, count commits per hour per day
 # Format: hour date count
+# Note: Uses SUBSEP for 2D array simulation (macOS awk compatibility)
 grep '^Date:' logs.txt | awk '{
     hour = substr($5, 1, 2)
     date = $6 "-" $3 "-" $4  # e.g., 2025-Aug-25
     if (hour >= 0 && hour <= 23) {
         key = hour " " date
         counts[key]++
+        # Track unique days per hour using combined key
+        day_key = hour SUBSEP date
+        if (!(day_key in seen_days)) {
+            seen_days[day_key] = 1
+            num_days[hour]++
+        }
     }
 }
 END {
-    # Calculate unique days per hour
-    for (key in counts) {
-        split(key, parts, " ")
-        hour = parts[1]
-        days[hour][parts[2]] = 1
-    }
-    # Sum commits per hour and divide by number of unique days
+    # Sum commits per hour
     for (key in counts) {
         split(key, parts, " ")
         hour = parts[1]
         total_commits[hour] += counts[key]
-        num_days[hour] = length(days[hour])
     }
     # Output average commits per hour
     for (hour = 0; hour <= 23; hour++) {
