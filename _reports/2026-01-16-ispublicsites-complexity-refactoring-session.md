@@ -1,18 +1,18 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Ten Files, 68-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Eleven Files, 59-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing]
-excerpt: "Systematic refactoring of ten high-complexity Python files across ISPublicSites repositories, achieving 68-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, and helper extraction."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication]
+excerpt: "Systematic refactoring of eleven high-complexity Python files across ISPublicSites repositories, achieving 59-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, and URL pattern constants."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Ten Files, 68-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Eleven Files, 59-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -21,16 +21,16 @@ header:
 
 ## Executive Summary
 
-Completed systematic refactoring of **ten high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction), achieved **68-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **eleven high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction, URL pattern constants), achieved **59-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 10 |
+| **Files Refactored** | 11 |
 | **Repositories Affected** | 6 |
-| **Avg Cyclomatic Reduction** | 70% |
-| **Total Commits** | 10 |
+| **Avg Cyclomatic Reduction** | 69% |
+| **Total Commits** | 11 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -50,6 +50,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 8 | batch-migrate.py | `migrate_file` | 18 | Refactored |
 | 9 | collect_git_activity.py | `main` | 17 | Refactored |
 | 10 | generate_enhanced_schemas.py | `get_git_metadata` | 17 | Refactored |
+| 11 | chrome.py | `login_with_cookie` | 17 | Refactored |
 
 ---
 
@@ -828,6 +829,139 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 
 ---
 
+## Refactoring 11: chrome.py
+
+**Repository**: IntegrityStudio.ai (linkedin-scraper)
+**File**: `mcp-servers/linkedin-scraper/linkedin_mcp_server/drivers/chrome.py`
+**Commit**: `1606e77` (local - third-party repo)
+
+### Problem
+
+The `login_with_cookie()` function had:
+- Nested try-except blocks (3 levels deep)
+- While loop with retry logic and exception handling
+- URL-based authentication checks **duplicated** (lines 265-277 and 287-300)
+- Multiple conditional branches for exception types
+- 110 lines with complexity 17
+
+### Solution: URL Pattern Constants + Authentication Status Helpers
+
+```python
+# Before: Duplicate URL checking with inline patterns
+def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
+    # ... retry loop with try-except ...
+
+    # Check authentication status by examining the current URL
+    current_url = driver.current_url
+
+    # Check if we're on login page (authentication failed)
+    if "login" in current_url or "uas/login" in current_url:
+        logger.warning("Cookie authentication failed - redirected to login page")
+        return False
+
+    # Check if we're on authenticated pages (authentication succeeded)
+    elif any(indicator in current_url
+             for indicator in ["feed", "mynetwork", "linkedin.com/in/", "/feed/"]):
+        logger.info("Cookie authentication successful")
+        return True
+
+    # Unexpected page - wait briefly and check again
+    else:
+        time.sleep(2)
+        final_url = driver.current_url
+        # ... DUPLICATE URL checking logic repeated here ...
+
+# After: URL pattern constants with authentication status helper
+LOGIN_PAGE_INDICATORS = ('login', 'uas/login')
+AUTHENTICATED_PAGE_INDICATORS = ('feed', 'mynetwork', 'linkedin.com/in/', '/feed/')
+
+
+def _is_login_page(url: str) -> bool:
+    """Check if URL indicates login page (authentication failed)."""
+    return any(indicator in url for indicator in LOGIN_PAGE_INDICATORS)
+
+
+def _is_authenticated_page(url: str) -> bool:
+    """Check if URL indicates authenticated page (authentication succeeded)."""
+    return any(indicator in url for indicator in AUTHENTICATED_PAGE_INDICATORS)
+
+
+def _verify_authentication_status(driver: webdriver.Chrome) -> Optional[bool]:
+    """Verify authentication status based on current URL.
+
+    Returns:
+        True if authenticated, False if on login page, None if uncertain.
+    """
+    current_url = driver.current_url
+
+    if _is_login_page(current_url):
+        return False
+    elif _is_authenticated_page(current_url):
+        return True
+    else:
+        return None
+
+
+def _attempt_login_action(driver: webdriver.Chrome, cookie: str, max_retries: int = 1) -> bool:
+    """Attempt login action with retry logic.
+
+    Returns:
+        True if login action completed (success uncertain), False if definitively failed.
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            actions.login(driver, cookie=cookie)
+            return True
+        except TimeoutException:
+            logger.warning("Cookie authentication failed - page load timeout")
+            return False
+        except Exception as e:
+            if "InvalidCredentialsError" in str(type(e)) or "Cookie login failed" in str(e):
+                time.sleep(2)
+                return True
+            # ... retry logic ...
+    return False
+
+
+def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
+    """Log in to LinkedIn using session cookie."""
+    try:
+        logger.info("Attempting cookie authentication...")
+        driver.set_page_load_timeout(45)
+
+        if not _attempt_login_action(driver, cookie):
+            return False
+
+        status = _verify_authentication_status(driver)
+
+        if status is True:
+            logger.info("Cookie authentication successful")
+            return True
+        elif status is False:
+            logger.warning("Cookie authentication failed - redirected to login page")
+            return False
+
+        # Uncertain - wait and verify again
+        time.sleep(2)
+        final_status = _verify_authentication_status(driver)
+        # ... handle final_status ...
+
+    except Exception as e:
+        logger.error(f"Cookie authentication failed with error: {e}")
+        return False
+    finally:
+        driver.set_page_load_timeout(60)
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 17 | 7 | **-59%** |
+| **Avg Complexity** | - | A (3.6) | Excellent |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -875,6 +1009,11 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 **When to use**: Functions with multiple sequential command/API calls, each requiring its own parsing logic
 **Benefit**: Main function becomes a declarative composition; each parser is isolated and testable; null handling centralized in helpers
 
+### 10. URL Pattern Constants with Authentication Status Helpers
+**Used in**: chrome.py
+**When to use**: Functions with duplicate URL-based conditional logic for state detection (login, authenticated, error pages)
+**Benefit**: URL patterns become maintainable constants; duplicate verification logic eliminated; three-valued return (True/False/None) enables clean uncertain-state handling
+
 ---
 
 ## Files Modified
@@ -894,6 +1033,7 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 
 ### IntegrityStudio.ai Repository
 - `mcp-servers/linkedin-scraper/linkedin_mcp_server/cli_main.py` - Phase extraction
+- `mcp-servers/linkedin-scraper/linkedin_mcp_server/drivers/chrome.py` - URL pattern constants
 
 ### SingleSiteScraper Repository
 - `tests/test/impact_analysis.py` - Keyword-based recommendation mapping
@@ -917,6 +1057,7 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 | `e713133` | tcad-scraper | refactor(batch-migrate): path rule matching with helpers |
 | `84064fe` | AlephAuto | refactor(collect_git_activity): workflow decomposition |
 | `e9f7baa` | ToolVisualizer | refactor(schema): extract git metadata parsing helpers |
+| `1606e77` | linkedin-scraper | refactor(chrome): URL pattern helpers for auth (local) |
 
 ---
 
@@ -933,8 +1074,9 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 | batch-migrate.py | 18 | 3 | -83% |
 | collect_git_activity.py | 17 | 4 | -76% |
 | generate_enhanced_schemas.py | 17 | 2 | -88% |
+| chrome.py | 17 | 7 | -59% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **232** | **69** | **-70%** |
+| **Totals** | **249** | **76** | **-69%** |
 
 ---
 
@@ -951,6 +1093,7 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 9. **Path rule lists** with first-match semantics replace multi-branch if/elif path checking
 10. **Workflow decomposition** breaks long sequential processes into distinct phase helpers (parse, collect, compile, output)
 11. **Helper extraction with parsing methods** transforms sequential command processing into declarative composition with isolated, testable parsers
+12. **URL pattern constants with status helpers** eliminate duplicate URL-based conditionals; three-valued return (True/False/None) cleanly handles uncertain states
 
 ---
 
@@ -965,6 +1108,7 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
 - `ToolVisualizer/generate_enhanced_schemas.py:89-170` - Git metadata parsing helpers
 - `linkedin-scraper/linkedin_mcp_server/cli_main.py:295-420` - Phase handlers
+- `linkedin-scraper/linkedin_mcp_server/drivers/chrome.py:206-310` - URL pattern auth helpers
 - `SingleSiteScraper/tests/test/impact_analysis.py:17-50` - Recommendation mappings
 - `tcad-scraper/server/batch-migrate.py:9-75` - Path rule matching
 
