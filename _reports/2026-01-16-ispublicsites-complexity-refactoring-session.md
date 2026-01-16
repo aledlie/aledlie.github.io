@@ -1,18 +1,18 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Twelve Files, 50-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Thirteen Files, 50-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication, group-processing-pipeline]
-excerpt: "Systematic refactoring of twelve high-complexity Python files across ISPublicSites repositories, achieving 50-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, URL pattern constants, and group processing helpers."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication, group-processing-pipeline, batch-directory-processing]
+excerpt: "Systematic refactoring of thirteen high-complexity Python files across ISPublicSites repositories, achieving 50-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, URL pattern constants, group processing helpers, and directory batch processing."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Twelve Files, 50-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Thirteen Files, 50-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -21,16 +21,16 @@ header:
 
 ## Executive Summary
 
-Completed systematic refactoring of **twelve high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction, URL pattern constants, group processing helpers), achieved **50-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **thirteen high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction, URL pattern constants, group processing helpers, directory batch processing), achieved **50-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 12 |
+| **Files Refactored** | 13 |
 | **Repositories Affected** | 6 |
-| **Avg Cyclomatic Reduction** | 68% |
-| **Total Commits** | 12 |
+| **Avg Cyclomatic Reduction** | 70% |
+| **Total Commits** | 13 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -52,6 +52,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 10 | generate_enhanced_schemas.py | `get_git_metadata` | 17 | Refactored |
 | 11 | chrome.py | `login_with_cookie` | 17 | Refactored |
 | 12 | grouping.py | `group_by_similarity` | 16 | Refactored |
+| 13 | generate_is_schemas.py | `main` | 16 | Refactored |
 
 ---
 
@@ -1078,6 +1079,122 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 
 ---
 
+## Refactoring 13: generate_is_schemas.py
+
+**Repository**: ToolVisualizer
+**File**: `generate_is_schemas.py`
+**Commit**: `3c27b54`
+
+### Problem
+
+The `main()` function had:
+- For loop over directories with multiple conditional paths (exists check, try-except)
+- Three different result types (not_found, success, error) each building different dict structures
+- **Six repeated `sum()` generator expressions** counting results by status
+- Inline summary dict construction with repeated status counting
+
+### Solution: Directory Processing Helpers + Status Counting
+
+```python
+# Before: Complex loop with multiple paths and repeated sum() calls
+def main():
+    # ... setup ...
+    results = []
+    for target_dir in target_dirs:
+        if not target_dir.exists():
+            print(f"\n✗ Directory not found: {target_dir}")
+            results.append({'directory': str(target_dir), 'status': 'not_found'})
+            continue
+
+        try:
+            schema = generator.process_directory(target_dir)
+            results.append({
+                'directory': str(target_dir),
+                'status': 'success',
+                'schema_file': str(output_dir / f"{target_dir.name}_schema.json"),
+                'stats': schema['statistics']
+            })
+        except Exception as e:
+            print(f"\n✗ Error processing {target_dir}: {e}")
+            traceback.print_exc()
+            results.append({'directory': str(target_dir), 'status': 'error', 'error': str(e)})
+
+    # Save summary - note repeated sum() calls
+    with open(summary_file, 'w') as f:
+        json.dump({
+            'successful': sum(1 for r in results if r['status'] == 'success'),
+            'failed': sum(1 for r in results if r['status'] == 'error'),
+            'not_found': sum(1 for r in results if r['status'] == 'not_found'),
+            # ...
+        }, f, indent=2)
+
+    # Print summary - SAME sum() calls repeated again
+    print(f"  Successful: {sum(1 for r in results if r['status'] == 'success')}")
+    print(f"  Failed: {sum(1 for r in results if r['status'] == 'error')}")
+    print(f"  Not Found: {sum(1 for r in results if r['status'] == 'not_found')}")
+
+# After: Extracted helpers for clean separation
+def _process_directory_safely(
+    generator: ISSchemaGenerator,
+    target_dir: Path,
+    output_dir: Path
+) -> Dict[str, Any]:
+    """Process a single directory and return result dict."""
+    if not target_dir.exists():
+        print(f"\n✗ Directory not found: {target_dir}")
+        return {'directory': str(target_dir), 'status': 'not_found'}
+
+    try:
+        schema = generator.process_directory(target_dir)
+        return {
+            'directory': str(target_dir),
+            'status': 'success',
+            'schema_file': str(output_dir / f"{target_dir.name}_schema.json"),
+            'stats': schema['statistics']
+        }
+    except Exception as e:
+        print(f"\n✗ Error processing {target_dir}: {e}")
+        traceback.print_exc()
+        return {'directory': str(target_dir), 'status': 'error', 'error': str(e)}
+
+
+def _count_by_status(results: List[Dict[str, Any]], status: str) -> int:
+    """Count results with a specific status."""
+    return sum(1 for r in results if r['status'] == status)
+
+
+def _save_and_print_summary(results, output_dir, total_dirs) -> None:
+    """Save processing summary to JSON and print to console."""
+    counts = {
+        'successful': _count_by_status(results, 'success'),
+        'failed': _count_by_status(results, 'error'),
+        'not_found': _count_by_status(results, 'not_found'),
+    }
+    # ... use counts dict for both JSON and printing ...
+
+
+def main():
+    """Main entry point."""
+    # ... setup ...
+    generator = ISSchemaGenerator(str(output_dir))
+
+    results = [
+        _process_directory_safely(generator, target_dir, output_dir)
+        for target_dir in target_dirs
+    ]
+
+    _save_and_print_summary(results, output_dir, len(target_dirs))
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 16 | 2 | **-88%** |
+| **Avg Complexity** | - | A (2.3) | Excellent |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -1135,6 +1252,11 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 **When to use**: Multiple processing layers with identical validation/acceptance pipelines (length check, validation, quality check, creation, marking)
 **Benefit**: Single helper handles entire pipeline; layers become single-line calls with different parameters; ~40 lines of duplicate code eliminated
 
+### 12. Directory Batch Processing with Status Counting
+**Used in**: generate_is_schemas.py
+**When to use**: Main functions that iterate over directories with multiple outcome types (success, error, not_found) and repeated status counting
+**Benefit**: Single helper returns result dict for any outcome; status counting consolidated into reusable function; main becomes list comprehension + summary call
+
 ---
 
 ## Files Modified
@@ -1151,6 +1273,7 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 ### ToolVisualizer Repository
 - `generate_ui_pages.py` - Template constants and helpers
 - `generate_enhanced_schemas.py` - Git metadata parsing helpers
+- `generate_is_schemas.py` - Directory batch processing helpers
 
 ### IntegrityStudio.ai Repository
 - `mcp-servers/linkedin-scraper/linkedin_mcp_server/cli_main.py` - Phase extraction
@@ -1180,6 +1303,7 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 | `e9f7baa` | ToolVisualizer | refactor(schema): extract git metadata parsing helpers |
 | `1606e77` | linkedin-scraper | refactor(chrome): URL pattern helpers for auth (local) |
 | `921ecd7` | AlephAuto | refactor(grouping): extract group processing helper |
+| `3c27b54` | ToolVisualizer | refactor(schemas): directory processing helpers |
 
 ---
 
@@ -1198,8 +1322,9 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 | generate_enhanced_schemas.py | 17 | 2 | -88% |
 | chrome.py | 17 | 7 | -59% |
 | grouping.py (group_by_similarity) | 16 | 8 | -50% |
+| generate_is_schemas.py | 16 | 2 | -88% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **265** | **84** | **-68%** |
+| **Totals** | **281** | **86** | **-69%** |
 
 ---
 
@@ -1218,6 +1343,7 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 11. **Helper extraction with parsing methods** transforms sequential command processing into declarative composition with isolated, testable parsers
 12. **URL pattern constants with status helpers** eliminate duplicate URL-based conditionals; three-valued return (True/False/None) cleanly handles uncertain states
 13. **Group processing helpers** consolidate multi-step validation pipelines (check, validate, score, create, mark) into single reusable functions with parameterized behavior
+14. **Directory batch processing** extracts per-item handling into helpers returning uniform result dicts; status counting becomes a reusable function eliminating repeated `sum()` expressions
 
 ---
 
@@ -1232,6 +1358,7 @@ def group_by_similarity(blocks, similarity_threshold=0.90):
 - `AlephAuto/sidequest/pipeline-runners/collect_git_activity.py:288-400` - Workflow helpers
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
 - `ToolVisualizer/generate_enhanced_schemas.py:89-170` - Git metadata parsing helpers
+- `ToolVisualizer/generate_is_schemas.py:283-365` - Directory batch processing helpers
 - `linkedin-scraper/linkedin_mcp_server/cli_main.py:295-420` - Phase handlers
 - `linkedin-scraper/linkedin_mcp_server/drivers/chrome.py:206-310` - URL pattern auth helpers
 - `SingleSiteScraper/tests/test/impact_analysis.py:17-50` - Recommendation mappings
