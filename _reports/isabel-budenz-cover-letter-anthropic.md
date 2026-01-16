@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Cover Letter - Anthropic Policy Team"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [cover-letter, anthropic, ai-policy]
+excerpt: "Cover letter for Anthropic Policy Team application, emphasizing EU AI Act expertise and international regulatory experience."
+---
+
 # Cover Letter: Anthropic
 
 **Policy Team Application**

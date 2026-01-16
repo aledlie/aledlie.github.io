@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Isabel Budenz CV - AI Policy & Governance"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [cv, resume, ai-policy, international-law]
+excerpt: "Tailored CV for AI policy and governance positions, highlighting EU AI Act expertise, international commercial arbitration background, and multilingual capabilities."
+---
+
 # ISABEL BUDENZ
 
 **AI Policy & Governance | International Law | Regulatory Affairs**

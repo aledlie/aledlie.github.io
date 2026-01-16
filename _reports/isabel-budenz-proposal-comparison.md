@@ -1,8 +1,20 @@
+---
+layout: single
+title: "Capstone Project Proposal Comparison"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [capstone, proposals, comparison, ai-arbitration]
+excerpt: "Comparison of three capstone project options: Institutional Innovation, Regulatory & PPP Framework, and Technical Skills Development."
+---
+
 # Capstone Project Proposal Comparison
 
 ## Isabel Budenz - Three Project Options
 
-*January 2026*
+*January 16, 2026*
+
 
 ---
 

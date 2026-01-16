@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Target Companies & Organizations for Isabel Budenz"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [job-search, target-companies, ai-policy, arbitration]
+excerpt: "Curated list of 15 target organizations for AI policy, governance, and international arbitration positions, including Anthropic, Jus Mundi, GovAI, and top law firms."
+---
+
 # Target Companies & Organizations for Isabel Budenz
 
 *Curated list based on Isabel's profile: LLM International Commercial Arbitration, International/European Law background, multilingual (DE/ES/EN/FR), EU AI Act expertise*

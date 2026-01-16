@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Capstone Proposal: Technical AI Skills for Legal Practice"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [capstone, ai-tools, legal-tech, technical-skills]
+excerpt: "Capstone proposal focused on building technical competence in AI tooling and responsible AI implementation for legal practice."
+---
+
 # Capstone Project Proposal
 
 ## Responsible AI Integration in Legal Practice: Building Technical Competence in AI Tooling and Applications

@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Capstone Proposal: AI Regulatory Patchwork & Multi-Stakeholder Governance"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [capstone, ai-regulation, governance, public-private-partnership]
+excerpt: "Capstone proposal developing a multi-stakeholder governance framework for navigating cross-border AI regulatory compliance."
+---
+
 # Capstone Project Proposal
 
 ## Navigating the AI Regulatory Patchwork: A Multi-Stakeholder Governance Framework for Responsible AI

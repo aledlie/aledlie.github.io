@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Cover Letter - Jus Mundi"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [cover-letter, jus-mundi, arbitration, legal-tech]
+excerpt: "Cover letter for Jus Mundi International Arbitration Internship, highlighting arbitration expertise and multilingual capabilities."
+---
+
 # Cover Letter: Jus Mundi
 
 **International Arbitration Internship Application**

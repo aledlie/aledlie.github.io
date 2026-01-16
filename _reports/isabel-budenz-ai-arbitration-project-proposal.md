@@ -1,3 +1,14 @@
+---
+layout: single
+title: "AI in International Arbitration: Comparative Analysis Project Proposal"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [ai-arbitration, research-proposal, international-law]
+excerpt: "Capstone project proposal analyzing AI adoption, regulation, and governance in international arbitration across major jurisdictions and arbitral institutions."
+---
+
 # Capstone Project Proposal
 
 ## AI in International Arbitration: A Comparative Analysis of Global Approaches

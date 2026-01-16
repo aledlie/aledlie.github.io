@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Cover Letter - Institute for Law & AI"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [cover-letter, research-fellowship, ai-law]
+excerpt: "Cover letter for Institute for Law & AI Summer Research Fellowship, focusing on AI governance research and EU AI Act expertise."
+---
+
 # Cover Letter: Institute for Law & AI
 
 **Summer Research Fellowship Application**

@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Capstone Proposal: AI Arbitration Governance Framework"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [capstone, ai-arbitration, governance, due-process]
+excerpt: "Capstone proposal analyzing due process and transparency requirements for algorithmic dispute resolution and institutional AI adoption."
+---
+
 # Capstone Project Proposal
 
 ## AI Arbitration Governance Framework: Analyzing Due Process and Transparency Requirements for Algorithmic Dispute Resolution

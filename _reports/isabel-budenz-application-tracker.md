@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Isabel Budenz Application Tracker"
+date: 2026-01-16
+author_profile: true
+breadcrumbs: true
+categories: [career-planning]
+tags: [applications, ai-policy, legal, internships]
+excerpt: "Comprehensive application tracker for AI policy, governance, and legal positions at organizations including Anthropic, Jus Mundi, and the Institute for Law & AI."
+---
+
 # Application Tracker
 
 ## Isabel Budenz | AI Policy & Legal Roles
