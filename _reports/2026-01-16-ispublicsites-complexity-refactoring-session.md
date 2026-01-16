@@ -1,18 +1,18 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Eight Files, 67-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Nine Files, 68-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching]
-excerpt: "Systematic refactoring of eight high-complexity Python files across ISPublicSites repositories, achieving 67-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, and helper functions."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition]
+excerpt: "Systematic refactoring of nine high-complexity Python files across ISPublicSites repositories, achieving 68-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, and workflow decomposition."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Eight Files, 67-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Nine Files, 68-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -21,16 +21,16 @@ header:
 
 ## Executive Summary
 
-Completed systematic refactoring of **eight high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, helper functions), achieved **67-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **nine high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper functions), achieved **68-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 8 |
+| **Files Refactored** | 9 |
 | **Repositories Affected** | 6 |
-| **Avg Cyclomatic Reduction** | 70% |
-| **Total Commits** | 8 |
+| **Avg Cyclomatic Reduction** | 71% |
+| **Total Commits** | 9 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -48,6 +48,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 6 | generate_ui_pages.py | `generate_all_files_page` | 20 | Refactored |
 | 7 | grouping.py | `validate_exact_group_semantics` | 19 | Refactored |
 | 8 | batch-migrate.py | `migrate_file` | 18 | Refactored |
+| 9 | collect_git_activity.py | `main` | 17 | Refactored |
 
 ---
 
@@ -592,6 +593,107 @@ def migrate_file(filepath: str) -> bool:
 
 ---
 
+## Refactoring 9: collect_git_activity.py
+
+**Repository**: AlephAuto
+**File**: `sidequest/pipeline-runners/collect_git_activity.py`
+**Commit**: `84064fe`
+
+### Problem
+
+The `main()` function had:
+- Multiple if/elif branches for date range calculation (weekly, monthly, days, start_date)
+- Inline repository iteration and statistics collection
+- Inline data compilation with nested comprehensions
+- Inline summary printing with formatted output
+- 120 lines of sequential processing in a single function
+
+### Solution: Workflow Decomposition with Phase Helpers
+
+```python
+# Before: Monolithic main with inline processing
+def main():
+    args = parser.parse_args()
+
+    # Calculate date range (15 lines of if/elif)
+    if args.weekly:
+        args.days = 7
+    elif args.monthly:
+        args.days = 30
+    if args.days:
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=args.days)
+        since_date = start_date.strftime('%Y-%m-%d')
+        until_date = end_date.strftime('%Y-%m-%d')
+    elif args.start_date:
+        since_date = args.start_date
+        until_date = args.end_date
+    else:
+        print("Error: Must specify date range")
+        return 1
+
+    # ... 80 more lines of inline processing ...
+    # ... repo iteration, language analysis, categorization ...
+    # ... data compilation, visualization, summary printing ...
+
+# After: Phase-based helper functions
+def _calculate_date_range(args) -> tuple[str, str | None] | None:
+    """Calculate date range from command line arguments."""
+    if args.weekly:
+        args.days = 7
+    elif args.monthly:
+        args.days = 30
+
+    if args.days:
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=args.days)
+        return start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')
+
+    if args.start_date:
+        return args.start_date, args.end_date
+
+    return None
+
+def _collect_repository_stats(repos, since_date, until_date) -> tuple[list, list]:
+    """Collect statistics from all repositories."""
+    # ... iteration logic ...
+
+def _compile_activity_data(repositories, all_files, since_date, until_date) -> dict:
+    """Compile all activity data into a single dictionary."""
+    # ... aggregation logic ...
+
+def _print_summary(data: dict, output_dir: Path) -> None:
+    """Print activity summary to console."""
+    # ... formatting logic ...
+
+def main():
+    args = parser.parse_args()
+
+    date_range = _calculate_date_range(args)
+    if date_range is None:
+        print("Error: Must specify date range")
+        return 1
+    since_date, until_date = date_range
+
+    repos = find_git_repos(args.max_depth)
+    repositories, all_files = _collect_repository_stats(repos, since_date, until_date)
+    data = _compile_activity_data(repositories, all_files, since_date, until_date)
+
+    output_dir = _resolve_output_dir(args)
+    generate_visualizations(data, output_dir)
+    _print_summary(data, output_dir)
+    return 0
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 17 | 4 | **-76%** |
+| **Avg Complexity** | - | B (5.8) | Good |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -629,6 +731,11 @@ def migrate_file(filepath: str) -> bool:
 **When to use**: Multiple path-based conditionals where first matching rule should win
 **Benefit**: Rules are ordered by specificity, easy to add new path patterns without modifying code
 
+### 8. Workflow Decomposition with Phase Helpers
+**Used in**: collect_git_activity.py
+**When to use**: Long sequential workflows with distinct phases (parsing, collection, compilation, output)
+**Benefit**: Each phase is independently testable, main function becomes a readable orchestrator
+
 ---
 
 ## Files Modified
@@ -640,6 +747,7 @@ def migrate_file(filepath: str) -> bool:
 - `sidequest/pipeline-core/scanners/timeout_detector.py` - Registry pattern
 - `sidequest/pipeline-core/extractors/extract_blocks.py` - Dataclass rules
 - `sidequest/pipeline-core/similarity/grouping.py` - Semantic check registry
+- `sidequest/pipeline-runners/collect_git_activity.py` - Workflow decomposition
 
 ### ToolVisualizer Repository
 - `generate_ui_pages.py` - Template constants and helpers
@@ -667,6 +775,7 @@ def migrate_file(filepath: str) -> bool:
 | `be8f3d8` | linkedin-scraper | refactor(cli_main): extract phase handlers (local) |
 | `24ae8d7` | SingleSiteScraper | refactor(impact_analysis): keyword-based recommendation mapping |
 | `e713133` | tcad-scraper | refactor(batch-migrate): path rule matching with helpers |
+| `84064fe` | AlephAuto | refactor(collect_git_activity): workflow decomposition |
 
 ---
 
@@ -681,8 +790,9 @@ def migrate_file(filepath: str) -> bool:
 | generate_ui_pages.py | 20 | 3 | -85% |
 | grouping.py | 19 | 6 | -68% |
 | batch-migrate.py | 18 | 3 | -83% |
+| collect_git_activity.py | 17 | 4 | -76% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **198** | **63** | **-68%** |
+| **Totals** | **215** | **67** | **-69%** |
 
 ---
 
@@ -697,6 +807,7 @@ def migrate_file(filepath: str) -> bool:
 7. **Grouped exception tuples** consolidate related error handling and improve readability
 8. **Keyword-based mapping** replaces category-specific conditionals with dictionary lookups and substring matching
 9. **Path rule lists** with first-match semantics replace multi-branch if/elif path checking
+10. **Workflow decomposition** breaks long sequential processes into distinct phase helpers (parse, collect, compile, output)
 
 ---
 
@@ -707,6 +818,7 @@ def migrate_file(filepath: str) -> bool:
 - `AlephAuto/sidequest/pipeline-core/scanners/timeout_detector.py:30-167` - Pattern detectors
 - `AlephAuto/sidequest/pipeline-core/extractors/extract_blocks.py` - Strategy rules
 - `AlephAuto/sidequest/pipeline-core/similarity/grouping.py:63-131` - Semantic checks
+- `AlephAuto/sidequest/pipeline-runners/collect_git_activity.py:288-400` - Workflow helpers
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
 - `linkedin-scraper/linkedin_mcp_server/cli_main.py:295-420` - Phase handlers
 - `SingleSiteScraper/tests/test/impact_analysis.py:17-50` - Recommendation mappings
