@@ -1,18 +1,18 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Eleven Files, 59-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Twelve Files, 50-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication]
-excerpt: "Systematic refactoring of eleven high-complexity Python files across ISPublicSites repositories, achieving 59-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, and URL pattern constants."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication, group-processing-pipeline]
+excerpt: "Systematic refactoring of twelve high-complexity Python files across ISPublicSites repositories, achieving 50-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, URL pattern constants, and group processing helpers."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Eleven Files, 59-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Twelve Files, 50-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -21,16 +21,16 @@ header:
 
 ## Executive Summary
 
-Completed systematic refactoring of **eleven high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction, URL pattern constants), achieved **59-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **twelve high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction, URL pattern constants, group processing helpers), achieved **50-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 11 |
+| **Files Refactored** | 12 |
 | **Repositories Affected** | 6 |
-| **Avg Cyclomatic Reduction** | 69% |
-| **Total Commits** | 11 |
+| **Avg Cyclomatic Reduction** | 68% |
+| **Total Commits** | 12 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -51,6 +51,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 9 | collect_git_activity.py | `main` | 17 | Refactored |
 | 10 | generate_enhanced_schemas.py | `get_git_metadata` | 17 | Refactored |
 | 11 | chrome.py | `login_with_cookie` | 17 | Refactored |
+| 12 | grouping.py | `group_by_similarity` | 16 | Refactored |
 
 ---
 
@@ -962,6 +963,121 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 
 ---
 
+## Refactoring 12: grouping.py (group_by_similarity)
+
+**Repository**: AlephAuto
+**File**: `sidequest/pipeline-core/similarity/grouping.py`
+**Commit**: `921ecd7`
+
+### Problem
+
+The `group_by_similarity()` function had:
+- **Duplicate group processing logic** in Layer 1 (exact matching) and Layer 2 (structural similarity)
+- Same validation pipeline repeated: length check → semantic validation → quality check → group creation → mark grouped
+- Nested conditionals within each layer's processing loop
+- ~40 lines of near-identical code between the two layers
+
+### Solution: Group Processing Helper with Validation Pipeline
+
+```python
+# Before: Duplicate processing logic in Layer 1 and Layer 2
+def group_by_similarity(blocks, similarity_threshold=0.90):
+    # ... setup ...
+
+    # Layer 1: Exact matching
+    for hash_val, group_blocks in exact_groups.items():
+        if len(group_blocks) >= 2:
+            func_names = _extract_function_names(group_blocks)
+
+            is_valid, reason = validate_exact_group_semantics(group_blocks)
+            if not is_valid:
+                print(f"DEBUG: Layer 1 group REJECTED (semantic): {func_names} - {reason}")
+                continue
+
+            quality_score = calculate_group_quality_score(group_blocks, 1.0)
+
+            if quality_score >= MIN_GROUP_QUALITY:
+                group = _create_duplicate_group(group_blocks, 1.0, 'exact_match')
+                groups.append(group)
+                for block in group_blocks:
+                    grouped_block_ids.add(block.block_id)
+            else:
+                print(f"DEBUG: Layer 1 group REJECTED (quality): {func_names}")
+
+    # Layer 2: Structural similarity - SAME PATTERN REPEATED
+    for group_blocks, similarity_score in structural_groups:
+        if len(group_blocks) >= 2:
+            quality_score = calculate_group_quality_score(group_blocks, similarity_score)
+
+            if quality_score >= MIN_GROUP_QUALITY:
+                group = _create_duplicate_group(group_blocks, similarity_score, 'structural')
+                groups.append(group)
+            # ... same marking logic ...
+
+# After: Extracted helper handles the entire validation pipeline
+def _try_accept_group(
+    group_blocks: List['CodeBlock'],
+    similarity_score: float,
+    similarity_method: str,
+    groups: list,
+    grouped_block_ids: set,
+    layer_name: str,
+    validate_semantics: bool = False
+) -> bool:
+    """Try to accept a candidate group through validation pipeline."""
+    if len(group_blocks) < 2:
+        return False
+
+    func_names = _extract_function_names(group_blocks)
+
+    # Optional semantic validation (Layer 1 only)
+    if validate_semantics:
+        is_valid, reason = validate_exact_group_semantics(group_blocks)
+        if not is_valid:
+            print(f"DEBUG: {layer_name} group REJECTED (semantic): {func_names} - {reason}")
+            return False
+
+    # Check group quality
+    quality_score = calculate_group_quality_score(group_blocks, similarity_score)
+
+    if quality_score < MIN_GROUP_QUALITY:
+        print(f"DEBUG: {layer_name} group REJECTED (quality): {func_names}")
+        return False
+
+    # Accept group
+    group = _create_duplicate_group(group_blocks, similarity_score, similarity_method)
+    groups.append(group)
+
+    for block in group_blocks:
+        grouped_block_ids.add(block.block_id)
+
+    print(f"DEBUG: {layer_name} group ACCEPTED: {func_names} (quality={quality_score:.2f})")
+    return True
+
+
+def group_by_similarity(blocks, similarity_threshold=0.90):
+    # ... setup ...
+
+    # Layer 1: Exact matching - now just one line per group
+    for hash_val, group_blocks in exact_groups.items():
+        _try_accept_group(group_blocks, 1.0, 'exact_match',
+                         groups, grouped_block_ids, 'Layer 1', validate_semantics=True)
+
+    # Layer 2: Structural similarity - same helper, different params
+    for group_blocks, similarity_score in structural_groups:
+        _try_accept_group(group_blocks, similarity_score, 'structural',
+                         groups, grouped_block_ids, 'Layer 2')
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 16 | 8 | **-50%** |
+| **Avg Complexity** | - | B (7.0) | Good |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -1014,6 +1130,11 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 **When to use**: Functions with duplicate URL-based conditional logic for state detection (login, authenticated, error pages)
 **Benefit**: URL patterns become maintainable constants; duplicate verification logic eliminated; three-valued return (True/False/None) enables clean uncertain-state handling
 
+### 11. Group Processing Helper with Validation Pipeline
+**Used in**: grouping.py (group_by_similarity)
+**When to use**: Multiple processing layers with identical validation/acceptance pipelines (length check, validation, quality check, creation, marking)
+**Benefit**: Single helper handles entire pipeline; layers become single-line calls with different parameters; ~40 lines of duplicate code eliminated
+
 ---
 
 ## Files Modified
@@ -1024,7 +1145,7 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 ### AlephAuto Repository
 - `sidequest/pipeline-core/scanners/timeout_detector.py` - Registry pattern
 - `sidequest/pipeline-core/extractors/extract_blocks.py` - Dataclass rules
-- `sidequest/pipeline-core/similarity/grouping.py` - Semantic check registry
+- `sidequest/pipeline-core/similarity/grouping.py` - Semantic check registry + group processing helper
 - `sidequest/pipeline-runners/collect_git_activity.py` - Workflow decomposition
 
 ### ToolVisualizer Repository
@@ -1058,6 +1179,7 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 | `84064fe` | AlephAuto | refactor(collect_git_activity): workflow decomposition |
 | `e9f7baa` | ToolVisualizer | refactor(schema): extract git metadata parsing helpers |
 | `1606e77` | linkedin-scraper | refactor(chrome): URL pattern helpers for auth (local) |
+| `921ecd7` | AlephAuto | refactor(grouping): extract group processing helper |
 
 ---
 
@@ -1075,8 +1197,9 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 | collect_git_activity.py | 17 | 4 | -76% |
 | generate_enhanced_schemas.py | 17 | 2 | -88% |
 | chrome.py | 17 | 7 | -59% |
+| grouping.py (group_by_similarity) | 16 | 8 | -50% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **249** | **76** | **-69%** |
+| **Totals** | **265** | **84** | **-68%** |
 
 ---
 
@@ -1094,6 +1217,7 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 10. **Workflow decomposition** breaks long sequential processes into distinct phase helpers (parse, collect, compile, output)
 11. **Helper extraction with parsing methods** transforms sequential command processing into declarative composition with isolated, testable parsers
 12. **URL pattern constants with status helpers** eliminate duplicate URL-based conditionals; three-valued return (True/False/None) cleanly handles uncertain states
+13. **Group processing helpers** consolidate multi-step validation pipelines (check, validate, score, create, mark) into single reusable functions with parameterized behavior
 
 ---
 
@@ -1104,6 +1228,7 @@ def login_with_cookie(driver: webdriver.Chrome, cookie: str) -> bool:
 - `AlephAuto/sidequest/pipeline-core/scanners/timeout_detector.py:30-167` - Pattern detectors
 - `AlephAuto/sidequest/pipeline-core/extractors/extract_blocks.py` - Strategy rules
 - `AlephAuto/sidequest/pipeline-core/similarity/grouping.py:63-131` - Semantic checks
+- `AlephAuto/sidequest/pipeline-core/similarity/grouping.py:276-420` - Group processing helper
 - `AlephAuto/sidequest/pipeline-runners/collect_git_activity.py:288-400` - Workflow helpers
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
 - `ToolVisualizer/generate_enhanced_schemas.py:89-170` - Git metadata parsing helpers
