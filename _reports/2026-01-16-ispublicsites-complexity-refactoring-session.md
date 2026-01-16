@@ -1,18 +1,18 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Nine Files, 68-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Ten Files, 68-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition]
-excerpt: "Systematic refactoring of nine high-complexity Python files across ISPublicSites repositories, achieving 68-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, and workflow decomposition."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing]
+excerpt: "Systematic refactoring of ten high-complexity Python files across ISPublicSites repositories, achieving 68-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, and helper extraction."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Nine Files, 68-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Ten Files, 68-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -21,16 +21,16 @@ header:
 
 ## Executive Summary
 
-Completed systematic refactoring of **nine high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper functions), achieved **68-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **ten high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, workflow decomposition, helper extraction), achieved **68-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 9 |
+| **Files Refactored** | 10 |
 | **Repositories Affected** | 6 |
-| **Avg Cyclomatic Reduction** | 71% |
-| **Total Commits** | 9 |
+| **Avg Cyclomatic Reduction** | 70% |
+| **Total Commits** | 10 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -49,6 +49,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 7 | grouping.py | `validate_exact_group_semantics` | 19 | Refactored |
 | 8 | batch-migrate.py | `migrate_file` | 18 | Refactored |
 | 9 | collect_git_activity.py | `main` | 17 | Refactored |
+| 10 | generate_enhanced_schemas.py | `get_git_metadata` | 17 | Refactored |
 
 ---
 
@@ -694,6 +695,139 @@ def main():
 
 ---
 
+## Refactoring 10: generate_enhanced_schemas.py
+
+**Repository**: ToolVisualizer
+**File**: `generate_enhanced_schemas.py`
+**Commit**: `e9f7baa`
+
+### Problem
+
+The `get_git_metadata()` method had:
+- Six sequential git commands (shortlog, rev-list, log, branch, tag, remote)
+- Each command with its own conditional processing block
+- Nested loops for parsing contributors and remotes
+- String parsing with regex and split operations inline
+- 80 lines with complexity 17
+
+### Solution: Helper Extraction with Focused Parsing Methods
+
+```python
+# Before: Sequential git commands with inline processing
+def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
+    if not self.is_git_repository(dir_path):
+        return {}
+
+    metadata = {'isGitRepo': True, 'contributors': [], ...}
+
+    # Get contributors with commit counts
+    contributors_output = self.run_git_command(
+        ['git', 'shortlog', '-sn', '--all', '--no-merges'], dir_path
+    )
+    if contributors_output:
+        contributors = []
+        for line in contributors_output.split('\n'):
+            match = re.match(r'\s*(\d+)\s+(.+)', line)
+            if match:
+                contributors.append({
+                    'name': match.group(2),
+                    'commits': int(match.group(1))
+                })
+        metadata['contributors'] = contributors
+
+    # Get total commit count
+    commit_count = self.run_git_command(['git', 'rev-list', '--all', '--count'], dir_path)
+    if commit_count:
+        metadata['commits']['total'] = int(commit_count)
+
+    # ... 4 more similar blocks for first/last commit, branches, tags, remotes ...
+
+# After: Extracted parsing helpers with declarative composition
+def _parse_contributors(self, output: Optional[str]) -> List[Dict[str, Any]]:
+    """Parse git shortlog output into contributor list."""
+    if not output:
+        return []
+    contributors = []
+    for line in output.split('\n'):
+        match = re.match(r'\s*(\d+)\s+(.+)', line)
+        if match:
+            contributors.append({
+                'name': match.group(2),
+                'commits': int(match.group(1))
+            })
+    return contributors
+
+def _get_commit_stats(self, dir_path: Path) -> Dict[str, Any]:
+    """Get commit statistics (count, first, last dates)."""
+    commits: Dict[str, Any] = {}
+    count_output = self.run_git_command(['git', 'rev-list', '--all', '--count'], dir_path)
+    if count_output:
+        commits['total'] = int(count_output)
+    first_output = self.run_git_command(
+        ['git', 'log', '--reverse', '--format=%aI', '--max-count=1'], dir_path
+    )
+    if first_output:
+        commits['first'] = first_output
+    last_output = self.run_git_command(['git', 'log', '--format=%aI', '--max-count=1'], dir_path)
+    if last_output:
+        commits['last'] = last_output
+    return commits
+
+def _parse_branches(self, output: Optional[str]) -> List[str]:
+    """Parse git branch output into branch list."""
+    if not output:
+        return []
+    return [b.strip().lstrip('* ') for b in output.split('\n') if b.strip()]
+
+def _parse_tags(self, output: Optional[str]) -> List[str]:
+    """Parse git tag output into tag list."""
+    if not output:
+        return []
+    return [t.strip() for t in output.split('\n') if t.strip()]
+
+def _parse_remotes(self, output: Optional[str]) -> List[Dict[str, str]]:
+    """Parse git remote -v output into remote list."""
+    if not output:
+        return []
+    remotes = []
+    for line in output.split('\n'):
+        parts = line.split()
+        if len(parts) >= 2:
+            remotes.append({'name': parts[0], 'url': parts[1]})
+    return remotes
+
+def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
+    """Extract comprehensive git repository metadata."""
+    if not self.is_git_repository(dir_path):
+        return {}
+
+    return {
+        'isGitRepo': True,
+        'contributors': self._parse_contributors(
+            self.run_git_command(['git', 'shortlog', '-sn', '--all', '--no-merges'], dir_path)
+        ),
+        'commits': self._get_commit_stats(dir_path),
+        'branches': self._parse_branches(
+            self.run_git_command(['git', 'branch', '-a'], dir_path)
+        ),
+        'tags': self._parse_tags(
+            self.run_git_command(['git', 'tag'], dir_path)
+        ),
+        'remotes': self._parse_remotes(
+            self.run_git_command(['git', 'remote', '-v'], dir_path)
+        ),
+    }
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 17 | 2 | **-88%** |
+| **Avg Complexity** | - | A (3.6) | Excellent |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -736,6 +870,11 @@ def main():
 **When to use**: Long sequential workflows with distinct phases (parsing, collection, compilation, output)
 **Benefit**: Each phase is independently testable, main function becomes a readable orchestrator
 
+### 9. Helper Extraction with Focused Parsing Methods
+**Used in**: generate_enhanced_schemas.py
+**When to use**: Functions with multiple sequential command/API calls, each requiring its own parsing logic
+**Benefit**: Main function becomes a declarative composition; each parser is isolated and testable; null handling centralized in helpers
+
 ---
 
 ## Files Modified
@@ -751,6 +890,7 @@ def main():
 
 ### ToolVisualizer Repository
 - `generate_ui_pages.py` - Template constants and helpers
+- `generate_enhanced_schemas.py` - Git metadata parsing helpers
 
 ### IntegrityStudio.ai Repository
 - `mcp-servers/linkedin-scraper/linkedin_mcp_server/cli_main.py` - Phase extraction
@@ -776,6 +916,7 @@ def main():
 | `24ae8d7` | SingleSiteScraper | refactor(impact_analysis): keyword-based recommendation mapping |
 | `e713133` | tcad-scraper | refactor(batch-migrate): path rule matching with helpers |
 | `84064fe` | AlephAuto | refactor(collect_git_activity): workflow decomposition |
+| `e9f7baa` | ToolVisualizer | refactor(schema): extract git metadata parsing helpers |
 
 ---
 
@@ -791,8 +932,9 @@ def main():
 | grouping.py | 19 | 6 | -68% |
 | batch-migrate.py | 18 | 3 | -83% |
 | collect_git_activity.py | 17 | 4 | -76% |
+| generate_enhanced_schemas.py | 17 | 2 | -88% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **215** | **67** | **-69%** |
+| **Totals** | **232** | **69** | **-70%** |
 
 ---
 
@@ -808,6 +950,7 @@ def main():
 8. **Keyword-based mapping** replaces category-specific conditionals with dictionary lookups and substring matching
 9. **Path rule lists** with first-match semantics replace multi-branch if/elif path checking
 10. **Workflow decomposition** breaks long sequential processes into distinct phase helpers (parse, collect, compile, output)
+11. **Helper extraction with parsing methods** transforms sequential command processing into declarative composition with isolated, testable parsers
 
 ---
 
@@ -820,6 +963,7 @@ def main():
 - `AlephAuto/sidequest/pipeline-core/similarity/grouping.py:63-131` - Semantic checks
 - `AlephAuto/sidequest/pipeline-runners/collect_git_activity.py:288-400` - Workflow helpers
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
+- `ToolVisualizer/generate_enhanced_schemas.py:89-170` - Git metadata parsing helpers
 - `linkedin-scraper/linkedin_mcp_server/cli_main.py:295-420` - Phase handlers
 - `SingleSiteScraper/tests/test/impact_analysis.py:17-50` - Recommendation mappings
 - `tcad-scraper/server/batch-migrate.py:9-75` - Path rule matching
