@@ -9,9 +9,6 @@ main:
   - title: "About Me"
     url: /about_me/
 
-  - title: "Vita"
-    url: /vita/
-
   - title: "Homage"
     url: /homage/
 
