@@ -1,36 +1,36 @@
 ---
 layout: single
-title: "ISPublicSites Complexity Refactoring: Seven Files, 67-92% Complexity Reduction"
+title: "ISPublicSites Complexity Refactoring: Eight Files, 67-92% Complexity Reduction"
 date: 2026-01-16
 author_profile: true
 breadcrumbs: true
 categories: [code-quality, refactoring, complexity-analysis]
-tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping]
-excerpt: "Systematic refactoring of seven high-complexity Python files across ISPublicSites repositories, achieving 67-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, and helper functions."
+tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching]
+excerpt: "Systematic refactoring of eight high-complexity Python files across ISPublicSites repositories, achieving 67-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, and helper functions."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Seven Files, 67-92% Complexity Reduction
+# ISPublicSites Complexity Refactoring: Eight Files, 67-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
-**Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper)
+**Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
 **Focus**: Reduce code complexity in highest-complexity Python functions
 **Session Type**: Refactoring
 
 ## Executive Summary
 
-Completed systematic refactoring of **seven high-complexity Python files** across five repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, helper functions), achieved **67-92% complexity reduction** across all files while maintaining zero breaking changes.
+Completed systematic refactoring of **eight high-complexity Python files** across six repositories in the ISPublicSites organization. Using ast-grep-mcp analysis tools to identify complexity hotspots, then applying consistent refactoring patterns (data-driven mappings, registry patterns, phase extraction, keyword matching, path rule matching, helper functions), achieved **67-92% complexity reduction** across all files while maintaining zero breaking changes.
 
 **Key Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Files Refactored** | 7 |
-| **Repositories Affected** | 5 |
-| **Avg Cyclomatic Reduction** | 69% |
-| **Total Commits** | 7 |
+| **Files Refactored** | 8 |
+| **Repositories Affected** | 6 |
+| **Avg Cyclomatic Reduction** | 70% |
+| **Total Commits** | 8 |
 | **Breaking Changes** | 0 |
 | **Tests Affected** | 0 (no test failures) |
 
@@ -47,6 +47,7 @@ Ran ast-grep-mcp code analysis tools (`analyze_complexity`, `detect_code_smells`
 | 5 | impact_analysis.py | `_generate_recommendations` | 21 | Refactored |
 | 6 | generate_ui_pages.py | `generate_all_files_page` | 20 | Refactored |
 | 7 | grouping.py | `validate_exact_group_semantics` | 19 | Refactored |
+| 8 | batch-migrate.py | `migrate_file` | 18 | Refactored |
 
 ---
 
@@ -502,6 +503,95 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 
 ---
 
+## Refactoring 8: batch-migrate.py
+
+**Repository**: tcad-scraper
+**File**: `server/batch-migrate.py`
+**Commit**: `e713133`
+
+### Problem
+
+The `migrate_file()` function had:
+- Five sequential regex substitutions for console methods (log, error, warn, info, debug)
+- Six-branch if/elif chain for determining logger import path based on file location
+- Nested conditionals for import insertion (after imports vs at beginning, shebang handling)
+- All logic inline in a single 70-line function
+
+### Solution: Data-Driven Mapping with Path Rule Matching
+
+```python
+# Before: Sequential regex calls and path conditionals
+def migrate_file(filepath: str) -> bool:
+    content = re.sub(r'\bconsole\.log\b', 'logger.info', content)
+    content = re.sub(r'\bconsole\.error\b', 'logger.error', content)
+    content = re.sub(r'\bconsole\.warn\b', 'logger.warn', content)
+    content = re.sub(r'\bconsole\.info\b', 'logger.info', content)
+    content = re.sub(r'\bconsole\.debug\b', 'logger.debug', content)
+
+    if '/scripts/' in filepath:
+        logger_import = "import logger from '../lib/logger';"
+    elif '/cli/' in filepath:
+        logger_import = "import logger from '../lib/logger';"
+    elif '/services/' in filepath or '/middleware/' in filepath or '/routes/' in filepath:
+        logger_import = "import logger from '../lib/logger';"
+    elif '/lib/' in filepath:
+        logger_import = "import logger from './logger';"
+    # ... more conditionals for insertion
+
+# After: Data-driven mappings with helper functions
+CONSOLE_TO_LOGGER_MAP: dict[str, str] = {
+    'console.log': 'logger.info',
+    'console.error': 'logger.error',
+    'console.warn': 'logger.warn',
+    'console.info': 'logger.info',
+    'console.debug': 'logger.debug',
+}
+
+IMPORT_PATH_RULES: list[tuple[str, str]] = [
+    ('/lib/', "import logger from './logger';"),
+    ('/scripts/', "import logger from '../lib/logger';"),
+    ('/cli/', "import logger from '../lib/logger';"),
+    ('/services/', "import logger from '../lib/logger';"),
+    ('/middleware/', "import logger from '../lib/logger';"),
+    ('/routes/', "import logger from '../lib/logger';"),
+    ('/utils/', "import logger from '../lib/logger';"),
+]
+
+DEFAULT_LOGGER_IMPORT = "import logger from '../lib/logger';"
+
+def _apply_console_replacements(content: str) -> str:
+    """Replace all console.* calls with logger.* equivalents."""
+    for console_method, logger_method in CONSOLE_TO_LOGGER_MAP.items():
+        pattern = rf'\b{re.escape(console_method)}\b'
+        content = re.sub(pattern, logger_method, content)
+    return content
+
+def _get_logger_import_for_path(filepath: str) -> str:
+    """Determine the appropriate logger import based on file path."""
+    for path_pattern, import_statement in IMPORT_PATH_RULES:
+        if path_pattern in filepath:
+            return import_statement
+    return DEFAULT_LOGGER_IMPORT
+
+def migrate_file(filepath: str) -> bool:
+    # ... read file
+    content = _apply_console_replacements(content)
+    if not has_logger_import:
+        logger_import = _get_logger_import_for_path(filepath)
+        last_import_idx = _find_last_import_index(lines)
+        lines = _insert_import(lines, logger_import, last_import_idx)
+    # ... write file
+```
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Cyclomatic** | 18 | 3 | **-83%** |
+| **Avg Complexity** | - | A (3.8) | Excellent |
+
+---
+
 ## Patterns Applied
 
 ### 1. Data-Driven Configuration Mapping
@@ -534,6 +624,11 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 **When to use**: Multiple category-specific conditional branches that check for keyword presence
 **Benefit**: Adding new categories/metrics requires only adding to mapping dict, deduplication is automatic
 
+### 7. Path Rule Matching with First-Match Semantics
+**Used in**: batch-migrate.py
+**When to use**: Multiple path-based conditionals where first matching rule should win
+**Benefit**: Rules are ordered by specificity, easy to add new path patterns without modifying code
+
 ---
 
 ## Files Modified
@@ -555,6 +650,9 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 ### SingleSiteScraper Repository
 - `tests/test/impact_analysis.py` - Keyword-based recommendation mapping
 
+### tcad-scraper Repository
+- `server/batch-migrate.py` - Path rule matching with helper extraction
+
 ---
 
 ## Git Commits
@@ -568,6 +666,7 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 | `03f618f` | AlephAuto | refactor(grouping): add semantic check registry pattern |
 | `be8f3d8` | linkedin-scraper | refactor(cli_main): extract phase handlers (local) |
 | `24ae8d7` | SingleSiteScraper | refactor(impact_analysis): keyword-based recommendation mapping |
+| `e713133` | tcad-scraper | refactor(batch-migrate): path rule matching with helpers |
 
 ---
 
@@ -581,8 +680,9 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 | impact_analysis.py | 21 | 7 | -67% |
 | generate_ui_pages.py | 20 | 3 | -85% |
 | grouping.py | 19 | 6 | -68% |
+| batch-migrate.py | 18 | 3 | -83% |
 | cli_main.py | 26 | 2 | -92% |
-| **Totals** | **180** | **60** | **-67%** |
+| **Totals** | **198** | **63** | **-68%** |
 
 ---
 
@@ -596,6 +696,7 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 6. **Phase extraction** breaks monolithic functions into focused, single-responsibility handlers
 7. **Grouped exception tuples** consolidate related error handling and improve readability
 8. **Keyword-based mapping** replaces category-specific conditionals with dictionary lookups and substring matching
+9. **Path rule lists** with first-match semantics replace multi-branch if/elif path checking
 
 ---
 
@@ -609,6 +710,7 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
 - `ToolVisualizer/generate_ui_pages.py:1-100` - Template constants and helpers
 - `linkedin-scraper/linkedin_mcp_server/cli_main.py:295-420` - Phase handlers
 - `SingleSiteScraper/tests/test/impact_analysis.py:17-50` - Recommendation mappings
+- `tcad-scraper/server/batch-migrate.py:9-75` - Path rule matching
 
 ### Analysis Tools
 - ast-grep-mcp: `analyze_complexity`, `detect_code_smells`
