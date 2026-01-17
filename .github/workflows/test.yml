@@ -112,7 +112,7 @@ jobs:
       continue-on-error: true  # Don't fail build on Lighthouse issues (NO_FCP in CI is common)
       run: |
         npm install -g @lhci/cli@0.12.x
-        xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' lhci autorun
+        xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' lhci autorun --config=config/lighthouserc.js
       env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
