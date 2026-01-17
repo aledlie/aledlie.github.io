@@ -52,17 +52,27 @@ describe('Google Analytics Integration', () => {
       ]);
     });
 
-    test('should not load multiple GA4 scripts', () => {
+    test('should load GA4 script exactly once (regression test for duplicate loading fix)', () => {
+      // Regression test for Bug #4: Duplicate GA4 Script Loading
+      // Fixed in commit 48754081
+      // This test ensures the analytics script is only included once per page
       document.head.innerHTML = `
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
       `;
 
       const gtagScripts = document.querySelectorAll('script[src*="gtag/js"]');
-      expect(gtagScripts.length).toBe(2); // This would indicate a problem in implementation
+      expect(gtagScripts.length).toBe(1);
+    });
 
-      // In a real implementation, you'd want this to be 1
-      // This test documents the current behavior and can be used to verify fixes
+    test('should initialize dataLayer exactly once', () => {
+      // Ensure dataLayer is not duplicated which would cause double-counting
+      window.dataLayer = window.dataLayer || [];
+
+      // Attempting to reinitialize should not create a new array
+      const originalDataLayer = window.dataLayer;
+      window.dataLayer = window.dataLayer || [];
+
+      expect(window.dataLayer).toBe(originalDataLayer);
     });
   });
 

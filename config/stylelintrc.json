@@ -18,6 +18,9 @@
         "message": "Expected class selector to be kebab-case, BEM format, or Algolia class"
       }
     ],
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "number-max-precision": [4, {
+      "ignoreProperties": ["/^margin/", "/^padding/"]
+    }]
   }
 }

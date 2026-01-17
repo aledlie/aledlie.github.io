@@ -1,10 +1,14 @@
 {
+  "engines": {
+    "node": ">=22.0.0 <26.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "lint:scss": "stylelint '**/*.scss' --config config/stylelintrc.json",
     "lint:scss:fix": "stylelint '**/*.scss' --fix --config config/stylelintrc.json",
     "format:scss": "prettier --write '**/*.scss' --config config/prettierrc.json",
-    "build": "RUBYOPT=\"-W0\" bundle exec jekyll build",
-    "serve": "RUBYOPT=\"-W0\" bundle exec jekyll serve",
+    "build": "RUBYOPT=\"-W:no-deprecated\" bundle exec jekyll build",
+    "serve": "RUBYOPT=\"-W:no-deprecated\" bundle exec jekyll serve",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "playwright test --config config/playwright.config.js",
@@ -28,7 +32,8 @@
   },
   "overrides": {
     "glob": "^10.4.5",
-    "inflight": "npm:@bokuweb/inflight@^2.0.0"
+    "inflight": "npm:@bokuweb/inflight@^2.0.0",
+    "test-exclude": "^7.0.1"
   },
   "jest": {
     "testEnvironment": "jsdom",

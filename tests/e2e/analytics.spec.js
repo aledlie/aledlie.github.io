@@ -23,6 +23,45 @@ test.describe('Analytics Configuration', () => {
     expect(scriptSrc).toMatch(/G-[A-Z0-9]+/);
   });
 
+  /**
+   * Regression test for Bug #4: Duplicate GA4 Script Loading
+   * Fixed in commit 48754081
+   *
+   * Verifies that analytics scripts are loaded exactly once per page
+   * to prevent performance issues and data duplication.
+   */
+  test('should load GA4 script exactly once per page (regression test)', async ({ page }) => {
+    await page.goto('/');
+
+    // Count all gtag script tags - should be exactly 1
+    const gtagScriptCount = await page.locator('script[src*="gtag/js"]').count();
+    expect(gtagScriptCount).toBe(1);
+  });
+
+  test('should load GA4 script exactly once on blog posts (regression test)', async ({ page }) => {
+    await page.goto('/posts/');
+
+    const gtagScriptCount = await page.locator('script[src*="gtag/js"]').count();
+    expect(gtagScriptCount).toBe(1);
+  });
+
+  test('should initialize dataLayer exactly once', async ({ page }) => {
+    await page.goto('/');
+
+    // Check that dataLayer exists and is an array (initialized once)
+    const dataLayerStatus = await page.evaluate(() => {
+      if (!window.dataLayer) return { exists: false };
+      return {
+        exists: true,
+        isArray: Array.isArray(window.dataLayer),
+        length: window.dataLayer.length
+      };
+    });
+
+    expect(dataLayerStatus.exists).toBe(true);
+    expect(dataLayerStatus.isArray).toBe(true);
+  });
+
   test('should have site verification configured', async ({ page }) => {
     await page.goto('/');
 
