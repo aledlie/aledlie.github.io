@@ -38,10 +38,12 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
+    // Firefox only runs in CI where browsers are always installed
+    // Locally, run `npx playwright install firefox` to enable
+    ...(process.env.CI ? [{
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-    },
+    }] : []),
 
     /* Test against mobile viewports. */
     {
