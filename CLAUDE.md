@@ -101,7 +101,7 @@ npm run format:scss
 - `_includes/breadcrumbs.html` - Accessible breadcrumb navigation (disabled by default)
 - `_includes/author-profile.html` - Semantic author information
 - `_includes/page__hero.html` - Header images with H1 support
-- `_sass/_footer.scss` - Footer contrast improvements
+- `_sass/minimal-mistakes/_footer.scss` - Footer styles with WCAG AA contrast
 
 **Testing:**
 - Playwright E2E tests in `tests/e2e/accessibility.spec.js`
@@ -122,15 +122,13 @@ npm run format:scss
 - **Entity Relationships:** Uses `@id` references to connect entities across pages (author, organization, citations)
 
 **Available Schema Includes:**
+- `unified-knowledge-graph-schema.html` - Core entities (Person, WebSite, Blog, Organizations)
 - `post-schema.html` - Blog posts (BlogPosting with enhanced metadata)
 - `tech-article-schema.html` - Technical articles (TechArticle)
 - `analysis-article-schema.html` - Analysis pieces (AnalysisNewsArticle)
 - `how-to-schema.html` - Tutorial content (HowTo)
 - `about-page-schema.html` - About page (Person/ProfilePage with detailed properties)
-- `organization-schema.html` - Organization entity
-- `enhanced-person-schema.html` - Person entity with comprehensive properties
 - `breadcrumb-schema.html` - Breadcrumb navigation
-- `search-action-schema.html` - Site search functionality
 - `webpage-schema.html` - Generic webpage markup
 
 **Schema Documentation:**
@@ -151,19 +149,19 @@ npm run format:scss
 ├── _config.yml           # Site-wide configuration (title, author, analytics, plugins)
 ├── _data/
 │   └── navigation.yml    # Custom navigation menu structure
-├── _includes/            # ~80 template components (analytics, schema, headers, pagination)
+├── _includes/            # Template components (analytics, schema, headers, pagination)
 │   ├── skip-links.html   # Accessible skip navigation (WCAG 2.4.3)
 │   ├── breadcrumbs.html  # Semantic breadcrumb navigation (disabled by default)
 │   ├── author-profile.html # Author info with proper heading hierarchy
 │   └── page__hero.html   # Header images with H1 support
-├── _layouts/             # 16 page templates (home, single, post-index, archive, collection, etc.)
+├── _layouts/             # 13 page templates (home, single, post-index, archive, collection, etc.)
 ├── _posts/               # Blog posts (YYYY-MM-DD-title.md format)
 ├── _projects/            # Projects collection
 ├── _reports/             # Reports collection (technical documentation)
 ├── _work/                # Work-related content collection
 ├── _sass/                # SCSS partials (theme styling)
-│   ├── _footer.scss      # Footer styles with WCAG AA contrast
-│   └── (other partials)
+│   ├── variables.scss    # Color definitions, font stacks, spacing
+│   └── minimal-mistakes/ # Theme overrides (footer, navigation, search, sidebar, syntax, tables)
 ├── assets/
 │   ├── css/main.scss     # HEAVILY CUSTOMIZED - Complete CSS overhaul
 │   ├── js/               # JavaScript files
@@ -504,30 +502,32 @@ npm run test:compare-baseline
 - HTML output size
 - Memory usage during build
 
-## Refactoring Documentation
+## Documentation
 
-Extensive refactoring documentation exists in `docs/`:
+Project documentation exists in `docs/`:
 - **Documentation Index:** `docs/README.md` - Complete documentation overview
-- **Refactoring Status:** `docs/REFACTORING_STATUS.md` - Current status and progress
-- **Master Guide:** `docs/refactoring/MASTER_IMPLEMENTATION_GUIDE.md` - Complete refactoring roadmap
+- **Architecture:** `docs/ARCHITECTURE-DATA-FLOWS.md` - Data flows and component relationships
+- **Changelog:** `docs/CHANGELOG.md` - Change history
 - **Setup Guides:** `docs/setup/` - Local development setup (Doppler, build issues, Ruby compatibility)
 - **Schema Guides:** `docs/schema/` - Schema.org implementation and entity analysis
-- **Testing:** `docs/refactoring/TESTING-QUICKSTART.md` - Testing strategy and procedures
 
-**When making significant changes:** Consult refactoring docs to understand existing patterns and testing requirements.
+**When making significant changes:** Consult architecture docs to understand existing patterns and testing requirements.
 
 ## Recent Updates
 
 See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-**Latest (2026-01-19):** Architecture documentation update - deployment now via GitHub Pages (GitHub Actions), breadcrumbs disabled by default, header overlays removed
+**Latest (2026-01-19):** Orphan file cleanup - removed 45 unused files (~5,400 lines):
+- `_includes/`: 20 files (superseded schemas, submodule-only, naming mismatches)
+- `_layouts/`: 4 files (page, posts, splash, search)
+- `_sass/`: 15 files (legacy Octopress/So Simple theme files)
+- `assets/js/`: 6 files (IE compatibility, old jQuery, bundled sources)
 
 **Previous:**
-- 2025-12-27: Repository refactoring - consolidated images to `assets/images/`, configs to `config/`, removed unused templates
+- 2025-12-27: Repository refactoring - consolidated images to `assets/images/`, configs to `config/`
 - 2025-11-26: WCAG 2.1 Level AA accessibility compliance achieved
 - 2025-11: SCSS modernization (sass:color, sass:math modules)
 
 ---
 
 **Last Major Update:** 2026-01-19
-- always use uv pip install for new python libraries
