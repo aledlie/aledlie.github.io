@@ -1,0 +1,12 @@
+<svg width="800" height="220" xmlns="http://www.w3.org/2000/svg">
+<text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
+<rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="70.0" text-anchor="end" font-size="14">PersonalSite</text>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">25</text>
+<rect x="250" y="90" width="414.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="110.0" text-anchor="end" font-size="14">jobs</text>
+<text x="669.0" y="110.0" font-size="14" font-weight="bold">23</text>
+<rect x="250" y="130" width="36.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="150.0" text-anchor="end" font-size="14">InventoryAI</text>
+<text x="291.0" y="150.0" font-size="14" font-weight="bold">2</text>
+</svg>

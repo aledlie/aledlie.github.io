@@ -2,6 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
+## [2026-01-19] - Documentation Cleanup & CI/CD Fixes
+
+### Documentation
+- Removed duplicate README_ENHANCED.md files from multiple directories
+- Removed outdated SESSION_2025-11-27_PRIORITY_1_REFACTORING.md
+- Moved SCHEMA-KNOWLEDGE-GRAPH-GUIDE.md from _includes to docs/schema
+- Cleaned up Python cache files from utils directory
+- Added weekly git activity report (Jan 11-18, 2026)
+- Added IntegrityStudio.ai schema enhancement session report
+
+### Testing
+- Added unit tests for CSRF protection, email obfuscation, and collections front matter
+- Skip Firefox E2E tests locally when browser not installed
+- Added analytics regression tests
+
+### CI/CD
+- Fixed Lighthouse CI config path specification
+- Resolved CI/CD blockers preventing successful builds
+- Updated Node.js version management (.nvmrc, mise.toml)
+
+### Site Structure
+- Removed vita section from site navigation
+- Consolidated Isabel Budenz capstone proposals into single file
+- Updated analytics data files and visualizations
+
+---
+
 ## [2025-12-28] - Homepage Redesign & Cover Photo Cleanup
 
 ### Homepage Changes
