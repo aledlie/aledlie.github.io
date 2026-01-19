@@ -628,7 +628,9 @@ a {
   padding: 2rem 0;
   text-align: center;
 
-  .page-footer-copyright {
+  /* Support both single-dash (custom) and double-underscore (gem) class names */
+  .page-footer-copyright,
+  .page__footer-copyright {
     color: #4a4a4a;  /* WCAG AA compliant (6.42:1 contrast ratio) */
     font-size: 0.85em;
 
@@ -641,7 +643,8 @@ a {
     }
   }
 
-  .page-footer-follow {
+  .page-footer-follow,
+  .page__footer-follow {
     .social-icons a {
       color: #333333 !important;  /* Darkened for WCAG AA contrast (7.7:1 on white) */
 

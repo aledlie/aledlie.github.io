@@ -44,7 +44,8 @@
   }
 }
 
-.page-footer-copyright {
+.page-footer-copyright,
+.page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
   color: #595959; /* WCAG AA compliant contrast */
@@ -59,7 +60,8 @@
   }
 }
 
-.page-footer-follow {
+.page-footer-follow,
+.page__footer-follow {
   ul {
     margin: 0;
     padding: 0;
