@@ -8,10 +8,14 @@ locale: en_US
 encoding: utf-8
 google_site_verification: N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM
 analytics:
-  provider: "google-gtag"
+  provider: "google-tag-manager"
   google:
     tracking_id: "G-J7TL7PQH7S"
-    anonymize_ip: true # enabled for privacy compliance
+    anonymize_ip: true
+  google_tag_manager:
+    container_id: "GTM-NR4GGH5K"
+  facebook_pixel:
+    pixel_id: "685721201205820"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
   # posts
@@ -188,7 +192,6 @@ owner:
   facebook: aledlie
   google:
     plus:
-    analytics: G-J7TL7PQH7S
     verify: gqKcgBHjbuRW6cYY8BO_GdFOVNsIekipkuiC_2pb6g0
     ad-client:
     ad-slot:
