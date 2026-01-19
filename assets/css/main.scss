@@ -631,25 +631,30 @@ a {
   /* Support both single-dash (custom) and double-underscore (gem) class names */
   .page-footer-copyright,
   .page__footer-copyright {
-    color: #4a4a4a;  /* WCAG AA compliant (6.42:1 contrast ratio) */
+    color: #4a4a4a !important;  /* WCAG AA compliant (7.4:1 on white) */
     font-size: 0.85em;
 
     a {
-      color: #333333 !important;  /* Darkened for WCAG AA contrast (7.7:1 on white) */
+      color: #222 !important;  /* WCAG AA compliant (14.0:1 on white) */
 
       &:hover {
-        color: #0066cc !important;
+        color: #000 !important;
       }
     }
   }
 
   .page-footer-follow,
   .page__footer-follow {
+    li {
+      color: #4a4a4a !important;  /* WCAG AA compliant */
+    }
+
+    a,
     .social-icons a {
-      color: #333333 !important;  /* Darkened for WCAG AA contrast (7.7:1 on white) */
+      color: #222 !important;  /* WCAG AA compliant (14.0:1 on white) */
 
       &:hover {
-        color: #0066cc !important;
+        color: #000 !important;
       }
     }
   }

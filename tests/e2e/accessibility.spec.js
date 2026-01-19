@@ -15,18 +15,24 @@ const { injectAxe, checkA11y } = require('axe-playwright');
 async function waitForStyles(page) {
   await page.waitForLoadState('load');
   // Wait for footer styles to be applied (indicates CSS is loaded)
+  // Check both font-family AND color to ensure our accessibility fixes are applied
   await page.waitForFunction(() => {
     const footer = document.querySelector('.page__footer-copyright');
     if (!footer) return true; // No footer on page
     const style = window.getComputedStyle(footer);
     // Check if custom font family is applied (not browser defaults)
     const fontFamily = style.fontFamily.toLowerCase();
-    return fontFamily.includes('apple') || fontFamily.includes('roboto') ||
+    const hasFontFamily = fontFamily.includes('apple') || fontFamily.includes('roboto') ||
            fontFamily.includes('segoe') || fontFamily.includes('helvetica') ||
            fontFamily.includes('sans-serif');
-  }, { timeout: 5000 }).catch(() => {});
-  // Additional small delay to ensure CSS is fully parsed and applied
-  await page.waitForTimeout(200);
+    // Also check color - our WCAG fix uses #4a4a4a which is rgb(74, 74, 74)
+    const color = style.color;
+    const hasCorrectColor = color === 'rgb(74, 74, 74)' || color === 'rgb(34, 34, 34)' ||
+           color.includes('74') || color.includes('34');
+    return hasFontFamily && hasCorrectColor;
+  }, { timeout: 10000 }).catch(() => {});
+  // Additional delay to ensure CSS is fully parsed and applied
+  await page.waitForTimeout(500);
 }
 
 test.describe('Core Accessibility', () => {
