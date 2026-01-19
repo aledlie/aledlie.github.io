@@ -92,15 +92,15 @@ npm run format:scss
 - Color contrast ratios meet WCAG AA standards (4.5:1 minimum)
 - Skip navigation links for keyboard users
 - Proper list structures for navigation and content
-- All pages have H1 headings (including overlay header pages)
+- All pages have H1 headings
 - Author profile uses proper heading levels (H2 for name, H3 for sections)
 - Footer links have explicit high-contrast colors
 
 **Accessibility Files:**
 - `_includes/skip-links.html` - Skip navigation implementation
-- `_includes/breadcrumbs.html` - Accessible breadcrumb navigation
+- `_includes/breadcrumbs.html` - Accessible breadcrumb navigation (disabled by default)
 - `_includes/author-profile.html` - Semantic author information
-- `_includes/page__hero.html` - Overlay headers with H1 support
+- `_includes/page__hero.html` - Header images with H1 support
 - `_sass/_footer.scss` - Footer contrast improvements
 
 **Testing:**
@@ -153,9 +153,9 @@ npm run format:scss
 │   └── navigation.yml    # Custom navigation menu structure
 ├── _includes/            # ~80 template components (analytics, schema, headers, pagination)
 │   ├── skip-links.html   # Accessible skip navigation (WCAG 2.4.3)
-│   ├── breadcrumbs.html  # Semantic breadcrumb navigation (WCAG 1.3.1)
+│   ├── breadcrumbs.html  # Semantic breadcrumb navigation (disabled by default)
 │   ├── author-profile.html # Author info with proper heading hierarchy
-│   └── page__hero.html   # Overlay headers with H1 support
+│   └── page__hero.html   # Header images with H1 support
 ├── _layouts/             # 16 page templates (home, single, post-index, archive, collection, etc.)
 ├── _posts/               # Blog posts (YYYY-MM-DD-title.md format)
 ├── _projects/            # Projects collection
@@ -190,17 +190,17 @@ npm run format:scss
 
 **Key Layouts:**
 - **home.html**: Homepage layout (extends archive) - displays recent posts with pagination
-- **single.html**: Individual pages and posts - supports headers, breadcrumbs, author profile, schema includes
+- **single.html**: Individual pages and posts - supports headers, author profile, schema includes
 - **post-index.html**: Blog archive (extends archive) - groups posts by year
 - **archive.html**: Base archive layout - used by home and post-index, includes H1 fallback
 - **collection.html**: For projects, reports, and work collections
 
 **Layout Features:**
-- **Header Images:** Controlled by `header.overlay_image` and `header.teaser` in front matter
-- **Breadcrumbs:** Enabled via `breadcrumbs: true` in front matter (requires site.breadcrumbs or page.breadcrumbs)
+- **Header Images:** Controlled by `header.image` and `header.teaser` in front matter
+- **Breadcrumbs:** Disabled by default; can be enabled via `breadcrumbs: true` in front matter
 - **Author Profile:** Enabled via `author_profile: true` in front matter
 - **Schema.org Markup:** Automatic inclusion based on layout and page type (see Schema.org Architecture section)
-- **H1 Headings:** All pages include H1 headings, including overlay header pages
+- **H1 Headings:** All pages include H1 headings
 
 **Front Matter Pattern for Pages:**
 ```yaml
@@ -209,7 +209,6 @@ layout: single
 title: "Page Title"
 permalink: /page-url/
 author_profile: true
-breadcrumbs: true
 header:
   image: /assets/images/cover-image.png
   teaser: /assets/images/cover-image.png
@@ -520,14 +519,14 @@ Extensive refactoring documentation exists in `docs/`:
 
 See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-**Latest (2025-12-27):** Repository refactoring - consolidated images to `assets/images/`, configs to `config/`, removed unused templates
+**Latest (2026-01-19):** Architecture documentation update - deployment now via GitHub Pages (GitHub Actions), breadcrumbs disabled by default, header overlays removed
 
 **Previous:**
+- 2025-12-27: Repository refactoring - consolidated images to `assets/images/`, configs to `config/`, removed unused templates
 - 2025-11-26: WCAG 2.1 Level AA accessibility compliance achieved
 - 2025-11: SCSS modernization (sass:color, sass:math modules)
-- 2025-11: Reports collection formatting standardization
 
 ---
 
-**Last Major Update:** 2025-12-27
+**Last Major Update:** 2026-01-19
 - always use uv pip install for new python libraries
