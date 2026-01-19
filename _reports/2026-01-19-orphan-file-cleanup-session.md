@@ -21,7 +21,7 @@ Comprehensive cleanup session to identify and remove orphan files from the Perso
 For each directory, the analysis followed this approach:
 
 1. **List all files** in the target directory
-2. **Trace usage** via grep for `@import`, `{% include %}`, `layout:`, or `src=` references
+2. **Trace usage** via grep for `@import`, `include` tags, `layout:`, or `src=` references
 3. **Check inheritance chains** (layouts extend layouts, SCSS imports SCSS)
 4. **Verify theme provides** - compare local files against theme gem to identify duplicates
 5. **Test build** after deletion to ensure no breakage

@@ -407,10 +407,11 @@ graph LR
 ```
 assets/css/main.scss
     ├── @import "variables"
-    │   └── Color definitions, font stacks, spacing
+    │   └── _sass/variables.scss (Color definitions, font stacks, spacing)
     ├── @import "minimal-mistakes"
-    │   └── Theme base styles (vendor)
-    └── Custom overrides
+    │   └── _sass/minimal-mistakes.scss (Theme base + local overrides)
+    │       └── _sass/minimal-mistakes/*.scss (footer, navigation, search, sidebar, syntax, tables)
+    └── Custom overrides (inline in main.scss)
         ├── Global typography (16px base, 1.7 line-height)
         ├── Header (compact 100px cover images)
         ├── Navigation (centered, uppercase PT Sans Narrow)
@@ -421,9 +422,15 @@ assets/css/main.scss
 
 **JavaScript Assets:**
 
-- `email-obfuscation.js` - Security script for email protection
-- `csrf-protection.js` - CSRF token handling
-- Vendor scripts from theme (cached with includes)
+```
+assets/js/
+    ├── scripts.min.js         # Main bundled scripts (fitvids, magnificPopup)
+    ├── email-obfuscation.js   # Security script for email protection
+    ├── csrf-protection.js     # CSRF token handling
+    └── vendor/
+        ├── jquery-3.7.1.min.js   # jQuery fallback
+        └── glightbox.min.js      # Lightbox library
+```
 
 **Optimization Strategy:**
 
@@ -452,13 +459,13 @@ compress.html (Base - HTML compression)
     ↓
 default.html (Core structure - head, body, footer)
     ↓
-┌───────────┴──────────┬─────────────┬──────────────┐
-│                      │             │              │
-archive.html      single.html    page.html    splash.html
-    ↓                  │
-┌───┴───┐             │
-│       │             │
-home  post-index      └─→ Individual posts and pages
+┌───────────────┴──────────────┐
+│                              │
+archive.html              single.html
+    ↓                          │
+┌───┴───┐                     │
+│       │                     │
+home  post-index              └─→ Individual posts and pages
 ```
 
 **Layout Responsibilities:**
@@ -559,7 +566,6 @@ _includes/
 │
 ├── SEO & Metadata
 │   ├── seo.html (Meta tags, OG, Twitter cards, schema orchestration)
-│   ├── _open-graph.html (Open Graph tags)
 │   └── breadcrumbs.html (Breadcrumb navigation - disabled by default)
 │
 └── Content Components
@@ -1450,9 +1456,8 @@ Project content here...
 
 - **Project Instructions:** `/CLAUDE.md` - Main development guide
 - **Schema Guide:** `docs/schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
-- **Testing Guide:** `docs/refactoring/TESTING-QUICKSTART.md`
-- **Refactoring Status:** `docs/REFACTORING_STATUS.md`
 - **Setup Guides:** `docs/setup/` - Local development setup
+- **Changelog:** `docs/CHANGELOG.md` - Change history
 
 ---
 
