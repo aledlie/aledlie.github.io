@@ -47,6 +47,7 @@
       "assets/js/**/*.js",
       "!assets/js/vendor/**",
       "!node_modules/**"
-    ]
+    ],
+    "coverageDirectory": "tests/coverage"
   }
 }

@@ -6,11 +6,10 @@ _site/
 Gemfile.lock
 
 # Testing
-test-results/
-test_results/
-playwright-report/
+tests/test-results/
+tests/playwright-report/
 .playwright-mcp/
-coverage/
+tests/coverage/
 .nyc_output/
 
 # Performance Reports
