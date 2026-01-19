@@ -96,6 +96,7 @@ include:
   - .htaccess
   - _pages
 exclude:
+  - mise.toml
   - "*.sublime-project"
   - "*.sublime-workspace"
   - schema-org-optimizer.md
