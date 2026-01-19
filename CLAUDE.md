@@ -290,10 +290,11 @@ Key customizations:
 
 ### Analytics Implementation
 
-- **Provider:** Google Analytics (GA4)
-- **Tracking ID:** G-J7TL7PQH7S
-- **Implementation Type:** google-gtag (configured in `_config.yml`)
-- **Privacy:** Anonymous IP enabled for privacy compliance
+- **Provider:** Google Tag Manager (GTM)
+- **GTM Container ID:** GTM-NR4GGH5K (configured in `_config.yml` under `analytics.google_tag_manager.container_id`)
+- **GA4 Tracking ID:** G-J7TL7PQH7S (configured in `_config.yml` under `analytics.google.tracking_id`)
+- **Facebook Pixel:** 685721201205820 (configured in `_config.yml` under `analytics.facebook_pixel.pixel_id`)
+- **Implementation:** Config-driven includes (`_google_tag_manager.html`, `_facebook_pixel.html`)
 - **Testing:** Comprehensive unit and E2E tests in `tests/analytics/`
 
 ### MCP Integration
@@ -403,7 +404,7 @@ git commit -m "Update Sumedh's site submodule"
 
 5. **Browser Compatibility:** Test responsive design at breakpoints: 768px (mobile), 1024px (tablet), 1200px (desktop).
 
-6. **Analytics Privacy:** GTM implementation includes Do Not Track respect and opt-out capabilities.
+6. **Analytics Configuration:** All tracking IDs (GTM, GA4, Facebook Pixel) are centralized in `_config.yml` under the `analytics` key. Includes are conditionally rendered based on config presence.
 
 7. **Schema.org Validation:** Always validate schema changes using Google Rich Results Test and Schema.org validator before deploying.
 
