@@ -6,9 +6,6 @@ main:
   - title: "Blog"
     url: /posts
 
-  - title: "About Me"
-    url: /about_me/
-
   - title: "Homage"
     url: /homage/
 
