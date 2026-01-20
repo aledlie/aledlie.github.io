@@ -8,44 +8,13 @@
   "name": "{{ page.title | default: 'About' }}",
   "description": "{{ page.excerpt | default: page.description | default: 'About page for ' | append: site.author.name | strip_html | truncate: 160 }}",
   "mainEntity": {
+    "@id": "{{ site.url }}#person"
+  },
+  {% comment %}Page-specific Person extensions (alumniOf, knowsAbout) - adds to unified graph{% endcomment %}
+  {% if page.schema_alumni_of or page.schema_knows_about -%}
+  "about": {
     "@type": "Person",
-    "@id": "{{ site.url }}#person",
-    "name": "{{ site.author.name }}",
-    "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
-    {% if site.author.avatar -%}
-    "image": {
-      "@type": "ImageObject",
-      "url": "{{ site.author.avatar | absolute_url }}",
-      "width": 400,
-      "height": 400
-    },
-    {% endif -%}
-    {% if site.author.bio -%}
-    "description": "{{ site.author.bio }}",
-    {% endif -%}
-    {% if site.author.location -%}
-    "address": "{{ site.author.location }}",
-    {% endif -%}
-    {% if site.author.email -%}
-    "email": "{{ site.author.email }}",
-    {% endif -%}
-    {% if site.author.links -%}
-    "sameAs": [
-      {% for link in site.author.links -%}
-        {% if link.url -%}
-          "{{ link.url }}"{% unless forloop.last %},{% endunless %}
-        {% endif -%}
-      {% endfor -%}
-    ],
-    {% endif -%}
-    "worksFor": [
-      {
-        "@id": "https://www.integritystudio.org/#organization"
-      },
-      {
-        "@id": "{{ site.url }}/organizations/inventoryai#organization"
-      }
-    ]
+    "@id": "{{ site.url }}#person"
     {% if page.schema_alumni_of -%}
     ,"alumniOf": [
       {% for school in page.schema_alumni_of -%}
@@ -70,6 +39,7 @@
     ]
     {% endif -%}
   },
+  {% endif -%}
   {% comment %}Mentions - influential people and thought leaders referenced
        @id generation follows Schema.org best practices:
        1. If entity has its own URL: url#type (e.g., https://neilgaiman.com#person)

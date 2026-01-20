@@ -81,6 +81,15 @@ schema_section: "Jekyll"
   {% comment %}Language{% endcomment %}
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
 
+  {% comment %}Reading time and voice search{% endcomment %}
+  {% assign words = page.content | strip_html | number_of_words -%}
+  {% assign minutes = words | divided_by: 200 -%}
+  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".page__title", ".page__lead", ".page__content p:first-of-type"]
+  },
+
   {% comment %}Part of blog{% endcomment %}
   "isPartOf": {
     "@id": "{{ site.url }}#blog"

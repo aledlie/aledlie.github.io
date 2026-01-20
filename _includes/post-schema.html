@@ -40,7 +40,14 @@ Uses @id references to Person and Blog entities from unified-knowledge-graph-sch
   "keywords": {{ page.tags | join: ", " | jsonify }},
   {% endif -%}
   "wordCount": {{ page.content | strip_html | number_of_words }},
+  {% assign words = page.content | strip_html | number_of_words -%}
+  {% assign minutes = words | divided_by: 200 -%}
+  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".page__title", ".page__lead", ".page__content p:first-of-type"]
+  },
   "isPartOf": {
     "@id": "{{ site.url }}#blog"
   }

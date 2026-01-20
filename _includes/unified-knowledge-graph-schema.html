@@ -312,7 +312,7 @@ Generated using ast-grep-mcp server's build_entity_graph tool
       "telephone": "+1-512-829-1644",
       "contactPoint": {
         "@type": "ContactPoint",
-        "contactType": "Sales",
+        "contactType": "sales",
         "telephone": "+1-512-829-1644",
         "email": "hello@integritystudio.ai",
         "areaServed": "US",
@@ -323,8 +323,15 @@ Generated using ast-grep-mcp server's build_entity_graph tool
       "@type": "Organization",
       "@id": "{{ site.url }}/organizations/inventoryai#organization",
       "name": "InventoryAI.io",
+      "alternateName": ["InventoryAI", "Inventory AI"],
       "url": "https://amazing-froyo-8f05e0.netlify.app/",
       "sameAs": "https://amazing-froyo-8f05e0.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://amazing-froyo-8f05e0.netlify.app/logo.png",
+        "width": 512,
+        "height": 512
+      },
       "description": "AI-powered inventory management solutions",
       "email": "alyshia@inventoryai.io",
       "address": {
