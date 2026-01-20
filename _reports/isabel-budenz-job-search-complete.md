@@ -3,7 +3,6 @@ layout: single
 title: "Isabel Budenz Job Search Complete Package"
 date: 2026-01-16
 author_profile: true
-breadcrumbs: true
 categories: [career-planning]
 tags: [job-search, cover-letters, applications, ai-policy, arbitration]
 excerpt: "Comprehensive job search package including target companies, cover letters for Anthropic, Jus Mundi, and Institute for Law & AI, plus application tracker."

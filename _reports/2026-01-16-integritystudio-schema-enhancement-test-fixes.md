@@ -3,12 +3,11 @@ layout: single
 title: "IntegrityStudio.ai Schema.org Enhancement and Test Suite Fixes"
 date: 2026-01-16
 author_profile: true
-breadcrumbs: true
 categories: [schema-org, seo-optimization, testing]
 tags: [flutter, schema-org, json-ld, rich-results, cloudflare-pages, dio, mockito, vitest]
 excerpt: "Enhanced JSON-LD knowledge graph to 100% SEO score with 24 rich result eligible entities, fixed contact service tests with proper Dio mocking."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

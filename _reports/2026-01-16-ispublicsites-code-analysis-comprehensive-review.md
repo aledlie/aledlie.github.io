@@ -3,12 +3,11 @@ layout: single
 title: "ISPublicSites Code Analysis: Comprehensive Quality Review Across 8 Repositories"
 date: 2026-01-16
 author_profile: true
-breadcrumbs: true
 categories: [code-quality, complexity-analysis, security-review]
 tags: [python, typescript, javascript, ast-grep-mcp, cyclomatic-complexity, cognitive-complexity, code-smells, security-scanning, refactoring]
 excerpt: "Comprehensive code quality analysis across 8 ISPublicSites repositories using ast-grep-mcp tools, identifying 149 high-complexity functions, 6,809 code smells, and 4 false-positive security warnings."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

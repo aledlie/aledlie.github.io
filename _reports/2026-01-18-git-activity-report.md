@@ -3,12 +3,11 @@ layout: single
 title: "Weekly Git Activity Report: 2026-01-11 to 2026-01-18"
 date: 2026-01-18
 author_profile: true
-breadcrumbs: true
 categories: [git-activity, development-metrics]
 tags: [git, commits, repositories, weekly-report, automation]
 excerpt: "50 commits across 3 repositories with 117 file changes."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

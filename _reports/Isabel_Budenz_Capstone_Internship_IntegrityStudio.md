@@ -3,7 +3,6 @@ layout: single
 title: "Isabel Budenz Capstone Internship - IntegrityStudio"
 date: 2026-01-16
 author_profile: true
-breadcrumbs: true
 categories: [career-planning]
 tags: [internship, ai-governance, compliance, integritystudio]
 excerpt: "Capstone internship proposal for AI Governance & International Compliance Research at IntegrityStudio.ai, focusing on cross-jurisdictional AI compliance frameworks."

@@ -3,12 +3,11 @@ layout: single
 title: "IntegrityStudio.ai: Manifest Icon Cache Fix and Mobile Test Stability"
 date: 2025-12-28
 author_profile: true
-breadcrumbs: true
 categories: [bug-fixes, testing, cloudflare]
 tags: [flutter, cloudflare-pages, caching, responsive-design, manifest, pwa, testing]
 excerpt: "Resolved manifest icon loading errors caused by stale CDN cache and fixed flaky mobile responsive test with text overflow prevention."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

@@ -3,12 +3,11 @@ layout: single
 title: "Facebook Conversions API Script: Reusable Event Sender with Test Suite"
 date: 2025-12-28
 author_profile: true
-breadcrumbs: true
 categories: [analytics, automation, facebook-marketing]
 tags: [facebook, conversions-api, meta-pixel, bash, doppler, sha256, testing, integritystudio]
 excerpt: "Created a reusable Facebook Conversions API event sender script with Doppler integration, SHA256 hashing, and comprehensive test suite achieving 100% test pass rate."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

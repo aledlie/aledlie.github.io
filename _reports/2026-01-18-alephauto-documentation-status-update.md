@@ -3,12 +3,11 @@ layout: single
 title: "AlephAuto Documentation Status Update: Bringing Archives Current"
 date: 2026-01-18
 author_profile: true
-breadcrumbs: true
 categories: [documentation, maintenance, code-quality]
 tags: [alephauto, documentation-cleanup, changelog, testing, logs, status-update, technical-debt]
 excerpt: "Updated 7 documentation files in AlephAuto to reflect current project status including test suite expansion to 796 tests and improved log health metrics."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

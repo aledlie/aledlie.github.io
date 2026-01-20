@@ -3,7 +3,6 @@ layout: single
 title: "Isabel Budenz Capstone Project Proposals"
 date: 2026-01-16
 author_profile: true
-breadcrumbs: true
 categories: [career-planning]
 tags: [capstone, proposals, ai-arbitration, ai-regulation, legal-tech, governance]
 excerpt: "Three capstone project proposals with comparison: AI Arbitration Governance Framework, AI Regulatory Patchwork & Multi-Stakeholder Governance, and Technical AI Skills for Legal Practice."

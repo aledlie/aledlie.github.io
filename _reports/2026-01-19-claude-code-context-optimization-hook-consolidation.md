@@ -3,12 +3,11 @@ layout: single
 title: "Claude Code Context Optimization: Hook Consolidation and Progressive Skill Disclosure"
 date: 2026-01-19
 author_profile: true
-breadcrumbs: true
 categories: [performance-optimization, claude-code, developer-experience]
 tags: [typescript, hooks, opentelemetry, context-management, claude-code, optimization, skill-rules]
 excerpt: "Consolidated 10 Claude Code hooks into unified pre-compiled JavaScript runner, reducing tsx startup overhead and implementing progressive skill disclosure for 21 skills."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

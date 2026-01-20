@@ -3,12 +3,11 @@ layout: single
 title: "Signup Page Layout Overflow Fixes and Test Coverage Improvements"
 date: 2026-01-18
 author_profile: true
-breadcrumbs: true
 categories: [bug-fixes, testing, flutter]
 tags: [flutter, dart, renderflex, overflow, widget-testing, test-coverage, responsive-design, integritystudio]
 excerpt: "Fixed two RenderFlex overflow errors in SignupPage and improved test coverage from 86.0% to 89.1% by creating 57+ new tests across multiple test files."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

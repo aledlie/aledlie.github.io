@@ -3,12 +3,11 @@ layout: single
 title: "Playwright E2E Testing Setup with Traffic Tracking and OpenTelemetry"
 date: 2026-01-19
 author_profile: true
-breadcrumbs: true
 categories: [testing, e2e-testing, observability]
 tags: [playwright, typescript, opentelemetry, har-recording, core-web-vitals, traffic-tracking, testing-infrastructure]
 excerpt: "Complete E2E testing infrastructure for schema-org-file-system dashboard with traffic tracking headers, OpenTelemetry distributed tracing, HAR recording, and Core Web Vitals measurement."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 

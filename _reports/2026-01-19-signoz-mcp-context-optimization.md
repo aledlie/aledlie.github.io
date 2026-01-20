@@ -3,12 +3,11 @@ layout: single
 title: "SigNoz MCP Context Optimization: Implementing Tool Filtering and Search"
 date: 2026-01-19
 author_profile: true
-breadcrumbs: true
 categories: [performance-optimization, mcp-configuration, claude-code]
 tags: [signoz, mcp, context-optimization, mcp-filter, tool-search, observability, python]
 excerpt: "Reduced SigNoz MCP context usage by implementing mcp-filter proxy and enabling aggressive tool search, achieving estimated 85%+ token reduction."
 header:
-  overlay_image: /assets/images/cover-reports.png
+  image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 ---
 
