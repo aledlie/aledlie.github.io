@@ -8,8 +8,8 @@ categories: [performance-optimization, claude-code, developer-experience]
 tags: [typescript, hooks, opentelemetry, context-management, claude-code, optimization, skill-rules]
 excerpt: "Consolidated 10 Claude Code hooks into unified pre-compiled JavaScript runner, reducing tsx startup overhead and implementing progressive skill disclosure for 21 skills."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

@@ -8,8 +8,8 @@ categories: [code-quality, security, refactoring]
 tags: [python, sql-injection, ruff, ast-grep-mcp, code-analysis, security-audit, fisterra]
 excerpt: "Comprehensive code analysis of IntegrityStudioClients projects with SQL injection vulnerability remediation and 400+ linting fixes across 9 Python files."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

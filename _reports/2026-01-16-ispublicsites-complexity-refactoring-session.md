@@ -8,8 +8,8 @@ categories: [code-quality, refactoring, complexity-analysis]
 tags: [python, cyclomatic-complexity, cognitive-complexity, data-driven-design, helper-functions, registry-pattern, ast-grep-mcp, phase-extraction, keyword-mapping, path-rule-matching, workflow-decomposition, git-metadata-parsing, url-pattern-matching, selenium-authentication, group-processing-pipeline, batch-directory-processing]
 excerpt: "Systematic refactoring of fourteen high-complexity Python files across ISPublicSites repositories, achieving 50-92% complexity reduction using data-driven mappings, registry patterns, phase extraction, keyword matching, path rules, workflow decomposition, helper extraction, URL pattern constants, group processing helpers, and directory batch processing."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

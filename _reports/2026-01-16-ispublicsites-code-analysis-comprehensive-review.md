@@ -8,8 +8,8 @@ categories: [code-quality, complexity-analysis, security-review]
 tags: [python, typescript, javascript, ast-grep-mcp, cyclomatic-complexity, cognitive-complexity, code-smells, security-scanning, refactoring]
 excerpt: "Comprehensive code quality analysis across 8 ISPublicSites repositories using ast-grep-mcp tools, identifying 149 high-complexity functions, 6,809 code smells, and 4 false-positive security warnings."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

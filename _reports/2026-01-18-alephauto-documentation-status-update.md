@@ -8,8 +8,8 @@ categories: [documentation, maintenance, code-quality]
 tags: [alephauto, documentation-cleanup, changelog, testing, logs, status-update, technical-debt]
 excerpt: "Updated 7 documentation files in AlephAuto to reflect current project status including test suite expansion to 796 tests and improved log health metrics."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

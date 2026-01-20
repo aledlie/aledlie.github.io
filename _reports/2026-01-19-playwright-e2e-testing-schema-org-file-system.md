@@ -8,8 +8,8 @@ categories: [testing, e2e-testing, observability]
 tags: [playwright, typescript, opentelemetry, har-recording, core-web-vitals, traffic-tracking, testing-infrastructure]
 excerpt: "Complete E2E testing infrastructure for schema-org-file-system dashboard with traffic tracking headers, OpenTelemetry distributed tracing, HAR recording, and Core Web Vitals measurement."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

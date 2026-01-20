@@ -8,8 +8,8 @@ categories: [analytics, automation, facebook-marketing]
 tags: [facebook, conversions-api, meta-pixel, bash, doppler, sha256, testing, integritystudio]
 excerpt: "Created a reusable Facebook Conversions API event sender script with Doppler integration, SHA256 hashing, and comprehensive test suite achieving 100% test pass rate."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

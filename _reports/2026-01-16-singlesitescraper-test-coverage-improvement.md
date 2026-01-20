@@ -8,8 +8,8 @@ categories: [testing, code-quality, test-coverage]
 tags: [vitest, typescript, react, testing-library, coverage, unit-testing, component-testing, bug-fix]
 excerpt: "Comprehensive test coverage improvement for SingleSiteScraper project, adding 192 new tests across 8 test files, fixing a regex bug in security utilities, and achieving 11.37% coverage increase."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

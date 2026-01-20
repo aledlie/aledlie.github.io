@@ -8,8 +8,8 @@ categories: [schema-org, seo-optimization, testing]
 tags: [flutter, schema-org, json-ld, rich-results, cloudflare-pages, dio, mockito, vitest]
 excerpt: "Enhanced JSON-LD knowledge graph to 100% SEO score with 24 rich result eligible entities, fixed contact service tests with proper Dio mocking."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 

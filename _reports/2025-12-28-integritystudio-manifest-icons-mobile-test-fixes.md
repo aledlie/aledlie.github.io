@@ -8,8 +8,8 @@ categories: [bug-fixes, testing, cloudflare]
 tags: [flutter, cloudflare-pages, caching, responsive-design, manifest, pwa, testing]
 excerpt: "Resolved manifest icon loading errors caused by stale CDN cache and fixed flaky mobile responsive test with text overflow prevention."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 
