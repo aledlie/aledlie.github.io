@@ -621,43 +621,11 @@ a {
   }
 }
 
-/* FOOTER - Clean styling */
+/* FOOTER - Clean styling (WCAG colors defined in _footer.scss) */
 .page-footer {
   border-top: 1px solid $border-light;
-  margin-top: 3rem;
   padding: 2rem 0;
   text-align: center;
-
-  /* Support both single-dash (custom) and double-underscore (gem) class names */
-  .page-footer-copyright,
-  .page__footer-copyright {
-    color: #4a4a4a !important;  /* WCAG AA compliant (7.4:1 on white) */
-    font-size: 0.85em;
-
-    a {
-      color: #222 !important;  /* WCAG AA compliant (14.0:1 on white) */
-
-      &:hover {
-        color: #000 !important;
-      }
-    }
-  }
-
-  .page-footer-follow,
-  .page__footer-follow {
-    li {
-      color: #4a4a4a !important;  /* WCAG AA compliant */
-    }
-
-    a,
-    .social-icons a {
-      color: #222 !important;  /* WCAG AA compliant (14.0:1 on white) */
-
-      &:hover {
-        color: #000 !important;
-      }
-    }
-  }
 }
 
 /* SOCIAL SHARING */
