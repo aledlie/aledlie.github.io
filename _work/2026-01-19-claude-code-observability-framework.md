@@ -332,6 +332,7 @@ claude --debug  # Test with verbose output
 
 Example alert for slow hooks (>5s):
 
+{% raw %}
 ```yaml
 alert: SlowHookExecution
 expr: hook_duration_gauge > 5000
@@ -341,6 +342,7 @@ labels:
 annotations:
   summary: "Hook {{ $labels.hook_name }} taking >5s"
 ```
+{% endraw %}
 
 ## Dependencies
 
