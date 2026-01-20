@@ -9,7 +9,7 @@
   "description": "{{ page.excerpt | default: page.description | default: 'About page for ' | append: site.author.name | strip_html | truncate: 160 }}",
   "mainEntity": {
     "@type": "Person",
-    "@id": "{{ site.url }}/#person",
+    "@id": "{{ site.url }}#person",
     "name": "{{ site.author.name }}",
     "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
     {% if site.author.avatar -%}
@@ -40,14 +40,10 @@
     {% endif -%}
     "worksFor": [
       {
-        "@type": "Organization",
-        "name": "Integrity Studios",
-        "url": "https://integritystudio.notion.site"
+        "@id": "https://www.integritystudio.org/#organization"
       },
       {
-        "@type": "Organization",
-        "name": "InventoryAI.io",
-        "url": "https://amazing-froyo-8f05e0.netlify.app/"
+        "@id": "{{ site.url }}/organizations/inventoryai#organization"
       }
     ]
     {% if page.schema_alumni_of -%}
@@ -148,12 +144,12 @@
   {% endif -%}
   "isPartOf": {
     "@type": "WebSite",
-    "@id": "{{ site.url }}/#website"
+    "@id": "{{ site.url }}#website"
   },
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
   "dateModified": "{{ site.time | date_to_xmlschema }}",
   "author": {
-    "@id": "{{ site.url }}/#person"
+    "@id": "{{ site.url }}#person"
   }
 }
 </script>
