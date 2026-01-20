@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Phase 2 Performance Optimizations: Score Caching and Analysis Workflow Speedup
 **Session Date**: 2025-11-28
 **Project**: ast-grep-mcp - Deduplication Analysis System
 **Focus**: Implement score caching optimization and verify Phase 2 performance improvements
@@ -411,11 +410,9 @@ result = ranker.rank_deduplication_candidates(candidates)
 # Opt-out if needed
 ranker = DuplicationRanker(enable_cache=False)
 
-# Monitor cache performance
 stats = ranker.get_cache_stats()
 print(f"Cache size: {stats['cache_size']}")
 
-# Clear cache between runs if needed
 ranker.clear_cache()
 ```
 

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# AST-Grep MCP Server: Phase 2 Performance Enhancements - Streaming & Large File Handling
 ## Executive Summary
 
 This report documents the implementation of two critical performance enhancements for the ast-grep MCP server as part of Phase 2 (Performance & Scalability) of the strategic development plan:
@@ -97,11 +96,9 @@ def stream_ast_grep_results(
 Updated both `find_code` and `find_code_by_rule` tools:
 
 ```python
-# Old approach (blocking)
 result = run_ast_grep("run", args)
 matches = json.loads(result.stdout)
 
-# New approach (streaming)
 matches = list(stream_ast_grep_results(
     "run",
     args + ["--json=stream", project_folder],
@@ -243,7 +240,6 @@ lang_map = {
 #### Tool Integration
 
 ```python
-# find_code with file size filtering
 def find_code(
     project_folder: str,
     pattern: str,
@@ -305,7 +301,6 @@ find_code(
 #### Large Python Projects
 
 ```python
-# Skip large generated files in Python projects
 find_code_by_rule(
     project_folder="/path/to/python-project",
     yaml_rule="...",
@@ -433,7 +428,6 @@ Both streaming and file filtering integrate seamlessly with the caching layer:
 # Cache key includes all parameters
 cache_key = hash(command + args + search_targets + project_folder)
 
-# Check cache before streaming
 cached_result = cache.get("run", stream_args, project_folder)
 if cached_result:
     return cached_result  # Fast path

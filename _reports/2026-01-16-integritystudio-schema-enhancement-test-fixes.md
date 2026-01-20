@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# IntegrityStudio.ai Schema.org Enhancement and Test Suite Fixes
 
 **Session Date**: 2026-01-16
 **Project**: IntegrityStudio.ai2 - AI Observability Platform Website

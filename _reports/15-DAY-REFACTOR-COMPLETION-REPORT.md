@@ -13,7 +13,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# 15-Day Modular Refactoring: Completion Report
 **Project:** ast-grep-mcp
 **Initiative:** Monolithic to Modular Architecture Migration
 **Duration:** November 18 - December 6, 2025 (18 days total, 15 active development days)

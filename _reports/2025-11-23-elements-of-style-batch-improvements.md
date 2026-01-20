@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Elements of Style: Batch Writing Quality Improvements Across 23 Reports
 **Session Date**: 2025-11-23
 **Project**: PersonalSite Reports - Writing Quality Enhancement
 **Focus**: Systematic improvement of technical writing quality using automated style analysis and targeted fixes
@@ -87,19 +86,16 @@ Created todo list to track progress:
 # Before
 Navigation bug was NOT caused by duplicate IDs.
 
-# After
 Duplicate IDs did not cause the navigation bug.
 
 # Before
 Created skill and audit agent, identified violations, and implemented solution.
 
-# After
 Created skill and audit agent; identified violations; and implemented solution.
 
 # Before
 System ready with no coordination overhead, improved database performance, and enhanced security.
 
-# After
 System ready with no coordination overhead; improved database performance; and enhanced security.
 ```
 
@@ -117,37 +113,31 @@ System ready with no coordination overhead; improved database performance; and e
 # Before
 This documentation provides developers with:
 
-# After
 This documentation delivers:
 
 # Before
 Important patterns were not prominently documented.
 
-# After
 Important patterns lacked prominent documentation.
 
 # Before
 The pipeline bridges JavaScript and Python, implements algorithm, and has critical patterns.
 
-# After
 The pipeline bridges JavaScript and Python; implements algorithm; and has critical patterns.
 
 # Before
 Line numbers change when code is edited.
 
-# After
 Code edits change line numbers.
 
 # Before
 Functions are declared BEFORE their content.
 
-# After
 Declarations precede function content.
 
 # Before
 This prevents code from being marked as duplicates.
 
-# After
 This prevents marking code as duplicates.
 ```
 
@@ -169,13 +159,11 @@ This file was fixed in the previous session but demonstrates the systematic appr
 # Before
 The key issue was that register_mcp_tools() was not being called.
 
-# After
 The key issue: register_mcp_tools() lacked a call during test setup.
 
 # Before
 Mock was returning JSON strings instead of iterators.
 
-# After
 Mock returned JSON strings instead of iterators.
 ```
 
@@ -277,7 +265,6 @@ npm run style:analyze -- --folder ~/code/PersonalSite/_reports/
 # Before
 The tests were failing because mock was not being called.
 
-# After
 Tests failed because the mock lacked a call.
 ```
 
@@ -287,7 +274,6 @@ Tests failed because the mock lacked a call.
 ### Pattern 2: Comma Splices → Semicolons
 
 ```markdown
-# Before
 System does X, Y, and Z.
 
 # After
@@ -303,7 +289,6 @@ System does X; Y; and Z.
 # Before
 The feature was not available.
 
-# After
 The feature lacked availability.
 OR
 The feature remained unavailable.
@@ -315,7 +300,6 @@ The feature remained unavailable.
 ### Pattern 4: Vague Language → Specific Terms
 
 ```markdown
-# Before
 The performance was good.
 
 # After
@@ -391,7 +375,6 @@ The performance met the <5ms requirement.
 # Analyze single file
 npm run style:analyze -- --file path/to/file.md
 
-# Analyze entire folder
 npm run style:analyze -- --folder ~/code/PersonalSite/_reports/
 
 # Analyze from stdin

@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# AlephAuto Documentation Status Update: Bringing Archives Current
 
 **Session Date**: 2026-01-18
 **Project**: AlephAuto - Job Queue Framework with Real-time Dashboard

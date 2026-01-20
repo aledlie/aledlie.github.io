@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Accessibility Quick Wins: WCAG Compliance Improvements
 **Session Date**: 2025-11-26
 **Project**: PersonalSite (aledlie.github.io)
 **Focus**: Systematic bugfix planning and implementation of accessibility improvements
@@ -322,7 +321,6 @@ Added screen-reader-only H1 with intelligent fallback logic to `_layouts/archive
 # Build site
 bundle exec jekyll build
 
-# Verify H1 presence
 $ grep -n "<h1" _site/index.html
 663: <h1 class="page-title sr-only">The Parlor</h1>
 
@@ -546,7 +544,6 @@ Net change: +7 lines
 ### Branch Structure
 
 ```bash
-# Feature branch
 fix/accessibility-quick-wins
   ↳ 6129345c - fix(a11y): remove positive tabindex from skip links (WCAG 2.4.3)
   ↳ c36ac331 - fix(a11y): improve color contrast for author bio and buttons (WCAG 2 AA)

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Repomix Optimization and Session Report Skill Creation
 **Session Date**: 2025-11-17
 **Project**: Jobs Automation System
 **Focus**: Optimize repomix scanning to git repository roots only and create session documentation skill

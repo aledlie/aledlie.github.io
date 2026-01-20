@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# SigNoz MCP Context Optimization: Implementing Tool Filtering and Search
 
 **Session Date**: 2026-01-19
 **Project**: Claude Code Configuration (~/.claude)

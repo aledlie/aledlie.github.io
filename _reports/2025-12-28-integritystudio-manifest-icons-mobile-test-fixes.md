@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# IntegrityStudio.ai: Manifest Icon Cache Fix and Mobile Test Stability
 
 **Session Date**: 2025-12-28
 **Project**: IntegrityStudio.ai2 - Flutter Web Application
@@ -105,22 +104,18 @@ Added version query parameters to force CDN to fetch fresh copies:
 Added explicit static asset rules before SPA fallback:
 
 ```
-# Static assets - let Cloudflare serve them directly (no redirect)
 /icons/*  /icons/:splat  200
 /images/*  /images/:splat  200
 /assets/*  /assets/:splat  200
 /screenshots/*  /screenshots/:splat  200
 
-# Blog pages - serve actual HTML files
 /blog/*  /blog/:splat  200
 
-# Static files at root
 /manifest.json  /manifest.json  200
 /robots.txt  /robots.txt  200
 /sitemap.xml  /sitemap.xml  200
 /favicon.ico  /favicon.ico  200
 
-# SPA fallback - serve index.html for app routes only
 /*  /index.html  200
 ```
 

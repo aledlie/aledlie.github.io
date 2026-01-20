@@ -6,7 +6,6 @@ categories: [claude-code, maintenance]
 tags: [plugins, troubleshooting, configuration]
 ---
 
-# Claude Code Plugin Fix Session
 
 **Date:** 2025-12-27
 **Duration:** Extended session (continued from previous context)
@@ -62,13 +61,11 @@ For each broken plugin:
 ### Fix Script Pattern
 
 ```python
-# For each broken plugin:
 src = marketplace_base + "/" + marketplace
 dst = cache_base + "/" + marketplace + "/" + plugin_name + "/1.0.0"
 
 shutil.copytree(src, dst, symlinks=True)
 
-# Update installed_plugins.json
 data["plugins"][plugin_key][0]["installPath"] = dst
 data["plugins"][plugin_key][0]["version"] = "1.0.0"
 ```

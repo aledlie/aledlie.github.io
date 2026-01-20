@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Phase 1 Critical Complexity Refactoring: Reducing Technical Debt by 70%
 **Session Date**: 2025-11-28
 **Project**: ast-grep-mcp
 **Focus**: Refactor the 3 most complex functions to reduce cognitive complexity and improve maintainability

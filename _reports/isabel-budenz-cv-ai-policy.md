@@ -9,7 +9,6 @@ tags: [cv, resume, ai-policy, international-law]
 excerpt: "Tailored CV for AI policy and governance positions, highlighting EU AI Act expertise, international commercial arbitration background, and multilingual capabilities."
 ---
 
-# ISABEL BUDENZ
 
 **AI Policy & Governance | International Law | Regulatory Affairs**
 
@@ -220,7 +219,6 @@ Available upon request.
 
 ---
 
-# CV FORMATTING NOTES
 
 ## For PDF Export
 
@@ -292,7 +290,6 @@ Convert this markdown to a clean, professional PDF with:
 
 ---
 
-# ONE-PAGE VERSION
 
 For applications requiring a single page, use this condensed format:
 

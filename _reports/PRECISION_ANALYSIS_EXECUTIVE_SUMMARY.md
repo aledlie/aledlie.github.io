@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Executive Summary: Duplicate Detection Precision Analysis
 **Date:** 2025-11-16
 **Status:** ❌ CRITICAL - Precision below target
 **Impact:** Blocks production deployment

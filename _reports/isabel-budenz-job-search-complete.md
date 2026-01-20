@@ -12,7 +12,6 @@ toc_label: "Contents"
 toc_sticky: true
 ---
 
-# Isabel Budenz Job Search Complete Package
 
 *Comprehensive job search materials for AI policy, governance, and international arbitration positions*
 
@@ -743,7 +742,6 @@ Stockholm University
 
 ---
 
-# Part 3: Application Tracker
 
 ---
 

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# MinHash + LSH Implementation: O(n) Code Clone Detection for ast-grep-mcp
 **Session Date**: 2025-12-02
 **Project**: ast-grep-mcp - Code Deduplication System
 **Focus**: Implement Recommendations 1 & 2 from similarity algorithm analysis
@@ -199,7 +198,6 @@ $ .venv/bin/python -m pytest tests/unit/test_minhash_similarity.py -v
 ======================== test session starts =========================
 collected 42 items
 
-# MinHash Similarity Tests (6)
 tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_identical_code_high_similarity PASSED
 tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_similar_code_moderate_similarity PASSED
 tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_different_code_low_similarity PASSED
@@ -207,7 +205,6 @@ tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_empty_code_re
 tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_minhash_signature_caching PASSED
 tests/unit/test_minhash_similarity.py::TestMinHashSimilarity::test_clear_cache PASSED
 
-# LSH Index Tests (3)
 tests/unit/test_minhash_similarity.py::TestMinHashLSH::test_build_lsh_index PASSED
 tests/unit/test_minhash_similarity.py::TestMinHashLSH::test_query_similar PASSED
 tests/unit/test_minhash_similarity.py::TestMinHashLSH::test_find_all_similar_pairs PASSED
@@ -217,7 +214,6 @@ tests/unit/test_minhash_similarity.py::TestSimilarityConfig::test_default_config
 tests/unit/test_minhash_similarity.py::TestSimilarityConfig::test_custom_config PASSED
 tests/unit/test_minhash_similarity.py::TestSimilarityResult::test_result_creation PASSED
 
-# Enhanced Structure Hash Tests (5)
 tests/unit/test_minhash_similarity.py::TestEnhancedStructureHash::test_similar_structure_same_hash PASSED
 tests/unit/test_minhash_similarity.py::TestEnhancedStructureHash::test_different_call_patterns_different_hash PASSED
 tests/unit/test_minhash_similarity.py::TestEnhancedStructureHash::test_different_structure_different_hash PASSED
@@ -255,7 +251,6 @@ tests/unit/test_minhash_similarity.py::TestEnhancedStructureHashLogarithmicBucke
 # NEW: Bucket Distribution Tests (1) - Recommendation 2
 tests/unit/test_minhash_similarity.py::TestEnhancedStructureHashBucketDistribution::test_bucket_distribution_diverse_code PASSED
 
-# Detector Integration Tests (5)
 tests/unit/test_minhash_similarity.py::TestDetectorIntegration::test_detector_uses_minhash_by_default PASSED
 tests/unit/test_minhash_similarity.py::TestDetectorIntegration::test_detector_can_use_sequence_matcher PASSED
 tests/unit/test_minhash_similarity.py::TestDetectorIntegration::test_detector_similarity_calculation PASSED
@@ -401,7 +396,6 @@ from ast_grep_mcp.features.deduplication.similarity import (
     SimilarityConfig,
 )
 
-# Custom configuration
 config = SimilarityConfig(
     num_permutations=256,  # More accurate
     similarity_threshold=0.7,  # Lower threshold for more candidates

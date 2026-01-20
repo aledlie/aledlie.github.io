@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# Claude Code Context Optimization: Hook Consolidation and Progressive Skill Disclosure
 
 **Session Date**: 2026-01-19
 **Project**: claude-dev-environment (Claude Code Configuration)
@@ -57,7 +56,6 @@ Analysis of the existing Claude Code configuration revealed several context mana
 Created lean user-level defaults (~500 tokens):
 
 ```markdown
-# User: Alyshia
 
 ## Response Guidelines
 - Concise, actionable responses
@@ -253,7 +251,6 @@ OpenTelemetry: Logs exporting to https://ingest.us.signoz.cloud/v1/logs
 $ cd ~/.claude/hooks && npm run build
 > claude-hooks@1.0.0 build
 > tsc
-# (no errors)
 
 $ ls dist/handlers/
 post-tool.js    pre-tool.js    session-start.js    stop.js    user-prompt.js

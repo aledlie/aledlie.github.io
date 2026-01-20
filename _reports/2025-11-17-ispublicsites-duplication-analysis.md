@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Code Duplication Analysis: ISPublicSites Repository Audit
 **Session Date**: 2025-11-17
 **Project**: ISPublicSites - Multi-project monorepo
 **Focus**: Systematic code duplication detection and refactoring recommendations
@@ -421,19 +420,16 @@ Three primary duplication patterns identified:
 
 ### Duplication Analysis Commands
 ```bash
-# Python analysis
 uv run python scripts/find_duplication.py ~/code/ISPublicSites \
   --language python \
   --exclude-patterns "node_modules,venv,.venv,__pycache__,.git" \
   --min-similarity 0.85
 
-# TypeScript analysis
 uv run python scripts/find_duplication.py ~/code/ISPublicSites \
   --language typescript \
   --exclude-patterns "node_modules,venv,.venv,__pycache__,.git,dist,build" \
   --min-similarity 0.85
 
-# With JSON output
 uv run python scripts/find_duplication.py /path/to/project \
   --language python \
   --json > duplication-report.json

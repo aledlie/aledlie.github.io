@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Bug #2 Fix: Unified Penalty System for Duplicate Detection
 **Session Date**: 2025-11-17
 **Project**: Code Consolidation System - Duplicate Detection Pipeline
 **Focus**: Fixing critical architectural bug in semantic penalty detection
@@ -27,7 +26,6 @@ Successfully fixed Bug #2, a critical architectural flaw where semantic penalty 
 The semantic penalty system had a fundamental architectural flaw:
 
 ```python
-# BEFORE (Broken Flow):
 # 1. Normalize code (strips status codes: 200 → NUM)
 normalized1 = normalize_code(code1)
 normalized2 = normalize_code(code2)
@@ -261,17 +259,12 @@ code2 = "  res.status(201).json({ data: data }); // 201 instead of 200"
 similarity, method = calculate_structural_similarity(code1, code2, 0.90)
 
 # Results:
-# Similarity: 0.6650 (was 0.85)
 # Method: different (was structural)
-# Above threshold: False (was True) ✅
 #
-# Debug output:
 # Warning: DEBUG: HTTP status code penalty: {200} vs {201}, penalty=0.70
 #
 # Calculation:
-# Base similarity: 0.95 (identical after normalization)
 # HTTP penalty: 0.70x (30% reduction)
-# Final: 0.95 * 0.70 = 0.665 < 0.90 ✅
 ```
 
 ### Full Accuracy Test Results
@@ -393,7 +386,6 @@ Easy to add new penalty types:
 # Add to SemanticFeatures dataclass:
 array_operations: Set[str] = field(default_factory=set)
 
-# Add to extract_semantic_features():
 array_ops = {
     '.push': r'\.push\s*\(',
     '.pop': r'\.pop\s*\(',
@@ -401,7 +393,6 @@ array_ops = {
     '.unshift': r'\.unshift\s*\(',
 }
 
-# Add to calculate_semantic_penalty():
 if features1.array_operations != features2.array_operations:
     penalty *= 0.85  # 15% penalty
 ```

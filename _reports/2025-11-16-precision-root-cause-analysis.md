@@ -12,7 +12,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Precision Root Cause Analysis: Debugging a Duplicate Detection Pipeline
 **Investigation Method**: Systematic hypothesis testing
 **Starting Precision**: 59.09%
 **Current Precision**: 73.68%
@@ -58,11 +57,9 @@ Through systematic scientific investigation, I identified **two critical bugs** 
 
 **Results**:
 ```python
-# isDevelopment
 code = "return process.env.NODE_ENV !== 'production';"
 hash = "ab93ebee7506b485"
 
-# isProductionMode
 code = "return process.env.NODE_ENV === 'production';"
 hash = "698d9c44d4873a42"
 ```
@@ -159,7 +156,6 @@ const matchedText = match.lines || match.text || match.matched;
 
 The Layer 2 HTTP status code penalty should apply:
 ```python
-# In structural.py lines 391-395:
 if has_different_status_codes and similarity >= threshold:
     original_similarity = similarity
     similarity *= 0.7  # 30% penalty

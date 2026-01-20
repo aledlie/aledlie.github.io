@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Repository Cleanup and Architecture Documentation Session
 ## Data Architecture Analysis and Automated Maintenance Tools
 
 **Test Date:** November 17, 2025
@@ -197,7 +196,6 @@ All critical Jekyll components verified intact:
 # Current directory
 ~/code/jobs/sidequest/universal-repo-cleanup.sh
 
-# Specific path
 ~/code/jobs/sidequest/universal-repo-cleanup.sh /path/to/repo
 ```
 
@@ -405,13 +403,11 @@ Files added:
 **Action Required:** Install Ruby 3.2.0+ via rbenv
 
 ```bash
-# Install rbenv if needed
 brew install rbenv
 
 # Install Ruby 3.2.0
 rbenv install 3.2.0
 
-# Set for project
 cd ~/code/PersonalSite
 rbenv local 3.2.0
 ```

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Activity Feed Fixes: Job Type and Duration Display
 **Session Date**: 2025-12-24
 **Project**: AlephAuto - Job Queue Dashboard
 **Focus**: Fix activity feed displaying incorrect job type and duration information
@@ -189,21 +188,16 @@ Error: Cannot find module '/Users/.../code-env/node/lib/node_modules/pm2/lib/Pro
 ### Deployment Steps
 
 ```bash
-# 1. Update PM2 daemon
 npx pm2 update
 
 # 2. Verify processes online
 npx pm2 list
 # aleph-dashboard: online
-# aleph-worker: online
 
-# 3. Test with live job
 curl -X POST http://localhost:8080/api/pipelines/claude-health/trigger \
   -H "Content-Type: application/json" -d '{}'
 
-# 4. Save PM2 state
 npx pm2 save
-# Saved to /Users/alyshialedlie/.pm2/dump.pm2
 ```
 
 ### Production Status

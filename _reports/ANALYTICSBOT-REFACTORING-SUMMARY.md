@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# AnalyticsBot Refactoring - Summary Report
 **Date:** 2025-11-27
 **Requested:** Automated implementation using write_code and ralph-wiggum
 **Delivered:** Comprehensive analysis + detailed manual implementation guide
@@ -137,13 +136,10 @@ cd /Users/alyshialedlie/code/ISPublicSites/AnalyticsBot
 # 1. Create feature branch
 git checkout -b refactor/fix-duplicate-project-ids
 
-# 2. Open implementation guide
 open /Users/alyshialedlie/code/ast-grep-mcp/ANALYTICSBOT-REFACTORING-IMPLEMENTATION-GUIDE.md
 
 # 3. Copy the refactored main() function and 7 helper functions
-# 4. Replace lines 39-223 in backend/scripts/fix-duplicate-project-ids.ts
 # 5. Test in staging
-# 6. Commit and create PR
 ```
 
 **Estimated time:** 2-3 hours including testing
@@ -183,7 +179,6 @@ print(result['diff'])
 "
 
 # Review the diff
-# If looks good, run again with dry_run=False
 ```
 
 **This gives you AI assistance while maintaining human control.**

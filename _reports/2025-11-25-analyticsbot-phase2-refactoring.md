@@ -14,7 +14,6 @@ toc_label: "Contents"
 toc_icon: "code"
 ---
 
-# Backend Refactoring Phase 2: Large Class Modularization
 ## Phase 2: Large Class Modularization (3 High-Priority Services)
 
 **Project:** AnalyticsBot

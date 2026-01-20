@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# Weekly Git Activity Report
 
 **Report Period**: 2026-01-11 to 2026-01-18
 **Generated**: 2026-01-18 20:09

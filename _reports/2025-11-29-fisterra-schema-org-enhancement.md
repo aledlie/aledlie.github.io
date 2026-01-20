@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Fisterra Dance Organization Schema.org Enhancement: SEO Score 47.5 to 100
 **Session Date**: 2025-11-29
 **Project**: IntegrityStudioClients/fisterra
 **Focus**: Analyze and enhance Schema.org JSON-LD structured data using the `enhance_entity_graph` tool

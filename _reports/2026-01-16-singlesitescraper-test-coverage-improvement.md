@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# SingleSiteScraper Test Coverage Improvement: 62% to 74% with 192 New Tests
 
 **Session Date**: 2026-01-16
 **Project**: SingleSiteScraper - Web Scraping Application

@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Complexity Refactoring: Fourteen Files, 50-92% Complexity Reduction
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (AnalyticsBot, AlephAuto, ToolVisualizer, IntegrityStudio.ai, SingleSiteScraper, tcad-scraper)
@@ -70,7 +69,6 @@ The `update_config()` function had 39 cyclomatic complexity with deeply nested i
 ### Solution: Data-Driven Configuration Mappings
 
 ```python
-# Before: Nested if-else chains for each provider
 def update_config(base_config, user_config):
     if 'google_analytics' in user_config:
         ga = user_config['google_analytics']
@@ -80,7 +78,6 @@ def update_config(base_config, user_config):
             base_config['providers']['google_analytics']['config']['measurement_id'] = ga['measurement_id']
         # ... 30+ more conditions
 
-# After: Declarative mapping with generic application
 PROVIDER_MAPPINGS: dict[str, dict[str, Any]] = {
     'google_analytics': {
         'enabled_path': 'providers.google_analytics.enabled',
@@ -122,7 +119,6 @@ The `_scan_file()` method had inline pattern detection with nested conditions fo
 ### Solution: Registry Pattern with Detector Functions
 
 ```python
-# Before: Inline pattern detection with nested conditions
 def _scan_file(self, file_path):
     for line_num, line in enumerate(lines):
         if 'Promise.race' in line:
@@ -130,7 +126,6 @@ def _scan_file(self, file_path):
                 self.findings.append(Finding(...))
         # ... more patterns
 
-# After: Registry of focused detector functions
 @dataclass
 class FileContext:
     """Context for scanning a single file."""
@@ -174,7 +169,6 @@ The `deduplicate_blocks()` function had complex strategy determination logic wit
 ### Solution: Dataclass Rules with Strategy Mapping
 
 ```python
-# Before: Inline strategy determination
 def deduplicate_blocks(blocks):
     for block in blocks:
         if block.category == 'logger':
@@ -184,7 +178,6 @@ def deduplicate_blocks(blocks):
                 strategy = 'shared_package'
         # ... more categories
 
-# After: Declarative strategy rules
 @dataclass
 class StrategyRule:
     """Rule for determining consolidation strategy."""
@@ -226,7 +219,6 @@ Multiple functions had:
 ### Solution: Template Constants and Helper Functions
 
 ```python
-# Before: Repeated navbar HTML in every function
 def generate_directory_index(pages_dir, schema_files):
     html = f'''<!DOCTYPE html>
     <nav class="navbar"><!-- 30+ lines repeated 5x --></nav>'''
@@ -269,7 +261,6 @@ The `validate_exact_group_semantics()` function had:
 ### Solution: Registry Pattern for Semantic Checks
 
 ```python
-# Before: Inline checks with repeated patterns
 def validate_exact_group_semantics(group_blocks):
     for i in range(len(group_blocks)):
         for j in range(i + 1, len(group_blocks)):
@@ -280,7 +271,6 @@ def validate_exact_group_semantics(group_blocks):
                 return False, "method_chain_mismatch"
             # ... 3 more similar checks
 
-# After: Registry of semantic check functions
 @dataclass
 class SemanticCheckResult:
     """Result of a semantic compatibility check."""
@@ -336,7 +326,6 @@ The `main()` function had:
 ### Solution: Phase Extraction with Grouped Exceptions
 
 ```python
-# Before: Monolithic main with nested try-except
 def main() -> None:
     config = get_config()
     # ... 20 lines of setup
@@ -422,7 +411,6 @@ The `_generate_recommendations()` method had:
 ### Solution: Data-Driven Mapping with Keyword Matching
 
 ```python
-# Before: Nested if/elif chains for each category
 def _generate_recommendations(self, improvements: Dict) -> List[str]:
     recommendations = []
     for category, data in improvements.items():
@@ -445,7 +433,6 @@ def _generate_recommendations(self, improvements: Dict) -> List[str]:
         elif category == 'performance_metrics':
             # ... similar pattern repeated
 
-# After: Data-driven mapping with keyword lookup
 RECOMMENDATION_MAPPINGS: Dict[str, Dict[str, str]] = {
     'seo_metrics': {
         'structured_data': "Implement comprehensive Schema.org markup across all page types",
@@ -526,7 +513,6 @@ The `migrate_file()` function had:
 ### Solution: Data-Driven Mapping with Path Rule Matching
 
 ```python
-# Before: Sequential regex calls and path conditionals
 def migrate_file(filepath: str) -> bool:
     content = re.sub(r'\bconsole\.log\b', 'logger.info', content)
     content = re.sub(r'\bconsole\.error\b', 'logger.error', content)
@@ -544,7 +530,6 @@ def migrate_file(filepath: str) -> bool:
         logger_import = "import logger from './logger';"
     # ... more conditionals for insertion
 
-# After: Data-driven mappings with helper functions
 CONSOLE_TO_LOGGER_MAP: dict[str, str] = {
     'console.log': 'logger.info',
     'console.error': 'logger.error',
@@ -616,7 +601,6 @@ The `main()` function had:
 ### Solution: Workflow Decomposition with Phase Helpers
 
 ```python
-# Before: Monolithic main with inline processing
 def main():
     args = parser.parse_args()
 
@@ -717,7 +701,6 @@ The `get_git_metadata()` method had:
 ### Solution: Helper Extraction with Focused Parsing Methods
 
 ```python
-# Before: Sequential git commands with inline processing
 def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
     if not self.is_git_repository(dir_path):
         return {}
@@ -746,7 +729,6 @@ def get_git_metadata(self, dir_path: Path) -> Dict[str, Any]:
 
     # ... 4 more similar blocks for first/last commit, branches, tags, remotes ...
 
-# After: Extracted parsing helpers with declarative composition
 def _parse_contributors(self, output: Optional[str]) -> List[Dict[str, Any]]:
     """Parse git shortlog output into contributor list."""
     if not output:
@@ -1097,7 +1079,6 @@ The `main()` function had:
 ### Solution: Directory Processing Helpers + Status Counting
 
 ```python
-# Before: Complex loop with multiple paths and repeated sum() calls
 def main():
     # ... setup ...
     results = []
@@ -1134,7 +1115,6 @@ def main():
     print(f"  Failed: {sum(1 for r in results if r['status'] == 'error')}")
     print(f"  Not Found: {sum(1 for r in results if r['status'] == 'not_found')}")
 
-# After: Extracted helpers for clean separation
 def _process_directory_safely(
     generator: ISSchemaGenerator,
     target_dir: Path,
@@ -1251,7 +1231,6 @@ def main():
     print(f"  Failed: {sum(1 for r in results if r['status'] == 'error')}")
     print(f"  Not Found: {sum(1 for r in results if r['status'] == 'not_found')}")
 
-# After: Extracted helpers for clean separation (same pattern as generate_is_schemas.py)
 def _process_directory_safely(
     generator: EnhancedSchemaGenerator,
     target_dir: Path,

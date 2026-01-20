@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Batch Test Coverage Optimization - Implementation Summary
 **Date:** 2025-11-27
 **Priority:** #1 (from OPTIMIZATION-ANALYSIS-analysis-orchestrator.md)
 **Status:** ✅ COMPLETE
@@ -153,14 +152,12 @@ For each candidate:
 
 ### Before (Legacy)
 ```python
-# In orchestrator
 if include_test_coverage:
     self._add_test_coverage(top_candidates, language, project_path)
 ```
 
 ### After (Optimized)
 ```python
-# In orchestrator
 if include_test_coverage:
     self._add_test_coverage_batch(top_candidates, language, project_path)
 ```
@@ -173,12 +170,10 @@ from ast_grep_mcp.features.deduplication.coverage import TestCoverageDetector
 
 detector = TestCoverageDetector()
 
-# Old way (still works)
 coverage_map = detector.get_test_coverage_for_files(
     file_paths, "python", "/path/to/project"
 )
 
-# New way (60-80% faster)
 coverage_map = detector.get_test_coverage_for_files_batch(
     file_paths, "python", "/path/to/project",
     parallel=True,  # Optional: enable parallel processing
@@ -239,16 +234,12 @@ coverage_map = detector.get_test_coverage_for_files_batch(
 ## Benchmark Commands
 
 ```bash
-# Small dataset
 uv run python scripts/benchmark_batch_coverage.py --file-count 30 --files-per-candidate 5
 
-# Large dataset
 uv run python scripts/benchmark_batch_coverage.py --file-count 100 --files-per-candidate 10
 
-# Save baseline
 uv run python scripts/benchmark_batch_coverage.py --output baseline.json
 
-# Compare with baseline
 uv run python scripts/benchmark_batch_coverage.py --compare baseline.json
 ```
 
@@ -256,13 +247,10 @@ uv run python scripts/benchmark_batch_coverage.py --compare baseline.json
 
 Run all tests:
 ```bash
-# Unit tests
 uv run pytest tests/unit/test_batch_coverage.py -v
 
-# All tests
 uv run pytest
 
-# Benchmark
 uv run python scripts/benchmark_batch_coverage.py
 ```
 

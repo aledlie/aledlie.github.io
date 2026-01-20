@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Precision Improvement Refactoring - AlephAuto Duplicate Detection System
 **Project:** AlephAuto - Automated Duplicate Code Detection System
 **Repository:** [github.com/aledlie/AlephAuto](https://github.com/aledlie/AlephAuto)
 **Date:** 2025-11-16
@@ -269,13 +268,11 @@ All changes respect environment variables for gradual rollout:
 # Enable semantic operator checks
 export ENABLE_SEMANTIC_OPERATORS=true
 
-# Enable logical operator validation
 export ENABLE_LOGICAL_OPERATOR_CHECK=true
 
 # Enable method chain validation
 export ENABLE_METHOD_CHAIN_VALIDATION=true
 
-# Enable semantic layer
 export ENABLE_SEMANTIC_LAYER=true
 
 # Enable quality filtering
@@ -287,11 +284,9 @@ export ENABLE_QUALITY_FILTERING=true
 If issues arise:
 
 ```bash
-# Quick disable
 export MIN_GROUP_QUALITY=0.0  # Disable quality filtering
 export STRUCTURAL_THRESHOLD=0.85  # Revert to old threshold
 
-# Or git revert
 git revert HEAD~5..HEAD
 ```
 

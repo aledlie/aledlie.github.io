@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Code Quality Analysis - Refactoring Assistants Feature
 **Date:** 2025-11-26
 **Project:** ast-grep-mcp
 **Branch:** feature/refactoring-assistants
@@ -355,19 +354,14 @@ The high complexity in parsing functions is acceptable for this type of code (AS
 ## Tools & Commands Used
 
 ```bash
-# Complexity analysis
 uv run python -c "from ast_grep_mcp.features.complexity.analyzer import analyze_file_complexity; ..."
 
-# Code smell detection
 uv run python -c "from ast_grep_mcp.features.quality.smells import detect_code_smells_impl; ..."
 
-# Standards enforcement
 uv run python -c "from ast_grep_mcp.features.quality.enforcer import enforce_standards_impl; ..."
 
-# Test execution
 uv run pytest tests/unit/test_extract_function.py tests/unit/test_rename_symbol.py -v
 
-# Duplication detection (attempted)
 uv run python -c "from ast_grep_mcp.features.deduplication.tools import find_duplication_tool; ..."
 ```
 

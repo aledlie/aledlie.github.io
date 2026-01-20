@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# Signup Page Layout Overflow Fixes and Test Coverage Improvements
 
 **Session Date**: 2026-01-18
 **Project**: IntegrityStudio.ai2 - Flutter Web Application

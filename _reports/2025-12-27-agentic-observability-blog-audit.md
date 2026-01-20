@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Agentic Observability Blog Post: Scientific Claim Verification Audit
 **Session Date**: 2025-12-27
 **Project**: IntegrityStudio.ai2
 **Focus**: Scientific verification audit of agentic observability blog post claims

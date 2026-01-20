@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# IntegrityStudioClients Code Analysis and Security Fixes
 
 **Session Date**: 2026-01-16
 **Project**: IntegrityStudioClients (multi-project repository)
@@ -115,13 +114,11 @@ $ python3 -c "
 from sql_db_init import SQLDatabaseInitializer
 init = SQLDatabaseInitializer('/tmp/test.db')
 
-# Test malicious table name
 try:
     init._validate_table_name('malicious_table; DROP TABLE places;--')
 except ValueError as e:
     print(f'✅ Malicious table rejected: {e}')
 
-# Test malicious column name
 try:
     init._validate_columns('event_person_relations', ['malicious; DROP TABLE--'])
 except ValueError as e:
@@ -184,13 +181,11 @@ Found 1 error (F403 star import warning - style only)
 **Fix**: Moved `CreativeWork` class definition to line 218 (before dependent classes) and removed the duplicate definition.
 
 ```python
-# Before: Classes defined in wrong order
 class WebPage(CreativeWork):    # Line 218 - CreativeWork undefined!
     ...
 class CreativeWork(SchemaOrgBase):  # Line 456 - Too late!
     ...
 
-# After: Correct ordering
 class CreativeWork(SchemaOrgBase):  # Line 218 - Defined first
     ...
 class WebPage(CreativeWork):    # Line 232 - Now works!
@@ -203,10 +198,8 @@ Manually refactored 7 lines exceeding 140 characters:
 
 **Example 1**: User-Agent string (`html_scraper.py:28`)
 ```python
-# Before (143 chars)
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...'
 
-# After (split across lines)
 'User-Agent': (
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -215,10 +208,8 @@ Manually refactored 7 lines exceeding 140 characters:
 
 **Example 2**: Print statements (`run_impact_demo.py:215-218`)
 ```python
-# Before (178 chars)
 print(f"  Overall Score: {summary['baseline_scores']['overall']:5.1f} → {summary['current_scores']['overall']:5.1f} ({summary['percentage_improvements']['overall']:+.1f}%)")
 
-# After (extracted variables)
 baseline = summary['baseline_scores']
 current = summary['current_scores']
 improvements = summary['percentage_improvements']

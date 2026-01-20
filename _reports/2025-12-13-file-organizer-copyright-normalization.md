@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# File Organizer Enhancement: Copyright Pattern Normalization for Organization Folders
 **Session Date**: 2025-12-13
 **Project**: schema-org-file-system - AI-Powered File Organization
 **Focus**: Normalize company names extracted from copyright notices to prevent duplicate organization folders

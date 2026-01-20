@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Scientific Analysis of Precision Problem in Duplicate Detection System
 **Date:** 2025-11-16
 **Analyst:** Claude Code
 **Current Metrics:** Precision 59.09% (Target: 90%, Gap: -30.9%)
@@ -43,7 +42,6 @@ Analysis of the 9 false positives reveals **4 distinct failure patterns**:
 ### 1.2 Evidence from Normalization Testing
 
 ```python
-# FALSE POSITIVE: Math.max vs Math.min
 Original:
   "return Math.max(...arr);"
   "return Math.min(...arr);"
@@ -57,7 +55,6 @@ Original:
 Normalized:
   "var.var(CONST).var({var: var});"  # BOTH IDENTICAL - 200/201 lost!
 
-# FALSE POSITIVE: === vs !==
 Original:
   "process.env.NODE_ENV === 'production';"
   "process.env.NODE_ENV !== 'production';"
@@ -65,7 +62,6 @@ Normalized:
   "var.var.CONST === 'CONST';"  # 97.56% similar via Levenshtein
   "var.var.CONST !== 'CONST';"  # Only 3 chars different (=== vs !==)
 
-# FALSE POSITIVE: with/without .reverse()
 Original:
   "users.filter(u => u.active).map(u => u.name);"
   "users.filter(u => u.active).map(u => u.name).reverse();"
@@ -158,7 +154,6 @@ Normalized:
 
 **Implementation:**
 ```python
-# Add to important_methods set (structural.py line 41)
 important_methods = {
     # Existing...
     'map', 'filter', 'reduce', 'forEach', 'find', 'some', 'every',
@@ -192,7 +187,6 @@ important_methods = {
 **Implementation:**
 ```python
 # BEFORE normalizing numbers (structural.py line 37)
-# Preserve numbers in specific contexts
 important_number_contexts = [
     r'\.status\(\s*(\d+)\s*\)',  # HTTP status codes
     r'\.code\s*=\s*(\d+)',        # Error codes
@@ -206,7 +200,6 @@ for pattern in important_number_contexts:
 # THEN normalize other numbers
 normalized = re.sub(r'\b\d+\b', 'NUM', normalized)
 
-# Restore preserved numbers
 normalized = re.sub(r'__NUM_(\d+)__', r'\1', normalized)
 ```
 
@@ -267,7 +260,6 @@ def calculate_operator_penalty(code1: str, code2: str) -> float:
 
     return penalty
 
-# In calculate_structural_similarity (structural.py line 100)
 similarity = calculate_levenshtein_similarity(normalized1, normalized2)
 operator_penalty = calculate_operator_penalty(code1, code2)
 similarity *= operator_penalty
@@ -361,7 +353,6 @@ def semantic_validation(
 
     return True
 
-# In _group_by_structural_similarity (grouping.py line 164)
 if len(group) >= 2:
     # ADD semantic validation
     if semantic_validation(group, avg_similarity):

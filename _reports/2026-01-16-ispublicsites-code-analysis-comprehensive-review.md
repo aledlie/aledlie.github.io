@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# ISPublicSites Code Analysis: Comprehensive Quality Review Across 8 Repositories
 
 **Session Date**: 2026-01-16
 **Project**: ISPublicSites (Multi-Repository Analysis)

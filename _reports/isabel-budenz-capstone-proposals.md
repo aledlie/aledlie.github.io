@@ -11,7 +11,6 @@ toc: true
 toc_sticky: true
 ---
 
-# Capstone Project Proposal Comparison
 
 ## Isabel Budenz - Three Project Options
 
@@ -282,7 +281,6 @@ This combines Isabel's arbitration expertise with practical AI skills, producing
 ---
 ---
 
-# Proposal 1: AI Arbitration Governance Framework
 
 ## Analyzing Due Process and Transparency Requirements for Algorithmic Dispute Resolution
 
@@ -626,7 +624,6 @@ I have reviewed this proposal and commit to delivering the outlined project with
 ---
 ---
 
-# Proposal 2: Navigating the AI Regulatory Patchwork
 
 ## A Multi-Stakeholder Governance Framework for Responsible AI
 
@@ -1025,7 +1022,6 @@ I have reviewed this proposal and commit to delivering the outlined project with
 ---
 ---
 
-# Proposal 3: Responsible AI Integration in Legal Practice
 
 ## Building Technical Competence in AI Tooling and Applications
 

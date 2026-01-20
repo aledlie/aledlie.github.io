@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# ToolVisualizer: 4-Phase Refactoring and Build Optimization
 **Session Date**: 2025-11-17
 **Project**: ToolVisualizer - Code Directory Visualization Tool
 **Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching
@@ -437,7 +436,6 @@ def main():
 
 **`.gitignore`** - Added cache file
 ```gitignore
-# Build outputs
 .build_cache.json
 ```
 
@@ -458,16 +456,12 @@ def main():
 
 **CLI Usage:**
 ```bash
-# Normal build (uses cache)
 python3 generate_ui_pages_v2.py
 
-# Force rebuild all files
 python3 generate_ui_pages_v2.py --force
 
-# View cache statistics
 python3 generate_ui_pages_v2.py --cache-stats
 
-# Clear cache
 python3 generate_ui_pages_v2.py --clear-cache
 ```
 

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Similarity Algorithm Analysis: Scientific Recommendations for Code Clone Detection
 **Session Date**: 2025-12-02
 **Project**: ast-grep-mcp - Code Deduplication System
 **Focus**: Analyze current similarity algorithm and recommend scientifically-backed improvements

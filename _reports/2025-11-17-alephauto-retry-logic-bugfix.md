@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure
 **Session Date**: 2025-11-17
 **Project**: AlephAuto (jobs)
 **Focus**: Fix critical retry logic bug and test path validation issues
@@ -113,11 +112,9 @@ Changes:
 #### 3. Cleanup Results
 
 ```bash
-# Before
 $ ls logs/duplicate-detection/*.error.json | wc -l
 30
 
-# After
 $ rm logs/duplicate-detection/*.error.json
 $ ls logs/duplicate-detection/*.json | wc -l
 2  # Only non-error logs remain

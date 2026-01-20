@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# IntegrityStudio.ai Sentry Migration Completion: 20 Error Handlers Migrated
 **Session Date**: 2025-11-18
 **Project**: IntegrityStudio.ai - ISPublicSites
 **Focus**: Complete Sentry error tracking migration and production readiness
@@ -337,9 +336,7 @@ npm install
 ```bash
 npx vite build --mode development
 
-# Result:
 # ✓ 1907 modules transformed
-# ✓ built in 1.54s
 # Zero errors, zero warnings
 ```
 
@@ -347,9 +344,7 @@ npx vite build --mode development
 ```bash
 npx vite --host
 
-# Result:
 # VITE v7.2.2 ready in 106 ms
-# ➜ Local:   http://localhost:5173/
 # ➜ Network: http://192.168.80.49:5173/
 ```
 

@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Reports Collection Formatting Audit and Sidebar Alignment Fix
 **Session Date**: 2025-11-25
 **Project**: PersonalSite - Jekyll Static Site
 **Focus**: Quality assurance audit of _reports collection formatting and UI/UX bug fix for sidebar alignment

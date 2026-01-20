@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# Playwright E2E Testing Setup with Traffic Tracking and OpenTelemetry
 
 **Session Date**: 2026-01-19
 **Project**: schema-org-file-system
@@ -314,18 +313,12 @@ results/
 ## Verification
 
 ```bash
-# Install dependencies
 npm install
-# Output: added 199 packages in 7s
 
-# Install Playwright browsers
 npx playwright install
-# Output: Firefox 144.0.2, WebKit 26.0 downloaded
 
-# Run tests
 npm run test:e2e
 
-# View report
 npm run test:e2e:report
 ```
 

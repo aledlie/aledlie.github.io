@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Optimization Analysis: analysis_orchestrator.py
 **Date:** 2025-11-27
 **File:** `src/ast_grep_mcp/features/deduplication/analysis_orchestrator.py`
 **Lines:** 334
@@ -131,7 +130,6 @@ def _get_component(component_type: str):
         # ... etc
     return _component_cache[component_type]
 
-# Option 2: Lazy initialization
 @property
 def detector(self):
     if not hasattr(self, '_detector'):
@@ -249,7 +247,6 @@ ranked_candidates = self.ranker.rank_deduplication_candidates(
 ```python
 from functools import lru_cache
 
-# In ranker.py
 @lru_cache(maxsize=256)
 def _calculate_candidate_hash(self, candidate: Dict[str, Any]) -> str:
     """Generate stable hash for candidate caching."""
@@ -431,19 +428,16 @@ def _build_analysis_results(self, ranked_candidates, config):
 
 **Examples:**
 ```python
-# Line 27: 8 parameters
 def analyze_candidates(
     self, project_path, language, min_similarity,
     include_test_coverage, min_lines, max_candidates, exclude_patterns
 )
 
-# Line 133: 8 parameters
 def _enrich_and_summarize(
     self, ranked_candidates, max_candidates, include_test_coverage,
     language, project_path, min_similarity, min_lines
 )
 
-# Line 105: 6 parameters
 def _build_analysis_metadata(
     self, language, min_similarity, min_lines,
     include_test_coverage, project_path
@@ -493,7 +487,6 @@ class DeduplicationAnalysisOrchestrator:
 
 **Current Implementation:**
 ```python
-# Line 234
 def _add_test_coverage(self, ..., parallel: bool = True, max_workers: int = 4):
 
 # Line 279
@@ -537,10 +530,8 @@ class DeduplicationAnalysisOrchestrator:
 
 **Current Implementation:**
 ```python
-# Line 157
 top_candidates = self._get_top_candidates(ranked_candidates, max_candidates)
 
-# Line 179-180
 return {
     "total_groups": len(ranked_candidates),  # All candidates
     "total_savings_potential": total_savings,  # From top candidates only
@@ -554,10 +545,8 @@ return {
 
 **Recommendation:**
 ```python
-# Line 168
 top_candidates_savings = self._calculate_total_savings(top_candidates)
 
-# Line 177-182
 return {
     "candidates": top_candidates,
     "total_groups_analyzed": len(ranked_candidates),
@@ -866,7 +855,6 @@ self.logger.info(
 This is actually handled correctly with the `if ranked else 0` guard. However, let's check other locations:
 
 ```python
-# Line 329 - POTENTIAL ISSUE
 def _calculate_total_savings(self, candidates):
     total = sum(
         c.get("lines_saved", 0) * len(c.get("files", []))

@@ -12,7 +12,6 @@ header:
   teaser: /images/cover-reports.png
 ---
 
-# Facebook Conversions API Script: Reusable Event Sender with Test Suite
 
 **Session Date**: 2025-12-28
 **Project**: AnalyticsBot - Multi-provider Analytics Integration Platform
@@ -56,7 +55,6 @@ The project needed a reliable way to:
 
 **1. Doppler Integration for Secrets**
 ```bash
-# Get credentials from Doppler
 PIXEL_ID=$(doppler secrets get "$PIXEL_NAME" --plain -p "$DOPPLER_PROJECT" -c "$DOPPLER_CONFIG")
 ACCESS_TOKEN=$(doppler secrets get "META_ACCESS_TOKEN" --plain -p "$DOPPLER_PROJECT" -c "$DOPPLER_CONFIG")
 ```
@@ -67,7 +65,6 @@ hash_value() {
     echo -n "$1" | tr '[:upper:]' '[:lower:]' | shasum -a 256 | cut -d' ' -f1
 }
 
-# Applied to user data
 [[ -n "$EMAIL" ]] && USER_DATA="$USER_DATA, \"em\": [\"$(hash_value "$EMAIL")\"]"
 ```
 
@@ -85,7 +82,6 @@ declare -A PIXELS=(
 
 **4. Test Mode Support**
 ```bash
-# Build test_event_code if in test mode
 TEST_EVENT=""
 if [[ -n "$TEST_MODE" ]]; then
     TEST_EVENT=", \"test_event_code\": \"$TEST_MODE\""
@@ -104,22 +100,16 @@ fi
 
 #### Usage Examples
 ```bash
-# Simple PageView
 ./fb-event.sh --event PageView
 
-# Lead with user data
 ./fb-event.sh --event Lead --email user@example.com --fn John --ln Doe
 
-# Purchase event with value
 ./fb-event.sh --event Purchase --value 149.99 --email buyer@example.com
 
-# Use different pixel
 ./fb-event.sh --pixel ALEDLIE_PIXEL --event PageView
 
-# Test mode (sandbox)
 ./fb-event.sh --event Lead --email test@test.com --test TEST12345
 
-# List available pixels
 ./fb-event.sh --list-pixels
 ```
 

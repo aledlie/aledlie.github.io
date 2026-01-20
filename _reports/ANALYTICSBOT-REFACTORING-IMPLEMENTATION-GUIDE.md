@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# AnalyticsBot Refactoring Implementation Guide
 **Date:** 2025-11-27
 **Status:** READY FOR REVIEW
 **Risk Level:** HIGH - Requires careful testing
@@ -531,7 +530,6 @@ After all refactorings:
 If issues arise:
 
 ```bash
-# Rollback specific commit
 git revert <commit-hash>
 
 # Or restore from backup
@@ -549,15 +547,12 @@ git branch -D refactor/complexity-improvements
 
 Track improvements:
 ```bash
-# Before refactoring
 uv run python /Users/alyshialedlie/code/ast-grep-mcp/scripts/analyze_analyticsbot.py
 
 # After refactoring
 uv run python /Users/alyshialedlie/code/ast-grep-mcp/scripts/analyze_analyticsbot.py
 
-# Compare:
 # - Functions exceeding thresholds should drop from 8 to 0-2
-# - Average complexity should stay ~same or improve
 # - No increase in code smells
 ```
 

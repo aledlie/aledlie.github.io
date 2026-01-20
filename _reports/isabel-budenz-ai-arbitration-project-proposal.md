@@ -9,7 +9,6 @@ tags: [ai-arbitration, research-proposal, international-law]
 excerpt: "Capstone project proposal analyzing AI adoption, regulation, and governance in international arbitration across major jurisdictions and arbitral institutions."
 ---
 
-# Capstone Project Proposal
 
 ## AI in International Arbitration: A Comparative Analysis of Global Approaches
 

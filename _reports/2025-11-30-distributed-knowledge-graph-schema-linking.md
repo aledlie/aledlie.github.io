@@ -6,7 +6,6 @@ categories: [schema-org, seo, knowledge-graph, cross-domain]
 tags: [json-ld, structured-data, entity-linking, semantic-web, seo-optimization]
 ---
 
-# Slowly Building a Complete (and Distributed) 'Thing -> Relationship -> Thing' Graph
 
 **Session Date**: 2025-11-30
 **Project**: Multi-site Schema.org Knowledge Graph
