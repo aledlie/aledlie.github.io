@@ -140,7 +140,14 @@ schema_section: "Jekyll"
   {% comment %}Creator (same as author for articles){% endcomment %}
   "creator": {
     "@id": "{{ site.url }}#person"
-  }
+  },
+
+  {% comment %}Copyright and licensing{% endcomment %}
+  "copyrightHolder": {
+    "@id": "{{ site.url }}#person"
+  },
+  "copyrightYear": "{{ page.date | date: '%Y' }}",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 }
 </script>
 {% endif %}

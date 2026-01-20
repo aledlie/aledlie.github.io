@@ -50,7 +50,12 @@ Uses @id references to Person and Blog entities from unified-knowledge-graph-sch
   },
   "isPartOf": {
     "@id": "{{ site.url }}#blog"
-  }
+  },
+  "copyrightHolder": {
+    "@id": "{{ site.url }}#person"
+  },
+  "copyrightYear": "{{ page.date | date: '%Y' }}",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 }
 </script>
 {% endif %}
