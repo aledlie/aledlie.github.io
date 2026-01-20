@@ -94,7 +94,7 @@ body {
 }
 
 /* MAIN CONTENT - Constrained width and minimal padding */
-#main {
+#page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.25rem;
@@ -642,7 +642,7 @@ a {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
-  #main {
+  #page-wrapper {
     padding: 0.25rem;
   }
 
