@@ -33,7 +33,7 @@ But it turns out I've actually been enjoying writing it, so I'm going to try to 
 
 ---
 
-### Lessons and Inheritances
+## Lessons and Inheritances
 
 Before I leave you to go enjoy the world outside of your screens, I do want to express some gratitude - and above all, love - for all of the brilliant and luminous people whose light has warmed me as it has bent the arc of my life.  Everything I write and everything that I am is, in some way, an echo of the unique gifts that I have been granted by these people's generosity, either as inspirations, friends, family, partners in crime, or - the greatest gift of all - found family.
 
@@ -95,7 +95,7 @@ Moral clarity is not a gift, but a discipline. That if you do want to find wisdo
 > A just society is a society that if you knew everything about it, you'd be willing to enter it in a random place
 ~ John Rawls
 
-### Inspirations - The people who I work to be as good as they think I am.
+## Inspirations - The people who I work to be as good as they think I am.
 
 I will never be as kind—or as unshakably, earnestly good—as my three brothers; never be as strong as my mother; never match the generosity and mentorship of Brian Day, Phillip Jones, or Julie Hardwick. I will never be as brilliant as Eric Wright, Upasana Kaul, Teresa Asma, or Diana Chang. And no one—no one—will ever be as funny as Sumedh Joshi.
 
