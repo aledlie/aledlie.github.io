@@ -1,0 +1,131 @@
+{% if page.collection == 'projects' or page.schema_type == 'SoftwareApplication' %}
+{% comment %}
+SoftwareApplication Schema - For portfolio projects and software
+Conditional include based on collection or page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in project front matter:
+---
+title: "My Project Name"
+excerpt: "Short description of the project"
+schema_type: SoftwareApplication  # Optional if in projects collection
+schema_category: "DeveloperApplication"  # WebApplication, MobileApplication, etc.
+schema_os: "Cross-platform"  # or "Windows", "macOS", "Linux", "iOS", "Android"
+schema_version: "2.1.0"
+schema_repo: "https://github.com/username/repo"
+schema_languages:
+  - "TypeScript"
+  - "Python"
+schema_license: "MIT"
+schema_download_url: "https://github.com/username/repo/releases"
+schema_screenshot: "/assets/images/projects/screenshot.png"
+schema_features:
+  - "Feature one description"
+  - "Feature two description"
+---
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "{{ page.url | absolute_url }}#softwareapplication",
+
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 300 | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Application-specific properties{% endcomment %}
+  "applicationCategory": {{ page.schema_category | default: "DeveloperApplication" | jsonify }},
+  "operatingSystem": {{ page.schema_os | default: "Cross-platform" | jsonify }},
+  {% if page.schema_version -%}
+  "softwareVersion": {{ page.schema_version | jsonify }},
+  {% endif -%}
+
+  {% comment %}Code repository and languages{% endcomment %}
+  {% if page.schema_repo -%}
+  "codeRepository": {{ page.schema_repo | jsonify }},
+  "installUrl": {{ page.schema_repo | jsonify }},
+  {% endif -%}
+  {% if page.schema_languages -%}
+  "programmingLanguage": {{ page.schema_languages | jsonify }},
+  {% endif -%}
+
+  {% comment %}License{% endcomment %}
+  {% if page.schema_license -%}
+  "license": "https://opensource.org/licenses/{{ page.schema_license }}",
+  {% endif -%}
+
+  {% comment %}Download URL{% endcomment %}
+  {% if page.schema_download_url -%}
+  "downloadUrl": {{ page.schema_download_url | jsonify }},
+  {% endif -%}
+
+  {% comment %}Screenshot/Image{% endcomment %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.schema_screenshot | default: page.header.image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+  {% if page.schema_screenshot -%}
+  "screenshot": {{ page.schema_screenshot | absolute_url | jsonify }},
+  {% endif -%}
+
+  {% comment %}Features as featureList{% endcomment %}
+  {% if page.schema_features -%}
+  "featureList": {{ page.schema_features | jsonify }},
+  {% endif -%}
+
+  {% comment %}Offers - free software{% endcomment %}
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+
+  {% comment %}Author and publisher via @id references{% endcomment %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "creator": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+  "maintainer": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% comment %}Dates{% endcomment %}
+  {% if page.date -%}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% elsif page.date -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+
+  {% comment %}Main entity of page{% endcomment %}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+
+  {% comment %}Part of projects collection{% endcomment %}
+  "isPartOf": {
+    "@id": "{{ site.url }}/projects#collectionpage"
+  },
+
+  {% comment %}Keywords from tags{% endcomment %}
+  {% if page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+
+  {% comment %}Language{% endcomment %}
+  "inLanguage": "{{ site.locale | default: 'en-US' }}"
+}
+</script>
+{% endif %}

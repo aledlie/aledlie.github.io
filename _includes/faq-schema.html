@@ -34,10 +34,17 @@ Note: Each FAQ item requires both question and answer fields
     }{% unless forloop.last %},{% endunless %}
     {% endfor -%}
   ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
   "isPartOf": {
     "@id": "{{ site.url }}#website"
   },
   "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
     "@id": "{{ site.url }}#person"
   },
   "inLanguage": "{{ site.locale | default: 'en-US' }}"

@@ -1,0 +1,131 @@
+{% if page.collection == 'reports' or page.schema_type == 'Report' %}
+{% comment %}
+Report Schema - For technical reports, session reports, and documentation
+Conditional include based on collection or page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in report front matter:
+---
+title: "Session Work Report: Feature Implementation"
+date: 2026-01-19
+excerpt: "Summary of work completed during the session"
+schema_type: Report  # Optional if in reports collection
+schema_report_number: "2026-001"
+schema_about: "Claude Code Development"
+schema_genre: "Technical Report"  # or "Session Report", "Analysis", "Documentation"
+schema_keywords:
+  - "implementation"
+  - "testing"
+  - "deployment"
+---
+
+Alternate types for specific reports:
+- TechArticle: For technical documentation
+- ScholarlyArticle: For research-oriented reports
+- AnalysisNewsArticle: For data analysis reports
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Report",
+  "@id": "{{ page.url | absolute_url }}#report",
+
+  "name": {{ page.title | jsonify }},
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 300 | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Report-specific properties{% endcomment %}
+  {% if page.schema_report_number -%}
+  "reportNumber": {{ page.schema_report_number | jsonify }},
+  {% endif -%}
+
+  {% comment %}Genre/category of report{% endcomment %}
+  {% if page.schema_genre -%}
+  "genre": {{ page.schema_genre | jsonify }},
+  {% elsif page.categories -%}
+  "genre": {{ page.categories | first | jsonify }},
+  {% else -%}
+  "genre": "Technical Report",
+  {% endif -%}
+
+  {% comment %}Subject matter{% endcomment %}
+  {% if page.schema_about -%}
+  "about": {
+    "@type": "Thing",
+    "name": {{ page.schema_about | jsonify }}
+  },
+  {% endif -%}
+
+  {% comment %}Article body (truncated for schema){% endcomment %}
+  "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
+  "wordCount": {{ page.content | strip_html | number_of_words }},
+
+  {% comment %}Reading time{% endcomment %}
+  {% assign words = page.content | strip_html | number_of_words -%}
+  {% assign minutes = words | divided_by: 200 -%}
+  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
+
+  {% comment %}Image{% endcomment %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+
+  {% comment %}Author and publisher via @id references{% endcomment %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "creator": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% comment %}Dates{% endcomment %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+
+  {% comment %}Main entity of page{% endcomment %}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+
+  {% comment %}Part of website{% endcomment %}
+  "isPartOf": {
+    "@id": "{{ site.url }}#website"
+  },
+
+  {% comment %}Keywords{% endcomment %}
+  {% if page.schema_keywords -%}
+  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
+  {% elsif page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+
+  {% comment %}Speakable for voice search{% endcomment %}
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".page__title", ".page__content p:first-of-type"]
+  },
+
+  {% comment %}Language{% endcomment %}
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+
+  {% comment %}Copyright{% endcomment %}
+  "copyrightHolder": {
+    "@id": "{{ site.url }}#person"
+  },
+  "copyrightYear": "{{ page.date | date: '%Y' }}",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+{% endif %}
