@@ -1,8 +1,17 @@
-# Claude Code Observability Framework
+---
+layout: single
+title: "Claude Code Observability Framework Guide"
+date: 2026-01-20
+author_profile: true
+excerpt: "A comprehensive guide to the production-grade observability system for Claude Code hooks using OpenTelemetry, Langtrace, and SigNoz."
+header:
+  image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
+toc: true
+toc_sticky: true
+---
 
 A comprehensive guide to the production-grade observability system for Claude Code hooks using OpenTelemetry, Langtrace, and SigNoz.
-
----
 
 ## Overview
 
