@@ -1,10 +1,15 @@
 ---
-layout: report
+layout: single
 title: "81% Cost Reduction: Claude Code Session Optimization"
 date: 2026-01-20
+author_profile: true
 categories: [analytics, claude-code, cost-optimization]
 tags: [token-usage, cost-analysis, context-management, efficiency]
-description: "Analysis revealing 81% cost-per-session reduction through shorter, focused sessions and deliberate context management."
+excerpt: "Analysis revealing 81% cost-per-session reduction through shorter, focused sessions and deliberate context management."
+header:
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
+toc: true
 ---
 
 # 81% Cost/Session Reduction Achieved

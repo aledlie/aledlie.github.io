@@ -1,10 +1,16 @@
 ---
-layout: report
+layout: single
 title: "Claude Code Usage Analysis: December 2025 - January 2026"
 date: 2026-01-20
+author_profile: true
 categories: [analytics, claude-code, observability]
 tags: [token-usage, cost-analysis, context-management, opentelemetry]
-description: "Comprehensive analysis of Claude Code usage patterns, costs, and context efficiency from December 2025 through January 2026, with implementation of context tracking."
+excerpt: "Comprehensive analysis of Claude Code usage patterns, costs, and context efficiency from December 2025 through January 2026, with implementation of context tracking."
+header:
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
+toc: true
+toc_sticky: true
 ---
 
 # Claude Code Usage Analysis
