@@ -138,7 +138,7 @@ instrumentHook('my-hook', async (ctx) => {
 
   // Create child span for sub-operations
   await ctx.startChildSpan('fetch-data', {}, async () => {
-    // nested operation
+    // Nested operation
   });
 });
 ```

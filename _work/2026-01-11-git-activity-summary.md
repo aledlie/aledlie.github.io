@@ -74,7 +74,7 @@ This Jekyll-based personal website has seen consistent evolution, with a massive
   <div style="text-align: center;">
     <img src="/assets/images/git-activity-2026/commits_by_hour.png" alt="Commits by Hour" style="width: 100%; max-width: 500px; height: auto;">
     <p style="font-size: 0.9em; color: #666; margin-top: 8px;">Hourly commit distribution</p>
-    <p style="font-size: 0.9em; color: #666; margin-top: 8px;">AKA The Vampire Work Schedule</p>
+    <p style="font-size: 0.9em; color: #666; margin-top: 8px;">A.K.A. The Vampire Work Schedule</p>
   </div>
   <div style="text-align: center;">
     <img src="/assets/images/git-activity-2026/average_commits.png" alt="Daily Commit Distribution" style="width: 100%; max-width: 500px; height: auto;">

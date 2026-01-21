@@ -359,7 +359,7 @@ annotations:
   "@opentelemetry/semantic-conventions": "^1.28.0",
   "@opentelemetry/api": "^1.9.0",
   "@opentelemetry/api-logs": "^0.57.2",
-  "@langtrase/typescript-sdk": "^5.x"
+  "@langtrace/typescript-sdk": "^5.x"
 }
 ```
 

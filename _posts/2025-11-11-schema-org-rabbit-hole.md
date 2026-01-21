@@ -30,7 +30,7 @@ So there I was, trying to live my marginally normal life and not spend all of it
 
 I restarted writing this blog in July, when I was still just sorting out what was available to me in the open source world for big projects, as opposed to the facebook core stack that I'd gotten used to over 8 years.  You know that feeling when you look at code you wrote years ago and think "what was I even *doing* here?" Or you just shudder in horror and want to look (or run) away?  Yeah. That.  Except it only took 3-4 months.
 
-When I was first researching, schema.org seemed like the best open-source equivalent of a universal taxonomy/language for 'things' and 'things related to those things' and 'how the things are related' that one of my personal heros, Oliver Dodd, designed at Facebook and called EntSchema.  So I started using it for this blog in July.
+When I was first researching, schema.org seemed like the best open-source equivalent of a universal taxonomy/language for 'things' and 'things related to those things' and 'how the things are related' that one of my personal heroes, Oliver Dodd, designed at Facebook and called EntSchema.  So I started using it for this blog in July.
 
 But I forgot to give them entity ids!  When I looked recently, half of them were duplicating the same entities. I had my Person schema defined in like 4 different places.  I just threw schema.org at my site and gave it an identity crisis more severe than mine during my imposter-syndrome soaked first 6-months at Facebook where, every time my ID badge didn't immediately click green, I was convinced I had been discovered as a fraud and been immediately fired. (Spoiler: still convinced, just better at hiding it.  Actually, I just wrote that down, so worse at hiding it.  Actively, publicly bad at hiding it now.)
 
@@ -57,9 +57,9 @@ First, I needed to understand what I had:
 - 1 Blog (the thing you're reading)
 - 2 Organizations (Integrity Studios and InventoryAI.io)
 
-So I built a graph. Using actual @id references. Like a responsible adult developer, going back and fixing my open-source n00b mistakes. *Manually*, because I hadn't written automation for this yet. (I'm as shocked as you are.)  Even this blog post is (for the most part) hand-written; at this point, a hand-written developer blog post (written into an .md file via vim, no less) makes me feel a little bit like that one asshole who always brought a typewritter into Flightpath to work when I was in college.  Yes, we all see how terribly seriously you're taking writing your novel, and we're all very proud of you.  Now please go buy a computer like the rest of us, because those keys are so *loud.*
+So I built a graph. Using actual @id references. Like a responsible adult developer, going back and fixing my open-source n00b mistakes. *Manually*, because I hadn't written automation for this yet. (I'm as shocked as you are.)  Even this blog post is (for the most part) hand-written; at this point, a hand-written developer blog post (written into an .md file via vim, no less) makes me feel a little bit like that one asshole who always brought a typewriter into Flightpath to work when I was in college.  Yes, we all see how terribly seriously you're taking writing your novel, and we're all very proud of you.  Now please go buy a computer like the rest of us, because those keys are so *loud.*
 
-Annddd anyway, getting back to my point:
+And anyway, getting back to my point:
 
 The format: `{canonical_url}#{entity_type}`
 
@@ -149,7 +149,7 @@ schema_proficiency: "Intermediate"
 ---
 ```
 
-And I get ~more proper Schema.org markup.  Ready for our new  LLM overlords to index my thoughts.
+And I get more proper Schema.org markup. Ready for our new LLM overlords to index my thoughts.
 
 ## Expected Benefits (According to The Internet)
 

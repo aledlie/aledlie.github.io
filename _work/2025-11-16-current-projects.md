@@ -16,8 +16,8 @@ Projects I'm not *completely* embarrassed of:
 
 - [Website Analyzer at sitereader.io](https://sitereader.io/)
 - [Sumedh's site, of course](https://www.sumedhmjoshi.com/). Source code is at [my public github repo, Homage](https://github.com/aledlie/Homage).
-- [This site's source code](https://github.com/aledlie/aledlie.github.io), which is by far the most front-end design work I've ever done - and by far the most work I've ever done on a side-project, ever. Built on a different stack but with the same look and theme (minimal-mistakes) as the one Sumedh used to build his blog site back in 2014. I even managed to use the same header images he did, which on its own took me literally days of AI-assisted attempts at discovering tooling to restore the images that had corrupted over 11 years. Turns out, it's because they were actually, literally, un-recoverable - at least the ones I was using, which were from the last commit he made to his site - but I eventually found one, single commit he'd made in his history where the image files still had enough data to be recoverable.
-- [This MCP Server That Visualizes Commit Data](https://github.com/aledlie/RepoViz) *Note: Probably the most fun to work on of all of these
+- [This site's source code](https://github.com/aledlie/aledlie.github.io), which is by far the most front-end design work I've ever done - and by far the most work I've ever done on a side-project, ever. Built on a different stack but with the same look and theme (minimal-mistakes) as the one Sumedh used to build his blog site back in 2014. I even managed to use the same header images he did, which on its own took me literally days of AI-assisted attempts at discovering tooling to restore the images that had corrupted over 11 years. Turns out, it's because they were actually, literally, un-recoverable - at least the ones I was using, which were from the last commit he made to his site - but I eventually found one single commit he'd made in his history where the image files still had enough data to be recoverable.
+- [This MCP Server That Visualizes Commit Data](https://github.com/aledlie/RepoViz) - Note: Probably the most fun to work on of all of these
 - [Site Performance Test MCP Server](https://github.com/aledlie/PerformanceTest)
 - [My actually organized dotfiles](https://github.com/aledlie/dotfiles)
 - [This one was fun: easy bootstrap for new GitHub Actions](https://github.com/aledlie/automate.ts). Written mostly to make my own, to auto-convert horrific-looking, confusing .css into pretty little descriptive Tailwind classes, without changing any aesthetics. I *heavily* AI-assist all of my UX now, because I've always hated front-end. Which is fine, but I like to actually know what it's doing, too.
@@ -47,7 +47,7 @@ Projects I'm not *completely* embarrassed of:
 
 **In Process:**
 - [ ] MCP server that scrapes all of my emails, docs, messages, regular websites, and creates yet more TODO lists and emails out of them - probably using Bright Data
-- [ ] 'attending working groups', at least - Contribute to the ML Commons [AI Risk & Reliability](https://mlcommons.org/working-groups/ai-risk-reliability/ai-risk-reliability/) working group
+- [ ] 'attending working groups', at least - Contribute to the ML Commons [AI Risk & Reliability](https://mlcommons.org/working-groups/ai-risk-reliability/ai-risk-reliability/) Working Group
 
 **Up Next:**
 - [ ] Write contributing guidelines (move fast, break things, plz don't break *everything*)

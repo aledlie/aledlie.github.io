@@ -19,7 +19,7 @@ for advice and help, someone considered senior and In Charge Of Things. This hap
 
 For about 8 years after that, my job was roughly divided like this:
 
-- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.ZZZ
+- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.
 - **30-40%** answering the questions of whoever came by my desk
 - **95%** providing therapy for the totally valid and stress-induced nervous breakdowns of my coworkers in small 1:1 conference rooms
 - **100%** tech-driven pranks and meme wars with my team, who, predictably,
@@ -48,7 +48,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
 - [x] ~~Make a TODO list~~ ✅ (Finally accomplished something today!)
 - [ ] Actually catalog all my projects and identify which domain manager handles each
 - [ ] Document domain managers & where they are stored
-- [x] Write a proper README.mds that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
+- [x] Write a proper README.md that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
 - [ ] Add the projects that have been living on my local for btw 1-12 years, add
   them to github or bitbucket
 - [ ] Document installation steps (beyond "here's a curl command")
