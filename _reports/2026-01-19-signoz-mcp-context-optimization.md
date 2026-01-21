@@ -265,7 +265,7 @@ The `.mcp.json` file is gitignored and changes remain local-only. This is approp
 
 ## Limitations
 
-1. **Dashboard Creation Blocked**: Cannot create/update dashboards via MCP (must use SigNoz UI)
+1. ~~**Dashboard Creation Blocked**: Cannot create/update dashboards via MCP (must use SigNoz UI)~~ *Resolved: Dynamic dashboard mode hooks added (2026-01-20)*
 2. **Query Builder Blocked**: Complex queries must use specific tools or UI
 3. **Native Filtering Unavailable**: Still waiting on Claude Code Issue #7328 for built-in solution
 
@@ -276,12 +276,113 @@ The `.mcp.json` file is gitignored and changes remain local-only. This is approp
 2. Use `/context` command to verify token reduction
 
 ### If Dashboard Access Needed
-- Temporarily modify `.mcp.json` to remove deny patterns
+- ~~Temporarily modify `.mcp.json` to remove deny patterns~~ *Automated via hooks (2026-01-20)*
+- Use prompt like "create a signoz dashboard" to trigger dashboard mode
 - Or use SigNoz web UI directly
 
 ### Future Improvements
 - Monitor [Issue #7328](https://github.com/anthropics/claude-code/issues/7328) for native tool filtering
 - Consider creating SigNoz guidance skill for tool selection
+
+---
+
+## Follow-up Session: 2026-01-20
+
+### Dynamic Dashboard Mode Hooks
+
+Added hooks to temporarily enable/disable dashboard tools on-demand, solving the "dashboard access blocked" limitation.
+
+**Problem**: Dashboard tools are denied for context savings, but occasionally needed for dashboard work.
+
+**Solution**: Created hook-based workflow that:
+1. Detects dashboard-related prompts
+2. Temporarily removes deny patterns from `.mcp.json`
+3. Prompts user to restart session
+4. Automatically restores deny patterns when session ends
+
+### Files Created/Modified
+
+| File | Purpose |
+|------|---------|
+| `hooks/handlers/signoz-dashboard-mode.ts` | Core enable/disable logic |
+| `hooks/handlers/user-prompt.ts` | Detects dashboard intent, enables mode |
+| `hooks/handlers/stop.ts` | Restores deny patterns on session end |
+
+### Updated MCP Configuration
+
+Changed from regex patterns to explicit deny patterns for clarity:
+
+```json
+{
+  "args": [
+    "run",
+    "-t", "stdio",
+    "--stdio-command", "/path/to/signoz-mcp-wrapper",
+    "--deny-pattern", "signoz_execute_builder_query",
+    "--deny-pattern", "signoz_create_dashboard",
+    "--deny-pattern", "signoz_update_dashboard",
+    "--log-level", "WARNING"
+  ]
+}
+```
+
+### Dashboard Mode Detection Patterns
+
+The hook detects prompts matching:
+- `create (a) signoz dashboard`
+- `update (a) signoz dashboard`
+- `build/make/new signoz dashboard`
+- `signoz dashboard mode`
+- `enable dashboard (tools|mode)`
+
+### Usage Flow
+
+```
+User: "create a signoz dashboard for API metrics"
+Hook: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      🔧 SIGNOZ DASHBOARD MODE
+      Dashboard tools enabled.
+      ⚠️  RESTART REQUIRED
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+User: /clear (restarts session)
+[Dashboard tools now available]
+[... dashboard work ...]
+[Session ends]
+
+Hook: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      🔒 SIGNOZ DASHBOARD MODE DISABLED
+      Deny patterns restored for next session.
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Context Usage by Tool Category
+
+Estimated token consumption for enabled SigNoz tools:
+
+| Category | Est. Tokens | Tools |
+|----------|-------------|-------|
+| **High** | 2,000-4,000 | `update_dashboard` (now denied) |
+| **Medium** | 500-1,000 | `search_traces`, `search_logs`, `get_trace_*` |
+| **Low** | 200-400 | `list_*`, `get_*`, `search_metric_*` |
+
+### Denied Tools Summary
+
+| Tool | Est. Tokens | Status |
+|------|-------------|--------|
+| `signoz_execute_builder_query` | ~1,500 | Denied |
+| `signoz_create_dashboard` | ~4,000 | Denied (dynamic enable available) |
+| `signoz_update_dashboard` | ~4,000 | Denied (dynamic enable available) |
+| **Total Savings** | **~9,500** | |
+
+### Key Improvements
+
+1. **Dynamic access**: Dashboard tools can be enabled when needed
+2. **Automatic cleanup**: Deny patterns restored on session end via Stop hook
+3. **Clear patterns**: Switched from regex to explicit deny patterns
+4. **Observability**: All hook operations instrumented with OpenTelemetry
+
+---
 
 ## References
 
@@ -289,6 +390,9 @@ The `.mcp.json` file is gitignored and changes remain local-only. This is approp
 - `~/.claude/.mcp.json` - MCP server configuration
 - `~/.claude/config/settings.json` - Claude Code settings
 - `~/.claude/config/skill-rules.json` - Skill triggers
+- `~/.claude/hooks/handlers/signoz-dashboard-mode.ts` - Dashboard mode enable/disable logic
+- `~/.claude/hooks/handlers/user-prompt.ts` - Dashboard intent detection
+- `~/.claude/hooks/handlers/stop.ts` - Session cleanup and deny pattern restoration
 
 ### External Resources
 - [Claude Code MCP Documentation](https://code.claude.com/docs/en/mcp)
