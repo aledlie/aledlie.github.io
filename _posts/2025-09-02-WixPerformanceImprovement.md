@@ -88,7 +88,7 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 
 ## Quantified Improvements
 
-###  Performance Gains
+### Performance Gains
 
 | Metric | Before Migration | After Migration | Improvement |
 |--------|-----------------|-----------------|-------------|
@@ -115,7 +115,7 @@ The `inflight` package (v1.0.6) contains a critical memory leak where it caches 
 | Days Until Memory Crash | ~437 | Never | **∞ improvement** |
 | Memory-Related Restarts | 4/month | 0/month | **100% reduction** |
 
-###  Cost Savings
+### Cost Savings
 
 | Cost Factor | Monthly | Annual |
 |-------------|---------|--------|

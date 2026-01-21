@@ -26,7 +26,7 @@ Hopefully you pop by again for the jokes and absurdity, and, well, stay for the 
 
 > But, to quote the great Neil Gaiman, all stories are lies, and all writers are liars.
 
-And I am *chock full of lies*. So take that promise for what it's worth, which is practically nothing, and I'll see you here next week with a cartoon and meme about why people spending so much time on RAG databases and fine-tuning is gilding a lily (and just silly), to explain why we should all be taking more creatine supplements, and argue, with absolutely no ground to stand on, with a nobel laureate about the end of the world.
+And I am *chock full of lies*. So take that promise for what it's worth, which is practically nothing, and I'll see you here next week with a cartoon and meme about why people are spending so much time on RAG databases and fine-tuning is gilding a lily (and just silly), to explain why we should all be taking more creatine supplements, and argue, with absolutely no ground to stand on, with a nobel laureate about the end of the world.
 
 ---
 

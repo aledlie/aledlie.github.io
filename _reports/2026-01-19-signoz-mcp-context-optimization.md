@@ -5,7 +5,7 @@ date: 2026-01-19
 author_profile: true
 categories: [performance-optimization, mcp-configuration, claude-code]
 tags: [signoz, mcp, context-optimization, mcp-filter, tool-search, observability, python]
-excerpt: "Reduced SigNoz MCP context usage by implementing mcp-filter proxy and enabling aggressive tool search, achieving estimated 85%+ token reduction."
+excerpt: "Reduced SigNoz MCP from 27 tools to 2, achieving 95% token reduction via mcp-filter deny patterns. Ingestion unaffected as OTEL exporters handle telemetry."
 header:
   image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
@@ -27,11 +27,12 @@ The solution involved installing `mcp-filter` as a proxy wrapper around the SigN
 
 | Metric | Value |
 |--------|-------|
-| **Total SigNoz Tools** | 26 |
-| **Tools Blocked** | 3 (heaviest) |
-| **Estimated Token Savings** | ~11,500 tokens |
+| **Total SigNoz Tools** | 27 |
+| **Tools Blocked** | 25 (as of 2026-01-20) |
+| **Tools Retained** | 2 (`list_services`, `search_metric_by_text`) |
+| **Estimated Token Savings** | ~5,300 tokens (95%) |
 | **Tool Search Threshold** | 5% (aggressive) |
-| **Output Token Limit** | 15,000 |
+| **Output Token Limit** | 25,000 |
 | **Breaking Changes** | 0 |
 
 ## Problem Statement
@@ -381,6 +382,80 @@ Estimated token consumption for enabled SigNoz tools:
 2. **Automatic cleanup**: Deny patterns restored on session end via Stop hook
 3. **Clear patterns**: Switched from regex to explicit deny patterns
 4. **Observability**: All hook operations instrumented with OpenTelemetry
+
+---
+
+## Follow-up Session: 2026-01-20 (Aggressive Tool Filtering)
+
+### Minimal Tool Set for Metrics-Only Workflow
+
+Expanded deny patterns to block nearly all SigNoz query tools, keeping only 2 tools needed for verification.
+
+**Rationale**: Metrics ingestion is handled by OpenTelemetry exporters in the hooks system, not by MCP query tools. The MCP tools are read-only for querying data from SigNoz.
+
+### Updated MCP Configuration
+
+```json
+{
+  "args": [
+    "run",
+    "-t", "stdio",
+    "--stdio-command", "/path/to/signoz-mcp-wrapper",
+    "--deny-pattern", "signoz_execute_builder_query",
+    "--deny-pattern", "signoz_create_dashboard",
+    "--deny-pattern", "signoz_update_dashboard",
+    "--deny-pattern", "signoz_get_alert",
+    "--deny-pattern", "signoz_get_alert_history",
+    "--deny-pattern", "signoz_get_dashboard",
+    "--deny-pattern", "signoz_get_error_logs",
+    "--deny-pattern", "signoz_get_log_view",
+    "--deny-pattern", "signoz_get_logs_available_fields",
+    "--deny-pattern", "signoz_get_logs_field_values",
+    "--deny-pattern", "signoz_get_logs_for_alert",
+    "--deny-pattern", "signoz_get_metrics_available_fields",
+    "--deny-pattern", "signoz_get_metrics_field_values",
+    "--deny-pattern", "signoz_get_service_top_operations",
+    "--deny-pattern", "signoz_get_trace_available_fields",
+    "--deny-pattern", "signoz_get_trace_details",
+    "--deny-pattern", "signoz_get_trace_error_analysis",
+    "--deny-pattern", "signoz_get_trace_field_values",
+    "--deny-pattern", "signoz_get_trace_span_hierarchy",
+    "--deny-pattern", "signoz_list_alerts",
+    "--deny-pattern", "signoz_list_dashboards",
+    "--deny-pattern", "signoz_list_log_views",
+    "--deny-pattern", "signoz_list_metric_keys",
+    "--deny-pattern", "signoz_search_logs_by_service",
+    "--deny-pattern", "signoz_search_traces_by_service",
+    "--log-level", "WARNING"
+  ]
+}
+```
+
+### Tools Retained (2 of 27)
+
+| Tool | Purpose |
+|------|---------|
+| `signoz_list_services` | Verify services are reporting to SigNoz |
+| `signoz_search_metric_by_text` | Spot-check specific metrics |
+
+### Token Savings
+
+| Metric | Before | After | Savings |
+|--------|--------|-------|---------|
+| **Tools Loaded** | 27 | 2 | 25 tools |
+| **Context Usage** | ~5,600 tokens | ~300 tokens | ~5,300 tokens (95%) |
+
+### Key Insight
+
+The SigNoz MCP server provides **query/read** capabilities, not **ingestion**. Metrics, traces, and logs are ingested via OTEL exporters configured in the hooks:
+
+```
+OpenTelemetry: Traces exporting to https://ingest.us.signoz.cloud/v1/traces
+OpenTelemetry: Metrics exporting to https://ingest.us.signoz.cloud/v1/metrics
+OpenTelemetry: Logs exporting to https://ingest.us.signoz.cloud/v1/logs
+```
+
+All 27 MCP tools can be safely disabled without affecting telemetry ingestion.
 
 ---
 

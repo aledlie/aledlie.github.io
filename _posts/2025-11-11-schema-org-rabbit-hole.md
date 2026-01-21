@@ -28,7 +28,7 @@ schema_about: "Schema.org Structured Data Implementation"
 
 So there I was, trying to live my marginally normal life and not spend all of it at a computer, when I noticed that I initially created this site with **11 separate Schema.org include files**. Eleven! Like some kind of schema hoarder who couldn't let go of a single `<script type="application/ld+json">` tag.
 
-I restarted writing this blog in July, when I was still just sorting out what was available to me in the open source world for big projects, as opposed to the facebook core stack that I'd gotten used to over 8 years.  You know that feeling when you look at code you wrote years ago and think "what was I even *doing* here?" Or you just shudder in horror and want to look (or run) away?  Yeah. That.  Except it only took 3-4 months.
+I restarted writing this blog in July, when I was still just sorting out what was available to me in the open source world for big projects, as opposed to the Facebook core stack that I'd gotten used to over 8 years.  You know that feeling when you look at code you wrote years ago and think "what was I even *doing* here?" Or you just shudder in horror and want to look (or run) away?  Yeah. That.  Except it only took 3-4 months.
 
 When I was first researching, schema.org seemed like the best open-source equivalent of a universal taxonomy/language for 'things' and 'things related to those things' and 'how the things are related' that one of my personal heroes, Oliver Dodd, designed at Facebook and called EntSchema.  So I started using it for this blog in July.
 
@@ -47,7 +47,7 @@ It was like I'd read the Schema.org documentation, nodded thoughtfully, and then
 
 ## The Solution (Or: How I Turned One Problem Into Several Problems)
 
-I read an article from [Momentic Marketing](https://momenticmarketing.com/blog/id-schema-for-seo-llms-knowledge-graphs) about using @id attributes to build knowledge graphs. And look, the term 'knowledge graph' makes me cringe a bit.  It's used by a lot of companies out there, branding themselves as AI data companies, and referring to it as the solution for everything - context windows, reducing hallucinations, making sure your printer never annoys you again.  It's just a *graph.*  You, know, [graph?](https://en.wikipedia.org/wiki/Graph_theory).  But graphs *are* very useful.  And you *do* need to identify the vertices(nodes) in them, and aggregate data about those vertices so that the edges function correctly.  So you need ids for your vertices.  And your edges too, actually, but that's a little less straightforward than the n00b mistake I made by not including them in the vertices - or, *ahem*, 'things'.  Oliver Dodd had held my hand for too many years with his beautiful EntSchemas, and handled all of that indentification/deduplication nonse for me with his underlying framework- so 4 months later, I'm writing a quick fix myself, and then writing a better ID algorithm that will be more robust as our databases and data sources grow.
+I read an article from [Momentic Marketing](https://momenticmarketing.com/blog/id-schema-for-seo-llms-knowledge-graphs) about using @id attributes to build knowledge graphs. And look, the term 'knowledge graph' makes me cringe a bit.  It's used by a lot of companies out there, branding themselves as AI data companies, and referring to it as the solution for everything - context windows, reducing hallucinations, making sure your printer never annoys you again.  It's just a *graph.*  You know, [graph?](https://en.wikipedia.org/wiki/Graph_theory).  But graphs *are* very useful.  And you *do* need to identify the vertices (nodes) in them, and aggregate data about those vertices so that the edges function correctly.  So you need ids for your vertices.  And your edges too, actually, but that's a little less straightforward than the n00b mistake I made by not including them in the vertices - or, *ahem*, 'things'.  Oliver Dodd had held my hand for too many years with his beautiful EntSchemas, and handled all of that identification/deduplication nonsense for me with his underlying framework—so 4 months later, I'm writing a quick fix myself, and then writing a better ID algorithm that will be more robust as our databases and data sources grow.
 
 ### Phase 1: Unified (ugh, Knowledge) Graph
 
@@ -169,7 +169,7 @@ But you know what? Those 12 visitors are going to have the BEST structured data 
 
 ## Lessons Learned
 
-1. **@id Best Practices Matter**: Current format is `{canonical_url}#{entity_type}`. Stable IDs only. No timestamps or query parameters, you monster.  But I am going to make this way more robust later.
+1. **@id Best Practices Matter**: Current format is `{canonical_url}#{entity_type}`. Stable IDs only—no timestamps or query parameters, you monster. But I am going to make this way more robust later.
 
 2. **Validation Saves Lives**: Or at least saves you from deploy-time errors. 100% validation pass rate is achievable and feels amazing.
 
