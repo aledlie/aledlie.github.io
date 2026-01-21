@@ -51,15 +51,17 @@ January:   More, shorter sessions (avg 6.5K tokens each)
 ## Evidence: Spike Day Comparison
 
 ### Research Days (High Cost)
+
 | Day | Sessions | Tokens | Tokens/Session | Type |
-|-----|----------|--------|----------------|------|
+|--------|----------|--------|----------------|----------|
 | Dec 14 | 27 | 1.08M | 39,922 | Research |
 | Dec 24 | 14 | 835K | 59,628 | Research |
 | Jan 11 | 22 | 1.38M | 62,533 | Research |
 
 ### Implementation Days (Low Cost)
+
 | Day | Sessions | Tokens | Tokens/Session | Type |
-|-----|----------|--------|----------------|------|
+|--------|----------|--------|----------------|------------------|
 | Jan 17 | 16 | 104K | 6,517 | Implementation |
 | **Jan 19** | **83** | **499K** | **6,008** | **Rapid iteration** |
 
@@ -117,8 +119,9 @@ Week 3 was implementation-heavy → efficient
 To maintain visibility into this optimization, context tracking was added:
 
 ### New Metrics (SigNoz)
+
 | Metric | Description |
-|--------|-------------|
+|------------------------------|------------------------------|
 | `session.context.size` | Tokens at session start |
 | `session.context.utilization` | % of 200K window used |
 
