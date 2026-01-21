@@ -2,6 +2,7 @@
 {% comment %}
 Blog Post Schema - References unified knowledge graph entities via @id
 Uses @id references to Person and Blog entities from unified-knowledge-graph-schema.html
+Refactored to use schema partials for shared blocks
 {% endcomment %}
 <script type="application/ld+json">
 {
@@ -10,52 +11,22 @@ Uses @id references to Person and Blog entities from unified-knowledge-graph-sch
   "@id": "{{ page.url | absolute_url }}#blogposting",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
-    "width": 1200,
-    "height": 630
-  },
-  "author": {
-    "@id": "{{ site.url }}#person"
-  },
-  "publisher": {
-    "@id": "{{ site.url }}#person"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
+  {% include schema/_image.html %}
+  {% include schema/_author-publisher.html %}
+  {% include schema/_main-entity.html %}
   "url": "{{ page.url | absolute_url }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif -%}
+  {% include schema/_dates.html %}
   {% if page.categories -%}
   "articleSection": {{ page.categories | jsonify }},
   {% endif -%}
   {% if page.tags -%}
   "keywords": {{ page.tags | join: ", " | jsonify }},
   {% endif -%}
-  "wordCount": {{ page.content | strip_html | number_of_words }},
-  {% assign words = page.content | strip_html | number_of_words -%}
-  {% assign minutes = words | divided_by: 200 -%}
-  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
+  {% include schema/_reading-time.html %}
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".page__title", ".page__lead", ".page__content p:first-of-type"]
-  },
-  "isPartOf": {
-    "@id": "{{ site.url }}#blog"
-  },
-  "copyrightHolder": {
-    "@id": "{{ site.url }}#person"
-  },
-  "copyrightYear": "{{ page.date | date: '%Y' }}",
-  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  {% include schema/_speakable.html %}
+  {% include schema/_is-part-of.html %}
+  {% include schema/_copyright.html %}
 }
 </script>
 {% endif %}

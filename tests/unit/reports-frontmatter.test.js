@@ -325,19 +325,33 @@ describe('Reports Directory Front Matter Validation', () => {
     test('files should not have duplicate front matter blocks', () => {
       const duplicateFrontMatter = [];
 
+      // Front matter specific keys that indicate actual front matter (not just YAML-like content)
+      const FRONT_MATTER_KEYS = ['layout', 'title', 'date', 'permalink', 'excerpt', 'categories', 'tags', 'author'];
+
       reportFiles.forEach(file => {
-        // Count occurrences of ---
-        const delimiterMatches = file.content.match(/^---$/gm);
-        // Should have exactly 2 delimiters for valid front matter
-        if (delimiterMatches && delimiterMatches.length > 2) {
-          // Check if it's actually duplicate front matter or just --- in content
-          const parts = file.content.split(/^---$/m);
-          if (parts.length > 3) {
-            // Could be duplicate front matter - check if third part looks like YAML
-            const thirdPart = parts[2]?.trim() || '';
-            if (thirdPart.includes(':') && !thirdPart.startsWith('#')) {
-              duplicateFrontMatter.push(file.name);
-            }
+        // Extract content after the first valid front matter block
+        const match = file.content.match(FRONT_MATTER_REGEX);
+        if (!match) return;
+
+        let contentAfterFrontMatter = file.content.slice(match[0].length);
+
+        // Remove fenced code blocks to avoid false positives from YAML examples in documentation
+        contentAfterFrontMatter = contentAfterFrontMatter.replace(/```[\s\S]*?```/g, '');
+
+        // Look for another front matter block pattern at the start of a line
+        // Must have --- on its own line, followed by front-matter-specific keys, then closing ---
+        const duplicatePattern = /\n---\r?\n([\s\S]*?)\r?\n---/;
+        const duplicateMatch = contentAfterFrontMatter.match(duplicatePattern);
+
+        if (duplicateMatch) {
+          const potentialYaml = duplicateMatch[1];
+          // Check if it contains front-matter-specific keys (not just any colon)
+          const hasFrontMatterKeys = FRONT_MATTER_KEYS.some(key =>
+            new RegExp(`^${key}:`, 'm').test(potentialYaml)
+          );
+
+          if (hasFrontMatterKeys) {
+            duplicateFrontMatter.push(file.name);
           }
         }
       });

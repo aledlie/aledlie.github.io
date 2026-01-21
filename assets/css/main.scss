@@ -170,7 +170,7 @@ body {
 
   .author-bio {
     font-style: italic;
-    color: #404040;  /* Darkened for WCAG AA contrast (7.0:1 on white) */
+    color: $wcag-text-dark;  /* WCAG AA contrast (7.0:1 on white) */
     font-size: 1em;  /* Reduced from 1.1em for better hierarchy */
     line-height: 1.5;  /* Increased from 1.4 for readability */
     margin-top: 0.75em;  /* Explicit top margin */
@@ -182,7 +182,7 @@ body {
     margin-top: 2em;  /* Clear separation from bio */
     margin-bottom: 1.5em;
     padding-top: 1em;
-    border-top: 1px solid #e8e8e8;  /* Subtle visual divider */
+    border-top: 1px solid $border-subtle;  /* Subtle visual divider */
     width: 100%;
     text-align: center;  /* Center the Follow button */
 
@@ -208,7 +208,7 @@ body {
       // Location styling
       &[itemprop="homeLocation"] {
         font-size: 0.9em;
-        color: #4a4a4a;  // WCAG AA compliant (6.42:1 contrast ratio)
+        color: $wcag-text-muted;  // WCAG AA compliant (6.42:1 contrast ratio)
         margin-bottom: 1.5em;
         display: block;
         text-align: center;
@@ -241,7 +241,7 @@ body {
   .btn {
     background: $bg-light !important;
     border: 1px solid $border-medium;
-    color: #404040;  /* Darkened for WCAG AA contrast (6.3:1 on #f8f9fa background) */
+    color: $wcag-text-dark;  /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
     font-size: 0.95em;  /* Reduced from 1em */
     padding: 0.6em 1em;  /* More balanced padding */
     display: block;
@@ -313,8 +313,8 @@ div.highlighter-rouge,
 figure.highlight,
 .highlight,
 .highlighter-rouge {
-  background: #f8f8f8 !important;
-  border: 1px solid #e8e8e8 !important;
+  background: $code-bg !important;
+  border: 1px solid $border-subtle !important;
   border-radius: 4px !important;
   padding: 1rem !important;
   margin: 1.5rem 0 !important;
@@ -325,7 +325,7 @@ figure.highlight,
 
   code {
     background: transparent !important;
-    color: #333 !important;
+    color: $text-dark !important;
     font-size: inherit !important;
   }
 
@@ -339,68 +339,68 @@ figure.highlight,
 
 /* Override dark syntax highlighting colors for light theme */
 .highlight {
-  color: #333 !important;
+  color: $text-dark !important;
 
-  .c { color: #999 !important; }
-  .k { color: #c41a16 !important; }
-  .l { color: #0086d2 !important; }
-  .n { color: #333 !important; }
-  .o { color: #666 !important; }
-  .p { color: #333 !important; }
-  .cm { color: #999 !important; }
-  .cp { color: #999 !important; }
-  .c1 { color: #999 !important; }
-  .cs { color: #999 !important; }
-  .gd { color: #d40000 !important; }
+  .c { color: $syntax-comment !important; }
+  .k { color: $syntax-keyword !important; }
+  .l { color: $syntax-number !important; }
+  .n { color: $text-dark !important; }
+  .o { color: $syntax-operator !important; }
+  .p { color: $text-dark !important; }
+  .cm { color: $syntax-comment !important; }
+  .cp { color: $syntax-comment !important; }
+  .c1 { color: $syntax-comment !important; }
+  .cs { color: $syntax-comment !important; }
+  .gd { color: $syntax-error !important; }
   .ge { font-style: italic !important; }
-  .gr { color: #d40000 !important; }
-  .gh { color: #000080 !important; }
-  .gi { color: #008000 !important; }
+  .gr { color: $syntax-error !important; }
+  .gh { color: $syntax-header !important; }
+  .gi { color: $syntax-inserted !important; }
   .go { color: #303030 !important; }
-  .gp { color: #c65911 !important; }
+  .gp { color: $syntax-prompt !important; }
   .gs { font-weight: bold !important; }
-  .gu { color: #800080 !important; }
+  .gu { color: $syntax-deleted !important; }
   .gt { color: #0040d0 !important; }
-  .kc { color: #c41a16 !important; }
-  .kd { color: #c41a16 !important; }
-  .kn { color: #c41a16 !important; }
-  .kp { color: #c41a16 !important; }
-  .kr { color: #c41a16 !important; }
-  .kt { color: #458 !important; }
-  .ld { color: #d40000 !important; }
-  .m { color: #0086d2 !important; }
-  .s { color: #d40000 !important; }
-  .na { color: #836c28 !important; }
-  .nb { color: #0086d2 !important; }
-  .nc { color: #458 !important; }
-  .no { color: #0086d2 !important; }
-  .nd { color: #458 !important; }
-  .ni { color: #800080 !important; }
-  .ne { color: #900 !important; }
-  .nf { color: #900 !important; }
-  .nl { color: #999 !important; }
-  .nn { color: #555 !important; }
-  .nx { color: #333 !important; }
-  .py { color: #999 !important; }
-  .nt { color: #c41a16 !important; }
-  .nv { color: #0086d2 !important; }
-  .ow { color: #c41a16 !important; }
+  .kc { color: $syntax-keyword !important; }
+  .kd { color: $syntax-keyword !important; }
+  .kn { color: $syntax-keyword !important; }
+  .kp { color: $syntax-keyword !important; }
+  .kr { color: $syntax-keyword !important; }
+  .kt { color: $syntax-type !important; }
+  .ld { color: $syntax-error !important; }
+  .m { color: $syntax-number !important; }
+  .s { color: $syntax-string !important; }
+  .na { color: $syntax-attribute !important; }
+  .nb { color: $syntax-number !important; }
+  .nc { color: $syntax-type !important; }
+  .no { color: $syntax-number !important; }
+  .nd { color: $syntax-type !important; }
+  .ni { color: $syntax-deleted !important; }
+  .ne { color: $syntax-function !important; }
+  .nf { color: $syntax-function !important; }
+  .nl { color: $syntax-comment !important; }
+  .nn { color: $syntax-namespace !important; }
+  .nx { color: $text-dark !important; }
+  .py { color: $syntax-comment !important; }
+  .nt { color: $syntax-keyword !important; }
+  .nv { color: $syntax-number !important; }
+  .ow { color: $syntax-keyword !important; }
   .w { color: #bbb !important; }
-  .mf { color: #0086d2 !important; }
-  .mh { color: #0086d2 !important; }
-  .mi { color: #0086d2 !important; }
-  .mo { color: #0086d2 !important; }
-  .sb { color: #d40000 !important; }
-  .sc { color: #d40000 !important; }
-  .sd { color: #d40000 !important; }
-  .s2 { color: #d40000 !important; }
-  .se { color: #0086d2 !important; }
-  .sh { color: #d40000 !important; }
-  .si { color: #d40000 !important; }
-  .sx { color: #d40000 !important; }
-  .sr { color: #009926 !important; }
-  .s1 { color: #d40000 !important; }
-  .ss { color: #990073 !important; }
+  .mf { color: $syntax-number !important; }
+  .mh { color: $syntax-number !important; }
+  .mi { color: $syntax-number !important; }
+  .mo { color: $syntax-number !important; }
+  .sb { color: $syntax-string !important; }
+  .sc { color: $syntax-string !important; }
+  .sd { color: $syntax-string !important; }
+  .s2 { color: $syntax-string !important; }
+  .se { color: $syntax-number !important; }
+  .sh { color: $syntax-string !important; }
+  .si { color: $syntax-string !important; }
+  .sx { color: $syntax-string !important; }
+  .sr { color: $syntax-regex !important; }
+  .s1 { color: $syntax-string !important; }
+  .ss { color: $syntax-symbol !important; }
 }
 
 /* INLINE CODE - Compact, subtle styling */
@@ -411,8 +411,8 @@ td code,
   padding: 0.1em 0.3em !important;
   margin: 0 !important;
   font-size: 0.85em !important;
-  background-color: #f5f5f5 !important;
-  border: 1px solid #e8e8e8 !important;
+  background-color: $code-bg-inline !important;
+  border: 1px solid $border-subtle !important;
   border-radius: 3px !important;
   font-family: 'Monaco', 'Courier New', monospace !important;
   white-space: nowrap !important;
@@ -443,7 +443,7 @@ table {
   font-size: 0.95em;
 
   thead {
-    background: #f8f8f8;
+    background: $code-bg;
     border-bottom: 2px solid #ddd;
   }
 
@@ -451,14 +451,14 @@ table {
     padding: 0.75rem;
     text-align: left;
     font-weight: 600;
-    color: #333;
+    color: $text-dark;
     font-size: 0.95em;
   }
 
   td {
     padding: 0.75rem;
-    border-bottom: 1px solid #eee;
-    color: #555;
+    border-bottom: 1px solid $border-light;
+    color: $gray-darker;
   }
 
   tbody tr {
@@ -497,7 +497,7 @@ table {
 /* INFO BOXES */
 .notice-info {
   background: #f0f7ff;
-  border-left: 4px solid #0066cc;
+  border-left: 4px solid $link-hover;
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 4px;
@@ -505,7 +505,7 @@ table {
 
   strong {
     display: block;
-    color: #0066cc;
+    color: $link-hover;
     margin-bottom: 0.5rem;
   }
 }
@@ -613,11 +613,11 @@ table {
 
 /* GLOBAL LINK OVERRIDES - Clean black text */
 a {
-  color: #333333 !important;  /* Darkened to #333 for WCAG AA contrast (7.7:1 on white) */
+  color: $text-dark !important;  /* WCAG AA contrast (7.7:1 on white) */
   text-decoration: none !important;
 
   &:hover {
-    color: #0066cc !important;
+    color: $link-hover !important;
   }
 }
 

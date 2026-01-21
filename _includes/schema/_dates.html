@@ -1,0 +1,10 @@
+{% comment %}
+Schema.org partial: datePublished and dateModified
+Falls back to page.date if last_modified_at is not set
+{% endcomment %}
+"datePublished": "{{ page.date | date_to_xmlschema }}",
+{% if page.last_modified_at -%}
+"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+{% else -%}
+"dateModified": "{{ page.date | date_to_xmlschema }}",
+{% endif -%}

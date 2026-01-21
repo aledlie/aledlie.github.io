@@ -3,6 +3,7 @@
 TechArticle Schema - For technical guides, tutorials, and documentation
 Conditional include based on page.schema_type front matter
 References unified knowledge graph entities via @id
+Refactored to use schema partials for shared blocks
 
 Usage in post front matter:
 ---
@@ -37,63 +38,21 @@ schema_section: "Jekyll"
   {% endif -%}
 
   "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
-  "wordCount": {{ page.content | strip_html | number_of_words }},
+  {% include schema/_reading-time.html %}
 
-  {% comment %}Author and publisher via @id references{% endcomment %}
-  "author": {
-    "@id": "{{ site.url }}#person"
-  },
-  "publisher": {
-    "@id": "{{ site.url }}#person"
-  },
-
-  {% comment %}Dates{% endcomment %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif -%}
-
-  {% comment %}Image{% endcomment %}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
-    "width": 1200,
-    "height": 630
-  },
-
-  {% comment %}Main entity of page{% endcomment %}
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
+  {% include schema/_author-publisher.html %}
+  {% include schema/_dates.html %}
+  {% include schema/_image.html %}
+  {% include schema/_main-entity.html %}
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% comment %}Keywords and tags{% endcomment %}
-  {% if page.schema_keywords -%}
-  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
-  {% elsif page.tags -%}
-  "keywords": {{ page.tags | join: ", " | jsonify }},
-  {% endif -%}
+  {% include schema/_keywords.html %}
 
-  {% comment %}Language{% endcomment %}
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
 
-  {% comment %}Reading time and voice search{% endcomment %}
-  {% assign words = page.content | strip_html | number_of_words -%}
-  {% assign minutes = words | divided_by: 200 -%}
-  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".page__title", ".page__lead", ".page__content p:first-of-type"]
-  },
-
-  {% comment %}Part of blog{% endcomment %}
-  "isPartOf": {
-    "@id": "{{ site.url }}#blog"
-  },
+  {% include schema/_speakable.html %}
+  {% include schema/_is-part-of.html %}
 
   {% comment %}About (optional subject matter){% endcomment %}
   {% if page.schema_about -%}
@@ -137,17 +96,8 @@ schema_section: "Jekyll"
   },
   {% endif -%}
 
-  {% comment %}Creator (same as author for articles){% endcomment %}
-  "creator": {
-    "@id": "{{ site.url }}#person"
-  },
-
-  {% comment %}Copyright and licensing{% endcomment %}
-  "copyrightHolder": {
-    "@id": "{{ site.url }}#person"
-  },
-  "copyrightYear": "{{ page.date | date: '%Y' }}",
-  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  {% include schema/_creator.html %}
+  {% include schema/_copyright.html %}
 }
 </script>
 {% endif %}

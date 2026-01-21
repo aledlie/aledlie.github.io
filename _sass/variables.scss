@@ -54,6 +54,32 @@ $bg-lighter: #e9ecef;
 $border-medium: #dee2e6;
 $text-dark: #333;
 
+/* WCAG AA compliant colors */
+$wcag-text-dark: #404040;      /* 7.0:1 contrast on white */
+$wcag-text-muted: #4a4a4a;     /* 6.42:1 contrast on white */
+$border-subtle: #e8e8e8;       /* Subtle borders */
+$link-hover: #06c;             /* Link hover state */
+$code-bg: #f8f8f8;             /* Code block background */
+$code-bg-inline: #f5f5f5;      /* Inline code background */
+
+/* Syntax highlighting colors (light theme) */
+$syntax-comment: #999;
+$syntax-keyword: #c41a16;
+$syntax-number: #0086d2;
+$syntax-error: #d40000;
+$syntax-string: #d40000;
+$syntax-operator: #666;
+$syntax-type: #458;
+$syntax-attribute: #836c28;
+$syntax-function: #900;
+$syntax-namespace: #555;
+$syntax-regex: #009926;
+$syntax-symbol: #990073;
+$syntax-header: #000080;
+$syntax-inserted: #008000;
+$syntax-prompt: #c65911;
+$syntax-deleted: #800080;
+
 /* YIQ color contrast */
 
 $yiq-contrasted-dark-default: $dark-gray !default;
