@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: ast-grep-mcp (MCP Server)
-**Focus**: Fix failing batch_search tests and complete Task 15 (Batch Operations) implementation
+**Session Date**: 2025-11-17<br>
+**Project**: ast-grep-mcp (MCP Server)<br>
+**Focus**: Fix failing batch_search tests and complete Task 15 (Batch Operations) implementation<br>
 
 ## Executive Summary
 

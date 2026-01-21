@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: Jobs Automation System (AlephAuto)
-**Focus**: Repository organization, architecture documentation, and comprehensive refactoring
+**Session Date**: 2025-11-17<br>
+**Project**: Jobs Automation System (AlephAuto)<br>
+**Focus**: Repository organization, architecture documentation, and comprehensive refactoring<br>
 
 ## Executive Summary
 

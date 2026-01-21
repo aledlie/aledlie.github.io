@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: ISPublicSites - Multi-project monorepo
-**Focus**: Systematic code duplication detection and refactoring recommendations
+**Session Date**: 2025-11-17<br>
+**Project**: ISPublicSites - Multi-project monorepo<br>
+**Focus**: Systematic code duplication detection and refactoring recommendations<br>
 
 ## Executive Summary
 

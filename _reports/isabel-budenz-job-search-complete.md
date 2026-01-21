@@ -769,6 +769,7 @@ Stockholm University
 ---
 
 #### 1. Institute for Law & AI
+
 | Field | Details |
 |-------|---------|
 | **Position** | Summer Research Fellowship (US) |
@@ -794,6 +795,7 @@ Stockholm University
 ---
 
 #### 2. Jus Mundi
+
 | Field | Details |
 |-------|---------|
 | **Position** | International Arbitration Internship |
@@ -819,6 +821,7 @@ Stockholm University
 ---
 
 #### 3. Anthropic
+
 | Field | Details |
 |-------|---------|
 | **Position** | Policy Team |
@@ -844,6 +847,7 @@ Stockholm University
 ---
 
 #### 4. Anthropic AI Safety Fellows
+
 | Field | Details |
 |-------|---------|
 | **Position** | AI Safety Fellows Program |
@@ -872,6 +876,7 @@ Stockholm University
 ---
 
 #### 5. GovAI
+
 | Field | Details |
 |-------|---------|
 | **Position** | Summer Fellowship 2027 (Research Track) |
@@ -892,6 +897,7 @@ Stockholm University
 ---
 
 #### 6. IAPS (Institute for AI Policy and Strategy)
+
 | Field | Details |
 |-------|---------|
 | **Position** | Fellowship |
@@ -917,6 +923,7 @@ Stockholm University
 ---
 
 #### 7. Future of Privacy Forum
+
 | Field | Details |
 |-------|---------|
 | **Position** | Policy Internship |
@@ -940,6 +947,7 @@ Stockholm University
 ---
 
 #### 8. LALIVE
+
 | Field | Details |
 |-------|---------|
 | **Position** | 6-month Internship |
@@ -966,6 +974,7 @@ Stockholm University
 ---
 
 #### 9. ICC International Court of Arbitration
+
 | Field | Details |
 |-------|---------|
 | **Position** | Internship |
@@ -991,6 +1000,7 @@ Stockholm University
 ---
 
 #### 10. LCIA
+
 | Field | Details |
 |-------|---------|
 | **Position** | Internship Programme |
@@ -1018,6 +1028,7 @@ Stockholm University
 ---
 
 #### 11. European Commission (Blue Book Traineeship)
+
 | Field | Details |
 |-------|---------|
 | **Position** | Traineeship (AI Office / DG CONNECT) |
@@ -1037,6 +1048,7 @@ Stockholm University
 ---
 
 #### 12. PCA Vienna
+
 | Field | Details |
 |-------|---------|
 | **Position** | Internship |
@@ -1056,6 +1068,7 @@ Stockholm University
 ---
 
 #### 13. Microsoft CELA
+
 | Field | Details |
 |-------|---------|
 | **Position** | Legal Intern Program |
@@ -1075,6 +1088,7 @@ Stockholm University
 ---
 
 #### 14. Freshfields
+
 | Field | Details |
 |-------|---------|
 | **Position** | Trainee / Internship |
@@ -1093,6 +1107,7 @@ Stockholm University
 ---
 
 #### 15. White & Case
+
 | Field | Details |
 |-------|---------|
 | **Position** | Trainee / Internship |
@@ -1111,6 +1126,7 @@ Stockholm University
 ---
 
 #### 16. Sidley Austin Geneva
+
 | Field | Details |
 |-------|---------|
 | **Position** | International Arbitration Trainee |
@@ -1145,6 +1161,7 @@ Stockholm University
 ## Monthly Calendar View
 
 ### January 2026
+
 | Week | Tasks |
 |------|-------|
 | Jan 6-12 | 🔴 **Anthropic AI Safety Fellows deadline (Jan 12)** |
@@ -1153,6 +1170,7 @@ Stockholm University
 | Jan 27-31 | Finalize Institute for Law & AI materials |
 
 ### February 2026
+
 | Week | Tasks |
 |------|-------|
 | Feb 1-7 | 🔴 **Institute for Law & AI deadline (Feb 7)** |
@@ -1161,18 +1179,21 @@ Stockholm University
 | Feb 22-28 | Begin LALIVE application (for late 2026 start) |
 
 ### March 2026
+
 | Week | Tasks |
 |------|-------|
 | Mar 1-15 | 🟡 **European Commission Blue Book deadline** |
 | Mar 16-31 | Submit LCIA, ICC applications |
 
 ### April 2026
+
 | Week | Tasks |
 |------|-------|
 | Apr 1-7 | 🟡 **PCA Vienna deadline (July start)** |
 | Apr 8-30 | Law firm applications (Freshfields, White & Case) |
 
 ### May-June 2026
+
 | Week | Tasks |
 |------|-------|
 | Ongoing | Follow up on pending applications |
@@ -1194,6 +1215,7 @@ Stockholm University
 ## Prepared Materials Inventory
 
 ### Cover Letters Created ✅
+
 | File | Target |
 |------|--------|
 | Included in this document | Anthropic Policy |

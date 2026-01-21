@@ -12,9 +12,9 @@ header:
 ---
 
 
-**Session Date**: 2026-01-19
-**Project**: Claude Code Configuration (~/.claude)
-**Focus**: Minimize SigNoz MCP context/token usage in Claude Code
+**Session Date**: 2026-01-19<br>
+**Project**: Claude Code Configuration (~/.claude)<br>
+**Focus**: Minimize SigNoz MCP context/token usage in Claude Code<br>
 **Session Type**: Research and Implementation
 
 ## Executive Summary
@@ -24,6 +24,7 @@ Successfully researched and implemented multiple strategies to reduce SigNoz MCP
 The solution involved installing `mcp-filter` as a proxy wrapper around the SigNoz MCP server, blocking the three heaviest tools (`signoz_create_dashboard`, `signoz_update_dashboard`, `signoz_execute_builder_query`) which alone account for ~11,500 tokens. Combined with `ENABLE_TOOL_SEARCH=auto:5`, tools are now loaded on-demand rather than preloaded.
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **Total SigNoz Tools** | 26 |
@@ -232,6 +233,7 @@ $ cat .mcp.json | python3 -c "import json,sys; json.load(sys.stdin)"
 ## Files Modified
 
 ### Modified Files
+
 | File | Changes |
 |------|---------|
 | `~/.claude/.mcp.json` | Added mcp-filter wrapper with deny patterns |
@@ -239,6 +241,7 @@ $ cat .mcp.json | python3 -c "import json,sys; json.load(sys.stdin)"
 | `~/.claude/config/skill-rules.json` | Removed lead-research-assistant |
 
 ### Deleted Files
+
 | File | Reason |
 |------|--------|
 | `~/.claude/skills/lead-research-assistant/` | Not needed for technical research |

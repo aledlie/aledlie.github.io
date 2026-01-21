@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-29
-**Project**: IntegrityStudioClients/fisterra
-**Focus**: Analyze and enhance Schema.org JSON-LD structured data using the `enhance_entity_graph` tool
+**Session Date**: 2025-11-29<br>
+**Project**: IntegrityStudioClients/fisterra<br>
+**Focus**: Analyze and enhance Schema.org JSON-LD structured data using the `enhance_entity_graph` tool<br>
 
 ## Executive Summary
 

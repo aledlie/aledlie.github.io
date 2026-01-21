@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-28
-**Project**: ast-grep-mcp - Deduplication Analysis System
-**Focus**: Implement score caching optimization and verify Phase 2 performance improvements
+**Session Date**: 2025-11-28<br>
+**Project**: ast-grep-mcp - Deduplication Analysis System<br>
+**Focus**: Implement score caching optimization and verify Phase 2 performance improvements<br>
 
 ## Executive Summary
 

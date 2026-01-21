@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-28
-**Project**: ast-grep-mcp
-**Focus**: Refactor the 3 most complex functions to reduce cognitive complexity and improve maintainability
+**Session Date**: 2025-11-28<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Refactor the 3 most complex functions to reduce cognitive complexity and improve maintainability<br>
 
 ## Executive Summary
 

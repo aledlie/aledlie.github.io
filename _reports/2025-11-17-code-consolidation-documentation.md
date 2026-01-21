@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: Jobs Automation System - Duplicate Detection
-**Focus**: Creating comprehensive technical documentation for the code consolidation pipeline and multi-layer similarity algorithm
+**Session Date**: 2025-11-17<br>
+**Project**: Jobs Automation System - Duplicate Detection<br>
+**Focus**: Creating comprehensive technical documentation for the code consolidation pipeline and multi-layer similarity algorithm<br>
 
 ## Executive Summary
 

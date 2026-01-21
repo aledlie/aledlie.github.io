@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-25
-**Project**: ast-grep-mcp
-**Focus**: Review test fixture migration progress and tool registration status
+**Session Date**: 2025-11-25<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Review test fixture migration progress and tool registration status<br>
 
 ## Executive Summary
 

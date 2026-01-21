@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: Jobs Automation System
-**Focus**: Optimize repomix scanning to git repository roots only and create session documentation skill
+**Session Date**: 2025-11-17<br>
+**Project**: Jobs Automation System<br>
+**Focus**: Optimize repomix scanning to git repository roots only and create session documentation skill<br>
 
 ## Executive Summary
 

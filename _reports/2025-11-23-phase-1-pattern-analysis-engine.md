@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-23
-**Project**: ast-grep-mcp
-**Focus**: Implement Phase 1 of enhanced duplication detection - Pattern Analysis Engine
+**Session Date**: 2025-11-23<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Implement Phase 1 of enhanced duplication detection - Pattern Analysis Engine<br>
 
 ## Executive Summary
 

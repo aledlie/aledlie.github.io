@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-29
-**Project**: ast-grep-mcp
-**Focus**: Verification and documentation of complete Phase 1+2 complexity refactoring with numerical analysis
+**Session Date**: 2025-11-29<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Verification and documentation of complete Phase 1+2 complexity refactoring with numerical analysis<br>
 **Session Type**: Completion verification and analytical documentation
 
 ## Executive Summary

@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-24
-**Project**: AlephAuto - Job Queue Dashboard
-**Focus**: Fix activity feed displaying incorrect job type and duration information
+**Session Date**: 2025-12-24<br>
+**Project**: AlephAuto - Job Queue Dashboard<br>
+**Focus**: Fix activity feed displaying incorrect job type and duration information<br>
 **Session Type**: Bug Fix and Production Deployment
 
 ## Executive Summary
@@ -23,6 +23,7 @@ Fixed two critical bugs in the AlephAuto dashboard activity feed where job event
 Both fixes were implemented, tested locally with live job triggers, deployed to production via PM2, and verified working correctly. The dashboard now displays accurate pipeline names (e.g., "claude-health", "git-activity") and precise duration times (e.g., "0.15s", "0.46s").
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **Bugs Fixed** | 2 |

@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-18
-**Project**: IntegrityStudio.ai - ISPublicSites
-**Focus**: Complete Sentry error tracking migration and production readiness
+**Session Date**: 2025-11-18<br>
+**Project**: IntegrityStudio.ai - ISPublicSites<br>
+**Focus**: Complete Sentry error tracking migration and production readiness<br>
 
 ## Executive Summary
 

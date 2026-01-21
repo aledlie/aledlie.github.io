@@ -7,9 +7,9 @@ tags: [json-ld, structured-data, entity-linking, semantic-web, seo-optimization]
 ---
 
 
-**Session Date**: 2025-11-30
-**Project**: Multi-site Schema.org Knowledge Graph
-**Focus**: Creating cross-domain entity relationships using @id references
+**Session Date**: 2025-11-30<br>
+**Project**: Multi-site Schema.org Knowledge Graph<br>
+**Focus**: Creating cross-domain entity relationships using @id references<br>
 
 ## Executive Summary
 

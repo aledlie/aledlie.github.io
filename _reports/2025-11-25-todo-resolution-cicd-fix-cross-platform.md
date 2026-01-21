@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-25
-**Project**: AlephAuto Jobs System
-**Focus**: Resolve 6 TODO comments in parallel, fix CI/CD build errors, create reusable CI/CD skill
+**Session Date**: 2025-11-25<br>
+**Project**: AlephAuto Jobs System<br>
+**Focus**: Resolve 6 TODO comments in parallel, fix CI/CD build errors, create reusable CI/CD skill<br>
 
 ## Executive Summary
 

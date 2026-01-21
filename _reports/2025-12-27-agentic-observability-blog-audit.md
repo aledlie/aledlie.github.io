@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-27
-**Project**: IntegrityStudio.ai2
-**Focus**: Scientific verification audit of agentic observability blog post claims
+**Session Date**: 2025-12-27<br>
+**Project**: IntegrityStudio.ai2<br>
+**Focus**: Scientific verification audit of agentic observability blog post claims<br>
 **Session Type**: Content Audit / Fact Verification
 **Audit Methodology**: Lead Researcher/Investigator + AI/ML Performance Measurement Best Practices
 
@@ -113,6 +113,7 @@ The post demonstrates solid conceptual grounding in agentic AI observability but
 > Article 9 obligates providers of high-risk AI systems to establish a risk management system that meets detailed criteria for scope and testing.
 
 **Correct Mapping**:
+
 | Blog Claims | Correct Article |
 |-------------|-----------------|
 | "Evaluation datasets and testing protocols" | **Article 10** (Data and Data Governance) |

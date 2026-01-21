@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-26
-**Project**: PersonalSite (aledlie.github.io)
-**Focus**: Systematic bugfix planning and implementation of accessibility improvements
+**Session Date**: 2025-11-26<br>
+**Project**: PersonalSite (aledlie.github.io)<br>
+**Focus**: Systematic bugfix planning and implementation of accessibility improvements<br>
 
 ## Executive Summary
 

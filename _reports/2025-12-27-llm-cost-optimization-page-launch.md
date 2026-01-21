@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-27
-**Project**: IntegrityStudio.ai
-**Focus**: Build and launch LLM cost optimization page with calculator, achieve perfect Lighthouse scores
+**Session Date**: 2025-12-27<br>
+**Project**: IntegrityStudio.ai<br>
+**Focus**: Build and launch LLM cost optimization page with calculator, achieve perfect Lighthouse scores<br>
 **Session Type**: Implementation and Optimization
 
 ## Executive Summary
@@ -23,6 +23,7 @@ Successfully launched a new LLM cost optimization page with an interactive cost 
 Also added SEO infrastructure (sitemap.xml, robots.txt) and a timely ByteDance footnote to the LLM monitoring tools article.
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **Plan Reduction** | 580 → 180 lines (-69%) |

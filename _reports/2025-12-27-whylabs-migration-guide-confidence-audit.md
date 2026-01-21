@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-27
-**Project**: IntegrityStudio.ai2 - WhyLabs Migration Guide
-**Focus**: Critical review of document assumptions, fact verification, and confidence scoring
+**Session Date**: 2025-12-27<br>
+**Project**: IntegrityStudio.ai2 - WhyLabs Migration Guide<br>
+**Focus**: Critical review of document assumptions, fact verification, and confidence scoring<br>
 **Session Type**: Content Audit / Risk Assessment
 
 ## Executive Summary

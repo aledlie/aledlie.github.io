@@ -14,7 +14,7 @@ header:
 **Date**: November 16, 2025
 **Session Type**: Documentation Review & Tool Development
 **Repository**: ast-grep-mcp
-**Focus**: CLAUDE.md enhancement, Schema.org CLI tool creation
+**Focus**: CLAUDE.md enhancement, Schema.org CLI tool creation<br>
 
 ---
 

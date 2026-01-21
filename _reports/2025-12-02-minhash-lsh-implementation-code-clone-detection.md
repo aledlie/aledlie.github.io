@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-02
-**Project**: ast-grep-mcp - Code Deduplication System
-**Focus**: Implement Recommendations 1 & 2 from similarity algorithm analysis
+**Session Date**: 2025-12-02<br>
+**Project**: ast-grep-mcp - Code Deduplication System<br>
+**Focus**: Implement Recommendations 1 & 2 from similarity algorithm analysis<br>
 **Session Type**: Implementation
 **Status**: 2 of 5 recommendations complete
 
@@ -28,6 +28,7 @@ Implemented the first two recommendations from the similarity algorithm analysis
 The implementation includes a new `similarity.py` module with `MinHashSimilarity` class for signature-based similarity estimation, `MinHashLSH` for fast candidate retrieval, and `EnhancedStructureHash` with multi-factor fingerprinting. The detector now uses MinHash by default with a SequenceMatcher fallback for precise verification.
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **New Module Lines** | ~600 |
@@ -149,6 +150,7 @@ class EnhancedStructureHash:
 ```
 
 **Multi-Factor Fingerprinting Benefits:**
+
 | Factor | Purpose | Improvement |
 |--------|---------|-------------|
 | **Node Sequence** | Captures code "shape" | Groups similar control flow |
@@ -343,12 +345,14 @@ Success: no issues found in 2 source files
 ## Files Modified
 
 ### Created Files (2)
+
 | File | Lines | Purpose |
 |------|-------|---------|
 | `src/ast_grep_mcp/features/deduplication/similarity.py` | ~350 | MinHash + LSH similarity module |
 | `tests/unit/test_minhash_similarity.py` | ~400 | Comprehensive test suite |
 
 ### Modified Files (2)
+
 | File | Changes | Purpose |
 |------|---------|---------|
 | `pyproject.toml` | +1 line | Added `datasketch>=1.6.0` dependency |

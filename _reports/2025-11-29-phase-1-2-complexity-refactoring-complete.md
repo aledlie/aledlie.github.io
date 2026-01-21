@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-29
-**Project**: ast-grep-mcp
-**Focus**: Complete final complexity refactoring to achieve zero violations
+**Session Date**: 2025-11-29<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Complete final complexity refactoring to achieve zero violations<br>
 **Duration**: ~30 minutes (Session 4 of 4)
 
 ## Executive Summary

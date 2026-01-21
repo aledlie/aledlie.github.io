@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: ToolVisualizer - Code Directory Visualization Tool
-**Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching
+**Session Date**: 2025-11-17<br>
+**Project**: ToolVisualizer - Code Directory Visualization Tool<br>
+**Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching<br>
 **Git Repository**: git@github.com:aledlie/ToolVizualizer.git
 
 ## Executive Summary

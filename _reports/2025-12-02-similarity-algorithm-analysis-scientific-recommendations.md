@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-02
-**Project**: ast-grep-mcp - Code Deduplication System
-**Focus**: Analyze current similarity algorithm and recommend scientifically-backed improvements
+**Session Date**: 2025-12-02<br>
+**Project**: ast-grep-mcp - Code Deduplication System<br>
+**Focus**: Analyze current similarity algorithm and recommend scientifically-backed improvements<br>
 **Session Type**: Research and Analysis
 
 ## Executive Summary
@@ -23,6 +23,7 @@ Conducted comprehensive analysis of the similarity algorithm implementation in t
 **Key Finding**: Replacing SequenceMatcher with **MinHash + Locality Sensitive Hashing (LSH)** would provide **100-1000x speedup** while maintaining similar precision. A hybrid approach combining fast MinHash filtering with AST edit distance verification offers the optimal balance of speed and accuracy for detecting Type-1 through Type-3 code clones.
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **Files Analyzed** | 6 core modules |

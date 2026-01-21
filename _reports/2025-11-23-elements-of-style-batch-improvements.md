@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-23
-**Project**: PersonalSite Reports - Writing Quality Enhancement
-**Focus**: Systematic improvement of technical writing quality using automated style analysis and targeted fixes
+**Session Date**: 2025-11-23<br>
+**Project**: PersonalSite Reports - Writing Quality Enhancement<br>
+**Focus**: Systematic improvement of technical writing quality using automated style analysis and targeted fixes<br>
 
 ## Executive Summary
 

@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: AlephAuto (jobs)
-**Focus**: Fix critical retry logic bug and test path validation issues
+**Session Date**: 2025-11-17<br>
+**Project**: AlephAuto (jobs)<br>
+**Focus**: Fix critical retry logic bug and test path validation issues<br>
 
 ## Executive Summary
 

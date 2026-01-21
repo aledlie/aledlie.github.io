@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-18
-**Project**: AnalyticsBot - Multi-tenant Analytics Platform
-**Focus**: Migrate from auto-increment integers to UUID v7 for distributed system readiness
+**Session Date**: 2025-11-18<br>
+**Project**: AnalyticsBot - Multi-tenant Analytics Platform<br>
+**Focus**: Migrate from auto-increment integers to UUID v7 for distributed system readiness<br>
 
 ## Executive Summary
 

@@ -11,10 +11,10 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-29
-**Project**: Inspired Movement Dance Studio - Austin
+**Session Date**: 2025-11-29<br>
+**Project**: Inspired Movement Dance Studio - Austin<br>
 **Website**: [https://www.austininspiredmovement.com](https://www.austininspiredmovement.com)
-**Focus**: Comprehensive JSON-LD structured data impact assessment
+**Focus**: Comprehensive JSON-LD structured data impact assessment<br>
 
 ## Executive Summary
 

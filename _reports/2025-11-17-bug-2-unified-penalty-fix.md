@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-11-17
-**Project**: Code Consolidation System - Duplicate Detection Pipeline
-**Focus**: Fixing critical architectural bug in semantic penalty detection
+**Session Date**: 2025-11-17<br>
+**Project**: Code Consolidation System - Duplicate Detection Pipeline<br>
+**Focus**: Fixing critical architectural bug in semantic penalty detection<br>
 
 ## Executive Summary
 

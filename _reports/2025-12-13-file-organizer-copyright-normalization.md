@@ -11,9 +11,9 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-**Session Date**: 2025-12-13
-**Project**: schema-org-file-system - AI-Powered File Organization
-**Focus**: Normalize company names extracted from copyright notices to prevent duplicate organization folders
+**Session Date**: 2025-12-13<br>
+**Project**: schema-org-file-system - AI-Powered File Organization<br>
+**Focus**: Normalize company names extracted from copyright notices to prevent duplicate organization folders<br>
 **Session Type**: Feature Implementation
 
 ## Executive Summary
@@ -21,6 +21,7 @@ header:
 Enhanced the file organizer's company name handling to properly extract organization names from copyright notices. Previously, files containing "Copyright 2024 Google" in their content would create separate folders like `Organization/copyright 2024 Google/`, `Organization/copyright 2020 Google/`, etc. Now all such files are consolidated under `Organization/Google/`.
 
 **Key Metrics:**
+
 | Metric | Value |
 |--------|-------|
 | **New Functions Added** | 1 |
