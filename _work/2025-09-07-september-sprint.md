@@ -16,8 +16,8 @@ This was one of those productive weeks where everything just clicked. Here's wha
 
 ### Jekyll & Site Infrastructure
 - ✅ Fixed that annoying [build bug](https://vercel.com/aledlies-projects/aledlie/FPBXEKNx9KTEr2rvKMT5bWKcHXpZ?filter=errors) that only appeared in Vercel
-- ✅ Finished the homepage clone styling for Sumedh's website ahead of the 31st deadline
-- ✅ Wrote and posted the August 31st homepage post
+- ✅ Finished the homage clone styling for Sumedh's website ahead of the 31st deadline
+- ✅ Wrote and posted the August 31st Homage post
 
 ### Data & Analysis
 - ✅ Improved calendar scrapers & importers
