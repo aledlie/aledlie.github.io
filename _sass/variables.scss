@@ -170,9 +170,10 @@ $base0f: #ff5370 !default;
 
 $micro            : 30em;
 $small            : 37.5em;
-$medium           : 48em;
+$medium           : 48em;      // 768px at 16px base
 $medium-wide	  : 900px !default;
-$large            : 62em;
+$large            : 62em;      // 992px at 16px base
+$large-wide       : 64em;      // 1024px at 16px base
 $x-large          : 86.375em;
 $max-width	  : $x-large !default;
 

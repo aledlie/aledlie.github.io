@@ -621,7 +621,7 @@ a {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
+@media (max-width: $large-wide) {
   #page-wrapper {
     padding: 0.25rem;
   }
@@ -641,7 +641,7 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $medium) {
   .greedy-nav {
     padding: 0.1rem 0.5rem;
     flex-direction: column;
