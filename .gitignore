@@ -91,3 +91,7 @@ Desktop.ini
 # Repomix output files
 repomix-output.xml
 Claude.md
+
+# Utils generated artifacts
+utils/*.txt
+utils/*.png
