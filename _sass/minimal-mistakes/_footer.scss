@@ -48,14 +48,14 @@
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
-  color: #4a4a4a !important; /* WCAG AA compliant (7.4:1 on white) */
+  color: $footer-text-color !important;
 
   a {
-    color: #222 !important; /* WCAG AA compliant (14.0:1 on white) */
+    color: $footer-link-color !important;
     text-decoration: underline;
 
     &:hover {
-      color: #000 !important;
+      color: $footer-link-hover !important;
     }
   }
 }
@@ -75,7 +75,7 @@
     font-family: $sans-serif-narrow;
     font-size: $type-size-6;
     text-transform: uppercase;
-    color: #4a4a4a !important; /* WCAG AA compliant */
+    color: $footer-text-color !important;
   }
 
   li + li::before {
@@ -86,10 +86,10 @@
   a {
     padding-inline-end: 10px;
     font-weight: bold;
-    color: #222 !important; /* WCAG AA compliant (14.0:1 on white) */
+    color: $footer-link-color !important;
 
     &:hover {
-      color: #000 !important;
+      color: $footer-link-hover !important;
     }
   }
 

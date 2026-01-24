@@ -67,12 +67,7 @@ Alternate types for specific reports:
   "timeRequired": "PT{{ minutes | at_least: 1 }}M",
 
   {% comment %}Image{% endcomment %}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
-    "width": 1200,
-    "height": 630
-  },
+  {% include schema/_image.html %}
 
   {% comment %}Author and publisher via @id references{% endcomment %}
   "author": {

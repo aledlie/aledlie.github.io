@@ -4,15 +4,7 @@ layout: default
 
 {% include page-header.html %}
 
-{% assign breadcrumbs_enabled = site.breadcrumbs %}
-{% if page.breadcrumbs != null %}
-  {% assign breadcrumbs_enabled = page.breadcrumbs %}
-{% endif %}
-{% if page.url != "/" and breadcrumbs_enabled %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
+{% include breadcrumbs-wrapper.html %}
 
 <div id="page-wrapper">
   {% include sidebar.html %}
