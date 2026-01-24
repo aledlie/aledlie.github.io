@@ -100,7 +100,7 @@ body {
   padding: 0.25rem;
 
   // At desktop widths, don't clear the sidebar float so content appears beside it
-  @media (min-width: 62em) {  // At $large breakpoint and above
+  @media (min-width: $large) {
     clear: none !important;
     margin-top: 0 !important;
   }
@@ -116,7 +116,7 @@ body {
   padding: 0.75em 1em 1em;  /* Reduced from 2em for tighter composition */
 
   // Only apply flex centering on mobile - don't interfere with desktop float layout
-  @media (max-width: 61.9375em) {  // Below $large breakpoint
+  @media (max-width: $large - 0.0625em) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,7 +124,7 @@ body {
 
   // Remove clear on desktop so sidebar and content float side-by-side
   // Add left padding to center author profile in sidebar space
-  @media (min-width: 62em) {  // At $large breakpoint and above
+  @media (min-width: $large) {
     clear: none !important;
     padding-left: 1.5em;  /* Push content toward center of sidebar area */
   }
