@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.rubygems_version = "3.2.26".freeze
   s.summary = "Generates a visual dependency graph for your Gemfile".freeze
 
-  s.installed_by_version = "3.7.2".freeze
+  s.installed_by_version = "3.7.1".freeze
 end
