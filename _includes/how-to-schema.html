@@ -3,7 +3,6 @@
 HowTo Schema - For step-by-step instructional content
 Conditional include based on page.schema_type front matter
 References unified knowledge graph entities via @id
-Refactored to use schema partials for shared blocks
 
 Usage in post front matter:
 ---
@@ -22,8 +21,6 @@ schema_steps:
     text: "Run bundle install to install all required gems"
   - name: "Step 2: Update configuration"
     text: "Edit _config.yml and update Jekyll version"
-  - name: "Step 3: Test locally"
-    text: "Run bundle exec jekyll serve to test changes"
 ---
 
 Note: Steps can also be parsed from content if using structured headings
@@ -83,12 +80,10 @@ Note: Steps can also be parsed from content if using structured headings
       "name": {{ step.name | jsonify }},
       "text": {{ step.text | jsonify }}
       {% if step.url -%}
-      ,
-      "url": "{{ step.url | absolute_url }}"
+      ,"url": "{{ step.url | absolute_url }}"
       {% endif -%}
       {% if step.image -%}
-      ,
-      "image": {
+      ,"image": {
         "@type": "ImageObject",
         "url": "{{ step.image | absolute_url }}"
       }
@@ -103,9 +98,7 @@ Note: Steps can also be parsed from content if using structured headings
   "url": "{{ page.url | absolute_url }}",
 
   {% include schema/_keywords.html %}
-
-  "inLanguage": "{{ site.locale | default: 'en-US' }}",
-
+  {% include schema/_language.html %}
   {% include schema/_is-part-of.html %}
 }
 </script>

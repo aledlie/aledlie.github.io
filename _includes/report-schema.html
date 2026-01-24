@@ -13,10 +13,6 @@ schema_type: Report  # Optional if in reports collection
 schema_report_number: "2026-001"
 schema_about: "Claude Code Development"
 schema_genre: "Technical Report"  # or "Session Report", "Analysis", "Documentation"
-schema_keywords:
-  - "implementation"
-  - "testing"
-  - "deployment"
 ---
 
 Alternate types for specific reports:
@@ -49,78 +45,17 @@ Alternate types for specific reports:
   "genre": "Technical Report",
   {% endif -%}
 
-  {% comment %}Subject matter{% endcomment %}
-  {% if page.schema_about -%}
-  "about": {
-    "@type": "Thing",
-    "name": {{ page.schema_about | jsonify }}
-  },
-  {% endif -%}
-
-  {% comment %}Article body (truncated for schema){% endcomment %}
-  "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
-  "wordCount": {{ page.content | strip_html | number_of_words }},
-
-  {% comment %}Reading time{% endcomment %}
-  {% assign words = page.content | strip_html | number_of_words -%}
-  {% assign minutes = words | divided_by: 200 -%}
-  "timeRequired": "PT{{ minutes | at_least: 1 }}M",
-
-  {% comment %}Image{% endcomment %}
+  {% include schema/_about.html %}
+  {% include schema/_article-body.html %}
   {% include schema/_image.html %}
-
-  {% comment %}Author and publisher via @id references{% endcomment %}
-  "author": {
-    "@id": "{{ site.url }}#person"
-  },
-  "creator": {
-    "@id": "{{ site.url }}#person"
-  },
-  "publisher": {
-    "@id": "{{ site.url }}#person"
-  },
-
-  {% comment %}Dates{% endcomment %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif -%}
-
-  {% comment %}Main entity of page{% endcomment %}
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
-
-  {% comment %}Part of website{% endcomment %}
-  "isPartOf": {
-    "@id": "{{ site.url }}#website"
-  },
-
-  {% comment %}Keywords{% endcomment %}
-  {% if page.schema_keywords -%}
-  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
-  {% elsif page.tags -%}
-  "keywords": {{ page.tags | join: ", " | jsonify }},
-  {% endif -%}
-
-  {% comment %}Speakable for voice search{% endcomment %}
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".page__title", ".page__content p:first-of-type"]
-  },
-
-  {% comment %}Language{% endcomment %}
-  "inLanguage": "{{ site.locale | default: 'en-US' }}",
-
-  {% comment %}Copyright{% endcomment %}
-  "copyrightHolder": {
-    "@id": "{{ site.url }}#person"
-  },
-  "copyrightYear": "{{ page.date | date: '%Y' }}",
-  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  {% include schema/_author-publisher.html %}
+  {% include schema/_dates.html %}
+  {% include schema/_main-entity.html %}
+  {% include schema/_is-part-of.html %}
+  {% include schema/_keywords.html %}
+  {% include schema/_speakable.html %}
+  {% include schema/_language.html %}
+  {% include schema/_copyright.html %}
 }
 </script>
 {% endif %}
