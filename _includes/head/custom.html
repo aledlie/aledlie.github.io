@@ -1,8 +1,10 @@
 <!-- start custom head snippets -->
+{% if page.comments %}
   <link
     rel="stylesheet"
     href="https://unpkg.com/@waline/client@v3/dist/waline.css"
   />
+{% endif %}
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 {% include _google_tag_manager.html %}

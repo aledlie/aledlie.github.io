@@ -1,0 +1,115 @@
+# Social media platform definitions for author profile
+# Each platform defines: key, url_prefix, url_suffix (optional), icon, label
+# URL pattern: {url_prefix}{username}{url_suffix}
+
+- key: keybase
+  url_prefix: "https://keybase.io/"
+  icon: "fab fa-fw fa-keybase"
+  label: "Keybase"
+
+- key: twitter
+  url_prefix: "https://twitter.com/"
+  icon: "fab fa-fw fa-twitter-square"
+  label: "Twitter"
+
+- key: facebook
+  url_prefix: "https://www.facebook.com/"
+  icon: "fab fa-fw fa-facebook-square"
+  label: "Facebook"
+
+- key: linkedin
+  url_prefix: "https://www.linkedin.com/in/"
+  icon: "fab fa-fw fa-linkedin"
+  label: "LinkedIn"
+
+- key: xing
+  url_prefix: "https://www.xing.com/profile/"
+  icon: "fab fa-fw fa-xing-square"
+  label: "XING"
+
+- key: instagram
+  url_prefix: "https://instagram.com/"
+  icon: "fab fa-fw fa-instagram"
+  label: "Instagram"
+
+- key: tumblr
+  url_prefix: "https://"
+  url_suffix: ".tumblr.com"
+  icon: "fab fa-fw fa-tumblr-square"
+  label: "Tumblr"
+
+- key: bitbucket
+  url_prefix: "https://bitbucket.org/"
+  icon: "fab fa-fw fa-bitbucket"
+  label: "Bitbucket"
+
+- key: github
+  url_prefix: "https://github.com/"
+  icon: "fab fa-fw fa-github"
+  label: "GitHub"
+
+- key: gitlab
+  url_prefix: "https://gitlab.com/"
+  icon: "fab fa-fw fa-gitlab"
+  label: "GitLab"
+
+- key: stackoverflow
+  url_prefix: "https://stackoverflow.com/users/"
+  icon: "fab fa-fw fa-stack-overflow"
+  label: "Stack Overflow"
+
+- key: lastfm
+  url_prefix: "https://last.fm/user/"
+  icon: "fab fa-fw fa-lastfm-square"
+  label: "Last.fm"
+
+- key: dribbble
+  url_prefix: "https://dribbble.com/"
+  icon: "fab fa-fw fa-dribbble"
+  label: "Dribbble"
+
+- key: pinterest
+  url_prefix: "https://www.pinterest.com/"
+  icon: "fab fa-fw fa-pinterest"
+  label: "Pinterest"
+
+- key: foursquare
+  url_prefix: "https://foursquare.com/"
+  icon: "fab fa-fw fa-foursquare"
+  label: "Foursquare"
+
+- key: steam
+  url_prefix: "https://steamcommunity.com/id/"
+  icon: "fab fa-fw fa-steam"
+  label: "Steam"
+
+- key: youtube
+  url_prefix: "https://www.youtube.com/user/"
+  icon: "fab fa-fw fa-youtube"
+  label: "YouTube"
+  supports_full_url: true
+
+- key: soundcloud
+  url_prefix: "https://soundcloud.com/"
+  icon: "fab fa-fw fa-soundcloud"
+  label: "SoundCloud"
+
+- key: weibo
+  url_prefix: "https://www.weibo.com/"
+  icon: "fab fa-fw fa-weibo"
+  label: "Weibo"
+
+- key: flickr
+  url_prefix: "https://www.flickr.com/"
+  icon: "fab fa-fw fa-flickr"
+  label: "Flickr"
+
+- key: codepen
+  url_prefix: "https://codepen.io/"
+  icon: "fab fa-fw fa-codepen"
+  label: "CodePen"
+
+- key: vine
+  url_prefix: "https://vine.co/u/"
+  icon: "fab fa-fw fa-vine"
+  label: "Vine"
