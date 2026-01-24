@@ -40,10 +40,7 @@ schema_section: "Jekyll"
   "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
   {% include schema/_reading-time.html %}
 
-  {% include schema/_author-publisher.html %}
-  {% include schema/_dates.html %}
-  {% include schema/_image.html %}
-  {% include schema/_main-entity.html %}
+  {% include schema/_article-core.html %}
 
   "url": "{{ page.url | absolute_url }}",
 

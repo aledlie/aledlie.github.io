@@ -98,10 +98,7 @@ Note: Steps can also be parsed from content if using structured headings
   ],
   {% endif -%}
 
-  {% include schema/_author-publisher.html %}
-  {% include schema/_dates.html %}
-  {% include schema/_image.html %}
-  {% include schema/_main-entity.html %}
+  {% include schema/_article-core.html %}
 
   "url": "{{ page.url | absolute_url }}",
 

@@ -1,0 +1,9 @@
+{% comment %}
+Article Core Schema - Common includes for article-type schemas
+Used by: tech-article-schema, analysis-article-schema, how-to-schema
+DRY consolidation: These 4 includes appear together in the same order
+{% endcomment %}
+{% include schema/_author-publisher.html %}
+{% include schema/_dates.html %}
+{% include schema/_image.html %}
+{% include schema/_main-entity.html %}
