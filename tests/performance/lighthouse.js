@@ -7,7 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const {
   SERVER,
-  SCORE_THRESHOLDS: THRESHOLDS_0_1
+  SCORE_THRESHOLDS: THRESHOLDS_0_1,
+  TEST_PAGES
 } = require('../../config/constants');
 
 // Convert 0-1 scale to 0-100 for display/comparison
@@ -165,18 +166,12 @@ class PerformanceTestSuite {
   }
 
   async runFullSuite() {
-    const pagesToTest = [
-      { path: '/', name: 'Homepage' },
-      { path: '/about/', name: 'About Page' },
-      { path: '/posts/', name: 'Posts Page' }
-    ];
-
     console.log('Starting comprehensive performance test suite...\n');
 
     await this.setup();
 
     try {
-      for (const page of pagesToTest) {
+      for (const page of TEST_PAGES) {
         await this.testPage(page.path, page.name);
         // Small delay between tests
         await new Promise(resolve => setTimeout(resolve, 1000));

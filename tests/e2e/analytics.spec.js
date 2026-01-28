@@ -1,5 +1,8 @@
 const { test, expect } = require('@playwright/test');
-const { PERFORMANCE } = require('../../config/constants');
+const { PERFORMANCE, IGNORED_CONSOLE_ERRORS } = require('../../config/constants');
+
+// Helper to check if error should be ignored
+const isIgnoredError = (text) => IGNORED_CONSOLE_ERRORS.some(pattern => text.includes(pattern));
 
 /**
  * Simplified Analytics Tests
@@ -123,17 +126,7 @@ test.describe('Site Functionality Without Analytics', () => {
     page.on('console', msg => {
       if (msg.type() === 'error') {
         const text = msg.text();
-        // Filter out expected errors from external resources, analytics, and third-party cookies
-        if (!text.includes('gtag') &&
-            !text.includes('analytics') &&
-            !text.includes('ERR_FAILED') &&
-            !text.includes('net::') &&
-            !text.includes('Failed to load resource') &&
-            !text.includes('422') &&
-            !text.includes('googletagmanager') &&
-            !text.includes('Cookie') &&
-            !text.includes('_fbp') &&
-            !text.includes('facebook')) {
+        if (!isIgnoredError(text)) {
           criticalErrors.push(text);
         }
       }

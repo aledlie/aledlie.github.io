@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { injectAxe, checkA11y } = require('axe-playwright');
-const { VIEWPORTS } = require('../../config/constants');
+const { VIEWPORTS, WCAG_COLORS, E2E_TIMEOUTS } = require('../../config/constants');
 
 /**
  * Simplified Accessibility Tests
@@ -26,14 +26,14 @@ async function waitForStyles(page) {
     const hasFontFamily = fontFamily.includes('apple') || fontFamily.includes('roboto') ||
            fontFamily.includes('segoe') || fontFamily.includes('helvetica') ||
            fontFamily.includes('sans-serif');
-    // Also check color - our WCAG fix uses #4a4a4a which is rgb(74, 74, 74)
+    // Also check color - our WCAG fix uses accessible colors
     const color = style.color;
-    const hasCorrectColor = color === 'rgb(74, 74, 74)' || color === 'rgb(34, 34, 34)' ||
+    const hasCorrectColor = color === WCAG_COLORS.footerText || color === WCAG_COLORS.bodyText ||
            color.includes('74') || color.includes('34');
     return hasFontFamily && hasCorrectColor;
-  }, { timeout: 10000 }).catch(() => {});
+  }, { timeout: E2E_TIMEOUTS.styleLoadMs }).catch(() => {});
   // Additional delay to ensure CSS is fully parsed and applied
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(E2E_TIMEOUTS.shortDelayMs);
 }
 
 test.describe('Core Accessibility', () => {

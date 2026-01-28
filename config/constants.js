@@ -58,6 +58,39 @@ const LIGHTHOUSE_CONFIG = {
   numberOfRuns: 3
 };
 
+// Test pages (commonly tested URLs)
+const TEST_PAGES = [
+  { path: '/', name: 'Homepage' },
+  { path: '/about/', name: 'About Page' },
+  { path: '/posts/', name: 'Posts Page' }
+];
+
+// Console error patterns to ignore in E2E tests
+const IGNORED_CONSOLE_ERRORS = [
+  'gtag',
+  'analytics',
+  'ERR_FAILED',
+  'net::',
+  'Failed to load resource',
+  'googletagmanager',
+  '422',
+  'Cookie',
+  '_fbp',
+  'facebook'
+];
+
+// WCAG-compliant colors for validation (RGB format from computed styles)
+const WCAG_COLORS = {
+  footerText: 'rgb(74, 74, 74)',  // #4a4a4a
+  bodyText: 'rgb(34, 34, 34)'     // #222222
+};
+
+// E2E test timeouts
+const E2E_TIMEOUTS = {
+  styleLoadMs: 10000,
+  shortDelayMs: 500
+};
+
 module.exports = {
   SERVER,
   VIEWPORTS,
@@ -66,5 +99,9 @@ module.exports = {
   ANALYTICS,
   SCORE_THRESHOLDS,
   WEB_VITALS,
-  LIGHTHOUSE_CONFIG
+  LIGHTHOUSE_CONFIG,
+  TEST_PAGES,
+  IGNORED_CONSOLE_ERRORS,
+  WCAG_COLORS,
+  E2E_TIMEOUTS
 };

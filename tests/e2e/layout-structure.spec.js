@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { TEST_PAGES } = require('../../config/constants');
 
 /**
  * Layout Structure Tests
@@ -223,9 +224,7 @@ test.describe('Layout Regression Tests', () => {
   });
 
   test('pages should not reference removed layouts', async ({ page }) => {
-    const pagesToTest = ['/', '/about/', '/posts/'];
-
-    for (const path of pagesToTest) {
+    for (const { path } of TEST_PAGES) {
       await page.goto(path);
 
       // Should load without errors
