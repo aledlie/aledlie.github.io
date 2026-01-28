@@ -5,15 +5,15 @@
 
 const fs = require('fs');
 const path = require('path');
-const { SERVER } = require('../../config/constants');
+const {
+  SERVER,
+  SCORE_THRESHOLDS: THRESHOLDS_0_1
+} = require('../../config/constants');
 
-// Lighthouse score thresholds (0-100 scale)
-const SCORE_THRESHOLDS = {
-  performance: 70,
-  accessibility: 95,
-  bestPractices: 75,
-  seo: 95
-};
+// Convert 0-1 scale to 0-100 for display/comparison
+const SCORE_THRESHOLDS = Object.fromEntries(
+  Object.entries(THRESHOLDS_0_1).map(([k, v]) => [k, v * 100])
+);
 
 // Retry configuration
 const RETRY_CONFIG = {

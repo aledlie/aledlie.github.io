@@ -1,26 +1,9 @@
-const { SERVER } = require('./constants');
-
-// Lighthouse score thresholds (0-1 scale)
-const SCORE_THRESHOLDS = {
-  performance: 0.85,
-  accessibility: 0.95,
-  bestPractices: 0.90,
-  seo: 0.95
-};
-
-// Core Web Vitals thresholds (milliseconds unless noted)
-const WEB_VITALS = {
-  firstContentfulPaint: 2000,
-  largestContentfulPaint: 3000,
-  speedIndex: 4000,
-  totalBlockingTime: 300,
-  cumulativeLayoutShift: 0.1  // unitless
-};
-
-// Lighthouse-specific configuration (extends shared SERVER constants)
-const LIGHTHOUSE_CONFIG = {
-  numberOfRuns: 3
-};
+const {
+  SERVER,
+  SCORE_THRESHOLDS,
+  WEB_VITALS,
+  LIGHTHOUSE_CONFIG
+} = require('./constants');
 
 module.exports = {
   ci: {

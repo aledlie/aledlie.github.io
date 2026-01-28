@@ -36,10 +36,35 @@ const ANALYTICS = {
   GA_CONSENT_PENDING: 9
 };
 
+// Lighthouse score thresholds (0-1 scale, canonical source)
+const SCORE_THRESHOLDS = {
+  performance: 0.85,
+  accessibility: 0.95,
+  bestPractices: 0.90,
+  seo: 0.95
+};
+
+// Core Web Vitals thresholds (milliseconds unless noted)
+const WEB_VITALS = {
+  firstContentfulPaint: 2000,
+  largestContentfulPaint: 3000,
+  speedIndex: 4000,
+  totalBlockingTime: 300,
+  cumulativeLayoutShift: 0.1  // unitless
+};
+
+// Lighthouse-specific configuration
+const LIGHTHOUSE_CONFIG = {
+  numberOfRuns: 3
+};
+
 module.exports = {
   SERVER,
   VIEWPORTS,
   PERFORMANCE,
   HTTP_STATUS,
-  ANALYTICS
+  ANALYTICS,
+  SCORE_THRESHOLDS,
+  WEB_VITALS,
+  LIGHTHOUSE_CONFIG
 };
