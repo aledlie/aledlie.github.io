@@ -43,7 +43,7 @@ A comprehensive guide to minimizing context usage, optimizing token consumption,
 
 ## Executive Summary
 
-Context management is now recognized as "effectively the #1 job" for engineers building AI agents. As Anthropic emphasizes: **"Claude is already smart enough--intelligence is not the bottleneck, context is."** Research shows that for many LLMs, performance degrades significantly as context length increases, with 11 out of 12 tested models dropping below 50% performance at 32k tokens.
+Context management is now recognized as "effectively the #1 job" for engineers building AI agents. As Anthropic emphasizes: **"Claude is already smart enough--intelligence is not the bottleneck, context is."** Research shows that for many LLMs, performance degrades significantly as context length increases, with 11 out of 12 tested models dropped below 50% performance at 32k tokens.
 
 **Key metrics from optimization efforts:**
 - 54-62% reduction in startup tokens through tiered documentation
