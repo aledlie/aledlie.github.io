@@ -1,9 +1,12 @@
 import argparse
+import logging
 import matplotlib.pyplot as plt
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+
+logger = logging.getLogger(__name__)
 from constants import (
     HOURS_IN_DAY, HOUR_INDEX_MIN, HOUR_INDEX_MAX,
     FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT, SAVE_DPI_HIGH, GRID_ALPHA
@@ -23,7 +26,7 @@ def plot_commits_by_hour(input_file='commit_counts.txt', output_file='images/com
         with open(input_file, 'r') as file:
             lines = file.readlines()
     except FileNotFoundError:
-        print(f"Error: {input_file} not found")
+        logger.error("File not found: %s", input_file)
         return
 
     # Parse hours and counts, aggregating duplicates
@@ -32,17 +35,17 @@ def plot_commits_by_hour(input_file='commit_counts.txt', output_file='images/com
         try:
             parts = line.strip().split()
             if len(parts) != 2:
-                print(f"Warning: Skipping malformed line: {line.strip()}")
+                logger.warning("Skipping malformed line: %s", line.strip())
                 continue
             hour, count = parts
             hour_int = int(hour)
             if not (HOUR_INDEX_MIN <= hour_int <= HOUR_INDEX_MAX):
-                print(f"Warning: Skipping invalid hour {hour} in line: {line.strip()}")
+                logger.warning("Skipping invalid hour %s in line: %s", hour, line.strip())
                 continue
             count = int(count)
             hour_counts[hour_int] = hour_counts.get(hour_int, 0) + count
         except (ValueError, IndexError):
-            print(f"Warning: Skipping malformed line: {line.strip()}")
+            logger.warning("Skipping malformed line: %s", line.strip())
             continue
 
     # Ensure all 24 hours are present
@@ -62,7 +65,7 @@ def plot_commits_by_hour(input_file='commit_counts.txt', output_file='images/com
     plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
     plt.close()
 
-    print(f"Bar graph saved as {output_file}")
+    logger.info("Bar graph saved as %s", output_file)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate bar graph of commits by hour')

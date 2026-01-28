@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 
-import matplotlib.pyplot as plt
-import re
 import argparse
+import logging
+import re
 import sys
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+
+logger = logging.getLogger(__name__)
 from constants import FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT, SAVE_DPI_HIGH, XLABEL_ROTATION
 
 def parse_results(file_path):
@@ -24,14 +28,14 @@ def parse_results(file_path):
                     categories.append(f"{start}-{end}")
                     days.append(int(count))
         if not categories:
-            print("No commit distribution data found in the file.")
+            logger.warning("No commit distribution data found in the file")
             return None, None
         return categories, days
     except FileNotFoundError:
-        print(f"Error: File '{file_path}' not found.")
+        logger.error("File not found: %s", file_path)
         return None, None
     except Exception as e:
-        print(f"Error parsing file: {e}")
+        logger.error("Error parsing file: %s", e)
         return None, None
 
 def plot_bar_chart(categories, days, output_file):
@@ -45,7 +49,7 @@ def plot_bar_chart(categories, days, output_file):
     plt.tight_layout()
     plt.savefig(output_file, dpi=SAVE_DPI_HIGH)
     plt.close()
-    print(f"Bar chart saved as '{output_file}'")
+    logger.info("Bar chart saved as %s", output_file)
 
 def main():
     # Parse command-line arguments

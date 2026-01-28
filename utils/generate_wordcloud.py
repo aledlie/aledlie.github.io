@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Generate a word cloud from commit messages."""
 
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+import logging
 import re
 import sys
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+
+logger = logging.getLogger(__name__)
 from constants import (
     WORDCLOUD_WIDTH, WORDCLOUD_HEIGHT, WORDCLOUD_MAX_FONT_SIZE, WORDCLOUD_PREFER_HORIZONTAL,
     FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, SAVE_DPI_STANDARD
@@ -73,7 +77,7 @@ def generate_wordcloud(input_file='commit_messages.txt', output_file='images/com
     plt.savefig(output_file, dpi=SAVE_DPI_STANDARD, bbox_inches='tight', facecolor='white')
     plt.close()
 
-    print(f"Word cloud saved as '{output_file}'")
+    logger.info("Word cloud saved as %s", output_file)
 
 if __name__ == '__main__':
     generate_wordcloud()

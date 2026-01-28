@@ -1,49 +1,37 @@
-import matplotlib.pyplot as plt
+"""Plot commits by month - DRY refactored."""
+import logging
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
-from constants import (
-    MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,
-    FIGURE_SIZE_SQUARE, PIE_START_ANGLE, SAVE_DPI_HIGH
-)
 
-def plot_pie_month(input_file='commit_counts_month.txt', output_file='images/commits_by_month.png', title='Commits by Month'):
-    """
-    Generate a pie chart of commit counts by month from a file and save it as a PNG.
-    """
-    # Read the input file
+logger = logging.getLogger(__name__)
+from constants import MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX, FIGURE_SIZE_SQUARE
+from plot_utils import read_count_file, create_pie_chart, save_chart
+
+MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+
+def plot_pie_month(
+    input_file: str = 'commit_counts_month.txt',
+    output_file: str = 'images/commits_by_month.png',
+    title: str = 'Commits by Month'
+) -> None:
+    """Generate a pie chart of commit counts by month."""
     try:
-        with open(input_file, 'r') as file:
-            lines = file.readlines()
+        month_counts = read_count_file(
+            input_file, MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX, index_offset=1
+        )
     except FileNotFoundError:
-        print(f"Error: {input_file} not found")
+        logger.error("File not found: %s", input_file)
         return
 
-    # Parse month counts
-    month_counts = [0] * MONTHS_IN_YEAR
-    for line in lines:
-        try:
-            parts = line.strip().split()
-            if len(parts) != 2:
-                continue
-            month = int(parts[0])
-            count = int(parts[1])
-            if MONTH_INDEX_MIN <= month <= MONTH_INDEX_MAX:
-                month_counts[month - 1] = count
-        except ValueError:
-            continue
+    create_pie_chart(
+        month_counts, MONTH_LABELS, title, (FIGURE_SIZE_SQUARE, FIGURE_SIZE_SQUARE)
+    )
+    save_chart(output_file)
 
-    # Labels
-    month_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    # Create pie chart
-    plt.figure(figsize=(FIGURE_SIZE_SQUARE, FIGURE_SIZE_SQUARE))
-    plt.pie(month_counts, labels=month_labels, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
-    plt.title(title)
-
-    # Save as PNG
-    plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
-    plt.close()
-
-    print(f"Pie chart for month saved as {output_file}")
+if __name__ == '__main__':
+    plot_pie_month()

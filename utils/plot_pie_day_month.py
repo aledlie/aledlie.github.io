@@ -1,76 +1,59 @@
-import matplotlib.pyplot as plt
+"""Plot commits by day and month combined - DRY refactored."""
+import logging
 import sys
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+
+logger = logging.getLogger(__name__)
 from constants import (
     DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX,
     MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,
-    FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, PIE_START_ANGLE, SAVE_DPI_HIGH
+    FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, PIE_START_ANGLE
 )
+from plot_utils import read_count_file, save_chart
 
-def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_counts_month.txt', output_file='images/commits_by_day_month.png', title='Commits by Day of Week and Month'):
-    """
-    Generate two pie charts: one for commits by day of week and one for commits by month, and save them in a single PNG.
+DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    Args:
-        day_file (str): Path to the day counts file (default: 'commit_counts_day.txt').
-        month_file (str): Path to the month counts file (default: 'commit_counts_month.txt').
-        output_file (str): Path to save the output PNG (default: 'commits_by_day_month.png').
-        title (str): Main title of the plot (default: 'Commits by Day of Week and Month').
-    """
-    # Read day file (0: Sun, 1: Mon, ..., 6: Sat)
-    day_counts = [0] * DAYS_IN_WEEK
+
+def plot_pie_day_month(
+    day_file: str = 'commit_counts_day.txt',
+    month_file: str = 'commit_counts_month.txt',
+    output_file: str = 'images/commits_by_day_month.png',
+    title: str = 'Commits by Day of Week and Month'
+) -> None:
+    """Generate two pie charts: commits by day and by month."""
     try:
-        with open(day_file, 'r') as f:
-            for line in f:
-                parts = line.strip().split()
-                if len(parts) == 2:
-                    day = int(parts[0])
-                    count = int(parts[1])
-                    if DAY_INDEX_MIN <= day <= DAY_INDEX_MAX:
-                        day_counts[day] = count
+        day_counts = read_count_file(
+            day_file, DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX
+        )
     except FileNotFoundError:
-        print(f"Error: {day_file} not found")
+        logger.error("File not found: %s", day_file)
         return
 
-    # Read month file (1: Jan, 2: Feb, ..., 12: Dec)
-    month_counts = [0] * MONTHS_IN_YEAR
     try:
-        with open(month_file, 'r') as f:
-            for line in f:
-                parts = line.strip().split()
-                if len(parts) == 2:
-                    month = int(parts[0])
-                    count = int(parts[1])
-                    if MONTH_INDEX_MIN <= month <= MONTH_INDEX_MAX:
-                        month_counts[month - 1] = count
+        month_counts = read_count_file(
+            month_file, MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX, index_offset=1
+        )
     except FileNotFoundError:
-        print(f"Error: {month_file} not found")
+        logger.error("File not found: %s", month_file)
         return
 
-    # Labels
-    day_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    month_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-    # Create figure with two subplots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(FIGURE_WIDTH_LARGE, FIGURE_HEIGHT))
     fig.suptitle(title)
 
-    # Pie for day of week
-    ax1.pie(day_counts, labels=day_labels, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
+    ax1.pie(day_counts, labels=DAY_LABELS, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
     ax1.set_title('Commits by Day of Week')
 
-    # Pie for month
-    ax2.pie(month_counts, labels=month_labels, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
+    ax2.pie(month_counts, labels=MONTH_LABELS, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
     ax2.set_title('Commits by Month')
 
-    # Save
-    plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
-    plt.close()
+    save_chart(output_file)
 
-    print(f"Pie charts saved as {output_file}")
 
 if __name__ == '__main__':
-    # Default behavior when run directly
     plot_pie_day_month()

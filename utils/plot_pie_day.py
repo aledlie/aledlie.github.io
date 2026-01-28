@@ -1,49 +1,36 @@
-import matplotlib.pyplot as plt
+"""Plot commits by day of week - DRY refactored."""
+import logging
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
-from constants import (
-    DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX,
-    FIGURE_SIZE_SQUARE, PIE_START_ANGLE, SAVE_DPI_HIGH
-)
 
-def plot_pie_day(input_file='commit_counts_day.txt', output_file='images/commits_by_day.png', title='Commits by Day of Week'):
-    """
-    Generate a pie chart of commit counts by day of week from a file and save it as a PNG.
-    """
-    # Read the input file
+logger = logging.getLogger(__name__)
+from constants import DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX, FIGURE_SIZE_SQUARE
+from plot_utils import read_count_file, create_pie_chart, save_chart
+
+DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+
+def plot_pie_day(
+    input_file: str = 'commit_counts_day.txt',
+    output_file: str = 'images/commits_by_day.png',
+    title: str = 'Commits by Day of Week'
+) -> None:
+    """Generate a pie chart of commit counts by day of week."""
     try:
-        with open(input_file, 'r') as file:
-            lines = file.readlines()
+        day_counts = read_count_file(
+            input_file, DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX
+        )
     except FileNotFoundError:
-        print(f"Error: {input_file} not found")
+        logger.error("File not found: %s", input_file)
         return
 
-    # Parse day counts
-    day_counts = [0] * DAYS_IN_WEEK
-    for line in lines:
-        try:
-            parts = line.strip().split()
-            if len(parts) != 2:
-                continue
-            day = int(parts[0])
-            count = int(parts[1])
-            if DAY_INDEX_MIN <= day <= DAY_INDEX_MAX:
-                day_counts[day] = count
-        except ValueError:
-            continue
+    create_pie_chart(
+        day_counts, DAY_LABELS, title, (FIGURE_SIZE_SQUARE, FIGURE_SIZE_SQUARE)
+    )
+    save_chart(output_file)
 
-    # Labels
-    day_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-    # Create pie chart
-    plt.figure(figsize=(FIGURE_SIZE_SQUARE, FIGURE_SIZE_SQUARE))
-    plt.pie(day_counts, labels=day_labels, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
-    plt.title(title)
-
-    # Save as PNG
-    plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
-    plt.close()
-
-    print(f"Pie chart for day saved as {output_file}")
+if __name__ == '__main__':
+    plot_pie_day()

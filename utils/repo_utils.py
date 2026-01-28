@@ -1,5 +1,8 @@
 """Shared utility functions for repository operations."""
+import logging
 import subprocess
+
+logger = logging.getLogger(__name__)
 
 
 def get_repo_name() -> str | None:
@@ -13,5 +16,5 @@ def get_repo_name() -> str | None:
         repo_name = result.split(": ")[1].strip()
         return repo_name
     except (subprocess.CalledProcessError, IndexError):
-        print("Error: Could not get repository name from get_repo_name.sh")
+        logger.error("Could not get repository name from get_repo_name.sh")
         return None
