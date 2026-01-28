@@ -35,6 +35,7 @@
       {% endif %}
     </div>
   {% else %}
+    {% comment %}WebP files load faster (35-75% smaller). Ensure .webp version exists for each header image.{% endcomment %}
     {% assign hero_webp = page.header.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
     <picture>
       <source srcset="{{ hero_webp | relative_url }}" type="image/webp">
