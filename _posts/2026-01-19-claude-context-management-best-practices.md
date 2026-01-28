@@ -22,6 +22,19 @@ schema_dependencies: "Claude Code, Anthropic API, MCP Servers"
 schema_proficiency: "Intermediate to Advanced"
 schema_section: "AI Development"
 schema_about: "Claude Context Management and Token Optimization"
+
+# FAQPage Schema - Common questions about Claude context management
+schema_faq:
+  - question: "What is the context window limit for Claude?"
+    answer: "Standard users have a 200,000 token context window. Advanced (Tier 4+) users can access up to 1,000,000 tokens with premium pricing (2x input, 1.5x output) above 200K tokens."
+  - question: "How do I reduce token usage in Claude Code?"
+    answer: "Key strategies include: using /compact at 70% capacity, delegating verbose operations to subagents, truncating bash output with pipes to head/tail, using Grep with output_mode 'files_with_matches', and disabling unused MCP servers."
+  - question: "What is MCP Tool Search and how does it help?"
+    answer: "MCP Tool Search loads tools on-demand rather than upfront, reducing token overhead by up to 85%. It activates automatically when tools exceed a threshold. Configure with ENABLE_TOOL_SEARCH=auto environment variable."
+  - question: "When should I use /clear vs /compact in Claude Code?"
+    answer: "Use /clear when less than 50% of context is relevant (between tasks, after commits). Use /compact at 70% capacity to summarize conversation while preserving important context at logical breakpoints."
+  - question: "How can I optimize large file reads in Claude Code?"
+    answer: "Use offset and limit parameters to read specific portions, use Grep to search for specific content first, set MAX_MCP_OUTPUT_TOKENS environment variable for larger files, and focus on one directory at a time."
 ---
 
 A comprehensive guide to minimizing context usage, optimizing token consumption, and maximizing efficiency when working with Claude Code and the Claude API.

@@ -9,6 +9,35 @@ header:
   teaser: /assets/images/cover-work.png
 toc: true
 toc_sticky: true
+
+# HowTo Schema - Step-by-step setup guide
+schema_type: HowTo
+schema_total_time: "PT45M"
+schema_estimated_cost: "0"
+schema_cost_currency: "USD"
+schema_tools:
+  - "Text editor or IDE"
+  - "Terminal"
+  - "Node.js runtime"
+schema_supplies:
+  - "SigNoz Cloud account"
+  - "Doppler CLI (optional)"
+  - "OpenTelemetry SDK"
+schema_steps:
+  - name: "Configure environment variables"
+    text: "Add OTEL_ENABLED, SIGNOZ_ENABLED, OTEL_EXPORTER_OTLP_ENDPOINT, and SIGNOZ_INGESTION_KEY to ~/.claude/.envrc"
+  - name: "Initialize telemetry in your code"
+    text: "Import and call initTelemetry() from the otel library at application startup"
+  - name: "Wrap operations in spans"
+    text: "Use withSpan() to wrap async functions for tracing, passing operation name and attributes"
+  - name: "Record custom metrics"
+    text: "Use recordMetric() and recordGauge() to track custom application metrics"
+  - name: "Add structured logging"
+    text: "Use logger.info(), logger.warn(), and logger.error() for correlated log output"
+  - name: "Configure Langtrace for LLM tracking"
+    text: "Call initLangtrace() to enable automatic LLM provider instrumentation with PII redaction"
+  - name: "Verify telemetry export"
+    text: "Check ~/.claude/telemetry/ for local JSONL files and SigNoz dashboard for remote data"
 ---
 
 A comprehensive guide to the production-grade observability system for Claude Code hooks using OpenTelemetry, Langtrace, and SigNoz.
