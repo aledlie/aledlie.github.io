@@ -1,3 +1,8 @@
+"""Generate commits-by-day/month pie charts for the current repository.
+
+Wrapper script that creates repository-specific pie charts with customized
+title and output filename based on the current git repository name.
+"""
 from plot_pie_day_month import plot_pie_day_month
 from repo_utils import get_repo_name
 

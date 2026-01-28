@@ -1,4 +1,8 @@
-from typing import Any
+"""MCP server for generating git commit visualization charts.
+
+Provides tools for generating bar and pie charts showing commit distributions
+by hour, day of week, and month for the current git repository.
+"""
 import subprocess
 from mcp.server.fastmcp import FastMCP
 from repo_utils import get_repo_name

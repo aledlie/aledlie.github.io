@@ -1,3 +1,8 @@
+"""Generate commits-by-hour bar chart for the current repository.
+
+Wrapper script that creates a repository-specific chart with customized
+title and output filename based on the current git repository name.
+"""
 from plot_commits_by_hour import plot_commits_by_hour
 from repo_utils import get_repo_name
 
