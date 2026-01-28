@@ -52,7 +52,7 @@ def plot_bar_chart(categories, days, output_file):
     logger.info("Bar chart saved as %s", output_file)
 
 def main():
-    # Parse command-line arguments
+    """Parse arguments and generate commit distribution bar chart."""
     parser = argparse.ArgumentParser(description='Plot commit distribution as a bar chart.')
     parser.add_argument('-i', '--input', default='average_commits.txt', help='Input file with commit data (default: results.txt)')
     parser.add_argument('-o', '--output', default='images/average_commits.png', help='Output file for the bar chart (default: images/average_commits.png)')
