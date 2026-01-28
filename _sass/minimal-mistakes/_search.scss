@@ -33,13 +33,13 @@
 .search-content {
   display: none;
   visibility: hidden;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
 
   &__inner-wrap {
     width: 100%;
     margin-inline: auto;
-    padding-inline: 1em;
+    padding-inline: $spacing-md;
     animation: $intro-transition;
     animation-delay: 0.15s;
 
@@ -88,7 +88,7 @@
   }
 
   .archive__item {
-    margin-bottom: 2em;
+    margin-bottom: $spacing-xl-em;
 
     @include breakpoint($large) {
       width: 75%;
@@ -112,7 +112,7 @@
 
 .ais-search-box {
   max-width: 100% !important;
-  margin-bottom: 2em;
+  margin-bottom: $spacing-xl-em;
 }
 
 .archive__item-title .ais-Highlight {

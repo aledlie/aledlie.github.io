@@ -13,7 +13,7 @@
 
   margin: 0 auto;
   max-width: 100%;
-  padding-inline: 1em;
+  padding-inline: $spacing-md;
   font-family: $sans-serif;
   animation: $intro-transition;
   animation-delay: 0.3s;
@@ -54,8 +54,8 @@
   @include clearfix;
 
   float: inline-start;
-  margin-top: 1em;
-  padding-top: 1em;
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
   width: 100%;
 
   ul {
@@ -121,7 +121,7 @@
   /* next/previous buttons */
   &--pager {
     display: block;
-    padding: 1em 2em;
+    padding: $spacing-md $spacing-xl-em;
     float: inline-start;
     width: 50%;
     font-family: $sans-serif;
@@ -160,8 +160,8 @@
 .page__meta + .pagination,
 .page__share + .pagination,
 .page__comments + .pagination {
-  margin-top: 2em;
-  padding-top: 2em;
+  margin-top: $spacing-xl-em;
+  padding-top: $spacing-xl-em;
   border-top: 1px solid $border-color;
 }
 
@@ -353,7 +353,7 @@
       &::after {
         content: "";
         position: absolute;
-        inset-inline-end: 1em;
+        inset-inline-end: $spacing-md;
         top: 1.25em;
         width: 0.75em;
         height: 0.125em;
@@ -399,7 +399,7 @@
     }
 
     ul {
-      margin-bottom: 1em;
+      margin-bottom: $spacing-md;
     }
 
     a {
@@ -449,7 +449,7 @@
     max-height: 9999px; /* exaggerate max-height to accommodate tall lists */
     overflow: visible;
     opacity: 1;
-    margin-top: 1em;
+    margin-top: $spacing-md;
     transform: translate(0, 0);
   }
 }

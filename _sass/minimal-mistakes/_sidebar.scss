@@ -42,8 +42,8 @@
   }
 
   > * {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-md;
   }
 
   h2,
@@ -73,7 +73,7 @@
 }
 
 .sidebar__right {
-  margin-bottom: 1em;
+  margin-bottom: $spacing-md;
 
   @include breakpoint($large) {
     position: absolute;
@@ -81,14 +81,14 @@
     inset-inline-end: 0;
     width: $right-sidebar-width-narrow;
     margin-inline-end: -1 * $right-sidebar-width-narrow;
-    padding-inline-start: 1em;
+    padding-inline-start: $spacing-md;
     z-index: 10;
 
     &.sticky {
       @include clearfix;
 
       position: sticky;
-      top: 2em;
+      top: $spacing-xl-em;
       float: inline-end;
 
       .toc {
@@ -336,7 +336,7 @@
    ========================================================================== */
 
 .wide .sidebar__right {
-  margin-bottom: 1em;
+  margin-bottom: $spacing-md;
 
   @include breakpoint($large) {
     position: initial;
