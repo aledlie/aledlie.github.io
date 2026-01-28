@@ -3,6 +3,14 @@
  * Centralizes magic numbers for maintainability
  */
 
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
+
+// Load _config.yml as single source of truth for site configuration
+const configPath = path.join(__dirname, '..', '_config.yml');
+const siteConfig = yaml.load(fs.readFileSync(configPath, 'utf8'));
+
 // Server configuration (DRY consolidation)
 const SERVER = {
   port: 4000,
@@ -31,12 +39,13 @@ const HTTP_STATUS = {
   NOT_FOUND: 404
 };
 
-// Analytics IDs and configuration (canonical source - mirrors _config.yml)
+// Analytics IDs and configuration (loaded from _config.yml)
 const ANALYTICS = {
-  GA4_TRACKING_ID: 'G-J7TL7PQH7S',
-  GTM_CONTAINER_ID: 'GTM-NR4GGH5K',
-  FACEBOOK_PIXEL_ID: '685721201205820',
-  GOOGLE_SITE_VERIFICATION: 'N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM',
+  GA4_TRACKING_ID: siteConfig.analytics?.google?.tracking_id,
+  GTM_CONTAINER_ID: siteConfig.analytics?.google_tag_manager?.container_id,
+  FACEBOOK_PIXEL_ID: siteConfig.analytics?.facebook_pixel?.pixel_id,
+  GOOGLE_SITE_VERIFICATION: siteConfig.google_site_verification,
+  // Test-only constants (not in _config.yml)
   GA_CONSENT_PENDING: 9
 };
 
@@ -107,6 +116,17 @@ const E2E_TIMEOUTS = {
   shortDelayMs: 500
 };
 
+// Site configuration from _config.yml
+const SITE = {
+  url: siteConfig.url,
+  domain: new URL(siteConfig.url).hostname.replace('www.', ''),
+  githubUsername: siteConfig.github_username,
+  get githubUrl() { return `https://github.com/${this.githubUsername}`; }
+};
+
+// Legacy export for backwards compatibility
+const SITE_URL = SITE.url;
+
 module.exports = {
   SERVER,
   VIEWPORTS,
@@ -119,5 +139,8 @@ module.exports = {
   TEST_PAGES,
   IGNORED_CONSOLE_ERRORS,
   WCAG_COLORS,
-  E2E_TIMEOUTS
+  E2E_TIMEOUTS,
+  SITE,
+  SITE_URL,  // Legacy alias for SITE.url
+  siteConfig  // Full config for advanced use cases
 };

@@ -3,14 +3,16 @@
  * Tests performance metrics that Google uses for ranking
  */
 
-// Core Web Vitals thresholds (Google's "good" ratings)
+const { WEB_VITALS } = require('../../config/constants');
+
+// Alias constants for test readability
 const THRESHOLDS = {
-  LCP_GOOD_MS: 2500,        // Largest Contentful Paint
-  FID_GOOD_MS: 100,         // First Input Delay
-  CLS_GOOD: 0.1,            // Cumulative Layout Shift
-  FCP_GOOD_MS: 1800,        // First Contentful Paint
-  TTI_GOOD_MS: 3800,        // Time to Interactive
-  MAIN_THREAD_BUDGET_MS: 50 // Long task threshold
+  LCP_GOOD_MS: WEB_VITALS.largestContentfulPaint,
+  FID_GOOD_MS: WEB_VITALS.firstInputDelay,
+  CLS_GOOD: WEB_VITALS.cumulativeLayoutShift,
+  FCP_GOOD_MS: WEB_VITALS.firstContentfulPaint,
+  TTI_GOOD_MS: WEB_VITALS.timeToInteractive,
+  MAIN_THREAD_BUDGET_MS: WEB_VITALS.mainThreadBudget
 };
 
 // Mock timing values for tests

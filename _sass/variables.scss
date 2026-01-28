@@ -220,9 +220,12 @@ $border-radius-circle: 50%;
 $border-accent-width: 4px;
 
 /* Spacing scale (DRY consolidation) */
+$spacing-xxs-px: 5px;
 $spacing-xs-px: 10px;
+$spacing-sm-px: 15px;
 $spacing-sm: 0.5em;
 $spacing-sm-rem: 0.5rem;
+$spacing-md-rem: 0.75rem;
 $spacing-md: 1em;
 $spacing-lg: 1.5em;
 $spacing-xl: 2rem;
@@ -252,10 +255,15 @@ $intro-transition: intro 0.3s both !default;
 $link-transition: color 0.2s ease;
 $hover-transition: all 0.3s ease;
 
-/* Transition timing (DRY consolidation) */
-$transition-fast: 0.2s ease-out;
-$transition-medium: 0.3s ease-in-out;
-$transition-slow: 0.5s ease-in-out;
+/* Timing durations (DRY consolidation) */
+$timing-fast: 0.2s;
+$timing-medium: 0.3s;
+$timing-slow: 0.5s;
+
+/* Transition timing (references duration variables) */
+$transition-fast: $timing-fast ease-out;
+$transition-medium: $timing-medium ease-in-out;
+$transition-slow: $timing-slow ease-in-out;
 
 /* ==========================================================================
    Mixins - DRY consolidation

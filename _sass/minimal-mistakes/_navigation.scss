@@ -16,7 +16,7 @@
   padding-inline: $spacing-md;
   font-family: $sans-serif;
   animation: $intro-transition;
-  animation-delay: 0.3s;
+  animation-delay: $timing-medium;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -192,7 +192,7 @@
     }
 
     &.site-logo {
-      margin-inline: 0 0.5rem;
+      margin-inline: 0 $spacing-sm-rem;
     }
 
     &.site-title {
@@ -238,7 +238,7 @@
         position: absolute;
         inset-inline-start: 0;
         bottom: 0;
-        height: 4px;
+        height: $border-accent-width;
         background: $primary-color;
         width: 100%;
         transition: $global-transition;
@@ -255,8 +255,8 @@
     position: absolute;
     top: 100%;
     inset-inline-end: 0;
-    margin-top: 15px;
-    padding: 5px;
+    margin-top: $spacing-sm-px;
+    padding: $spacing-xxs-px;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     background: $background-color;
@@ -456,7 +456,7 @@
 
 .nav__title {
   margin: 0;
-  padding: 0.5rem 0.75rem;
+  padding: $spacing-sm-rem $spacing-md-rem;
   font-family: $sans-serif-narrow;
   font-size: $type-size-5;
   font-weight: bold;
@@ -464,7 +464,7 @@
 
 .nav__sub-title {
   display: block;
-  margin: 0.5rem 0;
+  margin: $spacing-sm-rem 0;
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
@@ -512,7 +512,7 @@
 
   a {
     display: block;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem $spacing-md-rem;
     color: $muted-text-color;
     font-weight: bold;
     line-height: $line-height-tight;
