@@ -303,7 +303,7 @@ This site uses a **zero-regression approach** to refactoring: every change must 
 | Before committing | `test:all` | 5-10 min | Every commit |
 | End of phase | `test:compare-baseline` | 10-15 min | Phase completion |
 
-**Learn More**: See [Testing Strategy (66 pages)](/documentation/refactoring/testing-strategy-2025-11-11.md) for comprehensive methodology and examples.
+**Learn More**: See the [Test Suite README](/tests/README.md) for comprehensive methodology and examples.
 
 ---
 
@@ -426,11 +426,8 @@ Tests run automatically on:
 
 ### Getting Started
 - **[Test Suite README](https://github.com/aledlie/PersonalSite/blob/master/tests/README.md)** - Complete test suite documentation
-- **[Testing QuickStart](/documentation/refactoring/TESTING-QUICKSTART.md)** - 15-minute setup guide
-- **[Testing Summary](/documentation/refactoring/TESTING-SUMMARY.md)** - High-level overview
 
 ### Deep Dives
-- **[Testing Strategy](/documentation/refactoring/testing-strategy-2025-11-11.md)** - 66-page comprehensive strategy
 - **[Baseline Testing](/tests/baseline/README.md)** - Build performance tracking
 - **[Visual Regression](/tests/visual/README.md)** - Screenshot comparison testing
 

@@ -325,6 +325,4 @@ Built-in protection when SigNoz is unreachable:
 
 ## Related Documentation
 
-- [SigNoz Cloud Setup](./signoz-cloud-setup.md) - Initial configuration
-- [Context Management](./CONTEXT_MANAGEMENT.md) - Claude Code optimization
 - MCP Tools: `signoz_list_services`, `signoz_search_metric_by_text`
