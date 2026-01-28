@@ -46,7 +46,7 @@ body {
 /* HEADER BANNER - Red academic banner like target site */
 .masthead {
   border-bottom: .5px solid $border-light;
-  padding: 1.5em 0 1.25em;  /* Balanced from 2em 0 1em */
+  padding: $spacing-lg 0 1.25em;  /* Balanced from 2em 0 1em */
 }
 
 .greedy-nav {
@@ -134,7 +134,7 @@ body {
   // Add left padding to center author profile in sidebar space
   @media (min-width: $large) {
     clear: none !important;
-    padding-left: 1.5em;  /* Push content toward center of sidebar area */
+    padding-left: $spacing-lg;  /* Push content toward center of sidebar area */
   }
 
   text-align: center;
@@ -163,7 +163,7 @@ body {
   .author-avatar img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: $border-radius-circle;
     object-fit: cover;
     margin-bottom: 1em;  /* Explicit spacing below avatar */
   }
@@ -182,13 +182,13 @@ body {
     font-size: 1em;  /* Reduced from 1.1em for better hierarchy */
     line-height: 1.5;  /* Increased from 1.4 for readability */
     margin-top: 0.75em;  /* Explicit top margin */
-    margin-bottom: 1.5em;  /* Explicit bottom margin */
+    margin-bottom: $spacing-lg;  /* Explicit bottom margin */
   }
 
   .author__urls-wrapper,
   .author-urls-wrapper {
     margin-top: 2em;  /* Clear separation from bio */
-    margin-bottom: 1.5em;
+    margin-bottom: $spacing-lg;
     padding-top: 1em;
     border-top: 1px solid $border-subtle;  /* Subtle visual divider */
     width: 100%;
@@ -217,14 +217,14 @@ body {
       &[itemprop="homeLocation"] {
         font-size: $font-size-medium;
         color: $wcag-text-muted;  // WCAG AA compliant (6.42:1 contrast ratio)
-        margin-bottom: 1.5em;
+        margin-bottom: $spacing-lg;
         display: block;
         text-align: center;
 
         i {
           font-size: 1.1em;
           color: $academic-red;
-          margin-right: 0.5em;
+          margin-right: $spacing-sm;
         }
       }
 
@@ -272,7 +272,7 @@ body {
     font-size: 2em;
     color: $content-text;
     border-bottom: 3px solid $accent-blue;
-    padding-bottom: 10px;
+    padding-bottom: $spacing-xs-px;
   }
 
   h2 {
@@ -283,7 +283,7 @@ body {
   }
 
   p {
-    margin-bottom: 1.5em;
+    margin-bottom: $spacing-lg;
     color: $content-text;
   }
 
@@ -673,7 +673,7 @@ a {
     }
 
     p + p {
-      margin-top: 1.5em;
+      margin-top: $spacing-lg;
     }
   }
 }

@@ -73,7 +73,7 @@
     a {
       display: block;
       margin-bottom: 0.25em;
-      padding: 0.5em 1em;
+      padding: $spacing-sm 1em;
       font-family: $sans-serif;
       font-size: 14px;
       font-weight: bold;
@@ -268,7 +268,7 @@
 
     a {
       margin: 0;
-      padding: 10px 20px;
+      padding: $spacing-xs-px 20px;
       font-size: $type-size-5;
 
       &:hover {
@@ -281,10 +281,10 @@
       content: "";
       position: absolute;
       top: -11px;
-      inset-inline-end: 10px;
+      inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
-      border-width: 0 10px 10px;
+      border-width: 0 $spacing-xs-px $spacing-xs-px;
       border-color: $border-color transparent;
       display: block;
       z-index: 0;
@@ -294,10 +294,10 @@
       content: "";
       position: absolute;
       top: -10px;
-      inset-inline-end: 10px;
+      inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
-      border-width: 0 10px 10px;
+      border-width: 0 $spacing-xs-px $spacing-xs-px;
       border-color: $background-color transparent;
       display: block;
       z-index: 1;
@@ -328,25 +328,25 @@
      ========================================================================== */
 
 .nav__list {
-  margin-bottom: 1.5em;
+  margin-bottom: $spacing-lg;
 
   input[type="checkbox"],
   label {
     display: none;
   }
 
-  @include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+  @include breakpoint(max-width $large-max) {
     label {
       position: relative;
       display: inline-block;
-      padding: 0.5em 2.5em 0.5em 1em;
+      padding: $spacing-sm 2.5em $spacing-sm 1em;
       color: $gray;
       font-size: $type-size-6;
       font-weight: bold;
       border: 1px solid $light-gray;
       border-radius: $border-radius;
       z-index: 20;
-      transition: 0.2s ease-out;
+      transition: $transition-fast;
       cursor: pointer;
 
       &::before,
@@ -359,7 +359,7 @@
         height: 0.125em;
         line-height: 1;
         background-color: $gray;
-        transition: 0.2s ease-out;
+        transition: $transition-fast;
       }
 
       &::after {
@@ -427,23 +427,23 @@
   }
 
   .active {
-    margin-inline-start: -0.5em;
-    padding-inline: 0.5em;
+    margin-inline-start: -$spacing-sm;
+    padding-inline: $spacing-sm;
     font-weight: bold;
   }
 
-  @include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+  @include breakpoint(max-width $large-max) {
     position: relative;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     z-index: 10;
-    transition: 0.3s ease-in-out;
+    transition: $transition-medium;
     transform: translate(0, 10%);
   }
 }
 
-@include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+@include breakpoint(max-width $large-max) {
   .nav__list input:checked ~ .nav__items {
     transition: 0.5s ease-in-out;
     max-height: 9999px; /* exaggerate max-height to accommodate tall lists */

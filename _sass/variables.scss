@@ -172,6 +172,7 @@ $small            : 37.5em;
 $medium           : 48em;      // 768px at 16px base
 $medium-wide	  : 900px !default;
 $large            : 62em;      // 992px at 16px base
+$large-max        : 61.9375em; // $large - 1px for max-width queries
 $large-wide       : 64em;      // 1024px at 16px base
 $x-large          : 86.375em;
 $max-width	  : $x-large !default;
@@ -191,6 +192,13 @@ $right-sidebar-width-wide: 400px !default;
 
 $border-radius: 4px !default;
 $border-radius-small: 3px !default;
+$border-radius-circle: 50%;
+$border-accent-width: 4px;
+
+/* Spacing scale (DRY consolidation) */
+$spacing-xs-px: 10px;
+$spacing-sm: 0.5em;
+$spacing-lg: 1.5em;
 
 /* Font size scale (DRY consolidation) */
 $font-size-small: 0.85em;
@@ -205,6 +213,11 @@ $global-transition: all 0.2s ease-in-out !default;
 $intro-transition: intro 0.3s both !default;
 $link-transition: color 0.2s ease;
 $hover-transition: all 0.3s ease;
+
+/* Transition timing (DRY consolidation) */
+$transition-fast: 0.2s ease-out;
+$transition-medium: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
 
 /* ==========================================================================
    Mixins - DRY consolidation
@@ -230,15 +243,15 @@ $hover-transition: all 0.3s ease;
 /* Status/notice box mixin - consolidate repeated box patterns */
 @mixin notice-box($bg-color, $border-color, $text-color) {
   background: $bg-color;
-  border-left: 4px solid $border-color;
+  border-left: $border-accent-width solid $border-color;
   padding: 1rem;
-  margin: 1.5rem 0;
-  border-radius: 4px;
+  margin: $spacing-lg 0;
+  border-radius: $border-radius;
 
   strong {
     color: $text-color;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm;
   }
 }
 

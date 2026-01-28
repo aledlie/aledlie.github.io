@@ -18,7 +18,7 @@
   color: $primary-color;
   background-color: transparent;
   cursor: pointer;
-  transition: 0.2s;
+  transition: $transition-fast;
 
   &:hover {
     color: color.mix(#000, $primary-color, 25%);
@@ -83,7 +83,7 @@
   }
 
   .results__found {
-    margin-top: 0.5em;
+    margin-top: $spacing-sm;
     font-size: $type-size-6;
   }
 

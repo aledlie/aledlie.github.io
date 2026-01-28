@@ -23,13 +23,13 @@ thead {
 }
 
 th {
-  padding: 0.5em;
+  padding: $spacing-sm;
   font-weight: bold;
   text-align: start;
 }
 
 td {
-  padding: 0.5em;
+  padding: $spacing-sm;
   border-bottom: 1px solid $border-color-dark;
 }
 
