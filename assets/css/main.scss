@@ -323,7 +323,7 @@ figure.highlight,
 .highlighter-rouge {
   background: $code-bg !important;
   border: 1px solid $border-subtle !important;
-  border-radius: 4px !important;
+  border-radius: $border-radius !important;
   padding: 1rem !important;
   margin: 1.5rem 0 !important;
   overflow-x: auto !important;
@@ -364,11 +364,11 @@ figure.highlight,
   .gr { color: $syntax-error !important; }
   .gh { color: $syntax-header !important; }
   .gi { color: $syntax-inserted !important; }
-  .go { color: #303030 !important; }
+  .go { color: $syntax-output !important; }
   .gp { color: $syntax-prompt !important; }
   .gs { font-weight: bold !important; }
   .gu { color: $syntax-deleted !important; }
-  .gt { color: #0040d0 !important; }
+  .gt { color: $syntax-traceback !important; }
   .kc { color: $syntax-keyword !important; }
   .kd { color: $syntax-keyword !important; }
   .kn { color: $syntax-keyword !important; }
@@ -393,7 +393,7 @@ figure.highlight,
   .nt { color: $syntax-keyword !important; }
   .nv { color: $syntax-number !important; }
   .ow { color: $syntax-keyword !important; }
-  .w { color: #bbb !important; }
+  .w { color: $syntax-whitespace !important; }
   .mf { color: $syntax-number !important; }
   .mh { color: $syntax-number !important; }
   .mi { color: $syntax-number !important; }
@@ -481,18 +481,18 @@ table {
 }
 
 /* STATUS INDICATORS */
-.status-pass { @include status-indicator("✓ ", #2ecc71); }
-.status-fail { @include status-indicator("✗ ", #e74c3c); }
-.status-warning { @include status-indicator("⚠ ", #f39c12); }
+.status-pass { @include status-indicator("✓ ", $status-pass); }
+.status-fail { @include status-indicator("✗ ", $status-fail); }
+.status-warning { @include status-indicator("⚠ ", $status-warning); }
 
 /* INFO BOXES - using notice-box mixin from variables.scss */
 .notice-info {
-  @include notice-box(#f0f7ff, $link-hover, $link-hover);
+  @include notice-box($notice-info-bg, $link-hover, $link-hover);
   font-size: $font-size-large;
 }
 
 .notice-warning {
-  @include notice-box(#fff8e1, #f39c12, #f39c12);
+  @include notice-box($notice-warning-bg, $status-warning, $status-warning);
 }
 
 /* ARCHIVE AND PAGE LAYOUT FIXES */
@@ -664,7 +664,7 @@ a {
   }
 
   .page-content {
-    font-size: 15px;
+    font-size: $font-size-mobile;
     line-height: 1.6;
     padding: 1rem;
 

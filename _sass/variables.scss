@@ -16,22 +16,23 @@ $alt-font: $base-font;
 
 /* ==============Colors========================================================================== */
 
-$background-color		: #fff !default;
+/* Core colors (canonical definitions) */
+$white          		: #fff;
 $black          		: #111;
-$border-color   		: #7a8288;
+$gray				: #7a8288 !default;
+
+/* Derived colors (reference canonical values to avoid duplication) */
+$background-color		: $white !default;
+$footer-background-color	: $white !default;
+$border-color   		: $gray;
 $border-color-dark		: color.mix(#000, $border-color, 25%);
 $code-background-color		: #fafafa !default;
 $danger-color			: #ee5f5b !default;
-$footer-background-color	: #fff !default;
-$form-background-color		: #f0f1f2 !default;
-$gray				: #7a8288 !default;
 $info-color			: #3b9cba !default;
-$muted-text-color		: #4d5356 !default;
 $primary-color			: #6f777d !default;
 $success-color			: #3fa63f !default;
 $text-color     		: #333;
 $warning-color			: #d67f05 !default;
-$white          		: #fff;
 
 /* Unified gray scale (consolidated from multiple definitions) */
 $gray-900: #404548;  // darkest
@@ -50,6 +51,10 @@ $gray-medium: $gray-600;
 $gray-lighter: $gray-500;
 $light-gray: $gray-300 !default;
 $lighter-gray: $gray-100 !default;
+
+/* Semantic colors referencing gray scale (DRY consolidation) */
+$muted-text-color: $gray-800 !default;
+$form-background-color: $gray-100 !default;
 
 /* Academic theme colors */
 $academic-red: #8b2635;
@@ -72,33 +77,45 @@ $link-hover: #06c;             /* Link hover state */
 $code-bg: #f8f8f8;             /* Code block background */
 $code-bg-inline: #f5f5f5;      /* Inline code background */
 
-/* Footer colors (WCAG AA compliant) */
-$footer-text-color: #4a4a4a;   /* 7.4:1 contrast on white */
-$footer-link-color: #222;      /* 14.0:1 contrast on white */
-$footer-link-hover: #000;      /* Maximum contrast */
+/* Footer colors (WCAG AA compliant - references WCAG colors) */
+$footer-text-color: $wcag-text-muted;  /* 7.4:1 contrast on white */
+$footer-link-color: #222;              /* 14.0:1 contrast on white */
+$footer-link-hover: $black;            /* Maximum contrast */
 
 /* Syntax highlighting colors (light theme) */
-$syntax-comment: #999;
+$syntax-error: #d40000;
+$syntax-comment: $gray-500;          /* References gray scale */
 $syntax-keyword: #c41a16;
 $syntax-number: #0086d2;
-$syntax-error: #d40000;
-$syntax-string: #d40000;
-$syntax-operator: #666;
+$syntax-string: $syntax-error;       /* Same as error - intentional for light theme */
+$syntax-operator: $gray-600;         /* References gray scale */
 $syntax-type: #458;
 $syntax-attribute: #836c28;
 $syntax-function: #900;
-$syntax-namespace: #555;
+$syntax-namespace: $gray-700;        /* References gray scale */
 $syntax-regex: #009926;
 $syntax-symbol: #990073;
 $syntax-header: #000080;
 $syntax-inserted: #008000;
 $syntax-prompt: #c65911;
 $syntax-deleted: #800080;
+$syntax-output: #303030;             /* Generic.Output */
+$syntax-traceback: #0040d0;          /* Generic.Traceback */
+$syntax-whitespace: #bbb;            /* Text.Whitespace */
+
+/* Status indicator colors */
+$status-pass: #2ecc71;
+$status-fail: #e74c3c;
+$status-warning: #f39c12;
+
+/* Notice box backgrounds */
+$notice-info-bg: #f0f7ff;
+$notice-warning-bg: #fff8e1;
 
 /* YIQ color contrast */
 
 $yiq-contrasted-dark-default: $dark-gray !default;
-$yiq-contrasted-light-default: #fff !default;
+$yiq-contrasted-light-default: $white !default;
 $yiq-contrasted-threshold: 175 !default;
 $yiq-debug: false !default;
 
@@ -133,28 +150,29 @@ $xing-color		: #006567 !default;
 
 /* links */
 $link-color       	: $text-color;
-$link-color-hover	: color.mix(#000, $link-color, 25%) !default;
-$link-color-visited	: color.mix(#fff, $link-color, 15%) !default;
+$link-color-hover	: color.mix($black, $link-color, 25%) !default;
+$link-color-visited	: color.mix($white, $link-color, 15%) !default;
 
 /* masthead links */
 $masthead-link-color: $primary-color !default;
-$masthead-link-color-hover: color.mix(#000, $primary-color, 25%) !default;
-$navicon-link-color-hover: color.mix(#fff, $primary-color, 75%) !default;
+$masthead-link-color-hover: color.mix($black, $primary-color, 25%) !default;
+$navicon-link-color-hover: color.mix($white, $primary-color, 75%) !default;
 
 /* notices */
 $notice-background-mix: 80% !default;
 $code-notice-background-mix: 90% !default;
 
 /* syntax highlighting (base16) */
+$base16-light: #eff !default;  /* Shared light color for base16 theme */
 
 $base00: #263238 !default;
 $base01: #2e3c43 !default;
 $base02: #314549 !default;
 $base03: #546e7a !default;
 $base04: #b2ccd6 !default;
-$base05: #eff !default;
-$base06: #eff !default;
-$base07: #fff !default;
+$base05: $base16-light !default;
+$base06: $base16-light !default;
+$base07: $white !default;
 $base08: #f07178 !default;
 $base09: #f78c6c !default;
 $base0a: #ffcb6b !default;
@@ -215,7 +233,9 @@ $avatar-size-md: 120px;
 $font-size-small: 0.85em;
 $font-size-medium: 0.9em;
 $font-size-large: 0.95em;
+$font-size-mobile: 15px;             /* Mobile body text */
 $box-shadow: 0 1px 1px rgb(0 0 0 / 12.5%) !default; // Fixed for old Sass compatibility
+$box-shadow-dropdown: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
 $navicon-width: 1.5rem !default;
