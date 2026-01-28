@@ -11,6 +11,21 @@ logger = logging.getLogger(__name__)
 from constants import PIE_START_ANGLE, SAVE_DPI_HIGH, GRID_ALPHA
 
 
+def _parse_count_line(line: str) -> tuple[int, int] | None:
+    """Parse a single count line into (index, count).
+
+    Returns:
+        Tuple of (index, count) if valid, None otherwise.
+    """
+    parts = line.strip().split()
+    if len(parts) != 2:
+        return None
+    try:
+        return int(parts[0]), int(parts[1])
+    except ValueError:
+        return None
+
+
 def read_count_file(
     filepath: str,
     count_size: int,
@@ -36,16 +51,10 @@ def read_count_file(
     counts = [0] * count_size
     with open(filepath, 'r') as f:
         for line in f:
-            parts = line.strip().split()
-            if len(parts) != 2:
-                continue
-            try:
-                index = int(parts[0])
-                count = int(parts[1])
-                if index_min <= index <= index_max:
-                    counts[index - index_offset] = count
-            except ValueError:
-                continue
+            result = _parse_count_line(line)
+            if result and index_min <= result[0] <= index_max:
+                index, count = result
+                counts[index - index_offset] = count
     return counts
 
 

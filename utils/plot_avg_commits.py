@@ -13,30 +13,55 @@ sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
 logger = logging.getLogger(__name__)
 from constants import FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT, SAVE_DPI_HIGH, XLABEL_ROTATION
 
-def parse_results(file_path):
+COMMIT_PATTERN = re.compile(r'Commits (\d+)-(\d+): (\d+) days')
+
+
+def _parse_commit_line(line: str) -> tuple[str, int] | None:
+    """Parse a single commit distribution line.
+
+    Returns:
+        Tuple of (category, count) if valid, None otherwise.
+    """
+    match = COMMIT_PATTERN.match(line.strip())
+    if not match:
+        return None
+    start, end, count = match.groups()
+    return f"{start}-{end}", int(count)
+
+
+def _read_commit_data(file_path: str) -> tuple[list[str], list[int]]:
+    """Read and parse commit data from file.
+
+    Raises:
+        FileNotFoundError: If file doesn't exist.
+    """
+    categories: list[str] = []
+    days: list[int] = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            result = _parse_commit_line(line)
+            if result:
+                category, count = result
+                categories.append(category)
+                days.append(count)
+    return categories, days
+
+
+def parse_results(file_path: str) -> tuple[list[str] | None, list[int] | None]:
     """Parse the results file to extract commit count categories and days."""
-    categories = []
-    days = []
     try:
-        with open(file_path, 'r') as file:
-            lines = file.readlines()
-            for line in lines:
-                # Match lines like "Commits 1-5: 10 days"
-                match = re.match(r'Commits (\d+)-(\d+): (\d+) days', line.strip())
-                if match:
-                    start, end, count = match.groups()
-                    categories.append(f"{start}-{end}")
-                    days.append(int(count))
-        if not categories:
-            logger.warning("No commit distribution data found in the file")
-            return None, None
-        return categories, days
+        categories, days = _read_commit_data(file_path)
     except FileNotFoundError:
         logger.error("File not found: %s", file_path)
         return None, None
     except Exception as e:
         logger.error("Error parsing file: %s", e)
         return None, None
+
+    if not categories:
+        logger.warning("No commit distribution data found in the file")
+        return None, None
+    return categories, days
 
 def plot_bar_chart(categories, days, output_file):
     """Create a bar chart of commit count distribution."""
