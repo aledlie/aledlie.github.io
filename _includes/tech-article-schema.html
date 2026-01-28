@@ -35,10 +35,7 @@ schema_section: "Jekyll"
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% include schema/_keywords.html %}
-  {% include schema/_language.html %}
-  {% include schema/_speakable.html %}
-  {% include schema/_is-part-of.html %}
+  {% include schema/_common-metadata.html %}
   {% include schema/_about.html %}
   {% include schema/_mentions.html %}
 

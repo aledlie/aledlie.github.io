@@ -34,10 +34,7 @@ Best for: Performance analysis, benchmark reports, expert technical analysis
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% include schema/_keywords.html %}
-  {% include schema/_language.html %}
-  {% include schema/_speakable.html %}
-  {% include schema/_is-part-of.html %}
+  {% include schema/_common-metadata.html %}
   {% include schema/_about.html as_array=true %}
 
   {% comment %}Backstory - context for the analysis (optional){% endcomment %}

@@ -215,7 +215,7 @@ body {
 
       // Location styling
       &[itemprop="homeLocation"] {
-        font-size: 0.9em;
+        font-size: $font-size-medium;
         color: $wcag-text-muted;  // WCAG AA compliant (6.42:1 contrast ratio)
         margin-bottom: 1.5em;
         display: block;
@@ -229,11 +229,11 @@ body {
       }
 
       a {
-        font-size: 0.95em;  /* Slightly smaller links */
+        font-size: $font-size-large;  /* Slightly smaller links */
         color: $academic-red !important;
         text-decoration: none;
         padding: 0.4em 0.6em;  /* Increased padding */
-        border-radius: 3px;
+        border-radius: $border-radius-small;
         transition: $hover-transition;
         display: inline-block;  /* Allow padding to work properly */
 
@@ -250,7 +250,7 @@ body {
     background: $bg-light !important;
     @include border-medium;
     color: $wcag-text-dark;  /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
-    font-size: 0.95em;
+    font-size: $font-size-large;
     padding: 0.6em 1em;
     display: block;
     margin-bottom: 1em;
@@ -264,7 +264,7 @@ body {
 
 /* CONTENT HEADINGS - Enhanced for long-form reading */
 .page-content {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: $base-font;
   font-size: 16px;
   line-height: 1.7;
 
@@ -327,8 +327,8 @@ figure.highlight,
   padding: 1rem !important;
   margin: 1.5rem 0 !important;
   overflow-x: auto !important;
-  font-family: 'Monaco', 'Courier New', monospace !important;
-  font-size: 0.9em !important;
+  font-family: $code-font !important;
+  font-size: $font-size-medium !important;
   line-height: 1.5 !important;
 
   code {
@@ -418,11 +418,11 @@ td code,
 :not(pre) > code {
   padding: 0.1em 0.3em !important;
   margin: 0 !important;
-  font-size: 0.85em !important;
+  font-size: $font-size-small !important;
   background-color: $code-bg-inline !important;
   border: 1px solid $border-subtle !important;
-  border-radius: 3px !important;
-  font-family: 'Monaco', 'Courier New', monospace !important;
+  border-radius: $border-radius-small !important;
+  font-family: $code-font !important;
   white-space: nowrap !important;
 
   /* Remove excessive spacing before/after */
@@ -448,7 +448,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
-  font-size: 0.95em;
+  font-size: $font-size-large;
 
   thead {
     background: $code-bg;
@@ -460,7 +460,7 @@ table {
     text-align: left;
     font-weight: 600;
     color: $text-color;
-    font-size: 0.95em;
+    font-size: $font-size-large;
   }
 
   td {
@@ -488,7 +488,7 @@ table {
 /* INFO BOXES - using notice-box mixin from variables.scss */
 .notice-info {
   @include notice-box(#f0f7ff, $link-hover, $link-hover);
-  font-size: 0.95em;
+  font-size: $font-size-large;
 }
 
 .notice-warning {
@@ -541,7 +541,7 @@ table {
   .archive__item-date {
     display: block;
     color: $gray-lighter;
-    font-size: 0.9em;
+    font-size: $font-size-medium;
     margin-bottom: 0.5rem;
     font-style: italic;
   }
@@ -576,7 +576,7 @@ table {
 
   .page-meta {
     color: $gray-lighter;
-    font-size: 0.9em;
+    font-size: $font-size-medium;
     margin-bottom: 2rem;
     @include border-light-bottom;
   }
@@ -649,7 +649,7 @@ a {
 
       a {
         padding: 0.1rem 0.2rem;
-        font-size: 0.9em;
+        font-size: $font-size-medium;
         font-weight: 900;
       }
     }

@@ -97,9 +97,7 @@ Note: Steps can also be parsed from content if using structured headings
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% include schema/_keywords.html %}
-  {% include schema/_language.html %}
-  {% include schema/_is-part-of.html %}
+  {% include schema/_common-metadata.html skip_speakable=true %}
 }
 </script>
 {% endif %}

@@ -189,6 +189,12 @@ $right-sidebar-width-wide: 400px !default;
    ========================================================================== */
 
 $border-radius: 4px !default;
+$border-radius-small: 3px !default;
+
+/* Font size scale (DRY consolidation) */
+$font-size-small: 0.85em;
+$font-size-medium: 0.9em;
+$font-size-large: 0.95em;
 $box-shadow: 0 1px 1px rgb(0 0 0 / 12.5%) !default; // Fixed for old Sass compatibility
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
