@@ -369,7 +369,7 @@
       &:hover {
         color: $white;
         border-color: $gray;
-        background-color: color.mix(white, #000, 20%);
+        background-color: color.mix($white, $black, 20%);
 
         &::before,
         &::after {
@@ -445,7 +445,7 @@
 
 @include breakpoint(max-width $large-max) {
   .nav__list input:checked ~ .nav__items {
-    transition: 0.5s ease-in-out;
+    transition: $transition-slow;
     max-height: 9999px; /* exaggerate max-height to accommodate tall lists */
     overflow: visible;
     opacity: 1;

@@ -87,7 +87,7 @@ body {
       white-space: nowrap;
 
       &:hover {
-        border-bottom-color: rgba(255,255,255,0.6);
+        border-bottom-color: rgba($white, 0.6);
       }
     }
   }
