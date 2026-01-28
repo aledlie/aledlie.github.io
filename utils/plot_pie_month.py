@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
 from constants import (
     MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,
     FIGURE_SIZE_SQUARE, PIE_START_ANGLE, SAVE_DPI_HIGH

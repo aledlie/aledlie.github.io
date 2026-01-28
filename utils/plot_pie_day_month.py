@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
 from constants import (
     DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX,
     MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,

@@ -3,7 +3,10 @@
 import matplotlib.pyplot as plt
 import re
 import argparse
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
 from constants import FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT, SAVE_DPI_HIGH, XLABEL_ROTATION
 
 def parse_results(file_path):

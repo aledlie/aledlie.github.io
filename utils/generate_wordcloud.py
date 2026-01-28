@@ -4,7 +4,10 @@
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import re
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
 from constants import (
     WORDCLOUD_WIDTH, WORDCLOUD_HEIGHT, WORDCLOUD_MAX_FONT_SIZE, WORDCLOUD_PREFER_HORIZONTAL,
     FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, SAVE_DPI_STANDARD
