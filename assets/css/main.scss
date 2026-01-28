@@ -444,7 +444,7 @@ table {
 
   thead {
     background: $code-bg;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid $border-medium;
   }
 
   th {
@@ -463,11 +463,11 @@ table {
 
   tbody tr {
     &:hover {
-      background: #fafafa;
+      background: $bg-light;
     }
 
     &:last-child td {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $border-medium;
     }
   }
 }
