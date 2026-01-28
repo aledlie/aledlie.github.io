@@ -11,6 +11,11 @@ $doc-line-height: 26;
 $paragraph-indent: true !default;
 $base-font: 'PT Serif', serif;
 $heading-font: 'PT Sans Narrow', sans-serif;
+
+/* Line height scale (DRY consolidation) */
+$line-height-tight: 1.5;    /* Code, sidebar, navigation */
+$line-height-relaxed: 1.6;  /* Excerpts, mobile text */
+$line-height-base: 1.7;     /* Body text, page content */
 $code-font: monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
 
@@ -194,6 +199,7 @@ $large-max        : 61.9375em; // $large - 1px for max-width queries
 $large-wide       : 64em;      // 1024px at 16px base
 $x-large          : 86.375em;
 $max-width	  : $x-large !default;
+$content-max-width: 1200px;   /* Main content area max-width */
 
 /*
 

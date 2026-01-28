@@ -11,7 +11,7 @@
 /* GLOBAL OVERRIDES - Only what differs from theme defaults */
 body {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: $line-height-base;
 }
 
 /* HEADER - Compact cover images */
@@ -95,7 +95,7 @@ body {
 
 /* MAIN CONTENT - Constrained width and minimal padding */
 #page-wrapper {
-  max-width: 1200px;
+  max-width: $content-max-width;
   margin: 0 auto;
   padding: 0.25rem;
 
@@ -180,7 +180,7 @@ body {
     font-style: italic;
     color: $wcag-text-dark;  /* WCAG AA contrast (7.0:1 on white) */
     font-size: 1em;  /* Reduced from 1.1em for better hierarchy */
-    line-height: 1.5;  /* Increased from 1.4 for readability */
+    line-height: $line-height-tight;  /* Increased from 1.4 for readability */
     margin-top: 0.75em;  /* Explicit top margin */
     margin-bottom: $spacing-lg;  /* Explicit bottom margin */
   }
@@ -266,7 +266,7 @@ body {
 .page-content {
   font-family: $base-font;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: $line-height-base;
 
   h1 {
     font-size: 2em;
@@ -329,7 +329,7 @@ figure.highlight,
   overflow-x: auto !important;
   font-family: $code-font !important;
   font-size: $font-size-medium !important;
-  line-height: 1.5 !important;
+  line-height: $line-height-tight !important;
 
   code {
     background: transparent !important;
@@ -533,7 +533,7 @@ table {
   .archive__item-excerpt {
     color: $gray-darker;
     font-size: 1em;
-    line-height: 1.6;
+    line-height: $line-height-relaxed;
     margin-bottom: $spacing-sm-rem;
     font-style: italic;
   }
@@ -665,7 +665,7 @@ a {
 
   .page-content {
     font-size: $font-size-mobile;
-    line-height: 1.6;
+    line-height: $line-height-relaxed;
     padding: 1rem;
 
     p {

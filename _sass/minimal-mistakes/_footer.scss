@@ -20,7 +20,7 @@
     margin-inline: auto;
     margin-top: $spacing-xl-em;
     max-width: 100%;
-    padding: 0 1em 2em;
+    padding: 0 $spacing-md $spacing-xl-em;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
