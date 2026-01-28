@@ -21,6 +21,11 @@ const RETRY_CONFIG = {
   retryDelayMs: 5000
 };
 
+// Test configuration
+const TEST_CONFIG = {
+  runsPerPage: 3  // Multiple runs to average out variance
+};
+
 class PerformanceTestSuite {
   constructor(baseUrl = SERVER.baseUrl) {
     this.baseUrl = baseUrl;
@@ -77,33 +82,55 @@ class PerformanceTestSuite {
 
   async testPage(pagePath, pageName) {
     const url = `${this.baseUrl}${pagePath}`;
-    const result = await this.runLighthouseTest(url);
+    const runs = TEST_CONFIG.runsPerPage;
+    const allScores = [];
 
-    if (!result) {
+    console.log(`Running ${runs} Lighthouse tests for: ${url}`);
+
+    for (let i = 0; i < runs; i++) {
+      const result = await this.runLighthouseTest(url);
+      if (result) {
+        allScores.push({
+          performance: result.categories.performance?.score * 100 || 0,
+          accessibility: result.categories.accessibility?.score * 100 || 0,
+          bestPractices: result.categories['best-practices']?.score * 100 || 0,
+          seo: result.categories.seo?.score * 100 || 0,
+          metrics: {
+            firstContentfulPaint: result.audits['first-contentful-paint']?.displayValue || 'N/A',
+            largestContentfulPaint: result.audits['largest-contentful-paint']?.displayValue || 'N/A',
+            speedIndex: result.audits['speed-index']?.displayValue || 'N/A',
+            totalBlockingTime: result.audits['total-blocking-time']?.displayValue || 'N/A',
+            cumulativeLayoutShift: result.audits['cumulative-layout-shift']?.displayValue || 'N/A',
+          }
+        });
+      }
+      if (i < runs - 1) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
+
+    if (allScores.length === 0) {
       console.error(`Failed to test ${pageName}`);
       return null;
     }
 
+    // Average scores across runs
     const scores = {
-      performance: result.categories.performance?.score * 100 || 0,
-      accessibility: result.categories.accessibility?.score * 100 || 0,
-      bestPractices: result.categories['best-practices']?.score * 100 || 0,
-      seo: result.categories.seo?.score * 100 || 0,
+      performance: allScores.reduce((sum, s) => sum + s.performance, 0) / allScores.length,
+      accessibility: allScores.reduce((sum, s) => sum + s.accessibility, 0) / allScores.length,
+      bestPractices: allScores.reduce((sum, s) => sum + s.bestPractices, 0) / allScores.length,
+      seo: allScores.reduce((sum, s) => sum + s.seo, 0) / allScores.length,
     };
 
-    const metrics = {
-      firstContentfulPaint: result.audits['first-contentful-paint']?.displayValue || 'N/A',
-      largestContentfulPaint: result.audits['largest-contentful-paint']?.displayValue || 'N/A',
-      speedIndex: result.audits['speed-index']?.displayValue || 'N/A',
-      totalBlockingTime: result.audits['total-blocking-time']?.displayValue || 'N/A',
-      cumulativeLayoutShift: result.audits['cumulative-layout-shift']?.displayValue || 'N/A',
-    };
+    // Use metrics from last run
+    const metrics = allScores[allScores.length - 1].metrics;
 
     const pageResult = {
       pageName,
       url,
       scores,
       metrics,
+      runsCompleted: allScores.length,
       timestamp: new Date().toISOString(),
       passed: this.evaluateScores(scores)
     };
@@ -123,7 +150,8 @@ class PerformanceTestSuite {
   }
 
   logPageResult(result) {
-    console.log(`\n Results for ${result.pageName}:`);
+    const runsInfo = result.runsCompleted ? ` (avg of ${result.runsCompleted} runs)` : '';
+    console.log(`\n Results for ${result.pageName}${runsInfo}:`);
     console.log(`Performance: ${result.scores.performance.toFixed(1)}/100`);
     console.log(`Accessibility: ${result.scores.accessibility.toFixed(1)}/100`);
     console.log(`Best Practices: ${result.scores.bestPractices.toFixed(1)}/100`);
