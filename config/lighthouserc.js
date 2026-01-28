@@ -72,7 +72,7 @@ module.exports = {
       target: 'temporary-public-storage'
     },
     server: {
-      command: 'bundle exec jekyll serve',
+      command: 'npm run serve',
       port: SERVER.port,
       wait: SERVER.startupWaitMs
     }
