@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { PERFORMANCE } = require('../constants');
 
 /**
  * Simplified Analytics Tests
@@ -153,11 +154,11 @@ test.describe('Performance', () => {
     await page.goto('/');
 
     // Content should be visible quickly
-    await expect(page.locator('body')).toBeVisible({ timeout: 3000 });
+    await expect(page.locator('body')).toBeVisible({ timeout: PERFORMANCE.pageLoadTimeoutMs });
 
     const renderTime = Date.now() - startTime;
 
-    // Page should render in under 3 seconds
-    expect(renderTime).toBeLessThan(3000);
+    // Page should render within performance budget
+    expect(renderTime).toBeLessThan(PERFORMANCE.pageLoadTimeoutMs);
   });
 });

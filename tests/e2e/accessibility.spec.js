@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { injectAxe, checkA11y } = require('axe-playwright');
+const { VIEWPORTS } = require('../constants');
 
 /**
  * Simplified Accessibility Tests
@@ -101,7 +102,7 @@ test.describe('Keyboard Navigation', () => {
 
 test.describe('Responsive Design', () => {
   test('should be accessible on mobile', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
+    await page.setViewportSize(VIEWPORTS.mobile);
     await page.goto('/');
     await waitForStyles(page);
     await injectAxe(page);
@@ -111,7 +112,7 @@ test.describe('Responsive Design', () => {
   });
 
   test('should be accessible on tablet', async ({ page }) => {
-    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.setViewportSize(VIEWPORTS.tablet);
     await page.goto('/');
     await waitForStyles(page);
     await injectAxe(page);

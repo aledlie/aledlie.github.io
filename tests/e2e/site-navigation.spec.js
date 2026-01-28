@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { VIEWPORTS, PERFORMANCE, HTTP_STATUS } = require('../constants');
 
 /**
  * Simplified Navigation Tests
@@ -56,7 +57,7 @@ test.describe('Core Navigation', () => {
     const response = await page.goto('/non-existent-page-12345');
 
     // Should return 404 status
-    expect(response.status()).toBe(404);
+    expect(response.status()).toBe(HTTP_STATUS.NOT_FOUND);
 
     // Should still render a page
     await expect(page.locator('body')).toBeVisible();
@@ -84,15 +85,11 @@ test.describe('Meta Tags', () => {
 });
 
 test.describe('Responsive Design', () => {
-  const viewports = [
-    { name: 'mobile', width: 375, height: 667 },
-    { name: 'tablet', width: 768, height: 1024 },
-    { name: 'desktop', width: 1920, height: 1080 }
-  ];
+  const viewportEntries = Object.entries(VIEWPORTS);
 
-  for (const viewport of viewports) {
-    test(`should work on ${viewport.name}`, async ({ page }) => {
-      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+  for (const [name, dimensions] of viewportEntries) {
+    test(`should work on ${name}`, async ({ page }) => {
+      await page.setViewportSize(dimensions);
       await page.goto('/');
 
       // Page should render
@@ -118,8 +115,8 @@ test.describe('Performance', () => {
 
     const loadTime = Date.now() - startTime;
 
-    // Should load in under 3 seconds
-    expect(loadTime).toBeLessThan(3000);
+    // Should load within performance budget
+    expect(loadTime).toBeLessThan(PERFORMANCE.pageLoadTimeoutMs);
   });
 
   test('should not have console errors', async ({ page }) => {

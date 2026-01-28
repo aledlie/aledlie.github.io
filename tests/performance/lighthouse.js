@@ -6,6 +6,20 @@
 const fs = require('fs');
 const path = require('path');
 
+// Lighthouse score thresholds (0-100 scale)
+const SCORE_THRESHOLDS = {
+  performance: 70,
+  accessibility: 95,
+  bestPractices: 75,
+  seo: 95
+};
+
+// Retry configuration
+const RETRY_CONFIG = {
+  maxRetries: 5,
+  retryDelayMs: 5000
+};
+
 class PerformanceTestSuite {
   constructor(baseUrl = 'http://localhost:4000') {
     this.baseUrl = baseUrl;
@@ -100,16 +114,8 @@ class PerformanceTestSuite {
   }
 
   evaluateScores(scores) {
-    // Define minimum acceptable scores (realistic for current site)
-    const thresholds = {
-      performance: 70,
-      accessibility: 95,
-      bestPractices: 75,
-      seo: 95
-    };
-
-    const passed = Object.keys(thresholds).every(category =>
-      scores[category] >= thresholds[category]
+    const passed = Object.keys(SCORE_THRESHOLDS).every(category =>
+      scores[category] >= SCORE_THRESHOLDS[category]
     );
 
     return passed;
@@ -236,7 +242,7 @@ class PerformanceTestSuite {
 
 // Additional performance utilities
 class PerformanceUtils {
-  static async checkSiteAvailability(url, maxRetries = 5) {
+  static async checkSiteAvailability(url, maxRetries = RETRY_CONFIG.maxRetries) {
     for (let i = 0; i < maxRetries; i++) {
       try {
         const response = await fetch(url);
@@ -245,8 +251,9 @@ class PerformanceUtils {
           return true;
         }
       } catch (error) {
-        console.log(`Attempt ${i + 1}/${maxRetries}: Site not available yet, retrying in 5s...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        const retryDelaySec = RETRY_CONFIG.retryDelayMs / 1000;
+        console.log(`Attempt ${i + 1}/${maxRetries}: Site not available yet, retrying in ${retryDelaySec}s...`);
+        await new Promise(resolve => setTimeout(resolve, RETRY_CONFIG.retryDelayMs));
       }
     }
     throw new Error(`Site not available at ${url} after ${maxRetries} attempts`);

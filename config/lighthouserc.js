@@ -1,3 +1,27 @@
+// Lighthouse score thresholds (0-1 scale)
+const SCORE_THRESHOLDS = {
+  performance: 0.85,
+  accessibility: 0.95,
+  bestPractices: 0.90,
+  seo: 0.95
+};
+
+// Core Web Vitals thresholds (milliseconds unless noted)
+const WEB_VITALS = {
+  firstContentfulPaint: 2000,
+  largestContentfulPaint: 3000,
+  speedIndex: 4000,
+  totalBlockingTime: 300,
+  cumulativeLayoutShift: 0.1  // unitless
+};
+
+// Server configuration
+const SERVER_CONFIG = {
+  port: 4000,
+  numberOfRuns: 3,
+  startupWaitMs: 3000
+};
+
 module.exports = {
   ci: {
     collect: {
@@ -6,37 +30,37 @@ module.exports = {
         'http://127.0.0.1:4000/about/',
         'http://127.0.0.1:4000/posts/'
       ],
-      numberOfRuns: 3,
+      numberOfRuns: SERVER_CONFIG.numberOfRuns,
       settings: {
         chromeFlags: '--no-sandbox --disable-dev-shm-usage --disable-gpu'
       }
     },
     assert: {
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.85 }],
-        'categories:accessibility': ['error', { minScore: 0.95 }],
-        'categories:best-practices': ['warn', { minScore: 0.90 }],
-        'categories:seo': ['error', { minScore: 0.95 }],
-        
+        'categories:performance': ['warn', { minScore: SCORE_THRESHOLDS.performance }],
+        'categories:accessibility': ['error', { minScore: SCORE_THRESHOLDS.accessibility }],
+        'categories:best-practices': ['warn', { minScore: SCORE_THRESHOLDS.bestPractices }],
+        'categories:seo': ['error', { minScore: SCORE_THRESHOLDS.seo }],
+
         // Core Web Vitals
-        'first-contentful-paint': ['warn', { maxNumericValue: 2000 }],
-        'largest-contentful-paint': ['warn', { maxNumericValue: 3000 }],
-        'speed-index': ['warn', { maxNumericValue: 4000 }],
-        'total-blocking-time': ['error', { maxNumericValue: 300 }],
-        'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
-        
+        'first-contentful-paint': ['warn', { maxNumericValue: WEB_VITALS.firstContentfulPaint }],
+        'largest-contentful-paint': ['warn', { maxNumericValue: WEB_VITALS.largestContentfulPaint }],
+        'speed-index': ['warn', { maxNumericValue: WEB_VITALS.speedIndex }],
+        'total-blocking-time': ['error', { maxNumericValue: WEB_VITALS.totalBlockingTime }],
+        'cumulative-layout-shift': ['error', { maxNumericValue: WEB_VITALS.cumulativeLayoutShift }],
+
         // Accessibility
         'color-contrast': 'error',
         'image-alt': 'error',
         'label': 'error',
         'valid-lang': 'error',
-        
+
         // SEO
         'document-title': 'error',
         'meta-description': 'error',
         'canonical': 'warn',
-        
-        // Best Practices  
+
+        // Best Practices
         'uses-https': 'error',
         'is-on-https': 'error',
         'external-anchors-use-rel-noopener': 'warn',
@@ -49,8 +73,8 @@ module.exports = {
     },
     server: {
       command: 'bundle exec jekyll serve',
-      port: 4000,
-      wait: 3000
+      port: SERVER_CONFIG.port,
+      wait: SERVER_CONFIG.startupWaitMs
     }
   }
 };
