@@ -48,7 +48,14 @@ def _read_commit_data(file_path: str) -> tuple[list[str], list[int]]:
 
 
 def parse_results(file_path: str) -> tuple[list[str] | None, list[int] | None]:
-    """Parse the results file to extract commit count categories and days."""
+    """Parse the results file to extract commit count categories and days.
+
+    Args:
+        file_path: Path to the results file.
+
+    Returns:
+        Tuple of (categories, days) lists, or (None, None) on error.
+    """
     try:
         categories, days = _read_commit_data(file_path)
     except FileNotFoundError:
@@ -63,8 +70,14 @@ def parse_results(file_path: str) -> tuple[list[str] | None, list[int] | None]:
         return None, None
     return categories, days
 
-def plot_bar_chart(categories, days, output_file):
-    """Create a bar chart of commit count distribution."""
+def plot_bar_chart(categories: list[str], days: list[int], output_file: str) -> None:
+    """Create a bar chart of commit count distribution.
+
+    Args:
+        categories: X-axis category labels (commit ranges).
+        days: Y-axis values (number of days for each category).
+        output_file: Path to save the output PNG.
+    """
     plt.figure(figsize=(FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT))
     plt.bar(categories, days, color='skyblue', edgecolor='black')
     plt.xlabel('Commits per Day')

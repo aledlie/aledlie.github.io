@@ -53,7 +53,11 @@ def _generate_chart(
 
 @mcp.tool()
 async def generate_hour_bar_chart() -> str:
-    """Generate a bar chart of commits by hour of day."""
+    """Generate a bar chart of commits by hour of day.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_hour",
         data_script="./commits_by_hour.sh",
@@ -64,7 +68,11 @@ async def generate_hour_bar_chart() -> str:
 
 @mcp.tool()
 async def generate_day_pie_chart() -> str:
-    """Generate a pie chart of commits by day of week."""
+    """Generate a pie chart of commits by day of week.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_day",
         data_script="./commits_by_day_of_week.sh",
@@ -75,7 +83,11 @@ async def generate_day_pie_chart() -> str:
 
 @mcp.tool()
 async def generate_month_pie_chart() -> str:
-    """Generate a pie chart of commits by month."""
+    """Generate a pie chart of commits by month.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_month",
         data_script="./commits_by_month.sh",

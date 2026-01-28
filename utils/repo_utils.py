@@ -6,9 +6,10 @@ logger = logging.getLogger(__name__)
 
 
 def get_repo_name() -> str | None:
-    """
-    Run get_repo_name.sh to get the current GitHub repository name.
-    Returns the repository name or None if an error occurs.
+    """Run get_repo_name.sh to get the current GitHub repository name.
+
+    Returns:
+        The repository name, or None if an error occurs.
     """
     try:
         result = subprocess.check_output(["./get_repo_name.sh"], text=True)
