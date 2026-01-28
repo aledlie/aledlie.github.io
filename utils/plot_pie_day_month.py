@@ -1,16 +1,10 @@
 import matplotlib.pyplot as plt
 
-# Chart configuration constants
-DAYS_IN_WEEK = 7
-DAY_INDEX_MIN = 0
-DAY_INDEX_MAX = 6
-MONTHS_IN_YEAR = 12
-MONTH_INDEX_MIN = 1
-MONTH_INDEX_MAX = 12
-FIGURE_WIDTH = 12
-FIGURE_HEIGHT = 6
-PIE_START_ANGLE = 90
-SAVE_DPI = 300
+from constants import (
+    DAYS_IN_WEEK, DAY_INDEX_MIN, DAY_INDEX_MAX,
+    MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,
+    FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, PIE_START_ANGLE, SAVE_DPI_HIGH
+)
 
 def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_counts_month.txt', output_file='images/commits_by_day_month.png', title='Commits by Day of Week and Month'):
     """
@@ -57,7 +51,7 @@ def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_coun
     month_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     # Create figure with two subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(FIGURE_WIDTH, FIGURE_HEIGHT))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(FIGURE_WIDTH_LARGE, FIGURE_HEIGHT))
     fig.suptitle(title)
 
     # Pie for day of week
@@ -69,7 +63,7 @@ def plot_pie_day_month(day_file='commit_counts_day.txt', month_file='commit_coun
     ax2.set_title('Commits by Month')
 
     # Save
-    plt.savefig(output_file, dpi=SAVE_DPI, bbox_inches='tight')
+    plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
     plt.close()
 
     print(f"Pie charts saved as {output_file}")

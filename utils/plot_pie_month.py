@@ -1,12 +1,9 @@
 import matplotlib.pyplot as plt
 
-# Chart configuration constants
-MONTHS_IN_YEAR = 12
-MONTH_INDEX_MIN = 1
-MONTH_INDEX_MAX = 12
-FIGURE_SIZE = 6
-PIE_START_ANGLE = 90
-SAVE_DPI = 300
+from constants import (
+    MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX,
+    FIGURE_SIZE_SQUARE, PIE_START_ANGLE, SAVE_DPI_HIGH
+)
 
 def plot_pie_month(input_file='commit_counts_month.txt', output_file='images/commits_by_month.png', title='Commits by Month'):
     """
@@ -38,12 +35,12 @@ def plot_pie_month(input_file='commit_counts_month.txt', output_file='images/com
     month_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     # Create pie chart
-    plt.figure(figsize=(FIGURE_SIZE, FIGURE_SIZE))
+    plt.figure(figsize=(FIGURE_SIZE_SQUARE, FIGURE_SIZE_SQUARE))
     plt.pie(month_counts, labels=month_labels, autopct='%1.1f%%', startangle=PIE_START_ANGLE)
     plt.title(title)
 
     # Save as PNG
-    plt.savefig(output_file, dpi=SAVE_DPI, bbox_inches='tight')
+    plt.savefig(output_file, dpi=SAVE_DPI_HIGH, bbox_inches='tight')
     plt.close()
 
     print(f"Pie chart for month saved as {output_file}")

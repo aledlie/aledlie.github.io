@@ -5,16 +5,10 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import re
 
-# WordCloud image configuration
-WORDCLOUD_WIDTH = 1200
-WORDCLOUD_HEIGHT = 600
-MAX_FONT_SIZE = 120
-PREFER_HORIZONTAL = 0.7
-
-# Output figure configuration
-FIGURE_WIDTH = 12
-FIGURE_HEIGHT = 6
-SAVE_DPI = 150
+from constants import (
+    WORDCLOUD_WIDTH, WORDCLOUD_HEIGHT, WORDCLOUD_MAX_FONT_SIZE, WORDCLOUD_PREFER_HORIZONTAL,
+    FIGURE_WIDTH_LARGE, FIGURE_HEIGHT, SAVE_DPI_STANDARD
+)
 
 def generate_wordcloud(input_file='commit_messages.txt', output_file='images/commit_wordcloud.png'):
     """Generate a word cloud from commit messages."""
@@ -63,17 +57,17 @@ def generate_wordcloud(input_file='commit_messages.txt', output_file='images/com
         max_words=100,
         stopwords=stopwords,
         min_font_size=10,
-        max_font_size=MAX_FONT_SIZE,
+        max_font_size=WORDCLOUD_MAX_FONT_SIZE,
         relative_scaling=0.5,
-        prefer_horizontal=PREFER_HORIZONTAL
+        prefer_horizontal=WORDCLOUD_PREFER_HORIZONTAL
     ).generate(text)
 
     # Save the image
-    plt.figure(figsize=(FIGURE_WIDTH, FIGURE_HEIGHT))
+    plt.figure(figsize=(FIGURE_WIDTH_LARGE, FIGURE_HEIGHT))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig(output_file, dpi=SAVE_DPI, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_file, dpi=SAVE_DPI_STANDARD, bbox_inches='tight', facecolor='white')
     plt.close()
 
     print(f"Word cloud saved as '{output_file}'")
