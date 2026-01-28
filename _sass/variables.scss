@@ -198,7 +198,18 @@ $border-accent-width: 4px;
 /* Spacing scale (DRY consolidation) */
 $spacing-xs-px: 10px;
 $spacing-sm: 0.5em;
+$spacing-sm-rem: 0.5rem;
+$spacing-md: 1em;
 $spacing-lg: 1.5em;
+$spacing-xl: 2rem;
+
+/* Grid layout (DRY consolidation) */
+$grid-col-width: 4.1666666667%;
+
+/* Component dimensions (DRY consolidation) */
+$header-image-height: 100px;
+$avatar-size-lg: 150px;
+$avatar-size-md: 120px;
 
 /* Font size scale (DRY consolidation) */
 $font-size-small: 0.85em;

@@ -1,3 +1,5 @@
+const { SERVER } = require('./constants');
+
 // Lighthouse score thresholds (0-1 scale)
 const SCORE_THRESHOLDS = {
   performance: 0.85,
@@ -15,22 +17,20 @@ const WEB_VITALS = {
   cumulativeLayoutShift: 0.1  // unitless
 };
 
-// Server configuration
-const SERVER_CONFIG = {
-  port: 4000,
-  numberOfRuns: 3,
-  startupWaitMs: 3000
+// Lighthouse-specific configuration (extends shared SERVER constants)
+const LIGHTHOUSE_CONFIG = {
+  numberOfRuns: 3
 };
 
 module.exports = {
   ci: {
     collect: {
       url: [
-        'http://127.0.0.1:4000',
-        'http://127.0.0.1:4000/about/',
-        'http://127.0.0.1:4000/posts/'
+        SERVER.baseUrlAlt,
+        `${SERVER.baseUrlAlt}/about/`,
+        `${SERVER.baseUrlAlt}/posts/`
       ],
-      numberOfRuns: SERVER_CONFIG.numberOfRuns,
+      numberOfRuns: LIGHTHOUSE_CONFIG.numberOfRuns,
       settings: {
         chromeFlags: '--no-sandbox --disable-dev-shm-usage --disable-gpu'
       }
@@ -73,8 +73,8 @@ module.exports = {
     },
     server: {
       command: 'bundle exec jekyll serve',
-      port: SERVER_CONFIG.port,
-      wait: SERVER_CONFIG.startupWaitMs
+      port: SERVER.port,
+      wait: SERVER.startupWaitMs
     }
   }
 };

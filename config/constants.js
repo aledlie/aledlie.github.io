@@ -3,6 +3,16 @@
  * Centralizes magic numbers for maintainability
  */
 
+// Server configuration (DRY consolidation)
+const SERVER = {
+  port: 4000,
+  host: 'localhost',
+  get baseUrl() { return `http://${this.host}:${this.port}`; },
+  get baseUrlAlt() { return `http://127.0.0.1:${this.port}`; },
+  startupWaitMs: 3000,
+  startupTimeoutMs: 120000
+};
+
 // Standard device viewport sizes
 const VIEWPORTS = {
   mobile: { width: 375, height: 667 },
@@ -12,8 +22,8 @@ const VIEWPORTS = {
 
 // Performance thresholds
 const PERFORMANCE = {
-  pageLoadTimeoutMs: 3000,
-  networkIdleWaitMs: 3000
+  pageLoadTimeoutMs: SERVER.startupWaitMs,
+  networkIdleWaitMs: SERVER.startupWaitMs
 };
 
 // HTTP status codes
@@ -27,6 +37,7 @@ const ANALYTICS = {
 };
 
 module.exports = {
+  SERVER,
   VIEWPORTS,
   PERFORMANCE,
   HTTP_STATUS,

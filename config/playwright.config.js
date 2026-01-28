@@ -1,5 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const { SERVER } = require('./constants');
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -20,7 +21,7 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || 'http://localhost:4000',
+    baseURL: process.env.BASE_URL || SERVER.baseUrl,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -56,8 +57,8 @@ module.exports = defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'npm run serve',
-    url: 'http://localhost:4000',
+    url: SERVER.baseUrl,
     reuseExistingServer: true, // Always reuse if server is already running (fixes CI port conflicts)
-    timeout: 120 * 1000,
+    timeout: SERVER.startupTimeoutMs,
   },
 });

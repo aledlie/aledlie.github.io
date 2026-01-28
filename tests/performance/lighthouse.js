@@ -5,6 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { SERVER } = require('../../config/constants');
 
 // Lighthouse score thresholds (0-100 scale)
 const SCORE_THRESHOLDS = {
@@ -21,7 +22,7 @@ const RETRY_CONFIG = {
 };
 
 class PerformanceTestSuite {
-  constructor(baseUrl = 'http://localhost:4000') {
+  constructor(baseUrl = SERVER.baseUrl) {
     this.baseUrl = baseUrl;
     this.chrome = null;
     this.results = [];
@@ -274,7 +275,7 @@ class PerformanceUtils {
 
 // Run the performance test suite
 async function main() {
-  const baseUrl = process.env.BASE_URL || 'http://localhost:4000';
+  const baseUrl = process.env.BASE_URL || SERVER.baseUrl;
 
   console.log(`Testing site performance at: ${baseUrl}`);
 

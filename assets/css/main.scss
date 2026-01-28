@@ -16,14 +16,14 @@ body {
 
 /* HEADER - Compact cover images */
 .page-hero {
-  height: 100px;
+  height: $header-image-height;
   padding-bottom: 0;
-  margin-bottom: 2em;
+  margin-bottom: $spacing-xl;
 
   .page-hero-image,
   img {
     width: 100%;
-    height: 100px;
+    height: $header-image-height;
     object-fit: cover;
   }
 
@@ -34,9 +34,9 @@ body {
 
 .page-hero-overlay {
   position: relative;
-  height: 100px;
+  height: $header-image-height;
   padding-bottom: 0;
-  margin-bottom: 2em;
+  margin-bottom: $spacing-xl;
 
   .page-hero-content {
     display: none;
@@ -60,8 +60,8 @@ body {
 
   .site-title {
     width: 16.6666666667%;
-    margin-right: 4.1666666667%;
-    margin-left: 6%;  /* Increased from 4.1666666667% to center better */
+    margin-right: $grid-col-width;
+    margin-left: 6%;  /* Increased from $grid-col-width to center better */
     text-align: center;
   }
 
@@ -78,12 +78,12 @@ body {
   .nav-links {
     display: flex;
     flex-wrap: wrap;
-    margin-right: 4.1666666667%;
-    margin-left: 4.1666666667%;
+    margin-right: $grid-col-width;
+    margin-left: $grid-col-width;
 
     a {
       font-weight: 700;
-      margin-right: 4.1666666667%;
+      margin-right: $grid-col-width;
       white-space: nowrap;
 
       &:hover {
@@ -161,11 +161,11 @@ body {
   }
 
   .author-avatar img {
-    width: 150px;
-    height: 150px;
+    width: $avatar-size-lg;
+    height: $avatar-size-lg;
     border-radius: $border-radius-circle;
     object-fit: cover;
-    margin-bottom: 1em;  /* Explicit spacing below avatar */
+    margin-bottom: $spacing-md;  /* Explicit spacing below avatar */
   }
 
   .author-name {
@@ -302,11 +302,11 @@ body {
     border-left: 3px solid $accent-blue;
     padding-left: 1.5rem;
     font-style: italic;
-    margin: 2rem 0;
+    margin: $spacing-xl 0;
     color: $gray-darker;
     background: $bg-light;
-    padding: 2rem;
-    border-radius: 8px;
+    padding: $spacing-xl;
+    border-radius: $border-radius * 2;
     text-align: center;
   }
 
@@ -447,7 +447,7 @@ td code,
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2rem 0;
+  margin: $spacing-xl 0;
   font-size: $font-size-large;
 
   thead {
@@ -514,7 +514,7 @@ table {
   .archive__item-title {
     font-size: 1.3em;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm-rem;
     color: $gray-medium;
     font-family: $heading-font;
 
@@ -534,7 +534,7 @@ table {
     color: $gray-darker;
     font-size: 1em;
     line-height: 1.6;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm-rem;
     font-style: italic;
   }
 
@@ -542,7 +542,7 @@ table {
     display: block;
     color: $gray-lighter;
     font-size: $font-size-medium;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm-rem;
     font-style: italic;
   }
 }
@@ -570,14 +570,14 @@ table {
   .page-title {
     font-size: 2.2em;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
     line-height: 1.2;
   }
 
   .page-meta {
     color: $gray-lighter;
     font-size: $font-size-medium;
-    margin-bottom: 2rem;
+    margin-bottom: $spacing-xl;
     @include border-light-bottom;
   }
 }
@@ -595,19 +595,19 @@ a {
 /* FOOTER - Clean styling (WCAG colors defined in _footer.scss) */
 .page-footer {
   @include border-light-top;
-  padding: 2rem 0;
+  padding: $spacing-xl 0;
   text-align: center;
 }
 
 /* SOCIAL SHARING */
 .page-share {
   @include border-light-top;
-  padding-top: 1.5rem;
-  margin-top: 2rem;
+  padding-top: $spacing-lg;
+  margin-top: $spacing-xl;
 
   .btn {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-right: $spacing-sm-rem;
+    margin-bottom: $spacing-sm-rem;
   }
 }
 
@@ -622,8 +622,8 @@ a {
     text-align: center;
 
     .author-avatar img {
-      width: 120px;
-      height: 120px;
+      width: $avatar-size-md;
+      height: $avatar-size-md;
     }
   }
 

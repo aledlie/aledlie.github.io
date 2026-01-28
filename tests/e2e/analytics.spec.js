@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { PERFORMANCE } = require('../constants');
+const { PERFORMANCE } = require('../../config/constants');
 
 /**
  * Simplified Analytics Tests

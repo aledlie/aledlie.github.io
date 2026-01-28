@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { VIEWPORTS, PERFORMANCE, HTTP_STATUS } = require('../constants');
+const { VIEWPORTS, PERFORMANCE, HTTP_STATUS } = require('../../config/constants');
 
 /**
  * Simplified Navigation Tests
