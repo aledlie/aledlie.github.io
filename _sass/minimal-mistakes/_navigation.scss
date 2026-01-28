@@ -81,7 +81,7 @@
       text-align: center;
       text-decoration: none;
       color: $muted-text-color;
-      border: 1px solid color.mix(#000, $border-color, 25%);
+      border: 1px solid $border-color-dark;
       border-radius: 0;
 
       &:hover {
@@ -90,7 +90,7 @@
 
       &.current,
       &.current.disabled {
-        color: #fff;
+        color: $white;
         background: $primary-color;
       }
 
@@ -130,7 +130,7 @@
     text-align: center;
     text-decoration: none;
     color: $muted-text-color;
-    border: 1px solid color.mix(#000, $border-color, 25%);
+    border: 1px solid $border-color-dark;
     border-radius: $border-radius;
 
     &:hover {
@@ -367,25 +367,25 @@
       }
 
       &:hover {
-        color: #fff;
+        color: $white;
         border-color: $gray;
         background-color: color.mix(white, #000, 20%);
 
         &::before,
         &::after {
-          background-color: #fff;
+          background-color: $white;
         }
       }
     }
 
     /* selected */
     input:checked + label {
-      color: white;
+      color: $white;
       background-color: color.mix(white, #000, 20%);
 
       &::before,
       &::after {
-        background-color: #fff;
+        background-color: $white;
       }
     }
 
@@ -486,7 +486,7 @@
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color: $white;
     font-size: $type-size-6;
     background: $primary-color;
     border-start-start-radius: $border-radius;

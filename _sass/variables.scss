@@ -19,6 +19,7 @@ $alt-font: $base-font;
 $background-color		: #fff !default;
 $black          		: #111;
 $border-color   		: #7a8288;
+$border-color-dark		: color.mix(#000, $border-color, 25%);
 $code-background-color		: #fafafa !default;
 $danger-color			: #ee5f5b !default;
 $footer-background-color	: #fff !default;
