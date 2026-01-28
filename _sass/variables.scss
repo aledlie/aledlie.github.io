@@ -16,7 +16,6 @@ $alt-font: $base-font;
 
 /* ==============Colors========================================================================== */
 
-$basecolor      		: #343434;
 $background-color		: #fff !default;
 $black          		: #111;
 $border-color   		: #7a8288;
@@ -29,7 +28,7 @@ $info-color			: #3b9cba !default;
 $muted-text-color		: #4d5356 !default;
 $primary-color			: #6f777d !default;
 $success-color			: #3fa63f !default;
-$text-color     		: #333332;
+$text-color     		: #333;
 $warning-color			: #d67f05 !default;
 $white          		: #fff;
 
@@ -63,7 +62,6 @@ $border-light: #eee;
 $bg-light: #f8f9fa;
 $bg-lighter: #e9ecef;
 $border-medium: #dee2e6;
-$text-dark: #333;
 
 /* WCAG AA compliant colors */
 $wcag-text-dark: #404040;      /* 7.0:1 contrast on white */
@@ -133,7 +131,7 @@ $youtube-color		: #b00 !default;
 $xing-color		: #006567 !default;
 
 /* links */
-$link-color       	: #343434;
+$link-color       	: $text-color;
 $link-color-hover	: color.mix(#000, $link-color, 25%) !default;
 $link-color-visited	: color.mix(#fff, $link-color, 15%) !default;
 

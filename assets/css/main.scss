@@ -249,7 +249,7 @@ body {
 
     &:hover {
       background: $bg-lighter !important;
-      color: $text-dark !important;
+      color: $text-color !important;
     }
   }
 }
@@ -325,7 +325,7 @@ figure.highlight,
 
   code {
     background: transparent !important;
-    color: $text-dark !important;
+    color: $text-color !important;
     font-size: inherit !important;
   }
 
@@ -339,14 +339,14 @@ figure.highlight,
 
 /* Override dark syntax highlighting colors for light theme */
 .highlight {
-  color: $text-dark !important;
+  color: $text-color !important;
 
   .c { color: $syntax-comment !important; }
   .k { color: $syntax-keyword !important; }
   .l { color: $syntax-number !important; }
-  .n { color: $text-dark !important; }
+  .n { color: $text-color !important; }
   .o { color: $syntax-operator !important; }
-  .p { color: $text-dark !important; }
+  .p { color: $text-color !important; }
   .cm { color: $syntax-comment !important; }
   .cp { color: $syntax-comment !important; }
   .c1 { color: $syntax-comment !important; }
@@ -380,7 +380,7 @@ figure.highlight,
   .nf { color: $syntax-function !important; }
   .nl { color: $syntax-comment !important; }
   .nn { color: $syntax-namespace !important; }
-  .nx { color: $text-dark !important; }
+  .nx { color: $text-color !important; }
   .py { color: $syntax-comment !important; }
   .nt { color: $syntax-keyword !important; }
   .nv { color: $syntax-number !important; }
@@ -451,7 +451,7 @@ table {
     padding: 0.75rem;
     text-align: left;
     font-weight: 600;
-    color: $text-dark;
+    color: $text-color;
     font-size: 0.95em;
   }
 
@@ -593,7 +593,7 @@ table {
 
 /* GLOBAL LINK OVERRIDES - Clean black text */
 a {
-  color: $text-dark !important;  /* WCAG AA contrast (7.7:1 on white) */
+  color: $text-color !important;  /* WCAG AA contrast (7.7:1 on white) */
   text-decoration: none !important;
 
   &:hover {
