@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 import re
 import argparse
 
+# Chart configuration constants
+FIGURE_WIDTH = 10
+FIGURE_HEIGHT = 6
+SAVE_DPI = 300
+XLABEL_ROTATION = 45
+
 def parse_results(file_path):
     """Parse the results file to extract commit count categories and days."""
     categories = []
@@ -31,14 +37,14 @@ def parse_results(file_path):
 
 def plot_bar_chart(categories, days, output_file):
     """Create a bar chart of commit count distribution."""
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(FIGURE_WIDTH, FIGURE_HEIGHT))
     plt.bar(categories, days, color='skyblue', edgecolor='black')
     plt.xlabel('Commits per Day')
     plt.ylabel('Number of Days')
     plt.title('Distribution of Daily Commit Counts')
-    plt.xticks(rotation=45, ha='right')
+    plt.xticks(rotation=XLABEL_ROTATION, ha='right')
     plt.tight_layout()
-    plt.savefig(output_file, dpi=300)
+    plt.savefig(output_file, dpi=SAVE_DPI)
     plt.close()
     print(f"Bar chart saved as '{output_file}'")
 

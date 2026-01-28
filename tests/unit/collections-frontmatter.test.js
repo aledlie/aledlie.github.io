@@ -15,6 +15,9 @@ const FRONT_MATTER_REGEX = /^---\r?\n([\s\S]*?)\r?\n---/;
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 const POST_FILENAME_REGEX = /^\d{4}-\d{2}-\d{2}-.+\.(md|markdown)$/;
 
+// Content validation thresholds
+const MIN_CONTENT_LENGTH = 50;
+
 /**
  * Parse YAML front matter from content string
  */
@@ -183,7 +186,7 @@ describe('Posts Collection (_posts)', () => {
           const match = file.content.match(FRONT_MATTER_REGEX);
           if (match) {
             const content = file.content.slice(match[0].length).trim();
-            return content.length < 50;
+            return content.length < MIN_CONTENT_LENGTH;
           }
           return false;
         })

@@ -5,6 +5,17 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import re
 
+# WordCloud image configuration
+WORDCLOUD_WIDTH = 1200
+WORDCLOUD_HEIGHT = 600
+MAX_FONT_SIZE = 120
+PREFER_HORIZONTAL = 0.7
+
+# Output figure configuration
+FIGURE_WIDTH = 12
+FIGURE_HEIGHT = 6
+SAVE_DPI = 150
+
 def generate_wordcloud(input_file='commit_messages.txt', output_file='images/commit_wordcloud.png'):
     """Generate a word cloud from commit messages."""
 
@@ -45,24 +56,24 @@ def generate_wordcloud(input_file='commit_messages.txt', output_file='images/com
 
     # Generate word cloud
     wordcloud = WordCloud(
-        width=1200,
-        height=600,
+        width=WORDCLOUD_WIDTH,
+        height=WORDCLOUD_HEIGHT,
         background_color='white',
         colormap='viridis',
         max_words=100,
         stopwords=stopwords,
         min_font_size=10,
-        max_font_size=120,
+        max_font_size=MAX_FONT_SIZE,
         relative_scaling=0.5,
-        prefer_horizontal=0.7
+        prefer_horizontal=PREFER_HORIZONTAL
     ).generate(text)
 
     # Save the image
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(FIGURE_WIDTH, FIGURE_HEIGHT))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig(output_file, dpi=150, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_file, dpi=SAVE_DPI, bbox_inches='tight', facecolor='white')
     plt.close()
 
     print(f"Word cloud saved as '{output_file}'")
