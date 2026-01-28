@@ -68,7 +68,7 @@ body {
   a {
     color: $white;
     letter-spacing: 0.05em;  /* Spacing for uppercase */
-    transition: color 0.2s ease;  /* Smooth hover transition */
+    transition: $link-transition;
 
     &:hover {
       color: $gray-medium;
@@ -103,6 +103,14 @@ body {
   @media (min-width: $large) {
     clear: none !important;
     margin-top: 0 !important;
+  }
+}
+
+// Fix: Theme's clearfix mixin adds clear:both to #main, pushing it below the sidebar
+// Override this at large screens so main content sits beside the sidebar
+#main {
+  @media (min-width: $large) {
+    clear: none !important;
   }
 }
 
@@ -226,7 +234,7 @@ body {
         text-decoration: none;
         padding: 0.4em 0.6em;  /* Increased padding */
         border-radius: 3px;
-        transition: all 0.3s ease;
+        transition: $hover-transition;
         display: inline-block;  /* Allow padding to work properly */
 
         &:hover {
@@ -473,26 +481,9 @@ table {
 }
 
 /* STATUS INDICATORS */
-.status-pass::before {
-  content: "✓ ";
-  color: #2ecc71;
-  font-weight: bold;
-  margin-right: 0.25rem;
-}
-
-.status-fail::before {
-  content: "✗ ";
-  color: #e74c3c;
-  font-weight: bold;
-  margin-right: 0.25rem;
-}
-
-.status-warning::before {
-  content: "⚠ ";
-  color: #f39c12;
-  font-weight: bold;
-  margin-right: 0.25rem;
-}
+.status-pass { @include status-indicator("✓ ", #2ecc71); }
+.status-fail { @include status-indicator("✗ ", #e74c3c); }
+.status-warning { @include status-indicator("⚠ ", #f39c12); }
 
 /* INFO BOXES - using notice-box mixin from variables.scss */
 .notice-info {
@@ -531,7 +522,7 @@ table {
       color: $academic-red !important;
       text-decoration: none !important;
       border-bottom: none !important;
-      transition: color 0.3s ease;
+      transition: $link-transition;
 
       &:hover {
         color: $academic-red-dark !important;
