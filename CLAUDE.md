@@ -86,61 +86,24 @@ npm run format:scss
 
 **Status:** WCAG 2.1 Level AA compliant (validated 2025-11-26)
 
-**Key Accessibility Features:**
-- Semantic HTML structure with proper heading hierarchy (H1→H2→H3)
-- ARIA attributes used only on landmarks and interactive elements
-- Color contrast ratios meet WCAG AA standards (4.5:1 minimum)
-- Skip navigation links for keyboard users
-- Proper list structures for navigation and content
-- All pages have H1 headings
-- Author profile uses proper heading levels (H2 for name, H3 for sections)
-- Footer links have explicit high-contrast colors
+**Key Features:** Semantic HTML, proper heading hierarchy (H1→H2→H3), WCAG AA contrast ratios (4.5:1 minimum), skip navigation links, all pages have H1 headings.
 
-**Accessibility Files:**
-- `_includes/skip-links.html` - Skip navigation implementation
-- `_includes/breadcrumbs.html` - Accessible breadcrumb navigation (disabled by default)
-- `_includes/author-profile.html` - Semantic author information
-- `_includes/page__hero.html` - Header images with H1 support
-- `_sass/minimal-mistakes/_footer.scss` - Footer styles with WCAG AA contrast
+**Testing:** `npx playwright test tests/e2e/accessibility.spec.js`
 
-**Testing:**
-- Playwright E2E tests in `tests/e2e/accessibility.spec.js`
-- Tests run on desktop and mobile viewports
-- All pages tested: Homepage, About, Posts, Archive
-- Keyboard navigation and focus indicator tests included
-
-**Documentation:**
-- Accessibility compliance report: `_reports/2025-11-26-accessibility-quick-wins-wcag-compliance.md`
+**Documentation:** `_reports/2025-11-26-accessibility-quick-wins-wcag-compliance.md`
 
 ### Schema.org Architecture
 
-**Critical:** This site implements extensive Schema.org structured data for SEO optimization. Schema includes are modular and can be combined.
+**Critical:** Extensive Schema.org structured data for SEO. Schema includes are modular and combinable.
 
-**Schema Implementation Pattern:**
-- **Unified Knowledge Graph:** `_includes/unified-knowledge-graph-schema.html` - Core organization/person entity definitions used site-wide
-- **Page-Specific Schema:** Included conditionally based on page type (blog posts, about pages, projects)
-- **Entity Relationships:** Uses `@id` references to connect entities across pages (author, organization, citations)
+**Key Files:**
+- `unified-knowledge-graph-schema.html` - Core Person/WebSite/Blog entities
+- `post-schema.html`, `tech-article-schema.html`, `analysis-article-schema.html`, `how-to-schema.html` - Article types
+- Shared partials in `_includes/schema/` (`_article-core.html`, `_author-publisher.html`, etc.)
 
-**Available Schema Includes:**
-- `unified-knowledge-graph-schema.html` - Core entities (Person, WebSite, Blog, Organizations)
-- `post-schema.html` - Blog posts (BlogPosting with enhanced metadata)
-- `tech-article-schema.html` - Technical articles (TechArticle)
-- `analysis-article-schema.html` - Analysis pieces (AnalysisNewsArticle)
-- `how-to-schema.html` - Tutorial content (HowTo)
-- `about-page-schema.html` - About page (Person/ProfilePage with detailed properties)
-- `breadcrumb-schema.html` - Breadcrumb navigation
-- `webpage-schema.html` - Generic webpage markup
+**Documentation:** `docs/schema/` - Implementation guides, testing procedures, entity analysis
 
-**Schema Documentation:**
-- Implementation guides in `docs/schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
-- Testing procedures in `docs/schema/SCHEMA-TESTING-VALIDATION-GUIDE.md`
-- Analysis and comparisons in `docs/schema/BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md`
-- Complete analysis in `docs/schema/PERSONALSITE-SCHEMA-COMPLETE-ANALYSIS.md`
-
-**Testing Schema Changes:**
-- Use Google Rich Results Test: https://search.google.com/test/rich-results
-- Use Schema.org validator: https://validator.schema.org/
-- Check `docs/schema/SEARCH-CONSOLE-MONITORING-GUIDE.md` for monitoring procedures
+**Validation:** [Google Rich Results Test](https://search.google.com/test/rich-results), [Schema.org validator](https://validator.schema.org/)
 
 ### Key Directories
 
@@ -267,24 +230,11 @@ Key customizations:
 
 ### Testing Infrastructure
 
-**Jest (Unit Tests):**
-- Test environment: jsdom
-- Setup file: `tests/setup.js`
-- Coverage: `assets/js/**/*.js` (excluding vendor)
+**Jest:** Unit tests in `tests/unit/`, jsdom environment, setup in `tests/setup.js`
 
-**Playwright (E2E Tests):**
-- Config: `config/playwright.config.js`
-- Browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
-- Auto-starts Jekyll server on port 4000
-- Screenshots/videos on failure
-- Base URL override: `BASE_URL` environment variable
-- **Accessibility tests:** `tests/e2e/accessibility.spec.js` - validates WCAG compliance
+**Playwright:** E2E tests in `tests/e2e/`, config at `config/playwright.config.js`. Browsers: Chromium, Firefox, WebKit, Mobile. Auto-starts Jekyll on port 4000.
 
-**Lighthouse (Performance):**
-- Config: `config/lighthouserc.js`
-- Tests: Homepage, About, Posts, Projects
-- Thresholds: Performance ≥85%, Accessibility ≥95%, SEO ≥95%
-- Core Web Vitals monitoring (LCP, FID, CLS, FCP, TTI)
+**Lighthouse:** Performance tests, config at `config/lighthouserc.js`. Thresholds: Performance ≥85%, Accessibility ≥95%, SEO ≥95%
 
 ### Analytics Implementation
 
@@ -392,41 +342,19 @@ git commit -m "Update Sumedh's site submodule"
 
 ## Important Notes
 
-1. **Ruby Warnings:** Use `RUBYOPT="-W0"` when serving locally to suppress deprecation warnings from vendor theme files. This is already configured in the `npm run serve` script.
+1. **Ruby Warnings:** Use `RUBYOPT="-W0"` to suppress vendor deprecation warnings (configured in `npm run serve`).
 
-2. **Character Encoding:** Production builds may require UTF-8 encoding settings (`LANG=en_US.UTF-8` and `LC_ALL=en_US.UTF-8`) to handle special characters in SCSS compilation.
+2. **CSS Specificity:** Some overrides use `!important` intentionally to override theme defaults.
 
-3. **CSS Specificity:** Some CSS overrides use `!important` to ensure theme defaults are properly overridden. This is intentional.
+3. **Testing:** Run `npm run test:all` before pushing. All tests must pass.
 
-4. **Performance Monitoring:** All deployments should meet Lighthouse thresholds. Check `tests/performance/results/` for detailed reports.
+4. **Accessibility:** Maintain WCAG 2.1 AA compliance. Test with `npx playwright test tests/e2e/accessibility.spec.js`.
 
-5. **Browser Compatibility:** Test responsive design at breakpoints: 768px (mobile), 1024px (tablet), 1200px (desktop).
+5. **Schema Validation:** Validate schema changes with Google Rich Results Test before deploying.
 
-6. **Analytics Configuration:** All tracking IDs (GTM, GA4, Facebook Pixel) are centralized in `_config.yml` under the `analytics` key. Includes are conditionally rendered based on config presence.
+6. **Liquid Conflicts:** Wrap code with `{{...}}` syntax in `{% raw %}...{% endraw %}` tags.
 
-7. **Schema.org Validation:** Always validate schema changes using Google Rich Results Test and Schema.org validator before deploying.
-
-8. **Visual Regression:** Run `npm run test:visual` before committing CSS changes to catch unintended visual differences.
-
-9. **Test Suite Requirements:** All tests must pass before deployment. Run `npm run test:all` before pushing to production.
-
-10. **Reports and Work Tracking:** Technical reports go in `_reports/` collection, while ongoing work and activity summaries go in `_work/`. Both are public-facing collections with permalinks.
-
-11. **Liquid Template Conflicts:** When including code examples with template syntax (like `{{...}}` from Handlebars, Plop.js, or similar tools), wrap code blocks with `{% raw %}...{% endraw %}` tags to prevent Jekyll's Liquid processor from interpreting them. Example:
-    ```markdown
-    {% raw %}
-    ```javascript
-    // Code with {{template}} syntax here
-    ```
-    {% endraw %}
-    ```
-
-12. **Accessibility Requirements:** All HTML changes must maintain WCAG 2.1 Level AA compliance. Run `npx playwright test tests/e2e/accessibility.spec.js` to verify. Key requirements:
-    - Maintain proper heading hierarchy (H1→H2→H3)
-    - Use ARIA attributes only on landmarks and interactive elements
-    - Ensure color contrast ratios meet 4.5:1 minimum for text
-    - Keep semantic HTML structure (nav, main, aside, footer)
-    - Preserve skip navigation links
+7. **Collections:** Reports → `_reports/`, ongoing work → `_work/`, projects → `_projects/`.
 
 ## Excluded from Build
 
@@ -444,63 +372,11 @@ Important paths excluded in `_config.yml`:
 
 ## Utilities and Scripts
 
-### Code Quality Tools
+**Duplication Detection:** `./utils/find-duplicates.sh --preset js|scss|all` - Uses ast-grep MCP
 
-**Duplication Detection** (`utils/find-duplicates.sh`):
-- Executable script for finding duplicate code using ast-grep MCP
-- Presets: `--preset js`, `--preset scss`, `--preset all`
-- Customizable similarity threshold (0.0-1.0, default: 0.8)
-- Documentation: `utils/DUPLICATION-FINDER.md`
+**Visual Regression:** `npm run test:visual-baseline` then `npm run test:visual` - Zero-tolerance for visual changes during refactoring
 
-**Usage:**
-```bash
-# Quick JavaScript scan
-./utils/find-duplicates.sh --preset js
-
-# Custom scan with stricter matching
-./utils/find-duplicates.sh --language javascript --similarity 0.9
-```
-
-**Git Activity Reports** (`_work/YYYY-MM-DD-git-activity-summary.md`):
-- Automated git activity summaries with SVG visualizations
-- Programming language breakdown analysis
-- Tracks contributions across time periods
-- Located in `_work/` collection for ongoing work tracking
-
-### Visual Regression Testing
-
-**Purpose:** Ensure pixel-perfect visual consistency during refactoring
-
-**Workflow:**
-```bash
-# Capture baseline screenshots
-npm run test:visual-baseline
-
-# Run comparison after changes
-npm run test:visual
-
-# View diffs in tests/visual/diffs/
-```
-
-**Zero-tolerance policy:** ANY visual difference during refactoring is considered a bug.
-
-### Baseline Performance Testing
-
-**Statistical validation of build performance:**
-```bash
-# Capture new baseline
-npm run test:capture-baseline
-
-# Compare against baseline (statistical analysis)
-npm run test:compare-baseline
-```
-
-**Metrics tracked:**
-- Clean build time (statistical significance testing)
-- Incremental build time
-- CSS file size
-- HTML output size
-- Memory usage during build
+**Performance Baseline:** `npm run test:capture-baseline` and `npm run test:compare-baseline` - Statistical build performance validation
 
 ## Documentation
 
@@ -517,17 +393,8 @@ Project documentation exists in `docs/`:
 
 See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-**Latest (2026-01-19):** Orphan file cleanup - removed 45 unused files (~5,400 lines):
-- `_includes/`: 20 files (superseded schemas, submodule-only, naming mismatches)
-- `_layouts/`: 4 files (page, posts, splash, search)
-- `_sass/`: 15 files (legacy Octopress/So Simple theme files)
-- `assets/js/`: 6 files (IE compatibility, old jQuery, bundled sources)
-
-**Previous:**
-- 2025-12-27: Repository refactoring - consolidated images to `assets/images/`, configs to `config/`
-- 2025-11-26: WCAG 2.1 Level AA accessibility compliance achieved
-- 2025-11: SCSS modernization (sass:color, sass:math modules)
+**Latest:** 2026-01-28 - DRY consolidation (taxonomy lists, color variables, transitions, status indicators)
 
 ---
 
-**Last Major Update:** 2026-01-19
+**Last Updated:** 2026-01-28

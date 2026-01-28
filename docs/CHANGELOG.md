@@ -2,6 +2,59 @@
 
 All notable changes to this project are documented in this file.
 
+## [2026-01-28] - DRY Consolidation
+
+Comprehensive codebase consolidation using DRY principles.
+
+### SCSS Consolidation
+- Consolidated category/tag list includes into parameterized `taxonomy-list.html`
+- Removed redundant text color variables (`$text-dark`, `$basecolor`)
+- Replaced hardcoded border colors (#ddd) with `$border-medium` variable
+- Added `$link-transition` and `$hover-transition` variables
+- Created `status-indicator` mixin for pass/fail/warning patterns
+- Extracted magic numbers into named constants
+
+### Code Reduction
+- ~50 lines reduced through mixin and variable consolidation
+- 3 files consolidated into 1 (taxonomy lists)
+- Improved theming flexibility with centralized color/transition definitions
+
+---
+
+## [2026-01-24] - Performance & DRY Refactoring
+
+Major performance optimizations and DRY principle implementation.
+
+### Performance
+- Optimized homepage load with WebP images and conditional loading
+- Deferred Facebook Pixel loading to improve page load metrics
+- Removed unused fitvids.js from scripts bundle
+
+### DRY Refactoring
+- Consolidated schema partials using shared includes (`_article-core.html`, `_author-publisher.html`)
+- Replaced hardcoded breakpoints with `$large` variable
+- Consolidated breadcrumbs, footer colors, and schema image patterns
+- Used breakpoint variables consistently for media queries
+
+### Cleanup
+- Removed duplicate and misplaced files from assets
+- Removed unused `copyright.js` from `_includes`
+- Cleaned up generated artifacts and backup files
+- Added video schema support
+
+---
+
+## [2026-01-21] - Schema & Content Fixes
+
+### Refactoring
+- Consolidated schema partials, color variables, and layout logic
+
+### Content
+- Corrected typos in posts
+- Updated SigNoz optimization report
+
+---
+
 ## [2026-01-19] - Documentation Cleanup & CI/CD Fixes
 
 ### Documentation
