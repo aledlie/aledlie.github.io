@@ -4,7 +4,7 @@ import logging
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'config'))
 
 logger = logging.getLogger(__name__)
 from constants import MONTHS_IN_YEAR, MONTH_INDEX_MIN, MONTH_INDEX_MAX, FIGURE_SIZE_SQUARE

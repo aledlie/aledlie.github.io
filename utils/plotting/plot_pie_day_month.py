@@ -5,7 +5,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'config'))
 
 logger = logging.getLogger(__name__)
 from constants import (

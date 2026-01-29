@@ -4,6 +4,11 @@ Wrapper script that creates charts with repository name in title and output
 filename based on the current git repository name.
 """
 import argparse
+import sys
+from pathlib import Path
+
+# Add analysis directory to path for repo_utils
+sys.path.insert(0, str(Path(__file__).parent.parent / 'analysis'))
 
 from plot_commits_by_hour import plot_commits_by_hour
 from plot_pie_day_month import plot_pie_day_month

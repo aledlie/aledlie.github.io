@@ -4,7 +4,7 @@ import logging
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / 'config'))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'config'))
 
 logger = logging.getLogger(__name__)
 from constants import HOURS_IN_DAY, HOUR_INDEX_MIN, HOUR_INDEX_MAX, FIGURE_WIDTH_STANDARD, FIGURE_HEIGHT
