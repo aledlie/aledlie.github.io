@@ -393,8 +393,8 @@ Project documentation exists in `docs/`:
 
 See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-**Latest:** 2026-01-28 - DRY consolidation (taxonomy lists, color variables, transitions, status indicators)
+**Latest:** 2026-01-29 - Code consolidation (redundant config, schema guards, unused SCSS vars)
 
 ---
 
-**Last Updated:** 2026-01-28
+**Last Updated:** 2026-01-29
