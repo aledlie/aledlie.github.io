@@ -12,7 +12,6 @@ gem "webrick"
 gem "base64"
 gem 'public_suffix', '~> 5.1.1'
 gem 'font-awesome-sass'
-gem 'octopress', '~> 3.0'
 gem 'faraday-retry'
 
 #plugins
@@ -29,5 +28,4 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-sitemap"
   gem "jekyll-gist"
-  gem "jekyll-coffeescript"
 end

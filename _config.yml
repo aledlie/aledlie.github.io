@@ -76,7 +76,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-gist
   - jekyll-include-cache
-  - jekyll-coffeescript
 
 # Styling
 sass:
