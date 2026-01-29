@@ -2,9 +2,22 @@
 
 All notable changes to this project are documented in this file.
 
-## [2026-01-29] - Code Consolidation
+## [2026-01-29] - Code Consolidation & Documentation
 
-Removed redundant config, schema guards, and unused SCSS variables.
+Removed redundant config, schema guards, unused SCSS variables, and improved documentation.
+
+### Documentation Updates
+- Added repository structure mermaid diagram to `docs/ARCHITECTURE-DATA-FLOWS.md`
+- Added directory statistics and purposes tables
+- Added session telemetry report (`_reports/2026-01-29-session-telemetry-report.md`)
+
+### Settings Consolidation
+- Removed 6 scattered `.claude/settings.local.json` files from subdirectories
+- Consolidated all Claude Code permissions to root `.claude/settings.local.json`
+- Directories cleaned: `_includes/`, `_reports/`, `_posts/`, `utils/`, `docs/`, `docs/schema/`
+
+### File Cleanup
+- Removed `assets/js/scripts.min.js.bak` (orphan backup file)
 
 ### Config Cleanup (`_config.yml`)
 - Removed obsolete `owner:` block (duplicates `author:` block)

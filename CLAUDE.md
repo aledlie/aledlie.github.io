@@ -382,7 +382,7 @@ Important paths excluded in `_config.yml`:
 
 Project documentation exists in `docs/`:
 - **Documentation Index:** `docs/README.md` - Complete documentation overview
-- **Architecture:** `docs/ARCHITECTURE-DATA-FLOWS.md` - Data flows and component relationships
+- **Architecture:** `docs/ARCHITECTURE-DATA-FLOWS.md` - Data flows, component relationships, repository structure diagram
 - **Changelog:** `docs/CHANGELOG.md` - Change history
 - **Setup Guides:** `docs/setup/` - Local development setup (Doppler, build issues, Ruby compatibility)
 - **Schema Guides:** `docs/schema/` - Schema.org implementation and entity analysis
@@ -393,7 +393,7 @@ Project documentation exists in `docs/`:
 
 See **[docs/CHANGELOG.md](docs/CHANGELOG.md)** for detailed change history.
 
-**Latest:** 2026-01-29 - Code consolidation (redundant config, schema guards, unused SCSS vars)
+**Latest:** 2026-01-29 - Code consolidation, architecture docs with mermaid diagram, settings consolidation
 
 ---
 
