@@ -2,9 +2,23 @@
 
 All notable changes to this project are documented in this file.
 
-## [2026-01-29] - Code Consolidation & Documentation
+## [2026-01-29] - Code Consolidation & Maintainability
 
-Removed redundant config, schema guards, unused SCSS variables, and improved documentation.
+Removed redundant config, schema guards, unused SCSS variables, and improved maintainability based on expert code review.
+
+### Maintainability Improvements (Code Review)
+- Removed unused dependencies: `octopress`, `jekyll-coffeescript` (bundle: 68 → 52 gems)
+- Deleted duplicate `.stylelintrc` (kept consolidated `config/stylelintrc.json`)
+- Deleted unused `config/_octopress.yml`
+- Reorganized `utils/` into logical subdirectories:
+  - `analysis/` - Git commit analysis scripts (9 files)
+  - `plotting/` - Python visualization scripts (8 files)
+  - `scripts/` - Build, migration, cleanup utilities (7 files)
+- Updated Python import paths for new directory structure
+- Added `npm run test:performance:clean` script for Lighthouse result cleanup
+- Cleaned stale Lighthouse results (kept last 3)
+- Added architecture cross-reference in CLAUDE.md
+- Documented `!important` usage (110+ declarations, intentional for theme overrides)
 
 ### Documentation Updates
 - Added repository structure mermaid diagram to `docs/ARCHITECTURE-DATA-FLOWS.md`
