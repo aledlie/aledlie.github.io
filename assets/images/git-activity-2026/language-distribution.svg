@@ -1,30 +1,48 @@
 <svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
-<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">File Changes by Language (116 total)</text>
-<path d="M 450.0,300.0 L 450.0,100.0 A 200.0,200.0 0 0,1 524.0276310679828,114.20465603664172 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">File Changes by Language (298 total)</text>
+<path d="M 450.0,300.0 L 450.0,100.0 A 200.0,200.0 0 0,1 550.6080388127843,127.14739653032336 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
 <rect x="700" y="50" width="15" height="15" fill="#0066cc"/>
-<text x="720" y="62" font-size="12">TypeScript: 7 (6.0%)</text>
-<path d="M 450.0,300.0 L 524.0276310679828,114.20465603664172 A 200.0,200.0 0 0,1 533.9778203120529,118.48491606580859 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<text x="720" y="62" font-size="12">Markdown: 25 (8.4%)</text>
+<path d="M 450.0,300.0 L 550.6080388127843,127.14739653032336 A 200.0,200.0 0 0,1 571.6128432523913,141.22243119360562 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
 <rect x="700" y="75" width="15" height="15" fill="#4da6ff"/>
-<text x="720" y="87" font-size="12">HTML: 1 (0.9%)</text>
-<path d="M 450.0,300.0 L 533.9778203120529,118.48491606580859 A 200.0,200.0 0 0,1 428.3761963152117,498.8275914308719 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<text x="720" y="87" font-size="12">JSON: 6 (2.0%)</text>
+<path d="M 450.0,300.0 L 571.6128432523913,141.22243119360562 A 200.0,200.0 0 0,1 614.9644410271351,186.92156175200824 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
 <rect x="700" y="100" width="15" height="15" fill="#99ccff"/>
-<text x="720" y="112" font-size="12">Markdown: 52 (44.8%)</text>
-<path d="M 450.0,300.0 L 428.3761963152117,498.8275914308719 A 200.0,200.0 0 0,1 264.2046560366417,225.97236893201716 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<text x="720" y="112" font-size="12">Shell: 15 (5.0%)</text>
+<path d="M 450.0,300.0 L 614.9644410271351,186.92156175200824 A 200.0,200.0 0 0,1 584.5557116833717,447.9687820230381 Z" fill="#00994d" stroke="white" stroke-width="2"/>
 <rect x="700" y="125" width="15" height="15" fill="#00994d"/>
-<text x="720" y="137" font-size="12">JavaScript: 34 (29.3%)</text>
-<path d="M 450.0,300.0 L 264.2046560366417,225.97236893201716 A 200.0,200.0 0 0,1 290.7813868588712,178.96515696124703 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
+<text x="720" y="137" font-size="12">Python: 68 (22.8%)</text>
+<path d="M 450.0,300.0 L 584.5557116833717,447.9687820230381 A 200.0,200.0 0 0,1 578.1982433670652,453.50964268605 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
 <rect x="700" y="150" width="15" height="15" fill="#ffcc00"/>
-<text x="720" y="162" font-size="12">YAML: 5 (4.3%)</text>
-<path d="M 450.0,300.0 L 290.7813868588712,178.96515696124703 A 200.0,200.0 0 0,1 375.9723689320171,114.20465603664172 Z" fill="#ff6600" stroke="white" stroke-width="2"/>
+<text x="720" y="162" font-size="12">Lock Files: 2 (0.7%)</text>
+<path d="M 450.0,300.0 L 578.1982433670652,453.50964268605 A 200.0,200.0 0 0,1 564.8112199404329,463.76319420367184 Z" fill="#ff6600" stroke="white" stroke-width="2"/>
 <rect x="700" y="175" width="15" height="15" fill="#ff6600"/>
-<text x="720" y="187" font-size="12">JSON: 10 (8.6%)</text>
-<path d="M 450.0,300.0 L 375.9723689320171,114.20465603664172 A 200.0,200.0 0 0,1 386.139693972804,110.4693657634395 Z" fill="#cc0000" stroke="white" stroke-width="2"/>
+<text x="720" y="187" font-size="12">YAML: 4 (1.3%)</text>
+<path d="M 450.0,300.0 L 564.8112199404329,463.76319420367184 A 200.0,200.0 0 0,1 539.480588748727,478.8664983645098 Z" fill="#cc0000" stroke="white" stroke-width="2"/>
 <rect x="700" y="200" width="15" height="15" fill="#cc0000"/>
-<text x="720" y="212" font-size="12">Other: 1 (0.9%)</text>
-<path d="M 450.0,300.0 L 386.139693972804,110.4693657634395 A 200.0,200.0 0 0,1 396.4943322941561,107.29000149615536 Z" fill="#9966cc" stroke="white" stroke-width="2"/>
+<text x="720" y="212" font-size="12">Text Files: 7 (2.3%)</text>
+<path d="M 450.0,300.0 L 539.480588748727,478.8664983645098 A 200.0,200.0 0 0,1 356.7682662651776,476.94022670042887 Z" fill="#9966cc" stroke="white" stroke-width="2"/>
 <rect x="700" y="225" width="15" height="15" fill="#9966cc"/>
-<text x="720" y="237" font-size="12">Images: 1 (0.9%)</text>
-<path d="M 450.0,300.0 L 396.4943322941561,107.29000149615536 A 200.0,200.0 0 0,1 450.0000000000001,100.0 Z" fill="#66cc99" stroke="white" stroke-width="2"/>
+<text x="720" y="237" font-size="12">HTML: 45 (15.1%)</text>
+<path d="M 450.0,300.0 L 356.7682662651776,476.94022670042887 A 200.0,200.0 0 0,1 250.01111381581137,302.10841239031583 Z" fill="#66cc99" stroke="white" stroke-width="2"/>
 <rect x="700" y="250" width="15" height="15" fill="#66cc99"/>
-<text x="720" y="262" font-size="12">Python: 5 (4.3%)</text>
+<text x="720" y="262" font-size="12">CSS/SCSS: 51 (17.1%)</text>
+<path d="M 450.0,300.0 L 250.01111381581137,302.10841239031583 A 200.0,200.0 0 0,1 328.38715674760886,141.2224311936055 Z" fill="#ff6699" stroke="white" stroke-width="2"/>
+<rect x="700" y="275" width="15" height="15" fill="#ff6699"/>
+<text x="720" y="287" font-size="12">JavaScript: 44 (14.8%)</text>
+<path d="M 450.0,300.0 L 328.38715674760886,141.2224311936055 A 200.0,200.0 0 0,1 420.58873074506926,102.17437668286254 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<rect x="700" y="300" width="15" height="15" fill="#0066cc"/>
+<text x="720" y="312" font-size="12">Images: 24 (8.1%)</text>
+<path d="M 450.0,300.0 L 420.58873074506926,102.17437668286254 A 200.0,200.0 0 0,1 433.1523776215756,100.7108692873743 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<rect x="700" y="325" width="15" height="15" fill="#4da6ff"/>
+<text x="720" y="337" font-size="12">Other: 3 (1.0%)</text>
+<path d="M 450.0,300.0 L 433.1523776215756,100.7108692873743 A 200.0,200.0 0 0,1 437.35772557726733,100.39996769183549 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<rect x="700" y="350" width="15" height="15" fill="#99ccff"/>
+<text x="720" y="362" font-size="12">TypeScript: 1 (0.3%)</text>
+<path d="M 450.0,300.0 L 437.35772557726733,100.39996769183549 A 200.0,200.0 0 0,1 445.7834095444379,100.04445402807639 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<rect x="700" y="375" width="15" height="15" fill="#00994d"/>
+<text x="720" y="387" font-size="12">Data Files: 2 (0.7%)</text>
+<path d="M 450.0,300.0 L 445.7834095444379,100.04445402807639 A 200.0,200.0 0 0,1 449.99999999999994,100.0 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
+<rect x="700" y="400" width="15" height="15" fill="#ffcc00"/>
+<text x="720" y="412" font-size="12">Ruby: 1 (0.3%)</text>
 </svg>
