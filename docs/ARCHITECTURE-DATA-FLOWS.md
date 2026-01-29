@@ -1,6 +1,6 @@
 # Architecture and Data Flow Documentation
 
-**Last Updated:** 2026-01-19
+**Last Updated:** 2026-01-29
 **Project:** The Parlor (www.aledlie.com)
 **Purpose:** Comprehensive architectural patterns and data flow documentation
 
@@ -9,12 +9,13 @@
 ## Table of Contents
 
 1. [Architecture Overview](#architecture-overview)
-2. [Data Flow Patterns](#data-flow-patterns)
-3. [Component Relationships](#component-relationships)
-4. [Schema.org Architecture](#schemaorg-architecture)
-5. [Testing Architecture](#testing-architecture)
-6. [Build and Deployment Pipeline](#build-and-deployment-pipeline)
-7. [Configuration Cascade](#configuration-cascade)
+2. [Repository Structure](#repository-structure)
+3. [Data Flow Patterns](#data-flow-patterns)
+4. [Component Relationships](#component-relationships)
+5. [Schema.org Architecture](#schemaorg-architecture)
+6. [Testing Architecture](#testing-architecture)
+7. [Build and Deployment Pipeline](#build-and-deployment-pipeline)
+8. [Configuration Cascade](#configuration-cascade)
 
 ---
 
@@ -69,6 +70,77 @@
 │  └──────────────┘  └──────────────┘  └──────────────┘         │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Repository Structure
+
+### Directory Overview (Mermaid)
+
+```mermaid
+graph TD
+    Root["PersonalSite<br/>Jekyll + npm"]
+
+    Root --> Config["Configuration"]
+    Root --> Content["Content Collections"]
+    Root --> Templates["Template System"]
+    Root --> Styling["Styling & Assets"]
+    Root --> Docs["Documentation"]
+    Root --> Testing["Testing"]
+
+    Content --> Posts["_posts/<br/>8 blog posts"]
+    Content --> Reports["_reports/<br/>115+ reports"]
+    Content --> Proj["_projects/<br/>1 project"]
+    Content --> Work["_work/<br/>8 files"]
+
+    Templates --> Layouts["_layouts/<br/>10 layouts"]
+    Templates --> Includes["_includes/<br/>59 components<br/>34 schema files"]
+    Templates --> Data["_data/<br/>3 YAML files"]
+
+    Styling --> CSS["assets/css/<br/>main.scss"]
+    Styling --> JS["assets/js/<br/>scripts + vendor"]
+    Styling --> IMG["assets/images/"]
+    Styling --> SASS["_sass/<br/>theme overrides"]
+
+    Docs --> Main["README.md<br/>CHANGELOG.md<br/>ARCHITECTURE"]
+    Docs --> Schema["schema/<br/>implementation guides"]
+    Docs --> Setup["setup/<br/>3 troubleshooting guides"]
+
+    Testing --> Unit["tests/unit/<br/>6 Jest suites"]
+    Testing --> E2E["tests/e2e/<br/>4 Playwright suites"]
+    Testing --> Perf["tests/performance/<br/>Lighthouse"]
+
+    Config --> ConfigYML["_config.yml"]
+    Config --> ConfigDir["config/<br/>playwright, lighthouse<br/>stylelint, prettier"]
+    Config --> Claude[".claude/<br/>settings, hooks"]
+```
+
+### Key Statistics
+
+| Category | Count | Notes |
+|----------|-------|-------|
+| Layouts | 10 | home, single, archive, post-index, collection, etc. |
+| Includes | 59 | 34 schema-related, 25 UI components |
+| Posts | 8 | 2017-2026 |
+| Reports | 115+ | Technical case studies, session logs |
+| Unit Tests | 6 | Jest with jsdom |
+| E2E Tests | 4 | Playwright (Chrome, Firefox, Safari, Mobile) |
+
+### Directory Purposes
+
+| Directory | Purpose |
+|-----------|---------|
+| `_posts/` | Blog posts (permanent content) |
+| `_reports/` | Technical reports and analysis (completed work) |
+| `_projects/` | Portfolio items (permanent) |
+| `_work/` | Work-in-progress, activity summaries |
+| `_layouts/` | Page structure templates |
+| `_includes/` | Reusable components (schema, analytics, UI) |
+| `_sass/` | Theme style overrides |
+| `assets/` | Static files (CSS, JS, images, fonts) |
+| `docs/` | Project documentation |
+| `tests/` | Test suites (unit, e2e, performance) |
+| `config/` | Tool configurations |
 
 ---
 
