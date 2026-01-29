@@ -35,9 +35,17 @@ Removed redundant config, schema guards, unused SCSS variables, and improved doc
 ### SCSS Cleanup (`_sass/variables.scss`)
 - Removed unused Base16 color palette (`$base00` through `$base0f`)
 
+### Python Utilities Consolidation (`utils/`)
+- Refactored `plot_commits_by_hour.py` to use shared `plot_utils.py` functions
+- Removed redundant `plot_bar_graph.py` backward-compat wrapper
+- Merged `plot_repo_by_hour.py` + `plot_repo_by_pie.py` into single `plot_repo.py`
+- Added CLI args (`--input`, `--output`, `--title`) to pie chart scripts
+- Updated `mcp_server.py` to use `plot_commits_by_hour.py` directly
+- Files reduced: 9 → 7 plot files (-60 lines)
+
 ### Code Reduction
-- ~77 lines removed (81 deletions total)
-- 6 files cleaned up
+- ~137 lines removed total (81 + 60 from Python consolidation)
+- 9 files cleaned up
 
 ---
 
