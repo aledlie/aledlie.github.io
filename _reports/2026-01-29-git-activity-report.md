@@ -6,7 +6,7 @@ author_profile: true
 breadcrumbs: true
 categories: [git-activity, development-metrics]
 tags: [git, commits, repositories, weekly-report, automation]
-excerpt: "72 commits across 3 repositories with 315 file changes."
+excerpt: "75 commits across 3 repositories with 320 file changes."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
@@ -15,24 +15,24 @@ header:
 # Weekly Git Activity Report
 
 **Report Period**: 2026-01-22 to 2026-01-29
-**Generated**: 2026-01-29 12:46
+**Generated**: 2026-01-29 12:52
 **Report Type**: Automated Git Activity Analysis
 
 ## Executive Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 72 |
+| Total Commits | 75 |
 | Active Repositories | 3 |
-| Files Changed | 315 |
+| Files Changed | 320 |
 | Languages Detected | 16 |
 
 ## Top Repositories by Commits
 
 | Repository | Commits |
 |------------|---------|
-| PersonalSite | 66 |
-| jobs | 4 |
+| PersonalSite | 68 |
+| jobs | 5 |
 | ast-grep-mcp | 2 |
 
 ## Language Distribution
@@ -41,14 +41,14 @@ header:
 |----------|-------------|
 | Python | 68 |
 | CSS/SCSS | 51 |
+| JavaScript | 46 |
 | HTML | 45 |
-| JavaScript | 45 |
-| Markdown | 32 |
+| Markdown | 34 |
 | Images | 24 |
 | Shell | 15 |
+| SVG | 7 |
 | Text Files | 7 |
 | JSON | 6 |
-| SVG | 5 |
 
 ## Project Categories
 
@@ -56,21 +56,21 @@ header:
 |----------|-------------|
 | Personal Sites | 1 |
 | MCP Servers | 1 |
-| Legacy | 1 |
+| Client Work | 1 |
 
 ## Repository Details
 
 ### PersonalSite
 
 - **Path**: `/Users/alyshialedlie/code/PersonalSite`
-- **Commits**: 66
-- **Files Changed**: 288
+- **Commits**: 68
+- **Files Changed**: 292
 
 ### jobs
 
 - **Path**: `/Users/alyshialedlie/code/jobs`
-- **Commits**: 4
-- **Files Changed**: 11
+- **Commits**: 5
+- **Files Changed**: 12
 
 ### ast-grep-mcp
 
