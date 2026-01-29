@@ -1,6 +1,6 @@
 # Documentation Index
 
-**Last Updated:** 2026-01-19
+**Last Updated:** 2026-01-29
 
 This directory contains all documentation for The Parlor (www.aledlie.com) Jekyll site.
 
