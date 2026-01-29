@@ -30,6 +30,7 @@ Removed redundant config, schema guards, unused SCSS variables, and improved mai
 - Added repository structure mermaid diagram
 - Added directory statistics and purposes tables
 - Added session telemetry report (`_reports/2026-01-29-session-telemetry-report.md`)
+- Added weekly git activity report (`_reports/2026-01-29-git-activity-report.md`)
 
 ### Settings Consolidation
 - Removed 6 scattered `.claude/settings.local.json` files from subdirectories
