@@ -2,11 +2,11 @@
 <text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
 <rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="70.0" text-anchor="end" font-size="14">PersonalSite</text>
-<text x="705.0" y="70.0" font-size="14" font-weight="bold">62</text>
-<rect x="250" y="90" width="21.774193548387096" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">66</text>
+<rect x="250" y="90" width="27.272727272727273" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="110.0" text-anchor="end" font-size="14">jobs</text>
-<text x="276.7741935483871" y="110.0" font-size="14" font-weight="bold">3</text>
-<rect x="250" y="130" width="14.516129032258064" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="282.27272727272725" y="110.0" font-size="14" font-weight="bold">4</text>
+<rect x="250" y="130" width="13.636363636363637" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="150.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
-<text x="269.51612903225805" y="150.0" font-size="14" font-weight="bold">2</text>
+<text x="268.6363636363636" y="150.0" font-size="14" font-weight="bold">2</text>
 </svg>
