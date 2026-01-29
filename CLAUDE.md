@@ -72,6 +72,8 @@ npm run format:scss
 
 ## Architecture
 
+> **Deep Dive:** For detailed data flows, component relationships, and mermaid diagrams, see [docs/ARCHITECTURE-DATA-FLOWS.md](docs/ARCHITECTURE-DATA-FLOWS.md).
+
 ### Jekyll Configuration
 
 - **Jekyll Version:** 4.3 (Jekyll 3.10.0 via github-pages gem for GitHub Pages compatibility)
@@ -130,7 +132,6 @@ npm run format:scss
 │   ├── js/               # JavaScript files
 │   └── images/           # ALL site images (profile, headers, covers, visualizations)
 ├── config/               # Consolidated configuration files
-│   ├── _octopress.yml    # Octopress configuration
 │   ├── audit-ci.json     # CI audit configuration
 │   ├── lighthouserc.js   # Lighthouse performance config
 │   ├── playwright.config.js # Playwright E2E test config
@@ -344,7 +345,7 @@ git commit -m "Update Sumedh's site submodule"
 
 1. **Ruby Warnings:** Use `RUBYOPT="-W0"` to suppress vendor deprecation warnings (configured in `npm run serve`).
 
-2. **CSS Specificity:** Some overrides use `!important` intentionally to override theme defaults.
+2. **CSS Specificity:** 110+ `!important` declarations override Minimal Mistakes theme defaults. This is intentional - reducing them requires extensive visual regression testing.
 
 3. **Testing:** Run `npm run test:all` before pushing. All tests must pass.
 
@@ -372,11 +373,20 @@ Important paths excluded in `_config.yml`:
 
 ## Utilities and Scripts
 
-**Duplication Detection:** `./utils/find-duplicates.sh --preset js|scss|all` - Uses ast-grep MCP
+Utilities are organized in `utils/` subdirectories:
 
-**Visual Regression:** `npm run test:visual-baseline` then `npm run test:visual` - Zero-tolerance for visual changes during refactoring
+```
+utils/
+├── analysis/   # Git commit analysis scripts
+├── plotting/   # Python visualization scripts
+├── scripts/    # Build, migration, cleanup utilities
+```
 
-**Performance Baseline:** `npm run test:capture-baseline` and `npm run test:compare-baseline` - Statistical build performance validation
+**Key Utilities:**
+- **Duplication Detection:** `./utils/scripts/find-duplicates.sh --preset js|scss|all`
+- **Visual Regression:** `npm run test:visual-baseline` then `npm run test:visual`
+- **Performance Baseline:** `npm run test:capture-baseline` and `npm run test:compare-baseline`
+- **Lighthouse Cleanup:** `npm run test:performance:clean` - Remove stale results
 
 ## Documentation
 
