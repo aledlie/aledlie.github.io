@@ -4,7 +4,7 @@
 <aside itemscope itemtype="https://schema.org/Person" class="h-card" aria-label="Author information">
 
   {% if author.avatar %}
-    <div class="author-avatar">
+    <div class="author__avatar">
       <a href="{{ author.home | default: '/' | absolute_url }}" aria-label="View {{ author.name }}'s profile">
         {% assign avatar_webp = author.avatar | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
         <picture>
@@ -15,20 +15,20 @@
     </div>
   {% endif %}
 
-  <div class="author-content">
-    <h2 class="author-name p-name" itemprop="name">
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
       <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
-    </h2>
+    </h3>
     {% if author.bio %}
-      <div class="author-bio p-note" itemprop="description">
-        {{ author.bio | markdownify }}
-      </div>
+      <p class="author__bio p-note" itemprop="description">
+        {{ author.bio }}
+      </p>
     {% endif %}
   </div>
 
-  <section class="author-urls-wrapper">
+  <div class="author__urls-wrapper">
     <h3 class="visually-hidden">Social Media Links</h3>
-    <button class="btn btn-inverse" aria-label="Show social media links">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
+    <button class="btn btn--inverse" aria-label="Show social media links">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
     <ul class="author-urls social-icons" role="list" aria-label="Social media links">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
@@ -80,5 +80,5 @@
 
       {% include author-profile-custom-links.html %}
     </ul>
-  </section>
+  </div>
 </aside>

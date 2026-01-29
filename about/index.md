@@ -1,6 +1,6 @@
 ---
 layout: single
-title: About Me
+title: About This Blog
 permalink: /about/
 author_profile: true
 breadcrumbs: false
