@@ -1,4 +1,5 @@
 """Plot commits by month - DRY refactored."""
+import argparse
 import logging
 import sys
 from pathlib import Path
@@ -34,4 +35,13 @@ def plot_pie_month(
 
 
 if __name__ == '__main__':
-    plot_pie_month()
+    parser = argparse.ArgumentParser(description='Generate pie chart of commits by month')
+    parser.add_argument('--input', default='commit_counts_month.txt',
+                        help='Input file with month and count data')
+    parser.add_argument('--output', default='images/commits_by_month.png',
+                        help='Output PNG file')
+    parser.add_argument('--title', default='Commits by Month',
+                        help='Chart title')
+
+    args = parser.parse_args()
+    plot_pie_month(input_file=args.input, output_file=args.output, title=args.title)

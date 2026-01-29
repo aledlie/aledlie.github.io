@@ -61,7 +61,7 @@ async def generate_hour_bar_chart() -> str:
     return _generate_chart(
         chart_type="commits_by_hour",
         data_script="./commits_by_hour.sh",
-        plot_script="plot_bar_graph.py",
+        plot_script="plot_commits_by_hour.py",
         title_template="Git Commits by Hour of Day for {repo_name}"
     )
 

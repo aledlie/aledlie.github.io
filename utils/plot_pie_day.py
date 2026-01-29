@@ -1,4 +1,5 @@
 """Plot commits by day of week - DRY refactored."""
+import argparse
 import logging
 import sys
 from pathlib import Path
@@ -33,4 +34,13 @@ def plot_pie_day(
 
 
 if __name__ == '__main__':
-    plot_pie_day()
+    parser = argparse.ArgumentParser(description='Generate pie chart of commits by day of week')
+    parser.add_argument('--input', default='commit_counts_day.txt',
+                        help='Input file with day and count data')
+    parser.add_argument('--output', default='images/commits_by_day.png',
+                        help='Output PNG file')
+    parser.add_argument('--title', default='Commits by Day of Week',
+                        help='Chart title')
+
+    args = parser.parse_args()
+    plot_pie_day(input_file=args.input, output_file=args.output, title=args.title)
