@@ -87,6 +87,7 @@ graph TD
     Root --> Styling["Styling & Assets"]
     Root --> Docs["Documentation"]
     Root --> Testing["Testing"]
+    Root --> Utils["Utilities"]
 
     Content --> Posts["_posts/<br/>8 blog posts"]
     Content --> Reports["_reports/<br/>115+ reports"]
@@ -109,6 +110,10 @@ graph TD
     Testing --> Unit["tests/unit/<br/>6 Jest suites"]
     Testing --> E2E["tests/e2e/<br/>4 Playwright suites"]
     Testing --> Perf["tests/performance/<br/>Lighthouse"]
+
+    Utils --> Analysis["analysis/<br/>git commit scripts"]
+    Utils --> Plotting["plotting/<br/>Python visualization"]
+    Utils --> Scripts["scripts/<br/>build utilities"]
 
     Config --> ConfigYML["_config.yml"]
     Config --> ConfigDir["config/<br/>playwright, lighthouse<br/>stylelint, prettier"]
@@ -141,6 +146,7 @@ graph TD
 | `docs/` | Project documentation |
 | `tests/` | Test suites (unit, e2e, performance) |
 | `config/` | Tool configurations |
+| `utils/` | Utility scripts (analysis/, plotting/, scripts/) |
 
 ---
 
@@ -1394,12 +1400,14 @@ gem "logger"
 gem "webrick"
 gem "base64"
 
-# Jekyll plugins
+# Jekyll plugins (52 gems total after cleanup)
 gem "jekyll-feed"
 gem "jekyll-paginate"
 gem "jekyll-sitemap"
 gem "jekyll-seo-tag"
+gem "jekyll-gist"
 gem "jekyll-include-cache"
+gem "jekyll-sass-converter", "~> 3.0"
 ```
 
 **4. package.json (Node.js Dependencies)**
@@ -1407,10 +1415,14 @@ gem "jekyll-include-cache"
 ```json
 {
   "scripts": {
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
     "test": "jest",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --config config/playwright.config.js",
     "test:performance": "node tests/performance/lighthouse.js",
-    "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance"
+    "test:performance:clean": "find tests/performance/results -name '*.json' | sort | head -n -3 | xargs rm -f",
+    "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance",
+    "lint:scss": "stylelint '**/*.scss' --config config/stylelintrc.json"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
@@ -1533,6 +1545,6 @@ Project content here...
 
 ---
 
-**Generated:** 2026-01-19
+**Last Updated:** 2026-01-29
 **For:** The Parlor (www.aledlie.com)
 **Maintainer:** Alyshia Ledlie
