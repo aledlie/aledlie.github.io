@@ -21,7 +21,13 @@ Removed redundant config, schema guards, unused SCSS variables, and improved mai
 - Documented `!important` usage (110+ declarations, intentional for theme overrides)
 
 ### Documentation Updates
-- Added repository structure mermaid diagram to `docs/ARCHITECTURE-DATA-FLOWS.md`
+- Created root `README.md` with project overview and quick start
+- Condensed `CLAUDE.md` from 410 → 95 lines (77% reduction)
+- Updated `docs/ARCHITECTURE-DATA-FLOWS.md`:
+  - Added utils/ to mermaid diagram with subdirectories
+  - Updated Gemfile/package.json sections
+  - Added utils/ to directory purposes table
+- Added repository structure mermaid diagram
 - Added directory statistics and purposes tables
 - Added session telemetry report (`_reports/2026-01-29-session-telemetry-report.md`)
 
