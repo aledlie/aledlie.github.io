@@ -2,6 +2,32 @@
 
 All notable changes to this project are documented in this file.
 
+## [2026-01-29] - Code Consolidation
+
+Removed redundant config, schema guards, and unused SCSS variables.
+
+### Config Cleanup (`_config.yml`)
+- Removed obsolete `owner:` block (duplicates `author:` block)
+- Removed disabled `pagination:` v2 block (unused)
+- Removed `whitelist:` block (outdated Jekyll config)
+
+### Schema Include Guards
+- Removed redundant `{% if %}` guards from 4 schema files already dispatched via seo.html:
+  - `tech-article-schema.html`
+  - `analysis-article-schema.html`
+  - `how-to-schema.html`
+  - `software-application-schema.html`
+- Single point of control now in `_includes/seo.html` dispatcher
+
+### SCSS Cleanup (`_sass/variables.scss`)
+- Removed unused Base16 color palette (`$base00` through `$base0f`)
+
+### Code Reduction
+- ~77 lines removed (81 deletions total)
+- 6 files cleaned up
+
+---
+
 ## [2026-01-28] - DRY Consolidation
 
 Comprehensive codebase consolidation using DRY principles.
