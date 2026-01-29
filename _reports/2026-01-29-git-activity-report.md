@@ -6,7 +6,7 @@ author_profile: true
 breadcrumbs: true
 categories: [git-activity, development-metrics]
 tags: [git, commits, repositories, weekly-report, automation]
-excerpt: "66 commits across 3 repositories with 302 file changes."
+excerpt: "67 commits across 3 repositories with 306 file changes."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
@@ -15,23 +15,23 @@ header:
 # Weekly Git Activity Report
 
 **Report Period**: 2026-01-22 to 2026-01-29
-**Generated**: 2026-01-29 12:32
+**Generated**: 2026-01-29 12:36
 **Report Type**: Automated Git Activity Analysis
 
 ## Executive Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 66 |
+| Total Commits | 67 |
 | Active Repositories | 3 |
-| Files Changed | 302 |
-| Languages Detected | 15 |
+| Files Changed | 306 |
+| Languages Detected | 16 |
 
 ## Top Repositories by Commits
 
 | Repository | Commits |
 |------------|---------|
-| PersonalSite | 61 |
+| PersonalSite | 62 |
 | jobs | 3 |
 | ast-grep-mcp | 2 |
 
@@ -43,7 +43,7 @@ header:
 | CSS/SCSS | 51 |
 | HTML | 45 |
 | JavaScript | 44 |
-| Markdown | 25 |
+| Markdown | 26 |
 | Images | 24 |
 | Shell | 15 |
 | Text Files | 7 |
@@ -63,8 +63,8 @@ header:
 ### PersonalSite
 
 - **Path**: `/Users/alyshialedlie/code/PersonalSite`
-- **Commits**: 61
-- **Files Changed**: 276
+- **Commits**: 62
+- **Files Changed**: 280
 
 ### jobs
 
