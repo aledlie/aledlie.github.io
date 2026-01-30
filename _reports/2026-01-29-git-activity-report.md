@@ -8,8 +8,8 @@ categories: [git-activity, development-metrics]
 tags: [git, commits, repositories, weekly-report, automation]
 excerpt: "75 commits across 3 repositories with 320 file changes."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # Weekly Git Activity Report
