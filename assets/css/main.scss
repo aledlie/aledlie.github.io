@@ -298,13 +298,13 @@ body .sidebar {
   }
 
   a {
-    color: $accent-blue;
+    color: $link-hover;  /* #06c - WCAG AA compliant (5.9:1 contrast on white) */
     text-decoration: none;
-    border-bottom: 1px dotted $accent-blue;
+    border-bottom: 1px dotted $link-hover;
 
     &:hover {
-      border-bottom: 1px solid $accent-blue;
-      color: $accent-blue-dark;
+      border-bottom: 1px solid $link-hover;
+      color: $text-color;
     }
   }
 
