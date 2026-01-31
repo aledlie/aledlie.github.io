@@ -28,7 +28,6 @@
 
   <div class="author__urls-wrapper">
     <h3 class="visually-hidden">Social Media Links</h3>
-    <button class="btn btn--inverse" aria-label="Show social media links">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
     <ul class="author-urls social-icons" role="list" aria-label="Social media links">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
