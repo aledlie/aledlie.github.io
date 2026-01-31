@@ -95,4 +95,7 @@ Claude.md
 
 # Utils generated artifacts
 utils/*.txt
+!utils/requirements.txt
 utils/*.png
+utils/**/_site
+utils/**/__pycache__
