@@ -1,7 +1,6 @@
 # Site Wide Configs
 title: ℵ₀
 title_separator: "-"
-#subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense.
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
@@ -135,7 +134,7 @@ paginate_path: /page:num/
 author:
   name: Alyshia Ledlie
   avatar: /assets/images/profile.jpg
-  bio: I write code, make aggressively mediocre jokes, and scale companies.
+  bio: ex-Academia | ex-Facebook | Start-up Founder | Reader of Fine Print.
   location: ATX | La Ventana | Rio
   email: alyshia@inventoryai.io
   github: aledlie
