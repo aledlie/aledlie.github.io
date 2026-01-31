@@ -66,12 +66,12 @@ body {
   }
 
   a {
-    color: $white;
+    color: $text-color;
     letter-spacing: 0.05em;  /* Spacing for uppercase */
     transition: $link-transition;
 
     &:hover {
-      color: $gray-medium;
+      color: $link-hover;
     }
   }
 
@@ -87,30 +87,31 @@ body {
       white-space: nowrap;
 
       &:hover {
-        border-bottom-color: rgba($white, 0.6);
+        border-bottom-color: rgba($text-color, 0.6);
       }
     }
   }
 }
 
 /* MAIN CONTENT - Constrained width and minimal padding */
-#page-wrapper {
+/* Use html body prefix for specificity (0,0,3) to beat theme's clearfix (0,0,1) */
+html body #page-wrapper {
   max-width: $content-max-width;
   margin: 0 auto;
   padding: 0.25rem;
 
   // At desktop widths, don't clear the sidebar float so content appears beside it
   @media (min-width: $large) {
-    clear: none !important;
-    margin-top: 0 !important;
+    clear: none;
+    margin-top: 0;
   }
 }
 
 // Fix: Theme's clearfix mixin adds clear:both to #main, pushing it below the sidebar
 // Override this at large screens so main content sits beside the sidebar
-#main {
+html body #main {
   @media (min-width: $large) {
-    clear: none !important;
+    clear: none;
   }
 }
 
@@ -120,7 +121,8 @@ body {
 }
 
 /* SIDEBAR - Academic profile layout matching target */
-.sidebar {
+/* Use body .sidebar prefix for specificity (0,1,1) to beat theme's (0,1,0) */
+body .sidebar {
   padding: 0.75em 1em 1em;  /* Reduced from 2em for tighter composition */
 
   // Only apply flex centering on mobile - don't interfere with desktop float layout
@@ -133,15 +135,16 @@ body {
   // Remove clear on desktop so sidebar and content float side-by-side
   // Add left padding to center author profile in sidebar space
   @media (min-width: $large) {
-    clear: none !important;
+    clear: none;
     padding-left: $spacing-lg;  /* Push content toward center of sidebar area */
   }
 
   text-align: center;
 
   // Override theme's table-cell display for proper centering
+  // Specificity: body .sidebar .author__content (0,3,1) beats theme's .author__content (0,1,0)
   .author__content {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -150,7 +153,7 @@ body {
 
   // Fix avatar centering - override theme's table-cell display
   .author__avatar {
-    display: block !important;
+    display: block;
     margin: 0 auto 1em;
   }
 
@@ -193,10 +196,11 @@ body {
     border-top: 1px solid $border-subtle;  /* Subtle visual divider */
     width: 100%;
     text-align: center;  /* Center the Follow button */
+    overflow: visible;  /* Fix truncation */
 
     > button,
     > button.btn {
-      display: inline-block !important;  /* Override theme's block display */
+      display: inline-block;  /* Override theme's block display */
       margin-bottom: $spacing-md;
     }
   }
@@ -205,14 +209,12 @@ body {
   .author__urls {
     margin-top: 0;
     text-align: center;
+    overflow: visible;  /* Fix truncation */
 
     li {
       display: block;
       margin-bottom: 0.75em;  /* Increased from 0.5em */
-      overflow: visible !important;  /* Fix truncation */
-      text-overflow: clip !important;  /* Disable ellipsis */
-      white-space: normal !important;  /* Allow wrapping */
-      max-width: none !important;  /* Remove width constraint */
+      @include text-wrap-normal;  /* Fix truncation with mixin */
 
       &:last-child {
         margin-bottom: 0;
@@ -225,8 +227,7 @@ body {
         margin-bottom: $spacing-lg;
         display: block;
         text-align: center;
-        overflow: visible !important;
-        white-space: normal !important;
+        @include text-wrap-normal;
 
         i {
           font-size: 1.1em;
@@ -234,43 +235,29 @@ body {
           margin-right: $spacing-sm;
         }
       }
+    }
 
-      a {
-        font-size: $font-size-large;  /* Slightly smaller links */
-        color: $academic-red !important;
-        text-decoration: none;
-        padding: 0.4em 0.6em;  /* Increased padding */
-        border-radius: $border-radius-small;
-        transition: $hover-transition;
-        display: inline-block;  /* Allow padding to work properly */
-        overflow: visible !important;
-        white-space: normal !important;
-        text-overflow: clip !important;
+    // Link styling with specificity - body .sidebar .author__urls li a (0,4,1)
+    li a {
+      font-size: $font-size-large;  /* Slightly smaller links */
+      color: $academic-red;
+      text-decoration: none;
+      padding: 0.4em 0.6em;  /* Increased padding */
+      border-radius: $border-radius-small;
+      transition: $hover-transition;
+      display: inline-block;  /* Allow padding to work properly */
+      @include text-wrap-normal;
 
-        &:hover {
-          color: $white !important;
-          background: $academic-red;
-          transform: translateX(2px);  /* Subtle hover effect */
-        }
+      &:hover {
+        color: $white;
+        background: $academic-red;
+        transform: translateX(2px);  /* Subtle hover effect */
       }
     }
   }
 
-  // Fix theme truncation on author__urls
-  .author__urls-wrapper,
-  .author__urls {
-    overflow: visible !important;
-
-    li,
-    a {
-      overflow: visible !important;
-      text-overflow: clip !important;
-      white-space: normal !important;
-    }
-  }
-
   .btn {
-    background: $bg-light !important;
+    background: $bg-light;
     @include border-medium;
     color: $wcag-text-dark;  /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
     font-size: $font-size-large;
@@ -279,8 +266,8 @@ body {
     margin-bottom: $spacing-md;
 
     &:hover {
-      background: $bg-lighter !important;
-      color: $text-color !important;
+      background: $bg-lighter;
+      color: $text-color;
     }
   }
 }
@@ -340,129 +327,78 @@ body {
 }
 
 /* CODE BLOCKS - Light theme matching site aesthetic */
-div.highlighter-rouge,
-figure.highlight,
-.highlight,
-.highlighter-rouge {
-  background: $code-bg !important;
-  border: 1px solid $border-subtle !important;
-  border-radius: $border-radius !important;
-  padding: 1rem !important;
-  margin: 1.5rem 0 !important;
-  overflow-x: auto !important;
-  font-family: $code-font !important;
-  font-size: $font-size-medium !important;
-  line-height: $line-height-tight !important;
+/* Use body prefix for specificity (0,1,1) to beat theme's (0,1,0) */
+/* NOTE: Syntax colors now come from base16 variable overrides in _sass/variables.scss */
+body div.highlighter-rouge,
+body figure.highlight {
+  background: $code-bg;
+  border: 1px solid $border-subtle;
+  border-radius: $border-radius;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-family: $code-font;
+  font-size: $font-size-medium;
+  line-height: $line-height-tight;
 
   code {
-    background: transparent !important;
-    color: $text-color !important;
-    font-size: inherit !important;
+    background: transparent;
+    color: $text-color;
+    font-size: inherit;
   }
 
   pre,
   pre.highlight {
-    margin: 0 !important;
-    background: transparent !important;
-    border: none !important;
+    margin: 0;
+    background: transparent;
+    border: none;
   }
 }
 
-/* Override dark syntax highlighting colors for light theme */
-.highlight {
-  color: $text-color !important;
-
-  .c { color: $syntax-comment !important; }
-  .k { color: $syntax-keyword !important; }
-  .l { color: $syntax-number !important; }
-  .n { color: $text-color !important; }
-  .o { color: $syntax-operator !important; }
-  .p { color: $text-color !important; }
-  .cm { color: $syntax-comment !important; }
-  .cp { color: $syntax-comment !important; }
-  .c1 { color: $syntax-comment !important; }
-  .cs { color: $syntax-comment !important; }
-  .gd { color: $syntax-error !important; }
-  .ge { font-style: italic !important; }
-  .gr { color: $syntax-error !important; }
-  .gh { color: $syntax-header !important; }
-  .gi { color: $syntax-inserted !important; }
-  .go { color: $syntax-output !important; }
-  .gp { color: $syntax-prompt !important; }
-  .gs { font-weight: bold !important; }
-  .gu { color: $syntax-deleted !important; }
-  .gt { color: $syntax-traceback !important; }
-  .kc { color: $syntax-keyword !important; }
-  .kd { color: $syntax-keyword !important; }
-  .kn { color: $syntax-keyword !important; }
-  .kp { color: $syntax-keyword !important; }
-  .kr { color: $syntax-keyword !important; }
-  .kt { color: $syntax-type !important; }
-  .ld { color: $syntax-error !important; }
-  .m { color: $syntax-number !important; }
-  .s { color: $syntax-string !important; }
-  .na { color: $syntax-attribute !important; }
-  .nb { color: $syntax-number !important; }
-  .nc { color: $syntax-type !important; }
-  .no { color: $syntax-number !important; }
-  .nd { color: $syntax-type !important; }
-  .ni { color: $syntax-deleted !important; }
-  .ne { color: $syntax-function !important; }
-  .nf { color: $syntax-function !important; }
-  .nl { color: $syntax-comment !important; }
-  .nn { color: $syntax-namespace !important; }
-  .nx { color: $text-color !important; }
-  .py { color: $syntax-comment !important; }
-  .nt { color: $syntax-keyword !important; }
-  .nv { color: $syntax-number !important; }
-  .ow { color: $syntax-keyword !important; }
-  .w { color: $syntax-whitespace !important; }
-  .mf { color: $syntax-number !important; }
-  .mh { color: $syntax-number !important; }
-  .mi { color: $syntax-number !important; }
-  .mo { color: $syntax-number !important; }
-  .sb { color: $syntax-string !important; }
-  .sc { color: $syntax-string !important; }
-  .sd { color: $syntax-string !important; }
-  .s2 { color: $syntax-string !important; }
-  .se { color: $syntax-number !important; }
-  .sh { color: $syntax-string !important; }
-  .si { color: $syntax-string !important; }
-  .sx { color: $syntax-string !important; }
-  .sr { color: $syntax-regex !important; }
-  .s1 { color: $syntax-string !important; }
-  .ss { color: $syntax-symbol !important; }
+/* Additional syntax refinements beyond base16 defaults */
+/* These target specific tokens that need different colors than base16 provides */
+body .highlight {
+  // Generic classes not covered by base16
+  .gr { color: $syntax-error; }        /* Generic.Error */
+  .gh { color: $syntax-header; }       /* Generic.Heading */
+  .gi { color: $syntax-inserted; }     /* Generic.Inserted */
+  .go { color: $syntax-output; }       /* Generic.Output */
+  .gp { color: $syntax-prompt; }       /* Generic.Prompt */
+  .gu { color: $syntax-deleted; }      /* Generic.Subheading */
+  .gt { color: $syntax-traceback; }    /* Generic.Traceback */
+  .w { color: $syntax-whitespace; }    /* Text.Whitespace */
 }
 
 /* INLINE CODE - Compact, subtle styling */
-p code,
-li code,
-td code,
-:not(pre) > code {
-  padding: 0.1em 0.3em !important;
-  margin: 0 !important;
-  font-size: $font-size-small !important;
-  background-color: $code-bg-inline !important;
-  border: 1px solid $border-subtle !important;
-  border-radius: $border-radius-small !important;
-  font-family: $code-font !important;
-  white-space: nowrap !important;
+/* Use body prefix and attribute selector for specificity */
+body p code,
+body li code,
+body td code,
+body :not(pre) > code {
+  padding: 0.1em 0.3em;
+  margin: 0;
+  font-size: $font-size-small;
+  background-color: $code-bg-inline;
+  border: 1px solid $border-subtle;
+  border-radius: $border-radius-small;
+  font-family: $code-font;
+  white-space: nowrap;
 
   /* Remove excessive spacing before/after */
   &::before,
   &::after {
-    content: none !important;
-    letter-spacing: normal !important;
+    content: none;
+    letter-spacing: normal;
   }
 }
 
 /* LANGUAGE PLAINTEXT - Remove all padding */
-.language-plaintext.highlighter-rouge {
-  padding: 0 !important;
-  margin: 0 !important;
+body .language-plaintext.highlighter-rouge {
+  padding: 0;
+  margin: 0;
 
   code {
-    padding: 0 !important;
+    padding: 0;
   }
 }
 
@@ -519,16 +455,18 @@ table {
 }
 
 /* ARCHIVE AND PAGE LAYOUT FIXES */
-.page__inner-wrap,
-.archive {
-  margin-top: 0 !important;  /* Remove excessive top spacing */
+/* Use body prefix for specificity */
+body .page__inner-wrap,
+body .archive {
+  margin-top: 0;  /* Remove excessive top spacing */
 }
 
 /* ARCHIVE LISTINGS - Academic post list matching target */
-.archive .list__item,
-.archive .archive__item,
-.list__item,
-.archive__item {
+/* Use double-class specificity for archive links */
+body .archive .list__item,
+body .archive .archive__item,
+body .list__item,
+body .archive__item {
 
   &:last-child {
     border-bottom: none;
@@ -542,13 +480,13 @@ table {
     font-family: $heading-font;
 
     a {
-      color: $academic-red !important;
-      text-decoration: none !important;
-      border-bottom: none !important;
+      color: $academic-red;
+      text-decoration: none;
+      border-bottom: none;
       transition: $link-transition;
 
       &:hover {
-        color: $academic-red-dark !important;
+        color: $academic-red-dark;
       }
     }
   }
@@ -580,8 +518,8 @@ table {
 }
 
 /* Remove grid from card elements */
-.card .grid {
-  display: block !important;
+body .card .grid {
+  display: block;
 }
 
 .card .grid > div {
@@ -606,12 +544,23 @@ table {
 }
 
 /* GLOBAL LINK OVERRIDES - Clean black text */
-a {
-  color: $text-color !important;  /* WCAG AA contrast (7.7:1 on white) */
-  text-decoration: none !important;
+/* Use html body a for specificity (0,0,3) to beat theme's a (0,0,1) */
+html body a {
+  color: $text-color;  /* WCAG AA contrast (7.7:1 on white) */
+  text-decoration: none;
 
   &:hover {
-    color: $link-hover !important;
+    color: $link-hover;
+  }
+}
+
+/* Masthead links - dark text on light background */
+html body .greedy-nav a,
+html body .greedy-nav .site-title {
+  color: $text-color;
+
+  &:hover {
+    color: $link-hover;
   }
 }
 

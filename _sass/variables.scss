@@ -108,6 +108,28 @@ $syntax-output: #303030;             /* Generic.Output */
 $syntax-traceback: #0040d0;          /* Generic.Traceback */
 $syntax-whitespace: #bbb;            /* Text.Whitespace */
 
+/* ==========================================================================
+   Base16 Syntax Theme Overrides
+   Override theme's dark base16 palette with light theme colors.
+   These must be defined BEFORE the theme is imported (theme uses !default).
+   ========================================================================== */
+$base00: $code-bg;                   /* Background - light gray */
+$base01: #f0f0f0;                    /* Lighter background */
+$base02: #e0e0e0;                    /* Selection background */
+$base03: $syntax-comment;            /* Comments - gray */
+$base04: $syntax-comment;            /* Line numbers - gray */
+$base05: $text-color;                /* Default text - dark */
+$base06: #f5f5f5;                    /* Light foreground */
+$base07: $white;                     /* Lightest foreground */
+$base08: $syntax-error;              /* Errors, deletions - red */
+$base09: $syntax-number;             /* Numbers - blue */
+$base0a: $syntax-type;               /* Types, classes - blue-gray */
+$base0b: $syntax-string;             /* Strings, inserted - red */
+$base0c: $syntax-keyword;            /* Keywords, tags - dark red */
+$base0d: $syntax-function;           /* Functions, attributes - dark red */
+$base0e: $syntax-keyword;            /* Keywords - dark red */
+$base0f: $syntax-error;              /* Deprecated - red */
+
 /* Status indicator colors */
 $status-pass: #2ecc71;
 $status-fail: #e74c3c;
@@ -288,6 +310,14 @@ $transition-slow: $timing-slow ease-in-out;
     font-weight: bold;
     margin-right: 0.25rem;
   }
+}
+
+/* Text wrap normal mixin - override theme's white-space: nowrap on sidebar */
+@mixin text-wrap-normal {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  max-width: none;
 }
 
 
