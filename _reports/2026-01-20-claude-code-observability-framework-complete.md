@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Claude Code Observability Framework: Production-Ready Implementation Complete
 
 **Session Date**: 2026-01-20<br>
 **Project**: Claude Code Dev Environment<br>

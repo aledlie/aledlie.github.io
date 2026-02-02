@@ -13,8 +13,6 @@ toc: true
 toc_sticky: true
 ---
 
-# Claude Code Usage Analysis
-
 **Session Date:** January 20, 2026
 **Analysis Period:** December 9, 2025 - January 20, 2026
 **Data Source:** `~/.claude/stats-cache.json`, git history

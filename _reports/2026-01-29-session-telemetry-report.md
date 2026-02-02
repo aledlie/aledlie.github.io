@@ -6,8 +6,6 @@ categories: [telemetry]
 tags: [opentelemetry, signoz, observability, session-analysis]
 ---
 
-# Session Telemetry Report
-
 **Session ID:** `5abb225b-f6fc-4ccd-a8f5-a87fe12d8d29`
 **Date:** 2026-01-29
 **Start Time:** 15:42:57 UTC

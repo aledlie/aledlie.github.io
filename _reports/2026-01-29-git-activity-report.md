@@ -12,8 +12,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Weekly Git Activity Report
-
 **Report Period**: 2026-01-22 to 2026-01-29
 **Generated**: 2026-01-29 12:52
 **Report Type**: Automated Git Activity Analysis

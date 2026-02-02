@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# Claude Code Config Bloat Audit
 
 **Session Date**: 2026-01-21<br>
 **Project**: Claude Code Dev Environment<br>

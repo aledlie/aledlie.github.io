@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Making your Wix website ~75% better, instantly
+title: "Making your Wix website ~75% better, instantly"
 date: 2025-09-02
 subtitle: "75% faster operations, 90% memory reduction, $391.68 annual savings"
 author_profile: true
@@ -52,8 +52,6 @@ schema_mentions:
     url: "https://www.npmjs.com/"
 ---
 
-
-# Wix Site Performance Improvement Analysis
 ## Executive Summary
 
 This document quantifies the performance and memory improvements achieved by removing the `inflight` package memory leak from a Wix site. The migration resulted in **75% faster file operations**, **90% reduction in memory usage**, and **$391.68 annual cost savings** for a single, low-traffic website.

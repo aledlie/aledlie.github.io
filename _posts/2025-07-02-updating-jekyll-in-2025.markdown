@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Updating a jekyll page after 8 years
+title: "Updating a jekyll page after 8 years"
 date: 2025-07-02
 author_profile: true
 categories:

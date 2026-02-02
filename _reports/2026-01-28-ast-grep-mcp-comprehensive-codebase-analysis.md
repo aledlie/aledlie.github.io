@@ -11,7 +11,6 @@ header:
   teaser: /assets/images/cover-reports.png
 ---
 
-# AST-Grep MCP Comprehensive Codebase Analysis Session
 
 **Session Date**: 2026-01-28<br>
 **Project**: ast-grep-mcp / IntegrityStudio.ai2<br>
