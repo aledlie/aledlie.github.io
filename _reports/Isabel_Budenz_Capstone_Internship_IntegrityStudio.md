@@ -6,6 +6,8 @@ author_profile: true
 categories: [career-planning]
 tags: [internship, ai-governance, compliance, integritystudio]
 excerpt: "Capstone internship proposal for AI Governance & International Compliance Research at IntegrityStudio.ai, focusing on cross-jurisdictional AI compliance frameworks."
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 

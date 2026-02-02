@@ -8,6 +8,8 @@ tags: [capstone, proposals, ai-arbitration, ai-regulation, legal-tech, governanc
 excerpt: "Three capstone project proposals with comparison: AI Arbitration Governance Framework, AI Regulatory Patchwork & Multi-Stakeholder Governance, and Technical AI Skills for Legal Practice."
 toc: true
 toc_sticky: true
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 

@@ -6,6 +6,8 @@ author_profile: true
 categories: [career-planning]
 tags: [ai-arbitration, research-proposal, international-law]
 excerpt: "Capstone project proposal analyzing AI adoption, regulation, and governance in international arbitration across major jurisdictions and arbitral institutions."
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 

@@ -9,6 +9,8 @@ excerpt: "Comprehensive job search package including target companies, cover let
 toc: true
 toc_label: "Contents"
 toc_sticky: true
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 

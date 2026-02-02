@@ -6,6 +6,8 @@ author_profile: true
 categories: [career-planning]
 tags: [cv, resume, ai-policy, international-law]
 excerpt: "Tailored CV for AI policy and governance positions, highlighting EU AI Act expertise, international commercial arbitration background, and multilingual capabilities."
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 
