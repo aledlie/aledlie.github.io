@@ -10,7 +10,7 @@ Refactored to use schema partials for shared blocks
   "@type": "BlogPosting",
   "@id": "{{ page.url | absolute_url }}#blogposting",
   "headline": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  {% include schema/_description.html %}
   {% include schema/_image.html %}
   {% include schema/_author-publisher.html %}
   {% include schema/_main-entity.html %}

@@ -16,6 +16,12 @@ $heading-font: 'PT Sans Narrow', sans-serif;
 $line-height-tight: 1.5;    /* Code, sidebar, navigation */
 $line-height-relaxed: 1.6;  /* Excerpts, mobile text */
 $line-height-base: 1.7;     /* Body text, page content */
+
+/* Font weight scale (DRY consolidation) */
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
 $code-font: monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
 
@@ -67,6 +73,10 @@ $academic-red-dark: #6d1e2a;
 $accent-blue: #3498db;
 $accent-blue-dark: #2980b9;
 $content-text: #2c3e50;
+
+/* Semantic link colors (DRY consolidation) */
+$link-primary: $academic-red;
+$link-primary-hover: $academic-red-dark;
 
 /* Backgrounds and borders */
 $border-light: #eee;
@@ -245,6 +255,7 @@ $font-size-small: 0.85em;
 $font-size-medium: 0.9em;
 $font-size-large: 0.95em;
 $font-size-mobile: 15px;             /* Mobile body text */
+$font-size-heading-2: 1.3em;         /* h2, archive titles */
 $box-shadow: 0 1px 1px rgb(0 0 0 / 12.5%) !default; // Fixed for old Sass compatibility
 $box-shadow-dropdown: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
 $nav-height: 2em !default;
@@ -277,6 +288,10 @@ $transition-slow: $timing-slow ease-in-out;
 
 @mixin border-light-bottom {
   border-bottom: 1px solid $border-light;
+}
+
+@mixin border-bottom-accent($width: 2px, $color: $accent-blue) {
+  border-bottom: $width solid $color;
 }
 
 @mixin border-light-top {

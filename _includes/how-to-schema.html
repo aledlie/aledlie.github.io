@@ -31,7 +31,7 @@ Note: Steps can also be parsed from content if using structured headings
   "@id": "{{ page.url | absolute_url }}#howto",
 
   "name": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  {% include schema/_description.html %}
 
   {% comment %}Time and cost{% endcomment %}
   {% if page.schema_total_time -%}

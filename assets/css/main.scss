@@ -82,7 +82,7 @@ body {
     margin-left: $grid-col-width;
 
     a {
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       margin-right: $grid-col-width;
       white-space: nowrap;
 
@@ -154,7 +154,7 @@ body .sidebar {
   // Fix avatar centering - override theme's table-cell display
   .author__avatar {
     display: block;
-    margin: 0 auto 1em;
+    margin: 0 auto $spacing-md;
   }
 
   .author__name,
@@ -173,7 +173,7 @@ body .sidebar {
 
   .author-name {
     font-size: 1.75em;  /* Reduced from 2em for refined hierarchy */
-    font-weight: 600;   /* Reduced from bold (700) to semibold */
+    font-weight: $font-weight-semibold;   /* Reduced from bold (700) to semibold */
     font-family: $heading-font;
     letter-spacing: 0.02em;  /* Added for elegance */
     margin-bottom: 0;
@@ -240,7 +240,7 @@ body .sidebar {
     // Link styling with specificity - body .sidebar .author__urls li a (0,4,1)
     li a {
       font-size: $font-size-large;  /* Slightly smaller links */
-      color: $academic-red;
+      color: $link-primary;
       text-decoration: none;
       padding: 0.4em 0.6em;  /* Increased padding */
       border-radius: $border-radius-small;
@@ -261,7 +261,7 @@ body .sidebar {
     @include border-medium;
     color: $wcag-text-dark;  /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
     font-size: $font-size-large;
-    padding: 0.6em 1em;
+    padding: 0.6em $spacing-md;
     display: block;
     margin-bottom: $spacing-md;
 
@@ -281,14 +281,14 @@ body .sidebar {
   h1 {
     font-size: 2em;
     color: $content-text;
-    border-bottom: 3px solid $accent-blue;
+    @include border-bottom-accent(3px, $accent-blue);
     padding-bottom: $spacing-xs-px;
   }
 
   h2 {
-    font-size: 1.3em;
+    font-size: $font-size-heading-2;
     color: $gray-medium;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     @include border-light-bottom;
   }
 
@@ -310,7 +310,7 @@ body .sidebar {
 
   blockquote {
     border-left: 3px solid $accent-blue;
-    padding-left: 1.5rem;
+    padding-left: $spacing-lg;
     font-style: italic;
     margin: $spacing-xl 0;
     color: $gray-darker;
@@ -334,8 +334,8 @@ body figure.highlight {
   background: $code-bg;
   border: 1px solid $border-subtle;
   border-radius: $border-radius;
-  padding: 1rem;
-  margin: 1.5rem 0;
+  padding: $spacing-md;
+  margin: $spacing-lg 0;
   overflow-x: auto;
   font-family: $code-font;
   font-size: $font-size-medium;
@@ -411,19 +411,19 @@ table {
 
   thead {
     background: $code-bg;
-    border-bottom: 2px solid $border-medium;
+    @include border-bottom-accent(2px, $border-medium);
   }
 
   th {
-    padding: 0.75rem;
+    padding: $spacing-md-rem;
     text-align: left;
-    font-weight: 600;
+    font-weight: $font-weight-semibold;
     color: $text-color;
     font-size: $font-size-large;
   }
 
   td {
-    padding: 0.75rem;
+    padding: $spacing-md-rem;
     @include border-light-bottom;
     color: $gray-darker;
   }
@@ -473,20 +473,20 @@ body .archive__item {
   }
 
   .archive__item-title {
-    font-size: 1.3em;
-    font-weight: 700;
+    font-size: $font-size-heading-2;
+    font-weight: $font-weight-bold;
     margin-bottom: $spacing-sm-rem;
     color: $gray-medium;
     font-family: $heading-font;
 
     a {
-      color: $academic-red;
+      color: $link-primary;
       text-decoration: none;
       border-bottom: none;
       transition: $link-transition;
 
       &:hover {
-        color: $academic-red-dark;
+        color: $link-primary-hover;
       }
     }
   }
@@ -514,7 +514,7 @@ body .archive__item {
   font-family: $heading-font;
   font-size: 1.8em;
   font-style: bold;
-  border-bottom: 2px solid $academic-red;
+  @include border-bottom-accent(2px, $academic-red);
 }
 
 /* Remove grid from card elements */
@@ -523,14 +523,14 @@ body .card .grid {
 }
 
 .card .grid > div {
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-md;
 }
 
 /* SINGLE POST - Enhanced typography */
 .single {
   .page-title {
     font-size: 2.2em;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     margin-bottom: $spacing-md;
     line-height: 1.2;
   }
@@ -622,7 +622,7 @@ html body .greedy-nav .site-title {
       a {
         padding: 0.1rem 0.2rem;
         font-size: $font-size-medium;
-        font-weight: 900;
+        font-weight: $font-weight-black;
       }
     }
   }
@@ -638,7 +638,7 @@ html body .greedy-nav .site-title {
   .page-content {
     font-size: $font-size-mobile;
     line-height: $line-height-relaxed;
-    padding: 1rem;
+    padding: $spacing-md;
 
     p {
       margin-bottom: 1.25em;

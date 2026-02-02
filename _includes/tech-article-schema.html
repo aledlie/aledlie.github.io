@@ -18,7 +18,7 @@ schema_section: "Jekyll"
   "@id": "{{ page.url | absolute_url }}#techarticle",
 
   "headline": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  {% include schema/_description.html %}
 
   {% comment %}TechArticle-specific properties{% endcomment %}
   {% if page.schema_dependencies -%}
