@@ -5,6 +5,8 @@ date: 2026-01-19
 categories: [maintenance]
 tags: [cleanup, jekyll, optimization]
 excerpt: "Systematic identification and removal of 45 orphan files across _includes, _layouts, _sass, and assets/js directories, removing ~5,400 lines of unused code."
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 ## Summary

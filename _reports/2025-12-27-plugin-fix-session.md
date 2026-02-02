@@ -4,6 +4,8 @@ title: "Claude Code Plugin Fix Session"
 date: 2025-12-27
 categories: [claude-code, maintenance]
 tags: [plugins, troubleshooting, configuration]
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 

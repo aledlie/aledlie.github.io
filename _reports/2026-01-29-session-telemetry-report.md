@@ -4,6 +4,8 @@ title: "Session Telemetry Report - 2026-01-29"
 date: 2026-01-29
 categories: [telemetry]
 tags: [opentelemetry, signoz, observability, session-analysis]
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 **Session ID:** `5abb225b-f6fc-4ccd-a8f5-a87fe12d8d29`

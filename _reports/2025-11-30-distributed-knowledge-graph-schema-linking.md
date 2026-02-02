@@ -4,6 +4,8 @@ title: "Slowly Building a Complete (and Distributed) 'Thing -> Relationship -> T
 date: 2025-11-30
 categories: [schema-org, seo, knowledge-graph, cross-domain]
 tags: [json-ld, structured-data, entity-linking, semantic-web, seo-optimization]
+header:
+  image: /assets/images/cover-reports.png
 ---
 
 
