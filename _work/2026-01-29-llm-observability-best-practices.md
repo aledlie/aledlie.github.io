@@ -9,6 +9,7 @@ header:
   teaser: /assets/images/cover-work.png
 toc: true
 toc_sticky: true
+permalink: /work/llm-observability-best-practices/
 ---
 
 **Technical White Paper v1.0**
