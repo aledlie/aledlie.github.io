@@ -10,10 +10,8 @@ excerpt: "Your AI fears are valid—they're just aimed at the wrong target. The 
 description: "AI can generate endless content. The real challenge? Knowing what's actually good. Here's why measurement—not generation—is the competitive advantage."
 keywords: ai quality, ai measurement, ai quality measurement, llm evaluation, ai productivity, generative ai risks
 header:
-  image: /assets/images/cover-ai-fears-measurement.png
-  image_alt: "Illustration showing AI output volume overwhelming quality measurement systems"
-  teaser: /assets/images/cover-ai-fears-measurement.png
-  og_image: /assets/images/cover-ai-fears-measurement.png
+  image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
 toc: true
 toc_sticky: true
 permalink: /ai-fears-measurement/
