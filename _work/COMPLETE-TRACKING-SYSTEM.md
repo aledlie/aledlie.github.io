@@ -17,7 +17,7 @@ header:
 
 ---
 
-## What You Have
+## 🎯 What You Have
 
 **Full activity tracking** that monitors:
 - Websites visited
@@ -68,7 +68,7 @@ header:
 
 ---
 
-## What Each Tracker Does
+## 🔧 What Each Tracker Does
 
 | # | Tracker | Tracks | Use For |
 |---|---------|--------|---------|
@@ -229,32 +229,84 @@ print(f"  AI-assisted ratio: {claude_time/(claude_time+terminal_time)*100:.1f}%"
 
 ---
 
-## Use Cases
+## 💡 Use Cases
 
 ### 1. AI Productivity
 ```python
-# Files per hour with Claude
+from aw_client import ActivityWatchClient
+from datetime import datetime
+
+client = ActivityWatchClient()
+today = datetime.now().replace(hour=0, minute=0, second=0)
+
+claude_events = client.get_events(f"aw-watcher-claude_{client.client_hostname}", start=today)
+claude_hours = sum(e["duration"].total_seconds() for e in claude_events) / 3600
+files_with_claude = sum(e["data"].get("files_modified", 0) for e in claude_events)
+
 files_per_hour = files_with_claude / max(claude_hours, 0.1)
 print(f"With Claude: {files_per_hour:.1f} files/hour")
 ```
 
 ### 2. Account Tracking
 ```python
-# Time per Google account
+from aw_client import ActivityWatchClient
+from datetime import datetime
+
+client = ActivityWatchClient()
+today = datetime.now().replace(hour=0, minute=0, second=0)
+
+profile_events = client.get_events(f"aw-watcher-chrome-profiles_{client.client_hostname}", start=today)
+by_account = {}
+for e in profile_events:
+    for acc in e["data"].get("google_accounts", []):
+        email = acc.get("email")
+        if email:
+            duration = e["duration"].total_seconds() if hasattr(e["duration"], 'total_seconds') else e["duration"]
+            by_account[email] = by_account.get(email, 0) + duration
+
 for email, duration in sorted(by_account.items(), key=lambda x: x[1], reverse=True):
     print(f"  {email}: {duration/3600:.2f}h")
 ```
 
 ### 3. Project Time
 ```python
-# Time per project (terminal + git)
+from aw_client import ActivityWatchClient
+from datetime import datetime
+from collections import defaultdict
+
+client = ActivityWatchClient()
+today = datetime.now().replace(hour=0, minute=0, second=0)
+
+terminal_events = client.get_events(f"aw-watcher-terminal_{client.client_hostname}", start=today)
+git_events = client.get_events(f"aw-watcher-git_{client.client_hostname}", start=today)
+
+by_project = defaultdict(float)
+for e in terminal_events:
+    project = e["data"].get("cwd", "").split("/")[-1] or "Unknown"
+    by_project[project] += e["duration"].total_seconds()
+for e in git_events:
+    project = e["data"].get("repo_name", "Unknown")
+    by_project[project] += e["duration"].total_seconds()
+
 for project, duration in sorted(by_project.items(), key=lambda x: x[1], reverse=True)[:10]:
     print(f"  {project}: {duration/3600:.2f}h")
 ```
 
 ### 4. Tool Usage
 ```python
-# Most-used Claude tools (last 7 days)
+from aw_client import ActivityWatchClient
+from datetime import datetime, timedelta
+from collections import defaultdict
+
+client = ActivityWatchClient()
+week_ago = datetime.now() - timedelta(days=7)
+
+events = client.get_events(f"aw-watcher-claude-tools_{client.client_hostname}", start=week_ago)
+tools = defaultdict(int)
+for e in events:
+    for tool, count in e["data"].get("tools_used", {}).items():
+        tools[tool] += count
+
 for tool, count in sorted(tools.items(), key=lambda x: x[1], reverse=True):
     print(f"  {tool}: {count} times")
 ```
@@ -341,19 +393,19 @@ echo "✅ System health check complete!"
 
 ---
 
-## What You Can Track
+## 📋 What You Can Track
 
 | Category | Metrics |
 |----------|---------|
-| **Dev Work** | AI time, tools, files, projects |
-| **Version Control** | Repos, branches, commits, GitHub |
-| **Web Activity** | Sites, research, docs, social |
-| **Accounts** | Google switches, work vs personal |
-| **Productivity** | Active/idle, apps, context switches |
+| **Dev Work** | AI-assisted time, tool usage, files modified, project context |
+| **Version Control** | Repos, branches, commits, GitHub activity |
+| **Web Activity** | Sites visited, research time, docs, social media |
+| **Accounts** | Google account switches, work vs personal separation |
+| **Productivity** | Active/idle time, app usage, context switches |
 
 ---
 
-## Status
+## ✅ Status
 
 - **System:** Fully Operational
 - **Trackers:** 8/8 Active (100%)

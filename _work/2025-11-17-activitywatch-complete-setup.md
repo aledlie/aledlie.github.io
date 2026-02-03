@@ -19,7 +19,7 @@ header:
 **Status:** ✅ Complete - All systems operational
 **Location:** `/Users/alyshialedlie/activitywatch`
 
-## Objective
+## 🎯 Objective
 
 Set up ActivityWatch to track:
 - Terminal work
@@ -29,7 +29,7 @@ Set up ActivityWatch to track:
 - Web browsing
 - Productivity metrics
 
-## What Got Done
+## 📋 Accomplishments
 
 ### 1. ActivityWatch Install
 **Method:** Homebrew (Docker and source builds failed)
@@ -227,7 +227,7 @@ scripts/README-CUSTOM-WATCHERS.md        (~6 KB)
 **Total lines of code written:** ~1,400+ lines
 **Total documentation created:** ~12,000+ words
 
-## Challenges & Fixes
+## 🔧 Challenges & Fixes
 
 | Problem | Cause | Fix |
 |---------|-------|-----|
@@ -236,6 +236,30 @@ scripts/README-CUSTOM-WATCHERS.md        (~6 KB)
 | TypeError with durations | `timedelta` vs `float` | Call `.total_seconds()` if needed |
 | Paths with spaces break scripts | Unquoted variables | Always quote: `"$LOG_DIR/file.pid"` |
 | macOS externally-managed error | System Python locked | Use venv: `python3 -m venv venv` |
+
+### Event Format Fix (Before/After)
+
+**Wrong** (causes `to_json_dict` error):
+```python
+event = {
+    "timestamp": datetime.now(),
+    "duration": 0,
+    "data": data
+}
+client.insert_event(bucket_id, event)  # Fails!
+```
+
+**Correct** (use Event class):
+```python
+from aw_core.models import Event
+
+event = Event(
+    timestamp=datetime.now(),
+    duration=0,
+    data=data
+)
+client.insert_event(bucket_id, event)  # Works
+```
 
 ## 📈 Example Use Cases
 
@@ -293,7 +317,7 @@ for tool, count in sorted(tools.items(), key=lambda x: x[1], reverse=True):
     print(f"  {tool}: {count} times")
 ```
 
-## Key Wins
+## 🏆 Accomplishments
 
 1. **Full tracking** - 8 watchers cover all activity
 2. **Claude integration** - First AI tool tracker for Claude Code
@@ -365,7 +389,7 @@ tail -f ~/Library/Application\ Support/activitywatch/logs/aw-watcher-claude.log
 ./scripts/start-custom-watchers.sh restart
 ```
 
-## Lessons
+## 💡 Lessons
 
 1. **Package managers first** - Try Homebrew before Docker or source
 2. **Use venvs** - Required on modern macOS
@@ -385,7 +409,7 @@ tail -f ~/Library/Application\ Support/activitywatch/logs/aw-watcher-claude.log
 - **User experience:** Single command to start/stop/check status
 - **Integration:** Fully integrated with Claude Code skill system
 
-## Impact
+## 🎯 Impact
 
 What I can now see:
 - **Full visibility** into all digital work
