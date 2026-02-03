@@ -19,25 +19,25 @@ header:
 **Status:** ✅ Complete - All systems operational
 **Location:** `/Users/alyshialedlie/activitywatch`
 
-## 🎯 Objective
+## Objective
 
-Set up a comprehensive activity tracking system using ActivityWatch to monitor:
-- Terminal and command-line work
-- Git repository activity
-- Chrome profiles and Google accounts
-- Claude Code AI assistance
-- Web browsing patterns
-- Overall productivity metrics
+Set up ActivityWatch to track:
+- Terminal work
+- Git activity
+- Chrome profiles & Google accounts
+- Claude Code AI help
+- Web browsing
+- Productivity metrics
 
-## 📋 What Was Accomplished
+## What Got Done
 
-### 1. ActivityWatch Installation
-**Method:** Homebrew (after Docker and build-from-source attempts failed)
+### 1. ActivityWatch Install
+**Method:** Homebrew (Docker and source builds failed)
 
-**Installation Journey:**
-1. ❌ **Docker approach** - Architecture mismatch (x86_64 vs ARM64 on Apple Silicon)
-2. ❌ **Build from source** - Python 3.14 incompatibility with PyO3
-3. ✅ **Homebrew** - Successful installation with single command
+**What I tried:**
+1. Docker - x86_64 vs ARM64 mismatch
+2. Build from source - Python 3.14 broke PyO3
+3. Homebrew - worked with one command
 
 ```bash
 brew install --cask activitywatch
@@ -45,126 +45,68 @@ brew install --cask activitywatch
 
 **Version:** v0.13.2
 **Server:** http://localhost:5600
-**Built-in Components:**
-- aw-qt (system tray app)
-- aw-server (API server)
-- aw-watcher-afk (AFK detection)
+**Built-in parts:**
+- aw-qt (tray app)
+- aw-server (API)
+- aw-watcher-afk (idle detection)
 - aw-watcher-window (window tracking)
 
-### 2. Custom Watcher Development
+### 2. Custom Watchers
 
-Created **5 custom Python watchers** to extend ActivityWatch capabilities:
+Built **5 Python watchers** to extend ActivityWatch:
 
 #### Terminal Watcher (`aw-watcher-terminal.py`)
-**Purpose:** Track terminal and command-line activity
+Tracks terminal work.
 
-**Features:**
-- Shell type detection (zsh, bash, fish)
-- Working directory tracking
-- Terminal application identification
-- Git repository detection
-- User context
-
-**Poll interval:** 10 seconds
-**Merge window:** 60 seconds
+**Features:** Shell type (zsh/bash/fish), working dir, terminal app, git repo, user context.
+**Polls:** 10s | **Merges:** 60s
 
 #### Git/GitHub Watcher (`aw-watcher-git.py`)
-**Purpose:** Track version control activity
+Tracks version control.
 
-**Features:**
-- Repository name and path
-- Current branch tracking
-- GitHub owner/repo detection
-- Modified files count
-- Last commit information
-- Commits ahead/behind remote
-
-**Poll interval:** 30 seconds
-**Merge window:** 5 minutes
+**Features:** Repo name/path, branch, GitHub owner/repo, modified files, last commit, ahead/behind count.
+**Polls:** 30s | **Merges:** 5 min
 
 #### Chrome Profile Watcher (`aw-watcher-chrome-profiles.py`)
-**Purpose:** Track browser profiles and Google account identities
+Tracks browser profiles and Google accounts.
 
-**Features:**
-- Active Chrome profile detection
-- Google account email extraction
-- Profile display names
-- Account switching detection
-- 5 Chrome profiles detected on system
-
-**Poll interval:** 30 seconds
-**Merge window:** 2 minutes
+**Features:** Active profile, Google emails, display names, account switches (5 profiles found).
+**Polls:** 30s | **Merges:** 2 min
 
 #### Claude Activity Watcher (`aw-watcher-claude.py`)
-**Purpose:** Track AI-assisted development sessions
+Tracks AI-assisted dev sessions.
 
-**Features:**
-- Claude Code session detection
-- Session duration tracking
-- Project context
-- Files modified during session
-- Working directory
-- Session ID generation
-
-**Poll interval:** 15 seconds
-**Merge window:** 3 minutes
-**Session timeout:** 5 minutes inactivity
+**Features:** Session detection, duration, project, files modified, working dir, session ID.
+**Polls:** 15s | **Merges:** 3 min | **Timeout:** 5 min idle
 
 #### Claude Tool Usage Watcher (`aw-watcher-claude-tools.py`)
-**Purpose:** Track specific Claude tool usage patterns
+Tracks which Claude tools I use.
 
-**Features:**
-- Tool detection (Read, Write, Edit, Bash)
-- File type analysis
-- Tool frequency tracking
-- Recent files accessed
-- Session-level aggregation
+**Features:** Tool detection (Read/Write/Edit/Bash), file types, frequency, recent files, session totals.
+**Polls:** 10s | **Merges:** 2 min
 
-**Poll interval:** 10 seconds
-**Merge window:** 2 minutes
+### 3. Browser Extension
 
-### 3. Browser Extension Setup
+**Extension:** ActivityWatch Web Watcher (Chrome Web Store)
+**Status:** Installed and tracking
 
-**Extension:** ActivityWatch Web Watcher
-**Source:** Chrome Web Store
-**Status:** ✅ Installed and tracking
+**Tracks:** URLs, page titles, time per site, domain stats, tab count.
+**Bucket:** `aw-watcher-web-chrome`
 
-**Capabilities:**
-- Specific URL tracking
-- Page title capture
-- Time per website
-- Domain-level analytics
-- Tab count monitoring
-
-**Bucket created:** `aw-watcher-web-chrome`
-
-### 4. Infrastructure Setup
+### 4. Setup
 
 #### Virtual Environment
 **Location:** `/Users/alyshialedlie/activitywatch/venv`
 
-**Dependencies installed:**
 ```bash
 pip install aw-client psutil
 ```
 
-**Python packages:**
-- aw-client (0.5.15)
-- aw-core (0.5.17)
-- psutil (7.1.3)
-- Plus dependencies (requests, click, jsonschema, etc.)
+**Packages:** aw-client 0.5.15, aw-core 0.5.17, psutil 7.1.3, plus deps (requests, click, jsonschema).
 
-#### Launcher Script (`start-custom-watchers.sh`)
-**Purpose:** Centralized watcher management
+#### Launcher (`start-custom-watchers.sh`)
+Manages all watchers: start/stop, status, logs.
 
-**Features:**
-- Start/stop individual watchers
-- Start all watchers at once
-- Status checking
-- Process management
-- Log file handling
-
-**Commands:**
 ```bash
 ./scripts/start-custom-watchers.sh all        # Start all
 ./scripts/start-custom-watchers.sh claude     # Claude only
@@ -175,17 +117,9 @@ pip install aw-client psutil
 
 #### Analysis Scripts
 
-**Browser Statistics (`show-browser-stats.py`):**
-- Domain-level browsing analysis
-- Top websites by time
-- Top pages visited
-- Browsing summary
+**`show-browser-stats.py`:** Domain stats, top sites, top pages, summary.
 
-**Browser Extension Verifier (`verify-browser-extension.sh`):**
-- Check extension installation
-- Verify buckets created
-- Show recent events
-- Comprehensive status
+**`verify-browser-extension.sh`:** Check extension, buckets, recent events, status.
 
 ### 5. Documentation Created
 
@@ -293,78 +227,15 @@ scripts/README-CUSTOM-WATCHERS.md        (~6 KB)
 **Total lines of code written:** ~1,400+ lines
 **Total documentation created:** ~12,000+ words
 
-## 🔧 Technical Challenges & Solutions
+## Challenges & Fixes
 
-### Challenge 1: Event Format Issues
-**Problem:** Claude tool errors - `'dict' object has no attribute 'to_json_dict'`
-
-**Cause:** ActivityWatch expects `Event` objects, not plain dictionaries
-
-**Solution:**
-```python
-from aw_core.models import Event
-
-# Before (incorrect)
-event = {
-    "timestamp": datetime.now(),
-    "duration": 0,
-    "data": data
-}
-
-# After (correct)
-event = Event(
-    timestamp=datetime.now(),
-    duration=0,
-    data=data
-)
-```
-
-### Challenge 2: Timezone Handling
-**Problem:** Timezone warnings - "timestamp without timezone found"
-
-**Cause:** Used `datetime.now(timezone.utc)` instead of naive datetime
-
-**Solution:**
-```python
-# Use naive datetime (ActivityWatch handles timezone internally)
-event = Event(
-    timestamp=datetime.now(),  # Not datetime.now(timezone.utc)
-    duration=0,
-    data=data
-)
-```
-
-### Challenge 3: Duration Type Conversion
-**Problem:** TypeError when calculating durations - `timedelta` vs `float`
-
-**Solution:**
-```python
-# Convert timedelta to seconds when needed
-duration = e["duration"]
-if hasattr(duration, 'total_seconds'):
-    duration = duration.total_seconds()
-```
-
-### Challenge 4: Path Spaces in Bash
-**Problem:** Paths with spaces breaking in shell scripts
-
-**Solution:**
-```bash
-# Always quote variables with paths
-cat "$LOG_DIR/aw-watcher-terminal.pid"  # Correct
-cat $LOG_DIR/aw-watcher-terminal.pid    # Incorrect
-```
-
-### Challenge 5: Python Environment Management
-**Problem:** macOS externally-managed-environment error
-
-**Solution:**
-```bash
-# Create virtual environment instead of system-wide install
-python3 -m venv venv
-source venv/bin/activate
-pip install aw-client psutil
-```
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `'dict' object has no attribute 'to_json_dict'` | AW needs `Event` objects, not dicts | Use `Event(timestamp=..., duration=0, data=data)` |
+| "timestamp without timezone" warning | Used `datetime.now(timezone.utc)` | Use naive `datetime.now()` (AW handles TZ) |
+| TypeError with durations | `timedelta` vs `float` | Call `.total_seconds()` if needed |
+| Paths with spaces break scripts | Unquoted variables | Always quote: `"$LOG_DIR/file.pid"` |
+| macOS externally-managed error | System Python locked | Use venv: `python3 -m venv venv` |
 
 ## 📈 Example Use Cases
 
@@ -422,14 +293,14 @@ for tool, count in sorted(tools.items(), key=lambda x: x[1], reverse=True):
     print(f"  {tool}: {count} times")
 ```
 
-## 🎯 Key Achievements
+## Key Wins
 
-1. ✅ **Complete tracking ecosystem** - 8 active watchers monitoring all activity
-2. ✅ **Claude integration** - First-ever AI tool usage tracker for Claude Code
-3. ✅ **Comprehensive documentation** - 9 guides covering all aspects
-4. ✅ **Production-ready infrastructure** - Launcher scripts, error handling, logging
-5. ✅ **Real-time data collection** - All watchers active and collecting data
-6. ✅ **Claude Code skill** - Integrated with Claude's skill system for easy access
+1. **Full tracking** - 8 watchers cover all activity
+2. **Claude integration** - First AI tool tracker for Claude Code
+3. **Solid docs** - 9 guides
+4. **Production-ready** - Launcher, error handling, logging
+5. **Real-time data** - All watchers active
+6. **Claude skill** - Tied into Claude's skill system
 
 ## 📊 Current Status
 
@@ -494,15 +365,15 @@ tail -f ~/Library/Application\ Support/activitywatch/logs/aw-watcher-claude.log
 ./scripts/start-custom-watchers.sh restart
 ```
 
-## 💡 Lessons Learned
+## Lessons
 
-1. **Package managers first** - Always try official package managers before Docker or building from source
-2. **Virtual environments** - Essential on modern macOS with externally-managed Python
-3. **Event models matter** - Using proper `Event` class prevents runtime errors
-4. **Progressive disclosure** - Keep main docs under 500 lines, detailed info in separate files
-5. **Real-time verification** - Test watchers immediately to catch issues early
-6. **Comprehensive logging** - Log everything to files for debugging
-7. **Process management** - PID files and status checks essential for daemon processes
+1. **Package managers first** - Try Homebrew before Docker or source
+2. **Use venvs** - Required on modern macOS
+3. **Event models matter** - Use proper `Event` class
+4. **Keep docs short** - Main docs under 500 lines; details in separate files
+5. **Test early** - Verify watchers right away
+6. **Log everything** - Helps debug
+7. **Track PIDs** - Essential for daemon processes
 
 ## 🎉 Success Metrics
 
@@ -514,17 +385,17 @@ tail -f ~/Library/Application\ Support/activitywatch/logs/aw-watcher-claude.log
 - **User experience:** Single command to start/stop/check status
 - **Integration:** Fully integrated with Claude Code skill system
 
-## 🏆 Impact
+## Impact
 
-This setup provides:
-- **Complete visibility** into all digital work activities
-- **AI assistance metrics** for understanding Claude's impact on productivity
-- **Project-level tracking** for time allocation analysis
-- **Multi-account management** insights for work/personal separation
-- **Development patterns** analysis for workflow optimization
-- **Productivity metrics** for continuous improvement
+What I can now see:
+- **Full visibility** into all digital work
+- **AI metrics** - Claude's impact on productivity
+- **Project tracking** - time per project
+- **Account insights** - work vs personal
+- **Dev patterns** - workflow data
+- **Productivity stats** - for improvement
 
-**Total tracking coverage:** ~95% of digital work activities now monitored and quantifiable.
+**Coverage:** ~95% of digital work now tracked.
 
 ---
 

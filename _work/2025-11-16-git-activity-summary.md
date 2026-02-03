@@ -46,7 +46,14 @@ header:
 
 **Period:** July 7, 2025 - November 16, 2025 (133 days)
 
-Over the past 4+ months, I've maintained consistent development activity across 33 repositories (32 active), totaling **1,007 commits**. The work spans four main categories: data & analytics infrastructure (43.5%), personal websites (23.6%), MCP server development (18.5%), client work (4.5%), and business applications (2.9%). This comprehensive analysis includes repositories nested up to two directories deep, revealing previously untracked projects like mcp-server-cloudflare (58 commits) and client work on Leora (45 commits).
+Over 4 months, I made **1,007 commits** across 33 repos (32 active). The work breaks down into:
+- Data & analytics: 43.5%
+- Personal websites: 23.6%
+- MCP servers: 18.5%
+- Client work: 4.5%
+- Business apps: 2.9%
+
+This deep scan (2 directories down) found hidden projects like mcp-server-cloudflare (58 commits) and Leora (45 commits).
 
 ### Visual Overview
 
@@ -99,13 +106,13 @@ November 2025        ███████████████████�
 | **August 2025** | 170 | 17.3% | ⬆️ Strong activity |
 | **July 2025** | 36 | 3.7% | ➡️ Baseline |
 
-**Key Insight:** November's 560 commits represent a 489% increase over October, indicating an intensive development sprint focused on MCP infrastructure and personal site enhancements.
+**Key Insight:** November had 560 commits—a 489% jump from October. I focused on MCP servers and my personal site.
 
 ---
 
 ## Commits by Programming Language
 
-**Analysis:** File changes analyzed across all 1,007 commits to understand the technology stack and development focus.
+**Analysis:** I reviewed file changes across all 1,007 commits to map my tech stack.
 
 ### Visual Breakdown
 
@@ -151,26 +158,26 @@ Other           ████   6,981 ( 4.3%)
 
 ### Key Insights
 
-**Configuration & Documentation (16.7%):**
-- Heavy documentation culture (30 repos with .md files)
-- Extensive configuration management
-- Active dependency management (npm, bundler, etc.)
-- Strong focus on maintainability and knowledge sharing
+**Config & Docs (16.7%):**
+- 30 repos have markdown files
+- Lots of config management
+- Active npm and bundler updates
+- Focus on clean, shareable code
 
 **Data Work (3.9%):**
-- Primary focus on data scraping and analytics
-- Active in 16 repositories
-- Production-ready data pipelines ([tcad-scraper](https://alephatx.info), [AnalyticsBot](https://aleph-analytics.app))
+- Scraping and analytics focus
+- Active in 16 repos
+- Live pipelines: [tcad-scraper](https://alephatx.info), [AnalyticsBot](https://aleph-analytics.app)
 
 **Visual Assets (6.4%):**
-- Significant graphical assets across 14+ repositories
-- Icons, diagrams, and visual documentation
-- Design-conscious development approach
+- Graphics in 14+ repos
+- Icons, diagrams, and docs
+- Design-aware approach
 
 **Data Processing (1.2%):**
-- Structured data files in 12 repositories
-- Focus on data transformation and analysis workflows
-- CSV, XML, and other data format handling
+- Data files in 12 repos
+- Transform and analysis workflows
+- CSV, XML, and other formats
 
 ---
 
@@ -196,13 +203,13 @@ Other           ████   6,981 ( 4.3%)
 **Website:** [www.aledlie.com](https://www.aledlie.com)
 
 **Notable Work:**
-- Extensive Schema.org structured data enhancement
-- Implemented entity-rich knowledge graph
-- Added test suite (Jest, Playwright, Lighthouse)
-- Created visual regression testing infrastructure
-- Built duplication detection tooling
-- Enhanced analytics implementation (GTM)
-- Created comprehensive CLAUDE.md for AI assistance
+- Added Schema.org markup throughout
+- Built an entity-rich knowledge graph
+- Added tests (Jest, Playwright, Lighthouse)
+- Set up visual regression testing
+- Built duplicate code detection
+- Improved GTM analytics
+- Wrote CLAUDE.md for AI help
 
 **Key Files:**
 - `_includes/` - 15+ schema templates
@@ -362,7 +369,7 @@ Legacy                            6 commits ( 0.6%)
 - Data validation and cleaning
 - Visualization and dashboards
 
-**Impact:** Largest category representing 40% of all development - building production-ready data pipelines and analytics infrastructure.
+**Impact:** 40% of all work went here—building live data pipelines and analytics tools.
 
 ---
 
@@ -375,15 +382,15 @@ Legacy                            6 commits ( 0.6%)
 **Total:** 238 commits
 
 **Focus Areas:**
-- Schema.org structured data implementation
-- SEO optimization with entity-rich markup
-- Comprehensive testing infrastructure (Jest, Playwright, Lighthouse)
-- Visual regression testing (zero-tolerance policy)
-- Performance monitoring and optimization
-- Analytics integration (Google Tag Manager)
-- Code quality tooling (duplication detection)
+- Schema.org markup
+- SEO with rich entities
+- Full test suite (Jest, Playwright, Lighthouse)
+- Visual regression (zero tolerance)
+- Performance monitoring
+- GTM analytics
+- Duplicate code detection
 
-**Impact:** Nearly quarter of development focused on semantic web implementation and quality assurance infrastructure. PersonalSite now has production-ready testing suite.
+**Impact:** Nearly 25% of work went into semantic web and QA. PersonalSite now has a solid test suite.
 
 ---
 
@@ -403,7 +410,7 @@ Legacy                            6 commits ( 0.6%)
 - Tool usage analytics
 - Development environment configuration
 
-**Impact:** Supporting infrastructure for productivity and public presence.
+**Impact:** Tools that boost productivity and public presence.
 
 ---
 
@@ -438,7 +445,7 @@ Legacy                            6 commits ( 0.6%)
 - OAuth gateway infrastructure
 - Tailscale network automation
 
-**Impact:** Building comprehensive MCP ecosystem for AI tool integration. Strategic shift toward AI-powered automation with 14 distinct server implementations.
+**Impact:** Building an MCP ecosystem for AI tools. I now have 14 servers for AI-powered automation.
 
 ---
 
@@ -455,7 +462,7 @@ Legacy                            6 commits ( 0.6%)
 - Job application tracking
 - Career development documentation
 
-**Impact:** Client work and career management previously invisible in shallow scans.
+**Impact:** Client and career work that shallow scans missed.
 
 ---
 
@@ -473,7 +480,7 @@ Legacy                            6 commits ( 0.6%)
 - Inventory management systems
 - Financial tracking and reporting
 
-**Impact:** Smaller but strategic business application development.
+**Impact:** Small but strategic business app work.
 
 ---
 
@@ -589,36 +596,36 @@ Legacy                            6 commits ( 0.6%)
 
 ## Key Insights
 
-### 1. **November Sprint Dominance**
-November's 560 commits (56.9% of total) represents an exceptional productivity period, likely driven by:
-- Focused Schema.org implementation on PersonalSite
-- MCP server development push
-- Test infrastructure buildout
-- Documentation sprint
+### 1. **November Sprint**
+November had 560 commits (56.9% of total). What drove it:
+- Schema.org work on PersonalSite
+- MCP server push
+- Test setup
+- Docs sprint
 
-### 2. **MCP Ecosystem Investment**
-20.1% of commits dedicated to MCP server development shows strategic shift toward:
+### 2. **MCP Ecosystem**
+20.1% of commits went to MCP servers. This shows a shift toward:
 - AI tool integration
-- Automation infrastructure
-- Modular, reusable tooling
+- Automation
+- Modular, reusable tools
 
-### 3. **Data Infrastructure Priority**
-49.7% of work on data/analytics demonstrates continued focus on:
-- Property data collection (TCAD)
+### 3. **Data Focus**
+49.7% of work was data/analytics:
+- TCAD property data
 - Analytics automation
-- Data quality and validation
+- Data quality checks
 
-### 4. **Quality Assurance Culture**
-Significant investment in testing infrastructure (PersonalSite) indicates:
-- Commitment to zero-regression development
-- Statistical validation of changes
-- Comprehensive browser/device coverage
+### 4. **QA Culture**
+Big testing investment on PersonalSite shows:
+- Zero-regression mindset
+- Stats-based validation
+- Full browser/device coverage
 
-### 5. **Documentation Excellence**
-20+ documentation files created for PersonalSite alone shows:
-- Thorough knowledge capture
-- Future maintainability focus
-- Comprehensive refactoring planning
+### 5. **Strong Docs**
+20+ doc files for PersonalSite alone:
+- Knowledge captured
+- Built for future maintenance
+- Clear refactoring plans
 
 ---
 
@@ -721,9 +728,13 @@ Based on current trajectory:
 
 ## Conclusion
 
-The past 4+ months demonstrate consistent, high-quality development work with clear strategic direction across a diverse technology stack. Analysis of 160,983 file changes reveals a JavaScript/TypeScript-focused development culture (62.4% combined) with strong Python capabilities for data work (3.9%), comprehensive documentation practices (30 repos with Markdown), and significant visual assets (6.4% SVG and images).
+The past 4 months show steady, quality work across a broad tech stack. Of 160,983 file changes:
+- JS/TS: 62.4%
+- Python (data): 3.9%
+- Markdown: 30 repos
+- SVG/images: 6.4%
 
-November's intensive sprint successfully delivered comprehensive Schema.org implementation, robust testing infrastructure, and multiple MCP servers. The work spans technical depth (schema implementation, zero-regression testing) and strategic breadth (14 MCP servers, data infrastructure, client work), positioning well for continued growth in AI-powered automation and semantic web optimization.
+November's sprint delivered Schema.org markup, solid tests, and multiple MCP servers. The work covers both depth (schema, zero-regression testing) and breadth (14 MCP servers, data pipelines, client work). Good setup for more AI automation and semantic web work ahead.
 
 **Key Metrics:**
 - ✅ 1,007 commits across 33 repositories

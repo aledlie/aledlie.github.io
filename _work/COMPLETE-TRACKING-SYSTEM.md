@@ -17,19 +17,19 @@ header:
 
 ---
 
-## 🎉 What You Now Have
+## What You Have
 
-**A complete activity tracking ecosystem** that monitors EVERYTHING:
-- Every website you visit
-- Every line of code you write
-- Every Claude tool you use
-- Every directory you work in
-- Every git commit you make
-- Every Chrome profile you use
-- Every Google account you're in
-- Every application you interact with
+**Full activity tracking** that monitors:
+- Websites visited
+- Code written
+- Claude tools used
+- Directories worked in
+- Git commits
+- Chrome profiles
+- Google accounts
+- Applications used
 
-**Total Trackers:** 8 active watchers + 1 browser extension = **9 tracking systems**
+**Total:** 8 watchers + 1 browser extension = **9 trackers**
 
 ---
 
@@ -68,112 +68,18 @@ header:
 
 ---
 
-## 🎯 What Each Tracker Monitors
+## What Each Tracker Does
 
-### 1. 🤖 Claude Activity Tracker **NEW!**
-**What:** AI-assisted development sessions
-**Tracks:**
-- Active Claude sessions
-- Session duration
-- Files modified during session
-- Project context
-- Working directory
-
-**Use for:**
-- Tracking AI-assisted dev time
-- Understanding Claude usage patterns
-- Project-level AI assistance metrics
-
-### 2. 🔧 Claude Tool Usage Tracker **NEW!**
-**What:** Specific Claude tool usage (Read, Write, Edit, Bash)
-**Tracks:**
-- Individual tool calls
-- File types being worked on
-- Tool frequency
-- Recent files accessed
-
-**Use for:**
-- Understanding which tools you use most
-- Analyzing development patterns
-- Productivity metrics
-
-### 3. 🖥️ Terminal Activity Tracker
-**What:** Terminal and command-line work
-**Tracks:**
-- Working directories
-- Shell type (zsh, bash)
-- Terminal app (iTerm, Terminal)
-- Git repository detection
-
-**Use for:**
-- Time per project directory
-- Most active directories
-- Terminal session patterns
-
-### 4. 🔀 Git & GitHub Tracker
-**What:** Version control activity
-**Tracks:**
-- Repository name and path
-- Current branch
-- GitHub owner/repo
-- Modified files count
-- Commit status
-- Ahead/behind remote
-
-**Use for:**
-- Time per repository
-- Branch switching patterns
-- GitHub project tracking
-
-### 5. 👤 Chrome Profile & Google Account Tracker
-**What:** Browser profiles and identities
-**Tracks:**
-- Active Chrome profile
-- Google account emails
-- Profile display names
-- Account switching
-
-**Use for:**
-- Work vs personal account usage
-- Multi-account management
-- Profile switching frequency
-
-### 6. 🌐 Browser Activity Tracker
-**What:** Web browsing (via browser extension)
-**Tracks:**
-- Specific URLs visited
-- Page titles
-- Time per website
-- Domain-level analytics
-
-**Use for:**
-- Time per website
-- Productivity analysis
-- Research tracking
-
-### 7. 🪟 Window Tracker
-**What:** Active applications (built-in)
-**Tracks:**
-- Active application
-- Window titles
-- App switching
-
-**Use for:**
-- Application time tracking
-- Context switching analysis
-- Overall productivity
-
-### 8. ⏰ AFK Tracker
-**What:** Active vs idle time (built-in)
-**Tracks:**
-- Keyboard/mouse activity
-- Active vs idle time
-- AFK detection
-
-**Use for:**
-- Actual working time
-- Break patterns
-- Productivity metrics
+| # | Tracker | Tracks | Use For |
+|---|---------|--------|---------|
+| 1 | **Claude Activity** | Sessions, duration, files, project, dir | AI-assisted time, patterns |
+| 2 | **Claude Tools** | Tool calls, file types, frequency | Which tools used most |
+| 3 | **Terminal** | Dirs, shell, terminal app, git repo | Time per project |
+| 4 | **Git/GitHub** | Repo, branch, owner, files, commits | Time per repo |
+| 5 | **Chrome Profile** | Profile, Google email, account switches | Work vs personal |
+| 6 | **Browser** | URLs, titles, time per site | Site time, research |
+| 7 | **Window** | Active app, titles, switches | App time, context switches |
+| 8 | **AFK** | Keyboard/mouse, idle time | Actual work time |
 
 ---
 
@@ -323,78 +229,32 @@ print(f"  AI-assisted ratio: {claude_time/(claude_time+terminal_time)*100:.1f}%"
 
 ---
 
-## 🎨 Real-World Use Cases
+## Use Cases
 
-### 1. AI-Assisted Productivity Analysis
-Track how Claude impacts your development speed:
+### 1. AI Productivity
 ```python
-# Calculate files modified per hour with vs without Claude
-claude_hours = claude_time / 3600
-files_with_claude = sum(e["data"].get("files_modified", 0) for e in claude_events)
+# Files per hour with Claude
 files_per_hour = files_with_claude / max(claude_hours, 0.1)
-
-print(f"Productivity with Claude: {files_per_hour:.1f} files/hour")
+print(f"With Claude: {files_per_hour:.1f} files/hour")
 ```
 
-### 2. Multi-Account Work Tracking
-See which Google account you use for which projects:
+### 2. Account Tracking
 ```python
-# Correlate Chrome profiles with git repos
-profile_events = client.get_events(f"aw-watcher-chrome-profiles_{client.client_hostname}", start=today)
-
-# Group by account and time
-by_account = {}
-for e in profile_events:
-    accounts = e["data"].get("google_accounts", [])
-    for acc in accounts:
-        email = acc.get("email")
-        if email:
-            duration = e["duration"].total_seconds() if hasattr(e["duration"], 'total_seconds') else e["duration"]
-            by_account[email] = by_account.get(email, 0) + duration
-
-print("Account usage:")
+# Time per Google account
 for email, duration in sorted(by_account.items(), key=lambda x: x[1], reverse=True):
     print(f"  {email}: {duration/3600:.2f}h")
 ```
 
-### 3. Project Time Allocation
-See where your development time goes:
+### 3. Project Time
 ```python
-# Time per project (from terminal + git data)
-from collections import defaultdict
-
-by_project = defaultdict(float)
-
-for e in terminal_events:
-    cwd = e["data"].get("cwd", "")
-    project = cwd.split("/")[-1] if cwd else "Unknown"
-    duration = e["duration"].total_seconds() if hasattr(e["duration"], 'total_seconds') else e["duration"]
-    by_project[project] += duration
-
-for e in git_events:
-    project = e["data"].get("repo_name", "Unknown")
-    duration = e["duration"].total_seconds() if hasattr(e["duration"], 'total_seconds') else e["duration"]
-    by_project[project] += duration
-
-print("Time by project:")
+# Time per project (terminal + git)
 for project, duration in sorted(by_project.items(), key=lambda x: x[1], reverse=True)[:10]:
     print(f"  {project}: {duration/3600:.2f}h")
 ```
 
-### 4. Tool Usage Patterns
-Understand your development workflow:
+### 4. Tool Usage
 ```python
-# Analyze tool usage across all Claude sessions
-bucket_id = f"aw-watcher-claude-tools_{client.client_hostname}"
-week_ago = datetime.now() - timedelta(days=7)
-events = client.get_events(bucket_id, start=week_ago)
-
-tools = defaultdict(int)
-for e in events:
-    for tool, count in e["data"].get("tools_used", {}).items():
-        tools[tool] += count
-
-print("Tool usage (last 7 days):")
+# Most-used Claude tools (last 7 days)
 for tool, count in sorted(tools.items(), key=lambda x: x[1], reverse=True):
     print(f"  {tool}: {count} times")
 ```
@@ -481,53 +341,27 @@ echo "✅ System health check complete!"
 
 ---
 
-## 🎯 What You Can Now Track
+## What You Can Track
 
-✅ **Development Work**
-- AI-assisted coding time
-- Tool usage patterns
-- Files created/modified
-- Projects worked on
-
-✅ **Version Control**
-- Repositories active
-- Branches worked on
-- Commit patterns
-- GitHub projects
-
-✅ **Web Activity**
-- Websites visited
-- Research time
-- Documentation reading
-- Social media usage
-
-✅ **Account Management**
-- Google account switching
-- Work vs personal time
-- Chrome profile usage
-- Multi-account patterns
-
-✅ **Overall Productivity**
-- Active vs idle time
-- Application usage
-- Context switching
-- Daily patterns
+| Category | Metrics |
+|----------|---------|
+| **Dev Work** | AI time, tools, files, projects |
+| **Version Control** | Repos, branches, commits, GitHub |
+| **Web Activity** | Sites, research, docs, social |
+| **Accounts** | Google switches, work vs personal |
+| **Productivity** | Active/idle, apps, context switches |
 
 ---
 
-## 🎉 Final Status
+## Status
 
-**System:** ✅ Fully Operational
-**Trackers:** 8/8 Active (100%)
-**Data Collection:** Active
-**Documentation:** Complete
-
-**Installation Journey Complete!**
-
-You now have a **world-class activity tracking system** that monitors your entire digital workflow - from AI-assisted coding to web browsing to multi-account management.
+- **System:** Fully Operational
+- **Trackers:** 8/8 Active (100%)
+- **Data:** Collecting
+- **Docs:** Complete
 
 **Dashboard:** http://localhost:5600
-**Support:** See `.claude/skills/activitywatch-integration/`
+**Support:** `.claude/skills/activitywatch-integration/`
 
 ---
 
