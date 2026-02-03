@@ -336,7 +336,7 @@ While the performance score is already good (88/100), caching can further optimi
 ### Google Guidelines
 - [Structured Data Guidelines](https://developers.google.com/search/docs/advanced/structured-data/sd-policies)
 - [Rich Results Test](https://search.google.com/test/rich-results)
-- [Search Console Help](https://support.google.com/webmasters)
+- [Search Console Help](https://developers.google.com/search/docs/monitor-debug/search-console-start)
 
 ---
 

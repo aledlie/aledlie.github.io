@@ -801,7 +801,7 @@ npm run build
 
 - [UUID v7 RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562)
 - [PostgreSQL UUID Functions](https://www.postgresql.org/docs/current/functions-uuid.html)
-- [Prisma UUID Documentation](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#uuid)
+- [Prisma UUID Documentation](https://www.prisma.io/docs/orm/prisma-schema/data-model/models)
 - [uuid npm package](https://www.npmjs.com/package/uuid)
 
 ### Internal Documentation

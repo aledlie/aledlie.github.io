@@ -567,7 +567,7 @@ If time permits after Phase 3:
 ### External Resources
 - [SHA256 Hashing in Python](https://docs.python.org/3/library/hashlib.html)
 - [LRU Cache Patterns](https://docs.python.org/3/library/functools.html#functools.lru_cache)
-- [Performance Testing Best Practices](https://docs.pytest.org/en/stable/how-to/performance.html)
+- [Performance Testing Best Practices](https://pytest-benchmark.readthedocs.io/)
 
 ## Conclusion
 

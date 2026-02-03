@@ -642,7 +642,7 @@ Significant investment in testing infrastructure (PersonalSite) indicates:
 12. **1mcpserver** (17) - *[Newly discovered]* MCP server
 13. **mcp-oauth-gateway** (13) - OAuth integration
 14. **sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
-15. **InventoryAI** (10) - AI inventory features → [www.inventoryai.io](https://www.inventoryai.io)
+15. **InventoryAI** (10) - AI inventory features
 
 ### Light Development (5-9 commits)
 16. **Inventory** (9) - Inventory management

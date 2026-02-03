@@ -79,7 +79,7 @@ header:
 ## Project Websites
 
 - [PersonalSite](https://www.aledlie.com)
-- [InventoryAI](https://www.inventoryai.io)
+- InventoryAI (site deprecated)
 
 ---
 
