@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-01-31T23:51:12.663Z",
+  "summary": {
+    "totalTests": 3,
+    "passedTests": 2,
+    "failedTests": 1
+  },
+  "results": [
+    {
+      "pageName": "Homepage",
+      "url": "http://localhost:4000/",
+      "scores": {
+        "performance": 76.33333333333333,
+        "accessibility": 100,
+        "bestPractices": 87,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaint": "1.4 s",
+        "largestContentfulPaint": "2.5 s",
+        "speedIndex": "1.4 s",
+        "totalBlockingTime": "260 ms",
+        "cumulativeLayoutShift": "0"
+      },
+      "runsCompleted": 3,
+      "timestamp": "2026-01-31T23:50:17.804Z",
+      "passed": false
+    },
+    {
+      "pageName": "About Page",
+      "url": "http://localhost:4000/about/",
+      "scores": {
+        "performance": 91.33333333333333,
+        "accessibility": 100,
+        "bestPractices": 79,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaint": "1.4 s",
+        "largestContentfulPaint": "2.5 s",
+        "speedIndex": "1.4 s",
+        "totalBlockingTime": "240 ms",
+        "cumulativeLayoutShift": "0"
+      },
+      "runsCompleted": 3,
+      "timestamp": "2026-01-31T23:50:46.842Z",
+      "passed": true
+    },
+    {
+      "pageName": "Posts Page",
+      "url": "http://localhost:4000/posts/",
+      "scores": {
+        "performance": 93,
+        "accessibility": 100,
+        "bestPractices": 79,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaint": "1.4 s",
+        "largestContentfulPaint": "2.5 s",
+        "speedIndex": "1.4 s",
+        "totalBlockingTime": "180 ms",
+        "cumulativeLayoutShift": "0"
+      },
+      "runsCompleted": 3,
+      "timestamp": "2026-01-31T23:51:11.661Z",
+      "passed": true
+    }
+  ]
+}
