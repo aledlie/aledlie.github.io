@@ -1,12 +1,30 @@
-<svg width="800" height="220" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="460" xmlns="http://www.w3.org/2000/svg">
 <text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
 <rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="70.0" text-anchor="end" font-size="14">PersonalSite</text>
-<text x="705.0" y="70.0" font-size="14" font-weight="bold">68</text>
-<rect x="250" y="90" width="33.088235294117645" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="110.0" text-anchor="end" font-size="14">jobs</text>
-<text x="288.0882352941176" y="110.0" font-size="14" font-weight="bold">5</text>
-<rect x="250" y="130" width="13.235294117647058" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="150.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
-<text x="268.2352941176471" y="150.0" font-size="14" font-weight="bold">2</text>
+<text x="240" y="70.0" text-anchor="end" font-size="14">~/.claude</text>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">377</text>
+<rect x="250" y="90" width="216.0477453580902" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="110.0" text-anchor="end" font-size="14">PersonalSite</text>
+<text x="471.0477453580902" y="110.0" font-size="14" font-weight="bold">181</text>
+<rect x="250" y="130" width="118.16976127320955" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="150.0" text-anchor="end" font-size="14">jobs</text>
+<text x="373.16976127320953" y="150.0" font-size="14" font-weight="bold">99</text>
+<rect x="250" y="170" width="32.228116710875334" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="190.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
+<text x="287.2281167108753" y="190.0" font-size="14" font-weight="bold">27</text>
+<rect x="250" y="210" width="23.872679045092838" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="230.0" text-anchor="end" font-size="14">~/claude-tool-use</text>
+<text x="278.8726790450928" y="230.0" font-size="14" font-weight="bold">20</text>
+<rect x="250" y="250" width="23.872679045092838" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="270.0" text-anchor="end" font-size="14">john_skelton</text>
+<text x="278.8726790450928" y="270.0" font-size="14" font-weight="bold">20</text>
+<rect x="250" y="290" width="21.485411140583555" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="310.0" text-anchor="end" font-size="14">~/schema-org-file-system</text>
+<text x="276.48541114058355" y="310.0" font-size="14" font-weight="bold">18</text>
+<rect x="250" y="330" width="3.580901856763926" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="350.0" text-anchor="end" font-size="14">~/dotfiles</text>
+<text x="258.58090185676394" y="350.0" font-size="14" font-weight="bold">3</text>
+<rect x="250" y="370" width="2.387267904509284" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="390.0" text-anchor="end" font-size="14">InventoryAI</text>
+<text x="257.38726790450926" y="390.0" font-size="14" font-weight="bold">2</text>
 </svg>
