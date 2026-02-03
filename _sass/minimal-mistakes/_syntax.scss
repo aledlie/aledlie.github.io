@@ -10,7 +10,7 @@ figure.highlight {
   color: $base05;
   font-family: $monospace;
   font-size: $type-size-6;
-  line-height: 1.8;
+  line-height: $line-height-code;
   border-radius: $border-radius;
 
   [dir="rtl"] & {
@@ -27,21 +27,21 @@ figure.highlight {
 
 .highlight table {
   margin-bottom: 0;
-  font-size: 1em;
+  font-size: $spacing-md;
   border: 0;
 
   td {
     padding: 0;
-    width: calc(100% - 1em);
+    width: calc(100% - $spacing-md);
     border: 0;
 
     /* line numbers */
     &.gutter,
     &.rouge-gutter {
       padding-inline-end: $spacing-md;
-      width: 1em;
+      width: $spacing-md;
       color: $base04;
-      border-inline-end: 1px solid $base04;
+      border-inline-end: $border-width-standard solid $base04;
       text-align: end;
     }
 

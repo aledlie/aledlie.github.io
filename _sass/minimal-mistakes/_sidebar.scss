@@ -20,7 +20,7 @@
   @include breakpoint($large) {
     float: inline-start;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
+    opacity: $opacity-muted;
     transition: opacity $transition-fast;
 
     &:hover {
@@ -66,8 +66,8 @@
     width: 100%;
 
     &.emoji {
-      width: 20px;
-      height: 20px;
+      width: $emoji-size;
+      height: $emoji-size;
     }
   }
 }
@@ -94,7 +94,7 @@
       .toc {
         .toc__menu {
           overflow-y: auto;
-          max-height: calc(100vh - 7em);
+          max-height: calc(100vh - #{$toc-max-height-offset});
         }
       }
     }
@@ -125,8 +125,8 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 36px;
-  height: 36px;
+  width: $avatar-size-sm;
+  height: $avatar-size-sm;
 
   @include breakpoint($large) {
     display: block;
@@ -135,12 +135,12 @@
   }
 
   img {
-    max-width: 110px;
+    max-width: $avatar-max-width;
     border-radius: $border-radius-circle;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: $spacing-xxs-px;
+      border: $border-width-standard solid $border-color;
     }
   }
 }
@@ -148,7 +148,7 @@
 .author__content {
   display: table-cell;
   vertical-align: top;
-  padding-inline: 15px 25px;
+  padding-inline: $spacing-sm-px $spacing-lg-px;
   line-height: 1;
 
   @include breakpoint($large) {
@@ -182,7 +182,7 @@
 
   @include breakpoint($large) {
     margin-top: $spacing-xs-px;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-md-px;
   }
 }
 
@@ -207,7 +207,7 @@
 
   .author__urls {
     span.label {
-      padding-inline-start: 5px;
+      padding-inline-start: $spacing-xxs-px;
     }
   }
 
@@ -248,12 +248,12 @@
   display: none;
   position: absolute;
   inset-inline-end: 0;
-  margin-top: 15px;
+  margin-top: $spacing-sm-px;
   margin-left: $grid-col-width;
   margin-right: $grid-col-width;
   padding: $spacing-xs-px;
   list-style-type: none;
-  border: 1px solid $border-color;
+  border: $border-width-standard solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
   box-shadow: $box-shadow-dropdown;
@@ -277,11 +277,11 @@
     display: block;
     content: "";
     position: absolute;
-    top: -11px;
-    inset-inline-start: calc(50% - 10px);
+    top: $arrow-offset-top;
+    inset-inline-start: calc(50% - #{$arrow-border-width});
     width: 0;
     border-style: solid;
-    border-width: 0 10px 10px;
+    border-width: 0 $arrow-border-width $arrow-border-width;
     border-color: $border-color transparent;
     z-index: 0;
 
@@ -294,11 +294,11 @@
     display: block;
     content: "";
     position: absolute;
-    top: -10px;
-    inset-inline-start: calc(50% - 10px);
+    top: $arrow-offset-inner;
+    inset-inline-start: calc(50% - #{$arrow-border-width});
     width: 0;
     border-style: solid;
-    border-width: 0 10px 10px;
+    border-width: 0 $arrow-border-width $arrow-border-width;
     border-color: $background-color transparent;
     z-index: 1;
 
@@ -318,9 +318,9 @@
 
   a {
     display: block;
-    margin-bottom: 5px;
-    padding-block: 2px;
-    padding-inline-end: 5px;
+    margin-bottom: $spacing-xxs-px;
+    padding-block: $border-width-thick;
+    padding-inline-end: $spacing-xxs-px;
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;

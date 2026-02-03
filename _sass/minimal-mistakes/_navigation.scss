@@ -72,16 +72,16 @@
 
     a {
       display: block;
-      margin-bottom: 0.25em;
-      padding: $spacing-sm 1em;
+      margin-bottom: $spacing-xxs;
+      padding: $spacing-sm $spacing-md;
       font-family: $sans-serif;
-      font-size: 14px;
+      font-size: $font-size-pagination;
       font-weight: bold;
       line-height: $line-height-tight;
       text-align: center;
       text-decoration: none;
       color: $muted-text-color;
-      border: 1px solid $border-color-dark;
+      border: $border-width-standard solid $border-color-dark;
       border-radius: 0;
 
       &:hover {
@@ -95,7 +95,7 @@
       }
 
       &.disabled {
-        color: rgba($muted-text-color, 0.5);
+        color: rgba($muted-text-color, $opacity-disabled);
         pointer-events: none;
         cursor: not-allowed;
       }
@@ -123,14 +123,14 @@
     display: block;
     padding: $spacing-md $spacing-xl-em;
     float: inline-start;
-    width: 50%;
+    width: $width-half;
     font-family: $sans-serif;
     font-size: $type-size-5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     color: $muted-text-color;
-    border: 1px solid $border-color-dark;
+    border: $border-width-standard solid $border-color-dark;
     border-radius: $border-radius;
 
     &:hover {
@@ -149,7 +149,7 @@
     }
 
     &.disabled {
-      color: rgba($muted-text-color, 0.5);
+      color: rgba($muted-text-color, $opacity-disabled);
       pointer-events: none;
       cursor: not-allowed;
     }
@@ -162,7 +162,7 @@
 .page__comments + .pagination {
   margin-top: $spacing-xl-em;
   padding-top: $spacing-xl-em;
-  border-top: 1px solid $border-color;
+  border-top: $border-width-standard solid $border-color;
 }
 
 /*
@@ -182,7 +182,7 @@
 
   a {
     display: block;
-    margin: 0 1rem;
+    margin: 0 $spacing-md;
     color: $masthead-link-color;
     text-decoration: none;
     transition: none;
@@ -257,7 +257,7 @@
     inset-inline-end: 0;
     margin-top: $spacing-sm-px;
     padding: $spacing-xxs-px;
-    border: 1px solid $border-color;
+    border: $border-width-standard solid $border-color;
     border-radius: $border-radius;
     background: $background-color;
     box-shadow: $box-shadow-dropdown;
@@ -268,7 +268,7 @@
 
     a {
       margin: 0;
-      padding: $spacing-xs-px 20px;
+      padding: $spacing-xs-px $spacing-md-px;
       font-size: $type-size-5;
 
       &:hover {
@@ -280,7 +280,7 @@
     &::before {
       content: "";
       position: absolute;
-      top: -11px;
+      top: $arrow-offset-top;
       inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
@@ -293,7 +293,7 @@
     &::after {
       content: "";
       position: absolute;
-      top: -10px;
+      top: $arrow-offset-inner;
       inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
@@ -305,7 +305,7 @@
 
     li {
       display: block;
-      border-bottom: 1px solid $border-color;
+      border-bottom: $border-width-standard solid $border-color;
 
       &:last-child {
         border-bottom: none;
@@ -339,11 +339,11 @@
     label {
       position: relative;
       display: inline-block;
-      padding: $spacing-sm 2.5em $spacing-sm 1em;
+      padding: $spacing-sm $spacing-2xl-em $spacing-sm $spacing-md;
       color: $gray;
       font-size: $type-size-6;
       font-weight: bold;
-      border: 1px solid $light-gray;
+      border: $border-width-standard solid $light-gray;
       border-radius: $border-radius;
       z-index: 20;
       transition: $transition-fast;
@@ -354,9 +354,9 @@
         content: "";
         position: absolute;
         inset-inline-end: $spacing-md;
-        top: 1.25em;
-        width: 0.75em;
-        height: 0.125em;
+        top: $toc-indent-1;
+        width: $spacing-md-rem;
+        height: $spacing-xxs-rem;
         line-height: 1;
         background-color: $gray;
         transition: $transition-fast;
@@ -404,11 +404,11 @@
 
     a {
       display: block;
-      padding: 0.25em 0;
+      padding: $spacing-xxs 0;
 
       @include breakpoint($large) {
-        padding-top: 0.125em;
-        padding-bottom: 0.125em;
+        padding-top: $spacing-xs;
+        padding-bottom: $spacing-xs;
       }
 
       &:hover {
@@ -420,7 +420,7 @@
 
 .nav__list .nav__items {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: $font-size-nav-items;
 
   a {
     color: inherit;
@@ -439,14 +439,14 @@
     overflow: hidden;
     z-index: 10;
     transition: $transition-medium;
-    transform: translate(0, 10%);
+    transform: translate(0, $transform-offset-sm);
   }
 }
 
 @include breakpoint(max-width $large-max) {
   .nav__list input:checked ~ .nav__items {
     transition: $transition-slow;
-    max-height: 9999px; /* exaggerate max-height to accommodate tall lists */
+    max-height: $max-height-collapse; /* exaggerate max-height to accommodate tall lists */
     overflow: visible;
     opacity: 1;
     margin-top: $spacing-md;
@@ -465,12 +465,12 @@
 .nav__sub-title {
   display: block;
   margin: $spacing-sm-rem 0;
-  padding: 0.25rem 0;
+  padding: $spacing-xs 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
+  border-bottom: $border-width-standard solid $border-color;
 }
 
 /*
@@ -481,7 +481,7 @@
   font-family: $sans-serif-narrow;
   color: $gray;
   background-color: $background-color;
-  border: 1px solid $border-color;
+  border: $border-width-standard solid $border-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
@@ -512,11 +512,11 @@
 
   a {
     display: block;
-    padding: 0.25rem $spacing-md-rem;
+    padding: $spacing-xs $spacing-md-rem;
     color: $muted-text-color;
     font-weight: bold;
     line-height: $line-height-tight;
-    border-bottom: 1px solid $border-color;
+    border-bottom: $border-width-standard solid $border-color;
 
     &:hover {
       color: $text-color;
@@ -524,23 +524,23 @@
   }
 
   li ul > li a {
-    padding-inline-start: 1.25rem;
+    padding-inline-start: $toc-indent-1;
     font-weight: normal;
   }
 
   li ul li ul > li a {
-    padding-inline-start: 1.75rem;
+    padding-inline-start: $toc-indent-2;
   }
 
   li ul li ul li ul > li a {
-    padding-inline-start: 2.25rem;
+    padding-inline-start: $toc-indent-3;
   }
 
   li ul li ul li ul li ul > li a {
-    padding-inline-start: 2.75rem;
+    padding-inline-start: $toc-indent-4;
   }
 
   li ul li ul li ul li ul li ul > li a {
-    padding-inline-start: 3.25rem;
+    padding-inline-start: $toc-indent-5;
   }
 }

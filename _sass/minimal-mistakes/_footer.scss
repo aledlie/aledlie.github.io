@@ -8,10 +8,10 @@
   float: inline-start;
   margin-inline: 0;
   width: 100%;
-  margin-top: 3em;
+  margin-top: $spacing-3xl-em;
   color: $muted-text-color;
   animation: $intro-transition;
-  animation-delay: 0.45s;
+  animation-delay: $timing-xslow;
   background-color: $footer-background-color;
 
   footer {
@@ -70,8 +70,8 @@
 
   li {
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: $spacing-xxs-px;
+    padding-bottom: $spacing-xxs-px;
     font-family: $sans-serif-narrow;
     font-size: $type-size-6;
     text-transform: uppercase;
@@ -80,7 +80,7 @@
 
   li + li::before {
     content: "";
-    padding-inline-end: 5px;
+    padding-inline-end: $spacing-xxs-px;
   }
 
   a {

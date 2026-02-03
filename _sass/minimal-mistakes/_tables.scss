@@ -19,7 +19,7 @@ table {
 
 thead {
   background-color: $border-color;
-  border-bottom: 2px solid $border-color-dark;
+  border-bottom: $border-width-thick solid $border-color-dark;
 }
 
 th {
@@ -30,7 +30,7 @@ th {
 
 td {
   padding: $spacing-sm;
-  border-bottom: 1px solid $border-color-dark;
+  border-bottom: $border-width-standard solid $border-color-dark;
 }
 
 tr,
