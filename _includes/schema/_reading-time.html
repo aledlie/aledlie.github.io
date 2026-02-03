@@ -1,0 +1,8 @@
+{% comment %}
+Schema.org partial: Word count and reading time (timeRequired)
+Assumes 200 words per minute reading speed
+{% endcomment %}
+"wordCount": {{ page.content | strip_html | number_of_words }},
+{% assign words = page.content | strip_html | number_of_words -%}
+{% assign minutes = words | divided_by: 200 -%}
+"timeRequired": "PT{{ minutes | at_least: 1 }}M",

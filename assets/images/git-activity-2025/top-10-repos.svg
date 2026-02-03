@@ -1,21 +1,12 @@
-<svg width="800" height="340" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="220" xmlns="http://www.w3.org/2000/svg">
 <text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
 <rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="70.0" text-anchor="end" font-size="14">PersonalSite</text>
-<text x="705.0" y="70.0" font-size="14" font-weight="bold">43</text>
-<rect x="250" y="90" width="303.48837209302326" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="110.0" text-anchor="end" font-size="14">jobs</text>
-<text x="558.4883720930233" y="110.0" font-size="14" font-weight="bold">29</text>
-<rect x="250" y="130" width="94.18604651162791" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="150.0" text-anchor="end" font-size="14">ToolVizualizer</text>
-<text x="349.1860465116279" y="150.0" font-size="14" font-weight="bold">9</text>
-<rect x="250" y="170" width="62.7906976744186" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="190.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
-<text x="317.7906976744186" y="190.0" font-size="14" font-weight="bold">6</text>
-<rect x="250" y="210" width="20.930232558139537" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="230.0" text-anchor="end" font-size="14">InventoryAI</text>
-<text x="275.93023255813955" y="230.0" font-size="14" font-weight="bold">2</text>
-<rect x="250" y="250" width="10.465116279069768" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="270.0" text-anchor="end" font-size="14">financial-hub-system</text>
-<text x="265.4651162790698" y="270.0" font-size="14" font-weight="bold">1</text>
+<text x="240" y="70.0" text-anchor="end" font-size="14">jobs</text>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">14</text>
+<rect x="250" y="90" width="321.42857142857144" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="110.0" text-anchor="end" font-size="14">Inventory</text>
+<text x="576.4285714285714" y="110.0" font-size="14" font-weight="bold">10</text>
+<rect x="250" y="130" width="32.142857142857146" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="150.0" text-anchor="end" font-size="14">PersonalSite</text>
+<text x="287.14285714285717" y="150.0" font-size="14" font-weight="bold">1</text>
 </svg>

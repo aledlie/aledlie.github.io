@@ -1,16 +1,19 @@
 ---
-layout: post
+layout: single
 title: "Parallel TODO Resolution and Cross-Platform CI/CD Fix"
 date: 2025-11-25
+author_profile: true
 categories: [automation, ci-cd, code-quality]
 tags: [parallel-processing, github-actions, polyglot, nodejs, python, verification, dependency-management, skill-creation]
+excerpt: "Resolved 6 TODO comments in parallel, fixed CI/CD build errors, and created reusable cross-platform CI/CD skill."
+header:
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Parallel TODO Resolution and Cross-Platform CI/CD Fix
-
-**Session Date**: 2025-11-25
-**Project**: AlephAuto Jobs System
-**Focus**: Resolve 6 TODO comments in parallel, fix CI/CD build errors, create reusable CI/CD skill
+**Session Date**: 2025-11-25<br>
+**Project**: AlephAuto Jobs System<br>
+**Focus**: Resolve 6 TODO comments in parallel, fix CI/CD build errors, create reusable CI/CD skill<br>
 
 ## Executive Summary
 

@@ -1,0 +1,9 @@
+{% comment %}
+Common metadata includes for schema types (DRY consolidation)
+Used by: tech-article-schema.html, analysis-article-schema.html
+Optional parameter: skip_speakable (for schemas that don't need speakable)
+{% endcomment %}
+{% include schema/_keywords.html %}
+{% include schema/_language.html %}
+{% unless include.skip_speakable %}{% include schema/_speakable.html %}{% endunless %}
+{% include schema/_is-part-of.html %}

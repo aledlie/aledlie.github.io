@@ -20,8 +20,8 @@
   @include breakpoint($large) {
     float: inline-start;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
-    transition: opacity 0.2s ease-in-out;
+    opacity: $opacity-muted;
+    transition: opacity $transition-fast;
 
     &:hover {
       opacity: 1;
@@ -42,8 +42,8 @@
   }
 
   > * {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-md;
   }
 
   h2,
@@ -59,21 +59,21 @@
   li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: $line-height-tight;
   }
 
   img {
     width: 100%;
 
     &.emoji {
-      width: 20px;
-      height: 20px;
+      width: $emoji-size;
+      height: $emoji-size;
     }
   }
 }
 
 .sidebar__right {
-  margin-bottom: 1em;
+  margin-bottom: $spacing-md;
 
   @include breakpoint($large) {
     position: absolute;
@@ -81,20 +81,20 @@
     inset-inline-end: 0;
     width: $right-sidebar-width-narrow;
     margin-inline-end: -1 * $right-sidebar-width-narrow;
-    padding-inline-start: 1em;
+    padding-inline-start: $spacing-md;
     z-index: 10;
 
     &.sticky {
       @include clearfix;
 
       position: sticky;
-      top: 2em;
+      top: $spacing-xl-em;
       float: inline-end;
 
       .toc {
         .toc__menu {
           overflow-y: auto;
-          max-height: calc(100vh - 7em);
+          max-height: calc(100vh - #{$toc-max-height-offset});
         }
       }
     }
@@ -125,8 +125,8 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 36px;
-  height: 36px;
+  width: $avatar-size-sm;
+  height: $avatar-size-sm;
 
   @include breakpoint($large) {
     display: block;
@@ -135,12 +135,12 @@
   }
 
   img {
-    max-width: 110px;
-    border-radius: 50%;
+    max-width: $avatar-max-width;
+    border-radius: $border-radius-circle;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: $spacing-xxs-px;
+      border: $border-width-standard solid $border-color;
     }
   }
 }
@@ -148,7 +148,7 @@
 .author__content {
   display: table-cell;
   vertical-align: top;
-  padding-inline: 15px 25px;
+  padding-inline: $spacing-sm-px $spacing-lg-px;
   line-height: 1;
 
   @include breakpoint($large) {
@@ -167,8 +167,8 @@
   margin: 0;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $spacing-xs-px;
+    margin-bottom: $spacing-xs-px;
   }
 }
 
@@ -181,9 +181,14 @@
   margin: 0;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: $spacing-xs-px;
+    margin-bottom: $spacing-md-px;
   }
+}
+
+/* Location text - ensure WCAG AA color contrast even with sidebar opacity:0.75 */
+.p-locality {
+  color: $text-color; /* Darker color to maintain contrast with sidebar opacity */
 }
 
 .author__urls-wrapper {
@@ -202,7 +207,7 @@
 
   .author__urls {
     span.label {
-      padding-inline-start: 5px;
+      padding-inline-start: $spacing-xxs-px;
     }
   }
 
@@ -238,17 +243,20 @@
   }
 }
 
-.author__urls {
+.author__urls,
+.author-urls {
   display: none;
   position: absolute;
   inset-inline-end: 0;
-  margin-top: 15px;
-  padding: 10px;
+  margin-top: $spacing-sm-px;
+  margin-left: $grid-col-width;
+  margin-right: $grid-col-width;
+  padding: $spacing-xs-px;
   list-style-type: none;
-  border: 1px solid $border-color;
+  border: $border-width-standard solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
-  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+  box-shadow: $box-shadow-dropdown;
   cursor: default;
 
   &.is--visible {
@@ -269,11 +277,11 @@
     display: block;
     content: "";
     position: absolute;
-    top: -11px;
-    inset-inline-start: calc(50% - 10px);
+    top: $arrow-offset-top;
+    inset-inline-start: calc(50% - #{$arrow-border-width});
     width: 0;
     border-style: solid;
-    border-width: 0 10px 10px;
+    border-width: 0 $arrow-border-width $arrow-border-width;
     border-color: $border-color transparent;
     z-index: 0;
 
@@ -286,11 +294,11 @@
     display: block;
     content: "";
     position: absolute;
-    top: -10px;
-    inset-inline-start: calc(50% - 10px);
+    top: $arrow-offset-inner;
+    inset-inline-start: calc(50% - #{$arrow-border-width});
     width: 0;
     border-style: solid;
-    border-width: 0 10px 10px;
+    border-width: 0 $arrow-border-width $arrow-border-width;
     border-color: $background-color transparent;
     z-index: 1;
 
@@ -300,7 +308,7 @@
   }
 
   ul {
-    padding: 10px;
+    padding: $spacing-xs-px;
     list-style-type: none;
   }
 
@@ -310,9 +318,9 @@
 
   a {
     display: block;
-    margin-bottom: 5px;
-    padding-block: 2px;
-    padding-inline-end: 5px;
+    margin-bottom: $spacing-xxs-px;
+    padding-block: $border-width-thick;
+    padding-inline-end: $spacing-xxs-px;
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;
@@ -328,7 +336,7 @@
    ========================================================================== */
 
 .wide .sidebar__right {
-  margin-bottom: 1em;
+  margin-bottom: $spacing-md;
 
   @include breakpoint($large) {
     position: initial;

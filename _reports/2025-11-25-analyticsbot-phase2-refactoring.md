@@ -3,19 +3,17 @@ layout: single
 title: "Backend Refactoring Phase 2: Large Class Modularization"
 date: 2025-11-25
 author_profile: true
-breadcrumbs: true
 categories: [reports, refactoring]
 tags: [typescript, refactoring, code-quality, testing, git, analytics]
 excerpt: "Complete refactoring of 3 high-priority large classes (1,437 lines) into 16 focused modules achieving 70% code reduction per module with zero breaking changes."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "code"
 ---
 
-# Backend Refactoring Session Report
 ## Phase 2: Large Class Modularization (3 High-Priority Services)
 
 **Project:** AnalyticsBot

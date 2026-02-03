@@ -1,11 +1,11 @@
 ---
 layout: single
-title: What 3 Things
+title: "What 3 Things"
 date: 2025-09-03
 author_profile: true
 excerpt:  "On Signal, Noise, & Sustainability : The limits of overclocking"
 ---
-##  Pre-2023 Facebook
+## Pre-2023 Facebook
 
 In the hazy before-times of 2014 tech; I joined Facebook. I was the first person hired
 specifically as an engineer in an Austin office that employed fewer than 200 people in all roles. One of them was my brother. Back then it resembled a cult more than a company. My first 6 years there were the hardest I've ever worked; the most I've ever learned;
@@ -19,7 +19,7 @@ for advice and help, someone considered senior and In Charge Of Things. This hap
 
 For about 8 years after that, my job was roughly divided like this:
 
-- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.ZZZ
+- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.
 - **30-40%** answering the questions of whoever came by my desk
 - **95%** providing therapy for the totally valid and stress-induced nervous breakdowns of my coworkers in small 1:1 conference rooms
 - **100%** tech-driven pranks and meme wars with my team, who, predictably,
@@ -28,9 +28,9 @@ For about 8 years after that, my job was roughly divided like this:
 
 ## Finding Focus with *What 3 Things*
 
-After a few years of finding myself accidentally working as a mostly full-time therapist in addition to my day job, I kicked off a weekly post called **"What 3 Things Alyshia’s Doing This Week."** I had two main strategic goals for it:
+After a few years of finding myself accidentally working as a mostly full-time therapist in addition to my day job, I kicked off a weekly post called **"What 3 Things Alyshia's Doing This Week."** I had two main strategic goals for it:
 - **Keeping Myself Focused**: Writing these posts helped me prioritize and avoid saying "yes" to too many things at once.
-- **Scaling Therapy**: I hoped it would encourage my newer engineers (who I always called  *younglings*, regardless of age) to take a deep breath and realize it’s okay to *not finish everything* all at once.
+- **Scaling Therapy**: I hoped it would encourage my newer engineers (who I always called *younglings*, regardless of age) to take a deep breath and realize it's okay to *not finish everything* all at once.
 
 Those posts became a ritual over time that helped me to incorporate balance, calmness, and perspective in an environment where the potential for error was huge, and everything always seemed to be on fire.
 
@@ -41,19 +41,19 @@ Sometimes, though, the idea of "not doing everything at once" just doesn't hold 
 - **Track Everything**: By documenting my priorities, I can monitor the size of my workload over time.
 - **Ease the Crunch**: My goal is to watch that workload shrink as I chip away at it before the **September 12th** deadline.
 
-I can't get this down to 3 lines yet, but the goal is to get there by October.  Here’s to managing the madness, finding balance, and coming out stronger on the other side!
+I can't get this down to 3 lines yet, but the goal is to get there by October. Here's to managing the madness, finding balance, and coming out stronger on the other side!
 
 #TODO Silly List 📝
 
 - [x] ~~Make a TODO list~~ ✅ (Finally accomplished something today!)
 - [ ] Actually catalog all my projects and identify which domain manager handles each
 - [ ] Document domain managers & where they are stored
-- [x] Write a proper README.mds that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
-- [ ] Add the projects that have been living on my local for btw 1-12 years, add
+- [x] Write a proper README.md that doesn't just say "it works on my machine" for my 50 github repos (this is now fully automated!)
+- [ ] Add the projects that have been living on my local for between 1-12 years, add
   them to github or bitbucket
 - [ ] Document installation steps (beyond "here's a curl command")
 - [ ] Explain why I chose this tech stack (spoiler: I didn't, my m2 chip chose for me)
-- [ ] Add usage examples make sense, to actual humans
+- [ ] Add usage examples that make sense to actual humans
 - [ ] Write contributing guidelines (move fast, break things, plz don't break *everything*)
 - [ ] Create a proper license file (currently using the "please don't sue me" license; need the MIT one like the rest of the cool kids)
 - [ ] Add badges to make it look professional (even though it's held together with duct tape)
@@ -62,7 +62,7 @@ I can't get this down to 3 lines yet, but the goal is to get there by October.  
 - [ ] Explain the mysterious `config.json.example.backup.old.final.FINAL.swp` file
 - [ ] Add screenshots (real ones)
 - [ ] Write changelog (v1.0: "it exists", v1.1: "it still exists", v2: "it's
-  broken" v2.1 "fixed it" v2.2 "-> profit")
+  broken", v2.1: "fixed it", v2.2: "-> profit")
 - [ ] Fix that bug that happens only on Tuesdays during a full moon
 - [ ] Fix jekyll [build bug](https://vercel.com/aledlies-projects/aledlie/FPBXEKNx9KTEr2rvKMT5bWKcHXpZ?filter=errors) that appears to only happen in Vercel :/
 - [ ] Add tests (currently using the "if it compiles, ship it" methodology)

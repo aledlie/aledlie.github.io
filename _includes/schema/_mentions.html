@@ -1,0 +1,19 @@
+{% comment %}
+Schema.org partial: Mentions - technologies, tools, and concepts discussed
+{% endcomment %}
+{% if page.schema_mentions -%}
+"mentions": [
+  {% for mention in page.schema_mentions -%}
+  {
+    "@type": "{{ mention.type | default: 'SoftwareApplication' }}",
+    "name": {{ mention.name | jsonify }}
+    {% if mention.url -%}
+    ,"url": {{ mention.url | jsonify }}
+    {% endif -%}
+    {% if mention.description -%}
+    ,"description": {{ mention.description | jsonify }}
+    {% endif -%}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor -%}
+],
+{% endif -%}

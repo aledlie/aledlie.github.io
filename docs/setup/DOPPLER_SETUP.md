@@ -15,7 +15,7 @@ This project uses [Doppler](https://www.doppler.com/) to manage secrets and API 
 
 1. **Run the setup script:**
    ```bash
-   ./scripts/setup-doppler.sh
+   ./utils/setup-doppler.sh
    ```
 
    This will:

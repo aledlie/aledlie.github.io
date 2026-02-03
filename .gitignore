@@ -6,10 +6,11 @@ _site/
 Gemfile.lock
 
 # Testing
-test-results/
-test_results/
-playwright-report/
-coverage/
+tests/test-results/
+tests/playwright-report/
+tests/performance/results/
+.playwright-mcp/
+tests/coverage/
 .nyc_output/
 
 # Performance Reports
@@ -23,9 +24,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
 # Project-specific
 schema_org_optimizer.md
-audit-ci.json
 drafts/
 
 # macOS
@@ -74,7 +81,6 @@ doppler.yaml
 .vercel/
 
 # Build artifacts
-dist/
 build/
 lib/
 
@@ -86,3 +92,10 @@ Desktop.ini
 # Repomix output files
 repomix-output.xml
 Claude.md
+
+# Utils generated artifacts
+utils/*.txt
+!utils/requirements.txt
+utils/*.png
+utils/**/_site
+utils/**/__pycache__

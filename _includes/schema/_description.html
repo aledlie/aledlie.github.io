@@ -1,0 +1,8 @@
+{% comment %}
+Schema.org partial: Description field
+Uses page.description, page.excerpt, or site.description as fallback
+{% endcomment %}
+{% assign desc = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 -%}
+{% if desc -%}
+"description": {{ desc | jsonify }},
+{% endif -%}

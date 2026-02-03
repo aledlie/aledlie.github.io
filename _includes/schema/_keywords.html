@@ -1,0 +1,8 @@
+{% comment %}
+Schema.org partial: Keywords from schema_keywords or tags
+{% endcomment %}
+{% if page.schema_keywords -%}
+"keywords": {{ page.schema_keywords | join: ", " | jsonify }},
+{% elsif page.tags -%}
+"keywords": {{ page.tags | join: ", " | jsonify }},
+{% endif -%}

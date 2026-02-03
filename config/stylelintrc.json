@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "ignoreFiles": [
+    "../SumedhSite/**",
+    "**/vendor/**",
+    "../_site/**",
+    "../node_modules/**",
+    "../.bundle/**",
+    "../assets/css/main.scss"
+  ],
+  "rules": {
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?|ais-[A-Z][a-zA-Z]*)$",
+      {
+        "message": "Expected class selector to be kebab-case, BEM format, or Algolia class"
+      }
+    ],
+    "no-descending-specificity": null,
+    "number-max-precision": [4, {
+      "ignoreProperties": ["/^margin/", "/^padding/"]
+    }]
+  }
+}

@@ -3,18 +3,15 @@ layout: single
 title: "Sentry Logging Migration Strategy - ISPublicSites"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [devops, monitoring, logging]
 tags: [sentry, error-tracking, migration, typescript, python, logging]
 excerpt: "Sentry Logging Migration Strategy"
 status: active
 priority: P0
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Sentry Logging Migration Strategy
 
 ## Executive Summary
 
@@ -231,7 +228,6 @@ Similar patterns to tcad-scraper, but fewer statements. Focus on:
 **Install**: `sentry-sdk` for Python
 
 ```python
-# BEFORE
 print(f"Processing URL: {url}")
 try:
     data = fetch_data(url)
@@ -239,7 +235,6 @@ try:
 except Exception as e:
     print(f"❌ Error: {e}")
 
-# AFTER
 import sentry_sdk
 
 sentry_sdk.add_breadcrumb(
@@ -371,7 +366,6 @@ Python-only project. Install `sentry-sdk` and follow AnalyticsBot Python pattern
 
 **Initialization**:
 ```python
-# main.py
 from src.init_sentry import init_sentry
 
 init_sentry('toolvisualizer')  # Service tag for filtering
@@ -671,15 +665,12 @@ def init_sentry(service_name: str):
 
     print(f"Sentry initialized for {service_name} with Anthropic AI integration (environment: {os.getenv('SENTRY_ENVIRONMENT', 'development')})")
 
-# Usage examples in each project:
 
-# analyticsbot/bots/main.py
 init_sentry('analyticsbot-bots')
 
 # singlesitescraper/scraper.py
 init_sentry('singlesitescraper')
 
-# toolvisualizer/main.py
 init_sentry('toolvisualizer')
 ```
 
@@ -853,7 +844,6 @@ Sentry.setTag('language', 'typescript');
 ```
 
 ```python
-# Python services
 sentry_sdk.set_tag("service", "analyticsbot-bots")
 sentry_sdk.set_tag("language", "python")
 ```
@@ -1115,23 +1105,17 @@ await Sentry.startSpan({
 ### Python Pattern Library
 
 ```python
-# 1. Simple info logging
 print('Operation started')
-# →
 sentry_sdk.add_breadcrumb(
     message='Operation started',
     category='operation',
     level='info'
 )
 
-# 2. Error logging
 print(f'Error: {e}')
-# →
 sentry_sdk.capture_exception(e)
 
-# 3. Success with data
 print(f'Processed {count} items')
-# →
 sentry_sdk.add_breadcrumb(
     message=f'Processed {count} items',
     category='processing',
@@ -1139,12 +1123,10 @@ sentry_sdk.add_breadcrumb(
     data={'count': count}
 )
 
-# 4. Error with context
 try:
     process_user(user_id)
 except Exception as e:
     print(f'Failed to process user {user_id}: {e}')
-# →
 try:
     process_user(user_id)
 except Exception as e:
@@ -1196,7 +1178,6 @@ rules:
 # Dry run
 ast-grep scan --config sentry-migration-rules.yml --json ./src
 
-# Apply fixes
 ast-grep scan --config sentry-migration-rules.yml --update ./src
 ```
 
@@ -1216,15 +1197,12 @@ fi
 
 echo "🚀 Starting Sentry migration for $PROJECT"
 
-# Step 1: Backup
 echo "📦 Creating backup..."
 cp -r "$PROJECT/src" "$PROJECT/src.backup.$(date +%Y%m%d-%H%M%S)"
 
-# Step 2: Run ast-grep replacements
 echo "🔄 Running automated replacements..."
 ast-grep scan --config sentry-migration-rules.yml --update "$PROJECT/src"
 
-# Step 3: Add imports
 echo "📥 Adding Sentry imports..."
 find "$PROJECT/src" -name "*.ts" -exec grep -l "addBreadcrumb\|captureException\|captureMessage" {} \; | \
 while read file; do
@@ -1290,7 +1268,6 @@ describe('Sentry Service', () => {
 **Test Sentry Endpoints** (from error-tracking skill):
 
 ```bash
-# Test basic error capture
 curl http://localhost:3002/api/sentry/test-error
 
 # Test with context
@@ -1298,7 +1275,6 @@ curl -X POST http://localhost:3002/api/sentry/test-error \
   -H "Content-Type: application/json" \
   -d '{"userId": "123", "operation": "test"}'
 
-# Check Sentry dashboard for captured events
 ```
 
 ### 3. Production Validation
@@ -1320,8 +1296,6 @@ curl -X POST http://localhost:3002/api/sentry/test-error \
 ### Environment Variables
 
 ```bash
-# .env
-# UNIFIED DSN for all ISPublicSites projects
 SENTRY_DSN=https://b8fb9fe12151c3d01b4d0732d292c7e0@o4510332694495232.ingest.us.sentry.io/4510346321657856
 
 SENTRY_ENVIRONMENT=production
@@ -1541,7 +1515,6 @@ ast-grep run --pattern 'console.$METHOD($$$)' --lang typescript --json src | \
 
 **AnalyticsBot** (493 statements):
 ```bash
-# TypeScript
 cd /Users/alyshialedlie/code/ISPublicSites/AnalyticsBot/backend
 ast-grep run --pattern 'console.$METHOD($$$)' --lang typescript --json src | \
   jq -r '.[] | .file' | sort | uniq -c | sort -rn
@@ -1577,17 +1550,14 @@ ast-grep run --pattern 'print($$$)' --lang python --json . | \
 # Find all console.log statements
 ast-grep run --pattern 'console.log($$$)' --lang typescript ./src
 
-# Find all console.error statements
 ast-grep run --pattern 'console.error($$$)' --lang typescript ./src
 
 # Find all print statements
 ast-grep run --pattern 'print($$$)' --lang python .
 
-# Count by file
 ast-grep run --pattern 'console.log($$$)' --lang typescript --json ./src | \
   jq -r '.[] | .file' | sort | uniq -c | sort -rn
 
-# Dry-run rewrite
 ast-grep scan --config rewrite-rules.yml --json ./src
 
 # Apply rewrite

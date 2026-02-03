@@ -3,20 +3,17 @@ layout: single
 title: "Code Consolidation System: Comprehensive Technical Documentation"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [documentation, architecture, duplicate-detection]
 tags: [data-flow, similarity-algorithm, pipeline, code-consolidation, mermaid-diagrams, technical-writing, ast-grep, python]
 excerpt: "Code Consolidation System: Comprehensive Technical Documentation"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Code Consolidation System: Comprehensive Technical Documentation
-
-**Session Date**: 2025-11-17
-**Project**: Jobs Automation System - Duplicate Detection
-**Focus**: Creating comprehensive technical documentation for the code consolidation pipeline and multi-layer similarity algorithm
+**Session Date**: 2025-11-17<br>
+**Project**: Jobs Automation System - Duplicate Detection<br>
+**Focus**: Creating comprehensive technical documentation for the code consolidation pipeline and multi-layer similarity algorithm<br>
 
 ## Executive Summary
 
@@ -209,7 +206,6 @@ Created 8 Mermaid diagrams for data flow visualization:
 
 **Code Reference**:
 ```python
-# structural.py:29-93
 def extract_semantic_features(code: str) -> SemanticFeatures:
     """Extract semantic features from ORIGINAL code before normalization."""
     features = SemanticFeatures()
@@ -227,7 +223,6 @@ def extract_semantic_features(code: str) -> SemanticFeatures:
 
 **Code Reference**:
 ```python
-# extract_blocks.py:108-163
 function_key = f"{block.file_path}:{block.function_name}"
 if function_key in seen_functions:
     continue  # Skip duplicate
@@ -257,7 +252,6 @@ for i in range(line_start - 1, search_start - 1, -1):
 
 **Code Reference**:
 ```python
-# ✅ CORRECT
 CodeBlock(tags=[f"function:{function_name}"])
 
 # ❌ INCORRECT - field doesn't exist

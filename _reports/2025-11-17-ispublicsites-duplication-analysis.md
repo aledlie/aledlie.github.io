@@ -3,20 +3,17 @@ layout: single
 title: "Code Duplication Analysis: ISPublicSites Repository Audit"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [code-quality, duplicate-detection, technical-debt]
 tags: [python, typescript, ast-grep, code-analysis, refactoring, analytics-bot, tool-visualizer, tcad-scraper]
 excerpt: "Code Duplication Analysis: ISPublicSites Repository Audit"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Code Duplication Analysis: ISPublicSites Repository Audit
-
-**Session Date**: 2025-11-17
-**Project**: ISPublicSites - Multi-project monorepo
-**Focus**: Systematic code duplication detection and refactoring recommendations
+**Session Date**: 2025-11-17<br>
+**Project**: ISPublicSites - Multi-project monorepo<br>
+**Focus**: Systematic code duplication detection and refactoring recommendations<br>
 
 ## Executive Summary
 
@@ -423,19 +420,16 @@ Three primary duplication patterns identified:
 
 ### Duplication Analysis Commands
 ```bash
-# Python analysis
 uv run python scripts/find_duplication.py ~/code/ISPublicSites \
   --language python \
   --exclude-patterns "node_modules,venv,.venv,__pycache__,.git" \
   --min-similarity 0.85
 
-# TypeScript analysis
 uv run python scripts/find_duplication.py ~/code/ISPublicSites \
   --language typescript \
   --exclude-patterns "node_modules,venv,.venv,__pycache__,.git,dist,build" \
   --min-similarity 0.85
 
-# With JSON output
 uv run python scripts/find_duplication.py /path/to/project \
   --language python \
   --json > duplication-report.json

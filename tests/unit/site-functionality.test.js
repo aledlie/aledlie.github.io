@@ -3,6 +3,8 @@
  * Tests core website functionality, navigation, and DOM elements
  */
 
+const { SITE } = require('../../config/constants');
+
 describe('Site Functionality', () => {
   describe('Navigation', () => {
     beforeEach(() => {
@@ -56,7 +58,7 @@ describe('Site Functionality', () => {
     });
 
     test('should have canonical URL meta tag', () => {
-      document.head.innerHTML = `<link rel="canonical" href="https://www.aledlie.com/">`;
+      document.head.innerHTML = `<link rel="canonical" href="${SITE.url}/">`;
       const canonical = document.querySelector('link[rel="canonical"]');
       
       expect(canonical).toBeTruthy();

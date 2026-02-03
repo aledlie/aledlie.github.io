@@ -1,0 +1,11 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% if page.layout == "categories" %}
+  {% include posts-taxonomy.html taxonomies=site.categories %}
+{% else %}
+  {% include posts-taxonomy.html taxonomies=site.tags %}
+{% endif %}

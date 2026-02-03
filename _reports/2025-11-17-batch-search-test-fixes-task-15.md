@@ -3,20 +3,17 @@ layout: single
 title: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [ast-grep-mcp, testing, batch-operations]
 tags: [python, testing, pytest, mocking, parallel-execution, ast-grep, mcp]
 excerpt: "AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# AST-Grep MCP: Batch Search Test Fixes and Task 15 Completion
-
-**Session Date**: 2025-11-17
-**Project**: ast-grep-mcp (MCP Server)
-**Focus**: Fix failing batch_search tests and complete Task 15 (Batch Operations) implementation
+**Session Date**: 2025-11-17<br>
+**Project**: ast-grep-mcp (MCP Server)<br>
+**Focus**: Fix failing batch_search tests and complete Task 15 (Batch Operations) implementation<br>
 
 ## Executive Summary
 
@@ -81,7 +78,6 @@ Initially attempted to mock `run_ast_grep()`, but the actual execution path uses
 Mock returned JSON strings instead of iterators:
 
 ```python
-# ❌ Wrong: stream_ast_grep_results returns iterator; not JSON string
 mock_stream.return_value = json.dumps([{"file": "test.py", ...}])
 
 # ✅ Correct: Return an iterator
@@ -95,7 +91,6 @@ mock_stream.return_value = iter([{"file": "test.py", ...}])
 Updated `tests/unit/test_batch.py` to match the pattern from `test_duplication.py`:
 
 ```python
-# Import with mocked decorators
 with patch("mcp.server.fastmcp.FastMCP", MockFastMCP):
     with patch("pydantic.Field", mock_field):
         import main
@@ -111,7 +106,6 @@ with patch("mcp.server.fastmcp.FastMCP", MockFastMCP):
 Changed all test methods to mock the correct function:
 
 ```python
-# Before:
 @patch("main.run_ast_grep")
 def test_batch_search_single_query(self, mock_run: Mock):
     mock_run.return_value = json.dumps([...])
@@ -129,7 +123,6 @@ def test_batch_search_single_query(self, mock_stream: Mock):
 Changed from JSON strings to iterators:
 
 ```python
-# Before (12 occurrences):
 json.dumps([{"file": "test.py", "text": "match", ...}])
 
 # After (12 occurrences):
@@ -143,7 +136,6 @@ Used `replace_all=true` in Edit tool for bulk replacement efficiency.
 Renamed all mock parameters for consistency:
 
 ```python
-# Before:
 def test_batch_search_single_query(self, mock_run: Mock):
 
 # After:

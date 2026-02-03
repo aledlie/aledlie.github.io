@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:thr="http://purl.org/syndication/thread/1.0"
+      xmlns:schema="https://schema.org/"
+      xml:lang="en-US">
+
+  <!-- Basic Feed Information -->
+  <title>Burnt Orange Nation - Sumedh Joshi</title>
+  <link rel="alternate" type="text/html" href="https://www.burntorangenation.com/" />
+  <link rel="self" type="application/atom+xml" href="https://www.burntorangenation.com/rss/stream/21046839" />
+  <id>https://www.burntorangenation.com/rss/stream/21046839</id>
+  <updated>2025-01-01T00:00:00Z</updated>
+  <subtitle>Latest posts by Sumedh Joshi</subtitle>
+
+  <!-- Author Information with Schema.org -->
+  <author>
+    <name>Sumedh Joshi</name>
+    <uri>https://www.burntorangenation.com/users/sumedh-joshi</uri>
+    <schema:Person>
+      <schema:name>Sumedh Joshi</schema:name>
+      <schema:url>https://www.burntorangenation.com/users/sumedh-joshi</schema:url>
+      <schema:jobTitle>Content Creator</schema:jobTitle>
+      <schema:worksFor>
+        <schema:Organization>
+          <schema:name>Burnt Orange Nation</schema:name>
+          <schema:url>https://www.burntorangenation.com/</schema:url>
+        </schema:Organization>
+      </schema:worksFor>
+    </schema:Person>
+  </author>
+
+  <!-- Generator Information -->
+  <generator uri="https://github.com/yourusername/Inventory" version="1.0">
+    Code Inventory RSS Generator
+  </generator>
+
+  <!-- Schema.org DataFeed Metadata (embedded as extension) -->
+  <schema:DataFeed>
+    <schema:name>Burnt Orange Nation - Sumedh Joshi</schema:name>
+    <schema:description>RSS/Atom feed for latest posts by Sumedh Joshi on Burnt Orange Nation</schema:description>
+    <schema:url>https://www.burntorangenation.com/rss/stream/21046839</schema:url>
+    <schema:encodingFormat>application/atom+xml</schema:encodingFormat>
+    <schema:dateModified>2025-01-01T00:00:00Z</schema:dateModified>
+    <schema:provider>
+      <schema:Organization>
+        <schema:name>Burnt Orange Nation</schema:name>
+        <schema:url>https://www.burntorangenation.com/</schema:url>
+      </schema:Organization>
+    </schema:provider>
+  </schema:DataFeed>
+
+  <!-- Example Entry Template (commented out - add actual entries below) -->
+  <!--
+  <entry>
+    <title>Example Article Title</title>
+    <link rel="alternate" type="text/html" href="https://www.burntorangenation.com/article-url" />
+    <id>https://www.burntorangenation.com/article-url</id>
+    <published>2025-01-01T00:00:00Z</published>
+    <updated>2025-01-01T00:00:00Z</updated>
+    <summary>Brief summary of the article content...</summary>
+    <content type="html"><![CDATA[Full article content here...]]></content>
+
+    <author>
+      <name>Sumedh Joshi</name>
+      <uri>https://www.burntorangenation.com/users/sumedh-joshi</uri>
+    </author>
+
+    <category term="Sports" />
+    <category term="Football" />
+
+    <!- - Schema.org Article Metadata - ->
+    <schema:Article>
+      <schema:headline>Example Article Title</schema:headline>
+      <schema:datePublished>2025-01-01T00:00:00Z</schema:datePublished>
+      <schema:dateModified>2025-01-01T00:00:00Z</schema:dateModified>
+      <schema:author>
+        <schema:Person>
+          <schema:name>Sumedh Joshi</schema:name>
+          <schema:url>https://www.burntorangenation.com/users/sumedh-joshi</schema:url>
+        </schema:Person>
+      </schema:author>
+      <schema:publisher>
+        <schema:Organization>
+          <schema:name>Burnt Orange Nation</schema:name>
+          <schema:url>https://www.burntorangenation.com/</schema:url>
+        </schema:Organization>
+      </schema:publisher>
+      <schema:articleSection>Sports</schema:articleSection>
+      <schema:keywords>football, sports, texas</schema:keywords>
+    </schema:Article>
+  </entry>
+  -->
+
+</feed>

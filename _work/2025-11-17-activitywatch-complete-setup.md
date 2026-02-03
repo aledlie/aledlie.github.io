@@ -3,13 +3,12 @@ layout: single
 title: "ActivityWatch Complete Tracking System Setup"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [work-updates, productivity]
 tags: [activitywatch, tracking, automation, productivity, ai-assisted-development]
 excerpt: "Complete setup and configuration of ActivityWatch tracking system with multiple watchers for comprehensive productivity monitoring."
 header:
-  overlay_image: /images/cover-work.png
-  teaser: /images/cover-work.png
+  image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
 ---
 
 # ActivityWatch Complete Tracking System Setup

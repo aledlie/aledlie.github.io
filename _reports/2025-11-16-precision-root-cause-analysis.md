@@ -3,17 +3,14 @@ layout: single
 title: "Precision Root Cause Analysis: Debugging a Duplicate Detection Pipeline"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: [debugging, code-quality, machine-learning]
 tags: [python, javascript, ast-grep, scientific-method, hypothesis-testing]
 author: Alyshia Lედlie
 excerpt: "A systematic scientific investigation into false positives in a duplicate code detection pipeline, uncovering critical bugs through hypothesis-driven debugging. Achieved 14.59% precision improvement by fixing ast-grep pattern extraction."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Precision Root Cause Analysis - Scientific Investigation
 
 **Investigation Method**: Systematic hypothesis testing
 **Starting Precision**: 59.09%
@@ -60,11 +57,9 @@ Through systematic scientific investigation, I identified **two critical bugs** 
 
 **Results**:
 ```python
-# isDevelopment
 code = "return process.env.NODE_ENV !== 'production';"
 hash = "ab93ebee7506b485"
 
-# isProductionMode
 code = "return process.env.NODE_ENV === 'production';"
 hash = "698d9c44d4873a42"
 ```
@@ -161,7 +156,6 @@ const matchedText = match.lines || match.text || match.matched;
 
 The Layer 2 HTTP status code penalty should apply:
 ```python
-# In structural.py lines 391-395:
 if has_different_status_codes and similarity >= threshold:
     original_similarity = similarity
     similarity *= 0.7  # 30% penalty

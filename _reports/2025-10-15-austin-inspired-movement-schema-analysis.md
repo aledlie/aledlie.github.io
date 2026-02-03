@@ -3,19 +3,16 @@ layout: single
 title: "Schema.org Impact Analysis: Austin Inspired Movement"
 date: 2025-10-15
 author_profile: true
-breadcrumbs: true
 categories: reports
 tags: [schema-org, seo, analytics, structured-data, performance]
 excerpt: "Comprehensive schema.org analysis for austininspiredmovement.com with SEO, LLM, and performance scoring."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "chart-bar"
 ---
-
-# Schema.org Impact Analysis
 
 **Website:** https://www.austininspiredmovement.com
 **Generated:** October 15, 2025, 5:25:22 PM
@@ -339,7 +336,7 @@ While the performance score is already good (88/100), caching can further optimi
 ### Google Guidelines
 - [Structured Data Guidelines](https://developers.google.com/search/docs/advanced/structured-data/sd-policies)
 - [Rich Results Test](https://search.google.com/test/rich-results)
-- [Search Console Help](https://support.google.com/webmasters)
+- [Search Console Help](https://developers.google.com/search/docs/monitor-debug/search-console-start)
 
 ---
 

@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { injectAxe, checkA11y } = require('axe-playwright');
+const { VIEWPORTS, WCAG_COLORS, E2E_TIMEOUTS } = require('../../config/constants');
 
 /**
  * Simplified Accessibility Tests
@@ -11,9 +12,34 @@ const { injectAxe, checkA11y } = require('axe-playwright');
  * catching real accessibility issues.
  */
 
+// Helper to wait for CSS to be fully applied
+async function waitForStyles(page) {
+  await page.waitForLoadState('load');
+  // Wait for footer styles to be applied (indicates CSS is loaded)
+  // Check both font-family AND color to ensure our accessibility fixes are applied
+  await page.waitForFunction(() => {
+    const footer = document.querySelector('.page__footer-copyright');
+    if (!footer) return true; // No footer on page
+    const style = window.getComputedStyle(footer);
+    // Check if custom font family is applied (not browser defaults)
+    const fontFamily = style.fontFamily.toLowerCase();
+    const hasFontFamily = fontFamily.includes('apple') || fontFamily.includes('roboto') ||
+           fontFamily.includes('segoe') || fontFamily.includes('helvetica') ||
+           fontFamily.includes('sans-serif');
+    // Also check color - our WCAG fix uses accessible colors
+    const color = style.color;
+    const hasCorrectColor = color === WCAG_COLORS.footerText || color === WCAG_COLORS.bodyText ||
+           color.includes('74') || color.includes('34');
+    return hasFontFamily && hasCorrectColor;
+  }, { timeout: E2E_TIMEOUTS.styleLoadMs }).catch(() => {});
+  // Additional delay to ensure CSS is fully parsed and applied
+  await page.waitForTimeout(E2E_TIMEOUTS.shortDelayMs);
+}
+
 test.describe('Core Accessibility', () => {
   test('homepage should meet WCAG standards', async ({ page }) => {
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     // axe-core automatically checks:
@@ -32,6 +58,7 @@ test.describe('Core Accessibility', () => {
 
   test('about page should meet WCAG standards', async ({ page }) => {
     await page.goto('/about/');
+    await waitForStyles(page);
     await injectAxe(page);
     await checkA11y(page, null, {
       detailedReport: true
@@ -40,6 +67,7 @@ test.describe('Core Accessibility', () => {
 
   test('posts page should meet WCAG standards', async ({ page }) => {
     await page.goto('/posts/');
+    await waitForStyles(page);
     await injectAxe(page);
     await checkA11y(page, null, {
       detailedReport: true
@@ -74,8 +102,9 @@ test.describe('Keyboard Navigation', () => {
 
 test.describe('Responsive Design', () => {
   test('should be accessible on mobile', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
+    await page.setViewportSize(VIEWPORTS.mobile);
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     // Should still meet accessibility standards on mobile
@@ -83,8 +112,9 @@ test.describe('Responsive Design', () => {
   });
 
   test('should be accessible on tablet', async ({ page }) => {
-    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.setViewportSize(VIEWPORTS.tablet);
     await page.goto('/');
+    await waitForStyles(page);
     await injectAxe(page);
 
     await checkA11y(page);

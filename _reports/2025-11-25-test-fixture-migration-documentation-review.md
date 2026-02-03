@@ -1,16 +1,19 @@
 ---
-layout: post
+layout: single
 title: "Test Fixture Migration: Documentation Review and Status Assessment"
 date: 2025-11-25
+author_profile: true
 categories: [testing, documentation, code-quality]
 tags: [pytest, fixtures, test-architecture, ast-grep-mcp, migration-tracking]
+excerpt: "Review of test fixture migration achieving 18.4% code reduction with 100% test pass rate, identifying 41% tool registration limitation."
+header:
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Test Fixture Migration: Documentation Review and Status Assessment
-
-**Session Date**: 2025-11-25
-**Project**: ast-grep-mcp
-**Focus**: Review test fixture migration progress and tool registration status
+**Session Date**: 2025-11-25<br>
+**Project**: ast-grep-mcp<br>
+**Focus**: Review test fixture migration progress and tool registration status<br>
 
 ## Executive Summary
 
@@ -257,7 +260,6 @@ For each of the 16 blocked tools:
 
 **Before:**
 ```python
-# src/ast_grep_mcp/features/complexity/tools.py
 def register_complexity_tools(mcp: FastMCP) -> None:
     @mcp.tool()
     def analyze_complexity(...):

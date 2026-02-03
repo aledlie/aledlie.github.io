@@ -1,4 +1,8 @@
-from typing import Any
+"""MCP server for generating git commit visualization charts.
+
+Provides tools for generating bar and pie charts showing commit distributions
+by hour, day of week, and month for the current git repository.
+"""
 import subprocess
 from mcp.server.fastmcp import FastMCP
 from repo_utils import get_repo_name
@@ -49,18 +53,26 @@ def _generate_chart(
 
 @mcp.tool()
 async def generate_hour_bar_chart() -> str:
-    """Generate a bar chart of commits by hour of day."""
+    """Generate a bar chart of commits by hour of day.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_hour",
         data_script="./commits_by_hour.sh",
-        plot_script="plot_bar_graph.py",
+        plot_script="plot_commits_by_hour.py",
         title_template="Git Commits by Hour of Day for {repo_name}"
     )
 
 
 @mcp.tool()
 async def generate_day_pie_chart() -> str:
-    """Generate a pie chart of commits by day of week."""
+    """Generate a pie chart of commits by day of week.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_day",
         data_script="./commits_by_day_of_week.sh",
@@ -71,7 +83,11 @@ async def generate_day_pie_chart() -> str:
 
 @mcp.tool()
 async def generate_month_pie_chart() -> str:
-    """Generate a pie chart of commits by month."""
+    """Generate a pie chart of commits by month.
+
+    Returns:
+        Success message with output file path or error message.
+    """
     return _generate_chart(
         chart_type="commits_by_month",
         data_script="./commits_by_month.sh",

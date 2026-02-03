@@ -3,20 +3,17 @@ layout: single
 title: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [refactoring, build-optimization, code-quality]
 tags: [python, jinja2, javascript, es6-modules, caching, sha256, duplicate-elimination, performance]
 excerpt: "ToolVisualizer: 4-Phase Refactoring and Build Optimization"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# ToolVisualizer: 4-Phase Refactoring and Build Optimization
-
-**Session Date**: 2025-11-17
-**Project**: ToolVisualizer - Code Directory Visualization Tool
-**Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching
+**Session Date**: 2025-11-17<br>
+**Project**: ToolVisualizer - Code Directory Visualization Tool<br>
+**Focus**: Eliminate 27,424+ lines of duplicate code and implement incremental build caching<br>
 **Git Repository**: git@github.com:aledlie/ToolVizualizer.git
 
 ## Executive Summary
@@ -439,7 +436,6 @@ def main():
 
 **`.gitignore`** - Added cache file
 ```gitignore
-# Build outputs
 .build_cache.json
 ```
 
@@ -460,16 +456,12 @@ def main():
 
 **CLI Usage:**
 ```bash
-# Normal build (uses cache)
 python3 generate_ui_pages_v2.py
 
-# Force rebuild all files
 python3 generate_ui_pages_v2.py --force
 
-# View cache statistics
 python3 generate_ui_pages_v2.py --cache-stats
 
-# Clear cache
 python3 generate_ui_pages_v2.py --clear-cache
 ```
 

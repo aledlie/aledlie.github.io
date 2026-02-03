@@ -3,16 +3,13 @@ layout: single
 title: "Precision Improvement Refactoring - AlephAuto Duplicate Detection System"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: reports development
 tags: [refactoring, duplicate-detection, code-quality, precision, semantic-analysis, python]
 excerpt: "Implemented a comprehensive 5-phase refactoring plan to improve duplicate detection precision from 59.09% to 65.00%. Added semantic validation layers, method chain validation, and quality filtering while maintaining recall at 81.25%."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Precision Improvement Refactoring - Implementation Summary
 
 **Project:** AlephAuto - Automated Duplicate Code Detection System
 **Repository:** [github.com/aledlie/AlephAuto](https://github.com/aledlie/AlephAuto)
@@ -271,13 +268,11 @@ All changes respect environment variables for gradual rollout:
 # Enable semantic operator checks
 export ENABLE_SEMANTIC_OPERATORS=true
 
-# Enable logical operator validation
 export ENABLE_LOGICAL_OPERATOR_CHECK=true
 
 # Enable method chain validation
 export ENABLE_METHOD_CHAIN_VALIDATION=true
 
-# Enable semantic layer
 export ENABLE_SEMANTIC_LAYER=true
 
 # Enable quality filtering
@@ -289,11 +284,9 @@ export ENABLE_QUALITY_FILTERING=true
 If issues arise:
 
 ```bash
-# Quick disable
 export MIN_GROUP_QUALITY=0.0  # Disable quality filtering
 export STRUCTURAL_THRESHOLD=0.85  # Revert to old threshold
 
-# Or git revert
 git revert HEAD~5..HEAD
 ```
 

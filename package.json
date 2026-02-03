@@ -1,16 +1,22 @@
 {
+  "engines": {
+    "node": ">=22.0.0 <26.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
-    "lint:scss": "stylelint '**/*.scss'",
-    "lint:scss --fix": "stylelint '**/*.scss' --fix",
-    "format:scss": "prettier --write '**/*.scss'",
-    "build": "RUBYOPT=\"-W0\" bundle exec jekyll build",
-    "serve": "RUBYOPT=\"-W0\" bundle exec jekyll serve",
+    "lint:scss": "stylelint '**/*.scss' --config config/stylelintrc.json",
+    "lint:scss:fix": "stylelint '**/*.scss' --fix --config config/stylelintrc.json",
+    "format:scss": "prettier --write '**/*.scss' --config config/prettierrc.json",
+    "build": "RUBYOPT=\"-W:no-deprecated\" bundle exec jekyll build",
+    "serve": "RUBYOPT=\"-W:no-deprecated\" bundle exec jekyll serve",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --config config/playwright.config.js",
     "test:performance": "node tests/performance/lighthouse.js",
+    "test:links": "node tests/links/check-links.js",
+    "test:performance:clean": "find tests/performance/results -name 'lighthouse-results-*.json' -type f | sort | head -n -3 | xargs rm -f",
     "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance",
-    "test:ci": "npm run build && jest --ci --coverage && playwright test --reporter=github"
+    "test:ci": "npm run build && jest --ci --coverage && playwright test --config config/playwright.config.js --reporter=github"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
@@ -19,6 +25,7 @@
     "chrome-launcher": "^1.1.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
+    "js-yaml": "^4.1.1",
     "lighthouse": "^12.8.2",
     "puppeteer": "^24.19.0",
     "stylelint": "^16.23.1",
@@ -28,7 +35,8 @@
   },
   "overrides": {
     "glob": "^10.4.5",
-    "inflight": "npm:@bokuweb/inflight@^2.0.0"
+    "inflight": "npm:@bokuweb/inflight@^2.0.0",
+    "test-exclude": "^7.0.1"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -42,6 +50,7 @@
       "assets/js/**/*.js",
       "!assets/js/vendor/**",
       "!node_modules/**"
-    ]
+    ],
+    "coverageDirectory": "tests/coverage"
   }
 }

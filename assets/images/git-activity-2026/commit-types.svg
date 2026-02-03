@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320">
+  <defs>
+    <linearGradient id="fixGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="docsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="refactorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="choreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#95a5a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="styleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1abc9c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a085;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="featGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="testGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d68910;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="320" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#333">Commit Types (Conventional Commits)</text>
+
+  <!-- Scale: max 82 = 280px width, scale = 280/82 = 3.41 -->
+
+  <!-- fix: 82 -->
+  <text x="75" y="68" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">fix</text>
+  <rect x="80" y="55" width="280" height="22" fill="url(#fixGrad)" rx="4"/>
+  <text x="370" y="70" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">82 (52.6%)</text>
+
+  <!-- docs: 25 -->
+  <text x="75" y="103" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">docs</text>
+  <rect x="80" y="90" width="85" height="22" fill="url(#docsGrad)" rx="4"/>
+  <text x="175" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">25 (16.0%)</text>
+
+  <!-- refactor: 15 -->
+  <text x="75" y="138" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">refactor</text>
+  <rect x="80" y="125" width="51" height="22" fill="url(#refactorGrad)" rx="4"/>
+  <text x="141" y="140" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">15 (9.6%)</text>
+
+  <!-- chore: 12 -->
+  <text x="75" y="173" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">chore</text>
+  <rect x="80" y="160" width="41" height="22" fill="url(#choreGrad)" rx="4"/>
+  <text x="131" y="175" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">12 (7.7%)</text>
+
+  <!-- style: 9 -->
+  <text x="75" y="208" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">style</text>
+  <rect x="80" y="195" width="31" height="22" fill="url(#styleGrad)" rx="4"/>
+  <text x="121" y="210" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">9 (5.8%)</text>
+
+  <!-- feat: 5 -->
+  <text x="75" y="243" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">feat</text>
+  <rect x="80" y="230" width="17" height="22" fill="url(#featGrad)" rx="4"/>
+  <text x="107" y="245" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">5 (3.2%)</text>
+
+  <!-- test: 3 -->
+  <text x="75" y="278" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#555">test</text>
+  <rect x="80" y="265" width="10" height="22" fill="url(#testGrad)" rx="4"/>
+  <text x="100" y="280" font-family="system-ui, sans-serif" font-size="11" fill="#333" font-weight="500">3 (1.9%)</text>
+
+  <!-- Subtitle -->
+  <text x="250" y="305" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#888">156 commits follow conventional commit format</text>
+</svg>

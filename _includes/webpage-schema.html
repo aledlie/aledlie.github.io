@@ -20,8 +20,7 @@ This provides basic structured data for any page
   },
   {% endif -%}
   "isPartOf": {
-    "@type": "WebSite",
-    "@id": "{{ site.url }}/#website"
+    "@id": "{{ site.url }}#website"
   },
   "inLanguage": "{{ site.locale | default: 'en-US' }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema }}",
@@ -29,10 +28,10 @@ This provides basic structured data for any page
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   {% endif -%}
   "author": {
-    "@id": "{{ site.url }}/#person"
+    "@id": "{{ site.url }}#person"
   },
   "publisher": {
-    "@id": "{{ site.url }}/#person"
+    "@id": "{{ site.url }}#person"
   },
   "mainContentOfPage": {
     "@type": "WebPageElement",

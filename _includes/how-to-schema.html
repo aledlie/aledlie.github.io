@@ -1,4 +1,3 @@
-{% if page.schema_type == 'HowTo' %}
 {% comment %}
 HowTo Schema - For step-by-step instructional content
 Conditional include based on page.schema_type front matter
@@ -21,8 +20,6 @@ schema_steps:
     text: "Run bundle install to install all required gems"
   - name: "Step 2: Update configuration"
     text: "Edit _config.yml and update Jekyll version"
-  - name: "Step 3: Test locally"
-    text: "Run bundle exec jekyll serve to test changes"
 ---
 
 Note: Steps can also be parsed from content if using structured headings
@@ -34,7 +31,7 @@ Note: Steps can also be parsed from content if using structured headings
   "@id": "{{ page.url | absolute_url }}#howto",
 
   "name": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  {% include schema/_description.html %}
 
   {% comment %}Time and cost{% endcomment %}
   {% if page.schema_total_time -%}
@@ -82,12 +79,10 @@ Note: Steps can also be parsed from content if using structured headings
       "name": {{ step.name | jsonify }},
       "text": {{ step.text | jsonify }}
       {% if step.url -%}
-      ,
-      "url": "{{ step.url | absolute_url }}"
+      ,"url": "{{ step.url | absolute_url }}"
       {% endif -%}
       {% if step.image -%}
-      ,
-      "image": {
+      ,"image": {
         "@type": "ImageObject",
         "url": "{{ step.image | absolute_url }}"
       }
@@ -97,52 +92,10 @@ Note: Steps can also be parsed from content if using structured headings
   ],
   {% endif -%}
 
-  {% comment %}Author and publisher via @id references{% endcomment %}
-  "author": {
-    "@id": "{{ site.url }}#person"
-  },
-  "publisher": {
-    "@id": "{{ site.url }}#person"
-  },
-
-  {% comment %}Dates{% endcomment %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif -%}
-
-  {% comment %}Image{% endcomment %}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
-    "width": 1200,
-    "height": 630
-  },
-
-  {% comment %}Main entity of page{% endcomment %}
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
+  {% include schema/_article-core.html %}
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% comment %}Keywords{% endcomment %}
-  {% if page.schema_keywords -%}
-  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
-  {% elsif page.tags -%}
-  "keywords": {{ page.tags | join: ", " | jsonify }},
-  {% endif -%}
-
-  {% comment %}Language{% endcomment %}
-  "inLanguage": "{{ site.locale | default: 'en-US' }}",
-
-  {% comment %}Part of blog{% endcomment %}
-  "isPartOf": {
-    "@id": "{{ site.url }}#blog"
-  }
+  {% include schema/_common-metadata.html skip_speakable=true %}
 }
 </script>
-{% endif %}

@@ -3,16 +3,14 @@ layout: single
 title: "Repository Cleanup and Architecture Documentation Session"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [maintenance, documentation, tooling]
 tags: [cleanup, architecture, automation, repository-maintenance, data-flows, jekyll]
 excerpt: "Comprehensive repository cleanup removing 85MB+ of bloat, creation of data architecture documentation, and development of universal cleanup automation script"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Repository Cleanup and Architecture Documentation Session
 ## Data Architecture Analysis and Automated Maintenance Tools
 
 **Test Date:** November 17, 2025
@@ -198,7 +196,6 @@ All critical Jekyll components verified intact:
 # Current directory
 ~/code/jobs/sidequest/universal-repo-cleanup.sh
 
-# Specific path
 ~/code/jobs/sidequest/universal-repo-cleanup.sh /path/to/repo
 ```
 
@@ -406,13 +403,11 @@ Files added:
 **Action Required:** Install Ruby 3.2.0+ via rbenv
 
 ```bash
-# Install rbenv if needed
 brew install rbenv
 
 # Install Ruby 3.2.0
 rbenv install 3.2.0
 
-# Set for project
 cd ~/code/PersonalSite
 rbenv local 3.2.0
 ```

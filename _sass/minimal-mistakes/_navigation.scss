@@ -13,10 +13,10 @@
 
   margin: 0 auto;
   max-width: 100%;
-  padding-inline: 1em;
+  padding-inline: $spacing-md;
   font-family: $sans-serif;
   animation: $intro-transition;
-  animation-delay: 0.3s;
+  animation-delay: $timing-medium;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -54,8 +54,8 @@
   @include clearfix;
 
   float: inline-start;
-  margin-top: 1em;
-  padding-top: 1em;
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
   width: 100%;
 
   ul {
@@ -72,16 +72,16 @@
 
     a {
       display: block;
-      margin-bottom: 0.25em;
-      padding: 0.5em 1em;
+      margin-bottom: $spacing-xxs;
+      padding: $spacing-sm $spacing-md;
       font-family: $sans-serif;
-      font-size: 14px;
+      font-size: $font-size-pagination;
       font-weight: bold;
-      line-height: 1.5;
+      line-height: $line-height-tight;
       text-align: center;
       text-decoration: none;
       color: $muted-text-color;
-      border: 1px solid color.mix(#000, $border-color, 25%);
+      border: $border-width-standard solid $border-color-dark;
       border-radius: 0;
 
       &:hover {
@@ -90,12 +90,12 @@
 
       &.current,
       &.current.disabled {
-        color: #fff;
+        color: $white;
         background: $primary-color;
       }
 
       &.disabled {
-        color: rgba($muted-text-color, 0.5);
+        color: rgba($muted-text-color, $opacity-disabled);
         pointer-events: none;
         cursor: not-allowed;
       }
@@ -121,16 +121,16 @@
   /* next/previous buttons */
   &--pager {
     display: block;
-    padding: 1em 2em;
+    padding: $spacing-md $spacing-xl-em;
     float: inline-start;
-    width: 50%;
+    width: $width-half;
     font-family: $sans-serif;
     font-size: $type-size-5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     color: $muted-text-color;
-    border: 1px solid color.mix(#000, $border-color, 25%);
+    border: $border-width-standard solid $border-color-dark;
     border-radius: $border-radius;
 
     &:hover {
@@ -149,7 +149,7 @@
     }
 
     &.disabled {
-      color: rgba($muted-text-color, 0.5);
+      color: rgba($muted-text-color, $opacity-disabled);
       pointer-events: none;
       cursor: not-allowed;
     }
@@ -160,9 +160,9 @@
 .page__meta + .pagination,
 .page__share + .pagination,
 .page__comments + .pagination {
-  margin-top: 2em;
-  padding-top: 2em;
-  border-top: 1px solid $border-color;
+  margin-top: $spacing-xl-em;
+  padding-top: $spacing-xl-em;
+  border-top: $border-width-standard solid $border-color;
 }
 
 /*
@@ -182,7 +182,7 @@
 
   a {
     display: block;
-    margin: 0 1rem;
+    margin: 0 $spacing-md;
     color: $masthead-link-color;
     text-decoration: none;
     transition: none;
@@ -192,7 +192,7 @@
     }
 
     &.site-logo {
-      margin-inline: 0 0.5rem;
+      margin-inline: 0 $spacing-sm-rem;
     }
 
     &.site-title {
@@ -238,7 +238,7 @@
         position: absolute;
         inset-inline-start: 0;
         bottom: 0;
-        height: 4px;
+        height: $border-accent-width;
         background: $primary-color;
         width: 100%;
         transition: $global-transition;
@@ -255,12 +255,12 @@
     position: absolute;
     top: 100%;
     inset-inline-end: 0;
-    margin-top: 15px;
-    padding: 5px;
-    border: 1px solid $border-color;
+    margin-top: $spacing-sm-px;
+    padding: $spacing-xxs-px;
+    border: $border-width-standard solid $border-color;
     border-radius: $border-radius;
     background: $background-color;
-    box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+    box-shadow: $box-shadow-dropdown;
 
     &.hidden {
       display: none;
@@ -268,7 +268,7 @@
 
     a {
       margin: 0;
-      padding: 10px 20px;
+      padding: $spacing-xs-px $spacing-md-px;
       font-size: $type-size-5;
 
       &:hover {
@@ -280,11 +280,11 @@
     &::before {
       content: "";
       position: absolute;
-      top: -11px;
-      inset-inline-end: 10px;
+      top: $arrow-offset-top;
+      inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
-      border-width: 0 10px 10px;
+      border-width: 0 $spacing-xs-px $spacing-xs-px;
       border-color: $border-color transparent;
       display: block;
       z-index: 0;
@@ -293,11 +293,11 @@
     &::after {
       content: "";
       position: absolute;
-      top: -10px;
-      inset-inline-end: 10px;
+      top: $arrow-offset-inner;
+      inset-inline-end: $spacing-xs-px;
       width: 0;
       border-style: solid;
-      border-width: 0 10px 10px;
+      border-width: 0 $spacing-xs-px $spacing-xs-px;
       border-color: $background-color transparent;
       display: block;
       z-index: 1;
@@ -305,7 +305,7 @@
 
     li {
       display: block;
-      border-bottom: 1px solid $border-color;
+      border-bottom: $border-width-standard solid $border-color;
 
       &:last-child {
         border-bottom: none;
@@ -328,38 +328,38 @@
      ========================================================================== */
 
 .nav__list {
-  margin-bottom: 1.5em;
+  margin-bottom: $spacing-lg;
 
   input[type="checkbox"],
   label {
     display: none;
   }
 
-  @include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+  @include breakpoint(max-width $large-max) {
     label {
       position: relative;
       display: inline-block;
-      padding: 0.5em 2.5em 0.5em 1em;
+      padding: $spacing-sm $spacing-2xl-em $spacing-sm $spacing-md;
       color: $gray;
       font-size: $type-size-6;
       font-weight: bold;
-      border: 1px solid $light-gray;
+      border: $border-width-standard solid $light-gray;
       border-radius: $border-radius;
       z-index: 20;
-      transition: 0.2s ease-out;
+      transition: $transition-fast;
       cursor: pointer;
 
       &::before,
       &::after {
         content: "";
         position: absolute;
-        inset-inline-end: 1em;
-        top: 1.25em;
-        width: 0.75em;
-        height: 0.125em;
+        inset-inline-end: $spacing-md;
+        top: $toc-indent-1;
+        width: $spacing-md-rem;
+        height: $spacing-xxs-rem;
         line-height: 1;
         background-color: $gray;
-        transition: 0.2s ease-out;
+        transition: $transition-fast;
       }
 
       &::after {
@@ -367,25 +367,25 @@
       }
 
       &:hover {
-        color: #fff;
+        color: $white;
         border-color: $gray;
-        background-color: color.mix(white, #000, 20%);
+        background-color: color.mix($white, $black, 20%);
 
         &::before,
         &::after {
-          background-color: #fff;
+          background-color: $white;
         }
       }
     }
 
     /* selected */
     input:checked + label {
-      color: white;
+      color: $white;
       background-color: color.mix(white, #000, 20%);
 
       &::before,
       &::after {
-        background-color: #fff;
+        background-color: $white;
       }
     }
 
@@ -399,16 +399,16 @@
     }
 
     ul {
-      margin-bottom: 1em;
+      margin-bottom: $spacing-md;
     }
 
     a {
       display: block;
-      padding: 0.25em 0;
+      padding: $spacing-xxs 0;
 
       @include breakpoint($large) {
-        padding-top: 0.125em;
-        padding-bottom: 0.125em;
+        padding-top: $spacing-xs;
+        padding-bottom: $spacing-xs;
       }
 
       &:hover {
@@ -420,43 +420,43 @@
 
 .nav__list .nav__items {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: $font-size-nav-items;
 
   a {
     color: inherit;
   }
 
   .active {
-    margin-inline-start: -0.5em;
-    padding-inline: 0.5em;
+    margin-inline-start: -$spacing-sm;
+    padding-inline: $spacing-sm;
     font-weight: bold;
   }
 
-  @include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+  @include breakpoint(max-width $large-max) {
     position: relative;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     z-index: 10;
-    transition: 0.3s ease-in-out;
-    transform: translate(0, 10%);
+    transition: $transition-medium;
+    transform: translate(0, $transform-offset-sm);
   }
 }
 
-@include breakpoint(max-width 61.9375em) {  // $large - 1px equivalent
+@include breakpoint(max-width $large-max) {
   .nav__list input:checked ~ .nav__items {
-    transition: 0.5s ease-in-out;
-    max-height: 9999px; /* exaggerate max-height to accommodate tall lists */
+    transition: $transition-slow;
+    max-height: $max-height-collapse; /* exaggerate max-height to accommodate tall lists */
     overflow: visible;
     opacity: 1;
-    margin-top: 1em;
+    margin-top: $spacing-md;
     transform: translate(0, 0);
   }
 }
 
 .nav__title {
   margin: 0;
-  padding: 0.5rem 0.75rem;
+  padding: $spacing-sm-rem $spacing-md-rem;
   font-family: $sans-serif-narrow;
   font-size: $type-size-5;
   font-weight: bold;
@@ -464,13 +464,13 @@
 
 .nav__sub-title {
   display: block;
-  margin: 0.5rem 0;
-  padding: 0.25rem 0;
+  margin: $spacing-sm-rem 0;
+  padding: $spacing-xs 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
+  border-bottom: $border-width-standard solid $border-color;
 }
 
 /*
@@ -481,12 +481,12 @@
   font-family: $sans-serif-narrow;
   color: $gray;
   background-color: $background-color;
-  border: 1px solid $border-color;
+  border: $border-width-standard solid $border-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color: $white;
     font-size: $type-size-6;
     background: $primary-color;
     border-start-start-radius: $border-radius;
@@ -512,11 +512,11 @@
 
   a {
     display: block;
-    padding: 0.25rem 0.75rem;
+    padding: $spacing-xs $spacing-md-rem;
     color: $muted-text-color;
     font-weight: bold;
-    line-height: 1.5;
-    border-bottom: 1px solid $border-color;
+    line-height: $line-height-tight;
+    border-bottom: $border-width-standard solid $border-color;
 
     &:hover {
       color: $text-color;
@@ -524,23 +524,23 @@
   }
 
   li ul > li a {
-    padding-inline-start: 1.25rem;
+    padding-inline-start: $toc-indent-1;
     font-weight: normal;
   }
 
   li ul li ul > li a {
-    padding-inline-start: 1.75rem;
+    padding-inline-start: $toc-indent-2;
   }
 
   li ul li ul li ul > li a {
-    padding-inline-start: 2.25rem;
+    padding-inline-start: $toc-indent-3;
   }
 
   li ul li ul li ul li ul > li a {
-    padding-inline-start: 2.75rem;
+    padding-inline-start: $toc-indent-4;
   }
 
   li ul li ul li ul li ul li ul > li a {
-    padding-inline-start: 3.25rem;
+    padding-inline-start: $toc-indent-5;
   }
 }

@@ -3,13 +3,12 @@ layout: single
 title: "AST-Grep MCP Server: Phase 2 Complete - Performance & Scalability Achieved"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: [software-development, open-source, mcp, performance]
 tags: [ast-grep, performance-optimization, streaming, caching, parallel-execution, python, mcp-server]
 excerpt: "Phase 2 completion report: Five major performance enhancements transforming the ast-grep MCP server from MVP to production-ready tool capable of handling massive codebases efficiently."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 ## Executive Summary
@@ -127,13 +126,11 @@ class QueryCache:
 
 **Configuration:**
 ```bash
-# Disable caching
 uv run main.py --no-cache
 
 # Custom cache size and TTL
 uv run main.py --cache-size 200 --cache-ttl 600
 
-# Via environment variables
 export CACHE_SIZE=50
 export CACHE_TTL=120
 ```
@@ -225,7 +222,6 @@ def filter_files_by_size(
 
 **Usage:**
 ```python
-# Skip files > 10MB (webpack bundles, etc.)
 find_code(
     project_folder="/path/to/project",
     pattern="function $NAME",
@@ -287,7 +283,6 @@ class BenchmarkRunner:
 # Run benchmarks
 python scripts/run_benchmarks.py
 
-# Update baseline
 python scripts/run_benchmarks.py --save-baseline
 
 # Check for regressions (CI)
@@ -451,7 +446,6 @@ result = find_code(
     workers=4,               # Parallel execution (Task 8)
     output_format="json"
 )
-# Results: Cached (Task 7), Benchmarked (Task 10)
 ```
 
 **Flow:**

@@ -3,20 +3,17 @@ layout: single
 title: "AnalyticsBot: UUID v7 Migration for Distributed System Compatibility"
 date: 2025-11-18
 author_profile: true
-breadcrumbs: true
 categories: [database-migration, id-generation, distributed-systems]
 tags: [uuid-v7, postgresql, prisma, typescript, performance-optimization, best-practices]
 excerpt: "AnalyticsBot: UUID v7 Migration for Distributed System Compatibility"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# AnalyticsBot: UUID v7 Migration for Distributed System Compatibility
-
-**Session Date**: 2025-11-18
-**Project**: AnalyticsBot - Multi-tenant Analytics Platform
-**Focus**: Migrate from auto-increment integers to UUID v7 for distributed system readiness
+**Session Date**: 2025-11-18<br>
+**Project**: AnalyticsBot - Multi-tenant Analytics Platform<br>
+**Focus**: Migrate from auto-increment integers to UUID v7 for distributed system readiness<br>
 
 ## Executive Summary
 
@@ -804,7 +801,7 @@ npm run build
 
 - [UUID v7 RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562)
 - [PostgreSQL UUID Functions](https://www.postgresql.org/docs/current/functions-uuid.html)
-- [Prisma UUID Documentation](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#uuid)
+- [Prisma UUID Documentation](https://www.prisma.io/docs/orm/prisma-schema/data-model/models)
 - [uuid npm package](https://www.npmjs.com/package/uuid)
 
 ### Internal Documentation

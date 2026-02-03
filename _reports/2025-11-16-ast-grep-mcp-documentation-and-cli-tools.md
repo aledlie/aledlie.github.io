@@ -3,21 +3,18 @@ layout: single
 title: "ast-grep-mcp Documentation Enhancement and CLI Tools Development"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: reports development
 tags: [ast-grep, mcp, schema-org, cli-tools, documentation, python]
 excerpt: "Enhanced the ast-grep-mcp project documentation and created a new standalone CLI tool for Schema.org vocabulary queries. Improved developer experience through better documentation and provided quick command-line access to three essential Schema.org MCP tools."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# ast-grep-mcp Documentation Enhancement and CLI Tools Development
 
 **Date**: November 16, 2025
 **Session Type**: Documentation Review & Tool Development
 **Repository**: ast-grep-mcp
-**Focus**: CLAUDE.md enhancement, Schema.org CLI tool creation
+**Focus**: CLAUDE.md enhancement, Schema.org CLI tool creation<br>
 
 ---
 
@@ -76,7 +73,6 @@ Documented two standalone tools:
 
 Added standalone tool examples:
 ```bash
-# Standalone tools (see "Standalone Tools" section below)
 uv run python scripts/find_duplication.py /path/to/project --language python
 uv run python schema-tools.py search "article"
 python3 schema-graph-builder.py ~/path/to/schemas https://example.com
@@ -166,19 +162,15 @@ async main():
 All three commands verified working:
 
 ```bash
-# Search test
 ✅ uv run python schema-tools.py search "article" --limit 3
    → Found TechArticle, BackgroundNewsArticle, ScholarlyArticle
 
-# Type info test
 ✅ uv run python schema-tools.py type Person
    → Returned description, URL, parent types
 
-# Properties test
 ✅ uv run python schema-tools.py properties Person --no-inherited
    → Listed 67 direct properties
 
-# JSON output test
 ✅ uv run python schema-tools.py search "organization" --limit 2 --json
    → Valid JSON array of results
 ```
@@ -273,31 +265,24 @@ All three commands verified working:
 
 **Quick Lookups During Development**:
 ```bash
-# "What properties can I add to Person?"
 uv run python schema-tools.py properties Person
 
-# "Is there a TechArticle type?"
 uv run python schema-tools.py type TechArticle
 ```
 
 **Exploring Schema.org Vocabulary**:
 ```bash
-# "What article types exist?"
 uv run python schema-tools.py search "article" --limit 10
 
-# "What types are available for events?"
 uv run python schema-tools.py search "event"
 ```
 
 **Planning Structured Data Implementation**:
 ```bash
-# Step 1: Find the right type
 uv run python schema-tools.py search "organization"
 
-# Step 2: Understand the type
 uv run python schema-tools.py type Organization
 
-# Step 3: See available properties
 uv run python schema-tools.py properties Organization
 ```
 
@@ -305,16 +290,13 @@ uv run python schema-tools.py properties Organization
 
 **Export Type Information**:
 ```bash
-# Export all Person properties as JSON
 uv run python schema-tools.py properties Person --json > person-props.json
 
-# Get search results for processing
 uv run python schema-tools.py search "article" --json | jq '.[] | .name'
 ```
 
 **Documentation Generation**:
 ```bash
-# Generate type reference documentation
 for type in Person Organization Article; do
   uv run python schema-tools.py type $type --json >> types-reference.json
 done
@@ -443,7 +425,6 @@ class ToolCLI:
 
 **User Experience**:
 ```bash
-# Quick lookup (human)
 uv run python schema-tools.py type Person
 
 # Automation (machine)
@@ -642,7 +623,6 @@ Timeline:
 ### schema-tools.py Usage Examples
 
 ```bash
-# Search for types
 uv run python schema-tools.py search "article"
 uv run python schema-tools.py search "organization" --limit 5
 uv run python schema-tools.py search "event" --json
@@ -652,7 +632,6 @@ uv run python schema-tools.py type Person
 uv run python schema-tools.py type BlogPosting
 uv run python schema-tools.py type Organization --json
 
-# Get properties
 uv run python schema-tools.py properties Person
 uv run python schema-tools.py properties Article --no-inherited
 uv run python schema-tools.py properties Organization --json
@@ -668,7 +647,6 @@ uv run python schema-tools.py search --help
 # Export properties for documentation
 uv run python schema-tools.py properties Person --json > person-properties.json
 
-# Search and pipe to jq
 uv run python schema-tools.py search "article" --json | jq '.[] | .name'
 
 # Batch processing

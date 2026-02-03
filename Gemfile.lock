@@ -5,10 +5,6 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.3.0)
     bigdecimal (3.2.2)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     colorator (1.1.0)
     concurrent-ruby (1.3.5)
     csv (3.3.5)
@@ -16,24 +12,23 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    execjs (2.10.0)
     faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
-    faraday-retry (2.3.2)
+    faraday-retry (2.4.0)
       faraday (~> 2.0)
+    ffi (1.17.2)
     ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86_64-linux-gnu)
     font-awesome-sass (6.7.2)
       sassc (~> 2.0)
     forwardable-extended (2.6.0)
-    google-protobuf (4.33.0-arm64-darwin)
+    google-protobuf (4.33.0)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.0-x86_64-linux-gnu)
+    google-protobuf (4.33.0-arm64-darwin)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
@@ -58,9 +53,6 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-coffeescript (2.0.0)
-      coffee-script (~> 2.2)
-      coffee-script-source (~> 1.12)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
@@ -99,20 +91,6 @@ GEM
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
-    octopress (3.0.11)
-      jekyll (>= 2.0)
-      mercenary (~> 0.3.2)
-      octopress-deploy
-      octopress-escape-code (~> 2.0)
-      octopress-hooks (~> 2.0)
-      redcarpet (~> 3.0)
-      titlecase
-    octopress-deploy (1.3.0)
-      colorator
-    octopress-escape-code (2.0.6)
-      octopress-hooks (~> 2.0)
-    octopress-hooks (2.6.2)
-      jekyll (>= 2.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.1.1)
@@ -120,13 +98,13 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    redcarpet (3.6.1)
     rexml (3.4.2)
-    rouge (3.30.0)
+    rouge (4.7.0)
     safe_yaml (1.0.5)
-    sass-embedded (1.94.0-arm64-darwin)
+    sass-embedded (1.94.0)
       google-protobuf (~> 4.31)
-    sass-embedded (1.94.0-x86_64-linux-gnu)
+      rake (>= 13)
+    sass-embedded (1.94.0-arm64-darwin)
       google-protobuf (~> 4.31)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -135,14 +113,13 @@ GEM
       faraday (>= 0.17.3, < 3)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    titlecase (0.1.1)
     unicode-display_width (1.8.0)
     uri (1.0.3)
     webrick (1.9.1)
 
 PLATFORMS
   arm64-darwin
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   base64
@@ -150,7 +127,6 @@ DEPENDENCIES
   faraday-retry
   font-awesome-sass
   jekyll (~> 4.3)
-  jekyll-coffeescript
   jekyll-feed (~> 0.17)
   jekyll-gist
   jekyll-include-cache
@@ -160,7 +136,6 @@ DEPENDENCIES
   jekyll-sitemap
   logger
   minimal-mistakes-jekyll
-  octopress (~> 3.0)
   public_suffix (~> 5.1.1)
   webrick
 

@@ -1,4 +1,3 @@
-{% if page.schema_type == 'TechArticle' %}
 {% comment %}
 TechArticle Schema - For technical guides, tutorials, and documentation
 Conditional include based on page.schema_type front matter
@@ -19,7 +18,7 @@ schema_section: "Jekyll"
   "@id": "{{ page.url | absolute_url }}#techarticle",
 
   "headline": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  {% include schema/_description.html %}
 
   {% comment %}TechArticle-specific properties{% endcomment %}
   {% if page.schema_dependencies -%}
@@ -29,88 +28,15 @@ schema_section: "Jekyll"
   "proficiencyLevel": {{ page.schema_proficiency | jsonify }},
   {% endif -%}
 
-  {% comment %}Article properties{% endcomment %}
-  {% if page.schema_section -%}
-  "articleSection": {{ page.schema_section | jsonify }},
-  {% elsif page.categories -%}
-  "articleSection": {{ page.categories | jsonify }},
-  {% endif -%}
-
-  "articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
-  "wordCount": {{ page.content | strip_html | number_of_words }},
-
-  {% comment %}Author and publisher via @id references{% endcomment %}
-  "author": {
-    "@id": "{{ site.url }}#person"
-  },
-  "publisher": {
-    "@id": "{{ site.url }}#person"
-  },
-
-  {% comment %}Dates{% endcomment %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif -%}
-
-  {% comment %}Image{% endcomment %}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
-    "width": 1200,
-    "height": 630
-  },
-
-  {% comment %}Main entity of page{% endcomment %}
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
+  {% include schema/_article-section.html %}
+  {% include schema/_article-body.html %}
+  {% include schema/_article-core.html %}
 
   "url": "{{ page.url | absolute_url }}",
 
-  {% comment %}Keywords and tags{% endcomment %}
-  {% if page.schema_keywords -%}
-  "keywords": {{ page.schema_keywords | join: ", " | jsonify }},
-  {% elsif page.tags -%}
-  "keywords": {{ page.tags | join: ", " | jsonify }},
-  {% endif -%}
-
-  {% comment %}Language{% endcomment %}
-  "inLanguage": "{{ site.locale | default: 'en-US' }}",
-
-  {% comment %}Part of blog{% endcomment %}
-  "isPartOf": {
-    "@id": "{{ site.url }}#blog"
-  },
-
-  {% comment %}About (optional subject matter){% endcomment %}
-  {% if page.schema_about -%}
-  "about": {
-    "@type": "Thing",
-    "name": {{ page.schema_about | jsonify }}
-  },
-  {% endif -%}
-
-  {% comment %}Mentions - technologies, tools, and concepts discussed{% endcomment %}
-  {% if page.schema_mentions -%}
-  "mentions": [
-    {% for mention in page.schema_mentions -%}
-    {
-      "@type": "{{ mention.type | default: 'SoftwareApplication' }}",
-      "name": {{ mention.name | jsonify }}
-      {% if mention.url -%}
-      ,"url": {{ mention.url | jsonify }}
-      {% endif -%}
-      {% if mention.description -%}
-      ,"description": {{ mention.description | jsonify }}
-      {% endif -%}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor -%}
-  ],
-  {% endif -%}
+  {% include schema/_common-metadata.html %}
+  {% include schema/_about.html %}
+  {% include schema/_mentions.html %}
 
   {% comment %}Citation - referenced sources and expert articles{% endcomment %}
   {% if page.schema_citation -%}
@@ -128,10 +54,7 @@ schema_section: "Jekyll"
   },
   {% endif -%}
 
-  {% comment %}Creator (same as author for articles){% endcomment %}
-  "creator": {
-    "@id": "{{ site.url }}#person"
-  }
+  {% include schema/_creator.html %}
+  {% include schema/_copyright.html %}
 }
 </script>
-{% endif %}

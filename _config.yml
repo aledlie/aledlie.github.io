@@ -1,17 +1,20 @@
 # Site Wide Configs
 title: ℵ₀
 title_separator: "-"
-#subtitle: Where time is a flat circle, and until observed, all semi-domesticated ideas exist as both epiphanies and nonsense.
 description: An archive for midnight rambles.
 url: https://www.aledlie.com
 locale: en_US
 encoding: utf-8
 google_site_verification: N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM
 analytics:
-  provider: "google-gtag"
+  provider: "google-tag-manager"
   google:
     tracking_id: "G-J7TL7PQH7S"
-    anonymize_ip: true # enabled for privacy compliance
+    anonymize_ip: true
+  google_tag_manager:
+    container_id: "GTM-NR4GGH5K"
+  facebook_pixel:
+    pixel_id: "685721201205820"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 defaults:
   # posts
@@ -29,6 +32,23 @@ defaults:
     values:
       layout: single
       show_date: false
+      breadcrumbs: false
+  # reports
+  - scope:
+      path: ""
+      type: reports
+    values:
+      layout: single
+      breadcrumbs: false
+      author_profile: true
+  # work
+  - scope:
+      path: ""
+      type: work
+    values:
+      layout: single
+      breadcrumbs: false
+      author_profile: true
 social:
   name: Alyshia
 
@@ -55,7 +75,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-gist
   - jekyll-include-cache
-  - jekyll-coffeescript
 
 # Styling
 sass:
@@ -75,6 +94,7 @@ include:
   - .htaccess
   - _pages
 exclude:
+  - mise.toml
   - "*.sublime-project"
   - "*.sublime-workspace"
   - schema-org-optimizer.md
@@ -88,16 +108,14 @@ exclude:
   - assets/js/_main.js
   - Capfile
   - CHANGELOG
-  - config
-  - Gemfile
+  - config/Gemfile
+  - config/package.json
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
   - log
   - minimal-mistakes-jekyll.gemspec
   - node_modules
-  - package.json
-  - package-lock.json
   - Rakefile
   - README
   - tmp
@@ -111,41 +129,15 @@ keep_files:
 paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 
-# Pagination with jekyll-paginate-v2
-# See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
-#   for configuration details
-pagination:
-  # Set enabled to true to use paginate v2
-  # enabled: true
-  debug: false
-  collection: 'posts'
-  per_page: 10
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-  category: 'posts'
-  tag: ''
-  locale: ''
-  trail:
-    before: 2
-    after: 2
-
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-include-cache
 
 # Author
 author:
   name: Alyshia Ledlie
-  avatar: /images/profile.jpg
-  bio: I write code, make aggressively mediocre jokes, and scale companies.
+  avatar: /assets/images/profile.jpg
+  bio: ex-Academia | ex-Facebook | Start-up Founder | Reader of Fine Print.
   location: ATX | La Ventana | Rio
+  email: alyshia@inventoryai.io
+  github: aledlie
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -160,31 +152,6 @@ author:
     - label: "InventoryAI.io"
       icon: "fas fa-fw fa-warehouse"
       url: "https://amazing-froyo-8f05e0.netlify.app/"
-
-# Owner
-owner:
-  name: Alyshia Ledlie
-  avatar: /images/profile.jpg
-  bio: It is enough to be benign, to be gentle, to be funny, to be kind
-  email: alyshia@inventoryai.io
-  twitter: AlyshiaLedlie
-  facebook: aledlie
-  google:
-    plus:
-    analytics: G-J7TL7PQH7S
-    verify: gqKcgBHjbuRW6cYY8BO_GdFOVNsIekipkuiC_2pb6g0
-    ad-client:
-    ad-slot:
-  github: aledlie
-  stackoverflow:
-  linkedin: aledlie
-  instagram: alyshialedlie
-  tumblr: #username
-  pinterest: aledlie
-  steam: #username
-  youtube: #username
-  flickr: #username
-
 
 # Collections
 collections:

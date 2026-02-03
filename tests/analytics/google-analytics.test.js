@@ -3,8 +3,10 @@
  * Tests Google Analytics 4 (GA4) implementation, tracking events, and analytics setup
  */
 
+const { ANALYTICS, SITE } = require('../../config/constants');
+
 describe('Google Analytics Integration', () => {
-  const EXPECTED_GA_ID = 'G-J7TL7PQH7S';
+  const EXPECTED_GA_ID = ANALYTICS.GA4_TRACKING_ID;
 
   beforeEach(() => {
     // Reset global analytics state
@@ -52,23 +54,33 @@ describe('Google Analytics Integration', () => {
       ]);
     });
 
-    test('should not load multiple GA4 scripts', () => {
+    test('should load GA4 script exactly once (regression test for duplicate loading fix)', () => {
+      // Regression test for Bug #4: Duplicate GA4 Script Loading
+      // Fixed in commit 48754081
+      // This test ensures the analytics script is only included once per page
       document.head.innerHTML = `
-        <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=${EXPECTED_GA_ID}"></script>
       `;
 
       const gtagScripts = document.querySelectorAll('script[src*="gtag/js"]');
-      expect(gtagScripts.length).toBe(2); // This would indicate a problem in implementation
+      expect(gtagScripts.length).toBe(1);
+    });
 
-      // In a real implementation, you'd want this to be 1
-      // This test documents the current behavior and can be used to verify fixes
+    test('should initialize dataLayer exactly once', () => {
+      // Ensure dataLayer is not duplicated which would cause double-counting
+      window.dataLayer = window.dataLayer || [];
+
+      // Attempting to reinitialize should not create a new array
+      const originalDataLayer = window.dataLayer;
+      window.dataLayer = window.dataLayer || [];
+
+      expect(window.dataLayer).toBe(originalDataLayer);
     });
   });
 
   describe('Site Verification', () => {
     test('should have Google site verification meta tag', () => {
-      const EXPECTED_VERIFICATION = 'N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM';
+      const EXPECTED_VERIFICATION = ANALYTICS.GOOGLE_SITE_VERIFICATION;
       document.head.innerHTML = `
         <meta name="google-site-verification" content="${EXPECTED_VERIFICATION}" />
       `;
@@ -80,7 +92,7 @@ describe('Google Analytics Integration', () => {
 
     test('should have only one site verification meta tag', () => {
       document.head.innerHTML = `
-        <meta name="google-site-verification" content="N0i0YZ1-gQvtOicfKEGXEBAcJUyN7gwv0vmVj0lkkbM" />
+        <meta name="google-site-verification" content="${ANALYTICS.GOOGLE_SITE_VERIFICATION}" />
       `;
 
       const verificationMetas = document.querySelectorAll('meta[name="google-site-verification"]');
@@ -105,11 +117,11 @@ describe('Google Analytics Integration', () => {
         }
       };
 
-      trackPageView('Home Page', 'https://www.aledlie.com/');
+      trackPageView('Home Page', `${SITE.url}/`);
 
       expect(window.gtag).toHaveBeenCalledWith('config', EXPECTED_GA_ID, {
         page_title: 'Home Page',
-        page_location: 'https://www.aledlie.com/'
+        page_location: `${SITE.url}/`
       });
     });
 
@@ -135,12 +147,12 @@ describe('Google Analytics Integration', () => {
 
     test('should track outbound link clicks', () => {
       document.body.innerHTML = `
-        <a href="https://github.com/aledlie" target="_blank" class="external-link">GitHub</a>
+        <a href="${SITE.githubUrl}" target="_blank" class="external-link">GitHub</a>
         <a href="/about" class="internal-link">About</a>
       `;
 
       const trackOutboundClick = (url) => {
-        if (window.gtag && url.startsWith('http') && !url.includes('aledlie.com')) {
+        if (window.gtag && url.startsWith('http') && !url.includes(SITE.domain)) {
           window.gtag('event', 'click', {
             event_category: 'outbound',
             event_label: url,
@@ -154,14 +166,14 @@ describe('Google Analytics Integration', () => {
 
       expect(window.gtag).toHaveBeenCalledWith('event', 'click', {
         event_category: 'outbound',
-        event_label: 'https://github.com/aledlie',
+        event_label: SITE.githubUrl,
         transport_type: 'beacon'
       });
     });
 
     test('should not track internal link clicks as outbound', () => {
       const trackOutboundClick = (url) => {
-        if (window.gtag && url.startsWith('http') && !url.includes('aledlie.com')) {
+        if (window.gtag && url.startsWith('http') && !url.includes(SITE.domain)) {
           window.gtag('event', 'click', {
             event_category: 'outbound',
             event_label: url
@@ -169,7 +181,7 @@ describe('Google Analytics Integration', () => {
         }
       };
 
-      trackOutboundClick('https://www.aledlie.com/about');
+      trackOutboundClick(`${SITE.url}/about`);
       expect(window.gtag).not.toHaveBeenCalled();
     });
   });

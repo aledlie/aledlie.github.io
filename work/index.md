@@ -4,8 +4,8 @@ title: "What Do You Do?"
 permalink: /work/
 author_profile: true
 header:
-  overlay_image: /images/cover-work.png
-  teaser: /images/cover-work.png
+  image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
 ---
 
 A chronological collection of what I'm working on, projects I've built, and things I'm learning. Newest updates first.

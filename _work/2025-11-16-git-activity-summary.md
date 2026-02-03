@@ -3,12 +3,11 @@ layout: single
 title: "Git Activity Report: July 7 - November 16, 2025"
 date: 2025-11-16
 author_profile: true
-breadcrumbs: true
 categories: [work-updates]
 excerpt: "Comprehensive analysis of 1,007 commits across 33 repositories - tracking 4+ months of development work including newly discovered MCP servers, client projects, and nested repositories."
 header:
-  overlay_image: /images/cover-work.png
-  teaser: /images/cover-work.png
+  image: /assets/images/cover-work.png
+  teaser: /assets/images/cover-work.png
 ---
 
 <style>
@@ -650,7 +649,7 @@ Big testing investment on PersonalSite shows:
 12. **1mcpserver** (17) - *[Newly discovered]* MCP server
 13. **mcp-oauth-gateway** (13) - OAuth integration
 14. **sumedhjoshi.github.io** (11) - *[Submodule]* Sumedh's site → [www.sumedhmjoshi.com](https://www.sumedhmjoshi.com)
-15. **InventoryAI** (10) - AI inventory features → [www.inventoryai.io](https://www.inventoryai.io)
+15. **InventoryAI** (10) - AI inventory features
 
 ### Light Development (5-9 commits)
 16. **Inventory** (9) - Inventory management

@@ -3,19 +3,16 @@ layout: single
 title: "Projects, MCPs, and Agents Overview"
 date: 2025-10-14
 author_profile: true
-breadcrumbs: true
 categories: [reports]
 tags: [mcp, claude-code, automation, web-scraping, analytics]
 excerpt: "Comprehensive analysis of 40+ projects including MCP servers, Claude Code agents, web applications, and automation systems."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 toc: true
 toc_label: "Contents"
 toc_icon: "list"
 ---
-
-# Code Repository Comprehensive Report
 
 **Generated:** October 14, 2025
 **Repository Location:** `/Users/alyshialedlie/code`

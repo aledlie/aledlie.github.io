@@ -147,13 +147,18 @@ See: BLOG-SCHEMA-ENHANCEMENT-ANALYSIS.md for details
   {% include analysis-article-schema.html %}
 {% elsif page.schema_type == 'HowTo' %}
   {% include how-to-schema.html %}
+{% elsif page.schema_type == 'SoftwareApplication' %}
+  {% include software-application-schema.html %}
 {% elsif page.layout == "single" and page.date %}
   {% include post-schema.html %}
 {% endif %}
 
 {% include about-page-schema.html %}
+{% include project-schema.html %}
+{% include report-schema.html %}
 {% include breadcrumb-schema.html %}
 {% include webpage-schema.html %}
+{% include faq-schema.html %}
 <!-- end structured data -->
 
 <!-- end _includes/seo.html -->

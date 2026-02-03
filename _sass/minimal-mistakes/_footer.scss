@@ -8,19 +8,19 @@
   float: inline-start;
   margin-inline: 0;
   width: 100%;
-  margin-top: 3em;
+  margin-top: $spacing-3xl-em;
   color: $muted-text-color;
   animation: $intro-transition;
-  animation-delay: 0.45s;
+  animation-delay: $timing-xslow;
   background-color: $footer-background-color;
 
   footer {
     @include clearfix;
 
     margin-inline: auto;
-    margin-top: 2em;
+    margin-top: $spacing-xl-em;
     max-width: 100%;
-    padding: 0 1em 2em;
+    padding: 0 $spacing-md $spacing-xl-em;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -44,12 +44,24 @@
   }
 }
 
-.page-footer-copyright {
+.page-footer-copyright,
+.page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
+  color: $footer-text-color !important;
+
+  a {
+    color: $footer-link-color !important;
+    text-decoration: underline;
+
+    &:hover {
+      color: $footer-link-hover !important;
+    }
+  }
 }
 
-.page-footer-follow {
+.page-footer-follow,
+.page__footer-follow {
   ul {
     margin: 0;
     padding: 0;
@@ -58,21 +70,27 @@
 
   li {
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: $spacing-xxs-px;
+    padding-bottom: $spacing-xxs-px;
     font-family: $sans-serif-narrow;
     font-size: $type-size-6;
     text-transform: uppercase;
+    color: $footer-text-color !important;
   }
 
   li + li::before {
     content: "";
-    padding-inline-end: 5px;
+    padding-inline-end: $spacing-xxs-px;
   }
 
   a {
-    padding-inline-end: 10px;
+    padding-inline-end: $spacing-xs-px;
     font-weight: bold;
+    color: $footer-link-color !important;
+
+    &:hover {
+      color: $footer-link-hover !important;
+    }
   }
 
   .social-icons {

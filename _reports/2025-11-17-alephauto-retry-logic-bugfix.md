@@ -3,20 +3,17 @@ layout: single
 title: "AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [bug-fix, testing-infrastructure, job-queue]
 tags: [javascript, retry-logic, circuit-breaker, test-fixtures, sidequest-server, duplicate-detection]
 excerpt: "AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# AlephAuto: Fixed Infinite Retry Loop and Test Infrastructure
-
-**Session Date**: 2025-11-17
-**Project**: AlephAuto (jobs)
-**Focus**: Fix critical retry logic bug and test path validation issues
+**Session Date**: 2025-11-17<br>
+**Project**: AlephAuto (jobs)<br>
+**Focus**: Fix critical retry logic bug and test path validation issues<br>
 
 ## Executive Summary
 
@@ -115,11 +112,9 @@ Changes:
 #### 3. Cleanup Results
 
 ```bash
-# Before
 $ ls logs/duplicate-detection/*.error.json | wc -l
 30
 
-# After
 $ rm logs/duplicate-detection/*.error.json
 $ ls logs/duplicate-detection/*.json | wc -l
 2  # Only non-error logs remain

@@ -4,17 +4,14 @@ title: "Open Source Middleware & Controller Generation Tools for Full-Suite Appl
 date: 2025-11-24
 author: "Alyshia Ledlie (via Claude Code Web Research Specialist)"
 author_profile: true
-breadcrumbs: true
 categories: [research, backend, tooling]
 tags: [middleware, controllers, code-generation, typescript, nodejs, express, fastify, nestjs, openapi, security, observability]
 excerpt: "Comprehensive analysis of 15+ open-source tools for generating modular, observable, secure, and flexible middleware/controllers for full-suite software applications."
 toc: true
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
-
-# Open Source Middleware & Controller Generation Tools for Full-Suite Applications
 
 **Research Date:** November 24, 2025
 **Author:** Claude Code (Web Research Specialist)
@@ -82,21 +79,15 @@ NestJS CLI is a command-line tool that scaffolds modular, enterprise-grade Node.
 # Generate complete CRUD resource
 nest g resource users
 
-# Generates:
 # - users.controller.ts
-# - users.service.ts
 # - users.module.ts
-# - dto/create-user.dto.ts
 # - dto/update-user.dto.ts
-# - entities/user.entity.ts
 
-# Generate middleware
 nest g middleware auth
 
 # Generate guard
 nest g guard roles
 
-# Generate interceptor
 nest g interceptor logging
 ```
 
@@ -188,16 +179,13 @@ OpenAPI Generator generates server stubs, client SDKs, API documentation, and mo
 
 #### Example Commands
 ```bash
-# Install CLI
 npm install @openapitools/openapi-generator-cli -g
 
-# Generate Express server from OpenAPI spec
 openapi-generator-cli generate \
   -i openapi.yaml \
   -g nodejs-express-server \
   -o ./generated-server
 
-# Generate TypeScript client
 openapi-generator-cli generate \
   -i openapi.yaml \
   -g typescript-fetch \
@@ -486,7 +474,6 @@ Fastify CLI generates Fastify applications and plugins with a single command. Fa
 # Generate new project
 npx fastify-cli generate myapp
 
-# Generate TypeScript project
 npx fastify-cli generate myapp --lang=ts
 
 # Generate plugin

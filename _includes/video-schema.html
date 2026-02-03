@@ -1,0 +1,41 @@
+{% comment %}
+VideoObject Schema for pages with video headers
+Triggered when page.header.video.id exists
+{% endcomment %}
+{% if page.header.video.id and page.header.video.provider %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "{{ page.url | absolute_url }}#video",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | default: page.description | default: page.title | strip_html | strip_newlines | escape }}",
+  {% if page.header.teaser -%}
+  "thumbnailUrl": "{{ page.header.teaser | absolute_url }}",
+  {% elsif page.header.overlay_image -%}
+  "thumbnailUrl": "{{ page.header.overlay_image | absolute_url }}",
+  {% endif -%}
+  "uploadDate": "{{ page.date | date_to_xmlschema }}",
+  {% case page.header.video.provider %}
+    {% when "youtube" %}
+  "contentUrl": "https://www.youtube.com/watch?v={{ page.header.video.id }}",
+  "embedUrl": "https://www.youtube.com/embed/{{ page.header.video.id }}",
+    {% when "vimeo" %}
+  "contentUrl": "https://vimeo.com/{{ page.header.video.id }}",
+  "embedUrl": "https://player.vimeo.com/video/{{ page.header.video.id }}",
+    {% when "google-drive" %}
+  "contentUrl": "https://drive.google.com/file/d/{{ page.header.video.id }}/view",
+  "embedUrl": "https://drive.google.com/file/d/{{ page.header.video.id }}/preview",
+  {% endcase %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+  "isPartOf": {
+    "@id": "{{ page.url | absolute_url }}#article"
+  }
+}
+</script>
+{% endif %}

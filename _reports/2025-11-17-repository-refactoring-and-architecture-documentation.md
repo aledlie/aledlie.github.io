@@ -3,20 +3,17 @@ layout: single
 title: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"
 date: 2025-11-17
 author_profile: true
-breadcrumbs: true
 categories: [repository-organization, refactoring, documentation]
 tags: [architecture, mermaid-diagrams, code-organization, documentation, claude-code, alephauto]
 excerpt: "Repository Refactoring: Comprehensive Architecture Documentation and Organization"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Repository Refactoring: Comprehensive Architecture Documentation and Organization
-
-**Session Date**: 2025-11-17
-**Project**: Jobs Automation System (AlephAuto)
-**Focus**: Repository organization, architecture documentation, and comprehensive refactoring
+**Session Date**: 2025-11-17<br>
+**Project**: Jobs Automation System (AlephAuto)<br>
+**Focus**: Repository organization, architecture documentation, and comprehensive refactoring<br>
 
 ## Executive Summary
 
@@ -173,7 +170,6 @@ logs/archive/
 logs/cleanup-logs/
 *.log
 
-# Output directories (generated files)
 condense/
 document-enhancement-impact-measurement/
 directory-scan-reports/
@@ -181,7 +177,6 @@ output/
 repomix-output.xml
 repomix-output.txt
 
-# Python
 venv/
 __pycache__/
 **/__pycache__/
@@ -215,7 +210,6 @@ Added to main package.json:
 ```bash
 doppler run -- npm install
 # Added 34 packages, removed 30 packages
-# 121 packages total, 0 vulnerabilities
 ```
 
 ### 8. CLAUDE.md Improvements
@@ -275,15 +269,10 @@ jobs/
 All pipelines verified to load correctly with new import paths:
 
 ```bash
-# Duplicate detection pipeline
 node pipelines/duplicate-detection-pipeline.js
-# ✅ Initialized successfully, configuration loaded
 
-# Git activity pipeline
 node pipelines/git-activity-pipeline.js
-# ✅ Started successfully
 
-# Similar verification for plugin-management and claude-health pipelines
 ```
 
 ### npm Scripts
@@ -295,13 +284,11 @@ All updated scripts tested:
 ### Type Checking
 ```bash
 npm run typecheck
-# Pre-existing errors unrelated to refactoring
 ```
 
 ### Dependency Installation
 ```bash
 doppler run -- npm install
-# ✅ 121 packages, 0 vulnerabilities
 # ✅ Successfully merged pino, zod dependencies
 ```
 

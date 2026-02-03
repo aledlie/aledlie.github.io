@@ -3,20 +3,17 @@ layout: single
 title: "IntegrityStudio.ai Sentry Migration Completion: 20 Error Handlers Migrated"
 date: 2025-11-18
 author_profile: true
-breadcrumbs: true
 categories: [sentry-integration, error-tracking, production-monitoring]
 tags: [sentry, react, typescript, error-handling, production-ready, vite, migration]
 excerpt: "IntegrityStudio.ai Sentry Migration Completion"
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# IntegrityStudio.ai Sentry Migration Completion
-
-**Session Date**: 2025-11-18
-**Project**: IntegrityStudio.ai - ISPublicSites
-**Focus**: Complete Sentry error tracking migration and production readiness
+**Session Date**: 2025-11-18<br>
+**Project**: IntegrityStudio.ai - ISPublicSites<br>
+**Focus**: Complete Sentry error tracking migration and production readiness<br>
 
 ## Executive Summary
 
@@ -339,9 +336,7 @@ npm install
 ```bash
 npx vite build --mode development
 
-# Result:
 # ✓ 1907 modules transformed
-# ✓ built in 1.54s
 # Zero errors, zero warnings
 ```
 
@@ -349,9 +344,7 @@ npx vite build --mode development
 ```bash
 npx vite --host
 
-# Result:
 # VITE v7.2.2 ready in 106 ms
-# ➜ Local:   http://localhost:5173/
 # ➜ Network: http://192.168.80.49:5173/
 ```
 

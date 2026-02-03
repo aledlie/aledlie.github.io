@@ -3,20 +3,17 @@ layout: single
 title: "Reports Collection Formatting Audit and Sidebar Alignment Fix"
 date: 2025-11-25
 author_profile: true
-breadcrumbs: true
 categories: [ui-ux, css-fixes, documentation-quality]
 tags: [jekyll, minimal-mistakes, css, sidebar, formatting-audit, ui-consistency]
 excerpt: "Comprehensive audit of 30 reports in _reports collection achieving 93% formatting compliance, plus CSS fix for sidebar author profile center-alignment issue."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
-# Reports Collection Formatting Audit and Sidebar Alignment Fix
-
-**Session Date**: 2025-11-25
-**Project**: PersonalSite - Jekyll Static Site
-**Focus**: Quality assurance audit of _reports collection formatting and UI/UX bug fix for sidebar alignment
+**Session Date**: 2025-11-25<br>
+**Project**: PersonalSite - Jekyll Static Site<br>
+**Focus**: Quality assurance audit of _reports collection formatting and UI/UX bug fix for sidebar alignment<br>
 
 ## Executive Summary
 
@@ -165,13 +162,12 @@ layout: single
 title: "AnalyticsBot UUID v7 Migration for Distributed System Compatibility"
 date: 2025-11-24
 author_profile: true
-breadcrumbs: true
 categories: [uuid-migration, distributed-systems, data-integrity]
 tags: [uuid, uuidv7, cron-jobs, node-cron, schema-migration, postgres]
 excerpt: "Migration from UUID v4 to UUID v7 in AnalyticsBot cron job system..."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 ```
 
@@ -362,13 +358,12 @@ layout: single
 title: "Descriptive Title in Title Case"
 date: YYYY-MM-DD
 author_profile: true
-breadcrumbs: true
 categories: [category1, category2, category3]
 tags: [tag1, tag2, tag3, tag4, tag5]
 excerpt: "Brief description for search results and collection archives."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 ```
 

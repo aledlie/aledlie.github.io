@@ -3,13 +3,39 @@
  * Tests performance metrics that Google uses for ranking
  */
 
+const { WEB_VITALS } = require('../../config/constants');
+
+// Alias constants for test readability
+const THRESHOLDS = {
+  LCP_GOOD_MS: WEB_VITALS.largestContentfulPaint,
+  FID_GOOD_MS: WEB_VITALS.firstInputDelay,
+  CLS_GOOD: WEB_VITALS.cumulativeLayoutShift,
+  FCP_GOOD_MS: WEB_VITALS.firstContentfulPaint,
+  TTI_GOOD_MS: WEB_VITALS.timeToInteractive,
+  MAIN_THREAD_BUDGET_MS: WEB_VITALS.mainThreadBudget
+};
+
+// Mock timing values for tests
+const MOCK_TIMINGS = {
+  LCP_MS: 1200,
+  FCP_MS: 800,
+  TTI_MS: 2800
+};
+
+// Layout shift test values
+const LAYOUT_SHIFT = {
+  OLD_TOP: 100,
+  NEW_TOP: 105,
+  HEIGHT: 50
+};
+
 describe('Core Web Vitals', () => {
   describe('Largest Contentful Paint (LCP)', () => {
     test('should measure LCP timing', () => {
       // Mock PerformanceObserver for LCP
       const mockLCPEntries = [{
         entryType: 'largest-contentful-paint',
-        startTime: 1200, // 1.2 seconds
+        startTime: MOCK_TIMINGS.LCP_MS,
         element: document.createElement('img')
       }];
 
@@ -21,7 +47,7 @@ describe('Core Web Vitals', () => {
       };
 
       return measureLCP().then(lcp => {
-        expect(lcp).toBeLessThan(2500); // Good LCP threshold
+        expect(lcp).toBeLessThan(THRESHOLDS.LCP_GOOD_MS);
         expect(typeof lcp).toBe('number');
       });
     });
@@ -49,10 +75,10 @@ describe('Core Web Vitals', () => {
       document.body.appendChild(button);
 
       const startTime = performance.now();
-      
+
       button.addEventListener('click', () => {
         const inputDelay = performance.now() - startTime;
-        expect(inputDelay).toBeLessThan(100); // Good FID threshold
+        expect(inputDelay).toBeLessThan(THRESHOLDS.FID_GOOD_MS);
         done();
       });
 
@@ -73,7 +99,7 @@ describe('Core Web Vitals', () => {
       };
 
       return performHeavyTask().then(duration => {
-        expect(duration).toBeLessThan(50); // Keep main thread responsive
+        expect(duration).toBeLessThan(THRESHOLDS.MAIN_THREAD_BUDGET_MS);
       });
     });
   });
@@ -82,12 +108,12 @@ describe('Core Web Vitals', () => {
     test('should not cause unexpected layout shifts', () => {
       // Mock layout shift detection
       const layoutShifts = [];
-      
+
       const mockLayoutShift = (element, oldRect, newRect) => {
         const impact = Math.abs(newRect.top - oldRect.top) / window.innerHeight;
         const distance = Math.abs(newRect.top - oldRect.top) / window.innerHeight;
         const shift = impact * distance;
-        
+
         layoutShifts.push(shift);
         return shift;
       };
@@ -95,14 +121,14 @@ describe('Core Web Vitals', () => {
       // Simulate a small layout shift
       const shift = mockLayoutShift(
         document.createElement('div'),
-        { top: 100, height: 50 },
-        { top: 105, height: 50 }
+        { top: LAYOUT_SHIFT.OLD_TOP, height: LAYOUT_SHIFT.HEIGHT },
+        { top: LAYOUT_SHIFT.NEW_TOP, height: LAYOUT_SHIFT.HEIGHT }
       );
 
-      expect(shift).toBeLessThan(0.1); // Good CLS threshold
-      
+      expect(shift).toBeLessThan(THRESHOLDS.CLS_GOOD);
+
       const totalCLS = layoutShifts.reduce((sum, shift) => sum + shift, 0);
-      expect(totalCLS).toBeLessThan(0.1);
+      expect(totalCLS).toBeLessThan(THRESHOLDS.CLS_GOOD);
     });
 
     test('should have proper image sizing to prevent shifts', () => {
@@ -112,18 +138,18 @@ describe('Core Web Vitals', () => {
       `;
 
       const images = document.querySelectorAll('img');
-      
+
       images.forEach(img => {
         const hasWidthAttr = img.getAttribute('width');
         const hasHeightAttr = img.getAttribute('height');
         const hasStyleDimensions = img.style.width && img.style.height;
         const hasNaturalDimensions = img.width > 0 && img.height > 0;
-        
-        const hasExplicitDimensions = 
+
+        const hasExplicitDimensions =
           (hasWidthAttr && hasHeightAttr) ||
           hasStyleDimensions ||
           hasNaturalDimensions;
-        
+
         expect(hasExplicitDimensions).toBeTruthy();
       });
     });
@@ -140,13 +166,13 @@ describe('Core Web Vitals', () => {
       `;
 
       const containers = document.querySelectorAll('.ad-container, .content-placeholder');
-      
+
       containers.forEach(container => {
         const style = window.getComputedStyle(container);
-        const hasReservedSpace = 
-          style.minHeight !== 'auto' || 
+        const hasReservedSpace =
+          style.minHeight !== 'auto' ||
           style.height !== 'auto';
-        
+
         // In a real test, you'd check computed styles
         // Here we just verify the elements exist
         expect(container).toBeTruthy();
@@ -157,9 +183,9 @@ describe('Core Web Vitals', () => {
   describe('First Contentful Paint (FCP)', () => {
     test('should render content quickly', () => {
       // Mock FCP measurement
-      const mockFCP = 800; // 0.8 seconds
+      const mockFCP = MOCK_TIMINGS.FCP_MS;
 
-      expect(mockFCP).toBeLessThan(1800); // Good FCP threshold
+      expect(mockFCP).toBeLessThan(THRESHOLDS.FCP_GOOD_MS);
       expect(mockFCP).toBeGreaterThan(0);
     });
 
@@ -184,9 +210,9 @@ describe('Core Web Vitals', () => {
   describe('Time to Interactive (TTI)', () => {
     test('should become interactive within reasonable time', () => {
       // Mock TTI measurement
-      const mockTTI = 2800; // 2.8 seconds
+      const mockTTI = MOCK_TIMINGS.TTI_MS;
 
-      expect(mockTTI).toBeLessThan(3800); // Good TTI threshold
+      expect(mockTTI).toBeLessThan(THRESHOLDS.TTI_GOOD_MS);
     });
 
     test('should load critical JavaScript early', () => {
