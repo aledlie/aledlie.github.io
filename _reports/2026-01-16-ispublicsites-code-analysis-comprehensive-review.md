@@ -302,7 +302,7 @@ Full analysis results saved to:
 
 ## Refactoring Patterns Reference
 
-For addressing the identified complexity issues, refer to these patterns from [PATTERNS.md](https://github.com/alyshialedlie/ast-grep-mcp/blob/main/PATTERNS.md):
+For addressing the identified complexity issues, refer to these patterns:
 
 | Pattern | Applicable To | Expected Reduction |
 |---------|---------------|-------------------|
@@ -337,8 +337,6 @@ For addressing the identified complexity issues, refer to these patterns from [P
 
 ### Analysis Tools
 - ast-grep-mcp server: `/Users/alyshialedlie/code/ast-grep-mcp/`
-- Tool documentation: [CLAUDE.md](https://github.com/alyshialedlie/ast-grep-mcp/blob/main/CLAUDE.md)
-- Refactoring patterns: [PATTERNS.md](https://github.com/alyshialedlie/ast-grep-mcp/blob/main/PATTERNS.md)
 
 ### Analyzed Repositories
 - `/Users/alyshialedlie/code/ISPublicSites/AlephAuto/`

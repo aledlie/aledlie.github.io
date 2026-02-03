@@ -263,7 +263,6 @@ For teams building Agent-as-Judge systems, these patterns are available in produ
 **Libraries**:
 - [DeepEval](https://github.com/confident-ai/deepeval) - Agent metrics and evaluation
 - [Ragas](https://docs.ragas.io/) - Retrieval and agent evaluation
-- [observability-toolkit](https://github.com/integritystudio/observability-toolkit) - OTel-based LLM/Agent evaluation with G-Eval, QAG, and trajectory analysis
 
 **Research**:
 - [Agent-as-a-Judge](https://arxiv.org/abs/2410.10934) (Zhuge et al., 2024) - Original framework

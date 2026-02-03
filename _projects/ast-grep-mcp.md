@@ -17,7 +17,6 @@ schema_operating_system: "macOS, Linux, Windows"
 schema_programming_language: "Python"
 schema_app_version: "1.0.0"
 schema_license: "MIT"
-schema_repository: "https://github.com/alyshialedlie/ast-grep-mcp"
 schema_offers:
   price: "0"
   priceCurrency: "USD"
@@ -58,7 +57,6 @@ ast-grep-mcp is a Model Context Protocol (MCP) server that leverages ast-grep fo
 
 ```bash
 # Clone and install
-git clone https://github.com/alyshialedlie/ast-grep-mcp
 cd ast-grep-mcp
 uv sync
 
@@ -96,6 +94,5 @@ src/ast_grep_mcp/
 
 ## Related Links
 
-- [GitHub Repository](https://github.com/alyshialedlie/ast-grep-mcp)
 - [ast-grep Documentation](https://ast-grep.github.io/)
 - [MCP Protocol Specification](https://modelcontextprotocol.io/)

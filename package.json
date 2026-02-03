@@ -13,6 +13,7 @@
     "test:watch": "jest --watch",
     "test:e2e": "playwright test --config config/playwright.config.js",
     "test:performance": "node tests/performance/lighthouse.js",
+    "test:links": "node tests/links/check-links.js",
     "test:performance:clean": "find tests/performance/results -name 'lighthouse-results-*.json' -type f | sort | head -n -3 | xargs rm -f",
     "test:all": "npm run build && npm run test && npm run test:e2e && npm run test:performance",
     "test:ci": "npm run build && jest --ci --coverage && playwright test --config config/playwright.config.js --reporter=github"
