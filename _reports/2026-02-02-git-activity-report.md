@@ -6,7 +6,7 @@ author_profile: true
 breadcrumbs: true
 categories: [git-activity, development-metrics]
 tags: [git, commits, repositories, weekly-report, automation]
-excerpt: "747 commits across 9 repositories with 4512 file changes."
+excerpt: "1409 commits across 19 repositories with 20741 file changes."
 header:
   overlay_image: /images/cover-reports.png
   teaser: /images/cover-reports.png
@@ -15,75 +15,108 @@ header:
 # Monthly Git Activity Report
 
 **Report Period**: 2026-01-03 to 2026-02-02
-**Generated**: 2026-02-02 22:10
+**Generated**: 2026-02-02 22:10 (Updated: 2026-02-03)
 **Report Type**: Automated Git Activity Analysis
 
 ## Executive Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 747 |
-| Active Repositories | 9 |
-| Files Changed | 4512 |
-| Languages Detected | 16 |
+| Total Commits | 1409 |
+| Active Repositories | 19 |
+| Files Changed | 20741 |
+| Languages Detected | 18 |
 
 ## Top Repositories by Commits
 
 | Repository | Commits |
 |------------|---------|
-| ~/.claude | 377 |
-| PersonalSite | 181 |
-| jobs | 99 |
+| ~/.claude | 403 |
+| ISPublicSites/IntegrityStudio.ai2 | 262 |
+| PersonalSite | 189 |
+| ISPublicSites/AlephAuto | 176 |
+| jobs | 157 |
+| ISPublicSites/SingleSiteScraper | 46 |
+| ISPublicSites/AnalyticsBot | 42 |
+| isabel_budenz/PersonalSite | 28 |
 | ast-grep-mcp | 27 |
 | ~/claude-tool-use | 20 |
-| john_skelton | 20 |
-| ~/schema-org-file-system | 18 |
-| ~/dotfiles | 3 |
-| InventoryAI | 2 |
 
 ## Language Distribution
 
 | Language | File Changes |
 |----------|-------------|
-| Markdown | 1163 |
-| TypeScript | 948 |
-| JavaScript | 664 |
-| Other | 526 |
-| HTML | 344 |
-| JSON | 189 |
-| Python | 158 |
-| Images | 132 |
-| CSS/SCSS | 115 |
-| Shell | 61 |
+| JavaScript | 7970 |
+| Other | 4622 |
+| TypeScript | 2512 |
+| Markdown | 2264 |
+| JSON | 971 |
+| HTML | 569 |
+| Python | 308 |
+| Images | 218 |
+| CSS/SCSS | 182 |
+| YAML | 179 |
 
 ## Project Categories
 
 | Category | Repositories |
 |----------|-------------|
-| Personal Sites | 1 |
+| Data & Analytics | 3 |
+| Personal Sites | 2 |
+| Infrastructure | 1 |
 | MCP Servers | 1 |
-| Client Work | 5 |
-| Legacy | 2 |
+| Client Work | 7 |
+| Legacy | 5 |
 
 ## Repository Details
 
 ### ~/.claude
 
 - **Path**: `/Users/alyshialedlie/.claude`
-- **Commits**: 377
-- **Files Changed**: 2661
+- **Commits**: 403
+- **Files Changed**: 2738
+
+### ISPublicSites/IntegrityStudio.ai2
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/IntegrityStudio.ai2`
+- **Commits**: 262
+- **Files Changed**: 919
 
 ### PersonalSite
 
 - **Path**: `/Users/alyshialedlie/code/PersonalSite`
-- **Commits**: 181
-- **Files Changed**: 909
+- **Commits**: 189
+- **Files Changed**: 943
+
+### ISPublicSites/AlephAuto
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/AlephAuto`
+- **Commits**: 176
+- **Files Changed**: 613
 
 ### jobs
 
 - **Path**: `/Users/alyshialedlie/code/jobs`
-- **Commits**: 99
-- **Files Changed**: 335
+- **Commits**: 157
+- **Files Changed**: 593
+
+### ISPublicSites/SingleSiteScraper
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/SingleSiteScraper`
+- **Commits**: 46
+- **Files Changed**: 141
+
+### ISPublicSites/AnalyticsBot
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/AnalyticsBot`
+- **Commits**: 42
+- **Files Changed**: 170
+
+### isabel_budenz/PersonalSite
+
+- **Path**: `/Users/alyshialedlie/reports/isabel_budenz/PersonalSite`
+- **Commits**: 28
+- **Files Changed**: 381
 
 ### ast-grep-mcp
 
@@ -109,17 +142,47 @@ header:
 - **Commits**: 18
 - **Files Changed**: 50
 
+### IntegrityStudioClients/fisterra
+
+- **Path**: `/Users/alyshialedlie/code/IntegrityStudioClients/fisterra`
+- **Commits**: 5
+- **Files Changed**: 13615
+
+### ISPublicSites/ToolVisualizer
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/ToolVisualizer`
+- **Commits**: 4
+- **Files Changed**: 4
+
+### ISPublicSites/tcad-scraper
+
+- **Path**: `/Users/alyshialedlie/code/ISPublicSites/tcad-scraper`
+- **Commits**: 4
+- **Files Changed**: 10
+
 ### ~/dotfiles
 
 - **Path**: `/Users/alyshialedlie/dotfiles`
 - **Commits**: 3
 - **Files Changed**: 8
 
+### IntegrityStudioClients/InspiredMovement
+
+- **Path**: `/Users/alyshialedlie/code/IntegrityStudioClients/InspiredMovement`
+- **Commits**: 2
+- **Files Changed**: 2
+
 ### InventoryAI
 
 - **Path**: `/Users/alyshialedlie/code/InventoryAI`
 - **Commits**: 2
 - **Files Changed**: 2
+
+### ai-observability/html
+
+- **Path**: `/Users/alyshialedlie/reports/ai-observability/html`
+- **Commits**: 1
+- **Files Changed**: 7
 
 
 ## Project Websites
@@ -128,6 +191,7 @@ header:
 - [claude-tool-use](https://alephintegrity.com)
 - [john_skelton](https://johnskelton.blog)
 - [schema-org-file-system](https://integritystudio.pro)
+- [tcad-scraper](https://alephatx.info)
 - [InventoryAI](https://www.inventoryai.io)
 
 ---
