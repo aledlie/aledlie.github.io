@@ -11,7 +11,7 @@
         <li><a href="{{ site.paginate_path | replace: ':num', paginator.previous_page | replace: '//', '/' | relative_url }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
       {% endif %}
     {% else %}
-    <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
+    <li><a href="#" class="disabled" aria-disabled="true">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
     {% endif %}
 
     {% comment %} First page {% endcomment %}
@@ -63,7 +63,7 @@
     {% if paginator.next_page %}
       <li><a href="{{ site.paginate_path | replace: ':num', paginator.next_page | replace: '//', '/' | relative_url }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a></li>
     {% else %}
-      <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></a></li>
+      <li><a href="#" class="disabled" aria-disabled="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a></li>
     {% endif %}
   </ul>
 </nav>

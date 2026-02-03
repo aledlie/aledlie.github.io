@@ -258,7 +258,7 @@ $transform-offset-sm: 10%;
 
 /* Opacity values */
 $opacity-muted: 0.75;
-$opacity-disabled: 0.5;
+$opacity-disabled: 0.75;  /* WCAG AA compliant - increased from 0.5 */
 
 /* Grid layout (DRY consolidation) */
 $grid-col-width: 4.1667%;
