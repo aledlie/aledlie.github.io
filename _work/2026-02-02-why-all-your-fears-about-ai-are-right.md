@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Why All Your Fears About AI Are Right (Just Not the Way You Think)"
+title: "Why All Your Fears About AI Are Right"
 date: 2026-02-02
 read_time: 5
 author: Alyshia Ledlie
@@ -29,32 +29,31 @@ schema_type: tech-article
 canonical_url: https://www.aledlie.com/ai-fears-measurement/
 ---
 
-You've heard the fears. AI will take your job. AI will make art worthless. AI will write code so buggy it crashes planes.
+You've heard the fears. AI will take your job. AI will make art worthless. AI will [kill us all](https://www.theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years).  Yikes.
 
-Your fears are valid—they're just aimed at the wrong target.
+The fears is valid—it's just aimed at the wrong target.
 
 Here's the data:
 
 - AI-generated code contains [1.7x more defects](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report) than human-written code
 - [2.74x more XSS vulnerabilities](https://www.theregister.com/2025/12/17/ai_code_bugs/) (cross-site scripting security flaws)
-- Developers ship [75% more code](https://www.gitclear.com/) than three years ago
 - [Incidents per PR up 23.5%](https://go.cortex.io/rs/563-WJM-722/images/2026-Benchmark-Report.pdf)
 
-The output is exploding. The quality checks haven't caught up. And that gap—between what we can generate and what we can verify—is where the real danger lives.
+Output is exploding, but quality checks haven't caught up. And that gap—between what we can generate and what we can verify—is where the real danger lives.
 
-The real problem isn't that AI will replace human creativity or judgment. It's that AI is generating an *incomprehensible volume* of mediocre content—code, articles, designs, everything—and most of us have no idea how to tell the good from the garbage. The winners in this environment won't be the fastest generators. They'll be the best measurers.
+The real problem isn't that AI will replace human creativity or judgment. It's that AI is generating an *incomprehensible volume* of content—code, articles, designs, everything—and most of us have no idea how to tell the good from the garbage. The winners in this environment won't be the fastest generators. They'll be the best measurers.
 
 ## The Rework Problem Nobody's Talking About
 
-[Stanford's Software Engineering Productivity research](https://softwareengineeringproductivity.stanford.edu/ai-impact) studied what actually happens when developers use AI coding tools in production environments. Not toy projects, not demos—real codebases that real companies depend on.
+[Stanford's Software Engineering Productivity research](https://softwareengineeringproductivity.stanford.edu/ai-impact) studied what actually happens when developers use AI coding tools in production environments - the codebases that real companies depend on.
 
-Up to 40% of the "productivity gains" from AI tools disappears into rework. Code shipped one week gets modified or replaced the next. The AI generates something, a human stamps it as "good enough," it gets merged, and then someone discovers it doesn't quite work, or doesn't fit the architecture, or introduces a subtle bug that only surfaces under load.
+Up to 40% of the "productivity gains" from AI tools disappear into rework. Code shipped one week gets modified or replaced the next. The AI generates something, a human stamps it as "good enough," it gets merged, and then someone discovers it doesn't quite work, or doesn't fit the architecture, or introduces a subtle bug that only surfaces under load.
 
-[HumanLayer](https://humanlayer.dev) calls this **"reworking the slop"** in their [context engineering guide](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md)—AI generates, humans approve without deep review, problems emerge, more AI generates fixes, rinse and repeat.
+[HumanLayer](https://humanlayer.dev) calls this **"reworking the slop"** in their [context engineering guide](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md)—AI generates, humans approve, problems emerge, more AI generates fixes, rinse and repeat.
 
-The productivity gains look great on a dashboard. The actual codebase turns into a sedimentary layer of quick fixes.
+The productivity gains look great on a dashboard. The actual codebase drowns developers in debugging complex sedimentary layers of code they didn't write.
 
-This isn't unique to code. It's coming for everything.
+Software engineers are running into this problem first. But it's coming for everything - and everyone.
 
 ## The Measurement Gap
 
@@ -64,9 +63,7 @@ This is true, as far as it goes. Better inputs do yield better outputs.
 
 But this misses the deeper point: **optimizing inputs is just another way of saying "measure and verify before you start."**
 
-Consider a real example: An engineering team adopts AI code generation. They track lines of code shipped—up 40%. They track velocity—faster sprints. Management celebrates. Six months later, their bug backlog has tripled and their on-call engineers are drowning. Nobody measured what mattered: *code that actually works in production*.
-
-The deeper lesson isn't about prompting techniques. It's that at every stage of working with AI, someone needs to be measuring quality. And most organizations are terrible at this. **Measurement—the ability to tell good from bad at scale—is becoming the competitive moat of the AI era.**
+The deeper lesson isn't about prompting techniques. It's that at every stage of working with AI, measurement is essential. And most organizations are terrible at this. **Measurement—the ability to tell good from bad at scale—is becoming the competitive moat of the AI era.**
 
 ## The Leverage Problem
 
@@ -77,11 +74,11 @@ Consider a simple chain of AI-assisted work:
 3. You execute that plan (maybe with more AI help)
 4. You ship the result
 
-Errors compound. A bad line of code is just a bad line of code. You find it, you fix it, you move on. But a flawed assumption in the research phase? That can cascade into hundreds of bad decisions, thousands of wasted lines, entire technical directions that need to be unwound.
+Errors compound. A bad line of code is just a bad line of code. You find it, you fix it, you move on. But a flawed assumption in the research phase? That can cascade into hundreds of bad decisions, thousands of wasted hours, entire product lines that need to be unwound.
 
-The practitioners who actually get results from AI have figured this out. They don't just review code—they spend most of their review energy on the *research* and *planning* stages, where catching an error has the highest leverage.
+The software engineers who actually get results from AI have figured this out. They don't just review code—they spend most of their review energy on the *research* and *planning* stages, where catching an error has the highest leverage.
 
-The Stanford study's "rework" problem isn't really about AI generating bad code. It's about humans failing to catch bad *thinking* before it becomes bad code.
+The Stanford study's "rework" problem isn't really about AI generating bad code. It's about humans failing to catch bad *thinking* before it 'generates' a huge volume of bad - or even just mediocre - outcomes.
 
 ## What We're Actually Bad At
 
@@ -171,9 +168,9 @@ So what do you actually do about this?
 
 ## The Real Fear
 
-The fear worth having: that we collectively fail to develop these skills. That we drown in a sea of generated mediocrity because we never learned to tell the difference between what floats and what sinks.
+The fear worth having: that we collectively fail to develop these skills. That we drown in a sea of generated mediocrity because we never learned to differentiate signal and noise.
 
-The real dystopia isn't superintelligent AI. It's AI just smart enough to fool us—and a generation of humans who never learned to spot the difference.
+The real dystopia isn't superintelligent AI. It's AI just smart enough to fool us—and a generation of systems built to generate volume without knowing how to filter for relevance or quality.
 
 The good news? This is a solvable problem. It's a skill-building problem, a process problem, a measurement problem. We know how to build quality systems. We know how to create verification processes. We just need to actually do it.
 
