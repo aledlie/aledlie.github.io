@@ -8,10 +8,14 @@ Gemfile.lock
 # Testing
 tests/test-results/
 tests/playwright-report/
+playwright-report/
 tests/performance/results/
 .playwright-mcp/
 tests/coverage/
 .nyc_output/
+
+# Local config
+.mcp.json
 
 # Performance Reports
 performance-*.html
