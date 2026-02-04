@@ -7,17 +7,18 @@ layout: default
 <div id="main">
   {% include sidebar.html %}
 
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      {% if page.title %}
-        <h1 id="page-title" class="page-title">{{ page.title }}</h1>
-      {% elsif page.url == "/" %}
-        <h1 id="page-title" class="page-title">Recent Posts</h1>
-      {% else %}
-        <h1 id="page-title" class="page-title">{{ site.data.ui-text[site.locale].page_title | default: site.title }}</h1>
-      {% endif %}
-    {% endunless %}
-    {{ content }}
-  </div>
-</div>
+  <article class="page archive">
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        {% if page.title %}
+          <h1 id="page-title" class="page-title">{{ page.title }}</h1>
+        {% elsif page.url == "/" %}
+          <h1 id="page-title" class="page-title">Recent Posts</h1>
+        {% else %}
+          <h1 id="page-title" class="page-title">{{ site.data.ui-text[site.locale].page_title | default: site.title }}</h1>
+        {% endif %}
+      {% endunless %}
+      {{ content }}
+    </div>
+  </article>
 </div>

@@ -74,17 +74,10 @@ describe('Layout Heading Hierarchy', () => {
       );
     });
 
-    test('should only render H1 inside overlay condition', () => {
-      // H1 should be inside: {% if page.header.overlay_color or page.header.overlay_image %}
-      // Find the overlay conditional block that contains the H1
-      const overlayBlockPattern = /{%\s*if\s+page\.header\.overlay_color\s+or\s+page\.header\.overlay_image\s*%}([\s\S]*?){%\s*else\s*%}/;
-      const match = heroContent.match(overlayBlockPattern);
-
-      expect(match).toBeTruthy();
-      const overlayBlock = match[1];
-
-      // H1 should be inside this overlay block
-      expect(overlayBlock).toMatch(/<h1[^>]*>/);
+    test('should NOT render H1 in hero (titles rendered in layout files)', () => {
+      // H1 is now rendered in layout files (single.html, archive.html) for consistent placement
+      // page__hero.html should only handle the hero image/overlay visuals
+      expect(heroContent).not.toMatch(/<h1[^>]*>/);
     });
 
     test('should NOT render H1 for plain image headers', () => {
@@ -100,24 +93,24 @@ describe('Layout Heading Hierarchy', () => {
   });
 
   describe('cross-layout H1 consistency', () => {
-    test('archive and hero H1 id attributes should match', () => {
+    test('archive and single H1 id attributes should match', () => {
       const archiveContent = fs.readFileSync(
         path.join(layoutsDir, 'archive.html'),
         'utf8'
       );
-      const heroContent = fs.readFileSync(
-        path.join(includesDir, 'page__hero.html'),
+      const singleContent = fs.readFileSync(
+        path.join(layoutsDir, 'single.html'),
         'utf8'
       );
 
       // Extract id from archive H1
       const archiveIdMatch = archiveContent.match(/<h1\s+id="([^"]+)"/);
-      // Extract id from hero H1
-      const heroIdMatch = heroContent.match(/<h1\s+id="([^"]+)"/);
+      // Extract id from single H1
+      const singleIdMatch = singleContent.match(/<h1\s+id="([^"]+)"/);
 
-      if (archiveIdMatch && heroIdMatch) {
-        expect(archiveIdMatch[1]).toBe(heroIdMatch[1]);
-      }
+      expect(archiveIdMatch).toBeTruthy();
+      expect(singleIdMatch).toBeTruthy();
+      expect(archiveIdMatch[1]).toBe(singleIdMatch[1]);
     });
   });
 });

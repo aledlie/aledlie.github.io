@@ -4,10 +4,13 @@ layout: default
 
 {% include page-header.html %}
 
+<div id="main">
+  {% include sidebar.html %}
+
   <article class="page"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
 
-    <div class="page-inner-wrap">
-      <header class="page-header">
+    <div class="page__inner-wrap">
+      <header class="page__header">
         {% if page.title -%}
         <h1 id="page-title" class="page-title">
           <a href="{{ page.url | absolute_url }}" aria-label="{{ page.title }} - Current page">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
@@ -16,7 +19,7 @@ layout: default
         {% include page__meta.html %}
       </header>
 
-      <section class="page-content">
+      <section class="page__content">
         {% if page.toc %}
           <aside class="sidebar-right {% if page.toc-sticky %}sticky{% endif %}" aria-label="Table of contents">
             <nav class="toc" aria-label="Table of contents">
@@ -29,9 +32,9 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn-primary" aria-label="Direct link to {{ page.title }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      <footer class="page-meta">
+      <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page-meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
