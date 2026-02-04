@@ -2,6 +2,7 @@
 layout: single
 title: "Homage"
 author_profile: true
+classes: wide
 header:
   image: /assets/images/cover-projects.png
   teaser: /assets/images/cover-projects.png

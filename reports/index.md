@@ -3,6 +3,7 @@ layout: single
 title: "Case Studies"
 permalink: /reports/
 author_profile: true
+classes: wide
 header:
   image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png

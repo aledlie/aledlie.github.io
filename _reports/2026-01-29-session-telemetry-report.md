@@ -1,5 +1,7 @@
 ---
 layout: single
+author_profile: true
+classes: wide
 title: "Session Telemetry Report - 2026-01-29"
 date: 2026-01-29
 categories: [telemetry]

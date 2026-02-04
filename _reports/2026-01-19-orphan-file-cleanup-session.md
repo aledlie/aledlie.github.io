@@ -1,5 +1,7 @@
 ---
 layout: single
+author_profile: true
+classes: wide
 title: "Orphan File Cleanup Session"
 date: 2026-01-19
 categories: [maintenance]

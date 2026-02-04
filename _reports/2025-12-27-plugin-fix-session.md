@@ -1,5 +1,7 @@
 ---
 layout: single
+author_profile: true
+classes: wide
 title: "Claude Code Plugin Fix Session"
 date: 2025-12-27
 categories: [claude-code, maintenance]

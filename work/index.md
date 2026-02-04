@@ -3,6 +3,7 @@ layout: single
 title: "What Do You Do?"
 permalink: /work/
 author_profile: true
+classes: wide
 header:
   image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png

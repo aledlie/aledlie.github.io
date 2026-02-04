@@ -1,5 +1,7 @@
 ---
 layout: single
+author_profile: true
+classes: wide
 title: "Slowly Building a Complete (and Distributed) 'Thing -> Relationship -> Thing' Graph"
 date: 2025-11-30
 categories: [schema-org, seo, knowledge-graph, cross-domain]

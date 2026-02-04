@@ -3,6 +3,7 @@ layout: single
 title: About This Blog
 permalink: /about/
 author_profile: true
+classes: wide
 breadcrumbs: false
 header:
   image: /assets/images/cover-about.png
