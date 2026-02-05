@@ -39,6 +39,7 @@ defaults:
       type: reports
     values:
       layout: single
+      show_date: true
       breadcrumbs: false
       author_profile: true
   # work
