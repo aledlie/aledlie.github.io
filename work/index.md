@@ -13,19 +13,9 @@ A chronological collection of what I'm working on, projects I've built, and thin
 
 ---
 
-{% assign work_posts = site.work | sort: 'date' | reverse %}
-{% for post in work_posts %}
-  <article class="archive__item">
-    <h2 class="archive__item-title">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h2>
-    {% if post.date %}
-      <p class="archive__item-date">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-      </p>
-    {% endif %}
-    {% if post.excerpt %}
-      <p class="archive__item-excerpt">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-    {% endif %}
-  </article>
+{% assign entries = site.work | sort: 'date' | reverse %}
+<div class="entries-list">
+{% for post in entries %}
+  {% include archive-single.html type="list" %}
 {% endfor %}
+</div>
