@@ -9,8 +9,8 @@ categories: [research, llm-observability, explainability]
 tags: [opentelemetry, llm-as-judge, evaluation, langfuse, arize-phoenix, datadog, eu-ai-act, nist-ai-rmf, quality-metrics, multi-agent]
 excerpt: "Research across 6 platforms on LLM evaluation explainability best practices, OTel GenAI semantic conventions, dashboard UX patterns, and regulatory frameworks for AI observability."
 header:
-  overlay_image: /images/cover-reports.png
-  teaser: /images/cover-reports.png
+  overlay_image: /assets/images/cover-reports.png
+  teaser: /assets/images/cover-reports.png
 ---
 
 # LLM UX Interface Explainability for OTel-Native Observability
