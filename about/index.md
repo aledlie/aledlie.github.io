@@ -117,7 +117,9 @@ Love each and every one of you.  Always.
 
 Cheers, you brave souls who have somehow gotten to the end of this post.
 
+
 And as always, I'll leave you and the rest of our bizarre, fabulous, disorienting universe with all of my love, delight, and delirium, after finally crashing out and signing off on this at **8:15 a.m.**, a few dozen research articles into a handful of fields deep, and having nerd sniped 4 of my PhD friends into staying up with me to chatter about nonsense, and giggle, and feed off of each others' unbounded curiosity.
+
 
 *It's been a great night here in my shabby living room, and I hope it's been at yours, too.*
 
