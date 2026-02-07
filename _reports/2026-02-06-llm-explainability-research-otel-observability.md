@@ -4,6 +4,7 @@ title: "LLM UX Interface Explainability for OTel-Native Observability"
 date: 2026-02-06
 author_profile: true
 breadcrumbs: true
+permalink: /reports/llm-explainability-research-otel-observability/
 categories: [research, llm-observability, explainability]
 tags: [opentelemetry, llm-as-judge, evaluation, langfuse, arize-phoenix, datadog, eu-ai-act, nist-ai-rmf, quality-metrics, multi-agent]
 excerpt: "Research across 6 platforms on LLM evaluation explainability best practices, OTel GenAI semantic conventions, dashboard UX patterns, and regulatory frameworks for AI observability."
