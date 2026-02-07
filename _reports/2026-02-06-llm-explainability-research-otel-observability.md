@@ -978,11 +978,9 @@ Note: Vendor blog posts may move or be removed. Access dates provided for refere
 
 ## Related Documentation
 
-The following documents are available in the [observability-toolkit](https://github.com/aledlie/observability-toolkit) project:
-
-- Quality Metrics Dashboard (`docs/interface/quality-metrics-dashboard.md`) - Current dashboard implementation
-- Wiz.io Security Explainability UX (`docs/interface/wiz-io-security-explainability-ux.md`) - Prior UX research
-- Quality Evaluation Architecture (`docs/quality/quality-evaluation.md`) - Evaluation storage and export
-- LLM-as-Judge Architecture (`docs/quality/llm-as-judge.md`) - G-Eval, QAG, bias mitigation
-- Agent-as-Judge Architecture (`docs/quality/agent-as-judge.md`) - Multi-agent evaluation patterns
-- EU AI Act Requirements (`docs/reviews/eu-ai-act-observability-requirements.md`) - Compliance mapping
+- [Quality Metrics Dashboard](/reports/quality-metrics-dashboard/) - Current dashboard implementation
+- [Wiz.io Security Explainability UX](/reports/wiz-io-security-explainability-ux/) - Prior UX research
+- [Quality Evaluation Architecture](/reports/quality-evaluation-architecture/) - Evaluation storage and export
+- [LLM-as-Judge Architecture](/reports/llm-as-judge-architecture/) - G-Eval, QAG, bias mitigation
+- [Agent-as-Judge Architecture](/reports/agent-as-judge-architecture/) - Multi-agent evaluation patterns
+- [EU AI Act Requirements](/reports/eu-ai-act-observability-requirements/) - Compliance mapping
