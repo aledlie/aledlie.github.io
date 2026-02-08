@@ -273,7 +273,7 @@ body .sidebar {
 }
 
 /* CONTENT HEADINGS - Enhanced for long-form reading */
-.page-content {
+.page__content {
   font-family: $base-font;
   font-size: 16px;
   line-height: $line-height-base;
@@ -599,7 +599,7 @@ html body .greedy-nav .site-title {
     }
   }
 
-  .page-content {
+  .page__content {
     padding: 0 0.25rem;
   }
 }
@@ -635,7 +635,7 @@ html body .greedy-nav .site-title {
     font-size: 1.2em;
   }
 
-  .page-content {
+  .page__content {
     font-size: $font-size-mobile;
     line-height: $line-height-relaxed;
     padding: $spacing-md;
