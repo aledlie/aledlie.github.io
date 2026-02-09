@@ -42,12 +42,14 @@ If you somehow found this and enjoyed it, I hope you pop by again for the jokes 
 
 ## Lessons and Inheritances
 
-Before I leave you to go enjoy the world outside of your screens, I do want to express some gratitude - and above all, love - for all of the brilliant and luminous people whose light has warmed me as it has bent the arc of my life.  Everything I write and everything that I am is, in some way, an echo of the unique gifts that I have been granted by these people's generosity, either as writers, intellectuals, inspirations, friends, family, partners in crime, or - the greatest gift of all - found family.
+Before I leave you to go enjoy the world outside of your screens, I do want to express some gratitude for all of the luminous people whose light has warmed me as it has bent the arc of my life.  Everything I write and everything that I am is, in some way, an echo of the unique gifts that I have been granted by thir generosity-as writers, intellectuals, inspirations, friends, family, partners in crime, or-as the greatest gift of all-found family.
 
 <br>
 
 - **From Tim Kreider - "I am capable of learning nothing from almost any experience, no matter how profound."**
-Kreider's special brand of witty, moody, and pessimistic cynicism is a poorly concealed fake-out for the essential core he builds it from.  The punch line of every essay is a relentless empathy for the human condition - and the conviction that we owe it to everyone.  Inside unspeakable heartbreak he coats every noun is a lesson about real love, what it means, and how gorgeous it is to do the 'messy work of understanding each other,' in all of our ridiculousness.
+
+<br>
+Kreider's special brand of witty, moody, and pessimistic cynicism is a poorly concealed fake-out for the essential core that vibrates thoughout everything he writes.  The punch line of every hilarious anecdote he tells isn't another joke-it's an inspirational willingness to lay himself utterly vulnerabile while displaying his unwavering commitment to relentless empathy-and his conviction that we all owe it to everyone.  Inside a story of unspeakable heartbreak he manages to teach a lesson about real love, what it means, and how worthwhile it is to do the 'messy work of understanding each other.'
 
 <br>
 
@@ -56,19 +58,12 @@ Kreider's special brand of witty, moody, and pessimistic cynicism is a poorly co
 <br>
 
 It's out of that ridiculousness and absurdity that he reminds you of the strange beauty and boundless potential inside all of us - even him.
-
 <br>
-
 Even you.
-
 <br>
-
 Even me.
-
 <br>
-
-From him, I learned that to know is to love, and to love is to know.  And that giving each other understanding is the only thing really worth doing in life - everything else is, really, just bullshit.
-
+From Kreider, I learned that to know is to love, and to love is to know.  And that working to give each other our understanding and acceptance is the only thing really worth doing in life - everything else really is "just bullshit."
 <br>
 
 >This is one of the things we rely on our friends for: to think better of us than we think of ourselves. It makes us feel better, but it also makes us be better; we try to be the person they believe we are.
