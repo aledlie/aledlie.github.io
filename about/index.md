@@ -38,17 +38,18 @@ I created the 'Case Studies' section to record measurement and my train-of-thoug
 
 If you somehow found this and enjoyed it, I hope you pop by again for the jokes and absurdity and nerdiness.  And, well, stay for the jokes and absurdity and nerdiness.  You're not going to find much else here.  But if that's your particular jam, stay tuned next week for a cartoon meme about why people spending so much time on RAG databases and fine-tuning LLMs is [gilding a lily](https://contextual.ai/blog/is-rag-dead-yet), an explanation for why we should all be taking more [creatine supplements](https://pmc.ncbi.nlm.nih.gov/articles/PMC7871530/), or to listen to me argue with a nobel laureate about the [end of the world](https://www.aledlie.com/ai-fears/) with absolutely no ground to stand on.
 
----
-
 ## Lessons and Inheritances
+
+---
 
 Before I leave you to go enjoy the world outside of your screens, I do want to express some gratitude for all of the luminous people whose light has warmed me as it has bent the arc of my life.  Everything I write and everything that I am is, in some way, an echo of the unique gifts that I have been granted by thir generosity-as writers, intellectuals, inspirations, friends, family, partners in crime, or-as the greatest gift of all-found family.
 
+---
+
+### **Tim Kreider - "I am capable of learning nothing from almost any experience, no matter how profound."**
+
 <br>
 
-- **From Tim Kreider - "I am capable of learning nothing from almost any experience, no matter how profound."**
-
-<br>
 Kreider's special brand of witty, moody, and pessimistic cynicism is a poorly concealed fake-out for the essential core that vibrates thoughout everything he writes.  The punch line of every hilarious anecdote he tells isn't another joke-it's an inspirational willingness to lay himself utterly vulnerabile while displaying his unwavering commitment to relentless empathy-and his conviction that we all owe it to everyone.  Inside a story of unspeakable heartbreak he manages to teach a lesson about real love, what it means, and how worthwhile it is to do the 'messy work of understanding each other.'
 
 <br>
@@ -64,119 +65,112 @@ Even you.
 Even me.
 <br>
 From Kreider, I learned that to know is to love, and to love is to know.  And that working to give each other our understanding and acceptance is the only thing really worth doing in life - everything else really is "just bullshit."
+
 <br>
 
 >This is one of the things we rely on our friends for: to think better of us than we think of ourselves. It makes us feel better, but it also makes us be better; we try to be the person they believe we are.
 
 <br>
 
-- **From Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."**
+
+### **Neil Gaiman - "I believe that anyone who claims to know what's going on will lie about the little things too."**
 
 <br>
 
-Worlds can be spun out of shadow and wonder, surreal yet tethered to the heart of what it means to be human.  There is comfort to be found in good madness, like fairy tales that exist to teach us that every dragon - every challenge - can be slain.  That inside of every single person is a whole world of both Delirium and Delight - who, it turns out, is the same person, just at different times.  From Neil Gaiman, I inherited the knowledge that everyone else is so terribly strange that I might as well be exactly myself, and no more, and no less - and that sometimes the best thing to do is just lie back and enjoy the ride.
+There is comfort to be found in shadow and wonder and good madness, like fairy tales that exist to teach us that every dragon - every challenge - can be slain.  That inside of every single person exists a whole world of both Delirium and Delight - who, it turns out, is the same person, just at different times.  From Neil Gaiman, I inherited the knowledge that everyone else is so terribly strange that I might as well be exactly myself, and no more, and no less - and that sometimes the best thing to do is just lie back and enjoy the ride, while finding as many new mistakes to make as you can.
 
 <br>
 
-> "Everybody has a secret world inside of them. I mean everybody. All of the people in the whole world, I mean everybody — no matter how dull and boring they are on the outside. Inside them they've all got unimaginable, magnificent, wonderful, stupid, amazing worlds... Not just one world. Hundreds of them. Thousands, maybe."
+> "Everybody has a secret world inside of them.  All of the people in the whole world, I mean everybody — no matter how dull and boring they are on the outside. Inside them they've all got unimaginable, magnificent, wonderful, stupid, amazing worlds... Not just one world. Hundreds of them. Thousands, maybe."
 
 <br>
 
-> So that's my wish for you, and all of us, and my wish for myself. Make New Mistakes. Make glorious, amazing mistakes. Make mistakes nobody's ever made before. Don't freeze, don't stop, don't worry that it isn't good enough, or it isn't perfect, whatever it is: art, or love, or work or family or life.
->
-> Whatever it is you're scared of doing, do it.
->
-> Make your mistakes, next year and forever."
+> Make New Mistakes. Make glorious, amazing mistakes. Make mistakes nobody's ever made before. Don't freeze, don't stop, don't worry that it isn't good enough, or it isn't perfect, whatever it is: art, or love, or work or family or life. Whatever it is you're scared of doing, do it.
 
 <br>
 
-- **Michael Lewis and George R.R. Martin - "If you wanted to predict how people would behave, Munger said, you only had to look at their incentives."**
+
+### **Michael Lewis and George R.R. Martin - "If you wanted to predict how people would behave, Munger said, you only had to look at their incentives."**
 
 <br>
 
-Both Lewis and Martin perform the sly magic of hiding an intricate cathedral of ideas inside stories so dramatic and colorful that you're lured into the architecture before it has you surrounded.  In their writing I see the truth lived out that people will never remember what you said, but they will always remember how you made them feel.  From them, I am always reminded that it will never matter how brilliant or clever you are - if you are boring.
+Both Lewis and Martin perform sly magic by weaving stories so dramatic and colorful that you're lured into the intricate architecture of their ideas before you're notice that it has you surrounded.  In their writing I see the truth lived out that people will never remember what you said, but they will always remember how you made them feel.  From them, I am always reminded that it will never matter how brilliant or clever you are - if you are boring.
 
 <br>
 
 > Every systemic market injustice arose from some loophole in a regulation created to correct some prior injustice.
 > Reality is a cloud of possibility, not a point.
-> He suggested a new definition of the nerd: a person who knows his own mind well enough to mistrust it.
-
-~ Michael Lewis
+>
+>  ~ Michael Lewis
 
 <br>
 
 > Fantasy flies on the wings of Icarus, reality on Southwest Airlines. Why do our dreams become so much smaller when they finally come true? We read fantasy to find the colors again, I think. To taste strong spices and hear the songs the sirens sang. There is something old and true in fantasy that speaks to something deep within us, to the child who dreamt that one day he would hunt the forests of the night, and feast beneath the hollow hills, and find a love to last forever somewhere south of Oz and north of Shangri-La.
-
-~ George R.R. Martin
-
-<br>
-
-- **From Martha Nussbaum, Amartya Sen, Hannah Arendt, and John Rawls - "Nothing we use or hear or touch can be expressed in words that equal what is given by the senses."**
+>
+> ~ George R.R. Martin
 
 <br>
 
-It is so much more than enough, in our bizarre and complicated world, to go out into the world and grab as much joy as you can, and to do your best to be benign, to be gentle, to be funny, to be kind.
-
+### **Martha Nussbaum, Amartya Sen, Hannah Arendt, and John Rawls - "The sense of justice is continuous with the love of mankind. A just society is a society that if you knew everything about it, you'd be willing to enter it in a random place."**
 <br>
 
-But if you do want to find wisdom in this world and to figure out how to do something good - The Right Thing - you have to fight for it with rigor and dedication, and reflect it in the choices you make every single day in your own life. From my academic mentors and inspirations, I learned that moral clarity is not a given, or an achievement, but a discipline.  I also learned a vocabulary for articulating why the closed systems of reason and logic and mathematics are so woefully insufficient, despite their descriptive power.  That part of The Right Thing is tempering those insights by respecting human emotions as legitimate, intelligent responses to our perception of the world and holding its value to be precious and essential. I've always had an obsession with the aesthetic quality of sound logical arguments, but when you get into the ontology of human language, I cannot help but appreciate Arendt's insight that "Storytelling reveals meaning without committing the error of defining it."
-
-<br>
-
-> To be a good human being is to have a kind of openness to the world, an ability to trust uncertain things beyond your own control, that can lead you to be shattered in very extreme circumstances for which you were not to blame. That says something very important about the condition of the ethical life: that it is based on a trust in the uncertain and on a willingness to be exposed; it's based on being more like a plant than like a jewel, something rather fragile, but whose very particular beauty is inseparable from that fragility.
-
-~ Martha Nussbaum
-
+It is so much more than enough to grab as much joy as you can from life, greedily, and with both fists, and along the way to be benign, to be gentle, to be funny, and to be kind.  But if you do want to find real wisdom - The Right Thing - the first step is to recognize that moral clarity is both non-trivial and not an achievement, but a discipline.
 <br>
 
 > Human ordeals thrive on ignorance. To understand a problem with clarity is already half way towards solving it.
+>
+> ~ Amartya Sen
 
-~ Amartya Sen
-
+From my academic mentors and predecessors, I learned vocabulary for articulating why the closed systems of reason and logic and mathematics are so woefully insufficient for this, despite their descriptive power. 
 <br>
 
-> This is the precept by which I have lived: Prepare for the worst; expect the best; and take what comes.
+> Nothing we use or hear or touch can be expressed in words that equal what is given by the senses.
+>
+> ~ Hannah Arendt
 
-~ Hannah Arendt
-
+Part of learning the The Right Thing is tempering those insights by respecting human emotions as legitimate, intelligent responses to our perception of the world and holding its value to be precious and essential. I've always had an obsession with the aesthetic quality of sound logical arguments, but when you get into the ontology of human language, I cannot help but appreciate the value of Arendt's insight that "Storytelling reveals meaning without committing the error of defining it."
 <br>
 
-> The sense of justice is continuous with the love of mankind.
-> A just society is a society that if you knew everything about it, you'd be willing to enter it in a random place
+> To be a good human being is to have a kind of openness to the world, an ability to trust uncertain things beyond your own control, that can lead you to be shattered in very extreme circumstances for which you were not to blame. That says something very important about the condition of the ethical life: that it is based on a trust in the uncertain and on a willingness to be exposed; it's based on being more like a plant than like a jewel, something rather fragile, but whose very particular beauty is inseparable from that fragility.
+>
+> ~ Martha Nussbaum
 
-~ John Rawls
+---
 
+## Inspirations
+### The people who believe in a better version of me, and whose belief I am honored to try and live up to every day
+
+---
+
+I will never be as kind—or as unshakably, earnestly good—as my brothers; never be as strong as my mother; never match the generosity of my teachers and mentors. I will never be as brilliant as so many of the people who've crossed my path and enriched my life with their friendship. And no one—no one—will ever be as funny as Sumedh Joshi.  But I am better, every day, for trying to live up to the person you all deserve me to be.
+
+---
+
+- **Kindness** — My brothers - I am so proud of all three of you.  Each and every day, I marvel at the incredibly lucky dice roll I received by sharing my childhood, my family, and my life with such incredible human beings.
 <br>
 
-## Inspirations - The people who I work to be as good as they think I am.
-
-I will never be as kind—or as unshakably, earnestly good—as my three brothers; never be as strong as my mother; never match the generosity of my teachers and mentors. I will never be as brilliant as so many of the people who've crossed my path and enriched my life with their friendship. And no one—no one—will ever be as funny as Sumedh Joshi.  But I am better, every day, for trying to live up to the person you all deserve and expect me to be.
-
+- **Strength** — My mother - Even if I have only inherited a fraction of your unshakable determination, I still have learned to be tough as nails.
 <br>
 
-- **Kindness** — I am so proud of all three of you.  Each and every day, I
-  marvel at the incredibly lucky dice roll it has been in my life to share
-  my childhood, my family, and my life with you.
-- **Strength** — Even if I may have only inherited a fraction of your unshakable capacity, I still have learned to be tough as nails.
 - **Generosity & Mentorship** — I was so incredibly privileged to start my career under the wings of Brian Day, Phillip Jones, Suba Vasudevan, and Julie Hardwick - you have all inspired me in different ways, and you will always be the examples I think of and aspire to when I think about generosity, genuine care, and effectiveness in mentorship.
-- **Brilliance** — from Eric Wright, Eric Rowe, Upasana Kaul, Chandra Srivastava, Chelsea Phillips, Teresa Asma, Sukrit Silas, Diana Chang, Katie Carpenter, Michael Carroll, Cris Cecka, Daniel Szymanski and Annie Weathers - and everyone in both Normandy and Turing Scholars and the OG Facebook Integrity crew - how did I ever get so lucky as to meet each of you so young?  Through osmosis and late-night documentary marathons, sitting through white board sessions I didn't understand at all, the infamous and infinite 'Table vs. Desk' argument, and shouting over music at so.many.parties. - at Arrakis, where we covered the floor with sand that we spilled questionable punch all over, at Business Honors parties where we invented chair dancing, at whatever weird, insane, and almost certainly illegal thing was going on over 21st street, and in our shabby living rooms (and guff rooms) that were somehow permanently full to the brim with lovely people and too much wine and laughter - we had so much fun that I didn't even realize until later how much I learned from each of you about how to recognize my own weaknesses, how think more clearly, question my assumptions, and that, even though there's no real source of truth for most problems...you should probably always round up in the case of Eric Wright and Brian Day.
-- **Everything** — No one - *no one* - will ever approach being as funny as Sumedh Joshi.  But I've carried your sense of humor with me through every day of my life, even after I lost your light in mine.  I'm writing this entire blog as an homage to [the one you wrote](https://www.sumedhmjoshi.com/) when you were, theoretically, supposed to be working on your dissertation.  Which you wrote, in its entirety, in 20 days, but really only [3](https://www.sumedhmjoshi.com/academia/tracking-the-growth-of-my-dissertation-over-time/).  You are ridiculous, and absurd, and you will never be matched.  I still hear your voice in my head - including every time single I brush my teeth or microwave soup or start to doubt myself.  I wish you were here now, so you could see what the world has done with all your research.  I wish I could ask you if you knew, all the way back then, what the world was going to look like after it got a hold of what you were playing around with on Hobbes and Leviathan :tm: , making little robo-Sumedhs on GPUs so you could spend more time watching football and playing games with me.  I know that creating an homage to your old blog isn't much, by comparison, but 15 days from now it will have been 9 years since I heard your voice.  Getting your old blog back up and running, and writing follow-ups to some of your posts on a website designed with the same aesthetic makes me feel somehow like I'm extending your voice into 2025. Like I'm talking to you through a very data-limited time machine (and yes, yes, I know, significo, I can hear your objections and requests for clarification on the term).  And even if it's not true, it feels true.  And I'll lean on Martha Nussbaum again for this one: emotions are legitimate, intelligent responses to our perception of the world.  So even though I'm not Eric Wright or Brian Day, I'm going to round up, and take it.
-
 <br>
 
-Love each and every one of you.  Always.
+- **Brilliance** — from Eric Wright, Eric Rowe, Upasana Kaul, Chandra Srivastava, Chelsea Phillips, Teresa Asma, Sukrit Silas, Diana Chang, Katie Carpenter, Michael Carroll, Cris Cecka, Daniel Szymanski and Annie Weathers - everyone in both Normandy and Turing Scholars, not to mention the OG Facebook Integrity crew - how did I ever get so lucky as to meet each of you so young?  Through osmosis and late-night documentary marathons, sitting through white board sessions I didn't understand at all, the infamous and era-defining 'Table vs. Desk' question, and shouting over music at so.many.parties.<br><br>At Arrakis, where we covered the floor with sand that turned to mush by spilling questionable punch all over, at Business Honors parties where we invented chair dancing, on Spring Break trips where we crammed 20 people into single-bed hotel rooms, at whatever weird, insane, and almost certainly illegal thing was going on over 21st street, and in our shabby living rooms (and guff rooms) that were somehow permanently full to the brim with lovely people and too much wine and laughter - we had so much fun that I didn't even realize until later how much I learned from each of you about how to recognize my own weaknesses, how think more clearly, question my assumptions.  <br><br>  And, of course, that even though there's no actual source of truth for most problems...you should probably always round up in the case of Brian Day.
+<br>
+
+- **Everything** — No one - *no one* - will ever approach being as funny as Sumedh Joshi.  But I've carried your sense of humor with me through every day of my life, even after I lost your light in mine.  I'm writing this entire blog as an homage to [the one you wrote](https://www.sumedhmjoshi.com/) when you were, theoretically, supposed to be working on your dissertation.  Which you wrote, in its entirety, in 20 days, but really only [3](https://www.sumedhmjoshi.com/academia/tracking-the-growth-of-my-dissertation-over-time/). You are ridiculous, and absurd, and you will never be matched.  I still hear your voice in my head - including every time single I brush my teeth or microwave soup or start to doubt myself. <br><br> I wish you were here now, so you could see what the world has done with all your research.  I wish I could ask you if you knew, all the way back then, what the world was going to look like after it got a hold of what you were playing around with on Hobbes and Leviathan :tm: , making little robo-Sumedhs to run on GPU clusters so you could spend more time watching football and playing games with me.  I know that creating an homage to your old blog isn't much, by comparison.<br><br>But in 15 days it will have been 9 years since I last heard your voice.  Getting your old blog back up and running, and writing follow-ups to some of your posts on a website designed with the same aesthetic makes me feel somehow like I'm extending your voice into 2025. Like I'm talking to you through a very data-limited time machine (and yes, yes, I know, significo, I can hear your objections and requests for clarification on the term).  And even if it's not true, it feels true.  And I'll lean on Martha Nussbaum again for this one: emotions are legitimate, intelligent responses to our perception of the world.
+<br>
+
+So even though I'm not Brian Day, I'm going to round up, and take it.
 
 ---
 
 Cheers, you brave souls who have somehow gotten to the end of this post.
 
 <br>
-
 And as always, I'll leave you and the rest of our bizarre, fabulous, disorienting universe with all of my love, delight, and delirium, after finally crashing out and signing off on this at **8:15 a.m.**, a few dozen research articles into a handful of fields deep, and having nerd sniped 4 of my PhD friends into staying up with me to chatter about nonsense, and giggle, and feed off of each others' unbounded curiosity.
 
 <br>
-
 *It's been a great night here in my shabby living room, and I hope it's been at yours, too.*
 
 <br>
