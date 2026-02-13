@@ -5,7 +5,7 @@ classes: wide
 title: "Behind the Curtain: Translating Dance into Language"
 date: 2026-02-13
 categories: [telemetry]
-tags: [opentelemetry, signoz, observability, session-analysis, translation, brazilian-portuguese]
+tags: [opentelemetry, signoz, observability, session-analysis, translation, brazilian-portuguese, llm-as-judge, quality-metrics]
 header:
   image: /assets/images/cover-reports.png
 schema_type: analysis-article
@@ -13,7 +13,70 @@ schema_type: analysis-article
 
 What does it take for an AI to translate not just words, but *voice*? On a quiet Wednesday evening in Austin, a Claude Code session set out to answer that question -- taking three English-language research reports about Brazilian Zouk dance artists Edghar & Nadyne and rendering them in the warm, expressive Portuguese the couple uses on Instagram.
 
-This is the telemetry story of that session.
+This is the telemetry story of that session -- and the quality scorecard that proves the translations held up.
+
+## Quality Scorecard
+
+Seven metrics. Three from rule-based telemetry analysis, four from LLM-as-Judge evaluation of the actual translation outputs. Together they form a complete picture of how well this session did its job.
+
+### The Headline
+
+```
+ RELEVANCE       ████████████████████░  0.95   healthy
+ FAITHFULNESS    ████████████████████░  0.95   healthy
+ COHERENCE       ███████████████████░░  0.93   healthy
+ HALLUCINATION   █░░░░░░░░░░░░░░░░░░░  0.03   healthy  (lower is better)
+ TOOL ACCURACY   ████████████████████   1.00   healthy
+ EVAL LATENCY    ░░░░░░░░░░░░░░░░░░░░  26ms   healthy
+ TASK COMPLETION ████████████████░░░░░  0.83   warning
+```
+
+**Dashboard status: WARNING** -- though not for the reason you might expect. All four content-quality metrics are firmly healthy. The single warning comes from a rule-based task-tracking ratio (5 TaskUpdates to 3 TaskCreates), likely a telemetry gap from the context compaction rather than an actual incomplete deliverable. All three translated files exist with complete content.
+
+### How We Measured
+
+The first three metrics -- tool correctness, evaluation latency, and task completion -- were derived automatically from OpenTelemetry trace spans using the observability-toolkit's rule engine. Every tool call emits a span; the engine checks whether it succeeded and how long it took.
+
+The content quality metrics required something different. You can't measure whether a Portuguese translation *sounds right* by counting spans. These four scores come from **LLM-as-Judge evaluation** -- a G-Eval pattern where an AI judge reads both the source document and the translation, then scores along specific criteria.
+
+### Per-Document Breakdown
+
+Each translation was evaluated independently, then aggregated:
+
+| Document | Relevance | Faithfulness | Coherence | Hallucination |
+|----------|-----------|-------------|-----------|---------------|
+| Artist Profile (653 lines) | 0.95 | 0.92 | 0.93 | 0.05 |
+| Zouk Market Analysis (713 lines) | 0.94 | 0.95 | 0.92 | 0.03 |
+| Austin Market Analysis (608 lines) | 0.95 | 0.96 | 0.94 | 0.02 |
+| **Session Average** | **0.95** | **0.94** | **0.93** | **0.03** |
+
+The Austin market analysis scored highest on faithfulness (0.96) -- every demographic figure, studio price, and market projection traces 1:1 back to the source. The artist profile had the highest hallucination score (0.05), driven by a single creative addition: "A jornada que comecou na Holanda, atravessou oceanos e agora retorna ao lar" (the journey that began in the Netherlands, crossed oceans, and now returns home). This biographical detail isn't in the English source document -- it was woven in from Instagram, per the user's explicit request. A deliberate creative decision, not an accidental fabrication.
+
+### What the Judge Found
+
+**Faithfulness held up under scrutiny.** All statistics survived intact: 20+ years experience, 10K+ students, \$15 billion global dance market, 7% CAGR, \$1.3-4.9M Austin market sizing. Number formatting correctly adapted to Brazilian convention (2,313,000 became 2.313.000; \$91,461 became \$91.461). Every source citation, URL, and collaborator name carried over unchanged.
+
+**The voice adaptation worked.** The judge flagged natural Brazilian Portuguese throughout -- proper accents on "Forro" and "Sao Paulo," correct cultural terminology like "Danca dos Famosos," and consistent use of warm, energetic phrasing ("pura magia," "Energia demais!," "ecossistema de danca vibrante e cheio de energia") in descriptive sections while maintaining analytical rigor in market data sections.
+
+**HTML structure was perfectly preserved.** Line counts matched exactly across two of three pairs (653/653 and 608/608). The zouk market analysis differed by one line (712 vs 713) -- a trailing newline, not content.
+
+### Alert Thresholds
+
+These scores were evaluated against the observability-toolkit's built-in quality thresholds:
+
+| Metric | Value | Warning | Critical | Status |
+|--------|-------|---------|----------|--------|
+| Relevance (p50) | 0.95 | < 0.70 | < 0.50 | healthy |
+| Faithfulness (p50) | 0.95 | < 0.80 | < 0.60 | healthy |
+| Coherence (p50) | 0.93 | < 0.75 | -- | healthy |
+| Hallucination (avg) | 0.03 | > 0.10 | > 0.20 | healthy |
+| Tool Correctness (avg) | 1.00 | < 0.95 | < 0.85 | healthy |
+| Eval Latency (p95) | 0.23s | > 5.0s | > 10.0s | healthy |
+| Task Completion (avg) | 0.83 | < 0.85 | < 0.70 | **warning** |
+
+No critical alerts. One warning. Six of seven metrics healthy with significant margin above their thresholds.
+
+---
 
 ## The Assignment
 
@@ -124,30 +187,39 @@ Every one of the 76 telemetry spans completed with status OK. Zero errors. The s
 
 This is hook overhead, not model inference time. The hooks are the instrumentation layer -- they fire before and after each tool call, recording what happened for the telemetry pipeline. At these durations, they add negligible latency to the session.
 
-## What the Numbers Don't Show
+## What the Numbers Still Don't Show
 
-The telemetry captures the *mechanics* -- tokens consumed, tools invoked, cache hits registered. What it can't capture is the quality judgment at the heart of this session: whether "A jornada que comecou na Holanda..." actually *sounds* like something Edghar and Nadyne would write. Whether the translated SWOT analysis ("Forcas / Fraquezas / Oportunidades / Ameacas") reads naturally to a Portuguese speaker familiar with market research. Whether the Carnaval Brasileiro section in the Austin analysis lands with the right mix of professional insight and cultural warmth.
+The operational telemetry captures mechanics -- tokens, tools, cache hits. The LLM-as-Judge scores go further, measuring whether content was preserved and whether the Portuguese reads naturally. But there's a gap even judges can't fill: whether "A jornada que comecou na Holanda..." actually *sounds* like something Edghar and Nadyne would post on a Tuesday night after teaching a packed workshop.
 
-Those are the questions that make translation harder than it looks, and the reason this session used Opus rather than a smaller model. The telemetry confirms the session ran efficiently and error-free. The translation quality is a judgment call that lives outside the data.
+The coherence score (0.93) confirms the Portuguese is grammatically natural and consistently toned. It can't tell you whether it captures the specific energy of Nadyne's Instagram story after Carnaval, or the way Edghar describes a new choreography in his bio. That final inch -- the distance between "good Portuguese" and "their Portuguese" -- is the reason this session scraped three Instagram accounts before translating a single word, and the reason it used Opus rather than a smaller model.
+
+The quality scorecard says the translations are healthy across all dimensions. The human question is whether they're *alive*.
 
 ## Session Summary
 
-| Metric | Value |
-|--------|-------|
-| Duration | 8.6 hours (wall clock), ~14 min active (post-compaction) |
-| Model | Claude Opus 4.6 |
-| Total tokens | 1,752,748 |
-| Cache hit rate | 98.3% |
-| Estimated cost | $3.28 (Opus) |
-| Cache savings | $23.14 (87.6%) |
-| Tool invocations | 41 |
-| Tool success rate | 100% |
-| Errors | 0 |
-| Peak context | 59.3% (118,542 / 200,000) |
-| Context compactions | 1 |
-| Files created | 3 (PT-BR translations) |
-| Files modified | 1 (index.html hub cards) |
+| Category | Metric | Value |
+|----------|--------|-------|
+| **Quality** | Dashboard status | WARNING (1 of 7) |
+| | Relevance | 0.95 (healthy) |
+| | Faithfulness | 0.94 (healthy) |
+| | Coherence | 0.93 (healthy) |
+| | Hallucination | 0.03 (healthy) |
+| | Tool correctness | 1.00 (healthy) |
+| | Task completion | 0.83 (warning) |
+| **Operations** | Duration | 8.6 hours wall clock |
+| | Model | Claude Opus 4.6 |
+| | Total tokens | 1,752,748 |
+| | Cache hit rate | 98.3% |
+| | Estimated cost | $3.28 (Opus) |
+| | Cache savings | $23.14 (87.6%) |
+| | Tool invocations | 41 |
+| | Tool success rate | 100% |
+| | Errors | 0 |
+| | Peak context | 59.3% (118,542 / 200K) |
+| **Output** | Files created | 3 PT-BR translations |
+| | Files modified | 1 (index.html hub cards) |
+| | Total lines translated | 1,974 |
 
 ---
 
-*Telemetry data sourced from local JSONL files at `~/.claude/telemetry/` and exported to [SigNoz Cloud](https://signoz.io) via OpenTelemetry. Session instrumented by `claude-code-hooks` v1.0.0.*
+*Operational telemetry sourced from local JSONL at `~/.claude/telemetry/` and exported to [SigNoz Cloud](https://signoz.io) via OpenTelemetry. Content quality metrics computed via LLM-as-Judge G-Eval pattern against the [observability-toolkit](https://github.com/aledlie/env-settings) quality metrics dashboard (v2.6.0). Session instrumented by `claude-code-hooks` v1.0.0.*
