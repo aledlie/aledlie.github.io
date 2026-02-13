@@ -5,7 +5,7 @@ classes: wide
 title: "Behind the Curtain: Translating Dance into Language"
 date: 2026-02-13
 categories: [telemetry]
-tags: [opentelemetry, signoz, observability, session-analysis, translation, brazilian-portuguese, llm-as-judge, quality-metrics]
+tags: [opentelemetry, observability, session-analysis, translation, brazilian-portuguese, llm-as-judge, quality-metrics]
 header:
   image: /assets/images/cover-reports.png
 schema_type: analysis-article
@@ -222,4 +222,4 @@ The quality scorecard says the translations are healthy across all dimensions. T
 
 ---
 
-*Operational telemetry sourced from local JSONL at `~/.claude/telemetry/` and exported to [SigNoz Cloud](https://signoz.io) via OpenTelemetry. Content quality metrics computed via LLM-as-Judge G-Eval pattern against the [observability-toolkit](https://github.com/aledlie/env-settings) quality metrics dashboard (v2.6.0). Session instrumented by `claude-code-hooks` v1.0.0.*
+*Operational telemetry sourced from local JSONL at `~/.claude/telemetry/` via OpenTelemetry. Content quality metrics computed via LLM-as-Judge G-Eval pattern against the [observability-toolkit](https://github.com/aledlie/env-settings) quality metrics dashboard (v2.6.0). Session instrumented by `claude-code-hooks` v1.0.0.*
