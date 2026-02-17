@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Pegando as Mentiras da IA na Tradução: Um Ciclo de Qualidade com OTEL"
+title: "Pegando Mentiras na Tradução por IA"
 date: 2026-02-17
 read_time: 6
 author: Alyshia Ledlie
@@ -15,7 +15,7 @@ header:
   teaser: /assets/images/cover-work.png
 toc: true
 toc_sticky: true
-permalink: /work/translation-quality-otel-case-study/
+permalink: /work/estudo-caso-qualidade-traducao-otel/
 categories:
   - AI
   - Observability
