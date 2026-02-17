@@ -8,7 +8,10 @@ categories: [telemetry]
 tags: [opentelemetry, observability, session-analysis, translation, brazilian-portuguese, llm-as-judge, quality-metrics]
 header:
   image: /assets/images/cover-reports.png
+url: https://www.aledlie.com/reports/2026-02-13-edgar-nadyne-translation-session-telemetry/
+permalink: /reports/2026-02-13-edgar-nadyne-translation-session-telemetry/
 schema_type: analysis-article
+schema_genre: "Session Report"
 ---
 
 On February 12, 2026, a Claude Code session spent 8.6 hours translating three English HTML reports about Brazilian Zouk artists Edghar & Nadyne into Brazilian Portuguese. The translations were delivered. The quality metrics passed. But beneath the surface, the telemetry reveals significant performance gaps, inefficient resource use, and several signals of incomplete work that warrant investigation.
