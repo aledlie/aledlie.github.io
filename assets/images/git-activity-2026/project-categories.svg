@@ -1,21 +1,21 @@
 <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-<text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Project Categories (19 repos)</text>
-<path d="M 400.0,300.0 L 400.0,100.0 A 200.0,200.0 0 0,1 567.4332956525056,190.6103683755146 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Project Categories (9 repos)</text>
+<path d="M 400.0,300.0 L 400.0,100.0 A 200.0,200.0 0 0,1 596.9615506024415,265.27036446661396 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
 <rect x="600" y="50" width="15" height="15" fill="#0066cc"/>
-<text x="620" y="62" font-size="12">Data & Analytics: 3 (15.8%)</text>
-<path d="M 400.0,300.0 L 567.4332956525056,190.6103683755146 A 200.0,200.0 0 0,1 599.316898601334,316.51586909446644 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<text x="620" y="62" font-size="12">Data & Analytics: 2 (22.2%)</text>
+<path d="M 400.0,300.0 L 596.9615506024415,265.27036446661396 A 200.0,200.0 0 0,1 573.2050807568878,400.0 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
 <rect x="600" y="75" width="15" height="15" fill="#4da6ff"/>
-<text x="620" y="87" font-size="12">Personal Sites: 2 (10.5%)</text>
-<path d="M 400.0,300.0 L 599.316898601334,316.51586909446644 A 200.0,200.0 0 0,1 583.1546653310115,380.33908493059386 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
+<text x="620" y="87" font-size="12">Personal Sites: 1 (11.1%)</text>
+<path d="M 400.0,300.0 L 573.2050807568878,400.0 A 200.0,200.0 0 0,1 468.40402866513375,487.93852415718163 Z" fill="#99ccff" stroke="white" stroke-width="2"/>
 <rect x="600" y="100" width="15" height="15" fill="#99ccff"/>
-<text x="620" y="112" font-size="12">Infrastructure: 1 (5.3%)</text>
-<path d="M 400.0,300.0 L 583.1546653310115,380.33908493059386 A 200.0,200.0 0 0,1 547.1447821346263,435.4563143251482 Z" fill="#00994d" stroke="white" stroke-width="2"/>
+<text x="620" y="112" font-size="12">Infrastructure: 1 (11.1%)</text>
+<path d="M 400.0,300.0 L 468.40402866513375,487.93852415718163 A 200.0,200.0 0 0,1 331.59597133486625,487.9385241571817 Z" fill="#00994d" stroke="white" stroke-width="2"/>
 <rect x="600" y="125" width="15" height="15" fill="#00994d"/>
-<text x="620" y="137" font-size="12">MCP Servers: 1 (5.3%)</text>
-<path d="M 400.0,300.0 L 547.1447821346263,435.4563143251482 A 200.0,200.0 0 0,1 200.68310139866603,316.51586909446655 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
+<text x="620" y="137" font-size="12">MCP Servers: 1 (11.1%)</text>
+<path d="M 400.0,300.0 L 331.59597133486625,487.9385241571817 A 200.0,200.0 0 0,1 271.4424780626921,146.7911113762044 Z" fill="#ffcc00" stroke="white" stroke-width="2"/>
 <rect x="600" y="150" width="15" height="15" fill="#ffcc00"/>
-<text x="620" y="162" font-size="12">Client Work: 7 (36.8%)</text>
-<path d="M 400.0,300.0 L 200.68310139866603,316.51586909446655 A 200.0,200.0 0 0,1 399.99999999999994,100.0 Z" fill="#ff6600" stroke="white" stroke-width="2"/>
+<text x="620" y="162" font-size="12">Client Work: 3 (33.3%)</text>
+<path d="M 400.0,300.0 L 271.4424780626921,146.7911113762044 A 200.0,200.0 0 0,1 399.99999999999994,100.0 Z" fill="#ff6600" stroke="white" stroke-width="2"/>
 <rect x="600" y="175" width="15" height="15" fill="#ff6600"/>
-<text x="620" y="187" font-size="12">Legacy: 5 (26.3%)</text>
+<text x="620" y="187" font-size="12">Legacy: 1 (11.1%)</text>
 </svg>

@@ -80,7 +80,7 @@ The initial judge flagged three concerns that were resolved by web verification:
 
 ### Remaining Recommendations
 
-1. Update codebase `MODEL_PRICING` in `src/lib/constants.ts:362` to reflect current pricing (Opus 4.5: $5/$25, Haiku 4.5: $1/$5, add GPT-4.1 and o3)
+1. ~~Update codebase `MODEL_PRICING` in `src/lib/constants.ts:362` to reflect current pricing (Opus 4.5: $5/$25, Haiku 4.5: $1/$5, add GPT-4.1 and o3)~~ **RESOLVED (Feb 14 audit):** `MODEL_PRICING` updated with Opus 4.5 ($5/$25), Opus 4.6 ($5/$25), Sonnet 4.5 ($3/$15), Haiku 4.5 ($1/$5), legacy Opus 4.1 ($15/$75). Roadmap docs G1/G2 clarified as client-side metrics. G3 marked ready-to-implement.
 
 ## Session Telemetry
 
