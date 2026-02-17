@@ -14,7 +14,7 @@ header:
   teaser: /assets/images/cover-work.png
 toc: true
 toc_sticky: true
-permalink: /work/translation-quality-otel-case-study/
+permalink: /work/2026-02-17-catching-lies-in-AI-translation/
 categories:
   - AI
   - Observability
