@@ -2,29 +2,29 @@
 <text x="400.0" y="30" text-anchor="middle" font-size="20" font-weight="bold">Top 10 Repositories by Commits</text>
 <rect x="250" y="50" width="450.0" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="70.0" text-anchor="end" font-size="14">~/.claude</text>
-<text x="705.0" y="70.0" font-size="14" font-weight="bold">190</text>
-<rect x="250" y="90" width="189.47368421052633" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="705.0" y="70.0" font-size="14" font-weight="bold">196</text>
+<rect x="250" y="90" width="229.59183673469389" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="110.0" text-anchor="end" font-size="14">~/reports</text>
-<text x="444.47368421052636" y="110.0" font-size="14" font-weight="bold">80</text>
-<rect x="250" y="130" width="108.94736842105263" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="484.59183673469386" y="110.0" font-size="14" font-weight="bold">100</text>
+<rect x="250" y="130" width="133.16326530612244" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="150.0" text-anchor="end" font-size="14">jobs</text>
-<text x="363.9473684210526" y="150.0" font-size="14" font-weight="bold">46</text>
-<rect x="250" y="170" width="54.473684210526315" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="190.0" text-anchor="end" font-size="14">ISPublicSites/IntegrityStudio.ai2</text>
-<text x="309.4736842105263" y="190.0" font-size="14" font-weight="bold">23</text>
-<rect x="250" y="210" width="35.526315789473685" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="230.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
-<text x="290.5263157894737" y="230.0" font-size="14" font-weight="bold">15</text>
-<rect x="250" y="250" width="33.1578947368421" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="270.0" text-anchor="end" font-size="14">PersonalSite</text>
-<text x="288.1578947368421" y="270.0" font-size="14" font-weight="bold">14</text>
-<rect x="250" y="290" width="26.05263157894737" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="310.0" text-anchor="end" font-size="14">ISPublicSites/AnalyticsBot</text>
-<text x="281.0526315789474" y="310.0" font-size="14" font-weight="bold">11</text>
-<rect x="250" y="330" width="18.94736842105263" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="388.1632653061224" y="150.0" font-size="14" font-weight="bold">58</text>
+<rect x="250" y="170" width="43.62244897959184" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="190.0" text-anchor="end" font-size="14">PersonalSite</text>
+<text x="298.6224489795918" y="190.0" font-size="14" font-weight="bold">19</text>
+<rect x="250" y="210" width="32.142857142857146" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="230.0" text-anchor="end" font-size="14">ISPublicSites/IntegrityStudio.ai2</text>
+<text x="287.14285714285717" y="230.0" font-size="14" font-weight="bold">14</text>
+<rect x="250" y="250" width="11.479591836734693" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="270.0" text-anchor="end" font-size="14">ISPublicSites/AnalyticsBot</text>
+<text x="266.4795918367347" y="270.0" font-size="14" font-weight="bold">5</text>
+<rect x="250" y="290" width="9.183673469387756" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="240" y="310.0" text-anchor="end" font-size="14">ast-grep-mcp</text>
+<text x="264.18367346938777" y="310.0" font-size="14" font-weight="bold">4</text>
+<rect x="250" y="330" width="4.591836734693878" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="350.0" text-anchor="end" font-size="14">ISPublicSites/tcad-scraper</text>
-<text x="273.9473684210526" y="350.0" font-size="14" font-weight="bold">8</text>
-<rect x="250" y="370" width="2.3684210526315788" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
+<text x="259.59183673469386" y="350.0" font-size="14" font-weight="bold">2</text>
+<rect x="250" y="370" width="2.295918367346939" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="390.0" text-anchor="end" font-size="14">john_skelton</text>
-<text x="257.36842105263156" y="390.0" font-size="14" font-weight="bold">1</text>
+<text x="257.2959183673469" y="390.0" font-size="14" font-weight="bold">1</text>
 </svg>
