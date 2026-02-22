@@ -620,7 +620,7 @@ html body .greedy-nav .site-title {
       gap: 0.02rem;
 
       a {
-        padding: 0.1rem 0.2rem;
+        padding: 0.4rem 0.5rem;
         font-size: $font-size-medium;
         font-weight: $font-weight-black;
       }
@@ -646,6 +646,51 @@ html body .greedy-nav .site-title {
 
     p + p {
       margin-top: $spacing-lg;
+    }
+
+    h2 {
+      font-size: 1.15em;
+    }
+  }
+
+  /* Inline code wrapping on mobile */
+  body p code,
+  body li code,
+  body td code,
+  body :not(pre) > code {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Mobile table optimization */
+  table {
+    font-size: $font-size-small;
+
+    th,
+    td {
+      padding: $spacing-xs;
+    }
+  }
+
+  /* Mobile code block font adjustment */
+  body div.highlighter-rouge,
+  body figure.highlight {
+    font-size: $font-size-small;
+    padding: $spacing-sm;
+  }
+}
+
+/* Small phone breakpoint */
+@media (max-width: $small) {
+  .page__content {
+    padding: 0.5em;
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    blockquote {
+      padding: $spacing-md;
     }
   }
 }
