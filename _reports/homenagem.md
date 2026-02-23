@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Homenagem"
+date: 2026-02-13
 author_profile: true
 classes: wide
 lang: pt-BR
