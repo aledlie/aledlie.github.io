@@ -1,0 +1,23 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "filePath": "docs/repomix/repomix.xml",
+    "parsableStyle": true,
+    "showLineNumbers": true,
+    "compress": false,
+    "files": true,
+    "git": {
+      "sortByChanges": true,
+      "includeDiffs": false,
+      "includeLogs": false,
+      "includeLogsCount": 20
+    }
+  },
+  "ignore": {
+    "useDefaultPatterns": true,
+    "customPatterns": ["tmp/", "*.log", "dist/", "**/generated/"]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  }
+}
