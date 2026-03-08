@@ -14,7 +14,7 @@ echo "Generating all $PROJECT repomix files..."
 
 file_ext() {
   case "$1" in
-    token-tree|git-history|git-evolution) echo "txt" ;;
+    token-tree|git-history) echo "txt" ;;
     *) echo "xml" ;;
   esac
 }

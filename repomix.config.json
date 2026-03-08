@@ -74,6 +74,7 @@
       "**/*.gif",
       "**/*.webp",
       "**/*.ico",
+      "**/fontawesome-webfont.svg",
       "**/*.pdf",
       "**/*.zip",
       "**/*.tar",
