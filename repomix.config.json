@@ -1,23 +1,107 @@
 {
   "$schema": "https://repomix.com/schemas/latest/schema.json",
+
   "output": {
     "filePath": "docs/repomix/repomix.xml",
+    "style": "xml",
     "parsableStyle": true,
-    "showLineNumbers": true,
-    "compress": false,
+
+    "removeComments": true,
+    "removeEmptyLines": true,
+    "truncateBase64": true,
+
+    "fileSummary": false,
+    "directoryStructure": true,
     "files": true,
+
+    "showLineNumbers": true,
+
+    "includeEmptyDirectories": false,
     "git": {
-      "sortByChanges": true,
       "includeDiffs": false,
       "includeLogs": false,
-      "includeLogsCount": 20
     }
   },
+
   "ignore": {
+    "useGitignore": true,
+    "useDotIgnore": true,
     "useDefaultPatterns": true,
-    "customPatterns": ["tmp/", "*.log", "dist/", "**/generated/"]
+
+    "customPatterns": [
+      "docs/**",
+      "docs/archive/**",
+      "docs/backlog/**",
+      "docs/repomix/**",
+      "**/repomix-output.*",
+      "**/repo-compressed.*",
+      "**/repomix.xml",
+      "**/repo-compressed.xml",
+
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/.turbo/**",
+      "**/.vite/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/out/**",
+      "**/coverage/**",
+
+      "**/.ast-grep-backups/**",
+
+      "**/fixtures/**",
+      "**/test-files/**",
+      "**/__snapshots__/**",
+      "**/*.snap",
+      "tests/**",
+      "**/*.test.*",
+      "**/*.spec.*",
+
+      "**/*.log",
+      "**/*.tmp",
+      "**/*.temp",
+      "**/*.cache",
+      "**/*.swp",
+      "**/*.swo",
+      "**/*.tsbuildinfo",
+      "**/*.map",
+      "**/*.min.js",
+      "**/*.min.css",
+
+      "**/*.png",
+      "**/*.jpg",
+      "**/*.jpeg",
+      "**/*.gif",
+      "**/*.webp",
+      "**/*.ico",
+      "**/*.pdf",
+      "**/*.zip",
+      "**/*.tar",
+      "**/*.gz",
+      "**/*.tgz",
+      "**/*.7z",
+
+      "**/*.mp4",
+      "**/*.mov",
+      "**/*.avi",
+      "**/*.mp3",
+      "**/*.wav",
+
+      "**/.env",
+      "**/.env.*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.p12",
+      "**/*.pfx",
+      "**/*secret*"
+    ]
   },
+
   "security": {
     "enableSecurityCheck": true
+  },
+
+  "tokenCount": {
+    "encoding": "o200k_base"
   }
 }
