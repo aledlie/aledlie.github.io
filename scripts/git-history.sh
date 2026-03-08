@@ -8,6 +8,5 @@ git -C "$ROOT" log -n 200 \
   --date=iso \
   --stat \
   --summary \
-  --patch \
   --decorate \
   > "$OUTPUT_FILE"

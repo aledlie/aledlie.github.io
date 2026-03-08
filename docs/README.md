@@ -1,6 +1,6 @@
 # Documentation Index
 
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-03-08
 
 This directory contains all documentation for The Parlor (www.aledlie.com) Jekyll site.
 
@@ -15,13 +15,20 @@ This directory contains all documentation for The Parlor (www.aledlie.com) Jekyl
 
 ```
 docs/
+├── repomix/                      # AI-consumable codebase artifacts
+│   ├── token-tree.txt            # Token budget breakdown
+│   ├── repomix.xml               # Full codebase (XML)
+│   ├── repo-compressed.xml       # Compressed codebase (XML)
+│   ├── git-evolution.xml         # Git diff evolution (XML)
+│   └── git-history.txt           # Git log summary
 ├── schema/                       # Schema.org implementation & SEO
 │   ├── README.md                 # Schema quick reference & index
 │   ├── IMPLEMENTATION-GUIDE.md   # How to implement schemas
 │   ├── TESTING-AND-MONITORING.md # Testing and monitoring
-│   ├── SITE-SCHEMA-ANALYSIS.md   # Complete site analysis
+│   ├── SITE_SCHEMA_ANALYSIS.md   # Complete site analysis
 │   └── archives/                 # Historical documentation
 ├── setup/                        # Local development setup
+├── css-maintainability-fix.md    # CSS maintainability notes
 ├── CHANGELOG.md                  # Project change history
 ├── ARCHITECTURE-DATA-FLOWS.md    # System architecture overview
 └── README.md                     # This file
@@ -38,7 +45,7 @@ docs/
 | `schema/README.md` | **Start here** - Quick reference and index |
 | `schema/IMPLEMENTATION-GUIDE.md` | How to implement and modify schemas |
 | `schema/TESTING-AND-MONITORING.md` | Testing, validation, and Search Console monitoring |
-| `schema/SITE-SCHEMA-ANALYSIS.md` | Complete analysis of site schema implementation |
+| `schema/SITE_SCHEMA_ANALYSIS.md` | Complete analysis of site schema implementation |
 
 ### Schema Quick Reference
 

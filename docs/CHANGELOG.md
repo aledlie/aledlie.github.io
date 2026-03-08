@@ -2,6 +2,31 @@
 
 All notable changes to this project are documented in this file.
 
+## [2026-03-08] - Repomix Pipeline Optimization
+
+Optimized repomix artifact pipeline for token efficiency and correctness.
+
+### Repomix Config (`repomix.config.json`)
+- Added `**/fontawesome-webfont.svg` to ignore patterns (was consuming 160K tokens)
+- Git diffs/logs confirmed excluded from `repomix.xml` and `repo-compressed.xml`
+
+### Script Fixes (`scripts/`)
+- Removed `--patch` flag from `git-history.sh` (output: 6.4M tokens -> 16K tokens)
+- Fixed `git-evolution` file extension from `.txt` to `.xml` (content is XML)
+- Deleted stale `scripts/repomix-output.xml` artifact
+
+### Documentation Updates
+- Updated `CLAUDE.md`: corrected include counts (59 -> 74), added scripts/repomix entries
+- Updated `README.md`: added `scripts/` and `docs/repomix/` to project structure
+- Updated `docs/README.md`: added `repomix/` and `css-maintainability-fix.md` to directory tree
+
+### Token Budget Impact
+- `repo-compressed.xml`: 334,748 -> 296,602 tokens (-11%)
+- `repomix.xml`: 406,574 -> 367,427 tokens (-10%)
+- `git-history.txt`: 6,407,354 -> 16,411 tokens (-99.7%)
+
+---
+
 ## [2026-01-29] - Code Consolidation & Maintainability
 
 Removed redundant config, schema guards, unused SCSS variables, and improved maintainability based on expert code review.
