@@ -19,7 +19,7 @@
     "includeEmptyDirectories": false,
     "git": {
       "includeDiffs": false,
-      "includeLogs": false,
+      "includeLogs": false
     }
   },
 
