@@ -2,57 +2,37 @@
 # Wrapper: generates token tree + compressed repomix output
 set -euo pipefail
 
-# Optional input directory (defaults to repo root)
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-INPUT_DIR="${1:-$ROOT}"
+source "$(cd "$(dirname "$0")" && pwd)/find-path.sh" "${1:-}"
 
-# repomix compression variant names
-TREE_FILE="token-tree"
-COMPRESSED_FILE="repo-compressed"
-LOSSLESS_FILE="repomix"
-
-# output filepaths
-OUTPUT_PATH="docs/repomix"
-OUT_DIR="$ROOT/$OUTPUT_PATH"
-TOKEN_TREE_FILE="$OUT_DIR/$TREE_FILE.txt"
-COMPRESSED_REPO_FILE="$OUT_DIR/$COMPRESSED_FILE.xml"
-LOSSLESS_REPO_FILE="$OUT_DIR/$LOSSLESS_FILE.xml"
-TREE_FILE_NAME="$OUTPUT_PATH/$TREE_FILE.txt"
-COMPRESSED_FILE_NAME="$OUTPUT_PATH/$COMPRESSED_FILE.xml"
-LOSSLESS_FILE_NAME="$OUTPUT_PATH/$LOSSLESS_FILE.xml"
-
-# input file paths
-INPUT_DIR="$ROOT/scripts/generate-"
-TOKEN_TREE_SCRIPT="$INPUT_DIR$TREE_FILE.sh"
-COMPRESS_SCRIPT="$INPUT_DIR$COMPRESSED_FILE.sh"
-LOSSLESS_SCRIPT="$INPUT_DIR$LOSSLESS_FILE.sh"
+PROJECT="$(basename "$ROOT")"
+OUTPUT_SUBDIR="docs/repomix"
 
 echo "File set up..."
-# make output dir if not exists
-mkdir -p "$HOME/$OUT_DIR"
-#delete existing files
-rm -f "$OUT_DIR/*"
+mkdir -p "$OUTPUT"
+rm -f "$OUTPUT"/*
+echo "Generating all $PROJECT repomix files..."
 
+file_ext() {
+  case "$1" in
+    token-tree|git-history|git-evolution) echo "txt" ;;
+    *) echo "xml" ;;
+  esac
+}
 
-#project-level logging
-PROJECT_DIR="$(basename "$(cd "$(dirname "$0")/.." && pwd)")"
+filepath() {
+  echo "$1/$2.$3"
+}
 
-echo "Generating token count tree for $PROJECT_DIR at $TREE_FILE_NAME"
-bash "$TOKEN_TREE_SCRIPT" "$ROOT" "$TOKEN_TREE_FILE"
-echo "Success!"
-echo
+ARTIFACTS=("git-evolution" "token-tree" "repo-compressed" "repomix" "git-history")
+for name in "${ARTIFACTS[@]}"; do
+  ext="$(file_ext "$name")"
+  script_path="$(filepath "$INPUT" "$name" "sh")"
+  output_file="$(filepath "$OUTPUT" "$name" "$ext")"
+  output_relative="$(filepath "$OUTPUT_SUBDIR" "$name" "$ext")"
 
-echo "Generating compressed repomix file for $PROJECT_DIR at $COMPRESSED_FILE_NAME"
-bash "$COMPRESS_SCRIPT" "$ROOT" "$COMPRESSED_REPO_FILE"
-echo "Success!"
-echo
+  [[ -f "$script_path" ]] || { echo "Error: missing script: $script_path" >&2; exit 1; }
 
-echo "Generating repomix file for $PROJECT_DIR at $LOSSLESS_FILE_NAME"
-bash "$LOSSLESS_SCRIPT" "$ROOT" "$LOSSLESS_REPO_FILE"
-echo "Success!"
-echo
-
-echo "Artifacts:"
-echo " - $TREE_FILE_NAME"
-echo " - $COMPRESSED_FILE_NAME"
-echo " - $LOSSLESS_FILE_NAME"
+  bash "$script_path" "$output_file"
+  tokens="$("$TOKEN_SCRIPT" "$output_file")"
+  printf -- "- %s : %s\n" "$output_relative" "$tokens"
+done

@@ -71,6 +71,7 @@ vendor/bundle/
 
 # Claude Code
 .claude/
+Claude.md
 
 # Environment variables
 .env
@@ -94,8 +95,7 @@ ehthumbs.db
 Desktop.ini
 
 # Repomix output files
-repomix-output.xml
-Claude.md
+docs/repomix/**
 
 # Utils generated artifacts
 utils/*.txt
