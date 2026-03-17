@@ -1,0 +1,8 @@
+{% comment %}
+Schema.org partial: Article section from schema_section or categories
+{% endcomment %}
+{% if page.schema_section -%}
+"articleSection": {{ page.schema_section | jsonify }},
+{% elsif page.categories -%}
+"articleSection": {{ page.categories | jsonify }},
+{% endif -%}

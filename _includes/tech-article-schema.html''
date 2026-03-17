@@ -1,0 +1,60 @@
+{% comment %}
+TechArticle Schema - For technical guides, tutorials, and documentation
+Conditional include based on page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in post front matter:
+---
+schema_type: TechArticle
+schema_dependencies: "Ruby 3.x, Jekyll 4.x, Bundler"
+schema_proficiency: "Intermediate"
+schema_section: "Jekyll"
+---
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "{{ page.url | absolute_url }}#techarticle",
+
+  "headline": {{ page.title | jsonify }},
+  {% include schema/_description.html %}
+
+  {% comment %}TechArticle-specific properties{% endcomment %}
+  {% if page.schema_dependencies -%}
+  "dependencies": {{ page.schema_dependencies | jsonify }},
+  {% endif -%}
+  {% if page.schema_proficiency -%}
+  "proficiencyLevel": {{ page.schema_proficiency | jsonify }},
+  {% endif -%}
+
+  {% include schema/_article-section.html %}
+  {% include schema/_article-body.html %}
+  {% include schema/_article-core.html %}
+
+  "url": "{{ page.url | absolute_url }}",
+
+  {% include schema/_common-metadata.html %}
+  {% include schema/_about.html %}
+  {% include schema/_mentions.html %}
+
+  {% comment %}Citation - referenced sources and expert articles{% endcomment %}
+  {% if page.schema_citation -%}
+  "citation": {
+    "@type": "CreativeWork",
+    {% if page.schema_citation.name -%}
+    "author": {
+      "@type": "Person",
+      "name": {{ page.schema_citation.name | jsonify }}
+    },
+    {% endif -%}
+    {% if page.schema_citation.url -%}
+    "url": {{ page.schema_citation.url | jsonify }}
+    {% endif -%}
+  },
+  {% endif -%}
+
+  {% include schema/_creator.html %}
+  {% include schema/_copyright.html %}
+}
+</script>

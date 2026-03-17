@@ -72,7 +72,7 @@
   }
 }
 
-.sidebar__right {
+.sidebar-right {
   margin-bottom: $spacing-md;
 
   @include breakpoint($large) {
@@ -92,7 +92,7 @@
       float: inline-end;
 
       .toc {
-        .toc__menu {
+        .toc-menu {
           overflow-y: auto;
           max-height: calc(100vh - #{$toc-max-height-offset});
         }
@@ -106,7 +106,7 @@
   }
 }
 
-.splash .sidebar__right {
+.splash .sidebar-right {
   @include breakpoint($large) {
     position: relative;
     float: inline-end;
@@ -122,7 +122,7 @@
    Author profile and links
    ========================================================================== */
 
-.author__avatar {
+.author-avatar {
   display: table-cell;
   vertical-align: top;
   width: $avatar-size-sm;
@@ -145,7 +145,7 @@
   }
 }
 
-.author__content {
+.author-content {
   display: table-cell;
   vertical-align: top;
   padding-inline: $spacing-sm-px $spacing-lg-px;
@@ -163,7 +163,7 @@
   }
 }
 
-.author__name {
+.author-name {
   margin: 0;
 
   @include breakpoint($large) {
@@ -172,12 +172,12 @@
   }
 }
 
-.sidebar .author__name {
+.sidebar .author-name {
   font-family: $sans-serif;
   font-size: $type-size-5;
 }
 
-.author__bio {
+.author-bio {
   margin: 0;
 
   @include breakpoint($large) {
@@ -191,7 +191,7 @@
   color: $text-color; /* Darker color to maintain contrast with sidebar opacity */
 }
 
-.author__urls-wrapper {
+.author-urls-wrapper {
   position: relative;
   display: table-cell;
   vertical-align: middle;
@@ -205,7 +205,7 @@
     }
   }
 
-  .author__urls {
+  .author-urls {
     span.label {
       padding-inline-start: $spacing-xxs-px;
     }
@@ -243,7 +243,6 @@
   }
 }
 
-.author__urls,
 .author-urls {
   display: none;
   position: absolute;
@@ -259,7 +258,7 @@
   box-shadow: $box-shadow-dropdown;
   cursor: default;
 
-  &.is--visible {
+  &.is-visible {
     display: block;
   }
 
@@ -275,7 +274,7 @@
 
   &::before {
     display: block;
-    content: "";
+    content: '';
     position: absolute;
     top: $arrow-offset-top;
     inset-inline-start: calc(50% - #{$arrow-border-width});
@@ -292,7 +291,7 @@
 
   &::after {
     display: block;
-    content: "";
+    content: '';
     position: absolute;
     top: $arrow-offset-inner;
     inset-inline-start: calc(50% - #{$arrow-border-width});
@@ -335,7 +334,7 @@
    Wide Pages
    ========================================================================== */
 
-.wide .sidebar__right {
+.wide .sidebar-right {
   margin-bottom: $spacing-md;
 
   @include breakpoint($large) {

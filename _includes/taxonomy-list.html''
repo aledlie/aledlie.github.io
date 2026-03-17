@@ -1,0 +1,32 @@
+{% comment %}
+  Parameterized taxonomy list for categories or tags.
+  Usage: {% include taxonomy-list.html type="categories" %}
+         {% include taxonomy-list.html type="tags" %}
+{% endcomment %}
+
+{% if include.type == "categories" %}
+  {% assign archive_config = site.category_archive %}
+  {% assign items = page.categories %}
+{% elsif include.type == "tags" %}
+  {% assign archive_config = site.tag_archive %}
+  {% assign items = page.tags %}
+{% endif %}
+
+{% case archive_config.type %}
+  {% when "liquid" %}
+    {% assign path_type = "#" %}
+  {% when "jekyll-archives" %}
+    {% assign path_type = nil %}
+{% endcase %}
+
+{% if archive_config.path %}
+  {% assign items_sorted = items | sort_natural %}
+
+  <p class="page-taxonomy">
+    <span itemprop="keywords">
+    {% for item in items_sorted %}
+      <a href="{{ item | slugify | prepend: path_type | prepend: archive_config.path | relative_url }}" class="page-taxonomy-item p-category" rel="tag">{{ item }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
+    {% endfor %}
+    </span>
+  </p>
+{% endif %}

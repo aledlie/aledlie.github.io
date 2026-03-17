@@ -1,0 +1,5 @@
+{% comment %}
+Schema.org partial: Article body (truncated) with word count and reading time
+{% endcomment %}
+"articleBody": {{ page.content | strip_html | truncate: 5000 | jsonify }},
+{% include schema/_reading-time.html %}

@@ -1,0 +1,58 @@
+{% if page.collection == 'reports' or page.schema_type == 'Report' %}
+{% comment %}
+Report Schema - For technical reports, session reports, and documentation
+Conditional include based on collection or page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in report front matter:
+---
+title: "Session Work Report: Feature Implementation"
+date: 2026-01-19
+excerpt: "Summary of work completed during the session"
+schema_type: Report  # Optional if in reports collection
+schema_report_number: "2026-001"
+schema_about: "Claude Code Development"
+schema_genre: "Technical Report"  # or "Session Report", "Analysis", "Documentation"
+---
+
+Alternate types for specific reports:
+- TechArticle: For technical documentation
+- ScholarlyArticle: For research-oriented reports
+- AnalysisNewsArticle: For data analysis reports
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Report",
+  "@id": "{{ page.url | absolute_url }}#report",
+
+  "name": {{ page.title | jsonify }},
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 300 | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Report-specific properties{% endcomment %}
+  {% if page.schema_report_number -%}
+  "reportNumber": {{ page.schema_report_number | jsonify }},
+  {% endif -%}
+
+  {% comment %}Genre/category of report{% endcomment %}
+  {% if page.schema_genre -%}
+  "genre": {{ page.schema_genre | jsonify }},
+  {% elsif page.categories -%}
+  "genre": {{ page.categories | first | jsonify }},
+  {% else -%}
+  "genre": "Technical Report",
+  {% endif -%}
+
+  {% include schema/_about.html %}
+  {% include schema/_article-body.html %}
+  {% include schema/_image.html %}
+  {% include schema/_author-publisher.html %}
+  {% include schema/_dates.html %}
+  {% include schema/_main-entity.html %}
+  {% include schema/_common-metadata.html %}
+  {% include schema/_copyright.html %}
+}
+</script>
+{% endif %}

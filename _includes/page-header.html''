@@ -1,0 +1,10 @@
+{% comment %}
+Page Header Partial - Shared header/hero logic for layouts
+Used by: single.html, archive.html
+Handles: overlay images, regular images, and video headers
+{% endcomment %}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}

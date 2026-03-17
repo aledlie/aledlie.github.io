@@ -1,16 +1,16 @@
-@use "sass:color";
+@use 'sass:color';
 
 /* ==========================================================================
    SEARCH
    ========================================================================== */
 
-.layout--search {
-  .archive__item-teaser {
+.layout-search {
+  .archive-item-teaser {
     margin-bottom: $spacing-xxs;
   }
 }
 
-.search__toggle {
+.search-toggle {
   margin-inline: 1rem;
   height: $nav-toggle-height;
   border: 0;
@@ -46,7 +46,6 @@
     @include breakpoint($x-large) {
       max-width: $max-width;
     }
-
   }
 
   &__form {
@@ -72,22 +71,22 @@
     }
   }
 
-  &.is--visible {
+  &.is-visible {
     display: block;
     visibility: visible;
 
     &::after {
-      content: "";
+      content: '';
       display: block;
     }
   }
 
-  .results__found {
+  .results-found {
     margin-top: $spacing-sm;
     font-size: $type-size-6;
   }
 
-  .archive__item {
+  .archive-item {
     margin-bottom: $spacing-xl-em;
 
     @include breakpoint($large) {
@@ -99,11 +98,11 @@
     }
   }
 
-  .archive__item-title {
+  .archive-item-title {
     margin-top: 0;
   }
 
-  .archive__item-excerpt {
+  .archive-item-excerpt {
     margin-bottom: 0;
   }
 }
@@ -115,13 +114,13 @@
   margin-bottom: $spacing-xl-em;
 }
 
-.archive__item-title .ais-Highlight {
+.archive-item-title .ais-Highlight {
   color: $primary-color;
   font-style: normal;
   text-decoration: underline;
 }
 
-.archive__item-excerpt .ais-Highlight {
+.archive-item-excerpt .ais-Highlight {
   color: $primary-color;
   font-style: normal;
   font-weight: bold;
