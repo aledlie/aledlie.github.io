@@ -281,7 +281,7 @@ All tests passed throughout all 18 commits. No regressions.
 
 ## References
 
-- **Previous Session**: [Session aaf11fa backlog analysis](https://github.com/aledlie/quality-metrics-dashboard/commit/aaf11fa)
+- **Previous Session**: Session aaf11fa backlog analysis (private repo)
 - **v2.29 Changelog**: `docs/changelog/2.29/CHANGELOG.md`
 - **Component Files**: `src/components/{TruncatedList,Stat,FreqBar,MetadataRow,TruncatedIdLink}.tsx`
 - **Hook Factory**: `src/hooks/useApiQuery.ts:1–28`

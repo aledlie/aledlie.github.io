@@ -114,7 +114,7 @@ header:
 | **[Freshfields](https://www.freshfields.com/en-gb/careers/)** | AI & Digital, International Arbitration | London, Frankfurt, Paris | Authors AI arbitration research |
 | **[White & Case](https://www.whitecase.com/careers)** | International Arbitration, Tech | London, Paris, Frankfurt | 2025 AI Arbitration Survey authors |
 | **[Clifford Chance](https://careers.cliffordchance.com/)** | Tech Group, Arbitration | London, Frankfurt | Isabel has prior relationship |
-| **[Hogan Lovells](https://www.hoganlovells.com/en/careers)** | AI & Emerging Tech, Arbitration | London, Munich, Paris | Strong EU regulatory practice |
+| **[Hogan Lovells](https://www.hoganlovells.com/en/global-careers)** | AI & Emerging Tech, Arbitration | London, Munich, Paris | Strong EU regulatory practice |
 | **[Herbert Smith Freehills](https://careers.herbertsmithfreehills.com/)** | Digital Law, Arbitration | London, Frankfurt | AI arbitration commentary |
 | **[Linklaters](https://careers.linklaters.com/)** | Tech & Digital, Disputes | London, Frankfurt | EU AI Act advisory |
 | **[Allen & Overy (A&O Shearman)](https://www.aoshearman.com/careers)** | Tech Transactions, Arbitration | London, Frankfurt | Harvey AI partnership |

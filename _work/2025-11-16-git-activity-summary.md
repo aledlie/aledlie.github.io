@@ -166,7 +166,7 @@ Other           ████   6,981 ( 4.3%)
 **Data Work (3.9%):**
 - Scraping and analytics focus
 - Active in 16 repos
-- Live pipelines: [tcad-scraper](https://alephatx.info), [AnalyticsBot](https://aleph-analytics.app)
+- Live pipelines: [tcad-scraper](https://alephatx.info), AnalyticsBot (site discontinued)
 
 **Visual Assets (6.4%):**
 - Graphics in 14+ repos
@@ -236,7 +236,7 @@ Other           ████   6,981 ( 4.3%)
 
 ### 3. **AnalyticsBot** - 157 commits (15.6%)
 **Focus:** Analytics automation and reporting tooling
-**Website:** [aleph-analytics.app](https://aleph-analytics.app)
+**Website:** aleph-analytics.app (site discontinued)
 
 **Notable Work:**
 - Automated analytics collection
@@ -356,7 +356,7 @@ Legacy                            6 commits ( 0.6%)
 
 **Repositories:**
 - tcad-scraper (193 commits) - [alephatx.info](https://alephatx.info)
-- AnalyticsBot (157 commits) - [aleph-analytics.app](https://aleph-analytics.app)
+- AnalyticsBot (157 commits) - aleph-analytics.app (site discontinued)
 - SingleSiteScraper (53 commits)
 
 **Total:** 403 commits
@@ -633,7 +633,7 @@ Big testing investment on PersonalSite shows:
 ### Very Active Development (50+ commits)
 1. **PersonalSite** (227) - Personal website with Schema.org → [www.aledlie.com](https://www.aledlie.com)
 2. **tcad-scraper** (193) - Property data scraping → [alephatx.info](https://alephatx.info)
-3. **AnalyticsBot** (157) - Analytics automation → [aleph-analytics.app](https://aleph-analytics.app)
+3. **AnalyticsBot** (157) - Analytics automation → aleph-analytics.app (site discontinued)
 4. **IntegrityStudio.ai** (61) - Company website → [www.integritystudio.ai](https://www.integritystudio.ai)
 5. **mcp-server-cloudflare** (58) - *[Newly discovered]* Cloudflare MCP
 6. **SingleSiteScraper** (53) - Web scraping tool

@@ -188,7 +188,7 @@ header:
 ## Project Websites
 
 - [PersonalSite](https://www.aledlie.com)
-- [claude-tool-use](https://alephintegrity.com)
+- claude-tool-use (site discontinued)
 - [john_skelton](https://johnskelton.blog)
 - [schema-org-file-system](https://integritystudio.pro)
 - [tcad-scraper](https://alephatx.info)
