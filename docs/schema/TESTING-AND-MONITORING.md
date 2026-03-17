@@ -485,4 +485,4 @@ console.log('Unresolved refs:', [...allRefs].filter(r => !allIds.has(r)));
 
 ### Internal Documentation
 - Implementation: `docs/schema/IMPLEMENTATION-GUIDE.md`
-- Site Analysis: `docs/schema/SITE-SCHEMA-ANALYSIS.md`
+- Site Analysis: `docs/schema/SITE_SCHEMA_ANALYSIS.md`

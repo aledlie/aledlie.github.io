@@ -15,6 +15,6 @@ fi
 
 CONFIG="$ROOT/repomix.config.json"
 OUTPUT="$ROOT/docs/repomix"
-INPUT="$ROOT/scripts"
+INPUT="$ROOT/scripts/repomix"
 TOKEN_SCRIPT="$INPUT/token-counts.sh"
 export ROOT CONFIG OUTPUT INPUT TOKEN_SCRIPT

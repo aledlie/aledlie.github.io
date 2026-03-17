@@ -50,7 +50,7 @@ See `IMPLEMENTATION-GUIDE.md` for complete front matter templates.
 |----------|---------|-------------|
 | **IMPLEMENTATION-GUIDE.md** | How to implement schemas | Adding/modifying schema markup |
 | **TESTING-AND-MONITORING.md** | Testing and monitoring | Validating changes, checking Search Console |
-| **SITE-SCHEMA-ANALYSIS.md** | Complete site analysis | Understanding current implementation |
+| **SITE_SCHEMA_ANALYSIS.md** | Complete site analysis | Understanding current implementation |
 
 ---
 
@@ -85,7 +85,8 @@ Located in `_includes/`:
 
 **Page-Specific:**
 - `about-page-schema.html` - About/ProfilePage
-- `homepage-enhanced-schema.html` - Homepage
+- `project-schema.html` - Project pages
+- `report-schema.html` - Report pages
 
 ---
 

@@ -32,11 +32,11 @@ npm run lint:scss --fix     # Auto-fix SCSS
 |-----------|----------|-------|
 | Config | `_config.yml` | Site settings, collections, plugins |
 | Layouts | `_layouts/` | 10 templates (home, single, archive, etc.) |
-| Includes | `_includes/` | 74 components (31 schema, 43 UI) |
+| Includes | `_includes/` | 46 components (13 schema, 33 UI) |
 | Styles | `assets/css/main.scss` | Heavily customized theme |
-| Tests | `tests/` | unit/, e2e/, performance/ |
+| Tests | `tests/` | unit/, e2e/, performance/, analytics/, baseline/, visual/, links/ |
 | Utils | `utils/` | analysis/, plotting/, scripts/ |
-| Scripts | `scripts/` | Repomix pipeline, git analysis |
+| Scripts | `scripts/repomix/` | Repomix pipeline, git analysis |
 | Repomix | `docs/repomix/` | 5 artifacts (token-tree, repomix, repo-compressed, git-evolution, git-history) |
 
 ### Collections
@@ -93,4 +93,4 @@ header:
 | [docs/setup/](docs/setup/) | Local setup troubleshooting |
 
 ---
-**Last Updated:** 2026-03-08
+**Last Updated:** 2026-03-17

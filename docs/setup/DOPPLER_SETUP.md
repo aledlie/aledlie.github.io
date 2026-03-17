@@ -15,7 +15,7 @@ This project uses [Doppler](https://www.doppler.com/) to manage secrets and API 
 
 1. **Run the setup script:**
    ```bash
-   ./utils/setup-doppler.sh
+   ./utils/scripts/setup-doppler.sh
    ```
 
    This will:
@@ -224,5 +224,5 @@ For Doppler issues:
 - [Doppler Community Slack](https://www.doppler.com/community)
 
 For project-specific questions:
-- Check existing documentation in `/documentation/`
+- Check existing documentation in `docs/`
 - Review `CLAUDE.md` for project overview

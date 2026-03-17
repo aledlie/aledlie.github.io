@@ -1,6 +1,6 @@
 # Architecture and Data Flow Documentation
 
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-03-17
 **Project:** The Parlor (www.aledlie.com)
 **Purpose:** Comprehensive architectural patterns and data flow documentation
 
@@ -95,7 +95,7 @@ graph TD
     Content --> Work["_work/<br/>8 files"]
 
     Templates --> Layouts["_layouts/<br/>10 layouts"]
-    Templates --> Includes["_includes/<br/>59 components<br/>34 schema files"]
+    Templates --> Includes["_includes/<br/>46 components<br/>13 schema files"]
     Templates --> Data["_data/<br/>3 YAML files"]
 
     Styling --> CSS["assets/css/<br/>main.scss"]
@@ -125,7 +125,7 @@ graph TD
 | Category | Count | Notes |
 |----------|-------|-------|
 | Layouts | 10 | home, single, archive, post-index, collection, etc. |
-| Includes | 59 | 34 schema-related, 25 UI components |
+| Includes | 46 | 13 schema-related, 33 UI components |
 | Posts | 8 | 2017-2026 |
 | Reports | 115+ | Technical case studies, session logs |
 | Unit Tests | 6 | Jest with jsdom |
@@ -144,7 +144,7 @@ graph TD
 | `_sass/` | Theme style overrides |
 | `assets/` | Static files (CSS, JS, images, fonts) |
 | `docs/` | Project documentation |
-| `tests/` | Test suites (unit, e2e, performance) |
+| `tests/` | Test suites (unit, e2e, performance, analytics, baseline, visual, links) |
 | `config/` | Tool configurations |
 | `utils/` | Utility scripts (analysis/, plotting/, scripts/) |
 
@@ -333,8 +333,7 @@ graph LR
 1. **GTM Initialization (in default.html):**
    ```html
    <body>
-     {% include _google_tag_manager_noscript.html %}
-     {% include _google_analytics.html %}
+     {% include _google_tag_manager.html %}
      <!-- Rest of page -->
    </body>
    ```
@@ -568,7 +567,7 @@ home  post-index              └─→ Individual posts and pages
 4. **home.html** (extends archive)
    - Recent posts display
    - Pagination
-   - Calls `documents-collection.html` include
+   - Recent posts with pagination
 
 5. **post-index.html** (extends archive)
    - Posts grouped by year
@@ -621,11 +620,11 @@ defaults:
 ```
 _includes/
 ├── Core Partials
-│   ├── head.html → SEO, meta tags, CSS
+│   ├── _head.html → SEO, meta tags, CSS
 │   ├── masthead.html → Navigation bar
 │   ├── sidebar.html → Author profile, TOC
-│   ├── footer.html → Site footer
-│   └── scripts.html → JavaScript loading
+│   ├── footer/ → Site footer (custom.html)
+│   └── _scripts.html → JavaScript loading
 │
 ├── Schema.org (Structured Data)
 │   ├── unified-knowledge-graph-schema.html (Core entities)
@@ -639,8 +638,7 @@ _includes/
 │
 ├── Analytics
 │   ├── _google_tag_manager.html (GTM container)
-│   ├── _google_tag_manager_noscript.html (No-JS fallback)
-│   └── _google_analytics.html (GA4 tracking)
+│   └── _facebook_pixel.html (Facebook tracking)
 │
 ├── SEO & Metadata
 │   ├── seo.html (Meta tags, OG, Twitter cards, schema orchestration)
@@ -650,7 +648,6 @@ _includes/
     ├── author-profile.html (Sidebar author info)
     ├── page__hero.html (Header image)
     ├── paginator.html (Pagination controls)
-    ├── documents-collection.html (Post list renderer)
     ├── page__meta.html (Post metadata)
     └── post_pagination.html (Previous/Next links)
 ```
@@ -659,15 +656,15 @@ _includes/
 
 ```
 default.html loads:
-    ├── head.html
+    ├── _head.html
     │   └── seo.html
     │       ├── unified-knowledge-graph-schema.html
     │       └── [Conditional page-specific schema]
     ├── masthead.html
-    │   └── navigation.html (renders _data/navigation.yml)
+    │   └── _navigation.html (renders _data/navigation.yml)
     ├── [Layout content (single, archive, etc.)]
-    ├── footer.html
-    └── scripts.html
+    ├── footer/custom.html
+    └── _scripts.html
 
 single.html loads (in addition to default):
     ├── page__hero.html (if header image)
@@ -924,7 +921,7 @@ schema_steps:
 ---
 ```
 
-**Documentation:** See `docs/schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md` for complete guide.
+**Documentation:** See `docs/schema/IMPLEMENTATION-GUIDE.md` for complete guide.
 
 ---
 
@@ -1539,12 +1536,12 @@ Project content here...
 ## Related Documentation
 
 - **Project Instructions:** `/CLAUDE.md` - Main development guide
-- **Schema Guide:** `docs/schema/ENHANCED-SCHEMA-IMPLEMENTATION-GUIDE.md`
+- **Schema Guide:** `docs/schema/IMPLEMENTATION-GUIDE.md`
 - **Setup Guides:** `docs/setup/` - Local development setup
 - **Changelog:** `docs/CHANGELOG.md` - Change history
 
 ---
 
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-03-17
 **For:** The Parlor (www.aledlie.com)
 **Maintainer:** Alyshia Ledlie

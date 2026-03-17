@@ -10,13 +10,13 @@ Optimized repomix artifact pipeline for token efficiency and correctness.
 - Added `**/fontawesome-webfont.svg` to ignore patterns (was consuming 160K tokens)
 - Git diffs/logs confirmed excluded from `repomix.xml` and `repo-compressed.xml`
 
-### Script Fixes (`scripts/`)
+### Script Fixes (`scripts/repomix/`)
 - Removed `--patch` flag from `git-history.sh` (output: 6.4M tokens -> 16K tokens)
 - Fixed `git-evolution` file extension from `.txt` to `.xml` (content is XML)
 - Deleted stale `scripts/repomix-output.xml` artifact
 
 ### Documentation Updates
-- Updated `CLAUDE.md`: corrected include counts (59 -> 74), added scripts/repomix entries
+- Updated `CLAUDE.md`: corrected include counts (59 -> 46), added scripts/repomix entries
 - Updated `README.md`: added `scripts/` and `docs/repomix/` to project structure
 - Updated `docs/README.md`: added `repomix/` and `css-maintainability-fix.md` to directory tree
 

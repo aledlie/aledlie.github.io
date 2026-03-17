@@ -280,8 +280,7 @@ _includes/
 ├── how-to-schema.html                   # HowTo
 ├── about-page-schema.html               # AboutPage/ProfilePage
 ├── breadcrumb-schema.html               # BreadcrumbList
-├── webpage-schema.html                  # Generic WebPage
-└── search-action-schema.html            # SearchAction
+└── webpage-schema.html                  # Generic WebPage
 ```
 
 ### How Schema Selection Works

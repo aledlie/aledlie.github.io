@@ -39,7 +39,7 @@ _sass/           # Theme style overrides
 assets/          # CSS, JS, images
 config/          # Tool configurations
 tests/           # Test suites
-scripts/         # Repomix pipeline, git analysis
+scripts/repomix/ # Repomix pipeline, git analysis
 utils/           # Utility scripts
 docs/            # Documentation
 docs/repomix/    # AI-consumable codebase artifacts

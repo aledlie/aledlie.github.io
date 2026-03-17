@@ -12,7 +12,7 @@
 
 PersonalSite has **comprehensive Schema.org implementation** across the entire website with:
 - **32 unique Schema.org types** implemented
-- **15 schema include files** for different page types
+- **13 schema include files** for different page types
 - **1 unified knowledge graph** with 5 core entities
 - **Bidirectional relationships** using @id references
 - **100% @id validation** (following best practices)
@@ -102,21 +102,21 @@ Unified Graph (5 core entities)
 
 ---
 
-## Schema Include Files (15 Total)
+## Schema Include Files (13 Total)
 
 ### Core/Global Schemas
-1. **unified-knowledge-graph-schema.html** (247 lines)
+1. **unified-knowledge-graph-schema.html**
    - Person, WebSite, Blog, 2 Organizations
    - Main knowledge graph
    - Included on every page
 
-2. **schema.html** (wrapper)
-   - Conditional schema loading
-   - Routes to appropriate schema file
-
-3. **breadcrumb-schema.html**
+2. **breadcrumb-schema.html**
    - BreadcrumbList for navigation
    - Improves SEO hierarchy
+
+3. **webpage-schema.html**
+   - Generic WebPage schema
+   - Fallback for standard pages
 
 ### Content-Specific Schemas
 
@@ -124,56 +124,46 @@ Unified Graph (5 core entities)
    - Generic BlogPosting schema
    - Used for standard blog posts
 
-5. **tech-article-schema.html** (94 lines)
+5. **tech-article-schema.html**
    - TechArticle schema
    - For technical guides/tutorials
    - Properties: dependencies, proficiencyLevel, articleSection
 
-6. **analysis-article-schema.html** (92 lines)
+6. **analysis-article-schema.html**
    - AnalysisNewsArticle schema
    - For data-driven analysis
    - Properties: dateline, backstory, datasets
 
-7. **how-to-schema.html** (136 lines)
+7. **how-to-schema.html**
    - HowTo schema with steps
    - For step-by-step tutorials
    - Properties: steps, tools, supplies, totalTime, estimatedCost
 
-8. **creative-work-schema.html**
-   - CreativeWork schema
-   - Generic creative content
-
 ### Page-Type Schemas
 
-9. **webpage-schema.html**
-   - Generic WebPage schema
-   - Fallback for standard pages
-
-10. **about-page-schema.html**
+8. **about-page-schema.html**
     - AboutPage + ProfilePage schemas
     - For about/bio pages
 
-11. **homepage-enhanced-schema.html**
-    - Enhanced homepage schema
-    - Special homepage features
+9. **project-schema.html**
+    - Project page schema
+    - For portfolio items
 
-12. **projects-page-schema.html**
-    - CollectionPage schema
-    - For project listings
+10. **report-schema.html**
+    - Report page schema
+    - For technical reports
 
-### Utility Schemas
+11. **faq-schema.html**
+    - FAQPage schema
+    - For Q&A content
 
-13. **search-action-schema.html**
-    - SearchAction schema
-    - Site search functionality
+12. **video-schema.html**
+    - VideoObject schema
+    - For video content
 
-14. **organization-schema.html** (legacy)
-    - Old organization schema
-    - Replaced by unified graph
-
-15. **enhanced-person-schema.html** (legacy)
-    - Old person schema
-    - Replaced by unified graph
+13. **software-application-schema.html**
+    - SoftwareApplication schema
+    - For software references
 
 ---
 
@@ -282,8 +272,8 @@ schema_about: "Jekyll Static Site Generator"
 
 **Core (3 files)**:
 - unified-knowledge-graph-schema.html
-- schema.html
 - breadcrumb-schema.html
+- webpage-schema.html
 
 **Blog Content (4 files)**:
 - post-schema.html
@@ -291,19 +281,15 @@ schema_about: "Jekyll Static Site Generator"
 - analysis-article-schema.html
 - how-to-schema.html
 
-**Pages (4 files)**:
-- webpage-schema.html
+**Pages (3 files)**:
 - about-page-schema.html
-- homepage-enhanced-schema.html
-- projects-page-schema.html
+- project-schema.html
+- report-schema.html
 
-**Utilities (2 files)**:
-- search-action-schema.html
-- creative-work-schema.html
-
-**Legacy (2 files)** - Replaced by unified graph:
-- organization-schema.html
-- enhanced-person-schema.html
+**Specialized (3 files)**:
+- faq-schema.html
+- video-schema.html
+- software-application-schema.html
 
 ---
 
@@ -317,7 +303,7 @@ schema_about: "Jekyll Static Site Generator"
 - **Maintainability**: Update each file separately
 
 ### After Knowledge Graph Consolidation
-- **Schema files**: 1 unified graph + 13 content-specific
+- **Schema files**: 1 unified graph + 12 content-specific
 - **Organization definitions**: 2 (both in unified graph with @id)
 - **Person definitions**: 1 (in unified graph, referenced everywhere)
 - **Consistency**: 100% @id format compliance
@@ -388,31 +374,24 @@ Determined by front matter `schema_type` variable.
 
 ## Documentation Files
 
-PersonalSite includes comprehensive documentation:
+PersonalSite includes comprehensive documentation in `docs/schema/`:
 
-1. **SCHEMA-KNOWLEDGE-GRAPH-GUIDE.md** (_includes/)
+1. **IMPLEMENTATION-GUIDE.md**
    - Implementation overview
-   - Entity structure
-   - Relationships diagram
-   - Usage instructions
-
-2. **BLOG-SCHEMA-ENHANCEMENT-SUMMARY.md** (docs/)
-   - Blog schema enhancement details
-   - TechArticle/AnalysisNewsArticle/HowTo implementation
    - Front matter templates
    - Decision tree
+   - Schema type reference
 
-3. **SCHEMA-TESTING-VALIDATION-GUIDE.md** (docs/)
-   - 3-phase testing checklist
+2. **TESTING-AND-MONITORING.md**
+   - Testing checklist
    - Google Rich Results Test procedures
    - Schema.org Validator instructions
-   - Common issues and fixes
+   - Search Console monitoring
 
-4. **Results Documentation** (results/)
-   - SCHEMA-BEFORE-AFTER-COMPARISON.md
-   - ENTITY-GRAPH-COMPLETE-SUMMARY.md
-   - UNIFIED-ENTITY-GRAPH-GUIDE.md
-   - SCHEMA-ID-ENHANCEMENT-SUMMARY.md
+3. **archives/** (historical reference)
+   - blog-enhancement-analysis.md
+   - implementation-complete.md
+   - entity-analysis/ (about, blog, vita)
 
 ---
 
@@ -540,25 +519,15 @@ Only includes on homepage to avoid duplication.
 
 ---
 
-## Files Found (41 Total)
+## Files Found
 
-### Schema Implementation Files (15)
-1-15. Listed in "Schema Include Files" section above
+### Schema Implementation Files (13)
+1-13. Listed in "Schema Include Files" section above
 
-### Documentation Files (8)
-1. SCHEMA-KNOWLEDGE-GRAPH-GUIDE.md (_includes/)
-2. BLOG-SCHEMA-ENHANCEMENT-SUMMARY.md (docs/)
-3. SCHEMA-TESTING-VALIDATION-GUIDE.md (docs/)
-4. SCHEMA-BEFORE-AFTER-COMPARISON.md (results/)
-5. ENTITY-GRAPH-COMPLETE-SUMMARY.md (results/)
-6. UNIFIED-ENTITY-GRAPH-GUIDE.md (results/)
-7. SCHEMA-ID-ENHANCEMENT-SUMMARY.md (results/)
-8. SCHEMA-ORG-ANALYSIS.md (results/)
-
-### Analysis/Report Files (18)
-- Various client schema analysis reports (Leora, Integrity Studio, etc.)
-- README_ENHANCED.md files
-- Implementation examples
+### Documentation Files (3)
+1. IMPLEMENTATION-GUIDE.md (docs/schema/)
+2. TESTING-AND-MONITORING.md (docs/schema/)
+3. SITE_SCHEMA_ANALYSIS.md (docs/schema/) — this file
 
 ---
 
@@ -624,12 +593,12 @@ Only includes on homepage to avoid duplication.
 PersonalSite demonstrates **best-in-class Schema.org implementation** with:
 
 ✅ Unified knowledge graph (5 core entities)
-✅ 32 Schema.org types across 15 schema files
+✅ 32 Schema.org types across 13 schema files
 ✅ Content-specific blog schemas (4 types)
 ✅ 91% file reduction through consolidation
 ✅ 100% @id validation pass rate
 ✅ Bidirectional entity relationships
-✅ Comprehensive documentation (8 guides)
+✅ Comprehensive documentation (3 guides + archives)
 ✅ Production-ready and validated
 
 The implementation follows industry best practices from:
@@ -644,8 +613,7 @@ The implementation follows industry best practices from:
 
 ---
 
-**Analysis Complete**: 2025-11-16
-**Files Analyzed**: 41
+**Analysis Complete**: 2025-11-16 (updated 2026-03-17)
 **Schema Types**: 32
 **@id Validation**: 100% Pass Rate
 **Recommendation**: Use as reference implementation for future projects
