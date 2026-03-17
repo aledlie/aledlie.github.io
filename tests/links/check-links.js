@@ -13,7 +13,16 @@ const CONTENT_DIRS = ['_posts', '_projects', '_reports', '_work', '_pages'];
 const LINK_REGEX = /\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g;
 
 // Skip certain domains that block automated requests
-const SKIP_DOMAINS = [];
+const SKIP_DOMAINS = [
+  'medium.com',
+  'linkedin.com',
+  'dl.acm.org',
+  'onlinelibrary.wiley.com',
+  'papers.ssrn.com',
+  'crunchbase.com',
+  'neptune.ai',
+  'openai.com',
+];
 
 // Request configuration
 const REQUEST_CONFIG = {

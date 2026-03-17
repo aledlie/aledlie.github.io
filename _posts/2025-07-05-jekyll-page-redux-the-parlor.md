@@ -20,7 +20,7 @@ schema_mentions:
 
 Very much a work in progress, started in 2017 and picked up again a few weeks ago.
 
-Hopefully you pop by again for the jokes and absurdity, and, well, stay for the jokes and absurdity. I promise I won't include too [many articles like this one](https://tinyurl.com/2569tvbc).
+Hopefully you pop by again for the jokes and absurdity, and, well, stay for the jokes and absurdity. I promise I won't include too [many articles like this one](https://medium.com/autonomous-agents/multimodal-reasoning-operator-fields-and-non-euclidean-geometry-for-world-models-727d199540c3).
 
 ---
 
