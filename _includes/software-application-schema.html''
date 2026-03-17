@@ -1,0 +1,141 @@
+{% comment %}
+SoftwareApplication Schema - For software projects and applications
+Conditional include based on page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in post/project front matter:
+---
+schema_type: SoftwareApplication
+schema_app_name: "ast-grep-mcp"
+schema_app_category: "DeveloperApplication"
+schema_operating_system: "macOS, Linux, Windows"
+schema_programming_language: "Python"
+schema_app_version: "1.0.0"
+schema_license: "MIT"
+schema_repository: "https://github.com/username/repo"
+schema_download_url: "https://pypi.org/project/ast-grep-mcp/"
+schema_offers:
+  price: "0"
+  priceCurrency: "USD"
+schema_features:
+  - "Structural code search"
+  - "AST-based pattern matching"
+  - "Multi-language support"
+---
+
+Rich Result eligibility: Software App rich results in Google Search
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "{{ page.url | absolute_url }}#softwareapplication",
+
+  "name": {{ page.schema_app_name | default: page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 300 | jsonify }},
+
+  {% comment %}Application category{% endcomment %}
+  {% if page.schema_app_category -%}
+  "applicationCategory": {{ page.schema_app_category | jsonify }},
+  {% endif -%}
+
+  {% comment %}Operating system requirements{% endcomment %}
+  {% if page.schema_operating_system -%}
+  "operatingSystem": {{ page.schema_operating_system | jsonify }},
+  {% endif -%}
+
+  {% comment %}Programming language{% endcomment %}
+  {% if page.schema_programming_language -%}
+  "programmingLanguage": {{ page.schema_programming_language | jsonify }},
+  {% endif -%}
+
+  {% comment %}Version information{% endcomment %}
+  {% if page.schema_app_version -%}
+  "softwareVersion": {{ page.schema_app_version | jsonify }},
+  {% endif -%}
+
+  {% comment %}License{% endcomment %}
+  {% if page.schema_license -%}
+  "license": "https://opensource.org/licenses/{{ page.schema_license }}",
+  {% endif -%}
+
+  {% comment %}Repository URL{% endcomment %}
+  {% if page.schema_repository -%}
+  "codeRepository": {{ page.schema_repository | jsonify }},
+  {% endif -%}
+
+  {% comment %}Download URL{% endcomment %}
+  {% if page.schema_download_url -%}
+  "downloadUrl": {{ page.schema_download_url | jsonify }},
+  {% endif -%}
+
+  {% comment %}Pricing - required for rich results{% endcomment %}
+  {% if page.schema_offers -%}
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ page.schema_offers.price | default: '0' }}",
+    "priceCurrency": "{{ page.schema_offers.priceCurrency | default: 'USD' }}"
+  },
+  {% else -%}
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  {% endif -%}
+
+  {% comment %}Software features{% endcomment %}
+  {% if page.schema_features -%}
+  "featureList": [
+    {% for feature in page.schema_features -%}
+    {{ feature | jsonify }}{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+
+  {% comment %}Software requirements{% endcomment %}
+  {% if page.schema_requirements -%}
+  "softwareRequirements": [
+    {% for req in page.schema_requirements -%}
+    {{ req | jsonify }}{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+
+  {% comment %}Release date{% endcomment %}
+  {% if page.schema_release_date -%}
+  "datePublished": "{{ page.schema_release_date | date_to_xmlschema }}",
+  {% elsif page.date -%}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+
+  {% comment %}Screenshot/image{% endcomment %}
+  {% if page.header.image -%}
+  "screenshot": "{{ page.header.image | absolute_url }}",
+  {% elsif page.image -%}
+  "screenshot": "{{ page.image | absolute_url }}",
+  {% endif -%}
+
+  "url": "{{ page.url | absolute_url }}",
+
+  {% comment %}Author - references knowledge graph{% endcomment %}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "creator": {
+    "@id": "{{ site.url }}#person"
+  },
+  "maintainer": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% comment %}Publisher{% endcomment %}
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+
+  {% include schema/_keywords.html %}
+  {% include schema/_language.html %}
+  {% include schema/_is-part-of.html %}
+}
+</script>

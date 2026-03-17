@@ -1,0 +1,11 @@
+---
+layout: post-index
+title: Blog
+permalink: /posts/
+entries_layout: list
+classes: wide
+author_profile: true
+header:
+  image: /assets/images/cover-posts.png
+  teaser: /assets/images/cover-posts.png
+---

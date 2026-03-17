@@ -1,0 +1,13 @@
+{% comment %}
+Breadcrumb Wrapper - DRY consolidation from single.html and archive.html
+Handles site-level and page-level breadcrumb settings with paginator exclusion
+{% endcomment %}
+{% assign breadcrumbs_enabled = site.breadcrumbs %}
+{% if page.breadcrumbs != null %}
+  {% assign breadcrumbs_enabled = page.breadcrumbs %}
+{% endif %}
+{% if page.url != "/" and breadcrumbs_enabled %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}

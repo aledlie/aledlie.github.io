@@ -1,10 +1,8 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
+// Only the main Sass file needs front matter (the dashes are enough)
 
 @charset "utf-8";
-@import "variables";
-@import "minimal-mistakes";
+@import 'variables';
+@import 'minimal-mistakes';
 
 /* Clean, minimal styling inspired by reference design */
 
@@ -45,8 +43,8 @@ body {
 
 /* HEADER BANNER - Red academic banner like target site */
 .masthead {
-  border-bottom: .5px solid $border-light;
-  padding: $spacing-lg 0 1.25em;  /* Balanced from 2em 0 1em */
+  border-bottom: 0.5px solid $border-light;
+  padding: $spacing-lg 0 1.25em; /* Balanced from 2em 0 1em */
 }
 
 .greedy-nav {
@@ -61,13 +59,13 @@ body {
   .site-title {
     width: 16.6666666667%;
     margin-right: $grid-col-width;
-    margin-left: 6%;  /* Increased from $grid-col-width to center better */
+    margin-left: 6%; /* Increased from $grid-col-width to center better */
     text-align: center;
   }
 
   a {
     color: $text-color;
-    letter-spacing: 0.05em;  /* Spacing for uppercase */
+    letter-spacing: 0.05em; /* Spacing for uppercase */
     transition: $link-transition;
 
     &:hover {
@@ -123,7 +121,7 @@ html body #main {
 /* SIDEBAR - Academic profile layout matching target */
 /* Use body .sidebar prefix for specificity (0,1,1) to beat theme's (0,1,0) */
 body .sidebar {
-  padding: 0.75em 1em 1em;  /* Reduced from 2em for tighter composition */
+  padding: 0.75em 1em 1em; /* Reduced from 2em for tighter composition */
 
   // Only apply flex centering on mobile - don't interfere with desktop float layout
   @media (max-width: $large - 0.0625em) {
@@ -136,14 +134,14 @@ body .sidebar {
   // Add left padding to center author profile in sidebar space
   @media (min-width: $large) {
     clear: none;
-    padding-left: $spacing-lg;  /* Push content toward center of sidebar area */
+    padding-left: $spacing-lg; /* Push content toward center of sidebar area */
   }
 
   text-align: center;
 
   // Override theme's table-cell display for proper centering
-  // Specificity: body .sidebar .author__content (0,3,1) beats theme's .author__content (0,1,0)
-  .author__content {
+  // Specificity: body .sidebar .author-content (0,3,1) beats theme's .author-content (0,1,0)
+  .author-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,14 +150,14 @@ body .sidebar {
   }
 
   // Fix avatar centering - override theme's table-cell display
-  .author__avatar {
+  .author-avatar {
     display: block;
     margin: 0 auto $spacing-md;
   }
 
-  .author__name,
-  .author__bio,
-  .author__urls-wrapper {
+  .author-name,
+  .author-bio,
+  .author-urls-wrapper {
     text-align: center;
   }
 
@@ -168,62 +166,62 @@ body .sidebar {
     height: $avatar-size-lg;
     border-radius: $border-radius-circle;
     object-fit: cover;
-    margin-bottom: $spacing-md;  /* Explicit spacing below avatar */
+    margin-bottom: $spacing-md; /* Explicit spacing below avatar */
   }
 
   .author-name {
-    font-size: 1.75em;  /* Reduced from 2em for refined hierarchy */
-    font-weight: $font-weight-semibold;   /* Reduced from bold (700) to semibold */
+    font-size: 1.75em; /* Reduced from 2em for refined hierarchy */
+    font-weight: $font-weight-semibold; /* Reduced from bold (700) to semibold */
     font-family: $heading-font;
-    letter-spacing: 0.02em;  /* Added for elegance */
+    letter-spacing: 0.02em; /* Added for elegance */
     margin-bottom: 0;
   }
 
   .author-bio {
     font-style: italic;
-    color: $wcag-text-dark;  /* WCAG AA contrast (7.0:1 on white) */
-    font-size: 1em;  /* Reduced from 1.1em for better hierarchy */
-    line-height: $line-height-tight;  /* Increased from 1.4 for readability */
-    margin-top: 0.75em;  /* Explicit top margin */
-    margin-bottom: $spacing-lg;  /* Explicit bottom margin */
+    color: $wcag-text-dark; /* WCAG AA contrast (7.0:1 on white) */
+    font-size: 1em; /* Reduced from 1.1em for better hierarchy */
+    line-height: $line-height-tight; /* Increased from 1.4 for readability */
+    margin-top: 0.75em; /* Explicit top margin */
+    margin-bottom: $spacing-lg; /* Explicit bottom margin */
   }
 
-  .author__urls-wrapper,
+  .author-urls-wrapper,
   .author-urls-wrapper {
-    margin-top: $spacing-xl-em;  /* Clear separation from bio */
+    margin-top: $spacing-xl-em; /* Clear separation from bio */
     margin-bottom: $spacing-lg;
     padding-top: $spacing-md;
-    border-top: 1px solid $border-subtle;  /* Subtle visual divider */
+    border-top: 1px solid $border-subtle; /* Subtle visual divider */
     width: 100%;
-    text-align: center;  /* Center the Follow button */
-    overflow: visible;  /* Fix truncation */
+    text-align: center; /* Center the Follow button */
+    overflow: visible; /* Fix truncation */
 
     > button,
     > button.btn {
-      display: inline-block;  /* Override theme's block display */
+      display: inline-block; /* Override theme's block display */
       margin-bottom: $spacing-md;
     }
   }
 
   .author-urls,
-  .author__urls {
+  .author-urls {
     margin-top: 0;
     text-align: center;
-    overflow: visible;  /* Fix truncation */
+    overflow: visible; /* Fix truncation */
 
     li {
       display: block;
-      margin-bottom: 0.75em;  /* Increased from 0.5em */
-      @include text-wrap-normal;  /* Fix truncation with mixin */
+      margin-bottom: 0.75em; /* Increased from 0.5em */
+      @include text-wrap-normal; /* Fix truncation with mixin */
 
       &:last-child {
         margin-bottom: 0;
       }
 
       // Location styling
-      &[itemprop="homeLocation"] {
+      &[itemprop='homeLocation'] {
         font-size: $font-size-medium;
-        color: $wcag-text-muted;  // WCAG AA compliant (6.42:1 contrast ratio)
+        color: $wcag-text-muted; // WCAG AA compliant (6.42:1 contrast ratio)
         margin-bottom: $spacing-lg;
         display: block;
         text-align: center;
@@ -237,21 +235,21 @@ body .sidebar {
       }
     }
 
-    // Link styling with specificity - body .sidebar .author__urls li a (0,4,1)
+    // Link styling with specificity - body .sidebar .author-urls li a (0,4,1)
     li a {
-      font-size: $font-size-large;  /* Slightly smaller links */
+      font-size: $font-size-large; /* Slightly smaller links */
       color: $link-primary;
       text-decoration: none;
-      padding: 0.4em 0.6em;  /* Increased padding */
+      padding: 0.4em 0.6em; /* Increased padding */
       border-radius: $border-radius-small;
       transition: $hover-transition;
-      display: inline-block;  /* Allow padding to work properly */
+      display: inline-block; /* Allow padding to work properly */
       @include text-wrap-normal;
 
       &:hover {
         color: $white;
         background: $academic-red;
-        transform: translateX(2px);  /* Subtle hover effect */
+        transform: translateX(2px); /* Subtle hover effect */
       }
     }
   }
@@ -259,7 +257,7 @@ body .sidebar {
   .btn {
     background: $bg-light;
     @include border-medium;
-    color: $wcag-text-dark;  /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
+    color: $wcag-text-dark; /* WCAG AA contrast (6.3:1 on #f8f9fa background) */
     font-size: $font-size-large;
     padding: 0.6em $spacing-md;
     display: block;
@@ -273,7 +271,7 @@ body .sidebar {
 }
 
 /* CONTENT HEADINGS - Enhanced for long-form reading */
-.page__content {
+.page-content {
   font-family: $base-font;
   font-size: 16px;
   line-height: $line-height-base;
@@ -298,7 +296,7 @@ body .sidebar {
   }
 
   a {
-    color: $link-hover;  /* #06c - WCAG AA compliant (5.9:1 contrast on white) */
+    color: $link-hover; /* #06c - WCAG AA compliant (5.9:1 contrast on white) */
     text-decoration: none;
     border-bottom: 1px dotted $link-hover;
 
@@ -359,14 +357,30 @@ body figure.highlight {
 /* These target specific tokens that need different colors than base16 provides */
 body .highlight {
   // Generic classes not covered by base16
-  .gr { color: $syntax-error; }        /* Generic.Error */
-  .gh { color: $syntax-header; }       /* Generic.Heading */
-  .gi { color: $syntax-inserted; }     /* Generic.Inserted */
-  .go { color: $syntax-output; }       /* Generic.Output */
-  .gp { color: $syntax-prompt; }       /* Generic.Prompt */
-  .gu { color: $syntax-deleted; }      /* Generic.Subheading */
-  .gt { color: $syntax-traceback; }    /* Generic.Traceback */
-  .w { color: $syntax-whitespace; }    /* Text.Whitespace */
+  .gr {
+    color: $syntax-error;
+  } /* Generic.Error */
+  .gh {
+    color: $syntax-header;
+  } /* Generic.Heading */
+  .gi {
+    color: $syntax-inserted;
+  } /* Generic.Inserted */
+  .go {
+    color: $syntax-output;
+  } /* Generic.Output */
+  .gp {
+    color: $syntax-prompt;
+  } /* Generic.Prompt */
+  .gu {
+    color: $syntax-deleted;
+  } /* Generic.Subheading */
+  .gt {
+    color: $syntax-traceback;
+  } /* Generic.Traceback */
+  .w {
+    color: $syntax-whitespace;
+  } /* Text.Whitespace */
 }
 
 /* INLINE CODE - Compact, subtle styling */
@@ -440,9 +454,15 @@ table {
 }
 
 /* STATUS INDICATORS */
-.status-pass { @include status-indicator("✓ ", $status-pass); }
-.status-fail { @include status-indicator("✗ ", $status-fail); }
-.status-warning { @include status-indicator("⚠ ", $status-warning); }
+.status-pass {
+  @include status-indicator('✓ ', $status-pass);
+}
+.status-fail {
+  @include status-indicator('✗ ', $status-fail);
+}
+.status-warning {
+  @include status-indicator('⚠ ', $status-warning);
+}
 
 /* INFO BOXES - using notice-box mixin from variables.scss */
 .notice-info {
@@ -456,23 +476,22 @@ table {
 
 /* ARCHIVE AND PAGE LAYOUT FIXES */
 /* Use body prefix for specificity */
-body .page__inner-wrap,
+body .page-inner-wrap,
 body .archive {
-  margin-top: 0;  /* Remove excessive top spacing */
+  margin-top: 0; /* Remove excessive top spacing */
 }
 
 /* ARCHIVE LISTINGS - Academic post list matching target */
 /* Use double-class specificity for archive links */
-body .archive .list__item,
-body .archive .archive__item,
-body .list__item,
-body .archive__item {
-
+body .archive .list-item,
+body .archive .archive-item,
+body .list-item,
+body .archive-item {
   &:last-child {
     border-bottom: none;
   }
 
-  .archive__item-title {
+  .archive-item-title {
     font-size: $font-size-heading-2;
     font-weight: $font-weight-bold;
     margin-bottom: $spacing-sm-rem;
@@ -491,7 +510,7 @@ body .archive__item {
     }
   }
 
-  .archive__item-excerpt {
+  .archive-item-excerpt {
     color: $gray-darker;
     font-size: 1em;
     line-height: $line-height-relaxed;
@@ -499,7 +518,7 @@ body .archive__item {
     font-style: italic;
   }
 
-  .archive__item-date {
+  .archive-item-date {
     display: block;
     color: $gray-lighter;
     font-size: $font-size-medium;
@@ -509,7 +528,7 @@ body .archive__item {
 }
 
 /* Recent Posts heading styling */
-.page__content h2 {
+.page-content h2 {
   color: $academic-red;
   font-family: $heading-font;
   font-size: 1.8em;
@@ -546,7 +565,7 @@ body .card .grid {
 /* GLOBAL LINK OVERRIDES - Clean black text */
 /* Use html body a for specificity (0,0,3) to beat theme's a (0,0,1) */
 html body a {
-  color: $text-color;  /* WCAG AA contrast (7.7:1 on white) */
+  color: $text-color; /* WCAG AA contrast (7.7:1 on white) */
   text-decoration: none;
 
   &:hover {
@@ -599,7 +618,7 @@ html body .greedy-nav .site-title {
     }
   }
 
-  .page__content {
+  .page-content {
     padding: 0 0.25rem;
   }
 }
@@ -631,11 +650,11 @@ html body .greedy-nav .site-title {
     font-size: 1.8em;
   }
 
-  .archive .list__item .archive__item-title {
+  .archive .list-item .archive-item-title {
     font-size: 1.2em;
   }
 
-  .page__content {
+  .page-content {
     font-size: $font-size-mobile;
     line-height: $line-height-relaxed;
     padding: $spacing-md;
@@ -652,6 +671,6 @@ html body .greedy-nav .site-title {
 
 /* Breadcrumb separator fix for accessibility */
 .breadcrumbs li:not(:last-child)::after {
-  content: " / ";
+  content: ' / ';
   padding: 0 0.25em;
 }

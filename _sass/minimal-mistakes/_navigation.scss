@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 /* ==========================================================================
    NAVIGATION
@@ -119,7 +119,7 @@
   }
 
   /* next/previous buttons */
-  &--pager {
+  &-pager {
     display: block;
     padding: $spacing-md $spacing-xl-em;
     float: inline-start;
@@ -156,10 +156,10 @@
   }
 }
 
-.page__content + .pagination,
-.page__meta + .pagination,
-.page__share + .pagination,
-.page__comments + .pagination {
+.page-content + .pagination,
+.page-meta + .pagination,
+.page-share + .pagination,
+.page-comments + .pagination {
   margin-top: $spacing-xl-em;
   padding-top: $spacing-xl-em;
   border-top: $border-width-standard solid $border-color;
@@ -234,7 +234,7 @@
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         inset-inline-start: 0;
         bottom: 0;
@@ -278,7 +278,7 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: $arrow-offset-top;
       inset-inline-end: $spacing-xs-px;
@@ -291,7 +291,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: $arrow-offset-inner;
       inset-inline-end: $spacing-xs-px;
@@ -327,10 +327,10 @@
      Navigation list
      ========================================================================== */
 
-.nav__list {
+.nav-list {
   margin-bottom: $spacing-lg;
 
-  input[type="checkbox"],
+  input[type='checkbox'],
   label {
     display: none;
   }
@@ -351,7 +351,7 @@
 
       &::before,
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         inset-inline-end: $spacing-md;
         top: $toc-indent-1;
@@ -418,7 +418,7 @@
   }
 }
 
-.nav__list .nav__items {
+.nav-list .nav-items {
   margin: 0;
   font-size: $font-size-nav-items;
 
@@ -444,7 +444,7 @@
 }
 
 @include breakpoint(max-width $large-max) {
-  .nav__list input:checked ~ .nav__items {
+  .nav-list input:checked ~ .nav-items {
     transition: $transition-slow;
     max-height: $max-height-collapse; /* exaggerate max-height to accommodate tall lists */
     overflow: visible;
@@ -454,7 +454,7 @@
   }
 }
 
-.nav__title {
+.nav-title {
   margin: 0;
   padding: $spacing-sm-rem $spacing-md-rem;
   font-family: $sans-serif-narrow;
@@ -462,7 +462,7 @@
   font-weight: bold;
 }
 
-.nav__sub-title {
+.nav-sub-title {
   display: block;
   margin: $spacing-sm-rem 0;
   padding: $spacing-xs 0;
@@ -485,7 +485,7 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
-  .nav__title {
+  .nav-title {
     color: $white;
     font-size: $type-size-6;
     background: $primary-color;
@@ -499,7 +499,7 @@
   }
 }
 
-.toc__menu {
+.toc-menu {
   margin: 0;
   padding: 0;
   width: 100%;

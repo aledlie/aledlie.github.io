@@ -1,0 +1,14 @@
+<!-- start custom head snippets -->
+{% if page.comments %}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+{% endif %}
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+{% include _google_tag_manager.html %}
+{% include _facebook_pixel.html %}
+
+<!-- end custom head snippets -->

@@ -1,0 +1,684 @@
+{% comment %}
+Unified Knowledge Graph Schema
+This replaces multiple separate schema files with a single, comprehensive knowledge graph
+All entities use proper @id references following best practices from:
+https://momenticmarketing.com/blog/id-schema-for-seo-llms-knowledge-graphs
+
+Benefits:
+- Consistent entity identification across all pages
+- Bidirectional relationships using @id references
+- Scalable: add new entities without modifying existing ones
+- SEO: Search engines understand entity relationships
+- Knowledge Graphs: Build queryable knowledge base over time
+
+Generated using ast-grep-mcp server's build_entity_graph tool
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}#person",
+      "name": "{{ site.author.name }}",
+      "alternateName": ["{{ site.social.name | default: site.author.name }}", "Alyshia"],
+      "url": "{{ site.url }}/",
+      {% if site.author.avatar -%}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.author.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      {% endif -%}
+      {% if site.author.bio -%}
+      "description": "{{ site.author.bio }}",
+      {% endif -%}
+      {% if site.author.email -%}
+      "email": "{{ site.author.email }}",
+      {% endif -%}
+      {% if site.author.location -%}
+      "homeLocation": {
+        "@type": "Place",
+        "name": "{{ site.author.location | split: ' | ' | first | default: site.author.location }}"
+      },
+      {% endif -%}
+      "jobTitle": ["Software Developer", "Technology Consultant", "Writer"],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Software Developer",
+          "occupationCategory": "Computer and Mathematical Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technology Consultant",
+          "occupationCategory": "Management Occupations"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Technical Writer",
+          "occupationCategory": "Arts, Design, Entertainment, Sports, and Media Occupations"
+        }
+      ],
+      "worksFor": [
+        {
+          "@id": "https://integritystudio.ai/#organization"
+        },
+        {
+          "@id": "{{ site.url }}/organizations/inventoryai#organization"
+        }
+      ],
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technology Consulting",
+        "Business Automation",
+        "Technical Writing",
+        "Open Source Software"
+      ],
+      "sameAs": [
+        {% if site.author.links -%}
+        {% for link in site.author.links -%}
+          {% if link.url -%}
+            "{{ link.url }}",
+          {% endif -%}
+        {% endfor -%}
+        {% endif -%}
+        "https://calendly.com/alyshialedlie"
+      ],
+      "owns": {
+        "@id": "{{ site.url }}#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "{{ site.url }}/about#profilepage"
+      },
+      "givenName": "Alyshia",
+      "familyName": "Ledlie",
+      "nationality": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        }
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Texas at Austin",
+          "sameAs": "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Cornell University",
+          "sameAs": "https://en.wikipedia.org/wiki/Cornell_University"
+        }
+      ],
+      "skills": [
+        "Python", "TypeScript", "JavaScript", "Machine Learning",
+        "Natural Language Processing", "Cloud Architecture", "DevOps",
+        "Technical Writing", "API Design", "Data Engineering"
+      ],
+      "publishingPrinciples": "{{ site.url }}/about/",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "professional",
+        {% if site.author.email -%}
+        "email": "{{ site.author.email }}",
+        {% endif -%}
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "alternateName": "{{ site.author.name }}'s Personal Blog",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "{{ site.url }}#person"
+      },
+      "author": {
+        "@id": "{{ site.url }}#person"
+      },
+      "copyrightHolder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "copyrightYear": "{{ site.time | date: '%Y' }}",
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "mainEntity": {
+        "@id": "{{ site.url }}#person"
+      },
+      "hasPart": [
+        {
+          "@id": "{{ site.url }}#blog"
+        },
+        {
+          "@id": "{{ site.url }}/about#profilepage"
+        },
+        {
+          "@id": "{{ site.url }}/projects#collectionpage"
+        }{% assign faq_posts = site.posts | where_exp: "p", "p.schema_faq" %}{% if faq_posts.size > 0 %},
+        {% for post in faq_posts -%}
+        {
+          "@id": "{{ post.url | absolute_url }}#faqpage"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor -%}{% endif %}
+      ],
+      "about": [
+        "Software Development",
+        "Technology Consulting",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing",
+        "Business Automation"
+      ],
+      "keywords": "software development, technology, machine learning, AI, consulting, technical writing, automation",
+      "dateCreated": "2023-01-01",
+      "datePublished": "2023-01-01",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Developers, technologists, and organizations exploring AI adoption"
+      },
+      "genre": ["Technology", "Software Development", "Artificial Intelligence"],
+      "schemaVersion": "https://schema.org/version/29.0/",
+      "isFamilyFriendly": true,
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ site.url }}/search/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
+        {
+          "@type": "ReadAction",
+          "target": "{{ site.url }}/posts/",
+          "name": "Read Blog Posts"
+        },
+        {
+          "@type": "ViewAction",
+          "target": "{{ site.url }}/projects/",
+          "name": "View Projects"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "{{ site.url }}#blog",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }} - Blog",
+      "description": "{{ site.description }}",
+      "inLanguage": "{{ site.locale | default: 'en-US' }}",
+      "author": {
+        "@id": "{{ site.url }}#person"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "about": [
+        "Software Development",
+        "Technology",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Technical Writing"
+      ],
+      "dateCreated": "2023-01-01",
+      "genre": ["Technology", "Software Engineering", "AI"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Software developers, tech enthusiasts, and AI practitioners"
+      },
+      "keywords": "software development, web development, machine learning, artificial intelligence, technical writing, open source",
+      "isFamilyFriendly": true,
+      "isAccessibleForFree": true{% if page.url == '/' %},
+      "blogPost": [
+        {% for post in site.posts limit: 10 -%}
+        {
+          "@type": "BlogPosting",
+          "@id": "{{ post.url | absolute_url }}#blogposting",
+          "headline": "{{ post.title }}",
+          "datePublished": "{{ post.date | date_to_xmlschema }}",
+          "author": {
+            "@id": "{{ site.url }}#person"
+          },
+          "publisher": {
+            "@id": "{{ site.url }}#person"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor -%}
+      ]{% endif %}
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "{{ site.url }}/about#profilepage",
+      "url": "{{ site.url }}/about/",
+      "name": "About {{ site.author.name }}",
+      "description": "Learn more about {{ site.author.name }} - software developer, technology consultant, and technical writer.",
+      "mainEntity": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "lastReviewed": "{{ site.time | date: '%Y-%m-%d' }}",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".page__title", ".page__content p:first-of-type"]
+      },
+      {% if site.author.avatar -%}
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "{{ site.author.avatar | absolute_url }}"
+      },
+      {% endif -%}
+      "significantLink": [
+        "https://integritystudio.ai/",
+        "https://www.inventoryai.io/",
+        "https://github.com/aledlie"
+      ],
+      "reviewedBy": {
+        "@id": "{{ site.url }}#person"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "{{ site.url }}/about/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ site.url }}/projects#collectionpage",
+      "url": "{{ site.url }}/projects/",
+      "name": "Projects - {{ site.author.name }}",
+      "description": "Portfolio of software development projects, open source contributions, and technical work by {{ site.author.name }}.",
+      "about": {
+        "@id": "{{ site.url }}#person"
+      },
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Project Portfolio",
+        "description": "Collection of software and technology projects"
+      },
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "lastReviewed": "{{ site.time | date: '%Y-%m-%d' }}",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".page__title", ".page__content p:first-of-type"]
+      },
+      {% if site.og_image -%}
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "{{ site.og_image | absolute_url }}"
+      },
+      {% endif -%}
+      "significantLink": [
+        "https://github.com/aledlie"
+      ],
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "{{ site.url }}/projects/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://integritystudio.ai/#organization",
+      "name": "Integrity Studio",
+      "alternateName": "The Integrity Studio",
+      "url": "https://integritystudio.ai/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://integritystudio.ai/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "AI consultancy specializing in helping nonprofit organizations leverage artificial intelligence and automation to increase funding, reduce operational costs, and amplify their mission impact.",
+      "email": "hello@integritystudio.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "248 Addie Roy Rd",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78746",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "foundingDate": "2024",
+      "slogan": "Empowering Nonprofits Through AI-Aware Compliance",
+      "founder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "employee": {
+        "@id": "{{ site.url }}#person"
+      },
+      "legalName": "Integrity Studio LLC",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Austin, TX",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        }
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 10
+      },
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        }
+      ],
+      "industry": "AI Consulting",
+      "keywords": "AI consulting, nonprofit technology, compliance automation, digital transformation, grant optimization",
+      "knowsAbout": ["Artificial Intelligence", "Nonprofit Technology", "Automation", "Digital Transformation", "Compliance"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Readiness Assessment",
+            "description": "Evaluate organizational readiness for AI adoption with compliance-focused recommendations.",
+            "provider": {
+              "@id": "https://integritystudio.ai/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI-Aware Compliance Consulting",
+            "description": "Align AI adoption with regulatory and grant compliance requirements for nonprofits.",
+            "provider": {
+              "@id": "https://integritystudio.ai/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business Process Automation",
+            "description": "Automate repetitive workflows to reduce operational costs and increase mission impact.",
+            "provider": {
+              "@id": "https://integritystudio.ai/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Fundraising Technology Solutions",
+            "description": "Leverage AI to optimize donor engagement, grant writing, and fundraising campaigns.",
+            "provider": {
+              "@id": "https://integritystudio.ai/#organization"
+            }
+          }
+        }
+      ],
+      "sameAs": [
+        "https://www.integritystudio.dev/",
+        "https://calendly.com/integritystudio",
+        "https://github.com/integritystudio"
+      ],
+      "telephone": "+1-512-829-1644",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+1-512-829-1644",
+        "email": "hello@integritystudio.ai",
+        "areaServed": "US",
+        "availableLanguage": ["English"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Consulting Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "AI Strategy & Implementation",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Readiness Assessment",
+                  "description": "Evaluate organizational readiness for AI adoption with compliance-focused recommendations."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI-Aware Compliance Consulting",
+                  "description": "Align AI adoption with regulatory and grant compliance requirements for nonprofits."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Automation & Digital Transformation",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Business Process Automation",
+                  "description": "Automate repetitive workflows to reduce operational costs and increase mission impact."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Fundraising Technology Solutions",
+                  "description": "Leverage AI to optimize donor engagement, grant writing, and fundraising campaigns."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/organizations/inventoryai#organization",
+      "name": "InventoryAI.io",
+      "alternateName": ["InventoryAI", "Inventory AI"],
+      "url": "https://www.inventoryai.io/",
+      "sameAs": "https://www.inventoryai.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.inventoryai.io/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "AI-powered inventory management solutions",
+      "slogan": "Intelligent Inventory, Simplified",
+      "email": "alyshia@inventoryai.io",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5900 Balcones Drive STE 100",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78731",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "foundingDate": "2023",
+      "founder": {
+        "@id": "{{ site.url }}#person"
+      },
+      "employee": {
+        "@id": "{{ site.url }}#person"
+      },
+      "legalName": "InventoryAI LLC",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Austin, TX",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        }
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 10
+      },
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        }
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "InventoryAI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.inventoryai.io/logo.png"
+        }
+      },
+      "industry": "Artificial Intelligence",
+      "applicationCategory": "Business Software",
+      "keywords": "inventory management, AI inventory, demand forecasting, supply chain optimization, stock management",
+      "knowsAbout": ["Artificial Intelligence", "Inventory Management", "Machine Learning", "Business Automation", "Supply Chain"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI-Powered Inventory Tracking",
+            "description": "Real-time inventory monitoring with machine learning for demand forecasting and stock optimization.",
+            "provider": {
+              "@id": "{{ site.url }}/organizations/inventoryai#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Supply Chain Analytics",
+            "description": "Data-driven supply chain insights with automated reorder recommendations and vendor performance analysis.",
+            "provider": {
+              "@id": "{{ site.url }}/organizations/inventoryai#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Inventory Automation Platform",
+            "description": "End-to-end inventory automation integrating with existing business systems to reduce manual overhead.",
+            "provider": {
+              "@id": "{{ site.url }}/organizations/inventoryai#organization"
+            }
+          }
+        }
+      ],
+      "telephone": "+1-512-897-7284",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+1-512-897-7284",
+        "email": "alyshia@inventoryai.io",
+        "areaServed": "US",
+        "availableLanguage": ["English"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Inventory Management Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI-Powered Inventory Tracking",
+              "description": "Real-time inventory monitoring with machine learning for demand forecasting and stock optimization."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Supply Chain Analytics",
+              "description": "Data-driven supply chain insights with automated reorder recommendations and vendor performance analysis."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inventory Automation Platform",
+              "description": "End-to-end inventory automation integrating with existing business systems to reduce manual overhead."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>

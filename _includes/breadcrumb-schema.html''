@@ -1,0 +1,34 @@
+{% if page.url != '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}/"
+    }
+    {% if page.categories %}
+      {% for category in page.categories %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ forloop.index | plus: 1 }},
+          "name": "{{ category | capitalize }}",
+          "item": "{{ site.url }}/categories/#{{ category | slugify }}"
+        }
+      {% endfor %}
+    {% endif %}
+    {% if page.title %}
+      ,{
+        "@type": "ListItem",
+        "position": {% if page.categories %}{{ page.categories.size | plus: 2 }}{% else %}2{% endif %},
+        "name": "{{ page.title }}",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    {% endif %}
+  ]
+}
+</script>
+{% endif %}

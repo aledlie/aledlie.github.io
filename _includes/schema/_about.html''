@@ -1,0 +1,19 @@
+{% comment %}
+Schema.org partial: About/subject matter
+Supports both single value and array format based on include.as_array parameter
+{% endcomment %}
+{% if page.schema_about -%}
+{% if include.as_array -%}
+"about": [
+  {
+    "@type": "Thing",
+    "name": {{ page.schema_about | jsonify }}
+  }
+],
+{% else -%}
+"about": {
+  "@type": "Thing",
+  "name": {{ page.schema_about | jsonify }}
+},
+{% endif -%}
+{% endif -%}

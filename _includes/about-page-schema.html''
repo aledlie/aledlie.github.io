@@ -1,0 +1,126 @@
+{% if page.layout == "single" and (page.url contains "/about" or page.url contains "/about_me" or page.url contains "/vita" or page.url contains "/homage") %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ page.url | absolute_url }}#aboutpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | default: 'About' }}",
+  "description": "{{ page.excerpt | default: page.description | default: 'About page for ' | append: site.author.name | strip_html | truncate: 160 }}",
+  "mainEntity": {
+    "@id": "{{ site.url }}#person"
+  },
+  {% comment %}Page-specific Person extensions (alumniOf, knowsAbout) - adds to unified graph{% endcomment %}
+  {% if page.schema_alumni_of or page.schema_knows_about -%}
+  "about": {
+    "@type": "Person",
+    "@id": "{{ site.url }}#person"
+    {% if page.schema_alumni_of -%}
+    ,"alumniOf": [
+      {% for school in page.schema_alumni_of -%}
+      {
+        "@type": "{{ school.type | default: 'CollegeOrUniversity' }}",
+        "name": {{ school.name | jsonify }}
+        {% if school.url -%}
+        ,"url": {{ school.url | jsonify }}
+        {% endif -%}
+        {% if school.sameAs -%}
+        ,"sameAs": {{ school.sameAs | jsonify }}
+        {% endif -%}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor -%}
+    ]
+    {% endif -%}
+    {% if page.schema_knows_about -%}
+    ,"knowsAbout": [
+      {% for topic in page.schema_knows_about -%}
+      {{ topic | jsonify }}{% unless forloop.last %},{% endunless %}
+      {% endfor -%}
+    ]
+    {% endif -%}
+  },
+  {% endif -%}
+  {% comment %}Mentions - influential people and thought leaders referenced
+       @id generation follows Schema.org best practices:
+       1. If entity has its own URL: url#type (e.g., https://neilgaiman.com#person)
+       2. If entity has sameAs (Wikipedia): use sameAs as stable identifier
+       3. Fallback: site.url/entities/name-slug#type
+  {% endcomment %}
+  {% if page.schema_mentions -%}
+  "mentions": [
+    {% for mention in page.schema_mentions -%}
+    {% assign mention_type_lower = mention.type | default: 'Person' | downcase %}
+    {% assign mention_name_slug = mention.name | slugify %}
+    {
+      "@type": "{{ mention.type | default: 'Person' }}",
+      {% comment %}Generate @id: prefer url#type, then sameAs, then site-based fallback{% endcomment %}
+      {% if mention.url -%}
+      "@id": "{{ mention.url | split: '/' | slice: 0, 3 | join: '/' }}#{{ mention_type_lower }}",
+      {% elsif mention.sameAs -%}
+      "@id": {{ mention.sameAs | jsonify }},
+      {% else -%}
+      "@id": "{{ site.url }}/entities/{{ mention_name_slug }}#{{ mention_type_lower }}",
+      {% endif -%}
+      "name": {{ mention.name | jsonify }}
+      {% if mention.url -%}
+      ,"url": {{ mention.url | jsonify }}
+      {% endif -%}
+      {% if mention.sameAs -%}
+      ,"sameAs": {{ mention.sameAs | jsonify }}
+      {% endif -%}
+      {% if mention.affiliation -%}
+      ,"affiliation": {
+        "@type": "Organization",
+        "name": {{ mention.affiliation | jsonify }}
+      }
+      {% endif -%}
+      {% if mention.jobTitle -%}
+      ,"jobTitle": {{ mention.jobTitle | jsonify }}
+      {% endif -%}
+      {% if mention.description -%}
+      ,"description": {{ mention.description | jsonify }}
+      {% endif -%}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+  {% comment %}About - page-level about (e.g., memorial tribute subject)
+       @id generation follows same best practices as mentions
+  {% endcomment %}
+  {% if page.schema_about_page -%}
+  {% assign about_type_lower = page.schema_about_page.type | default: 'Person' | downcase %}
+  {% assign about_name_slug = page.schema_about_page.name | slugify %}
+  "about": {
+    "@type": "{{ page.schema_about_page.type | default: 'Person' }}",
+    {% comment %}Generate @id: prefer url#type, then sameAs, then site-based fallback{% endcomment %}
+    {% if page.schema_about_page.url -%}
+    "@id": "{{ page.schema_about_page.url | split: '/' | slice: 0, 3 | join: '/' }}#{{ about_type_lower }}",
+    {% elsif page.schema_about_page.sameAs -%}
+    "@id": {{ page.schema_about_page.sameAs | jsonify }},
+    {% else -%}
+    "@id": "{{ site.url }}/entities/{{ about_name_slug }}#{{ about_type_lower }}",
+    {% endif -%}
+    "name": {{ page.schema_about_page.name | jsonify }}
+    {% if page.schema_about_page.url -%}
+    ,"url": {{ page.schema_about_page.url | jsonify }}
+    {% endif -%}
+    {% if page.schema_about_page.sameAs -%}
+    ,"sameAs": {{ page.schema_about_page.sameAs | jsonify }}
+    {% endif -%}
+    {% if page.schema_about_page.description -%}
+    ,"description": {{ page.schema_about_page.description | jsonify }}
+    {% endif -%}
+  },
+  {% endif -%}
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ site.url }}#website"
+  },
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "dateModified": "{{ site.time | date_to_xmlschema }}",
+  "author": {
+    "@id": "{{ site.url }}#person"
+  }
+}
+</script>
+{% endif %}

@@ -1,0 +1,47 @@
+{% comment %}
+AnalysisNewsArticle Schema - For data-driven analysis and expert commentary
+Conditional include based on page.schema_type front matter
+References unified knowledge graph entities via @id
+
+Usage in post front matter:
+---
+schema_type: AnalysisNewsArticle
+schema_about: "Web Performance Optimization"
+schema_dateline: "Web Development, November 2025"
+---
+
+Note: AnalysisNewsArticle is "pending" status in Schema.org but actively used
+Best for: Performance analysis, benchmark reports, expert technical analysis
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AnalysisNewsArticle",
+  "@id": "{{ page.url | absolute_url }}#analysisnewsarticle",
+
+  "headline": {{ page.title | jsonify }},
+  {% include schema/_description.html %}
+
+  {% comment %}NewsArticle-specific property{% endcomment %}
+  {% if page.schema_dateline -%}
+  "dateline": {{ page.schema_dateline | jsonify }},
+  {% endif -%}
+
+  {% include schema/_article-section.html %}
+  {% include schema/_article-body.html %}
+  {% include schema/_article-core.html %}
+
+  "url": "{{ page.url | absolute_url }}",
+
+  {% include schema/_common-metadata.html %}
+  {% include schema/_about.html as_array=true %}
+
+  {% comment %}Backstory - context for the analysis (optional){% endcomment %}
+  {% if page.schema_backstory -%}
+  "backstory": {{ page.schema_backstory | jsonify }},
+  {% endif -%}
+
+  {% include schema/_mentions.html %}
+  {% include schema/_creator.html %}
+}
+</script>

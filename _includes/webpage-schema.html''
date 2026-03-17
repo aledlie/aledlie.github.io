@@ -1,0 +1,75 @@
+{% comment %}
+Generic WebPage schema for pages that don't have specific schema types
+This provides basic structured data for any page
+{% endcomment %}
+{% unless page.url == '/' or page.layout == 'post' or page.url contains '/about' or page.url contains '/projects' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ page.url | absolute_url }}#webpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | default: site.title }}",
+  "description": "{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}",
+  {% if page.header.image or page.header.overlay_image or page.header.teaser -%}
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | absolute_url }}",
+    "width": 1200,
+    "height": 630
+  },
+  {% endif -%}
+  "isPartOf": {
+    "@id": "{{ site.url }}#website"
+  },
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema }}",
+  {% if page.date -%}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+  "mainContentOfPage": {
+    "@type": "WebPageElement",
+    "cssSelector": ".page-content"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}/"
+      }
+      {% if page.categories %}
+        {% for category in page.categories %}
+          ,{
+            "@type": "ListItem",
+            "position": {{ forloop.index | plus: 1 }},
+            "name": "{{ category | capitalize }}",
+            "item": "{{ site.url }}/categories/#{{ category | slugify }}"
+          }
+        {% endfor %}
+      {% endif %}
+      {% if page.title %}
+        ,{
+          "@type": "ListItem",
+          "position": {% if page.categories %}{{ page.categories.size | plus: 2 }}{% else %}2{% endif %},
+          "name": "{{ page.title }}",
+          "item": "{{ page.url | absolute_url }}"
+        }
+      {% endif %}
+    ]
+  },
+  "potentialAction": {
+    "@type": "ReadAction",
+    "target": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endunless %}

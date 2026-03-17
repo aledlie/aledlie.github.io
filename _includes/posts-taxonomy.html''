@@ -1,0 +1,14 @@
+{% comment %}
+  Unified taxonomy posts include
+  Parameters:
+    - taxonomy: The taxonomy term to filter by (e.g., "javascript")
+    - collection: The collection type - "tags" or "categories"
+{% endcomment %}
+{% if include.collection == "tags" %}
+  {% assign posts = site.tags[include.taxonomy] | where_exp: "post", "post.hidden != true" %}
+{% else %}
+  {% assign posts = site.categories[include.taxonomy] | where_exp: "post", "post.hidden != true" %}
+{% endif %}
+{%- for post in posts -%}
+  {% include archive-single.html %}
+{%- endfor -%}

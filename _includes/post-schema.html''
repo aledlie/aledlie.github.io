@@ -1,0 +1,32 @@
+{% if page.layout == "single" and page.date %}
+{% comment %}
+Blog Post Schema - References unified knowledge graph entities via @id
+Uses @id references to Person and Blog entities from unified-knowledge-graph-schema.html
+Refactored to use schema partials for shared blocks
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ page.url | absolute_url }}#blogposting",
+  "headline": {{ page.title | jsonify }},
+  {% include schema/_description.html %}
+  {% include schema/_image.html %}
+  {% include schema/_author-publisher.html %}
+  {% include schema/_main-entity.html %}
+  "url": "{{ page.url | absolute_url }}",
+  {% include schema/_dates.html %}
+  {% if page.categories -%}
+  "articleSection": {{ page.categories | jsonify }},
+  {% endif -%}
+  {% if page.tags -%}
+  "keywords": {{ page.tags | join: ", " | jsonify }},
+  {% endif -%}
+  {% include schema/_reading-time.html %}
+  "inLanguage": "{{ site.locale | default: 'en-US' }}",
+  {% include schema/_speakable.html %}
+  {% include schema/_is-part-of.html %}
+  {% include schema/_copyright.html %}
+}
+</script>
+{% endif %}
