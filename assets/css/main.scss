@@ -186,7 +186,6 @@ body .sidebar {
     margin-bottom: $spacing-lg; /* Explicit bottom margin */
   }
 
-  .author-urls-wrapper,
   .author-urls-wrapper {
     margin-top: $spacing-xl-em; /* Clear separation from bio */
     margin-bottom: $spacing-lg;
@@ -203,7 +202,6 @@ body .sidebar {
     }
   }
 
-  .author-urls,
   .author-urls {
     margin-top: 0;
     text-align: center;
@@ -532,7 +530,7 @@ body .archive-item {
   color: $academic-red;
   font-family: $heading-font;
   font-size: 1.8em;
-  font-style: bold;
+  font-weight: bold;
   @include border-bottom-accent(2px, $academic-red);
 }
 
