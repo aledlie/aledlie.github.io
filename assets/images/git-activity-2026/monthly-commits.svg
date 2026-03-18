@@ -1,0 +1,9 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+<text x="400" y="30" text-anchor="middle" font-size="20" font-weight="bold">Commits by Month (367 total)</text>
+<path d="M 400,300 L 400,100 A 200,200 0 0,1 406.8468202849183,100.11723172823017 Z" fill="#0066cc" stroke="white" stroke-width="2"/>
+<rect x="600" y="50" width="15" height="15" fill="#0066cc"/>
+<text x="620" y="62" font-size="12">2026-02: 2 (0.5%)</text>
+<path d="M 400,300 L 406.8468202849183,100.11723172823017 A 200,200 0 1,1 399.99999999999994,100 Z" fill="#4da6ff" stroke="white" stroke-width="2"/>
+<rect x="600" y="75" width="15" height="15" fill="#4da6ff"/>
+<text x="620" y="87" font-size="12">2026-03: 365 (99.5%)</text>
+</svg>
