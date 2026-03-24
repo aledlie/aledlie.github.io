@@ -1,0 +1,7 @@
+{% if site.tag_archive.type and page.tags[0] %}
+  {% include taxonomy-list.html type="tags" %}
+{% endif %}
+
+{% if site.category_archive.type and page.categories[0] %}
+  {% include taxonomy-list.html type="categories" %}
+{% endif %}

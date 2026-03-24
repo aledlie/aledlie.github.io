@@ -1,0 +1,8 @@
+{% comment %}
+Schema.org partial: SpeakableSpecification for voice search
+Targets title, lead, and first paragraph
+{% endcomment %}
+"speakable": {
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".page__title", ".page__lead", ".page__content p:first-of-type"]
+},

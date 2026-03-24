@@ -1,0 +1,6 @@
+{% comment %}
+Schema.org partial: Creator reference (same as author for articles)
+{% endcomment %}
+"creator": {
+  "@id": "{{ site.url }}#person"
+},

@@ -1,0 +1,41 @@
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+<header class="masthead" role="banner">
+  <div class="masthead-inner-wrap">
+    <div class="masthead-menu">
+      <nav id="site-nav" class="greedy-nav" role="navigation" aria-label="Main navigation">
+        {% unless logo_path == empty %}
+          <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="Home - {{ site.masthead_title | default: site.title }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }} logo"></a>
+        {% endunless %}
+        <a class="site-title" href="{{ '/' | relative_url }}" aria-label="Home - {{ site.masthead_title | default: site.title }}">
+          {{ site.masthead_title | default: site.title | escape_once | strip }}
+          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
+        </a>
+        <ul class="nav-links" role="menubar">
+          {%- for link in site.data.navigation.main -%}
+            <li class="masthead-menu-item" role="none">
+              <a
+                href="{{ link.url | relative_url }}"
+                {% if link.description %} title="{{ link.description }}"{% endif %}
+                {% if link.target %} target="{{ link.target }}"{% endif %}
+                role="menuitem"
+                {% if link.target %} aria-label="{{ link.title }} (opens in new window)"{% endif %}
+              >{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% if site.search == true %}
+        <button class="search-toggle" type="button" aria-label="{{ site.data.ui-text[site.locale].search_label | default: 'Toggle search' }}" aria-expanded="false" aria-controls="search-content">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        {% endif %}
+        <button class="greedy-nav-toggle hidden" type="button" aria-label="{{ site.data.ui-text[site.locale].menu_label | default: 'Toggle menu' }}" aria-expanded="false" aria-controls="hidden-links">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <div class="navicon" aria-hidden="true"></div>
+        </button>
+        <ul class="hidden-links hidden" id="hidden-links" role="menu"></ul>
+      </nav>
+    </div>
+  </div>
+</header>

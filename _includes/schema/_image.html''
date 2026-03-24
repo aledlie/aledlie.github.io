@@ -1,0 +1,10 @@
+{% comment %}
+Schema.org partial: Standard ImageObject for articles
+Falls back through header.image -> overlay_image -> teaser -> site.og_image
+{% endcomment %}
+"image": {
+  "@type": "ImageObject",
+  "url": "{{ page.header.image | default: page.header.overlay_image | default: page.header.teaser | default: site.og_image | absolute_url }}",
+  "width": 1200,
+  "height": 630
+},

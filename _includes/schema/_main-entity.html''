@@ -1,0 +1,7 @@
+{% comment %}
+Schema.org partial: mainEntityOfPage reference
+{% endcomment %}
+"mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "{{ page.url | absolute_url }}"
+},

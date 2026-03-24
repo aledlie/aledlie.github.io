@@ -1,0 +1,53 @@
+{% if page.schema_faq %}
+{% comment %}
+FAQPage Schema - For pages with frequently asked questions
+Conditional include based on page.schema_faq front matter
+References unified knowledge graph entities via @id
+
+Usage in post front matter:
+---
+schema_faq:
+  - question: "What is this about?"
+    answer: "This is the answer to your question."
+  - question: "How does it work?"
+    answer: "Here's how it works..."
+---
+
+Note: Each FAQ item requires both question and answer fields
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ page.url | absolute_url }}#faqpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title }} - FAQ",
+  "mainEntity": [
+    {% for faq in page.schema_faq -%}
+    {
+      "@type": "Question",
+      "name": {{ faq.question | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ faq.answer | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "isPartOf": {
+    "@id": "{{ site.url }}#website"
+  },
+  "author": {
+    "@id": "{{ site.url }}#person"
+  },
+  "publisher": {
+    "@id": "{{ site.url }}#person"
+  },
+  "inLanguage": "{{ site.locale | default: 'en-US' }}"
+}
+</script>
+{% endif %}
