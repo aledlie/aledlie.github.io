@@ -329,4 +329,4 @@ This performance analysis was conducted on **February 14, 2026** using telemetry
 
 ---
 
-*Operational telemetry sourced from local JSONL at `~/.claude/telemetry/` via OpenTelemetry. Content quality metrics computed via LLM-as-Judge G-Eval pattern against the [observability-toolkit](https://github.com/aledlie/env-settings) quality metrics dashboard (v2.6.0). Session instrumented by `claude-code-hooks` v1.0.0.*
+*Operational telemetry sourced from local JSONL at `~/.claude/telemetry/` via OpenTelemetry. Content quality metrics computed via LLM-as-Judge G-Eval pattern against observability-toolkit quality metrics. Session instrumented by `claude-code-hooks` v1.0.0.*
