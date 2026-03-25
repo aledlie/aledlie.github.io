@@ -13,8 +13,13 @@
  * Alternative Discovery Strategies:
  * - Use official package manager APIs (npm, PyPI) instead of package web pages
  * - Replace broken direct PDFs with official agency publication pages
- * - Try Academia.edu, ResearchGate, arXiv for academic papers
- * - Use Wayback Machine for archived articles and old web pages
+ * - For academic papers:
+ *   • arXiv preprints: https://arxiv.org/pdf/[paper-id]
+ *   • Microsoft Research: https://www.microsoft.com/en-us/research/ (hosted PDFs for MSR-authored papers)
+ *   • Author/institution repositories: literateprogramming.com, personal author pages
+ *   • Academia.edu/ResearchGate: Use SPECIFIC paper links, NOT generic homepage (https://www.researchgate.net/ returns 403)
+ *   • Wayback Machine: For archived articles and old web pages
+ *   • SonarSource official docs: For tool-specific research papers
  *
  * For detailed verification strategies, see: ACADEMIC-LINK-VERIFICATION.md
  */

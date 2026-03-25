@@ -135,21 +135,30 @@ The link checker automatically skips these domains (they block automated request
 **McCabe 1976 (IEEE TSE)**
 - Issue: DOI returns HTTP 418 (teapot) — server quirk, not a broken link
 - Verification: Paper exists and is foundational in software engineering (widely cited)
-- Solution: Added alternative source `https://www.academia.edu/8103905/A_Complexity_Measure`
-- Result: Citation valid, alternative access provided ✓
+- Solution: Added direct PDF from `http://www.literateprogramming.com/mccabe.pdf` + Academia.edu
+- Result: Citation valid, primary access via direct PDF ✓
 - Note: HTTP 418 status is unusual; may indicate server misconfiguration rather than true access denial
 
 **Campbell 2018 (Cognitive Complexity, ACM)**
 - Issue: DOI 10.1145/3194164.3194186 returns 403 (paywalled)
-- Verification: Found on SonarSource official site + ResearchGate
-- Solution: Added alternatives: `https://www.sonarsource.com/docs/CognitiveComplexity.pdf` + ResearchGate
+- Verification: Found arXiv preprint + SonarSource official PDF
+- Solution: Added alternatives: `https://arxiv.org/pdf/2007.12520` (primary) + `https://www.sonarsource.com/docs/CognitiveComplexity.pdf`
 - Result: Citation valid, multiple access paths ✓
+- Note: arXiv preprints are stable, author-approved, and freely accessible
 
 **Nagappan & Ball 2005 (ICSE)**
 - Issue: ACM paper returns 403
-- Verification: Found on ResearchGate + arXiv
-- Solution: Added alternatives pointing to `https://www.researchgate.net/` + arXiv
-- Result: Citation valid, alternative sources documented ✓
+- Verification: Found hosted copy at Microsoft Research + ResearchGate paper page
+- Solution: Added alternatives: `https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/icse05churn.pdf` (primary) + ResearchGate
+- Result: Citation valid, direct PDF available ✓
+- Learning: Microsoft Research hosts PDFs for co-authored papers; check MSR for cloud/systems papers
+
+**Broken ResearchGate Homepage Link**
+- Issue: `https://www.researchgate.net/` returns HTTP 403
+- Root Cause: Generic homepage link without specific paper ID
+- Learning: ResearchGate/Academia.edu links MUST be specific paper URLs, not homepage
+- Example (broken): `https://www.researchgate.net/`
+- Example (correct): `https://www.researchgate.net/publication/4200542_Use_of_relative_code_churn_measures_to_predict_system_defect_density`
 
 **NIST Publications (AI 100-1, AI 600-1)**
 - Issue: Direct PDF URLs return 404 (nvlpubs.nist.gov paths)
