@@ -19,8 +19,8 @@
  * For detailed verification strategies, see: ACADEMIC-LINK-VERIFICATION.md
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // Directories to scan for markdown files
 const CONTENT_DIRS = ['_posts', '_projects', '_reports', '_work', '_pages'];
@@ -267,9 +267,9 @@ async function main() {
   process.exit(success ? 0 : 1);
 }
 
-module.exports = { LinkChecker };
+export { LinkChecker };
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Link check failed:', error);
     process.exit(1);

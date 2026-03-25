@@ -133,10 +133,11 @@ The link checker automatically skips these domains (they block automated request
 - Result: Now passes link checker
 
 **McCabe 1976 (IEEE TSE)**
-- Issue: DOI returns HTTP 418 (teapot)
-- Verification: Paper exists (highly cited, ~5,961 citations)
+- Issue: DOI returns HTTP 418 (teapot) — server quirk, not a broken link
+- Verification: Paper exists and is foundational in software engineering (widely cited)
 - Solution: Added alternative source `https://www.academia.edu/8103905/A_Complexity_Measure`
 - Result: Citation valid, alternative access provided ✓
+- Note: HTTP 418 status is unusual; may indicate server misconfiguration rather than true access denial
 
 **Campbell 2018 (Cognitive Complexity, ACM)**
 - Issue: DOI 10.1145/3194164.3194186 returns 403 (paywalled)
