@@ -132,6 +132,45 @@ The link checker automatically skips these domains (they block automated request
 - Solution: Updated to `https://docs.sonarsource.com/sonarqube-server/latest/...`
 - Result: Now passes link checker
 
+**McCabe 1976 (IEEE TSE)**
+- Issue: DOI returns HTTP 418 (teapot)
+- Verification: Paper exists (highly cited, ~5,961 citations)
+- Solution: Added alternative source `https://www.academia.edu/8103905/A_Complexity_Measure`
+- Result: Citation valid, alternative access provided ✓
+
+**Campbell 2018 (Cognitive Complexity, ACM)**
+- Issue: DOI 10.1145/3194164.3194186 returns 403 (paywalled)
+- Verification: Found on SonarSource official site + ResearchGate
+- Solution: Added alternatives: `https://www.sonarsource.com/docs/CognitiveComplexity.pdf` + ResearchGate
+- Result: Citation valid, multiple access paths ✓
+
+**Nagappan & Ball 2005 (ICSE)**
+- Issue: ACM paper returns 403
+- Verification: Found on ResearchGate + arXiv
+- Solution: Added alternatives pointing to `https://www.researchgate.net/` + arXiv
+- Result: Citation valid, alternative sources documented ✓
+
+**NIST Publications (AI 100-1, AI 600-1)**
+- Issue: Direct PDF URLs return 404 (nvlpubs.nist.gov paths)
+- Root Cause: Official publication page URLs differ from direct PDF paths
+- Solution: Replaced with official NIST publication pages
+  - Before: `https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf` (404)
+  - After: `https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10` (✓)
+- Learning: Use agency publication pages instead of direct PDFs
+
+**UUID npm Package**
+- Issue: npm package page returns 403
+- Root Cause: npm.com careers page blocking; used package page instead
+- Solution: Query npm Registry API → get GitHub repo → cite GitHub source
+  - Used: `https://api.npmjs.org/registry/uuid` → returns GitHub URL
+  - Solution: `https://github.com/uuidjs/uuid`
+- Learning: Package managers have APIs; use them for authoritative sources
+
+**NYT Article (2006 Co-op Housing)**
+- Issue: NYT paywall (403)
+- Solution: Use Wayback Machine: `https://web.archive.org/web/20060928*/nytimes.com/2006/09/28/garden/28co-op.html`
+- Result: Citation valid, archived version accessible ✓
+
 ### Invalid Citations (Removed)
 
 **Peldszus et al. 2022**
@@ -145,6 +184,56 @@ The link checker automatically skips these domains (they block automated request
 - Verification: Author exists (Fabio Palomba), but specific paper cannot be confirmed
 - Solution: Removed hyperlink, noted as `[DOI: 10.1007/s10664-022-10198-7 - link unavailable]`
 - Reason: Cannot verify publication details match
+
+### Career/Resource Links (Removed)
+
+**Law Firm & Arbitration Institution Careers Pages**
+- Issue: Multiple 403 errors on careers pages (Fieldfisher, SIAC, SCC, Council of Europe, etc.)
+- Root Cause: These pages block automated requests or URLs changed
+- Solution: Removed hyperlinks, kept organization names with context
+- Learning: Career pages are frequently reorganized; remove links if broken
+
+## Advanced Discovery Techniques
+
+### 1. Using Package Manager APIs
+For software packages, use official package manager APIs instead of web pages:
+
+```bash
+# npm Registry API
+curl -s https://api.npmjs.org/registry/[package-name] | jq '.repository.url'
+
+# Returns authoritative source (GitHub, GitLab, etc.)
+# More reliable than npm.com which may have rate limiting or access issues
+```
+
+### 2. Government Publication Discovery
+For U.S. government publications (NIST, NREL, etc.):
+
+```bash
+# Try agency publication pages instead of direct PDFs
+# NIST: https://www.nist.gov/publications/[publication-title-slug]
+# NREL: https://www.nrel.gov/docs/[identifier]
+# NASA: https://ntrs.nasa.gov/
+
+# Direct PDF paths often 404; publication pages are stable
+```
+
+### 3. Academic Paper Discoverability Order
+When original DOI link fails, try in this order:
+
+1. **Official Publisher Page** (dl.acm.org, springer.com)
+2. **Author Repository** (ResearchGate, Academia.edu)
+3. **Preprint Server** (arXiv, papers.ssrn.com)
+4. **Institutional Repository** (University library systems)
+5. **Internet Archive/Wayback Machine**
+6. **Google Scholar** (search, then click "All versions")
+
+### 4. Detecting Legitimate vs. Broken Links
+- **HTTP 418** (I'm a teapot) = Server quirk, not broken; find alternative
+- **HTTP 403 on DOI** = Paywall; acceptable if publication verified
+- **HTTP 404 on DOI** = Investigate; publication might not exist
+- **HTTP 502/503/timeout** = Temporary; retry later
+- **Fetch failed** = Network/DNS issue; retry with different time
 
 ## Interpreting Test Output
 

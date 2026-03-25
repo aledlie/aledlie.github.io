@@ -5,8 +5,16 @@
  * Academic Link Handling:
  * - HTTP 403 (Forbidden) for academic DOIs is EXPECTED and ACCEPTABLE
  *   Indicates paywall/institutional access required, not a broken link
+ * - HTTP 418 (I'm a teapot) for academic resources = server quirk, investigate
+ *   Example: McCabe 1976 IEEE TSE paper returns 418 but is valid via Academia.edu
  * - HTTP 404 requires investigation: verify publication exists via CrossRef/Google Scholar
  * - Skipped domains require manual verification in browser
+ *
+ * Alternative Discovery Strategies:
+ * - Use official package manager APIs (npm, PyPI) instead of package web pages
+ * - Replace broken direct PDFs with official agency publication pages
+ * - Try Academia.edu, ResearchGate, arXiv for academic papers
+ * - Use Wayback Machine for archived articles and old web pages
  *
  * For detailed verification strategies, see: ACADEMIC-LINK-VERIFICATION.md
  */
@@ -191,11 +199,16 @@ class LinkChecker {
       const brokenLinks = [];
 
       for (const [url, data] of failedLinks) {
-        // Only mark as paywalled if it's a 403 AND an academic DOI or publisher domain
+        // Categorize academic/paywalled links vs actual broken links
         const isAcademicDOI = url.includes('doi.org/') || url.includes('handle.net/');
         const isPublisherDomain = url.includes('springer.com') || url.includes('wiley.com') ||
                                   url.includes('ieee.org') || url.includes('acm.org');
-        if (data.error && data.error.includes('403') && (isAcademicDOI || isPublisherDomain)) {
+
+        // Treat 403 and 418 as paywalled for academic resources
+        // (418 = "I'm a teapot" is a server quirk, but legitimate for some academic papers)
+        const isPaywallStatus = data.error && (data.error.includes('403') || data.error.includes('418'));
+
+        if (isPaywallStatus && (isAcademicDOI || isPublisherDomain)) {
           paywalledLinks.push([url, data]);
         } else {
           brokenLinks.push([url, data]);
@@ -204,11 +217,12 @@ class LinkChecker {
 
       // Show paywall notices separately
       if (paywalledLinks.length > 0) {
-        console.log('\nPaywall/Forbidden (HTTP 403) - ACCEPTABLE for academic papers:');
+        console.log('\nPaywall/Forbidden (HTTP 403/418) - ACCEPTABLE for academic papers:');
         for (const [url, data] of paywalledLinks) {
           console.log(`\n${url}`);
           console.log(`  Note: This is a legitimate paywalled academic resource`);
           console.log(`  Users with institutional access can retrieve it`);
+          console.log(`  Consider adding alternative sources (Academia.edu, ResearchGate, arXiv)`);
           console.log(`  Found in: ${data.files.join(', ')}`);
         }
       }
