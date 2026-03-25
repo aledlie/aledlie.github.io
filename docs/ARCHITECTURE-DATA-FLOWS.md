@@ -79,7 +79,7 @@
 
 ```mermaid
 graph TD
-    Root["PersonalSite<br/>Jekyll + npm"]
+    Root["personal-site<br/>Jekyll + npm"]
 
     Root --> Config["Configuration"]
     Root --> Content["Content Collections"]

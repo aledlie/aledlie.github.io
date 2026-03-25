@@ -14,11 +14,11 @@ header:
 **Date:** 2026-01-29
 **Start Time:** 15:42:57 UTC
 **Duration:** ~7 minutes active
-**Working Directory:** `/Users/alyshialedlie/code/PersonalSite`
+**Working Directory:** `/Users/alyshialedlie/code/personal-site`
 
 ## Summary
 
-This session performed codebase analysis and cleanup tasks for the PersonalSite repository. OpenTelemetry instrumentation captured all hook executions, with data exported to both local storage and SigNoz Cloud.
+This session performed codebase analysis and cleanup tasks for the personal-site repository. OpenTelemetry instrumentation captured all hook executions, with data exported to both local storage and SigNoz Cloud.
 
 ## Telemetry Infrastructure
 
@@ -48,7 +48,7 @@ The `session-start` hook captured:
 |-----------|-------|
 | `node.version` | v25.4.0 |
 | `npm.version` | 11.7.0 |
-| `working.directory` | /Users/alyshialedlie/code/PersonalSite |
+| `working.directory` | /Users/alyshialedlie/code/personal-site |
 | `project.name` | unknown |
 | `git.branch` | master |
 | `git.repository` | aledlie/aledlie.github.io |

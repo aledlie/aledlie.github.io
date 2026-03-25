@@ -181,10 +181,10 @@ Architecture verified: All core Jekyll components intact"
 ### Script Fails to Run
 ```bash
 # Make script executable
-chmod +x /Users/alyshialedlie/code/PersonalSite/utils/cleanup-repository.sh
+chmod +x /Users/alyshialedlie/code/personal-site/utils/cleanup-repository.sh
 
 # Run from repository root
-cd /Users/alyshialedlie/code/PersonalSite
+cd /Users/alyshialedlie/code/personal-site
 ./utils/cleanup-repository.sh
 ```
 

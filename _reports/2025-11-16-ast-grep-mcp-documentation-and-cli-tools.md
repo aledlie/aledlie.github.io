@@ -66,7 +66,7 @@ Documented two standalone tools:
 2. **Schema Graph Builder (`schema-graph-builder.py`)** - Previously undocumented
    - Automates building unified entity graphs from JSON files
    - 6-step process from discovery to documentation
-   - Real-world results from PersonalSite and Fisterra Dance projects
+   - Real-world results from personal-site and Fisterra Dance projects
    - Output files and options reference
 
 **B. Updated Quick Start Section** (lines 5-34)
@@ -358,7 +358,7 @@ ast-grep-mcp/
 
 **CLAUDE.md**:
 - ✅ Comprehensive architecture documentation
-- ✅ Real-world PersonalSite case study
+- ✅ Real-world personal-site case study
 - ❌ Missing schema-graph-builder.py documentation
 - ❌ No quick reference for standalone tools
 
@@ -519,9 +519,9 @@ uv run python schema-tools.py type Person --json | jq
 
 ## Related Work
 
-### PersonalSite Schema Enhancement Project
+### personal-site Schema Enhancement Project
 
-This session builds on the PersonalSite Schema Enhancement Project documented in CLAUDE.md:
+This session builds on the personal-site Schema Enhancement Project documented in CLAUDE.md:
 
 **Original Project** (documented in CLAUDE.md lines 489-811):
 - Phase 1: Unified Knowledge Graph (11 files → 1)
@@ -540,7 +540,7 @@ This session builds on the PersonalSite Schema Enhancement Project documented in
 ```
 Timeline:
 1. MCP server created (13 tools)
-2. PersonalSite Schema Enhancement (real-world usage)
+2. personal-site Schema Enhancement (real-world usage)
 3. schema-graph-builder.py created (automation)
 4. This session: schema-tools.py (quick access) ⭐
 ```

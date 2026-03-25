@@ -29,7 +29,7 @@ header:
 
 | Repository | Commits |
 |------------|---------|
-| PersonalSite | 68 |
+| personal-site | 68 |
 | jobs | 5 |
 | ast-grep-mcp | 2 |
 
@@ -58,9 +58,9 @@ header:
 
 ## Repository Details
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 68
 - **Files Changed**: 292
 
@@ -79,7 +79,7 @@ header:
 
 ## Project Websites
 
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 
 ---
 

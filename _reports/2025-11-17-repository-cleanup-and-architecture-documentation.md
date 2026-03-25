@@ -16,7 +16,7 @@ header:
 **Test Date:** November 17, 2025
 **Session Type:** Repository Maintenance & Documentation
 **Impact:** High - Major repository cleanup and infrastructure improvements
-**Scope:** PersonalSite repository and AlephAuto (sidequest)
+**Scope:** personal-site repository and AlephAuto (sidequest)
 
 ---
 
@@ -24,14 +24,14 @@ header:
 
 This session focused on comprehensive repository maintenance, architectural documentation, and automation tooling. Key achievements include:
 
-- **Removed 85MB+ of bloat** from PersonalSite repository (4,813 files)
+- **Removed 85MB+ of bloat** from personal-site repository (4,813 files)
 - **Created comprehensive architecture documentation** covering data flows and system patterns
 - **Developed automated cleanup scripts** (repository-specific and universal versions)
-- **Pushed changes to GitHub** for both PersonalSite and AlephAuto repositories
+- **Pushed changes to GitHub** for both personal-site and AlephAuto repositories
 
 ## Session Objectives
 
-1. Document data flows and architectural patterns in PersonalSite
+1. Document data flows and architectural patterns in personal-site
 2. Identify and remove irrelevant files based on data architecture
 3. Create automation scripts to prevent future bloat accumulation
 4. Ensure all changes are version-controlled and documented
@@ -155,7 +155,7 @@ All critical Jekyll components verified intact:
 ### 1. Repository-Specific Cleanup Script
 
 **Location:** `utils/cleanup-repository.sh`
-**Purpose:** Automated cleanup for PersonalSite repository
+**Purpose:** Automated cleanup for personal-site repository
 
 **Features:**
 - Interactive confirmation with size preview
@@ -203,7 +203,7 @@ All critical Jekyll components verified intact:
 
 ## Git Commits and Pushes
 
-### PersonalSite Repository
+### personal-site Repository
 
 **Repository:** `aledlie/aledlie.github.io`
 **Branch:** `master`
@@ -268,7 +268,7 @@ Files added:
 
 ## Files Created/Modified
 
-### PersonalSite
+### personal-site
 
 **Created:**
 - `docs/ARCHITECTURE-DATA-FLOWS.md` - Comprehensive architecture documentation (14,000+ words)
@@ -311,7 +311,7 @@ Files added:
 
 ### Challenge 3: Script Portability
 
-**Issue:** Making cleanup script work for any repository, not just PersonalSite
+**Issue:** Making cleanup script work for any repository, not just personal-site
 
 **Solution:**
 - Abstracted hardcoded paths to parameter-based approach
@@ -384,7 +384,7 @@ Files added:
 
 2. **Run periodic cleanup** - Monthly execution of cleanup script
    ```bash
-   cd ~/code/PersonalSite
+   cd ~/code/personal-site
    ./utils/cleanup-repository.sh
    ```
 
@@ -408,7 +408,7 @@ brew install rbenv
 # Install Ruby 3.2.0
 rbenv install 3.2.0
 
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 rbenv local 3.2.0
 ```
 

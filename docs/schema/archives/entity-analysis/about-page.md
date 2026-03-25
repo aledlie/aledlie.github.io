@@ -170,7 +170,7 @@ The about_me page is deeply personal, referencing influential authors, philosoph
     - **URL:** https://www.sumedhmjoshi.com/ (memorial site)
     - **Context:** Humor, dissertation in 3 days, profound influence
     - **Role:** Friend, inspiration for blog
-    - **Notable:** The entire PersonalSite blog is an homage to Sumedh's blog (2013-2014)
+    - **Notable:** The entire personal-site blog is an homage to Sumedh's blog (2013-2014)
 
 ---
 

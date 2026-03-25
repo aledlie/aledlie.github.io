@@ -28,7 +28,7 @@ Blog Post:    https://www.aledlie.com/posts/ (pick latest)
 
 #### 1. Build the Site Locally
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 bundle exec jekyll build
 bundle exec jekyll serve
 ```

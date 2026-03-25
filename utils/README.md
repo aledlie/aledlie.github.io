@@ -1,6 +1,6 @@
 # utils
 
-Utility scripts for the PersonalSite repository.
+Utility scripts for the personal-site repository.
 
 ## Directory Structure
 

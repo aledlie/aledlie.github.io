@@ -304,7 +304,7 @@
 
 1. **Commit Changes:**
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 git add _includes/seo.html
 git add _includes/post-schema.html
 git add _includes/unified-knowledge-graph-schema.html
@@ -355,7 +355,7 @@ bundle exec jekyll build
 
 1. **Local Testing:**
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 bundle exec jekyll serve
 # Open http://localhost:4000/
 # View source, find JSON-LD
@@ -479,7 +479,7 @@ Verify valid markup
 
 ## 🎉 Congratulations!
 
-Your PersonalSite now has:
+Your personal-site now has:
 - ✅ Production-ready unified knowledge graph
 - ✅ Proper @id-based entity relationships
 - ✅ 100% validated implementation

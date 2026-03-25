@@ -425,7 +425,7 @@ Tests run automatically on:
 ## Documentation
 
 ### Getting Started
-- **[Test Suite README](https://github.com/aledlie/PersonalSite/blob/master/tests/README.md)** - Complete test suite documentation
+- **[Test Suite README](https://github.com/aledlie/personal-site/blob/master/tests/README.md)** - Complete test suite documentation
 
 ### Deep Dives
 - **[Baseline Testing](/tests/baseline/README.md)** - Build performance tracking

@@ -12,7 +12,7 @@ header:
 ---
 
 **Session Date**: 2025-11-23<br>
-**Project**: PersonalSite Reports - Writing Quality Enhancement<br>
+**Project**: personal-site Reports - Writing Quality Enhancement<br>
 **Focus**: Systematic improvement of 23 technical reports using Elements of Style analyzer<br>
 
 ## Before/After Scores

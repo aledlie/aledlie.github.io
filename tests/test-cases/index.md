@@ -425,7 +425,7 @@ Tests run automatically on:
 ## Documentation
 
 ### Getting Started
-- **[Test Suite README](https://github.com/aledlie/PersonalSite/blob/master/tests/README.md)** - Complete test suite documentation
+- **[Test Suite README](https://github.com/aledlie/personal-site/blob/master/tests/README.md)** - Complete test suite documentation
 - **[Testing QuickStart](/documentation/refactoring/TESTING-QUICKSTART.md)** - 15-minute setup guide
 - **[Testing Summary](/documentation/refactoring/TESTING-SUMMARY.md)** - High-level overview
 

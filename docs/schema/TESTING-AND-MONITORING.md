@@ -45,7 +45,7 @@ Blog Post:    https://www.aledlie.com/posts/{recent-post}/
 ### Step 1: Build Locally
 
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 bundle exec jekyll build
 bundle exec jekyll serve
 ```

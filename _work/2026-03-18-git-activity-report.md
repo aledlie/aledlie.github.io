@@ -33,7 +33,7 @@ header:
 | ~/.claude | 88 |
 | ast-grep-mcp | 33 |
 | integrity-demo-generator | 21 |
-| PersonalSite | 19 |
+| personal-site | 19 |
 | ~/dotfiles | 15 |
 | inventory-ai | 3 |
 
@@ -88,9 +88,9 @@ header:
 - **Commits**: 21
 - **Files Changed**: 81
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 19
 - **Files Changed**: 395
 
@@ -109,7 +109,7 @@ header:
 
 ## Project Websites
 
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - [inventory-ai](https://www.inventoryai.io)
 
 ---

@@ -1,7 +1,7 @@
 # Top 10 Most Active Repositories
 (July 7 - November 16, 2025)
 
- 1. PersonalSite                             ██████████████████████████████████████████████████ 227
+ 1. personal-site                             ██████████████████████████████████████████████████ 227
  2. ISPublicSites/tcad-scraper               ██████████████████████████████████████████ 193
  3. ISPublicSites/AnalyticsBot               ██████████████████████████████████ 157
  4. ISPublicSites/IntegrityStudio.ai         █████████████ 61

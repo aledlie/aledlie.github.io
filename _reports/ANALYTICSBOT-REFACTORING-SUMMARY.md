@@ -41,7 +41,7 @@ The user requested automated implementation of all high-priority refactorings id
   - 8 functions exceeding complexity thresholds
   - 1,869 code smells (3 high, 6 medium, 1,860 low)
   - 0 security vulnerabilities ✅
-- **Copied to:** `~/code/PersonalSite/_reports/`
+- **Copied to:** `~/code/personal-site/_reports/`
 
 ### 2. Detailed Refactoring Plan ✅
 - **File:** `ANALYTICSBOT-REFACTORING-PLAN.md`

@@ -185,7 +185,7 @@ Other           ████   6,981 ( 4.3%)
 ### Visual Overview
 
 ```
- 1. PersonalSite                             ██████████████████████████████████████████████████ 227
+ 1. personal-site                             ██████████████████████████████████████████████████ 227
  2. tcad-scraper                             ██████████████████████████████████████████ 193
  3. AnalyticsBot                             ██████████████████████████████████ 157
  4. IntegrityStudio.ai                       █████████████ 61
@@ -197,7 +197,7 @@ Other           ████   6,981 ( 4.3%)
 10. jobs                                     █████ 27
 ```
 
-### 1. **PersonalSite** - 227 commits (22.5%)
+### 1. **personal-site** - 227 commits (22.5%)
 **Focus:** Jekyll personal website with comprehensive Schema.org implementation
 **Website:** [www.aledlie.com](https://www.aledlie.com)
 
@@ -375,7 +375,7 @@ Legacy                            6 commits ( 0.6%)
 ### Personal Sites (23.6%)
 
 **Repositories:**
-- PersonalSite (227 commits)
+- personal-site (227 commits)
 - sumedhjoshi.github.io (11 commits)
 
 **Total:** 238 commits
@@ -389,7 +389,7 @@ Legacy                            6 commits ( 0.6%)
 - GTM analytics
 - Duplicate code detection
 
-**Impact:** Nearly 25% of work went into semantic web and QA. PersonalSite now has a solid test suite.
+**Impact:** Nearly 25% of work went into semantic web and QA. personal-site now has a solid test suite.
 
 ---
 
@@ -501,7 +501,7 @@ Legacy                            6 commits ( 0.6%)
 
 ### Schema.org Implementation
 
-**Achievement:** Implemented comprehensive Schema.org structured data across PersonalSite with entity-rich knowledge graph.
+**Achievement:** Implemented comprehensive Schema.org structured data across personal-site with entity-rich knowledge graph.
 
 **Components Built:**
 - 15+ modular schema templates (`_includes/`)
@@ -597,7 +597,7 @@ Legacy                            6 commits ( 0.6%)
 
 ### 1. **November Sprint**
 November had 560 commits (56.9% of total). What drove it:
-- Schema.org work on PersonalSite
+- Schema.org work on personal-site
 - MCP server push
 - Test setup
 - Docs sprint
@@ -615,13 +615,13 @@ November had 560 commits (56.9% of total). What drove it:
 - Data quality checks
 
 ### 4. **QA Culture**
-Big testing investment on PersonalSite shows:
+Big testing investment on personal-site shows:
 - Zero-regression mindset
 - Stats-based validation
 - Full browser/device coverage
 
 ### 5. **Strong Docs**
-20+ doc files for PersonalSite alone:
+20+ doc files for personal-site alone:
 - Knowledge captured
 - Built for future maintenance
 - Clear refactoring plans
@@ -631,7 +631,7 @@ Big testing investment on PersonalSite shows:
 ## Complete Repository Breakdown
 
 ### Very Active Development (50+ commits)
-1. **PersonalSite** (227) - Personal website with Schema.org → [www.aledlie.com](https://www.aledlie.com)
+1. **personal-site** (227) - Personal website with Schema.org → [www.aledlie.com](https://www.aledlie.com)
 2. **tcad-scraper** (193) - Property data scraping → [alephatx.info](https://alephatx.info)
 3. **AnalyticsBot** (157) - Analytics automation → aleph-analytics.app (site discontinued)
 4. **IntegrityStudio.ai** (61) - Company website → [www.integritystudio.ai](https://www.integritystudio.ai)
@@ -719,7 +719,7 @@ The deeper scan (2 directories nested) revealed significant activity in:
 
 Based on current trajectory:
 - **MCP Servers:** Continued expansion with 3-5 new servers
-- **PersonalSite:** Content creation phase (blog posts, case studies)
+- **personal-site:** Content creation phase (blog posts, case studies)
 - **Data Projects:** Production deployment of analytics pipelines
 - **Business Apps:** InventoryAI feature development
 

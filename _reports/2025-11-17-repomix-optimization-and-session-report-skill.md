@@ -173,7 +173,7 @@ repomix file is created per git repository, not for every subdirectory.
    1. ISInternal/1mcpserver
    2. ISInternal/IntegrityMonitor
    3. ISInternal/RepoViz
-   4. PersonalSite
+   4. personal-site
    5. financial-hub-system
    ... and 23 more
 
@@ -306,7 +306,7 @@ tags: [technology, framework, feature-type, domain]
 `YYYY-MM-DD-descriptive-slug.md`
 
 **Save Location:**
-`~/code/PersonalSite/_reports/`
+`~/code/personal-site/_reports/`
 
 #### 2. Registered Skill Triggers (`.claude/skills/skill-rules.json`)
 

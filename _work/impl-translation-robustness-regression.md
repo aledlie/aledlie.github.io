@@ -1100,7 +1100,7 @@ obs_query_logs --severity WARN --message "Incomplete scraping"
 
 ### Source Documents
 
-- **Post-mortem:** `/Users/alyshialedlie/code/PersonalSite/_reports/2026-02-13-edgar-nadyne-translation-session-telemetry.md`
+- **Post-mortem:** `/Users/alyshialedlie/code/personal-site/_reports/2026-02-13-edgar-nadyne-translation-session-telemetry.md`
 - **Telemetry data:** `~/.claude/telemetry/traces-2026-02-12.jsonl` (line 99: context overflow trace)
 - **Session ID:** `d1d142a6-51f3-49d3-b283-c00093880453` (translation session, Feb 12, 2026)
 

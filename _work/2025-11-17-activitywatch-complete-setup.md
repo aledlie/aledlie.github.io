@@ -426,4 +426,4 @@ What I can now see:
 **System status:** ✅ Fully operational
 **Next session:** Monitoring and analysis
 
-**File copied to:** `~/code/PersonalSite/_work/COMPLETE-TRACKING-SYSTEM.md`
+**File copied to:** `~/code/personal-site/_work/COMPLETE-TRACKING-SYSTEM.md`

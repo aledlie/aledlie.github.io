@@ -2,7 +2,7 @@
 
 **Date:** November 11, 2025
 **Status:** Ready for Implementation
-**For:** PersonalSite Blog Content
+**For:** personal-site Blog Content
 
 ---
 
@@ -279,7 +279,7 @@ No changes needed - standard BlogPosting is appropriate for personal narratives.
 ### Step 2: Test Locally
 
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 bundle exec jekyll build
 bundle exec jekyll serve
 ```

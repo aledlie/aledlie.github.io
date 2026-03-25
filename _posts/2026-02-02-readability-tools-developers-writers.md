@@ -378,7 +378,7 @@ Protocols: OTLP/HTTP
 | Attribute | Value |
 |-----------|-------|
 | `service.name` | claude-code |
-| `user.project` | PersonalSite |
+| `user.project` | personal-site |
 | `git.branch` | master |
 | `tool.calls` | WebSearch, WebFetch, Glob, Read, Write |
 | `session.type` | agentic-research |

@@ -17,7 +17,7 @@ header:
 
 ## Executive Summary
 
-This session focused on building a distributed knowledge graph across multiple websites by implementing Schema.org JSON-LD with proper `@id` references that enable entities to reference each other across domain boundaries. The work spanned four interconnected sites: PersonalSite (aledlie.com), IntegrityStudio.ai, Leora Home Health, and Inspired Movement Dance Studio.
+This session focused on building a distributed knowledge graph across multiple websites by implementing Schema.org JSON-LD with proper `@id` references that enable entities to reference each other across domain boundaries. The work spanned four interconnected sites: personal-site (aledlie.com), IntegrityStudio.ai, Leora Home Health, and Inspired Movement Dance Studio.
 
 The key achievement was establishing bidirectional entity references where a review on one site (IntegrityStudio.ai) references an author entity (`Person`) defined on another site (Leora Home Health), and that person references back to the organization they own—creating a true distributed semantic web of relationships.
 
@@ -40,7 +40,7 @@ Organization ←───────────┘           Organization
 
 ## Implementation Details
 
-### 1. PersonalSite Schema Enhancement
+### 1. personal-site Schema Enhancement
 
 **Initial Score**: 62/100 → **Final Score**: 78.6/100
 
@@ -72,9 +72,9 @@ Added entities and fixed references:
 
 ### 2. Cross-Site Organization Sync
 
-Ensured `@id` values match exactly between PersonalSite and IntegrityStudio.ai:
+Ensured `@id` values match exactly between personal-site and IntegrityStudio.ai:
 
-**PersonalSite** references:
+**personal-site** references:
 ```json
 "worksFor": [
   { "@id": "https://www.integritystudio.org/#organization" },
@@ -159,7 +159,7 @@ Added complete Leora Home Health organization to IntegrityStudio.ai schema (`sch
 ## The Complete Entity Relationship Map
 
 ```
-PersonalSite (aledlie.com)
+personal-site (aledlie.com)
 ├── Person (@id: aledlie.com#person)
 │   ├── worksFor ──────────────────────────────────────┐
 │   ├── worksFor ─→ InventoryAI Organization          │
@@ -192,8 +192,8 @@ Leora Home Health                                                          │�
 
 | File | Location | Changes |
 |------|----------|---------|
-| `unified-knowledge-graph-schema.html` | PersonalSite/_includes/ | Added ProfilePage, CollectionPage, updated org references |
-| `personal-site-schema.json` | PersonalSite/schema/ | Static snapshot with all enhancements |
+| `unified-knowledge-graph-schema.html` | personal-site/_includes/ | Added ProfilePage, CollectionPage, updated org references |
+| `personal-site-schema.json` | personal-site/schema/ | Static snapshot with all enhancements |
 | `schema-structured-data.json` | IntegrityStudio.ai/docs/schema/ | Added review #4, Leora org, updated contact info |
 | `schema-org-markup-v2.json` | IntegrityStudioClients/Leora/ | Added Monica Herra-Hernandez Person, founder reference |
 
@@ -228,7 +228,7 @@ Always create relationships in both directions where appropriate:
 
 | Site | Initial Score | Final Score | Improvement |
 |------|---------------|-------------|-------------|
-| PersonalSite | 62/100 | 78.6/100 | +16.6 |
+| personal-site | 62/100 | 78.6/100 | +16.6 |
 | IntegrityStudio.ai | 100/100 | 100/100 | maintained |
 | Leora Home Health | - | enhanced | +founder link |
 
@@ -236,14 +236,14 @@ Always create relationships in both directions where appropriate:
 
 1. **Validate with Google Rich Results Test**: Ensure all cross-domain references render correctly
 2. **Add more client reviews**: Continue pattern of external author references
-3. **Inspired Movement integration**: Link dance studio schema to PersonalSite projects
+3. **Inspired Movement integration**: Link dance studio schema to personal-site projects
 4. **Monitor Search Console**: Track entity recognition improvements
 5. **Consider Schema.org Actions**: Add potential actions for booking/contact
 
 ## References
 
 - [ID Schema for SEO, LLMs, Knowledge Graphs](https://momenticmarketing.com/blog/id-schema-for-seo-llms-knowledge-graphs)
-- PersonalSite: `/Users/alyshialedlie/code/PersonalSite/_includes/unified-knowledge-graph-schema.html`
+- personal-site: `/Users/alyshialedlie/code/personal-site/_includes/unified-knowledge-graph-schema.html`
 - IntegrityStudio.ai: `/Users/alyshialedlie/code/ISPublicSites/IntegrityStudio.ai/docs/schema/schema-structured-data.json`
 - Leora: `/Users/alyshialedlie/code/IntegrityStudioClients/Leora/schema-org-markup-v2.json`
 - Inspired Movement: `/Users/alyshialedlie/code/IntegrityStudioClients/InspiredMovement/schema/dance-studio-schema.json`

@@ -13,7 +13,7 @@
 <text x="240" y="190" text-anchor="end" font-size="14">integrity-demo-generator</text>
 <text x="305.2659574468085" y="190" font-size="14" font-weight="bold">21</text>
 <rect x="250" y="210" width="45.47872340425532" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
-<text x="240" y="230" text-anchor="end" font-size="14">PersonalSite</text>
+<text x="240" y="230" text-anchor="end" font-size="14">personal-site</text>
 <text x="300.47872340425533" y="230" font-size="14" font-weight="bold">19</text>
 <rect x="250" y="250" width="35.90425531914894" height="30" fill="#0066cc" stroke="#333" stroke-width="1"/>
 <text x="240" y="270" text-anchor="end" font-size="14">~/dotfiles</text>

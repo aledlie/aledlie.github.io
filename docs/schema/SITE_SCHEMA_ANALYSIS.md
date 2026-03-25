@@ -1,4 +1,4 @@
-# Complete Schema.org Analysis - PersonalSite (aledlie.com)
+# Complete Schema.org Analysis - personal-site (aledlie.com)
 
 **Site**: https://www.aledlie.com
 **Owner**: Alyshia Ledlie
@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-PersonalSite has **comprehensive Schema.org implementation** across the entire website with:
+personal-site has **comprehensive Schema.org implementation** across the entire website with:
 - **32 unique Schema.org types** implemented
 - **13 schema include files** for different page types
 - **1 unified knowledge graph** with 5 core entities
@@ -374,7 +374,7 @@ Determined by front matter `schema_type` variable.
 
 ## Documentation Files
 
-PersonalSite includes comprehensive documentation in `docs/schema/`:
+personal-site includes comprehensive documentation in `docs/schema/`:
 
 1. **IMPLEMENTATION-GUIDE.md**
    - Implementation overview
@@ -469,7 +469,7 @@ Only includes on homepage to avoid duplication.
 
 ## Comparison to Fisterra Implementation
 
-| Aspect | PersonalSite | Fisterra |
+| Aspect | personal-site | Fisterra |
 |--------|-------------|----------|
 | **Primary Hub** | Person (author) | Organization (dance org) |
 | **Entity Count** | 5 core entities | 22 entities |
@@ -487,7 +487,7 @@ Only includes on homepage to avoid duplication.
 - Both achieve high file reduction
 - Both use `build_entity_graph` tool
 
-**PersonalSite Advantages**:
+**personal-site Advantages**:
 - More schema types (32 vs 17)
 - Content-specific blog schemas
 - Larger documentation set
@@ -590,7 +590,7 @@ Only includes on homepage to avoid duplication.
 
 ## Conclusion
 
-PersonalSite demonstrates **best-in-class Schema.org implementation** with:
+personal-site demonstrates **best-in-class Schema.org implementation** with:
 
 ✅ Unified knowledge graph (5 core entities)
 ✅ 32 Schema.org types across 13 schema files

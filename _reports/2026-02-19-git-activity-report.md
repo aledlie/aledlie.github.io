@@ -31,7 +31,7 @@ header:
 | ~/.claude | 196 |
 | ~/reports | 100 |
 | jobs | 58 |
-| PersonalSite | 19 |
+| personal-site | 19 |
 | ISPublicSites/IntegrityStudio.ai2 | 14 |
 | ISPublicSites/AnalyticsBot | 5 |
 | ast-grep-mcp | 4 |
@@ -84,9 +84,9 @@ header:
 - **Commits**: 58
 - **Files Changed**: 373
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 19
 - **Files Changed**: 38
 
@@ -124,7 +124,7 @@ header:
 ## Project Websites
 
 - [reports](https://integritystudio.io)
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - [john_skelton](https://johnskelton.blog)
 
 ---

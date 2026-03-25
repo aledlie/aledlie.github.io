@@ -1,10 +1,10 @@
 #!/bin/bash
-# Find duplicate code in the PersonalSite repository using ast-grep MCP
+# Find duplicate code in the personal-site repository using ast-grep MCP
 
 set -e
 
 # Default values
-PROJECT_FOLDER="/Users/alyshialedlie/code/PersonalSite"
+PROJECT_FOLDER="/Users/alyshialedlie/code/personal-site"
 LANGUAGE=""
 CONSTRUCT_TYPE="function_definition"
 MIN_SIMILARITY=0.8
@@ -24,7 +24,7 @@ show_help() {
     cat << EOF
 Usage: ${0##*/} [OPTIONS]
 
-Find duplicate code in the PersonalSite repository using ast-grep.
+Find duplicate code in the personal-site repository using ast-grep.
 
 OPTIONS:
     -l, --language LANG        Language to scan (javascript, scss, html, ruby)

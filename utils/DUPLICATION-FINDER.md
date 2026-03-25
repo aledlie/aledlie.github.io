@@ -1,6 +1,6 @@
 # Code Duplication Finder
 
-Utility for detecting duplicate code patterns in the PersonalSite repository using ast-grep MCP.
+Utility for detecting duplicate code patterns in the personal-site repository using ast-grep MCP.
 
 ## Quick Start
 
@@ -25,7 +25,7 @@ Utility for detecting duplicate code patterns in the PersonalSite repository usi
 Ask Claude Code:
 
 ```
-Run mcp__ast-grep__find_duplication on JavaScript code in /Users/alyshialedlie/code/PersonalSite
+Run mcp__ast-grep__find_duplication on JavaScript code in /Users/alyshialedlie/code/personal-site
 ```
 
 Or be more specific:
@@ -74,7 +74,7 @@ Controls how similar code must be to be considered duplicate:
 
 ```json
 {
-  "project_folder": "/Users/alyshialedlie/code/PersonalSite",
+  "project_folder": "/Users/alyshialedlie/code/personal-site",
   "language": "javascript",
   "construct_type": "function_definition",
   "min_similarity": 0.8,
@@ -139,7 +139,7 @@ When duplicates are found, you'll get:
 **Language:** JavaScript
 **Result:** ✓ No duplicates found (12 functions analyzed)
 
-This is expected for the PersonalSite repository as it has:
+This is expected for the personal-site repository as it has:
 - Minimal custom JavaScript
 - Well-organized utility functions
 - No copy-paste patterns

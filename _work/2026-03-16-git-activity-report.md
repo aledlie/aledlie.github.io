@@ -34,7 +34,7 @@ header:
 | ~/dotfiles | 44 |
 | integrity-demo-generator | 21 |
 | inventory-ai | 3 |
-| PersonalSite | 1 |
+| personal-site | 1 |
 | ~/reports | 1 |
 | ~/schema-org-file-system | 1 |
 
@@ -102,9 +102,9 @@ header:
 - **Commits**: 3
 - **Files Changed**: 14
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 1
 - **Files Changed**: 1
 
@@ -124,7 +124,7 @@ header:
 ## Project Websites
 
 - [inventory-ai](https://www.inventoryai.io)
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - [reports](https://integritystudio.io)
 - [schema-org-file-system](https://integritystudio.pro)
 

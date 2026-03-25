@@ -29,7 +29,7 @@ header:
 
 | Repository | Commits |
 |------------|---------|
-| PersonalSite | 25 |
+| personal-site | 25 |
 | jobs | 23 |
 | InventoryAI | 2 |
 
@@ -57,9 +57,9 @@ header:
 
 ## Repository Details
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 25
 - **Files Changed**: 67
 
@@ -78,7 +78,7 @@ header:
 
 ## Project Websites
 
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - InventoryAI (site deprecated)
 
 ---

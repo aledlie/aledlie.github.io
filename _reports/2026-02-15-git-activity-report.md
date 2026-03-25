@@ -33,7 +33,7 @@ header:
 | ISPublicSites/tcad-scraper | 58 |
 | jobs | 51 |
 | ISPublicSites/IntegrityStudio.ai2 | 23 |
-| PersonalSite | 20 |
+| personal-site | 20 |
 | ast-grep-mcp | 15 |
 | ISPublicSites/AnalyticsBot | 11 |
 | ISPublicSites/AlephAuto | 5 |
@@ -97,9 +97,9 @@ header:
 - **Commits**: 23
 - **Files Changed**: 62
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 20
 - **Files Changed**: 21
 
@@ -137,7 +137,7 @@ header:
 ## Project Websites
 
 - [reports](https://integritystudio.io)
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - [john_skelton](https://johnskelton.blog)
 
 ---

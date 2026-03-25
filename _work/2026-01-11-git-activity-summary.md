@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Git Activity Report: PersonalSite Repository"
+title: "Git Activity Report: personal-site Repository"
 date: 2026-01-11
 author_profile: true
-excerpt: "Comprehensive analysis of 403 commits across the PersonalSite repository - spanning from initial creation in May 2017 through January 2026, with 94% of activity concentrated in 2025."
+excerpt: "Comprehensive analysis of 403 commits across the personal-site repository - spanning from initial creation in May 2017 through January 2026, with 94% of activity concentrated in 2025."
 header:
   image: /assets/images/cover-work.png
   teaser: /assets/images/cover-work.png
@@ -42,7 +42,7 @@ header:
 
 ## Executive Summary
 
-**Repository:** PersonalSite (aledlie.com)
+**Repository:** personal-site (aledlie.com)
 **Period:** May 14, 2017 - January 10, 2026 (8+ years)
 **Total Commits:** 403
 
@@ -204,7 +204,7 @@ other      ███ 5 ( 3.2%)
 
 ## Summary
 
-The PersonalSite repository demonstrates a mature Jekyll implementation with:
+The personal-site repository demonstrates a mature Jekyll implementation with:
 
 - **Strong conventional commit discipline** - 156 commits follow conventional format
 - **Accessibility-first approach** - WCAG 2.1 AA compliance achieved

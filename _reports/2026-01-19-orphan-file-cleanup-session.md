@@ -13,7 +13,7 @@ header:
 
 ## Summary
 
-Comprehensive cleanup session to identify and remove orphan files from the PersonalSite Jekyll repository. Used the `ARCHITECTURE-DATA-FLOWS.md` documentation as a reference to trace file usage through import chains, layout inheritance, and include statements.
+Comprehensive cleanup session to identify and remove orphan files from the personal-site Jekyll repository. Used the `ARCHITECTURE-DATA-FLOWS.md` documentation as a reference to trace file usage through import chains, layout inheritance, and include statements.
 
 **Total Impact:**
 - **45 files deleted**
@@ -185,5 +185,5 @@ bbb6c55f chore: remove orphan SCSS files
 ---
 
 **Session Duration:** ~30 minutes
-**Repository:** PersonalSite (aledlie.github.io)
+**Repository:** personal-site (aledlie.github.io)
 **Branch:** master

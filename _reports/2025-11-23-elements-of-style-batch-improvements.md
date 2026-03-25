@@ -12,7 +12,7 @@ header:
 ---
 
 **Session Date**: 2025-11-23<br>
-**Project**: PersonalSite Reports - Writing Quality Enhancement<br>
+**Project**: personal-site Reports - Writing Quality Enhancement<br>
 **Focus**: Systematic improvement of technical writing quality using automated style analysis and targeted fixes<br>
 
 ## Executive Summary
@@ -50,7 +50,7 @@ Fix all 14 files scoring below 90/100 to achieve consistent writing quality acro
 
 **Command:**
 ```bash
-npm run style:analyze -- --folder ~/code/PersonalSite/_reports/
+npm run style:analyze -- --folder ~/code/personal-site/_reports/
 ```
 
 **Results:** 23 files analyzed in ~30 seconds
@@ -173,7 +173,7 @@ Mock returned JSON strings instead of iterators.
 
 **Final Command:**
 ```bash
-npm run style:analyze -- --folder ~/code/PersonalSite/_reports/
+npm run style:analyze -- --folder ~/code/personal-site/_reports/
 ```
 
 **Results:** Verified improvements across all fixed files
@@ -375,7 +375,7 @@ The performance met the <5ms requirement.
 # Analyze single file
 npm run style:analyze -- --file path/to/file.md
 
-npm run style:analyze -- --folder ~/code/PersonalSite/_reports/
+npm run style:analyze -- --folder ~/code/personal-site/_reports/
 
 # Analyze from stdin
 echo "Text here" | npm run style:analyze
@@ -466,11 +466,11 @@ echo "Text here" | npm run style:analyze
 ### Session Files Created
 
 1. **Comparison Table:**
-   - `/Users/alyshialedlie/code/PersonalSite/_reports/2025-11-23-writing-style-improvements-summary.md`
+   - `/Users/alyshialedlie/code/personal-site/_reports/2025-11-23-writing-style-improvements-summary.md`
    - Comprehensive before/after scores for all 23 files
 
 2. **Session Report:**
-   - `/Users/alyshialedlie/code/PersonalSite/_reports/2025-11-23-elements-of-style-batch-improvements.md` (this file)
+   - `/Users/alyshialedlie/code/personal-site/_reports/2025-11-23-elements-of-style-batch-improvements.md` (this file)
    - Complete documentation of work performed
 
 ### Files Modified

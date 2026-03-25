@@ -12,7 +12,7 @@ header:
 ---
 
 **Session Date**: 2025-11-25<br>
-**Project**: PersonalSite - Jekyll Static Site<br>
+**Project**: personal-site - Jekyll Static Site<br>
 **Focus**: Quality assurance audit of _reports collection formatting and UI/UX bug fix for sidebar alignment<br>
 
 ## Executive Summary
@@ -176,9 +176,9 @@ header:
 **Build Process:**
 ```bash
 $ RUBYOPT="-W0" bundle exec jekyll build
-Configuration file: /Users/alyshialedlie/code/PersonalSite/_config.yml
-            Source: /Users/alyshialedlie/code/PersonalSite
-       Destination: /Users/alyshialedlie/code/PersonalSite/_site
+Configuration file: /Users/alyshialedlie/code/personal-site/_config.yml
+            Source: /Users/alyshialedlie/code/personal-site
+       Destination: /Users/alyshialedlie/code/personal-site/_site
       Generating...
        Jekyll Feed: Generating feed for posts
                     done in 0.852 seconds.

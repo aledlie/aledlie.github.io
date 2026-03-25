@@ -12,12 +12,12 @@ header:
 ---
 
 **Session Date**: 2025-11-26<br>
-**Project**: PersonalSite (aledlie.github.io)<br>
+**Project**: personal-site (aledlie.github.io)<br>
 **Focus**: Systematic bugfix planning and implementation of accessibility improvements<br>
 
 ## Executive Summary
 
-Successfully created a comprehensive bugfix plan from 10 identified errors across the PersonalSite repository, then implemented 3 high-impact accessibility quick wins that reduced WCAG violations by 43-57% per page. The work was completed in 2.5 hours (55% faster than estimated) and is ready for production deployment with zero breaking changes.
+Successfully created a comprehensive bugfix plan from 10 identified errors across the personal-site repository, then implemented 3 high-impact accessibility quick wins that reduced WCAG violations by 43-57% per page. The work was completed in 2.5 hours (55% faster than estimated) and is ready for production deployment with zero breaking changes.
 
 **Key Achievements**:
 - ✅ Analyzed 10 error categories from multiple sources (CI/CD failures, accessibility tests, build warnings)
@@ -33,7 +33,7 @@ Successfully created a comprehensive bugfix plan from 10 identified errors acros
 
 ### Initial Investigation
 
-Session began with the `/bugfix-errors` command to systematically identify and prioritize bugs in the PersonalSite repository. The goal was to create a data-driven bugfix plan based on actual errors from production.
+Session began with the `/bugfix-errors` command to systematically identify and prioritize bugs in the personal-site repository. The goal was to create a data-driven bugfix plan based on actual errors from production.
 
 ### Error Sources Analyzed
 
@@ -345,9 +345,9 @@ $ grep -n "<h1" _site/posts/index.html
 All builds succeeded with no errors:
 ```bash
 $ RUBYOPT="-W0" bundle exec jekyll build
-Configuration file: /Users/alyshialedlie/code/PersonalSite/_config.yml
-            Source: /Users/alyshialedlie/code/PersonalSite
-       Destination: /Users/alyshialedlie/code/PersonalSite/_site
+Configuration file: /Users/alyshialedlie/code/personal-site/_config.yml
+            Source: /Users/alyshialedlie/code/personal-site
+       Destination: /Users/alyshialedlie/code/personal-site/_site
       Generating...
        Jekyll Feed: Generating feed for posts
                     done in 0.635 seconds.

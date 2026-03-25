@@ -33,12 +33,12 @@ header:
 |------------|---------|
 | ~/.claude | 403 |
 | ISPublicSites/IntegrityStudio.ai2 | 262 |
-| PersonalSite | 189 |
+| personal-site | 189 |
 | ISPublicSites/AlephAuto | 176 |
 | jobs | 157 |
 | ISPublicSites/SingleSiteScraper | 46 |
 | ISPublicSites/AnalyticsBot | 42 |
-| isabel_budenz/PersonalSite | 28 |
+| isabel_budenz/personal-site | 28 |
 | ast-grep-mcp | 27 |
 | ~/claude-tool-use | 20 |
 
@@ -82,9 +82,9 @@ header:
 - **Commits**: 262
 - **Files Changed**: 919
 
-### PersonalSite
+### personal-site
 
-- **Path**: `/Users/alyshialedlie/code/PersonalSite`
+- **Path**: `/Users/alyshialedlie/code/personal-site`
 - **Commits**: 189
 - **Files Changed**: 943
 
@@ -112,9 +112,9 @@ header:
 - **Commits**: 42
 - **Files Changed**: 170
 
-### isabel_budenz/PersonalSite
+### isabel_budenz/personal-site
 
-- **Path**: `/Users/alyshialedlie/reports/isabel_budenz/PersonalSite`
+- **Path**: `/Users/alyshialedlie/reports/isabel_budenz/personal-site`
 - **Commits**: 28
 - **Files Changed**: 381
 
@@ -187,7 +187,7 @@ header:
 
 ## Project Websites
 
-- [PersonalSite](https://www.aledlie.com)
+- [personal-site](https://www.aledlie.com)
 - claude-tool-use (site discontinued)
 - [john_skelton](https://johnskelton.blog)
 - [schema-org-file-system](https://integritystudio.pro)

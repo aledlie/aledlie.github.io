@@ -470,9 +470,9 @@ This repository contains **40+ projects** across various domains including:
 
 ---
 
-### 6. PersonalSite
+### 6. personal-site
 
-**Location:** `PersonalSite/`
+**Location:** `personal-site/`
 **Type:** Personal Website/Portfolio
 
 **Description:** Personal website/portfolio project with Claude Code configuration.

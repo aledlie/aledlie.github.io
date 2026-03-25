@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Analysis of PersonalSite blog posts identified **3 distinct content patterns** that can benefit from enhanced Schema.org markup beyond basic BlogPosting. This enhancement improves SEO, rich results eligibility, and knowledge graph integration.
+Analysis of personal-site blog posts identified **3 distinct content patterns** that can benefit from enhanced Schema.org markup beyond basic BlogPosting. This enhancement improves SEO, rich results eligibility, and knowledge graph integration.
 
 ### Content Pattern Analysis
 
@@ -57,7 +57,7 @@ Analysis of PersonalSite blog posts identified **3 distinct content patterns** t
 }
 ```
 
-**PersonalSite Application:**
+**personal-site Application:**
 - Jekyll Update Guide (2025-07-02)
 - Future technical implementation guides
 - Technology comparison posts
@@ -104,7 +104,7 @@ Analysis of PersonalSite blog posts identified **3 distinct content patterns** t
 }
 ```
 
-**PersonalSite Application:**
+**personal-site Application:**
 - Wix Performance Improvement (2025-09-02) - PERFECT FIT
   - Contains quantified performance data
   - Expert analysis and interpretation
@@ -167,7 +167,7 @@ Analysis of PersonalSite blog posts identified **3 distinct content patterns** t
 }
 ```
 
-**PersonalSite Application:**
+**personal-site Application:**
 - Future step-by-step tutorials
 - Installation guides
 - Configuration walkthroughs
@@ -434,7 +434,7 @@ Consider adding:
 - **Schema Validator**: https://validator.schema.org/
 - **JSON-LD Playground**: https://json-ld.org/playground/
 
-### Related PersonalSite Documentation
+### Related personal-site Documentation
 
 - **Unified Schema Guide**: `_includes/SCHEMA-KNOWLEDGE-GRAPH-GUIDE.md`
 - **Testing Guide**: `SCHEMA-TESTING-VALIDATION-GUIDE.md`

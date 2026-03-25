@@ -1542,7 +1542,7 @@ ast-grep run --pattern 'print($$$)' --lang python --json . | \
 - **Sentry Python SDK**: https://docs.sentry.io/platforms/python/
 - **ast-grep**: https://ast-grep.github.io/
 - **Error Tracking Skill**: `~/.claude/skills/error-tracking/SKILL.md`
-- **Previous Session Report**: `/Users/alyshialedlie/code/PersonalSite/_reports/2025-11-17-ispublicsites-duplication-analysis.md`
+- **Previous Session Report**: `/Users/alyshialedlie/code/personal-site/_reports/2025-11-17-ispublicsites-duplication-analysis.md`
 
 ### D. Quick Command Reference
 

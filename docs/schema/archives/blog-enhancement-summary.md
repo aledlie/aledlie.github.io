@@ -11,7 +11,7 @@
 ### Phase 1: Analysis ✅
 
 **Blog Post Content Analysis:**
-- ✅ Analyzed 3 blog posts in PersonalSite
+- ✅ Analyzed 3 blog posts in personal-site
 - ✅ Identified 3 distinct content patterns:
   - Technical guides (Jekyll update)
   - Performance analysis (Wix performance)
@@ -198,7 +198,7 @@ schema_steps: [...]
 
 **Local Testing:**
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 bundle exec jekyll build
 bundle exec jekyll serve
 
@@ -289,7 +289,7 @@ bundle exec jekyll serve
 ### Git Commit
 
 ```bash
-cd ~/code/PersonalSite
+cd ~/code/personal-site
 
 # Stage new files
 git add _includes/tech-article-schema.html
