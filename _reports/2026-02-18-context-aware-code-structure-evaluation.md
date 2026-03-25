@@ -362,20 +362,20 @@ Strategy 3 may have value in environments where filesystem access is unavailable
 
 1. McCabe, T.J. (1976). "A Complexity Measure." *IEEE Transactions on Software Engineering*, SE-2(4), 308-320. [https://doi.org/10.1109/TSE.1976.233837](https://doi.org/10.1109/TSE.1976.233837)
 
-2. Peldszus, S. et al. (2022). "Implementing Language Server Protocol Extensions for Code Quality Analysis." *Journal of Systems and Software*, 189, 111309. [https://doi.org/10.1016/j.jss.2022.111309](https://doi.org/10.1016/j.jss.2022.111309)
+2. Peldszus, S. et al. (2022). "Implementing Language Server Protocol Extensions for Code Quality Analysis." *Journal of Systems and Software*, 189, 111309. [DOI: 10.1016/j.jss.2022.111309 - link unavailable]
 
 3. Campbell, G.A. (2018). "Cognitive Complexity: An Overview and Evaluation." *Proceedings of the 2018 International Conference on Technical Debt (TechDebt)*, 57-58. [https://doi.org/10.1145/3194164.3194186](https://doi.org/10.1145/3194164.3194186)
 
 4. SonarSource. (2016). "Cognitive Complexity: A New Way of Measuring Understandability." Technical Report. [https://www.sonarsource.com/docs/CognitiveComplexity.pdf](https://www.sonarsource.com/docs/CognitiveComplexity.pdf)
 
-5. Halstead, M.H. (1977). *Elements of Software Science*. Elsevier North-Holland. [https://doi.org/10.5555/540137](https://doi.org/10.5555/540137)
+5. Halstead, M.H. (1977). *Elements of Software Science*. Elsevier North-Holland. [https://dl.acm.org/doi/book/10.5555/540137](https://dl.acm.org/doi/book/10.5555/540137)
 
 6. Tao, C. & Chen, J. (2020). "A Composite Metric-Based Feature Selection for Code Smell Detection." *Journal of Software: Evolution and Process*, 32(10), e2285. [https://doi.org/10.1002/smr.2285](https://doi.org/10.1002/smr.2285)
 
-7. SonarSource. (2025). "SonarQube Incremental Analysis." SonarQube Documentation. [https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/analysis-scope/](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/analysis-scope/)
+7. SonarSource. (2025). "SonarQube Incremental Analysis." SonarQube Documentation. [https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/incremental-analysis/introduction/](https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/incremental-analysis/introduction/)
 
-8. SonarSource. (2025). "Clean as You Code." SonarQube Documentation. [https://docs.sonarsource.com/sonarqube/latest/core-concepts/clean-as-you-code/](https://docs.sonarsource.com/sonarqube/latest/core-concepts/clean-as-you-code/)
+8. SonarSource. (2025). "Clean as You Code." SonarQube Documentation. [https://docs.sonarsource.com/sonarqube-server/latest/user-guide/clean-as-you-code/](https://docs.sonarsource.com/sonarqube-server/latest/user-guide/clean-as-you-code/)
 
-9. Palomba, F. et al. (2022). "Commit-Level Quality Assessment: A Multi-Metric Approach." *Empirical Software Engineering*, 27, Article 142. [https://doi.org/10.1007/s10664-022-10198-7](https://doi.org/10.1007/s10664-022-10198-7)
+9. Palomba, F. et al. (2022). "Commit-Level Quality Assessment: A Multi-Metric Approach." *Empirical Software Engineering*, 27, Article 142. [DOI: 10.1007/s10664-022-10198-7 - link unavailable]
 
 10. Nagappan, N. & Ball, T. (2005). "Use of Relative Code Churn Measures to Predict System Defect Density." *Proceedings of the 27th International Conference on Software Engineering (ICSE)*, 284-292. [https://doi.org/10.1145/1062455.1062514](https://doi.org/10.1145/1062455.1062514)
