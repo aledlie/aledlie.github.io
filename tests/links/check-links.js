@@ -191,7 +191,11 @@ class LinkChecker {
       const brokenLinks = [];
 
       for (const [url, data] of failedLinks) {
-        if (data.error && data.error.includes('403')) {
+        // Only mark as paywalled if it's a 403 AND an academic DOI or publisher domain
+        const isAcademicDOI = url.includes('doi.org/') || url.includes('handle.net/');
+        const isPublisherDomain = url.includes('springer.com') || url.includes('wiley.com') ||
+                                  url.includes('ieee.org') || url.includes('acm.org');
+        if (data.error && data.error.includes('403') && (isAcademicDOI || isPublisherDomain)) {
           paywalledLinks.push([url, data]);
         } else {
           brokenLinks.push([url, data]);
