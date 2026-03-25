@@ -19,7 +19,7 @@ for advice and help, someone considered senior and In Charge Of Things. This hap
 
 For about 8 years after that, my job was roughly divided like this:
 
-- **15%** tackling *really, excellently fun, important, and hard problems* that I loved, even as they burned out my brain.
+- **15%** tackling *really, excellent fun, important, and hard problems* that I loved, even as they burned out my brain.
 - **30-40%** answering the questions of whoever came by my desk
 - **95%** providing therapy for the totally valid and stress-induced nervous breakdowns of my coworkers in small 1:1 conference rooms
 - **100%** tech-driven pranks and meme wars with my team, who, predictably,
