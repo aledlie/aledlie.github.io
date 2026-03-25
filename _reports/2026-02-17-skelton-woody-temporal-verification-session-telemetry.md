@@ -60,7 +60,7 @@ Seven metrics. Three from rule-based telemetry analysis, four from LLM-as-Judge 
 
 | Issue | Before | After | Source |
 |-------|--------|-------|--------|
-| ABA Construction Law event card | Apr 23-26, 2026, Austin, TX | May 6-9, 2026, Chicago, IL | [ABA FCL](https://www.americanbar.org/groups/construction_industry/) |
+| ABA Construction Law event card | Apr 23-26, 2026, Austin, TX | May 6-9, 2026, Chicago, IL | ABA Section of Construction Law |
 | ABA in timeline table + source label | Same stale date + "Austin Meeting" label | Corrected to Chicago in both locations | Judge caught internal contradiction |
 
 **P2 — Medium (4 items)**

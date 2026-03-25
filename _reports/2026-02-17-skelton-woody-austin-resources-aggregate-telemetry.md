@@ -79,7 +79,7 @@ Both were immediately fixed after the judge's evaluation. This demonstrates the 
 | Claim | Pre-correction | Post-correction | Source |
 |-------|---------------|-----------------|--------|
 | TADC Annual Meeting | Sept 17-21, 2025, Hotel Emma, San Antonio | Sept 23-27, 2026, San Luis Resort, Galveston | [tadc.org](https://tadc.org/event/2026-tadc-annual-meeting/) |
-| ABA Construction Law | Apr 23-26, 2026, Austin | May 6-9, 2026, Chicago (50th anniversary) | [americanbar.org](https://www.americanbar.org/groups/construction_industry/) |
+| ABA Construction Law | Apr 23-26, 2026, Austin | May 6-9, 2026, Chicago (50th anniversary) | ABA Section of Construction Law |
 | TBLS Insurance Law | "~52 lawyers certified" | "Newest specialty area, added 2023; very few certified" | [tbls.org](https://www.tbls.org/) (52 = years of operation) |
 | DRI/SLDO | "Free via TADC/SLDO affiliation" | "First year may be free via periodic SLDO promo" | [OACTA SLDO Program PDF](https://oacta.memberclicks.net/assets/2022/SLDO%20Free%20Membership%20Program%20FINAL.pdf) |
 | Austin Bar Gala | "January 24, 2026" (past) | "Annual event held each January" | Common sense (report date Feb 17, 2026) |

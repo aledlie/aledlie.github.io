@@ -138,7 +138,7 @@ header:
 | Firm | Focus | Location | Notes |
 |------|-------|----------|-------|
 | **[Bird & Bird](https://www.twobirds.com/en/careers)** | Tech, IP, Data | Multiple EU | Tech-specialist firm |
-| **[Fieldfisher](https://www.fieldfisher.com/en/careers)** | Tech, Privacy, AI | London, various EU | Growing AI practice |
+| **Fieldfisher** | Tech, Privacy, AI | London, various EU | Growing AI practice |
 | **[Taylor Wessing](https://www.taylorwessing.com/en/careers)** | Tech, IP, Data | Multiple EU | Strong German presence |
 
 ---
@@ -150,9 +150,9 @@ header:
 | **[ICC International Court of Arbitration](https://iccwbo.org/careers/)** | Internship program | Paris | AI Task Force active; French useful |
 | **[LCIA](https://www.lcia.org/careers.aspx)** | Internship Programme | London | Open to all graduates; mentored experience |
 | **[PCA Vienna](https://pca-cpa.org/en/about/employment/internship-program/)** | 3-month internship | Vienna | German useful; Jan/Apr/Jul/Oct starts |
-| **[SCC](https://sccinstitute.com/about-the-scc/)** | Internship | Stockholm | AI Guide authors; Nordic arbitration |
+| **SCC** | Internship | Stockholm | AI Guide authors; Nordic arbitration |
 | **[VIAC](https://www.viac.eu/en/about-viac)** | Internship | Vienna | AI Note authors; German essential |
-| **[SIAC](https://www.siac.org.sg/careers)** | Internship | Singapore | Asia-Pacific arbitration hub |
+| **SIAC** | Internship | Singapore | Asia-Pacific arbitration hub |
 | **[HKIAC](https://www.hkiac.org/about-us/careers)** | Internship | Hong Kong | Growing AI interest |
 | **[DIAC](https://www.diac.ae/idias/)** | IDIAS Internship | Dubai | Partnered with Jus Mundi on AI |
 | **[AIAC](https://www.aiac.world/about-aiac/career/aiac-legal-internship-programme)** | Legal Internship | Kuala Lumpur | Asia-Pacific focus |
@@ -207,7 +207,7 @@ header:
 |--------------|-------|----------|-------|
 | **[OECD AI Policy Observatory](https://oecd.ai/)** | AI policy | Paris | International standards |
 | **[UNESCO](https://careers.unesco.org/)** | AI ethics | Paris | AI ethics recommendation authors |
-| **[Council of Europe](https://www.coe.int/en/web/jobs)** | AI Framework Convention | Strasbourg | First binding AI treaty |
+| **Council of Europe** | AI Framework Convention | Strasbourg | First binding AI treaty |
 | **[European Commission](https://traineeships.ec.europa.eu/)** | AI Office/DG CONNECT | Brussels | EU AI Act implementation |
 | **[World Economic Forum](https://www.weforum.org/careers/)** | AI Governance Alliance | Geneva | Global AI governance |
 
@@ -228,7 +228,7 @@ header:
 | **[Luminance](https://www.luminance.com/careers.html)** | AI contract analysis | London, Cambridge | European legal tech leader |
 | **[Ironclad](https://ironcladapp.com/company/careers/)** | CLM + AI | San Francisco | Contract lifecycle AI |
 | **CoCounsel (Thomson Reuters)** | Legal research AI | San Francisco | Acquired by Thomson Reuters |
-| **[Relativity](https://www.relativity.com/company/careers/)** | E-discovery + AI | Chicago, London | Enterprise legal tech |
+| **Relativity** | E-discovery + AI | Chicago, London | Enterprise legal tech |
 | **Eigen Technologies** | Document AI | London | Financial/legal focus |
 
 **Jus Mundi Highlights:**

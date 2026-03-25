@@ -63,7 +63,6 @@ The post demonstrates solid conceptual grounding in agentic AI observability but
 
 **Sources Consulted**:
 - [Analytics Insight - AI Observability Framework](https://www.analyticsinsight.net/artificial-intelligence/enhancing-ai-observability-a-new-framework-for-monitoring-and-debugging)
-- [VentureBeat - AI Observability](https://venturebeat.com/ai/from-logs-to-insights-the-ai-breakthrough-redefining-observability)
 
 ---
 
