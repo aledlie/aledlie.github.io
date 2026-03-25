@@ -1,6 +1,14 @@
 /**
  * External Link Checker
  * Scans markdown files for external links and verifies they are accessible
+ *
+ * Academic Link Handling:
+ * - HTTP 403 (Forbidden) for academic DOIs is EXPECTED and ACCEPTABLE
+ *   Indicates paywall/institutional access required, not a broken link
+ * - HTTP 404 requires investigation: verify publication exists via CrossRef/Google Scholar
+ * - Skipped domains require manual verification in browser
+ *
+ * For detailed verification strategies, see: ACADEMIC-LINK-VERIFICATION.md
  */
 
 const fs = require('fs');
@@ -13,15 +21,19 @@ const CONTENT_DIRS = ['_posts', '_projects', '_reports', '_work', '_pages'];
 const LINK_REGEX = /\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g;
 
 // Skip certain domains that block automated requests
+// These require manual verification in a browser or API calls
 const SKIP_DOMAINS = [
   'medium.com',
   'linkedin.com',
-  'dl.acm.org',
-  'onlinelibrary.wiley.com',
-  'papers.ssrn.com',
+  'dl.acm.org',              // ACM Digital Library (valid alternative for academic papers)
+  'onlinelibrary.wiley.com', // Wiley (journal publisher, HTTP 403 is expected)
+  'papers.ssrn.com',         // SSRN (research papers, rate limited)
   'crunchbase.com',
   'neptune.ai',
   'openai.com',
+  'link.springer.com',       // Springer (journal publisher, HTTP 403 is expected)
+  'ieeexplore.ieee.org',     // IEEE (journal publisher, HTTP 403 is expected)
+  'scholar.google.com',      // Google Scholar (blocks automated requests)
 ];
 
 // Request configuration
@@ -173,10 +185,40 @@ class LinkChecker {
     if (failedLinks.length > 0) {
       console.log('\nFAILED LINKS:');
       console.log('-'.repeat(60));
+
+      // Categorize failures
+      const paywalledLinks = [];
+      const brokenLinks = [];
+
       for (const [url, data] of failedLinks) {
-        console.log(`\n${url}`);
-        console.log(`  Error: ${data.error}`);
-        console.log(`  Found in: ${data.files.join(', ')}`);
+        if (data.error && data.error.includes('403')) {
+          paywalledLinks.push([url, data]);
+        } else {
+          brokenLinks.push([url, data]);
+        }
+      }
+
+      // Show paywall notices separately
+      if (paywalledLinks.length > 0) {
+        console.log('\nPaywall/Forbidden (HTTP 403) - ACCEPTABLE for academic papers:');
+        for (const [url, data] of paywalledLinks) {
+          console.log(`\n${url}`);
+          console.log(`  Note: This is a legitimate paywalled academic resource`);
+          console.log(`  Users with institutional access can retrieve it`);
+          console.log(`  Found in: ${data.files.join(', ')}`);
+        }
+      }
+
+      // Show actual broken links
+      if (brokenLinks.length > 0) {
+        console.log('\n\nActual Broken Links (requires remediation):');
+        for (const [url, data] of brokenLinks) {
+          console.log(`\n${url}`);
+          console.log(`  Error: ${data.error}`);
+          console.log(`  Found in: ${data.files.join(', ')}`);
+          console.log(`  Action: Verify publication exists → Find alternative link → Update citation`);
+          console.log(`  See: tests/links/ACADEMIC-LINK-VERIFICATION.md for strategies`);
+        }
       }
     }
 
