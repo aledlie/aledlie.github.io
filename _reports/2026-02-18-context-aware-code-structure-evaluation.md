@@ -360,7 +360,7 @@ Strategy 3 may have value in environments where filesystem access is unavailable
 
 ## 10. References
 
-1. McCabe, T.J. (1976). "A Complexity Measure." *IEEE Transactions on Software Engineering*, SE-2(4), 308-320. [https://doi.org/10.1109/TSE.1976.233837](https://doi.org/10.1109/TSE.1976.233837) — [Alternative: Academia.edu](https://www.academia.edu/8103905/A_Complexity_Measure)
+1. McCabe, T.J. (1976). "A Complexity Measure." *IEEE Transactions on Software Engineering*, SE-2(4), 308-320. [https://doi.org/10.1109/TSE.1976.233837](https://doi.org/10.1109/TSE.1976.233837) — [PDF](http://www.literateprogramming.com/mccabe.pdf) | [Academia.edu](https://www.academia.edu/8103905/A_Complexity_Measure)
 
 2. Peldszus, S. et al. (2022). "Implementing Language Server Protocol Extensions for Code Quality Analysis." *Journal of Systems and Software*, 189, 111309. [DOI: 10.1016/j.jss.2022.111309 - link unavailable]
 
