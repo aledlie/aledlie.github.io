@@ -5,7 +5,7 @@ date: 2026-03-28
 author_profile: true
 categories: [research-analysis, llm-reliability, knowledge-curation]
 tags: [hallucination, neural-network-monitoring, llm-evaluation, research-velocity, staleness-assessment]
-excerpt: "A case study in research decay: Lilian Weng's July 2024 hallucination article scores 6.3/10 by March 2026 — not because it was wrong, but because the field moved faster than a two-year publishing cycle can follow."
+excerpt: "A case study in research decay: Lilian Weng's July 2024 hallucination article scores 5.6/10 by March 2026 — not because it was wrong, but because the field moved faster than a two-year publishing cycle can follow."
 header:
   image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
@@ -25,7 +25,7 @@ In most engineering disciplines, a well-regarded paper from two years ago is sti
 
 Neural network performance monitoring is not that field.
 
-This session audited Lilian Weng's July 2024 article *Extrinsic Hallucinations in LLMs* — a canonical reference, written by one of the most credible voices in applied ML research — using LLM-as-Judge evaluation (G-Eval via `genai-quality-monitor`). The composite score came back **6.3/10**. Not because the article was poorly written or factually wrong at publication. But because less than two years of research progress has partially obsoleted its benchmarks, superseded several of its recommended methods, and left entire new problem classes entirely uncovered.
+This session audited Lilian Weng's July 2024 article *Extrinsic Hallucinations in LLMs* — a canonical reference, written by one of the most credible voices in applied ML research — using LLM-as-Judge evaluation (G-Eval via `genai-quality-monitor`, judged by `claude-sonnet-4-6`, March 2026). The composite score came back **5.6/10**. Not because the article was poorly written or factually wrong at publication. But because less than two years of research progress has partially obsoleted its benchmarks, superseded several of its recommended methods, and left entire new problem classes entirely uncovered.
 
 That rate of decay should give any practitioner pause.
 
@@ -37,12 +37,14 @@ Five dimensions, each scored 0–10:
 
 | Dimension | Score | What It Captures |
 |---|---|---|
-| Factual Accuracy | 7.5 | Are the core claims still correct? |
-| Relevance | 8.5 | Does the framing still apply to current practice? |
-| Staleness | 6.0 | How many methods/benchmarks have been superseded? |
-| Completeness | 5.0 | Does it cover the problem classes practitioners face today? |
-| Methodology Coverage | 4.5 | Does it reflect current evaluation best practices? |
-| **Composite** | **6.3** | |
+| Factual Accuracy | 7 | Are the core claims still correct? |
+| Relevance | 8 | Does the framing still apply to current practice? |
+| Staleness | 5 | How many methods/benchmarks have been superseded? |
+| Completeness | 4 | Does it cover the problem classes practitioners face today? |
+| Methodology Coverage | 4 | Does it reflect current evaluation best practices? |
+| **Composite** | **5.6** | |
+
+*Judged by `claude-sonnet-4-6` · G-Eval CoT protocol · 0–10 integer scale · simple average composite · reference date March 2026*
 
 The high relevance score (8.5) and low completeness score (5.0) tell the real story: the *framing* of hallucination as a retrieval and calibration problem is still correct, but the *landscape* of what practitioners must actually monitor has expanded dramatically beyond what the article addresses.
 
@@ -72,7 +74,7 @@ The underlying *ideas* remain valid. Consistency checking matters. Retrieval red
 
 The most significant finding is not what changed — it is what appeared from nowhere.
 
-**Agentic hallucination** did not exist as a distinct research category in July 2024. By 2026, tool-use fabrication (models inventing function arguments, hallucinating API schemas, generating non-existent file paths) accounts for an estimated 30–40% of production hallucination failures in deployed systems. The article has zero coverage of this because multi-step agentic pipelines were not yet the dominant deployment pattern.
+**Agentic hallucination** did not exist as a distinct research category in July 2024. By 2026, tool-use fabrication (models inventing function arguments, hallucinating API schemas, generating non-existent file paths) has emerged as a dominant production failure class — one for which no empirical frequency data yet exists at the level of rigor required to cite a specific share. The article has zero coverage of this because multi-step agentic pipelines were not yet the dominant deployment pattern.
 
 **Reasoning model calibration** is a qualitatively new problem class. Models like o1 and DeepSeek-R1 can produce correct intermediate reasoning steps and confidently wrong final answers — a failure mode that requires evaluating reasoning paths separately from final outputs. No verification technique in the 2024 article addresses this.
 
@@ -125,10 +127,29 @@ The Weng article is not stale because it was wrong. It is stale because the fiel
 
 ---
 
-## References
+## References & Citations
 
-- Lilian Weng, "Extrinsic Hallucinations in LLMs", July 2024 — https://lilianweng.github.io/posts/2024-07-07-hallucination/
-- Audit: `genai-quality-monitor` G-Eval LLM-as-Judge, five-rubric evaluation
-- Benchmark succession: SimpleQA (OpenAI, 2024), GPQA, HaluEval
-- Emerging methods: Corrective RAG (CRAG), Semantic Entropy, EigenScore, PRMs
-- Problem class literature: agentic hallucination taxonomies, o1-class reasoning calibration studies (2026)
+**Audited Article**
+- Lilian Weng, [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) (July 2024)
+
+**Benchmarks**
+- Lin et al., [TruthfulQA: Measuring How Models Mimic Human Falsehoods](https://arxiv.org/abs/2109.07958) (2021)
+- OpenAI, [SimpleQA](https://openai.com/index/introducing-simpleqa/) (2024) — [arXiv](https://arxiv.org/abs/2411.04368)
+- Rein et al., [GPQA: A Graduate-Level Google-Proof Q&A Benchmark](https://arxiv.org/abs/2311.12022) (2023)
+- Li et al., [HaluEval: A Large-Scale Hallucination Evaluation Benchmark](https://arxiv.org/abs/2305.11747) (2023)
+
+**Mitigation Methods (Covered in Weng 2024)**
+- Manakul et al., [SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection](https://arxiv.org/abs/2303.08896) (2023)
+- Gao et al., [RARR: Researching and Revising What Language Models Say](https://arxiv.org/abs/2210.08726) (2022)
+- Mishra et al., [FAVA: Language Model Fills in Factual Gaps](https://arxiv.org/abs/2401.06855) (2024)
+- Asai et al., [Self-RAG: Learning to Retrieve, Generate, and Critique](https://arxiv.org/abs/2310.11511) (2023)
+- Dhuliawala et al., [Chain-of-Verification Reduces Hallucination in LLMs](https://arxiv.org/abs/2309.11495) (2023)
+
+**Emerging Methods and Architectures**
+- Yan et al., [Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884) (2024)
+- Kuhn et al., [Semantic Uncertainty: Linguistic Invariances for Uncertainty Estimation in NLG](https://arxiv.org/abs/2302.09664) (2023)
+- Chuang et al., [INSIDE: LLMs' Internal States Retain the Power of Hallucination Detection](https://arxiv.org/abs/2402.03744) (2024)
+- Lightman et al., [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) (2023)
+
+**Reasoning Models**
+- DeepSeek-AI, [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs](https://arxiv.org/abs/2501.12948) (2025)
