@@ -157,7 +157,7 @@ Using external connectors for live documentation is still the right call. Fetchi
 
 ## The Half-Life Problem
 
-In chemistry, a half-life is how long it takes for half of a substance to decay. Applied to knowledge, it describes how long before half the specific claims in a piece of research are superseded or contradicted by newer work. Academic research on neural network methods has an 18–24 month half-life on specific techniques. Developer platform guidance for an actively-shipped tool has closer to a 12-month half-life — possibly shorter for platforms with continuous delivery.
+In chemistry, a half-life is how long it takes for half of a substance to decay. Applied to knowledge, it describes how long before half the specific claims in a piece of research are superseded or contradicted by newer work. Academic research on neural network methods has an 18–24 month half-life on specific techniques. Developer platform guidance for an actively-shipped tool has closer to a 6–12-month half-life — and both are getting shorter by the day.
 
 For this reason, it's worth treating different categories of knowledge differently:
 
