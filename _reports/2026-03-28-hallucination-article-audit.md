@@ -31,6 +31,19 @@ That rate of decay should give any practitioner pause.
 
 ---
 
+## Why This Rate of Change Matters for Practitioners
+
+A practitioner building a hallucination monitoring system today who relies solely on this article will:
+
+1. Use a saturated benchmark (TruthfulQA) and miss real failures
+2. Implement superseded methods (SelfCheckGPT, RARR) when better tools exist
+3. Have no monitoring strategy for the most common production failure class (agentic hallucination)
+4. Have no framework for reasoning model calibration
+
+This is not a critique of the article. It is a critique of what it means to treat any single canonical reference as a complete monitoring specification in a field that has effectively rewritten its toolbox twice in two years.
+
+---
+
 ## What the Audit Measured
 
 Five dimensions, each scored 0–10:
@@ -81,19 +94,6 @@ The most significant finding is not what changed — it is what appeared from no
 **Long-context faithfulness** — hallucinations in 128K–1M token contexts — introduces failure modes (needle-in-haystack confabulation, context-window position bias) that retrieval-based mitigations alone do not address.
 
 **Process Reward Models (PRMs)** went from emerging research to standard architectural assumption in roughly 18 months. The article mentions chain-of-thought verification; PRMs are now the primary mechanism for step-level factuality in high-stakes deployments.
-
----
-
-## Why This Rate of Change Matters for Practitioners
-
-A practitioner building a hallucination monitoring system today who relies solely on this article will:
-
-1. Use a saturated benchmark (TruthfulQA) and miss real failures
-2. Implement superseded methods (SelfCheckGPT, RARR) when better tools exist
-3. Have no monitoring strategy for the most common production failure class (agentic hallucination)
-4. Have no framework for reasoning model calibration
-
-This is not a critique of the article. It is a critique of what it means to treat any single canonical reference as a complete monitoring specification in a field that has effectively rewritten its toolbox twice in two years.
 
 ---
 
@@ -153,3 +153,17 @@ The Weng article is not stale because it was wrong. It is stale because the fiel
 
 **Reasoning Models**
 - DeepSeek-AI, [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs](https://arxiv.org/abs/2501.12948) (2025)
+
+---
+
+**Term Notes**
+
+- **LLM-as-Judge** — an evaluation technique where a large language model scores or critiques another model's output, used as a scalable alternative to human annotation. See: Zheng et al., [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) (2023)
+- **G-Eval** — a framework for NLG evaluation that uses an LLM with a chain-of-thought scoring rubric to produce human-aligned quality scores. See: Liu et al., [G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634) (2023)
+- **CoT (Chain-of-Thought) protocol** — a prompting strategy where the model is asked to produce intermediate reasoning steps before a final answer, improving accuracy on multi-step tasks. See: Wei et al., [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903) (2022)
+- **RAG (Retrieval-Augmented Generation)** — an architecture that grounds model outputs by retrieving relevant documents from an external corpus at inference time, reducing reliance on memorized knowledge. See: Lewis et al., [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) (2020)
+- **RARR (Researching and Revising)** — a post-hoc factuality correction method that retrieves evidence and edits model outputs to align with it. See: Gao et al., [RARR](https://arxiv.org/abs/2210.08726) (2022)
+- **FAVA (Fill in the grAps with Verified informAtion)** — a method that identifies unsupported spans in model output and replaces them with retrieved, verified content. See: Mishra et al., [FAVA](https://arxiv.org/abs/2401.06855) (2024)
+- **PRMs (Process Reward Models)** — reward models trained to evaluate individual reasoning steps rather than only final answers, enabling step-level factuality supervision. See: Lightman et al., [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) (2023)
+- **Needle-in-a-haystack confabulation** — a failure mode in long-context models where the model fabricates or distorts a specific piece of information embedded deep in a long input, rather than retrieving it accurately. See: Kamradt, [LLM Test: Needle In A Haystack](https://github.com/gkamradt/LLMTest_NeedleInAHaystack) (2023)
+- **Context-window position bias** — the tendency for models to attend disproportionately to content at the beginning or end of a long context window, degrading recall for information in the middle. See: Liu et al., [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) (2023)
