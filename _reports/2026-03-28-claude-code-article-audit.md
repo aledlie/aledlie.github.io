@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "The 18-Month Expiration Date: How Fast Developer Workflow Advice Goes Stale"
+title: "From cutting edge to useless in 7 months: How Fast Developer Workflow Advice Goes Stale"
 date: 2026-03-28
 author_profile: true
 categories: [research-analysis, developer-tooling, knowledge-curation]
@@ -25,9 +25,9 @@ In most software ecosystems, a developer's "here's my setup" post from eighteen 
 
 Claude Code is not that kind of tool.
 
-This session audited Robert Marshall's article *Turning Claude Code into a Development Powerhouse* — a well-intentioned, clearly firsthand optimization guide — against the current Claude Code platform as of March 28, 2026. The composite score came back **3.8/10**. Not because the article is poorly written or dishonest. But because Anthropic has shipped roughly 18 months of platform features since the article was written, and the gap between what the article recommends and what the platform currently supports is now large enough to produce meaningfully worse outcomes for readers who follow it. The largest gap is not a factual error — it is an entire automation layer the article does not know exists.
+This session audited Robert Marshall's article *Turning Claude Code into a Development Powerhouse* — a firsthand optimization guide that represented industry-leading development practices and a wealth of subject matter expertise when it was published on August 21st, 2025. But standard composite checks for ecosystem fit and performance quality gave it a **3.8/10** score as of today, March 28th, 2026. LLM-backed coding assistants and the ecosystems that surround them have had roughly 7 months to ship new features and tools since it was written, and the gap between what the article recommends and what the platform currently supports is now large enough to produce meaningfully worse outcomes for readers who follow it. The largest gap is not a factual error — it is an entire automation layer the article does not know exists.
 
-That rate of decay is faster than the hallucination research field. Neural network papers have an 18–24 month half-life on specific methods. Developer platform guidance for an actively-shipped CLI tool has closer to a 12-month half-life — and the acceleration is not slowing.
+That rate of decay is faster than the hallucination research field. [Even canonical academic research on LLM hallucination — written by credible authors, carefully cited — scores 5.6/10 against current practice after less than two years](/reports/2026-hallucination-audit/). Neural network papers have an 18–24 month half-life on specific methods. Developer platform guidance for an actively-shipped CLI tool has closer to a 12-month half-life — and the acceleration is not slowing.
 
 ---
 
@@ -73,7 +73,7 @@ The recommendations are coherent as a first-month setup. They are approximately 
 
 This is the most significant gap. The article's core thesis is that Claude produces generic outputs without project context, and the solution is injecting context via MCP and CLAUDE.md. That framing was reasonable in early 2025. By March 2026, the platform has a full automation and enforcement layer that changes the architecture of the problem entirely.
 
-Claude Code's hooks system supports 20+ lifecycle events: `PreToolUse`, `PostToolUse`, `SessionStart`, `Stop`, `UserPromptSubmit`, `TaskCreated`, `TaskCompleted`, `WorktreeCreate`, `FileChanged`, and more. Hooks can:
+Claude Code's hooks system supports 20+ lifecycle events — including `PreToolUse`, `PostToolUse`, `SessionStart`, `Stop`, `TaskCreated`, and `WorktreeCreate` — and can:
 
 - Block tool calls before execution (exit 2 on `PreToolUse`) to enforce architectural constraints
 - Modify tool input or replace MCP tool output
@@ -130,7 +130,28 @@ A team that follows the article's setup is prompting for permission on every too
 
 The article's only performance measurement is self-reported ("felt 60–70% faster"). There is no methodology, no baseline, and no breakdown of which component produced which improvement.
 
-Claude Code has built-in OpenTelemetry support (`CLAUDE_CODE_ENABLE_TELEMETRY=1` with `OTEL_METRICS_EXPORTER` / `OTEL_TRACES_EXPORTER`). Session-level observability, LLM-as-Judge quality scoring, cost tracking, and tool use analysis are all available natively. The article's "before and after" anecdote is not a substitute for instrumented measurement, and the platform now provides the infrastructure for instrumented measurement.
+The cost of that gap is not hypothetical:
+
+- AI-generated code contains [1.7x more defects](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report) than human-written code.[^2]
+- [Incidents per PR up 23.5%](https://go.cortex.io/rs/563-WJM-722/images/2026-Benchmark-Report.pdf) as AI adoption has scaled.[^3]
+- [Time spent "re-working the slop"](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md).[^1]
+
+![Monthly output breakdown showing AI adoption correlating with a spike in reworked and refactored code from September to December 2024](/assets/images/ai-increases-rework.png)
+*Monthly output breakdown: AI adoption without measurement leads to increased rework. Source: HumanLayer, Advanced Context Engineering for Coding Agents.*
+
+Claude Code has built-in OpenTelemetry support:
+
+```sh
+CLAUDE_CODE_ENABLE_TELEMETRY=1 \
+  OTEL_METRICS_EXPORTER=otlp \
+  OTEL_TRACES_EXPORTER=otlp
+```
+
+Session-level observability, LLM-as-Judge quality scoring, cost tracking, and tool use analysis are all available natively. The article's "before and after" anecdote is not a substitute for instrumented measurement, and the platform now provides the infrastructure for instrumented measurement.
+
+[^1]: HumanLayer, [Advanced Context Engineering for Coding Agents](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md) (2025).
+[^2]: CodeRabbit, [State of AI vs. Human Code Generation Report](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report).
+[^3]: Cortex, [2026 Engineering Benchmark Report](https://go.cortex.io/rs/563-WJM-722/images/2026-Benchmark-Report.pdf) (2026).
 
 ---
 
