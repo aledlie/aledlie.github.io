@@ -9,7 +9,7 @@ tags:
   - static-analysis
   - observability
   - ai-code-assistants
-layout: report
+layout: single
 description: "Analysis of three strategies for scoring partial code edits in OpenTelemetry-instrumented AI coding workflows, with real telemetry data and academic grounding."
 ---
 
