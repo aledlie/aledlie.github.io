@@ -50,15 +50,15 @@ const ANALYTICS = {
 };
 
 // Lighthouse score thresholds (0-1 scale, canonical source)
-// TODO: Restore bestPractices to 0.90 once Facebook updates fbevents.js SDK
-// Note: bestPractices threshold lowered to 0.75 due to unavoidable third-party
-// issues from Facebook Pixel (deprecated APIs: AttributionReporting, Topics;
-// console errors from capig.datah04.com 422 responses). These are external
-// scripts we cannot modify. See: https://connect.facebook.net/en_US/fbevents.js
+// Note: bestPractices was previously lowered to 0.75 due to Facebook Pixel
+// warnings from Topics API and Attribution Reporting API. Google retired both
+// APIs (deprecated M144, removed M150) in Oct 2025 — warnings are gone.
+// Restored to 0.90. Remaining fbevents.js issue (unload event listener) is
+// an open Meta bug that does not affect this threshold.
 const SCORE_THRESHOLDS = {
   performance: 0.85,
   accessibility: 0.95,
-  bestPractices: 0.75,  // TODO: restore to 0.90 when Facebook fixes deprecated APIs
+  bestPractices: 0.90,
   seo: 0.95
 };
 
