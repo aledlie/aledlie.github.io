@@ -97,10 +97,7 @@ describe('Posts Collection (_posts)', () => {
       const emptyPosts = postFiles
         .filter(file => getContentAfterFrontMatter(file.content).length < MIN_CONTENT_LENGTH)
         .map(file => file.name);
-      if (emptyPosts.length > 0) {
-        console.log('Posts with minimal content:', emptyPosts);
-      }
-      expect(true).toBe(true);
+      expect(emptyPosts).toEqual([]);
     });
   });
 });
@@ -189,43 +186,34 @@ describe('Work Collection (_work)', () => {
 describe('Cross-Collection Validation', () => {
   test('all collections should use consistent layout values', () => {
     const allFiles = [...getMarkdownFiles(POSTS_DIR), ...getMarkdownFiles(WORK_DIR)];
-    const layouts = new Set();
-
-    allFiles.forEach(file => {
-      const fm = parseFrontMatter(file.content);
-      if (fm?.layout) layouts.add(fm.layout);
-    });
-
     const validLayouts = ['single', 'archive', 'collection', 'home', 'post-index', 'default', 'posts'];
-    const unknownLayouts = [...layouts].filter(l => !validLayouts.includes(l));
-
-    if (unknownLayouts.length > 0) {
-      console.log('Custom layouts found:', unknownLayouts);
-    }
-    expect(true).toBe(true);
-  });
-
-  test('no duplicate titles across collections', () => {
-    const allFiles = [...getMarkdownFiles(POSTS_DIR), ...getMarkdownFiles(WORK_DIR)];
-    const titles = new Map();
-    const duplicates = [];
+    const invalidLayouts = [];
 
     allFiles.forEach(file => {
       const fm = parseFrontMatter(file.content);
-      if (fm?.title) {
-        const title = String(fm.title).toLowerCase().trim();
-        if (titles.has(title)) {
-          duplicates.push({ title: fm.title, files: [titles.get(title), file.name] });
-        } else {
-          titles.set(title, file.name);
-        }
+      if (fm?.layout && !validLayouts.includes(fm.layout)) {
+        invalidLayouts.push({ file: file.name, layout: fm.layout });
       }
     });
 
-    if (duplicates.length > 0) {
-      console.log('Duplicate titles found:', duplicates);
-    }
-    expect(true).toBe(true);
+    expect(invalidLayouts).toEqual([]);
+  });
+
+  test('no duplicate titles between _posts and _work collections', () => {
+    // Checks for accidental cross-collection title collisions only.
+    // Same-title posts within a single collection (e.g. recurring series) are allowed.
+    const postTitles = new Set(
+      getMarkdownFiles(POSTS_DIR)
+        .map(f => parseFrontMatter(f.content)?.title)
+        .filter(Boolean)
+        .map(t => String(t).toLowerCase().trim())
+    );
+
+    const crossCollisionTitles = getMarkdownFiles(WORK_DIR)
+      .map(f => ({ name: f.name, title: parseFrontMatter(f.content)?.title }))
+      .filter(({ title }) => title && postTitles.has(String(title).toLowerCase().trim()));
+
+    expect(crossCollisionTitles).toEqual([]);
   });
 });
 

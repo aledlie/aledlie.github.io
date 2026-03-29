@@ -95,10 +95,7 @@ describe('Reports Directory Front Matter Validation', () => {
           invalidLayouts.push({ file: file.name, layout: frontMatter.layout });
         }
       });
-      if (invalidLayouts.length > 0) {
-        console.warn('Files with potentially invalid layouts:', invalidLayouts);
-      }
-      expect(true).toBe(true);
+      expect(invalidLayouts).toEqual([]);
     });
 
     test('date field should be valid date format', () => {
