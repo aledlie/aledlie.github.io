@@ -1,37 +1,42 @@
 ---
 layout: single
-title: "A 7-Month-Old Guide to Claude Code Now Gets a 3.8/10 — Here's What Changed"
+title: "The Half-Life of a How-To: When Developer Guides Decay Faster Than They're Read"
 date: 2026-03-28
 author_profile: true
 categories: [research-analysis, developer-tooling, knowledge-curation]
-tags: [claude-code, workflow-optimization, platform-decay, tool-evaluation, staleness-assessment]
-excerpt: "Robert Marshall's Claude Code optimization guide was excellent when it was published. Seven months later, it scores 3.8/10 — not because it was wrong, but because the platform shipped an entirely new automation layer that the article doesn't know exists."
+tags: [claude-code, workflow-optimization, platform-decay, tool-evaluation, staleness-assessment, knowledge-half-life]
+excerpt: "Developer platform guides have a knowledge half-life of 6–12 months. A scored audit of one Claude Code guide — 3.8/10 after seven months — shows exactly how the decay happens and what it means for teams treating blog posts as onboarding material."
 header:
   image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 permalink: /reports/2026-claude-code-audit/
 ---
 
-**Session Date**: 2026-03-28<br>
-**Project**: Research Analysis & Knowledge Curation<br>
-**Focus**: Platform velocity and knowledge decay in developer tooling guidance<br>
-**Session Type**: Research & Analysis
+## Knowledge Has a Shelf Life. Most Teams Don't Check It.
+
+In chemistry, a half-life is how long it takes for half of a substance to decay. The concept transfers cleanly to knowledge: how long before half the specific claims in a piece of guidance are superseded, contradicted, or rendered incomplete by newer work?
+
+Academic research on neural network methods has an estimated half-life of 18–24 months on specific techniques. Developer platform guidance — the blog posts, tutorials, and setup walkthroughs that teams actually use to onboard — decays faster. For an actively-shipped tool, the half-life is closer to 6–12 months. And both intervals are compressing.
+
+This isn't a theoretical problem. Teams adopt AI tooling from guides they find through search. Those guides were accurate when written. Nobody checks the expiration date before following them.
+
+This report scores a specific case to make the decay visible.
 
 ---
 
-## The Article Was Good. It's Still Going Stale.
+## The Case Study: One Guide, Seven Months Later
 
 Last August, a developer named Robert Marshall published a detailed guide: *Turning Claude Code into a Development Powerhouse*. It was thoughtful, firsthand, and credible. It described a setup that cut his time on complex features by 60–70%. It circulated widely in developer communities and became a reference point for teams adopting Claude Code.
 
 By March 2026, that same guide scores **3.8 out of 10** against current platform practice.
 
-Not because it was wrong. Because Anthropic shipped faster than any individual blogger can follow.
+Not because it was wrong. Because the platform shipped faster than any individual blogger can follow.
 
-This matters beyond Robert Marshall's article. It's a pattern: developer tooling advice has a shorter shelf life than almost any other technical content, and most teams don't know to check the expiration date before following it.
+The pattern isn't unique to this article. [Even canonical academic research on LLM hallucination — carefully written and well-cited — scores 5.6/10 against current practice after less than two years](/reports/2026-hallucination-audit/). Developer tooling advice, which sits closer to the implementation surface, decays even faster.
 
 ---
 
-## What the Audit Measured
+## What the Decay Looks Like, Measured
 
 Five dimensions, each scored on a scale of 0–10:
 
@@ -46,76 +51,61 @@ Five dimensions, each scored on a scale of 0–10:
 
 *Audited against official Claude Code documentation · Reference date March 28, 2026*
 
-The gap between a 7 on relevance and a 2 on completeness tells the real story. The *problem* Marshall identified — that without persistent context, Claude produces generic outputs that ignore your project's conventions — is still the right problem. The *solutions* he recommends address roughly 5% of how the platform answers that problem today.
+The gap between a 7 on relevance and a 2 on completeness is where the epistemology gets interesting. The *problem* Marshall identified — that without persistent context, Claude produces generic outputs that ignore your project's conventions — is still the right problem. The *solutions* he recommends address roughly 5% of how the platform answers that problem today.
+
+This is characteristic of how knowledge decays in fast-moving platforms: the diagnosis stays valid long after the prescription expires. Teams following the article get the problem right and the implementation wrong, which is arguably more dangerous than getting both wrong — because the correct diagnosis creates false confidence that the implementation is also current.
 
 ---
 
-## What Marshall's Guide Recommended
+## Three Categories of Decay
 
-To understand what's changed, it helps to know what the article actually said.
+Not all knowledge decays at the same rate. The audit reveals three distinct categories, each with different shelf lives and different verification strategies.
 
-Marshall's setup centered on four add-on tools (called MCP integrations — connectors that give Claude access to external information in real time):
+### 1. Problem Framing — Durable (Review Annually)
 
-- **Context7** — pulls in up-to-date documentation for software libraries as you work, so Claude isn't relying on potentially outdated training data
-- **Serena** — lets Claude search your codebase by structure and meaning, not just by keyword
-- **Sequential Thinking** — a structured reasoning tool for breaking down complex problems step by step
-- **WisprFlow** — voice dictation so you can talk to Claude instead of type
+Marshall's core insight — that LLM output quality is a function of the context it receives, and that persistent project context produces better results than cold-start sessions — is as true in March 2026 as it was in August 2025. His recommendation to plan before executing, to break requirements into smaller chunks, and to inject project-specific context at query time: all durable.
 
-These were wired together with a custom startup command (`/go`) that loaded a project context file before each session, priming Claude with relevant background. The workflow emphasized planning before executing, and breaking large requirements into smaller chunks.
+Problem framing decays slowly because it tracks to the underlying architecture of the technology, not the feature surface. When the model architecture changes (a new context window size, a new memory mechanism), the framing may shift. Until then, it holds.
 
-The OAuth implementation example was concrete: 30 minutes reduced to 8. The advice was reasonable, coherent, and well-explained.
+**Verification cost: low.** Read the official overview once a quarter. If the fundamental model interaction pattern hasn't changed, the framing is still valid.
 
-The problem is that several months of platform development have quietly made parts of it obsolete — and added an entire layer the article never mentions.
+### 2. Feature Surface — Perishable (Validate Before Every Onboarding)
+
+This is where the guide's score collapses.
+
+Marshall's setup centered on four add-on tools (called MCP integrations — connectors that give Claude access to external information in real time) and a custom startup command that loaded a project context file before each session.
+
+In the seven months since publication, the platform shipped an entire automation layer the article doesn't know about:
+
+**Hooks** — automated triggers that run at specific points in Claude's workflow — before it uses a tool, after it completes a task, at the start and end of a session. They can enforce rules, block certain actions, verify outputs, and maintain context automatically. The difference is structural: Marshall's `/go` command is a checklist you run manually before every flight. Hooks are the autopilot systems that enforce safety conditions throughout.
+
+**Native memory** — Claude Code now automatically accumulates project-specific knowledge: build patterns, debugging history, architectural preferences, repeated corrections. The problem the article solved with a manually-maintained context file has since been solved at the platform level, with additional layers (scoped instruction files, composable configurations, a live command for browsing what Claude knows) that the article never mentions.
+
+**Built-in reasoning depth** — the Sequential Thinking MCP that Marshall recommended is now a native model capability, configurable with a single setting. Using an external tool for a capability the model already has adds maintenance overhead and a network dependency with no benefit.
+
+**Team-scale configuration** — Marshall's setup is personal: one developer running setup commands from the terminal. Current practice commits MCP and settings configuration directly to the repository, making tool configuration a version-controlled, team-shared artifact. A separate settings file controls permissions, reasoning defaults, and automation trust levels for the whole team.
+
+None of these changes invalidate the *direction* of Marshall's advice. Every one of them invalidates the *specifics*. A team following the article is solving the right problem with tools that are either redundant, under-scoped, or configured in a way that doesn't survive the first team standup.
+
+**Verification cost: moderate.** Check the official documentation's feature index before any new team onboarding. If you see a feature category the guide doesn't mention, the guide is stale.
+
+### 3. Specific Tool Recommendations — Volatile (Verify Before Deploying)
+
+Marshall recommended a specific connector for live library documentation (Context7), a specific semantic code search tool (Serena), and a specific transport format (SSE) for connecting them. The documentation connector is still useful. The transport format is now a legacy fallback — the current standard is streamable HTTP. The reasoning tool is redundant.
+
+Specific tool recommendations are the most volatile category because they sit at the intersection of two moving targets: the platform's native capabilities (which expand, absorbing what used to require third-party tools) and the third-party ecosystem itself (which shifts transport formats, deprecates APIs, and changes configuration patterns).
+
+**Verification cost: high per tool.** For each recommended tool, verify: (1) the transport format matches current standards, (2) the configuration pattern matches current conventions, and (3) the use case hasn't been absorbed natively. This is per-tool, per-onboarding work that most teams skip — which is exactly how stale configurations propagate.
 
 ---
 
-## What Changed, and Why It Matters
+## The Measurement Gap as an Epistemological Problem
 
-### The Platform Shipped an Automation Layer the Article Doesn't Know About
+Marshall's headline claim — 60–70% faster on complex features — has no baseline, no methodology, and no breakdown of which component contributed what.
 
-This is the largest gap, and the one with the most practical consequences.
+This isn't a criticism of Marshall specifically. It's a structural feature of how developer tooling knowledge is produced. Most published guidance is experiential: a practitioner builds a setup, feels that it's faster, and reports the feeling as a number. The number circulates as fact.
 
-Marshall's core argument was: Claude loses context between sessions, so you need to manually inject that context at the start of each one. In early 2025, that was accurate. By March 2026, Claude Code has a system called *hooks* that changes the architecture of the problem entirely.
-
-Hooks are automated triggers that run at specific points in Claude's workflow — before it uses a tool, after it completes a task, at the start and end of a session. They can enforce rules, block certain actions, verify outputs, and maintain context automatically — without requiring any manual setup ritual each time you start working.
-
-Think of the difference between a checklist you run manually before every flight versus autopilot systems that enforce safety conditions throughout. Marshall's `/go` command is the checklist. Hooks are the autopilot layer.
-
-### The Platform Now Manages Memory Automatically
-
-Marshall's primary memory solution was a manually-maintained project context file that the `/go` command loaded at the start of each session. It was a sensible workaround for the time.
-
-Claude Code now handles this natively. It automatically accumulates project-specific knowledge — build patterns, debugging history, architectural preferences, repeated corrections — without requiring manual maintenance or a startup ritual. The problem the article was working around has since been solved at the platform level.
-
-The full memory system is also more layered than the article describes. There are scoped instruction files that only load for specific parts of a codebase, composable configuration sets, and a live command for browsing and editing what Claude currently knows about your project. None of this is mentioned.
-
-### One of the Four Recommended Tools Is Now Redundant
-
-The Sequential Thinking MCP was recommended to handle complex, multi-step reasoning tasks — providing a structured scaffold for problems that benefit from a decision tree approach.
-
-By March 2026, this is a built-in model capability, not a third-party add-on. You can raise the reasoning depth natively with a single setting (`effortLevel: high`). Using an external tool to get a capability the model already has adds maintenance overhead and a network dependency with no corresponding benefit.
-
-The broader principle: external connectors (MCPs) are the right answer for genuinely external context — live library documentation, company knowledge bases, third-party APIs. They're the wrong answer for reasoning depth, which is a property of the model itself.[^4]
-
-### Team-Scale Configuration Isn't Addressed
-
-Marshall's setup is personal. His instructions are for one developer running setup commands from the terminal. This doesn't scale.
-
-Current practice is to commit the MCP and settings configuration directly to the project repository, so every team member and every automated process gets the same setup without individual configuration. The article's approach produces configuration drift across collaborators. The canonical approach makes tool configuration a version-controlled, team-shared artifact.
-
-A separate note: Marshall's setup uses an older transport format (SSE) for one of the connectors. The current recommended format (streamable HTTP) is the documented standard. The old format still works, but it's officially a legacy fallback.
-
-### Team Permissions and Settings Aren't Mentioned at All
-
-There's a project-level settings file (`.claude/settings.json`) that controls tool permissions, reasoning defaults, model selection, and automation trust levels for the whole team. None of this appears in the article.
-
-A team following Marshall's guide is re-specifying preferences every session and being prompted for permission on every tool call. A team using settings properly encodes those decisions once, in version control, where they persist across collaborators and automated environments.
-
-### The Performance Claim Has No Measurement Behind It
-
-"60–70% faster" is the article's headline result. There is no baseline, no methodology, and no breakdown of which component contributed what.
-
-This matters because the industry data tells a more complicated story:
+The industry data tells a more complicated story:
 
 - AI-generated code contains [1.7x more defects](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report) than human-written code[^2]
 - [Incidents per pull request are up 23.5%](https://go.cortex.io/rs/563-WJM-722/images/2026-Benchmark-Report.pdf) as AI adoption has scaled[^3]
@@ -124,58 +114,34 @@ This matters because the industry data tells a more complicated story:
 ![Monthly output breakdown showing AI adoption correlating with a spike in reworked and refactored code from September to December 2024](/assets/images/ai-increases-rework.png)
 *Monthly output breakdown: AI adoption without measurement leads to increased rework. Source: HumanLayer, Advanced Context Engineering for Coding Agents.*
 
-Claude Code includes built-in session telemetry — cost tracking, quality scoring, tool use analysis — that makes instrumented measurement straightforward. A "before and after" feeling is not a substitute for measurement, and the platform now provides the infrastructure to do it properly.
+The epistemological problem is circular: teams adopt tooling based on unverified claims, then evaluate their own adoption based on the same kind of unverified feeling. Without instrumented measurement — cost tracking, quality scoring, defect rates, rework ratios — there is no way to know whether a configuration is actually working or merely feels productive.
+
+Claude Code now includes built-in session telemetry that makes instrumented measurement straightforward. The infrastructure to close this gap exists. The gap persists because measurement is uncomfortable — it might reveal that the setup you spent a week configuring isn't doing what you think it is.
 
 [^1]: HumanLayer, [Advanced Context Engineering for Coding Agents](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md) (2025).
 [^2]: CodeRabbit, [State of AI vs. Human Code Generation Report](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report).
 [^3]: Cortex, [2026 Engineering Benchmark Report](https://go.cortex.io/rs/563-WJM-722/images/2026-Benchmark-Report.pdf) (2026).
-[^4]: Even this statement is already on the verge of becoming out of date. The MCP landscape is shifting rapidly — both in how servers are deployed and how access is controlled at the infrastructure level. See: Charles Chen, ["MCP is Dead; Long Live MCP!"](https://chrlschn.dev/blog/2026/03/mcp-is-dead-long-live-mcp/) (March 2026); Cloudflare, ["MCP Server Portals"](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/); and my personal PR-based [contribution to Anthropic's core context management system](https://github.com/anthropics/claude-code/issues/12836#issuecomment-3910297849), which was ["pushed to production and is now the default for all Claude Code sessions"](https://github.com/anthropics/claude-code/issues/12836#issuecomment-4042988557) as of two weeks ago.
+[^4]: The MCP landscape itself is shifting rapidly — both in how servers are deployed and how access is controlled at the infrastructure level. See: Charles Chen, ["MCP is Dead; Long Live MCP!"](https://chrlschn.dev/blog/2026/03/mcp-is-dead-long-live-mcp/) (March 2026); Cloudflare, ["MCP Server Portals"](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/).
 
 ---
 
-## What Still Holds Up
+## What a Verification Practice Looks Like
 
-The problem framing is durable. Without persistent context, Claude produces generic outputs that ignore your project's conventions. That was true in 2025 and is still true in 2026.
+The decay documented here isn't a one-time event. It's a continuous process that will affect every piece of developer guidance, including this one. The question isn't whether your knowledge is decaying — it is — but whether you have a practice for detecting the decay before it reaches your production configuration.
 
-The recommendation to plan before executing is sound. Working through scope and requirements in planning mode before allowing Claude to write or modify code reduces rework. This matches current official guidance.
+**For the article's three tiers:**
 
-Using external connectors for live documentation is still the right call. Fetching current library documentation at query time is meaningfully better than relying on training data. The specific implementation details need updating; the strategy is correct.
+- **Problem framing** — durable; review annually against the platform's architectural overview
+- **Feature surface** — perishable; validate against official documentation before any new team onboarding
+- **Specific tools** — volatile; verify transport format, configuration pattern, and native absorption before deploying
 
-**Use this article for:**
-- Understanding what a reasonable first-month Claude Code setup looks like
-- Validating that MCP-based context injection is a real and useful pattern
-- Introducing planning mode to a team that isn't using it
+**For your own team's setup:**
 
-**Do not rely on it for:**
-- Automated enforcement and lifecycle controls (hooks)
-- Team-scale configuration and permissions management
-- Memory architecture beyond a basic project context file
-- Reasoning depth controls or extended thinking
-- Any session-level measurement or quality tracking
+- Treat blog posts as hypotheses, not instructions. Verify claims against official documentation before adopting.
+- If a guide doesn't cite a documentation version or reference date, treat its shelf life as unknown.
+- Instrument your workflows. [Why AI measurement matters — and why most teams avoid it](https://www.aledlie.com/ai-fears-measurement/) is where the configuration-to-accountability gap actually closes.
 
----
-
-## The Half-Life Problem
-
-In chemistry, a half-life is how long it takes for half of a substance to decay. Applied to knowledge, it describes how long before half the specific claims in a piece of research are superseded or contradicted by newer work. Academic research on neural network methods has an 18–24 month half-life on specific techniques. Developer platform guidance for an actively-shipped tool has closer to a 6–12-month half-life — and both are getting shorter by the day.
-
-For this reason, it's worth treating different categories of knowledge differently:
-
-- **Problem framing** (why context loss produces worse outputs, why retrieval helps, why planning reduces rework) — durable; review annually
-- **Platform feature surface** (automation hooks, settings architecture, memory system, agent capabilities) — perishable; validate against official documentation before any new team onboarding
-- **Specific tool recommendations** (which connectors to use, how to configure them) — verify transport format, configuration pattern, and whether the use case has been absorbed natively before deploying
-
-Marshall's article is not stale because it was wrong. It is stale because Anthropic shipped faster than a personal blog can follow.
-
-For comparison: [canonical academic research on LLM hallucination — carefully written and well-cited — scores 5.6/10 against current practice after less than two years](/reports/2026-hallucination-audit/). The decay is domain-wide.
-
----
-
-## What to Do Next
-
-The observability gap identified here isn't unique to Claude Code configuration. It's representative of how most organizations adopt AI tooling: capability first, measurement never.
-
-A team that cannot instrument its AI workflows cannot tell whether those workflows are improving, regressing, or producing the outputs they think they are. [Why AI measurement matters — and why most teams avoid it](https://www.aledlie.com/ai-fears-measurement/) is a useful starting point for teams ready to move from configuration to accountability.
+Marshall's article is not stale because it was wrong. It is stale because the platform shipped faster than a personal blog can follow. That sentence will be true of this report too, eventually. The difference is whether you'll know when it happens.
 
 ---
 
