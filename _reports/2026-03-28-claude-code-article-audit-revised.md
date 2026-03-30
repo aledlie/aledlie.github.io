@@ -18,7 +18,7 @@ In chemistry, a half-life is how long it takes for half of a substance to decay.
 
 Academic research on neural network methods has an estimated half-life of 18–24 months on specific techniques. Developer platform guidance — the blog posts, tutorials, and setup walkthroughs that teams actually use to onboard — decays faster. For an actively-shipped tool, the half-life is closer to 6–12 months. And both intervals are compressing.
 
-This isn't a theoretical problem. Teams adopt AI tooling from guides they find through search. Those guides were accurate when written. Nobody checks the expiration date before following them.
+This isn't a theoretical problem. Teams adopt AI tooling from guides they find through search. Those guides were accurate when written. Nobody checks the expiration date before following them. Your team is probably following one right now.
 
 This report scores a specific case to make the decay visible.
 
@@ -99,7 +99,7 @@ Specific tool recommendations are the most volatile category because they sit at
 
 ---
 
-## The Measurement Gap as an Epistemological Problem
+## The Measurement Problem
 
 Marshall's headline claim — 60–70% faster on complex features — has no baseline, no methodology, and no breakdown of which component contributed what.
 
@@ -132,7 +132,7 @@ The decay documented here isn't a one-time event. It's a continuous process that
 **For the article's three tiers:**
 
 - **Problem framing** — durable; review annually against the platform's architectural overview
-- **Feature surface** — perishable; validate against official documentation before any new team onboarding
+- **Feature surface** — perishable; validate against official documentation before any new team onboarding. If you own onboarding, you own the shelf life of your sources.
 - **Specific tools** — volatile; verify transport format, configuration pattern, and native absorption before deploying
 
 **For your own team's setup:**
