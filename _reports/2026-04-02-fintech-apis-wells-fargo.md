@@ -10,6 +10,9 @@ header:
   image: /assets/images/cover-reports.png
   teaser: /assets/images/cover-reports.png
 permalink: /reports/fintech-apis-wells-fargo/
+toc: true
+toc_label: "Contents"
+toc_icon: "chart-line"
 ---
 
 **Session Date**: 2026-04-02<br>
