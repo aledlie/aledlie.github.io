@@ -111,7 +111,7 @@ We propose converting the Popescu et al. churn model into a measurable reward si
 
 ### 2.1 Study Design
 
-Popescu et al. (2026) analyzed 110,000+ pull requests from open-source repositories (§3.1, Dataset), comparing code contributions from five major agents (Codex, Claude Code, Copilot, Jules, Devin) against human developers.
+Popescu et al. (2026) analyzed 110,000+ pull requests (N=111,969 per §3.2 Methodology) from open-source repositories, comparing code contributions from five major agents (Codex, Claude Code, Copilot, Jules, Devin) against human developers.
 
 **Measurement Windows**: 3 days, 7 days, 21 days post-merge
 **Metrics Collected Per PR**:
@@ -123,7 +123,7 @@ Popescu et al. (2026) analyzed 110,000+ pull requests from open-source repositor
 - Change size: Median lines added per PR
 
 **Cohort Characteristics**:
-- **Agent-heavy repos**: 51-76% in 0-star projects (test/validation)
+- **Agent-heavy repos**: Agent PRs concentrate in 0-star/test repos (Codex 75.3%, Claude Code 51.7%, Copilot 59.6%, Devin 64.1%; Popescu et al. Table 4, §4.1.1). Human PRs more distributed (40.5% in 0-star repos).
 - **Human-dominant repos**: More distributed across established projects (8+ stars)
 
 ### 2.2 Key Findings Relevant to RL
@@ -138,7 +138,7 @@ Popescu et al. (2026) analyzed 110,000+ pull requests from open-source repositor
 | Devin | 220–270 | 55–68% | 68–76% | 18–26% | Smaller changes; higher instability |
 | Human | 40–80 | 95–99% | 85–92% | 3–8% | Baseline (small, stable) |
 
-**Source**: Popescu et al. (2026), empirical trends from analysis of 110,000+ PRs in open-source repositories. Values represent estimated ranges reflecting reported patterns; exact per-agent metrics should be consulted from the published paper.
+**Source**: Popescu et al. (2026), empirical trends from analysis of 110,000+ PRs (N=111,969 per §3.2 Methodology) in open-source repositories. Values represent estimated ranges reflecting reported patterns; exact per-agent metrics should be consulted from the published paper.
 
 **Interpretation**: 
 - Larger changes correlate with longer merge times but NOT higher survival
