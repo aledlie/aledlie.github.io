@@ -44,7 +44,7 @@ Agent-generated code exhibits distinct failure modes:
 - **Higher churn rates**: Claude Code median 0.8–1.0 vs. human median 0–0.4 (Popescu et al., Figure 9, §4.2)
 - **Lower survival rates**: Effect sizes modest but consistently negative (Cliff's δ = −0.05 to −0.14; Figure 8, §4.2)
 - **Repository concentration bias**: Agent PRs concentrate in 0-star/test repos (Codex 75.3%, Claude Code 51.7%, Copilot 59.6%, Devin 64.1%; Popescu et al. Table 4, §4.1.1). Human PRs more distributed (40.5% in 0-star repos).
-- **~960× spread in merge times** across agent platforms (Codex median 0.5 min vs. Devin median 8 hours)
+- **Faster merge velocity**: Codex median 0.5 min vs. human median 0.4 hours in low-star repos; human PRs ~10 hours in high-star repos (Figure 6, §4.1.3 Pull Request Merges)
 
 **Root cause**: Agents optimize for immediate task completion; lack feedback on production-grade code quality.
 
