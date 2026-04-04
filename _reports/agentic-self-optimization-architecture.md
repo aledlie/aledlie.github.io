@@ -249,11 +249,13 @@ def compute_reward(action, outcomes_at_21d):
 
 ### Why 21 Days?
 
-The Popescu et al. study shows that 3-week (21-day) survival rates reliably distinguish agent vs. human code quality. Using 21d as the reward window:
-- ✅ Captures long-term stability patterns
+This framework adopts the 21-day window as the primary feedback signal based on the assumption that this timeframe captures meaningful code stability patterns observed in the Popescu et al. study. Using 21d as the reward window:
+- ✅ Captures long-term stability patterns (aligns with Popescu et al.'s measurement window)
 - ✅ Provides enough data for statistical significance
 - ✅ Balances feedback latency with learning speed
 - ⚠️ **Trade-off**: RL agents see rewards with 21-day delay; mitigate with auxiliary intermediate rewards (merge time, review count)
+
+*Note: Empirical validation of 21 days as a stability threshold is not provided in the Popescu et al. paper and should be verified via independent replication before deploying this framework to production systems.*
 
 ### Auxiliary Rewards (Immediate Feedback)
 
@@ -347,10 +349,21 @@ def compute_gae_with_delayed_rewards(
         advantage_correction = actual_reward - prior_estimate
         
         # Apply importance sampling correction (off-policy safety)
-        importance_weight = min(1.0, action_prob_current / action_prob_old)
+        # PPO-style symmetric clipping: constrain ratio to [1-clip_range, 1+clip_range]
+        clip_range = 0.2  # Standard PPO value
+        importance_weight = torch.clamp(
+            action_prob_current / action_prob_old,
+            1 - clip_range,
+            1 + clip_range
+        )
         
-        # Emit auxiliary loss term
-        loss += -advantage_correction * importance_weight * policy_gradient
+        # Compute clipped advantage correction loss
+        advantage_correction = actual_reward - prior_estimate
+        policy_loss = -(torch.minimum(
+            importance_weight * advantage_correction,
+            torch.clamp(importance_weight, 1 - clip_range, 1 + clip_range) * advantage_correction
+        ))
+        loss += policy_loss.mean()
     
     return loss
 ```
@@ -395,9 +408,14 @@ model.learn(
 )
 ```
 
-### Multi-Agent Coordination: Skill-Level Policies
+### Multi-Agent Coordination: Skill-Level Policies (Manual Weight Transfer)
 
 **Architecture**: One policy per (agent, skill) pair; shared value function for transfer learning.
+
+**⚠️ Important**: Stable Baselines3 does not natively support cross-policy weight sharing. 
+This architecture achieves transfer learning through **manual weight transfer** — loading 
+the value network from one trained skill as initialization for the next. This is a 
+workaround, not a built-in SB3 feature.
 
 ```python
 skills = [
@@ -406,10 +424,6 @@ skills = [
     "debug-failing-tests",
     "add-observability",
 ]
-
-# Train separate policies with independent networks, then transfer value function weights
-# NOTE: SB3 does not support native cross-policy weight sharing.
-# Approach: Train sequentially, using each policy's value network as initialization for the next.
 
 base_policy_kwargs = dict(
     net_arch=dict(pi=[64, 64], vf=[64, 64]),  # Separate networks per policy
