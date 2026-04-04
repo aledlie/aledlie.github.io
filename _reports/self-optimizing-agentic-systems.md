@@ -44,7 +44,7 @@ The emergence of code-generating agents (Claude Code, GitHub Copilot, Devin) has
 - **2-3× higher churn rates** at 21 days post-merge (agent ~18% vs. human ~5%)
 - **40-60% lower survival rates** (agent ~75% vs. human ~90%)
 - **~960× spread in merge times** across agent platforms (Codex median 0.5 min vs. Devin median 8 hours)
-- **Repository concentration bias**: 51-76% of agent PRs in 0-star test projects (varies by platform; Claude Code ~55%, Devin ~72%, Codex ~51%)
+- **Repository concentration bias**: Agent PRs concentrate in 0-star/test repos at varying rates (Codex ~60%, Claude Code ~68%, Devin ~76%, Copilot ~51%; range: 51-76%). Human PRs are more distributed (~10-15% in 0-star repos).
 
 This divergence is not due to capability gaps (agents pass task benchmarks); rather, agents optimize for **immediate task completion** without visibility into post-deployment code stability.
 
