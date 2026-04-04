@@ -43,7 +43,7 @@ This document defines an OpenTelemetry (OTEL)-based observability framework that
 Agent-generated code exhibits distinct failure modes:
 - **2-3x higher churn** compared to human code (Popescu et al., 3-week window)
 - **40-60% lower survival rates** at 3 weeks post-merge
-- **Repository concentration bias**: Agent PRs concentrate in 0-star/test repos at varying rates (Codex ~60%, Claude Code ~68%, Devin ~76%, Copilot ~51%; range: 51-76%). Human PRs are more distributed (~10-15% in 0-star repos).
+- **Repository concentration bias**: Agent PRs concentrate in 0-star/test repos (Codex 75.3%, Claude Code 51.7%, Copilot 59.6%, Devin 64.1%; Popescu et al. Table 4, §4.1.1). Human PRs more distributed (40.5% in 0-star repos).
 - **~960× spread in merge times** across agent platforms (Codex median 0.5 min vs. Devin median 8 hours)
 
 **Root cause**: Agents optimize for immediate task completion; lack feedback on production-grade code quality.
