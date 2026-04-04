@@ -24,11 +24,11 @@ header:
 
 ## Abstract
 
-Recent work by Popescu et al. (2026) demonstrates that agent-generated code exhibits 2-3× higher churn rates and 40-60% lower survival rates compared to human code over a 21-day post-merge window. Rather than treating this divergence as a fundamental limitation, we propose a systematic approach to convert these code quality measurements into reinforcement learning (RL) reward signals, enabling LLM-based agents to continuously improve their output quality through self-optimization.
+Recent work by Popescu et al. (2026) demonstrates that agent-generated code exhibits statistically significant higher churn rates and lower survival rates compared to human code over a 21-day post-merge window (Figure 9, §4.2). Rather than treating this divergence as a fundamental limitation, we propose a systematic approach to convert these code quality measurements into reinforcement learning (RL) reward signals, enabling LLM-based agents to continuously improve their output quality through self-optimization.
 
 This whitepaper describes a complete pipeline: (1) capturing code churn metrics via OpenTelemetry instrumentation; (2) translating 21-day survival outcomes into RL rewards; (3) training vectorized RL policies using Stable Baselines3/Pufferlib across parallel agent skills; and (4) safely deploying improved policies via canary rollouts with automated rollback triggers.
 
-We analyze the architecture's feasibility, address 21-day training latency via auxiliary reward signals, and discuss safeguards against reward hacking. Implementation across a portfolio of agent skills (API refactoring, test generation, debugging) could reduce churn rates from ~18% to ~12% while maintaining task completion rates.
+We analyze the architecture's feasibility, address 21-day training latency via auxiliary reward signals, and discuss safeguards against reward hacking. Implementation across a portfolio of agent skills (API refactoring, test generation, debugging) could reduce churn concentrations and improve survival rate effect sizes while maintaining task completion rates.
 
 **Keywords**: Reinforcement Learning, Agent Optimization, Code Quality, OpenTelemetry, Continuous Deployment, LLM Systems
 
@@ -41,8 +41,8 @@ We analyze the architecture's feasibility, address 21-day training latency via a
 The emergence of code-generating agents (Claude Code, GitHub Copilot, Devin) has dramatically accelerated software development workflows. However, recent empirical evidence reveals a persistent quality divergence:
 
 **Key Finding (Popescu et al., 2026)**: Agent-generated pull requests in production repositories exhibit:
-- **2-3× higher churn rates** at 21 days post-merge (agent ~18% vs. human ~5%)
-- **40-60% lower survival rates** (agent ~75% vs. human ~90%)
+- **Higher churn rates**: Claude Code median 0.8–1.0 vs. human median 0–0.4 (Figure 9, §4.2)
+- **Lower survival rates**: Effect sizes modest but consistently negative (Cliff's δ = −0.05 to −0.14; Figure 8, §4.2)
 - **~960× spread in merge times** across agent platforms (Codex median 0.5 min vs. Devin median 8 hours)
 - **Repository concentration bias**: Agent PRs concentrate in 0-star/test repos (Codex 75.3%, Claude Code 51.7%, Copilot 59.6%, Devin 64.1%; Popescu et al. Table 4, §4.1.1). Human PRs more distributed (40.5% in 0-star repos).
 
