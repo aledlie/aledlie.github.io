@@ -26,7 +26,7 @@ header:
 
 Recent work by Popescu et al. (2026) demonstrates that agent-generated code exhibits 2-3× higher churn rates and 40-60% lower survival rates compared to human code over a 21-day post-merge window. Rather than treating this divergence as a fundamental limitation, we propose a systematic approach to convert these code quality measurements into reinforcement learning (RL) reward signals, enabling LLM-based agents to continuously improve their output quality through self-optimization.
 
-This whitepaper describes a complete pipeline: (1) capturing code churn metrics via OpenTelemetry instrumentation; (2) translating 21-day survival outcomes into RL rewards; (3) training multi-agent policies using Stable Baselines3/Pufferlib; and (4) safely deploying improved policies via canary rollouts with automated rollback triggers.
+This whitepaper describes a complete pipeline: (1) capturing code churn metrics via OpenTelemetry instrumentation; (2) translating 21-day survival outcomes into RL rewards; (3) training vectorized RL policies using Stable Baselines3/Pufferlib across parallel agent skills; and (4) safely deploying improved policies via canary rollouts with automated rollback triggers.
 
 We analyze the architecture's feasibility, address 21-day training latency via auxiliary reward signals, and discuss safeguards against reward hacking. Implementation across a portfolio of agent skills (API refactoring, test generation, debugging) could reduce churn rates from ~18% to ~12% while maintaining task completion rates.
 
@@ -1041,7 +1041,7 @@ This approach is practical, deployable within existing LLM ecosystems, and groun
 
 [6] Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., & Mané, D. (2016). "Concrete Problems in AI Safety." arXiv:1606.06565.
 
-[7] Suarez, J., et al. (2024). "Pufferlib: Vectorized Multi-Agent Reinforcement Learning." PyPI: https://pypi.org/project/pufferlib/
+[7] Suarez, J., et al. (2024). "Pufferlib: Vectorized Reinforcement Learning Library." PyPI: https://pypi.org/project/pufferlib/
 
 ---
 

@@ -294,7 +294,7 @@ These **don't** replace the 21d reward; they're added as auxiliary signals for p
 ┌─────────────────────────────────────────────────────┐
 │ RL Training Environment (Gymnasium-compatible)      │
 │  - Vectorized environments (parallel training)     │
-│  - Multi-agent PPO (Pufferlib)                     │
+│  - PPO with vectorized scaling (Pufferlib)         │
 │  - Shared value function (transfer learning)       │
 └─────────────────────────────────────────────────────┘
          ↓ (produces improved policies)
@@ -754,7 +754,7 @@ These targets are projections based on reward structure design. Validation requi
 
 5. **OpenTelemetry (CNCF)**: https://opentelemetry.io/docs/
 
-6. **Pufferlib (Suarez, J., et al., 2024)**: Vectorized multi-agent reinforcement learning library. https://pypi.org/project/pufferlib/
+6. **Pufferlib (Suarez, J., et al., 2024)**: Vectorized reinforcement learning library with parallel environment support and 1M+ steps/second performance. https://pypi.org/project/pufferlib/
 
 ---
 
