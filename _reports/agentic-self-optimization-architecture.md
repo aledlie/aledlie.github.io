@@ -44,7 +44,7 @@ Agent-generated code exhibits distinct failure modes:
 - **2-3x higher churn** compared to human code (Popescu et al., 3-week window)
 - **40-60% lower survival rates** at 3 weeks post-merge
 - **Repository concentration bias**: 51-76% of agent PRs in 0-star/test repos
-- **Merge velocity spread**: ~960× (Codex median 0.5min vs Devin median 8 hours)
+- **~960× spread in merge times** across agent platforms (Codex median 0.5 min vs. Devin median 8 hours)
 
 **Root cause**: Agents optimize for immediate task completion; lack feedback on production-grade code quality.
 
