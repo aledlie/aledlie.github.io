@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1400" viewBox="0 0 1400 1400">
+  <rect width="100%" height="100%" fill="#fbfbfd"/>
+  <style>
+    text { font-family: Inter, Arial, Helvetica, sans-serif; fill: #1f2937; }
+    .root { font-size: 34px; font-weight: 700; }
+    .cat { font-size: 20px; font-weight: 700; fill: white; letter-spacing: 0.3px; }
+    .leaf { font-size: 15px; font-weight: 600; }
+    .subtitle { font-size: 14px; fill: #6b7280; }
+  </style>
+
+<path d="M 700,700 L 700.00,580.00 A 120,120 0 1 1 700.00,580.00 Z" fill="#243447" stroke="#ffffff" stroke-width="2"/>
+<text x="700" y="692" text-anchor="middle" class="root" fill="white">Logical</text>
+<text x="700" y="734" text-anchor="middle" class="root" fill="white">Fallacies</text>
+<path d="M 700.00,580.00 L 700.00,400.00 A 300,300 0 0 1 992.48,766.76 L 816.99,726.70 A 120,120 0 0 0 700.00,580.00 Z" fill="#4E79A7" stroke="#ffffff" stroke-width="2"/>
+<text x="864.18" y="569.07" class="cat" text-anchor="middle" transform="rotate(51.43 864.18 569.07)">Relevance</text>
+<path d="M 700.00,400.00 L 700.00,90.00 A 610,610 0 0 1 879.80,117.10 L 788.43,413.33 A 300,300 0 0 0 700.00,400.00 Z" fill="#6d91b6" stroke="#ffffff" stroke-width="2"/>
+<text x="768.71" y="244.15" class="leaf" text-anchor="middle" transform="rotate(8.57 768.71 244.15)">Ad hominem</text>
+<path d="M 788.43,413.33 L 879.80,117.10 A 610,610 0 0 1 1043.63,195.99 L 869.00,452.13 A 300,300 0 0 0 788.43,413.33 Z" fill="#7c9bbd" stroke="#ffffff" stroke-width="2"/>
+<text x="900.02" y="284.65" class="leaf" text-anchor="middle" transform="rotate(25.71 900.02 284.65)">Straw man</text>
+<path d="M 869.00,452.13 L 1043.63,195.99 A 610,610 0 0 1 1176.92,319.67 L 934.55,512.95 A 300,300 0 0 0 869.00,452.13 Z" fill="#8aa6c4" stroke="#ffffff" stroke-width="2"/>
+<text x="1013.56" y="362.06" class="leaf" text-anchor="middle" transform="rotate(42.86 1013.56 362.06)">Red herring</text>
+<path d="M 934.55,512.95 L 1176.92,319.67 A 610,610 0 0 1 1267.83,477.14 L 979.26,590.40 A 300,300 0 0 0 934.55,512.95 Z" fill="#6d91b6" stroke="#ffffff" stroke-width="2"/>
+<text x="1099.24" y="461.50" class="leaf" text-anchor="middle" transform="rotate(60.00 1099.24 469.50)"><tspan x="1099.24" dy="0">Appeal</tspan><tspan x="1099.24" dy="18">to emotion</tspan></text>
+<path d="M 979.26,590.40 L 1267.83,477.14 A 610,610 0 0 1 1308.29,654.41 L 999.16,677.58 A 300,300 0 0 0 979.26,590.40 Z" fill="#7c9bbd" stroke="#ffffff" stroke-width="2"/>
+<text x="1149.44" y="597.42" class="leaf" text-anchor="middle" transform="rotate(77.14 1149.44 597.42)">Tu quoque</text>
+<path d="M 999.16,677.58 L 1308.29,654.41 A 610,610 0 0 1 1294.71,835.74 L 992.48,766.76 A 300,300 0 0 0 999.16,677.58 Z" fill="#8aa6c4" stroke="#ffffff" stroke-width="2"/>
+<text x="1159.71" y="734.45" class="leaf" text-anchor="middle" transform="rotate(274.29 1159.71 734.45)">Genetic fallacy</text>
+<path d="M 816.99,726.70 L 992.48,766.76 A 300,300 0 0 1 569.83,970.29 L 647.93,808.12 A 120,120 0 0 0 816.99,726.70 Z" fill="#F28E2B" stroke="#ffffff" stroke-width="2"/>
+<text x="791.12" y="889.20" class="cat" text-anchor="middle" transform="rotate(334.29 791.12 889.20)">Weak induction</text>
+<path d="M 992.48,766.76 L 1294.71,835.74 A 610,610 0 0 1 1228.28,1005.00 L 959.81,850.00 A 300,300 0 0 0 992.48,766.76 Z" fill="#f4a251" stroke="#ffffff" stroke-width="2"/>
+<text x="1129.13" y="860.42" class="leaf" text-anchor="middle" transform="rotate(291.43 1129.13 868.42)"><tspan x="1129.13" dy="0">Hasty</tspan><tspan x="1129.13" dy="18">generalization</tspan></text>
+<path d="M 959.81,850.00 L 1228.28,1005.00 A 610,610 0 0 1 1114.91,1147.16 L 904.05,919.92 A 300,300 0 0 0 959.81,850.00 Z" fill="#f5ab62" stroke="#ffffff" stroke-width="2"/>
+<text x="1060.42" y="987.43" class="leaf" text-anchor="middle" transform="rotate(308.57 1060.42 987.43)">Slippery slope</text>
+<path d="M 904.05,919.92 L 1114.91,1147.16 A 610,610 0 0 1 964.67,1249.59 L 830.17,970.29 A 300,300 0 0 0 904.05,919.92 Z" fill="#f6b473" stroke="#ffffff" stroke-width="2"/>
+<text x="959.69" y="1080.90" class="leaf" text-anchor="middle" transform="rotate(325.71 959.69 1080.90)">False cause</text>
+<path d="M 830.17,970.29 L 964.67,1249.59 A 610,610 0 0 1 790.92,1303.19 L 744.71,996.65 A 300,300 0 0 0 830.17,970.29 Z" fill="#f4a251" stroke="#ffffff" stroke-width="2"/>
+<text x="835.88" y="1132.52" class="leaf" text-anchor="middle" transform="rotate(342.86 835.88 1140.52)"><tspan x="835.88" dy="0">Appeal</tspan><tspan x="835.88" dy="18">to authority</tspan></text>
+<path d="M 744.71,996.65 L 790.92,1303.19 A 610,610 0 0 1 609.08,1303.19 L 655.29,996.65 A 300,300 0 0 0 744.71,996.65 Z" fill="#f5ab62" stroke="#ffffff" stroke-width="2"/>
+<text x="700.00" y="1153.00" class="leaf" text-anchor="middle" transform="rotate(360.00 700.00 1161.00)"><tspan x="700.00" dy="0">Appeal</tspan><tspan x="700.00" dy="18">to tradition</tspan></text>
+<path d="M 655.29,996.65 L 609.08,1303.19 A 610,610 0 0 1 435.33,1249.59 L 569.83,970.29 A 300,300 0 0 0 655.29,996.65 Z" fill="#f6b473" stroke="#ffffff" stroke-width="2"/>
+<text x="564.12" y="1140.52" class="leaf" text-anchor="middle" transform="rotate(377.14 564.12 1140.52)">Appeal to nature</text>
+<path d="M 647.93,808.12 L 569.83,970.29 A 300,300 0 0 1 420.74,590.40 L 588.30,656.16 A 120,120 0 0 0 647.93,808.12 Z" fill="#E15759" stroke="#ffffff" stroke-width="2"/>
+<text x="504.52" y="776.72" class="cat" text-anchor="middle" transform="rotate(428.57 504.52 776.72)">Presumption</text>
+<path d="M 569.83,970.29 L 435.33,1249.59 A 610,610 0 0 1 285.09,1147.16 L 495.95,919.92 A 300,300 0 0 0 569.83,970.29 Z" fill="#e67576" stroke="#ffffff" stroke-width="2"/>
+<text x="440.31" y="1080.90" class="leaf" text-anchor="middle" transform="rotate(394.29 440.31 1080.90)">False dilemma</text>
+<path d="M 495.95,919.92 L 285.09,1147.16 A 610,610 0 0 1 171.72,1005.00 L 440.19,850.00 A 300,300 0 0 0 495.95,919.92 Z" fill="#e88284" stroke="#ffffff" stroke-width="2"/>
+<text x="339.58" y="979.43" class="leaf" text-anchor="middle" transform="rotate(411.43 339.58 987.43)"><tspan x="339.58" dy="0">Begging</tspan><tspan x="339.58" dy="18">the question</tspan></text>
+<path d="M 440.19,850.00 L 171.72,1005.00 A 610,610 0 0 1 105.29,835.74 L 407.52,766.76 A 300,300 0 0 0 440.19,850.00 Z" fill="#eb9091" stroke="#ffffff" stroke-width="2"/>
+<text x="270.87" y="868.42" class="leaf" text-anchor="middle" transform="rotate(428.57 270.87 868.42)">Loaded question</text>
+<path d="M 407.52,766.76 L 105.29,835.74 A 610,610 0 0 1 91.71,654.41 L 400.84,677.58 A 300,300 0 0 0 407.52,766.76 Z" fill="#e67576" stroke="#ffffff" stroke-width="2"/>
+<text x="240.29" y="726.45" class="leaf" text-anchor="middle" transform="rotate(445.71 240.29 734.45)"><tspan x="240.29" dy="0">Circular</tspan><tspan x="240.29" dy="18">reasoning</tspan></text>
+<path d="M 400.84,677.58 L 91.71,654.41 A 610,610 0 0 1 132.17,477.14 L 420.74,590.40 A 300,300 0 0 0 400.84,677.58 Z" fill="#e88284" stroke="#ffffff" stroke-width="2"/>
+<text x="250.56" y="597.42" class="leaf" text-anchor="middle" transform="rotate(282.86 250.56 597.42)">No true Scotsman</text>
+<path d="M 588.30,656.16 L 420.74,590.40 A 300,300 0 0 1 700.00,400.00 L 700.00,580.00 A 120,120 0 0 0 588.30,656.16 Z" fill="#76B7B2" stroke="#ffffff" stroke-width="2"/>
+<text x="581.70" y="526.49" class="cat" text-anchor="middle" transform="rotate(325.71 581.70 526.49)">Ambiguity</text>
+<path d="M 420.74,590.40 L 132.17,477.14 A 610,610 0 0 1 223.08,319.67 L 465.45,512.95 A 300,300 0 0 0 420.74,590.40 Z" fill="#8ec3bf" stroke="#ffffff" stroke-width="2"/>
+<text x="300.76" y="469.50" class="leaf" text-anchor="middle" transform="rotate(300.00 300.76 469.50)">Equivocation</text>
+<path d="M 465.45,512.95 L 223.08,319.67 A 610,610 0 0 1 356.37,195.99 L 531.00,452.13 A 300,300 0 0 0 465.45,512.95 Z" fill="#99c9c6" stroke="#ffffff" stroke-width="2"/>
+<text x="386.44" y="362.06" class="leaf" text-anchor="middle" transform="rotate(317.14 386.44 362.06)">Amphiboly</text>
+<path d="M 531.00,452.13 L 356.37,195.99 A 610,610 0 0 1 520.20,117.10 L 611.57,413.33 A 300,300 0 0 0 531.00,452.13 Z" fill="#a4cfcc" stroke="#ffffff" stroke-width="2"/>
+<text x="499.98" y="284.65" class="leaf" text-anchor="middle" transform="rotate(334.29 499.98 284.65)">Composition</text>
+<path d="M 611.57,413.33 L 520.20,117.10 A 610,610 0 0 1 700.00,90.00 L 700.00,400.00 A 300,300 0 0 0 611.57,413.33 Z" fill="#8ec3bf" stroke="#ffffff" stroke-width="2"/>
+<text x="631.29" y="244.15" class="leaf" text-anchor="middle" transform="rotate(351.43 631.29 244.15)">Division</text>
+<text x="700" y="1366" text-anchor="middle" class="subtitle">Sunburst wheel grouped by fallacy family</text>
+</svg>
