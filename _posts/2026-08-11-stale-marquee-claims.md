@@ -1,8 +1,9 @@
 ---
 layout: single
-title: "The Stale Marquee"
+title: "The Stale Marquee: Four Ways a True Claim Goes Bad"
 date: 2026-08-11
 author_profile: true
+tags: [hugging-face, open-source, documentation, technical-writing, research-verification]
 excerpt: "Every claim I caught rotting last week was true when someone wrote it. That is what makes them dangerous — and what makes them predictable."
 ---
 
@@ -53,3 +54,7 @@ I don't think you can prevent staleness. You can choose how it fails.
 None of this is novel. It's the same discipline as not hardcoding a value you could compute — which every engineer already believes about code, and then abandons the moment they open a README.
 
 The version of this I keep coming back to: my audit needed a second research pass, and that pass overturned three of its own conclusions. Not because the first pass was careless — it was sourced, hedged, and explicit about uncertainty — but because I'd taken proxies at face value in exactly the three places where checking was expensive. The article about stale marquee claims went stale during the writing of it. That's the honest ending, and I think it's also the point: this isn't a mistake you fix once. It's a tax you pay per claim, forever, and the only real choice is whether you pay it up front or let your readers pay it later.
+
+---
+
+*[1,813 Lines of Simplicity]({% post_url 2026-08-11-1813-lines-of-simplicity %}) takes the second of these four cases apart in detail — a minimalism claim that broke precisely because the project succeeded, on a library where "small enough to read" is the entire pitch. The underlying research is in [a sourced audit of the Hugging Face platform](/reports/huggingface-platform-research/).*

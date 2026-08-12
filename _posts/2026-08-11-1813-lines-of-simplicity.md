@@ -1,8 +1,10 @@
 ---
 layout: single
-title: "1,813 Lines of Simplicity"
+title: "1,813 Lines of Simplicity: When Your Pitch Is a Number"
 date: 2026-08-11
 author_profile: true
+tags: [hugging-face, smolagents, open-source, documentation, technical-writing]
+description: "smolagents promises its agent logic fits in ~1,000 lines and links to the file to prove it. The file is 1,813 lines."
 excerpt: "smolagents promises its agent logic fits in ~1,000 lines, and links to the file to prove it. The file is 1,813 lines. This is what happens when your pitch is a number and your project succeeds."
 ---
 
@@ -81,3 +83,7 @@ The fix isn't to delete the claim. Minimalism is real and it's worth advertising
 That last option is the only one that treats simplicity as a real requirement instead of a description. Which is the general lesson, and it isn't really about `smolagents`: **if a property is important enough to advertise, it's important enough to test.** We all know this about latency and correctness. We write the benchmark, we set the budget, we fail the build. Then we make an equally specific claim about our own codebase in a README and enforce it with nothing at all.
 
 The number in that README was true when it was written. That's the whole problem. Claims don't rot because someone lied — they rot because nothing was watching, and the project kept getting better.
+
+---
+
+*This is one case of a broader pattern. [The Stale Marquee]({% post_url 2026-08-11-stale-marquee-claims %}) covers three more — a dead entry, a false liveness signal, and a claim that was never checkable — and where they all come from. Both pieces grew out of a [sourced audit of the Hugging Face platform](/reports/huggingface-platform-research/), which needed a second research pass to correct three of its own conclusions.*
