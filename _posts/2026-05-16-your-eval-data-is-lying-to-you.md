@@ -11,7 +11,7 @@ A test set is a promise. It says: when you run your model against these inputs a
 
 That second part is where most evaluation pipelines quietly fall apart.
 
-I spent a session this month fixing label rot in the schema-org-file-system evaluation data — a set of files used to check whether a file classifier puts things in the right category. Some of those files had landed in `uncategorized` or `media` during a prior production run, even when their filepath made the correct answer obvious. A file path with `sprites/` in the directory tree is almost certainly a sprite. A file named `screenshot_2024_03_15.png` is not ambiguous. The classifier missed them; the test set kept the wrong labels; every evaluation run since then was measuring against corrupted ground truth.
+I spent a session this month fixing label rot in the [schema-org-file-system](https://github.com/integritystudio/schema-org-file-system) evaluation data — a set of files used to check whether a file classifier puts things in the right category. Some of those files had landed in `uncategorized` or `media` during a prior production run, even when their filepath made the correct answer obvious. A file path with `sprites/` in the directory tree is almost certainly a sprite. A file named `screenshot_2024_03_15.png` is not ambiguous. The classifier missed them; the test set kept the wrong labels; every evaluation run since then was measuring against corrupted ground truth.
 
 Nobody noticed, because corrupted ground truth looks exactly like correct ground truth until you go looking.
 
@@ -25,7 +25,7 @@ That's a subtle distinction. When a model makes a wrong prediction, you can meas
 
 ## Three Passes, Three Signal Types
 
-The fix was surgical. Three new triage passes (3–5) added to `relabel_test_set.py`, each targeting a specific filepath signal:
+The fix was surgical. Three new triage passes (3–5) added to [`relabel_test_set.py`](https://github.com/integritystudio/schema-org-file-system/blob/main/scripts/relabel_test_set.py), each targeting a specific filepath signal:
 
 - **Pass 3** targets sprite vocabulary: directory names and filename fragments that reliably indicate asset sprites (`_SPRITE_KEYWORD_SET`).
 - **Pass 4** targets screenshot patterns: regex matching the date-stamped naming conventions that screenshot tools produce (`_SCREENSHOT_RE`).
@@ -60,3 +60,5 @@ Label rot in evaluation data is a confidence problem before it's a quality probl
 The fix here was three passes and a guard. The broader fix is building triage passes that are *legible about their scope* from the start: what signals they use, what categories they're allowed to touch, and what they defer to when they're uncertain. A pass that says "I only touch uncategorized files, and only when I see a filepath I recognize" is self-limiting in a useful way. It documents its own failure modes.
 
 That's what you want from an automated correction system. Not ambition. Precision about what it knows and honesty about what it doesn't.
+
+*The full session report — per-pass detail, the complete quality scorecard, and the telemetry — is [here](/reports/2026-05-16-relabel-triage-passes-schema-org-file-system/).*

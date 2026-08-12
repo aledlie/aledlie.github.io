@@ -16,7 +16,7 @@ schema_type: analysis-article
 schema_genre: "Session Report"
 ---
 
-A test set is only as good as its labels. This session tackled label rot in the schema-org-file-system evaluation data — files that landed in `uncategorized` or `media` because a prior production run missed them, even when their filepath and filename made the true category obvious. The fix: three new triage passes (3–5) wired into `relabel_test_set.py`, each targeting a specific signal (sprite vocabulary, screenshot patterns, document semantics) and guarded against clobbering already-confident labels.
+A test set is only as good as its labels. This session tackled label rot in the [schema-org-file-system](https://github.com/integritystudio/schema-org-file-system) evaluation data — files that landed in `uncategorized` or `media` because a prior production run missed them, even when their filepath and filename made the true category obvious. The fix: three new triage passes (3–5) wired into [`relabel_test_set.py`](https://github.com/integritystudio/schema-org-file-system/blob/main/scripts/relabel_test_set.py), each targeting a specific signal (sprite vocabulary, screenshot patterns, document semantics) and guarded against clobbering already-confident labels.
 
 ## Quality Scorecard
 
@@ -83,3 +83,7 @@ Cache read tokens (474,339) dwarf output (2,644), which is typical for a focused
 - LLM-as-Judge evaluated the two most recently modified files from the 7-commit run ahead of `origin/main`. Binary files and files >500 lines were excluded (none present).
 - Hallucination threshold is 0.05 for healthy; the 0.02 score reflects that `_TRIAGE_PATH_FRAGMENTS` is a defensive implementation detail consistent with documented behavior, not fabricated content.
 - `evaluation_latency_seconds` of 0.0015s (1.5ms) reflects hook median span duration, not model inference latency.
+
+---
+
+*A narrative version of this work, written for a general audience, is at [Your Eval Data Is Lying to You]({% post_url 2026-05-16-your-eval-data-is-lying-to-you %}).*

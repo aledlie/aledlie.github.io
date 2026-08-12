@@ -6,7 +6,7 @@ author_profile: true
 excerpt: "smolagents promises its agent logic fits in ~1,000 lines, and links to the file to prove it. The file is 1,813 lines. This is what happens when your pitch is a number and your project succeeds."
 ---
 
-The `smolagents` README makes a promise in its feature list:
+[`smolagents`](https://github.com/huggingface/smolagents) is Hugging Face's minimal library for building AI agents — the small, readable alternative to [LangGraph](https://github.com/langchain-ai/langgraph), [CrewAI](https://github.com/crewAIInc/crewAI), the [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), and [Pydantic AI](https://github.com/pydantic/pydantic-ai). Its [README](https://github.com/huggingface/smolagents/blob/main/README.md) makes a promise in the feature list:
 
 > ✨ **Simplicity**: the logic for agents fits in ~1,000 lines of code (see [agents.py](https://github.com/huggingface/smolagents/blob/main/src/smolagents/agents.py)). We kept abstractions to their minimal shape above raw code!
 
@@ -14,7 +14,7 @@ I want to draw attention to the parenthetical, because it's doing something unus
 
 So I checked. `agents.py` on `main` is **1,813 lines**.
 
-The README repeats the claim further down, less hedged: *"the main code in `agents.py` has <1,000 lines of code."* At the v1.0.0 tag in December 2024, that was true — 1,038 lines, near enough to a thousand that "~1,000" was fair and "<1,000" was a rounding error in the author's favor. Twenty months later the file has grown 75%, and the package around it went from 5,850 lines across 13 files to 12,774 across 18.
+The README repeats the claim further down, less hedged: *"the main code in `agents.py` has <1,000 lines of code."* At the [v1.0.0 tag](https://github.com/huggingface/smolagents/blob/v1.0.0/src/smolagents/agents.py) in December 2024, that was true — 1,038 lines, near enough to a thousand that "~1,000" was fair and "<1,000" was a rounding error in the author's favor. Twenty months later the file has grown 75%, and [the package around it](https://github.com/huggingface/smolagents/tree/main/src/smolagents) went from 5,850 lines across 13 files to 12,774 across 18. (All counts measured 2026-08-11, at `v1.0.0` and at `main`.)
 
 Nothing here is deception. Every one of those lines was added by someone doing their job well. That's exactly what makes it worth writing about.
 
@@ -32,11 +32,11 @@ The parenthetical link makes this sharper still. In December 2024 it was a proof
 
 Here's what separates this from an ordinary stale fact.
 
-When Hugging Face archived Text Generation Inference but left it on the homepage's flagship library list, the claim went stale because the thing *died*. When "over 200 community-led leaderboards" kept getting quoted eighteen months after anyone counted, it went stale because the world *moved*.
+When Hugging Face [archived Text Generation Inference](https://github.com/huggingface/text-generation-inference) but left it on the homepage's flagship library list, the claim went stale because the thing *died*. When ["over 200 community-led leaderboards"](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard/discussions/1135) kept getting quoted eighteen months after anyone counted, it went stale because the world *moved*. (I wrote about [both of those, and the pattern behind them]({% post_url 2026-08-11-stale-marquee-claims %}), last week.)
 
 The `smolagents` number went stale because the project **worked**.
 
-Look at what those 775 new lines in `agents.py` are. Support for more model backends — `LiteLLM`, `VLLM`, `MLX`, `AmazonBedrock`, `AzureOpenAI`. Multi-agent composition, so a manager agent can call sub-agents as if they were tools. A typed memory model with replay. Planning steps on an interval. Structured output. Streaming. Every one of those is a thing users asked for, and each one is a few dozen lines that no reasonable maintainer would refuse.
+Look at what those 775 new lines in `agents.py` are. Support for more model backends — `LiteLLM`, `VLLM`, `MLX`, `AmazonBedrock`, `AzureOpenAI`. Multi-agent composition, so a manager agent can call sub-agents as if they were tools. A typed memory model with replay. Planning steps on an interval. Structured output. Streaming. [The docs](https://huggingface.co/docs/smolagents/index) enumerate the surface this now covers. Every one of those is a thing users asked for, and each one is a few dozen lines that no reasonable maintainer would refuse.
 
 Nobody ever decided to abandon minimalism. There was no meeting. There was a sequence of individually correct decisions, each of which cost about 2% of the claim, and the claim had no mechanism to object. A README doesn't fail CI. There is no test that reads `assert len(open('agents.py').readlines()) < 1000`.
 
@@ -44,7 +44,7 @@ And that's the part I find genuinely interesting: **the property was measurable 
 
 ## Why it's load-bearing
 
-You could reasonably ask whether this matters. The library is excellent. It has 28,761 stars. Its GAIA scaffold got 55% pass@1 against OpenAI's closed Deep Research at 67% — a respectable showing for something you can read end to end.
+You could reasonably ask whether this matters. The library is excellent — 28,761 stars as of 2026-08-11, and its [open Deep Research](https://huggingface.co/blog/open-deep-research) scaffold scored 55.15% on the GAIA validation set against 67.36% for OpenAI's closed Deep Research, as reported in February 2025. That's a respectable showing for something you can read end to end. (Both of those figures are snapshots, and I've dated them for the reason this whole piece is about.)
 
 It matters because of *which* claim it is.
 
@@ -54,13 +54,19 @@ So the false number sits precisely on the load-bearing claim. Someone choosing a
 
 Note that the *decision* might still be right. `smolagents` may well remain the smallest serious option in its class; I haven't measured the competitors and I'm not claiming otherwise. But "smallest available" and "about a thousand lines" are different assertions, and the reader was given the second one to reason with.
 
-## The claim outruns its source
+## A fix that didn't propagate
 
-The other thing that happens to a good number is that it travels.
+Here's the detail that convinced me this is structural rather than an oversight.
 
-Search for `smolagents` and you'll find the thousand-line figure in Medium posts, DataCamp tutorials, framework roundups, aggregator summaries. None of them are lying either. They read the README, quoted it accurately, and published. Some did that in early 2025, when it was true.
+Hugging Face's [launch blog post](https://huggingface.co/blog/smolagents) for `smolagents`, from December 31, 2024, has the same feature bullet — same wording, same link to the same file. Except it now reads:
 
-But a quote has no expiry date attached, and each repetition strips a little more context — first the tilde, then the scoping to `agents.py`, until you get "smolagents is about a thousand lines" as a free-floating fact about a library. The copies will outlive the correction by years, and there is no mechanism by which fixing the README fixes them. This is the ordinary fate of any crisp, quotable number placed on a high-traffic surface: it gets adopted by people who have no way to know when it expired.
+> ✨ **Simplicity**: the logic for agents fits in ~**thousands** lines of code
+
+Not a thousand. Thousands. The grammar is a little mangled in a way that suggests a word was swapped in place, and I can't prove from the outside when or why it changed. What I can verify is the state today: **Hugging Face's two official descriptions of the same file disagree with each other.** The blog says thousands; the README says ~1,000, twice.
+
+So somebody, somewhere, noticed. The correction landed on one surface and not the other, and the surface it missed is the one every new user reads first — the README on the repository page, which is also the one that ships inside the PyPI listing and gets rendered on the Hub.
+
+That's the failure mode in miniature. Fixing a stale claim isn't one edit, because a claim that travels well has already been copied to places you don't control and may not remember. Every downstream tutorial, framework roundup, and aggregator summary that quoted the README quoted it accurately at the time. None of them will hear about the revision. A quote carries no expiry date, and each hop strips a little more context — first the tilde, then the scoping to `agents.py` — until "smolagents is about a thousand lines" is loose in the world as a free-floating fact about a library.
 
 ## What a durable version looks like
 
