@@ -60,7 +60,7 @@ For benchmark work this supports elaborate setups — Gaia2 spans 800 scenarios 
 
 ## The Custom Scenario
 
-ARE ships scenarios for its own benchmark domains, so auditing a real Claude Code fleet meant writing one. It lives in a fork at `~/code/is-internal/meta-agents-research-environments`, added as a self-contained package under `are/simulation/scenarios/scenario_claude_agent_manifests/` — no changes to ARE itself, since scenarios self-register by decorator and are discovered by import:
+ARE ships scenarios for its own benchmark domains, so auditing a real Claude Code fleet meant writing one. It lives in a fork of ARE as a self-contained package under `are/simulation/scenarios/scenario_claude_agent_manifests/` — no changes to ARE itself, since scenarios self-register by decorator and are discovered by import:
 
 ```python
 @register_scenario("scenario_claude_agent_manifests")
@@ -227,13 +227,13 @@ Readability metrics computed with [textstat](https://github.com/textstat/textsta
 
 | Metric | Score | Notes |
 |--------|-------|-------|
-| Flesch Reading Ease | 49.1 | 0–30 very difficult, 60–70 standard, 90–100 very easy |
+| Flesch Reading Ease | 49.2 | 0–30 very difficult, 60–70 standard, 90–100 very easy |
 | Flesch-Kincaid Grade | 11.5 | US school grade level (High School) |
 | Gunning Fog Index | 13.7 | Years of formal education needed |
 | SMOG Index | 13.0 | Grade level (requires 30+ sentences) |
 | Coleman-Liau Index | 11.2 | Grade level via character counts |
 | Automated Readability Index | 12.0 | Grade level via characters/words |
-| Dale-Chall Score | 10.99 | <5 = 5th grade, >9 = college |
+| Dale-Chall Score | 10.98 | <5 = 5th grade, >9 = college |
 | Linsear Write | 22.7 | Grade level |
 | Text Standard (consensus) | 10th and 11th grade | Estimated US grade level |
 
@@ -243,7 +243,7 @@ Readability metrics computed with [textstat](https://github.com/textstat/textsta
 |---------|-------|
 | Word count | 1,817 |
 | Sentence count | 88 |
-| Syllable count | 2,937 |
+| Syllable count | 2,936 |
 | Avg words per sentence | 20.6 |
 | Avg syllables per word | 1.62 |
-| Difficult words | 360 |
+| Difficult words | 359 |
