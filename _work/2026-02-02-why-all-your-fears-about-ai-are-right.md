@@ -156,7 +156,7 @@ So what do you actually do about this?
 
 **First, optimize for assessment, not output.** Generation is solved. Your competitive edge is your ability to *evaluate* what you generate.
 
-**Second, invest in measurement infrastructure.** For code, this means tests, linters, type systems, architectural reviews. For content, this means fact-checking workflows, consistency checks, audience testing. Whatever you're producing, build the scaffolding that lets you evaluate it. *(For a technical deep-dive on building this infrastructure, see [LLM Observability Best Practices](/work/llm-observability-best-practices/).)*
+**Second, invest in measurement infrastructure.** For code, this means tests, linters, type systems, architectural reviews. For content, this means fact-checking workflows, consistency checks, audience testing. Whatever you're producing, build the scaffolding that lets you evaluate it. *(For a technical deep-dive on building this infrastructure, see [LLM Observability Best Practices](/work/llm-observability-best-practices-01-2026/).)*
 
 **Third, review upstream.** The context engineering practitioners have this right: if you're using AI to research, plan, and then implement, spend 70% of your review energy on research and planning. Errors caught there don't become code. Errors missed there become expensive.
 
