@@ -112,6 +112,12 @@ LLM applications introduce fundamentally different observability challenges:
 
 ### 2.2 The Three Pillars Extended
 
+![Three columns headed Traces, Metrics and Logs, each listing four signal types, above a full-width band headed Evaluation Layer listing six quality measures.](/assets/images/llm-obs-2026-fig2-pillars.png)
+{: .align-center}
+
+*Figure 2 — the three classical pillars of observability, and the evaluation layer LLM systems require in addition.*
+
+
 The traditional observability pillars (metrics, traces, logs) require extension for LLM systems:
 
 ```
@@ -371,6 +377,12 @@ transcripts rather than receiving them directly.
 
 ### 5.1 The Quality Visibility Problem
 
+![A two-by-two matrix of performance against quality. The cell where performance is good but quality is degraded is outlined in warning colour and labelled Invisible Failure.](/assets/images/llm-obs-2026-fig4-invisible-failure.png)
+{: .align-center}
+
+*Figure 3 — the quadrant conventional monitoring cannot see: healthy performance metrics concealing degraded output quality.*
+
+
 Traditional observability answers: "Is the system up and performing?"
 
 LLM observability must also answer: "Is the system producing good outputs?"
@@ -598,6 +610,12 @@ the one after it and independently valuable:
 ---
 
 ## 7. Discussion: Implications for Implementers
+
+![Four conformance tiers stacked from cheapest to most expensive: attribute conformance, metrics and histograms, agent and tool semantics, and the evaluation layer.](/assets/images/llm-obs-2026-fig6-adoption-order.png)
+{: .align-center}
+
+*Figure 4 — the four tiers ordered by cost, which is the order in which they should be attempted.*
+
 
 The conformance tiers set out in Section 6 differ sharply in cost, and that difference — rather
 than any architectural preference — is what should govern the order in which a team attempts them.
@@ -1021,6 +1039,12 @@ OTEL_EXPORTER_OTLP_HEADERS="Authorization=Basic ${AUTH_STRING}"
 ```
 
 #### A.7 Production Evaluation Architecture
+
+![Four ascending steps labelled Level 1 Ad-hoc, Level 2 Offline, Level 3 Asynchronous Online and Level 4 Continuous, each listing its defining practices.](/assets/images/llm-obs-2026-fig5-maturity.png)
+{: .align-center}
+
+*Figure 5 — the evaluation maturity model, from manual spot-checking to continuous real-time guardrails.*
+
 
 **Maturity Model:**
 
