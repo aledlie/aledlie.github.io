@@ -520,7 +520,7 @@ body .archive-item {
 
   .archive-item-date {
     display: block;
-    color: $gray-lighter;
+    color: $gray-medium; /* #666 - WCAG AA compliant (5.7:1 on white); $gray-lighter was 2.8:1 */
     font-size: $font-size-medium;
     margin-bottom: $spacing-sm-rem;
     font-style: italic;
@@ -555,7 +555,7 @@ body .card .grid {
   }
 
   .page-meta {
-    color: $gray-lighter;
+    color: $gray-medium; /* #666 - WCAG AA compliant (5.7:1 on white); $gray-lighter was 2.8:1 */
     font-size: $font-size-medium;
     margin-bottom: $spacing-xl;
     @include border-light-bottom;
