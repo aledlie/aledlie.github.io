@@ -34,6 +34,11 @@ async function waitForStyles(page) {
   }, { timeout: E2E_TIMEOUTS.styleLoadMs }).catch(() => {});
   // Additional delay to ensure CSS is fully parsed and applied
   await page.waitForTimeout(E2E_TIMEOUTS.shortDelayMs);
+  // Theme intro animations fade #main and #footer in from opacity 0 (footer ends at 750ms);
+  // axe blends partial opacity into its contrast ratios, so let them finish first
+  await page.waitForFunction(() => document.getAnimations()
+    .filter(animation => animation.effect.getComputedTiming().endTime !== Infinity)
+    .every(animation => animation.playState === 'finished'), null, { timeout: E2E_TIMEOUTS.styleLoadMs });
 }
 
 test.describe('Core Accessibility', () => {
