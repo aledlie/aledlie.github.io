@@ -106,8 +106,7 @@ const IGNORED_CONSOLE_ERRORS = [
 
 // WCAG-compliant colors for validation (RGB format from computed styles)
 const WCAG_COLORS = {
-  footerText: 'rgb(74, 74, 74)',  // #4a4a4a
-  bodyText: 'rgb(34, 34, 34)'     // #222222
+  footerText: 'rgb(74, 74, 74)'  // #4a4a4a
 };
 
 // E2E test timeouts
