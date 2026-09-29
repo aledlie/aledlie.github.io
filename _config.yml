@@ -139,13 +139,8 @@ author:
   bio: ex-Academia | ex-Facebook | Start-up Founder | Reader of Fine Print.
   location: ATX | La Ventana | Rio
   email: alyshia@inventoryai.io
-  github: aledlie
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:alyshia@inventoryai.io"
-      # Note: Email is obfuscated via JavaScript in production. Base64: YWx5c2hpYUBpbnZlbnRvcnlhaS5pbw==
-    - label: "Github"
+    - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aledlie"
     - label: "Integrity Studios"
