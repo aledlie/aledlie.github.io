@@ -16,8 +16,9 @@ const { VIEWPORTS, WCAG_COLORS, E2E_TIMEOUTS } = require('../../config/constants
 async function waitForStyles(page) {
   await page.waitForLoadState('load');
   // Wait for footer styles to be applied (indicates CSS is loaded)
-  // Check both font-family AND color to ensure our accessibility fixes are applied
-  await page.waitForFunction(() => {
+  // Check both font-family AND color to ensure our accessibility fixes are applied.
+  // Runs in the browser, so the colours come in as the arg; a miss fails the test.
+  await page.waitForFunction(({ footerText }) => {
     const footer = document.querySelector('.page__footer-copyright');
     if (!footer) return true; // No footer on page
     const style = window.getComputedStyle(footer);
@@ -27,11 +28,8 @@ async function waitForStyles(page) {
            fontFamily.includes('segoe') || fontFamily.includes('helvetica') ||
            fontFamily.includes('sans-serif');
     // Also check color - our WCAG fix uses accessible colors
-    const color = style.color;
-    const hasCorrectColor = color === WCAG_COLORS.footerText || color === WCAG_COLORS.bodyText ||
-           color.includes('74') || color.includes('34');
-    return hasFontFamily && hasCorrectColor;
-  }, { timeout: E2E_TIMEOUTS.styleLoadMs }).catch(() => {});
+    return hasFontFamily && style.color === footerText;
+  }, WCAG_COLORS, { timeout: E2E_TIMEOUTS.styleLoadMs });
   // Additional delay to ensure CSS is fully parsed and applied
   await page.waitForTimeout(E2E_TIMEOUTS.shortDelayMs);
   // Theme intro animations fade #main and #footer in from opacity 0 (footer ends at 750ms);
