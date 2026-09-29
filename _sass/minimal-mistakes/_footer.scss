@@ -44,7 +44,8 @@
   }
 }
 
-.page-footer-copyright {
+// BEM name: footer.html comes from the theme gem (not overridden), which keeps page__ classes
+.page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
   color: $footer-text-color !important;
