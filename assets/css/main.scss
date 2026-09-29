@@ -200,6 +200,7 @@ body .sidebar {
   }
 
   .author-urls-wrapper {
+    display: block; /* Theme uses table-cell below $large */
     margin-top: $spacing-xl-em; /* Clear separation from bio */
     margin-bottom: $spacing-lg;
     padding-top: $spacing-md;
@@ -215,10 +216,23 @@ body .sidebar {
     }
   }
 
+  // Below $large the theme turns this list into a dropdown opened by a Follow button,
+  // which author-profile.html doesn't render; apply the theme's inline $large styles everywhere
   .author-urls {
-    margin-top: 0;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
     text-align: center;
     overflow: visible; /* Fix truncation */
+
+    &::before,
+    &::after {
+      display: none; /* Dropdown arrow */
+    }
 
     li {
       display: block;
