@@ -172,6 +172,14 @@ body .sidebar {
     border-radius: $border-radius-circle;
     object-fit: cover;
     margin-bottom: $spacing-md; /* Explicit spacing below avatar */
+
+    // Nested here to match this selector's specificity; a plain .sidebar rule never won.
+    // max-width lifts the theme's $avatar-max-width cap so the image stays square.
+    @media (max-width: $large-wide) {
+      width: $avatar-size-md;
+      height: $avatar-size-md;
+      max-width: 100%;
+    }
   }
 
   .author-name {
@@ -614,11 +622,6 @@ html body .greedy-nav .site-title {
   .sidebar {
     padding: 0.25rem;
     text-align: center;
-
-    .author-avatar img {
-      width: $avatar-size-md;
-      height: $avatar-size-md;
-    }
   }
 
   .page-content {
