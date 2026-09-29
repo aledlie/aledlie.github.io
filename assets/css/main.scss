@@ -152,8 +152,11 @@ body .sidebar {
   }
 
   // Fix avatar centering - override theme's table-cell display
+  // and its $avatar-size-sm box below $large, which let the larger img overflow onto the name/bio
   .author-avatar {
     display: block;
+    width: auto;
+    height: auto;
     margin: 0 auto $spacing-md;
   }
 
