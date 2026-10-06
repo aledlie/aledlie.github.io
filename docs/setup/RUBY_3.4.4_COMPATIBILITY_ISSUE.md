@@ -1,8 +1,15 @@
 # Ruby 3.4.4 Compatibility Issue
 
-**Status:** BLOCKING
-**Impact:** HIGH - Prevents Jekyll build
+**Status:** SUPERSEDED (2026-10-05) - kept as history
+**Impact:** None today - the site builds on Ruby 4.0.6
 **Date Identified:** 2025-11-11
+
+> **Current state (2026-10-05).** The site no longer pins Ruby 3.4.4. `.ruby-version` is 4.0.6, `Gemfile.lock` is `BUNDLED WITH` 4.0.21, and the deploy workflow reads Ruby from `.ruby-version`; `npm run build` passes on that toolchain.
+>
+> - **Issue 2 (Sass) no longer applies.** The `github-pages` gem is gone (Option 3 below was taken), and Sass now compiles through `jekyll-sass-converter` 3.x with `sass-embedded`, not the old `sass` gem.
+> - **Issue 1 (remote theme SSL) is still worked around, not fixed.** `remote_theme` remains commented out in `_config.yml`, and the site uses the `minimal-mistakes-jekyll` gem. Re-test before switching back to `remote_theme`.
+>
+> The options and plan below describe the situation as of 2025-11-11.
 
 ## Problem
 

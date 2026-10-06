@@ -67,7 +67,7 @@ See `schema/README.md` for decision tree and examples.
 |------|-------------|
 | `setup/DOPPLER_SETUP.md` | Secrets management with Doppler |
 | `setup/BUILD_ISSUE_RESOLUTION.md` | Common build issues and fixes |
-| `setup/RUBY_3.4.4_COMPATIBILITY_ISSUE.md` | Ruby version compatibility notes |
+| `setup/RUBY_3.4.4_COMPATIBILITY_ISSUE.md` | Ruby 3.4.4 compatibility notes (superseded; the site runs Ruby 4.0.6) |
 
 ---
 

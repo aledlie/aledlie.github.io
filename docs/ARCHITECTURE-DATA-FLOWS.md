@@ -406,9 +406,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
-          ruby-version: '3.4.1'
+          # Ruby comes from .ruby-version and bundler from Gemfile.lock's BUNDLED WITH
           bundler-cache: true
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -1201,7 +1201,7 @@ JEKYLL_ENV=production bundle exec jekyll build
 graph TD
     A[Git Push to master] --> B[GitHub Actions Trigger]
     B --> C[Checkout Repository]
-    C --> D[Setup Ruby 3.4.1]
+    C --> D[Setup Ruby from .ruby-version]
     D --> E[bundle install - cached]
     E --> F[Configure Pages]
     F --> G[JEKYLL_ENV=production]
@@ -1238,9 +1238,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
-          ruby-version: '3.4.1'
           bundler-cache: true
       - uses: actions/configure-pages@v5
       - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -1374,9 +1373,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
-          ruby-version: '3.4.1'
           bundler-cache: true
       - run: bundle exec jekyll build
         env:
@@ -1391,7 +1389,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3"
 gem "minimal-mistakes-jekyll"
 
-# Compatibility gems for Ruby 3.4.4
+# Standard-library gems that newer Rubies no longer load by default (needed on Ruby 4.0.6)
 gem "csv"
 gem "logger"
 gem "webrick"
