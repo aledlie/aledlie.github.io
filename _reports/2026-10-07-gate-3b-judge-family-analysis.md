@@ -31,7 +31,7 @@ The Gate 3b analysis ran in three steps. The production data (259 items) shows h
 | Metric | Value |
 |---|---|
 | Roadmap actionable items catalogued | ~40 across 3 docs |
-| Commits on `main` (repo) | 5, plus uncommitted analysis scripts and AA3 results |
+| Commits on `main` (repo) | 7 |
 | Tests (quality-signals + related evaluators) | 35/35 + 37/37 pass |
 | Production meta-evals analysed | 259 (135 haiku, 124 grok), 7 sessions |
 | Production gap, haiku − grok | −0.117 (95% CI −0.128 to −0.110), 6/6 sessions |
@@ -141,8 +141,8 @@ Commits on `main`:
 - `797516ec` feat: add judge-probe script
 - `c85ec7e4` build(hooks): rebuild hooks dist
 - `64904bdb` docs(roadmap): move AA3 Gate 3b to analysis
-
-Uncommitted at the time of writing: `scripts/otel/gate3b/` and the AA3 § 3b results.
+- `8974e1c8` feat(gate3b): add Gate 3b judge-family analysis scripts
+- `ff372464` docs(roadmap): record AA3 Gate 3b results
 
 ## References
 
@@ -163,13 +163,13 @@ Readability metrics computed with [textstat](https://github.com/textstat/textsta
 
 | Metric | Score | Notes |
 |--------|-------|-------|
-| Flesch Reading Ease | 53.3 | 0–30 very difficult, 60–70 standard, 90–100 very easy |
+| Flesch Reading Ease | 53.1 | 0–30 very difficult, 60–70 standard, 90–100 very easy |
 | Flesch-Kincaid Grade | 9.5 | US school grade level (High School) |
 | Gunning Fog Index | 11.6 | Years of formal education needed |
 | SMOG Index | 11.7 | Grade level (requires 30+ sentences) |
-| Coleman-Liau Index | 12.5 | Grade level via character counts |
-| Automated Readability Index | 9.3 | Grade level via characters/words |
-| Dale-Chall Score | 12.94 | <5 = 5th grade, >9 = college |
+| Coleman-Liau Index | 12.7 | Grade level via character counts |
+| Automated Readability Index | 9.5 | Grade level via characters/words |
+| Dale-Chall Score | 12.97 | <5 = 5th grade, >9 = college |
 | Linsear Write | 13.8 | Grade level |
 | Text Standard (consensus) | 11th and 12th grade | Estimated US grade level |
 
@@ -177,9 +177,9 @@ Readability metrics computed with [textstat](https://github.com/textstat/textsta
 
 | Measure | Value |
 |---------|-------|
-| Word count | 910 |
-| Sentence count | 62 |
-| Syllable count | 1,491 |
-| Avg words per sentence | 14.7 |
+| Word count | 905 |
+| Sentence count | 61 |
+| Syllable count | 1,484 |
+| Avg words per sentence | 14.8 |
 | Avg syllables per word | 1.64 |
 | Difficult words | 191 |
