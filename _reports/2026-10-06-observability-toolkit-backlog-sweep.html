@@ -1,0 +1,850 @@
+<title>Observability Toolkit Backlog Sweep</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+/* Layout: single-column report with metric sidebar on wide screens */
+:root {
+  --bg:         #f8f7f5;
+  --bg-card:    #ffffff;
+  --bg-muted:   #f1f0ee;
+  --fg:         #1a1917;
+  --fg-muted:   #6b6762;
+  --fg-subtle:  #9c9894;
+  --border:     #e3e1dd;
+  --accent:     #2563eb;
+  --accent-dim: #dbeafe;
+  --healthy:    #15803d;
+  --healthy-bg: #dcfce7;
+  --warning:    #b45309;
+  --warning-bg: #fef3c7;
+  --critical:   #be123c;
+  --critical-bg:#ffe4e6;
+  --bar-fill:   #1d4ed8;
+  --bar-empty:  #cbd5e1;
+  --mono:       'JetBrains Mono', 'Fira Mono', monospace;
+  --sans:       'Inter', system-ui, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:         #111110;
+    --bg-card:    #1c1b19;
+    --bg-muted:   #242320;
+    --fg:         #e8e6e3;
+    --fg-muted:   #9b9793;
+    --fg-subtle:  #6e6a65;
+    --border:     #2e2c29;
+    --accent:     #60a5fa;
+    --accent-dim: #1e3a5f;
+    --healthy:    #4ade80;
+    --healthy-bg: #052e16;
+    --warning:    #fbbf24;
+    --warning-bg: #451a03;
+    --critical:   #fb7185;
+    --critical-bg:#4c0519;
+    --bar-fill:   #60a5fa;
+    --bar-empty:  #2e2c29;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:         #111110;
+  --bg-card:    #1c1b19;
+  --bg-muted:   #242320;
+  --fg:         #e8e6e3;
+  --fg-muted:   #9b9793;
+  --fg-subtle:  #6e6a65;
+  --border:     #2e2c29;
+  --accent:     #60a5fa;
+  --accent-dim: #1e3a5f;
+  --healthy:    #4ade80;
+  --healthy-bg: #052e16;
+  --warning:    #fbbf24;
+  --warning-bg: #451a03;
+  --critical:   #fb7185;
+  --critical-bg:#4c0519;
+  --bar-fill:   #60a5fa;
+  --bar-empty:  #2e2c29;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  margin: 0;
+  padding-inline: 20px;
+  padding-block: 32px 60px;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Header */
+.report-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 12px;
+}
+
+.report-title {
+  font-family: var(--sans);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+  color: var(--fg);
+  margin: 0 0 16px;
+}
+
+.report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.meta-item { white-space: nowrap; }
+
+/* Status badge */
+.dashboard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+}
+.badge-critical { color: var(--critical); background: var(--critical-bg); }
+.badge-warning  { color: var(--warning);  background: var(--warning-bg); }
+.badge-healthy  { color: var(--healthy);  background: var(--healthy-bg); }
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Narrative */
+.narrative {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--fg);
+  margin-bottom: 36px;
+  padding: 24px;
+  background: var(--bg-muted);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Section headers */
+h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 44px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 28px 0 12px;
+}
+
+/* Scorecard */
+.scorecard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.scorecard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-muted);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scorecard-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 72px 80px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.metric-row:last-child { border-bottom: none; }
+.metric-row:hover { background: var(--bg-muted); }
+
+.metric-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.bar-track {
+  height: 8px;
+  background: var(--bar-empty);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--bar-fill);
+  transition: width 0.4s ease;
+}
+
+.bar-fill.critical { background: var(--critical); }
+
+.metric-value {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-status {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: right;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.metric-status.healthy  { color: var(--healthy);  background: var(--healthy-bg); }
+.metric-status.warning  { color: var(--warning);  background: var(--warning-bg); }
+.metric-status.critical { color: var(--critical); background: var(--critical-bg); }
+
+.scorecard-footer {
+  padding: 14px 20px;
+  background: var(--bg-muted);
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+/* Note for inverted metric */
+.inverted-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+  font-style: italic;
+}
+
+/* How measured */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 560px) {
+  .method-grid { grid-template-columns: 1fr; }
+}
+
+.method-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+
+.method-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.method-card p {
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Per-output table */
+.output-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 13px;
+}
+
+thead { background: var(--bg-muted); }
+
+th {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+  vertical-align: middle;
+  min-width: 0;
+}
+
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg-muted); }
+
+.file-cell {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+.score-cell {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.avg-row td {
+  background: var(--bg-muted);
+  font-weight: 600;
+  border-top: 1px solid var(--border);
+}
+
+/* Judge findings */
+.finding {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.finding-file {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.finding-scores {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mini-score {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--bg-muted);
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.finding p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--fg);
+  margin: 0;
+}
+
+/* Telemetry grid */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.telem-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.telem-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 6px;
+}
+
+.telem-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.telem-value.big { font-size: 22px; }
+.telem-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+  margin-top: 4px;
+}
+
+/* Commits table */
+.commit-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.commit-subject {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--fg);
+  word-break: break-word;
+}
+
+.commit-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+  white-space: nowrap;
+}
+
+/* Methodology */
+.methodology {
+  background: var(--bg-muted);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 12px;
+}
+
+.methodology h3 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 6px;
+}
+
+.methodology h3:not(:first-child) { margin-top: 20px; }
+
+.methodology p {
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Footer */
+.report-footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-subtle);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .metric-row {
+    grid-template-columns: 100px 1fr 56px 60px;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+  .metric-name { font-size: 10px; }
+  .scorecard-header { padding: 12px 14px; }
+  .scorecard-footer { padding: 12px 14px; }
+}
+
+p { margin: 0 0 14px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+</style>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="report-header">
+    <p class="eyebrow">Session Quality Report · 2026-10-06</p>
+    <h1 class="report-title">Observability Toolkit Backlog Sweep</h1>
+    <div class="report-meta">
+      <span class="meta-item">session&nbsp;<code>dac8905e</code></span>
+      <span class="meta-item">28.4 hours</span>
+      <span class="meta-item">33 commits</span>
+      <span class="meta-item">31 subagents</span>
+      <span class="meta-item">observability-toolkit</span>
+    </div>
+  </header>
+
+  <!-- Narrative -->
+  <div class="narrative">
+    Eleven open items. Four worktrees. Two models — claude-opus-5-5 steering the session and claude-fable-5-1 doing the implementation work in parallel worktrees. Over the course of 28 hours spanning October 5th into October 6th, a multi-agent session worked through the observability-toolkit backlog in earnest: a missing cohort field on an MCP evaluation schema, an OTel shutdown path that broke re-initialization, four HTTP fetch call sites routed through the wrong transport on Node 26, and more. Thirty-three commits, 1,664 tool calls — and a task-completion meter that plateaued at 50% as the second half of the queue kept the clock running.
+  </div>
+
+  <!-- Scorecard -->
+  <h2>Quality Scorecard</h2>
+
+  <div class="scorecard">
+    <div class="scorecard-header">
+      <span class="scorecard-title">Seven metrics — three rule-based, four LLM-as-Judge</span>
+      <span class="dashboard-badge badge-critical">
+        <span class="status-dot"></span>
+        Dashboard: Critical
+      </span>
+    </div>
+
+    <!-- RELEVANCE -->
+    <div class="metric-row">
+      <span class="metric-name">Relevance</span>
+      <div class="bar-track"><div class="bar-fill" style="width:96%"></div></div>
+      <span class="metric-value">0.96</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- FAITHFULNESS -->
+    <div class="metric-row">
+      <span class="metric-name">Faithfulness</span>
+      <div class="bar-track"><div class="bar-fill" style="width:96%"></div></div>
+      <span class="metric-value">0.96</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- COHERENCE -->
+    <div class="metric-row">
+      <span class="metric-name">Coherence</span>
+      <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+      <span class="metric-value">0.95</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- HALLUCINATION (lower is better) -->
+    <div class="metric-row">
+      <span class="metric-name">Hallucination <span class="inverted-note">↓</span></span>
+      <div class="bar-track"><div class="bar-fill" style="width:97.4%"></div></div>
+      <span class="metric-value">0.03</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- TOOL ACCURACY -->
+    <div class="metric-row">
+      <span class="metric-name">Tool Accuracy</span>
+      <div class="bar-track"><div class="bar-fill" style="width:96.57%"></div></div>
+      <span class="metric-value">0.97</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- EVAL LATENCY -->
+    <div class="metric-row">
+      <span class="metric-name">Hook Latency</span>
+      <div class="bar-track"><div class="bar-fill" style="width:99.7%"></div></div>
+      <span class="metric-value">1.3ms</span>
+      <span class="metric-status healthy">healthy</span>
+    </div>
+
+    <!-- TASK COMPLETION -->
+    <div class="metric-row">
+      <span class="metric-name">Task Completion</span>
+      <div class="bar-track"><div class="bar-fill critical" style="width:50%"></div></div>
+      <span class="metric-value">0.50</span>
+      <span class="metric-status critical">critical</span>
+    </div>
+
+    <div class="scorecard-footer">
+      Task completion settled at 50% — 4 of 8 active tasks marked done by session end. The remaining four likely carried into subsequent sessions. All other metrics are healthy: code-quality LLM scores reflect targeted, test-backed fixes with effectively zero hallucination risk.
+    </div>
+  </div>
+
+  <!-- How we measured -->
+  <h2>How We Measured</h2>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-card-label">Rule-based (3 metrics)</div>
+      <p>Derived automatically from 4,929 OpenTelemetry trace spans emitted by the hooks system. Every tool call emits a span; the rule engine checks success rate (1,607 of 1,664 tool spans succeeded), median hook execution time, and task completion ratio from the session's own stop-time evaluation events.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-card-label">LLM-as-Judge (4 metrics)</div>
+      <p>G-Eval pattern: the <code>genai-quality-monitor</code> agent read five committed source files and scored each along relevance, faithfulness, coherence, and hallucination. All five map directly to named backlog items. The agent ran concurrently with report generation and returned before publication.</p>
+    </div>
+  </div>
+
+  <!-- Per-output breakdown -->
+  <h2>Per-Output Breakdown</h2>
+
+  <div class="output-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th style="text-align:right">Relevance</th>
+          <th style="text-align:right">Faithfulness</th>
+          <th style="text-align:right">Coherence</th>
+          <th style="text-align:right">Hallucination ↓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="file-cell">src/tools/inject-evaluations.ts</td>
+          <td class="score-cell">0.98</td>
+          <td class="score-cell">0.96</td>
+          <td class="score-cell">0.97</td>
+          <td class="score-cell">0.02</td>
+        </tr>
+        <tr>
+          <td class="file-cell">src/lib/observability/instrumentation.ts</td>
+          <td class="score-cell">0.97</td>
+          <td class="score-cell">0.95</td>
+          <td class="score-cell">0.94</td>
+          <td class="score-cell">0.03</td>
+        </tr>
+        <tr>
+          <td class="file-cell">src/server.ts</td>
+          <td class="score-cell">0.95</td>
+          <td class="score-cell">0.93</td>
+          <td class="score-cell">0.92</td>
+          <td class="score-cell">0.03</td>
+        </tr>
+        <tr>
+          <td class="file-cell">src/tools/hallucination-detection.ts</td>
+          <td class="score-cell">1.00</td>
+          <td class="score-cell">0.97</td>
+          <td class="score-cell">0.97</td>
+          <td class="score-cell">0.02</td>
+        </tr>
+        <tr>
+          <td class="file-cell">src/lib/core/http1-fetch.ts</td>
+          <td class="score-cell">0.90</td>
+          <td class="score-cell">0.97</td>
+          <td class="score-cell">0.95</td>
+          <td class="score-cell">0.03</td>
+        </tr>
+        <tr class="avg-row">
+          <td><strong>Session Average</strong></td>
+          <td class="score-cell"><strong>0.96</strong></td>
+          <td class="score-cell"><strong>0.96</strong></td>
+          <td class="score-cell"><strong>0.95</strong></td>
+          <td class="score-cell"><strong>0.03</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- What the judge found -->
+  <h2>What the Judge Found</h2>
+
+  <div class="finding">
+    <div class="finding-file">
+      <code>src/tools/hallucination-detection.ts</code>
+      <div class="finding-scores">
+        <span class="mini-score">R 1.00</span>
+        <span class="mini-score">F 0.97</span>
+        <span class="mini-score">C 0.97</span>
+        <span class="mini-score">H 0.02</span>
+      </div>
+    </div>
+    <p>The top relevance score (1.00) — the fix adds a <code>truncated</code> flag to <code>hallucinationDetectionNoDataSchema</code> and its factory helper, bringing the <code>no-data</code> variant into parity with the <code>result</code> variant where the flag already existed. The asymmetry was the bug, and the fix is exactly one field addition in two places. The default <code>truncated = false</code> provides backward compatibility for all existing call sites, and the flag's value is meaningful: an incomplete read is a plausible cause of an empty hallucination list, so the fix is not just cosmetic.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-file">
+      <code>src/tools/inject-evaluations.ts</code>
+      <div class="finding-scores">
+        <span class="mini-score">R 0.98</span>
+        <span class="mini-score">F 0.96</span>
+        <span class="mini-score">C 0.97</span>
+        <span class="mini-score">H 0.02</span>
+      </div>
+    </div>
+    <p>Adding <code>cohort: evaluationCohortSchema.optional()</code> to <code>evaluationPayloadSchema</code> follows the exact <code>.optional().describe()</code> pattern used by every surrounding field. The import resolves to a real shared export. The judge's minor faithfulness note: the <code>refine</code> conditions on lines 168–177 were not updated — correctly so, since they validate correlation IDs and score values and no cohort-specific constraint was needed.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-file">
+      <code>src/lib/core/http1-fetch.ts</code>
+      <div class="finding-scores">
+        <span class="mini-score">R 0.90</span>
+        <span class="mini-score">F 0.97</span>
+        <span class="mini-score">C 0.95</span>
+        <span class="mini-score">H 0.03</span>
+      </div>
+    </div>
+    <p>The lowest relevance score (0.90) — not for any error but because this file is the library definition for <code>http1Fetch</code>, not the four bare-fetch call sites the commit message describes. The actual switched call sites live in peer files (one confirmed at <code>inject-evaluations.ts:88</code>). Faithfulness was the file's strongest dimension (0.97): Undici API usage is correct, <code>allowH2: false</code> is a valid <code>Agent</code> option, and the lazy <code>??=</code> initialization is sound.</p>
+  </div>
+
+  <p style="margin-top:16px;color:var(--fg-muted);font-size:13px;">No hallucination was detected across any output. All API calls, type signatures, and schema fields map to documented patterns in the surrounding codebase. As the judge noted: "hallucination risk across the session is effectively zero."</p>
+
+  <!-- Session telemetry -->
+  <h2>Session Telemetry</h2>
+
+  <div class="telemetry-grid">
+    <div class="telem-card">
+      <div class="telem-label">Duration</div>
+      <div class="telem-value big">28.4h</div>
+      <div class="telem-sub">2026-10-05 18:34 → 2026-10-06 22:58 UTC</div>
+    </div>
+    <div class="telem-card">
+      <div class="telem-label">Commits</div>
+      <div class="telem-value big">33</div>
+      <div class="telem-sub">across 4 worktrees</div>
+    </div>
+    <div class="telem-card">
+      <div class="telem-label">Total Spans</div>
+      <div class="telem-value">4,929</div>
+      <div class="telem-sub">1,664 tool spans</div>
+    </div>
+    <div class="telem-card">
+      <div class="telem-label">Subagents</div>
+      <div class="telem-value">31</div>
+      <div class="telem-sub">24× general-purpose · 7× code-reviewer</div>
+    </div>
+    <div class="telem-card">
+      <div class="telem-label">Tool Success</div>
+      <div class="telem-value">1,607 <span style="font-size:13px;font-weight:400;color:var(--fg-muted)">/ 1,664</span></div>
+      <div class="telem-sub">57 failures (45 Bash)</div>
+    </div>
+    <div class="telem-card">
+      <div class="telem-label">Cache Read</div>
+      <div class="telem-value">7.4B</div>
+      <div class="telem-sub">tokens · 24,048 messages</div>
+    </div>
+  </div>
+
+  <div class="telem-card" style="margin-bottom:20px">
+    <div class="telem-label">Models</div>
+    <div style="font-family:var(--mono);font-size:13px;margin-top:6px;color:var(--fg)">
+      <code>claude-opus-5-5</code> — orchestration&nbsp;&nbsp;·&nbsp;&nbsp;<code>claude-fable-5-1</code> — implementation (worktrees)
+    </div>
+  </div>
+
+  <h3>Commits This Session</h3>
+  <div class="commit-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Backlog item</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="commit-subject">feat(inject-evaluations): add cohort field to evaluationPayloadSchema</td><td class="commit-tag">INJECT-TOOL-NO-COHORT</td></tr>
+        <tr><td class="commit-subject">fix(instrumentation): call clearOtelGlobals in shutdown() so re-init succeeds</td><td class="commit-tag">INSTRUMENTATION-REINIT-AFTER-SHUTDOWN</td></tr>
+        <tr><td class="commit-subject">perf(server): fire-and-forget initial context refresh to reduce startup latency</td><td class="commit-tag">MCP-STARTUP-AWAITS-CONTEXT-REFRESH</td></tr>
+        <tr><td class="commit-subject">chore(backends): mark EVALUATOR_TYPE, SCORE_UNIT and setOtelApi as deprecated</td><td class="commit-tag">GENAI-EVAL-LEGACY-CONSTANTS</td></tr>
+        <tr><td class="commit-subject">fix(hallucination-detection): add truncated flag to no-data result</td><td class="commit-tag">HALLUCINATION-NODATA-NO-TRUNCATED</td></tr>
+        <tr><td class="commit-subject">refactor(kv-org): delete resolveOrgFromKvValue, make resolveKvRecord private</td><td class="commit-tag">KV-ORG-STATUS-BLIND-EXPORTS</td></tr>
+        <tr><td class="commit-subject">docs: note Node ≥22.19.0 floor in README install instructions</td><td class="commit-tag">NODE20-DROP-PUBLISH-NOTE</td></tr>
+        <tr><td class="commit-subject">fix(cloud): responseId metadata fallback and per-page evaluation mapping</td><td class="commit-tag">—</td></tr>
+        <tr><td class="commit-subject">fix(judge): settle cancelled-batch results instead of aborting the run</td><td class="commit-tag">JUDGE-BATCH-WALLCLOCK-ABORTS-RUN</td></tr>
+        <tr><td class="commit-subject">fix(fetch): route four built-in fetch call sites through http1Fetch on Node 26</td><td class="commit-tag">UNDICI8-GLOBAL-FETCH-HTTP2</td></tr>
+        <tr><td class="commit-subject">docs(backlog): mark CI-NODE-26-UNTESTED done</td><td class="commit-tag">CI-NODE-26-UNTESTED</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Methodology notes -->
+  <h2>Methodology Notes</h2>
+
+  <div class="methodology">
+    <h3>Task completion</h3>
+    <p>The 50% ratio reflects the session's own hook evaluation at stop time — 8 tasks tracked, 4 marked complete. The <code>compute-metrics.py</code> rule returned 0.0 because the <code>TaskUpdate</code> spans lacked the <code>integritystudio.task.status</code> attribute; the hook evaluation data was used in its place as the more authoritative signal.</p>
+
+    <h3>LLM-as-Judge scope</h3>
+    <p>The judge evaluated five of the 37 source files changed across 33 commits — the five most directly tied to named backlog items. Files changed in the <code>dashboard</code>, <code>api-provisioning-receiver</code>, and <code>obtool-ingest</code> worktrees were not included. Per-file scores are indicative of the session's output quality, not a coverage-weighted average.</p>
+
+    <h3>Token scale</h3>
+    <p>The 7.4B cache-read tokens and 62.7M output tokens reflect a heavily multi-agent session across four worktrees over 28 hours. Cache utilization is expected given repeated context injections across 24,048 message exchanges; the high output count is a function of producing code, tests, and commit messages across 33 commits.</p>
+  </div>
+
+  <footer class="report-footer">
+    session&nbsp;<code>dac8905e-ae5b-42a7-b0b3-399bad6a7c4e</code>&nbsp;·&nbsp;generated 2026-10-06&nbsp;·&nbsp;otel-quality-reporting
+  </footer>
+
+</div>
